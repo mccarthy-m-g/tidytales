@@ -1,0 +1,129 @@
+/* Base variables */
+
+/* Embed custom fonts */
+/* This must remain at the top of this file.                 */
+@import url('https://fonts.googleapis.com/css2?family=Codystar');
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One');
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;500');
+
+/*-- Main site colours --*/
+/*-- With help from http://colormind.io/bootstrap/#      --*/
+:root {
+  --dark-shade: #191F3D;
+  --dark-shade-alpha: #191F3D85;
+  --dark-accent: #B981A5;
+  --main-colour: #214368;
+  --light-accent: #557B9F;
+  --light-shade: #FFFEFC;
+}
+
+html {
+  /*-- Main font sizes --*/
+  --title-size:      50px;
+  --body-size:       1.06rem;
+  --code-size:       14px;
+  --aside-size:      12px;
+  --fig-cap-size:    13px;
+  /*-- Main font colors --*/
+  --title-color:     var(--main-colour);
+  --header-color:    var(--main-colour);
+  --body-color:      var(--dark-shade);
+  --aside-color:     var(--dark-accent);
+  --fig-cap-color:   var(--light-accent);
+  /*-- Specify custom fonts ~~~ must be imported above   --*/
+  --heading-font:    'Fugaz One', sans-serif;
+  --mono-font:       monospace;
+  --body-font:       'Assistant', sans-serif;
+  --navbar-font:     'Codystar', sans-serif;
+}
+
+/*-- ARTICLE METADATA --*/
+d-byline {
+  --heading-size:    0.6rem;
+  --heading-color:   var(--dark-accent);
+  --body-size:       0.8rem;
+  --body-color:      var(--dark-shade);
+}
+
+/*-- ARTICLE TABLE OF CONTENTS --*/
+.d-contents {
+  --heading-size:    18px;
+  --contents-size:   13px;
+}
+
+/*-- ARTICLE APPENDIX --*/
+d-appendix {
+  --heading-size:    15px;
+  --heading-color:   var(--dark-shade-alpha);
+  --text-size:       0.8em;
+  --text-color:      var(--dark-shade-alpha);
+}
+
+/*-- WEBSITE HEADER + FOOTER --*/
+
+.distill-site-header {
+  --title-size:       18px;
+  --text-color:       var(--main-colour);
+  --text-size:        15px;
+  --hover-color:      var(--light-accent);
+  --bkgd-color:       var(--light-shade);
+}
+
+.distill-site-footer {
+  --text-color:       var(--light-shade);
+  --text-size:        15px;
+  --hover-color:      var(--light-accent);
+  --bkgd-color:       var(--main-colour);
+}
+
+/*-- Additional custom styles --*/
+
+/*-- BODY TEXT --*/
+
+p, ul, ol {
+  font-weight: 200 !important;
+}
+
+aside,
+.caption,
+d-appendix p {
+  font-weight: 500 !important;
+}
+
+aside .caption {
+  color: var(--dark-accent) !important;
+}
+
+/*-- CODE CHUNKS --*/
+
+/*-- Code chunk box --*/
+pre {
+  border-radius: .2rem;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 10px;
+}
+
+.sourceCode {
+  background-color: #DFE5ED;
+}
+
+/* Code chunk output */
+code {
+  color: var(--light-accent);
+}
+
+/* Do not apply the code chunk output colour to other code */
+code.sourceCode {
+  color: #111111;
+}
+
+p code {
+  color: inherit;
+}
+
+/*-- WEBSITE BACKGROUND COLOUR --*/
+
+body {
+    background-color: var(--light-shade);
+}
