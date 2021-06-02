@@ -1,0 +1,183 @@
+---
+title: "Data from the Borderlands"
+description: |
+  Post-processing plots with {magick}.
+author:
+  - name: Michael McCarthy 
+    url: https://michaelmccarthy.netlify.app
+    affiliation: Dahl Corporation
+    #affiliation_url: https://example.com/spacelysprokets
+date: "2021-03-16"
+categories:
+  - Data Visualization
+  - "{ggplot2}"
+  - "{magick}"
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+---
+
+```{r setup, include=FALSE}
+# Ensure the project root is set up correctly using {here} --------------------
+here::i_am("_posts/2021-03-16_borderlands/2021-03-16_borderlands.Rmd")
+
+# Load general set up packages used in all posts ------------------------------
+library(here)
+
+# Load R scripts located in R/ ------------------------------------------------
+
+# Set default options for knitr code chunks -----------------------------------
+knitr::opts_chunk$set(comment = "#>",
+                      echo = TRUE)
+
+# Create templates for knitr code chunks --------------------------------------
+knitr::opts_template$set(
+  fig.graphic = list(echo = FALSE),
+  no.message = list(message = FALSE, warning = FALSE)
+)
+```
+
+## Overview
+
+Borderlands is a an action role-playing first-person looter shooter video game franchise set in a space western science-fiction universe. The games have a dramatic comic book art style that I want to capture in my plot.
+
+<!-- ------------------------------------------------------------------------------------------ -->
+(ref:borderlands-screenshot) In-game screenshot from Borderlands 3.
+
+```{r borderlands-screenshot, opts.label='fig.graphic', fig.cap="(ref:borderlands-screenshot)"}
+knitr::include_graphics(here("_posts",
+                             "2021-03-16_borderlands",
+                             "figures",
+                             "borderlands-screenshot.jpeg")
+                        )
+```
+
+Gearbox, the developers of Borderlands, [have explained](https://www.vg247.com/2009/04/16/borderlands-art-process-explained/) that this art style is achieved using "hand-drawn textures, scanned in and coloured in Photoshop, combined with software that draws graphic novel-style outlines around characters and objects, sharpens shadows to look more like something an artist might create, and even draws lines on hills and inclines. Finally the character models are all revamped with more exaggerated proportions, creating the appearance of a detailed comic book in motion."
+
+Some of these are not relevant to plotting, but two are:
+
+- Drawing graphic novel-style outlines
+- Using hand-drawn textures
+
+### Theming Inspiration
+
+The in-game menus in Borderlands 3 provide a great design reference for plot theming.
+
+<!-- ------------------------------------------------------------------------------------------ -->
+(ref:echo-menu) The ECHO-3 in-game menu in Borderlands 3.
+
+```{r echo-menu, opts.label='fig.graphic', fig.cap="(ref:echo-menu)"}
+knitr::include_graphics(here("_posts",
+                             "2021-03-16_borderlands",
+                             "figures",
+                             "echo-menu.jpeg")
+                        )
+```
+
+I want to translate these design elements to my plot like so:
+
+- The [Compacta Bold](https://fontsempire.com/font/borderlands-font/) font can be used for plot text.
+- The blue background and light blue UI highlights can be used for the plot background and axes, respectively.
+- The white header text can be used for the plot title, and the blue text can be used for other textual elements of the plot.
+- The loot rarity colours can be used for grouping data in plot geoms.
+
+<aside>
+<!-- ------------------------------------------------------------------------------------------ -->
+(ref:loot-rarity) Loot in Borderlands (guns, grenades, shields, etc.) are colour categorized by the rarity with which they can be found in containers or dropped by defeated enemies. From left to right the categories are: Common, Uncommon, Rare, Epic, Legendary.
+
+```{r loot-rarity, opts.label='fig.graphic', fig.cap="(ref:loot-rarity)"}
+knitr::include_graphics(here("_posts",
+                             "2021-03-16_borderlands",
+                             "figures",
+                             "loot-rarity.png")
+                        )
+```
+</aside>
+
+Applying these elements to my plot will help it fit the Borderlands aesthetic.
+
+## R
+
+```{r requirements-setup}
+library(tidyverse)
+library(glue)
+library(lubridate)
+```
+
+I'll be using Steam player data for my plot. The data contains statistics for the average and peak number of players playing a variety of games each month from July 2012 to February 2021. You can [download this data](#data-source) with the Data Source code in the appendix.
+
+```{r load-data}
+# Load the weekly data
+games <- read_csv(here("data", "2021-03-16_games.csv"))
+games
+```
+
+### Wrangle
+
+I only want data from the mainline Borderlands titles for my plot, so let's get those.
+
+```{r}
+# Filter to mainline Borderlands titles available in the data. The first game
+# is not available in the dataset so filtering based on the title and digit
+# works fine here.
+borderlands <- games %>%
+  filter(str_detect(gamename, "Borderlands[[:space:]][[:digit:]]"))
+
+borderlands
+```
+
+Now to explore the data.
+
+```{r}
+# Summarize how much data exists for each Borderlands title
+borderlands %>%
+  group_by(gamename) %>%
+  summarise(count = n())
+```
+
+Borderlands 2 was released on Steam in September 2012 and Borderlands 3 was released in March 2020, which explains the discrepancy in how much data exists between the two. One way to make them more comparable is to filter the Borderlands 2 data down to only its first year of release.
+
+```{r}
+# Wrangle date data into a date-time object to prepare for filtering
+borderlands <- borderlands %>%
+  mutate(date = glue("{year}-{month}"),
+         date = parse_date_time(date, "ym"),
+         .after = gamename)
+
+# Filter Borderlands 2 data down to only its first year of release to make
+# comparisons with Borderlands 3 more appropriate. There is no need to filter
+# by date for Borderlands 3 since only its first year of data are available in
+# the dataset.
+borderlands <- borderlands %>%
+  filter(gamename == "Borderlands 2" &
+         date %within% interval(ymd("2012--09-01"), ymd("2013--08-01")) |
+         gamename == "Borderlands 3"
+         ) %>%
+  # The number of months since release might make for an insightful variable.
+  # This code is sufficient since the data is in reverse chronological order.
+  group_by(gamename) %>%
+  mutate(since_release = 11:0, .after = month) %>%
+  ungroup()
+
+borderlands
+```
+
+### Visualize
+
+There are two obvious ways to visualize this data: A time series line graph, or a bar graph. I'm going to use a bar graph, mainly so I can group the bars using the loot rarity colours I mentioned earlier. 
+
+```{r}
+
+```
+
+
+
+
+## Data Source {.appendix}
+
+Download the data used in this article with `tidytuesdayR::tt_load("2021-03-16")`.
+
+## Fair Dealing {.appendix}
+
+Any of the trademarks, service marks, collective marks, design rights or similar rights that are mentioned, used, or cited in this article are the property of their respective owners. They are used here as fair dealing for the purpose of education in accordance with [section 29 of the Copyright Act](https://laws-lois.justice.gc.ca/eng/acts/c-42/page-8.html#h-103270) and do not infringe copyright.
