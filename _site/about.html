@@ -620,6 +620,35 @@
 
           <!--/radix_placeholder_navigation_in_header-->
           <!--radix_placeholder_site_in_header-->
+          <script>
+           document.addEventListener("DOMContentLoaded", function () {
+             if (!/posts/.test(location.pathname)) {
+               return;
+             }
+
+             var script = document.createElement("script");
+             script.src = "https://utteranc.es/client.js";
+             script.setAttribute("repo", "mccarthy-m-g/tidytuesday");
+             script.setAttribute("issue-term", "title");
+             script.setAttribute("crossorigin", "anonymous");
+             script.setAttribute("label", "utterances");
+             script.setAttribute("theme", "boxy-light");
+
+             /* wait for article to load, append script to article element */
+             var observer = new MutationObserver(function (mutations, observer) {
+               var article = document.querySelector("d-article");
+               if (article) {
+                 observer.disconnect();
+                 /* HACK: article scroll */
+                 article.setAttribute("style", "overflow-y: hidden");
+                 article.appendChild(script);
+               }
+             });
+
+             observer.observe(document.body, { childList: true });
+           });
+          </script>
+
           <!--/radix_placeholder_site_in_header-->
           
           <style type="text/css">
@@ -712,6 +741,7 @@
           @import url('https://fonts.googleapis.com/css2?family=Codystar');
           @import url('https://fonts.googleapis.com/css2?family=Fugaz+One');
           @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;500');
+          @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500');
 
           /*-- Main site colours --*/
           /*-- With help from http://colormind.io/bootstrap/#      --*/
@@ -739,7 +769,7 @@
             --fig-cap-color:   var(--light-accent);
             /*-- Specify custom fonts ~~~ must be imported above   --*/
             --heading-font:    'Fugaz One', sans-serif;
-            --mono-font:       monospace;
+            --mono-font:       'Inconsolata', monospace;
             --body-font:       'Assistant', sans-serif;
             --navbar-font:     'Codystar', sans-serif;
           }
@@ -777,13 +807,32 @@
           }
 
           .distill-site-footer {
-            --text-color:       var(--light-shade);
+            --text-color:       var(--main-colour);
             --text-size:        15px;
             --hover-color:      var(--light-accent);
-            --bkgd-color:       var(--main-colour);
+            --bkgd-color:       var(--light-shade);
           }
 
           /*-- Additional custom styles --*/
+
+          /*-- WEBSITE ELEMENTS --*/
+
+          body {
+              background-color: var(--light-shade);
+          }
+
+          footer {
+            font-size: var(--fig-cap-size);
+          }
+
+          :focus {
+            outline: 0 !important;
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
+          }
+
+          details:hover {
+            cursor: pointer;
+          }
 
           /*-- BODY TEXT --*/
 
@@ -827,12 +876,6 @@
 
           p code {
             color: inherit;
-          }
-
-          /*-- WEBSITE BACKGROUND COLOUR --*/
-
-          body {
-              background-color: var(--light-shade);
           }</style>
           <style type="text/css">
           /* base style */
@@ -1108,7 +1151,15 @@
           <!--/radix_placeholder_site_after_body-->
           <!--radix_placeholder_navigation_after_body-->
           <div class="distill-site-nav distill-site-footer">
-          <p>© Copyright 2021 Michael McCarthy</p>
+          <footer>
+            <p>
+               Copyright 2021 <a href="https://michaelmccarthy.netlify.app">Michael McCarthy</a>
+            </p>
+            <div>
+              <a ><i class="fab fa-twitter"></i></a>
+              <a ><i class="fab fa-github"></i></a>
+            </div>
+          </footer>
           </div>
           <!--/radix_placeholder_navigation_after_body-->
 

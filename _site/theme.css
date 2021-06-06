@@ -5,6 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Codystar');
 @import url('https://fonts.googleapis.com/css2?family=Fugaz+One');
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;500');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500');
 
 /*-- Main site colours --*/
 /*-- With help from http://colormind.io/bootstrap/#      --*/
@@ -32,7 +33,7 @@ html {
   --fig-cap-color:   var(--light-accent);
   /*-- Specify custom fonts ~~~ must be imported above   --*/
   --heading-font:    'Fugaz One', sans-serif;
-  --mono-font:       monospace;
+  --mono-font:       'Inconsolata', monospace;
   --body-font:       'Assistant', sans-serif;
   --navbar-font:     'Codystar', sans-serif;
 }
@@ -70,13 +71,32 @@ d-appendix {
 }
 
 .distill-site-footer {
-  --text-color:       var(--light-shade);
+  --text-color:       var(--main-colour);
   --text-size:        15px;
   --hover-color:      var(--light-accent);
-  --bkgd-color:       var(--main-colour);
+  --bkgd-color:       var(--light-shade);
 }
 
 /*-- Additional custom styles --*/
+
+/*-- WEBSITE ELEMENTS --*/
+
+body {
+    background-color: var(--light-shade);
+}
+
+footer {
+  font-size: var(--fig-cap-size);
+}
+
+:focus {
+  outline: 0 !important;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
+}
+
+details:hover {
+  cursor: pointer;
+}
 
 /*-- BODY TEXT --*/
 
@@ -120,10 +140,4 @@ code.sourceCode {
 
 p code {
   color: inherit;
-}
-
-/*-- WEBSITE BACKGROUND COLOUR --*/
-
-body {
-    background-color: var(--light-shade);
 }
