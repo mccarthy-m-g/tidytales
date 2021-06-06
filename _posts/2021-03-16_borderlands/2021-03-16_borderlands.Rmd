@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Data from the Borderlands"
 description: |
   Post-processing plots with {magick}.
@@ -75,13 +76,6 @@ knitr::include_graphics(here("_posts",
                         )
 ```
 
-I want to translate these design elements to my plot like so:
-
-- The [Compacta Bold](https://fontsempire.com/font/borderlands-font/) font can be used for plot text.
-- The blue background and light blue UI highlights can be used for the plot background and axes, respectively.
-- The white header text can be used for the plot title, and the blue text can be used for other textual elements of the plot.
-- The loot rarity colours can be used for grouping data in plot geoms.
-
 <aside>
 <!-- ------------------------------------------------------------------------------------------ -->
 (ref:loot-rarity) Loot in Borderlands (guns, grenades, shields, etc.) are colour categorized by the rarity with which they can be found in containers or dropped by defeated enemies. From left to right the categories are: Common, Uncommon, Rare, Epic, Legendary.
@@ -95,6 +89,13 @@ knitr::include_graphics(here("_posts",
 ```
 </aside>
 
+I want to translate these design elements to my plot like so:
+
+- The [Compacta Bold](https://fontsempire.com/font/borderlands-font/) font can be used for plot text.
+- The blue background and light blue UI highlights can be used for the plot background and axes, respectively.
+- The white header text can be used for the plot title, and the blue text can be used for other textual elements of the plot.
+- The loot rarity colours can be used for grouping data in plot geoms.
+
 Applying these elements to my plot will help it fit the Borderlands aesthetic.
 
 ## R
@@ -103,6 +104,7 @@ Applying these elements to my plot will help it fit the Borderlands aesthetic.
 library(tidyverse)
 library(glue)
 library(lubridate)
+library(magick)
 ```
 
 I'll be using Steam player data for my plot. The data contains statistics for the average and peak number of players playing a variety of games each month from July 2012 to February 2021. You can [download this data](#data-source) with the Data Source code in the appendix.
@@ -163,15 +165,111 @@ borderlands <- borderlands %>%
 borderlands
 ```
 
+```{r}
+# these can be used as cutoffs for colouring bars
+borderlands %>%
+  group_by(gamename) %>%
+  summarise(quantile = quantile(peak))
+```
+
 ### Visualize
 
 There are two obvious ways to visualize this data: A time series line graph, or a bar graph. I'm going to use a bar graph, mainly so I can group the bars using the loot rarity colours I mentioned earlier. 
 
 ```{r}
+light_blue <- "#23f7fe"
+blue <- "#00378f"
+dark_blue <- "#091d31"
+indigo <- "#003b4a"
+
+ggplot(borderlands, aes(since_release, peak)) +
+  geom_col(fill = light_blue) +
+  facet_wrap(vars(gamename)) +
+  labs(x = "Month Since Release",
+       y = "Peak Player Count",
+       title = "Borderlands Peak Players",
+       subtitle = "Data from Steam",
+       caption = "Data Source: TidyTuesday") +
+  theme(text = element_text(family = "sans", colour = light_blue),
+        # Axis
+        axis.title = element_text(color = light_blue),
+        axis.text = element_text(colour = light_blue),
+        axis.line = element_line(colour = light_blue, lineend = "square", size = .75),
+        axis.ticks = element_line(colour = light_blue, size = .75),
+        axis.ticks.length = unit(10, "pt"),
+        # Panel
+        panel.background = element_rect(colour = indigo, fill = dark_blue),
+        panel.grid = element_line(colour = indigo),
+        panel.grid.minor = element_line(colour = "transparent"),
+        # Plot
+        plot.title = element_text(face = "bold", color = "white"),
+        plot.subtitle = element_text(color = "white"),
+        plot.caption = element_text(colour = "white"),
+        plot.background = element_rect(fill = "black"),
+        # Strip
+        strip.text = element_text(colour = light_blue),
+        strip.background = element_rect(colour = light_blue, fill = indigo, size = 1.5))
 
 ```
 
+light blue
+	
 
+blue
+0	55	143	
+
+```{r}
+# Produce image using graphics device
+fig <- image_graph(width = 800, height = 800, res = 320)
+ggplot(borderlands, aes(since_release, peak)) +
+  geom_col(fill = light_blue) +
+  facet_wrap(vars(gamename)) +
+  labs(x = "Month Since Release",
+       y = "Peak Player Count",
+       title = "Borderlands Peak Players",
+       subtitle = "Data from Steam",
+       caption = "Data Source: TidyTuesday") +
+  theme(text = element_text(family = "sans", colour = light_blue),
+        # Axis
+        axis.title = element_text(color = light_blue),
+        axis.text = element_text(colour = light_blue),
+        axis.line = element_line(colour = light_blue, lineend = "square", size = .75),
+        axis.ticks = element_line(colour = light_blue, size = .75),
+        axis.ticks.length = unit(10, "pt"),
+        # Panel
+        panel.background = element_rect(colour = indigo, fill = dark_blue),
+        panel.grid = element_line(colour = indigo),
+        panel.grid.minor = element_line(colour = "transparent"),
+        # Plot
+        plot.title = element_text(face = "bold", color = "white"),
+        plot.subtitle = element_text(color = "white"),
+        plot.caption = element_text(colour = "white"),
+        plot.background = element_rect(fill = "black"),
+        # Strip
+        strip.text = element_text(colour = light_blue),
+        strip.background = element_rect(colour = light_blue, fill = indigo, size = 1.5))
+dev.off()
+```
+
+```{r}
+background_col <- "white"
+text_col <- "black"
+  
+test_fig <- image_blank(500, 500, color = background_col) %>%
+  image_annotate("Borderlands",
+                 size = 70,
+                 color = text_col,
+                 location = "+100+50") 
+
+test_fig_trans <- image_transparent(test_fig, background_col)
+
+test_fig_edge <- test_fig %>%
+  image_negate() %>%
+  image_morphology('EdgeOut', "Diamond", iterations = 2)
+
+image_flatten(c(test_fig_edge, test_fig_trans)) %>%
+  image_negate()
+```
 
 
 ## Data Source {.appendix}
