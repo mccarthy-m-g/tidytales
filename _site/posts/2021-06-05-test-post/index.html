@@ -125,7 +125,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["test-post_files/anchor-4.2.2/anchor.min.js","test-post_files/bowser-1.9.3/bowser.min.js","test-post_files/distill-2.2.21/template.v2.js","test-post_files/header-attrs-2.7/header-attrs.js","test-post_files/jquery-1.11.3/jquery.min.js","test-post_files/popper-2.6.0/popper.min.js","test-post_files/tippy-6.2.7/tippy-bundle.umd.min.js","test-post_files/tippy-6.2.7/tippy-light-border.css","test-post_files/tippy-6.2.7/tippy.css","test-post_files/tippy-6.2.7/tippy.umd.min.js","test-post_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"NULL"}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2451,7 +2451,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 
    /* wait for article to load, append script to article element */
    var observer = new MutationObserver(function (mutations, observer) {
-     var article = document.querySelector("d-article");
+     var article = document.querySelector("comment-section");
      if (article) {
        observer.disconnect();
        /* HACK: article scroll */
@@ -2517,6 +2517,12 @@ d-appendix d-footnote-list a.footnote-backlink {
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 <h2 id="heading">Heading</h2>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<details class="comment-section">
+<summary>
+Comments
+</summary>
+some text
+</details>
 <h2 class="appendix" id="fair-dealing">Fair Dealing</h2>
 <p>Any of the trademarks, service marks, collective marks, design rights or similar rights that are mentioned, used, or cited in this article are the property of their respective owners. They are used here as fair dealing for the purpose of education in accordance with <a href="https://laws-lois.justice.gc.ca/eng/acts/c-42/page-8.html#h-103270">section 29 of the Copyright Act</a> and do not infringe copyright.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>

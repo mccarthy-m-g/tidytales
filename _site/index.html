@@ -2431,7 +2431,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
      /* wait for article to load, append script to article element */
      var observer = new MutationObserver(function (mutations, observer) {
-       var article = document.querySelector("d-article");
+       var article = document.querySelector("comment-section");
        if (article) {
          observer.disconnect();
          /* HACK: article scroll */
