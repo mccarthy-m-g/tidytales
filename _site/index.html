@@ -2199,7 +2199,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
   }
 
-  details:hover {
+  details.comment-section {
+    color: var(--dark-shade-alpha);
+    font-family: var(--heading-font);
+    font-size: 15px !important;
+  }
+
+  details.comment-section summary:after {
+    content: "Show";
+  }
+
+  details[open].comment-section summary:after {
+    content: "Hide";
+  }
+
+  summary {
     cursor: pointer;
   }
 

@@ -2218,7 +2218,21 @@ body {
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
 }
 
-details:hover {
+details.comment-section {
+  color: var(--dark-shade-alpha);
+  font-family: var(--heading-font);
+  font-size: 15px !important;
+}
+
+details.comment-section summary:after {
+  content: "Show";
+}
+
+details[open].comment-section summary:after {
+  content: "Hide";
+}
+
+summary {
   cursor: pointer;
 }
 
@@ -2519,11 +2533,16 @@ d-appendix d-footnote-list a.footnote-backlink {
 <blockquote>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </blockquote>
+<!-- <details class="comment-section"> -->
+<!--    <summary> -->
+<!--       Comments -->
+<!--    </summary> -->
+<!--    some text -->
+<!-- </details> -->
+<h2 class="appendix" id="comments">Comments</h2>
 <details class="comment-section">
 <summary>
-Comments
 </summary>
-some text
 </details>
 <h2 class="appendix" id="fair-dealing">Fair Dealing</h2>
 <p>Any of the trademarks, service marks, collective marks, design rights or similar rights that are mentioned, used, or cited in this article are the property of their respective owners. They are used here as fair dealing for the purpose of education in accordance with <a href="https://laws-lois.justice.gc.ca/eng/acts/c-42/page-8.html#h-103270">section 29 of the Copyright Act</a> and do not infringe copyright.</p>
