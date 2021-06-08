@@ -11,7 +11,8 @@ links:
   - label: Email
     url: "mailto:email@email.com"
 output:
-  postcards::jolla
+  postcards::jolla:
+    css: inst/css/postcards.css
 ---
  
 I am...
