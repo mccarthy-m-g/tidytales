@@ -2,6 +2,7 @@
 *.Rmd linguist-detectable=true
 
 # Mark as generated
+_site/*    linguist-generated
 _site/**/* linguist-generated
 #_posts\/**_files\/** linguist-generated
 
