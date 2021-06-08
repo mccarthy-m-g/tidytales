@@ -1,6 +1,6 @@
-# My TidyTuesday Contributions
+# Tidy Tales
 
-[Tidy Tuesday](https://github.com/rfordatascience/tidytuesday) is a weekly data project for practicing and building data science skills with real-world data. My contributions to Tidy Tuesday demonstrate the skills needed in a typical data science project:
+Tidy Tales is a data science blog inspired by [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday), a weekly data project for practicing and building data science skills with real-world data. My contributions to Tidy Tales demonstrate the skills needed in a typical data science project:
 
 - Data wrangling
 - Data visualization
