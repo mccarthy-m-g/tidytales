@@ -3,7 +3,7 @@ title: "Tidy Tales | Michael McCarthy"
 description: |
   My contributions to Tidy Tuesday.
 output_dir: "_site"
-theme: theme.css
+theme: inst/css/theme.css
 navbar:
   right:
     - text: "Home"
