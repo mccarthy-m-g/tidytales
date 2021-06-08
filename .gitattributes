@@ -1,0 +1,13 @@
+# Mark as detectable
+*.Rmd linguist-detectable=true
+
+# Mark as generated
+_site/.+ linguist-generated
+_posts\/.+_files\/.+ linguist-generated
+
+# Mark as vendored
+
+# Mark as documentation
+# *.html linguist-documentation
+# *.css linguist-documentation
+# *.bib linguist-documentation
