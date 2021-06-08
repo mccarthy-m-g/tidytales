@@ -32,7 +32,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ## Comments {.appendix}
 
-<details class="comment-section">
+<details open class="comment-section">
    <summary>
    </summary>
 </details>
