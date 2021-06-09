@@ -1,5 +1,5 @@
-# Mark as detectable
-*.Rmd linguist-detectable=true
+# Mark as different language
+*.Rmd linguist-language=R
 
 # Mark as generated
 _site/* linguist-generated
