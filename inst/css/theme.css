@@ -85,6 +85,10 @@ body {
     background-color: var(--light-shade);
 }
 
+d-article a:hover, a:focus {
+    color: var(--dark-accent);
+}
+
 /*-- UTTERANCES --*/
 
 :focus {
