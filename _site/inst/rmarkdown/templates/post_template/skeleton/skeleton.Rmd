@@ -1,0 +1,21 @@
+---
+title: "Data from the Borderlands"
+description: |
+  Post-processing plots with {magick}.
+author:
+  - name: Michael McCarthy 
+    url: https://michaelmccarthy.netlify.app
+    affiliation: Dahl Corporation
+    #affiliation_url: https://example.com/spacelysprokets
+date: "2021-03-16"
+categories:
+  - Data Visualization
+  - "{ggplot2}"
+  - "{magick}"
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+---
+
+some text
