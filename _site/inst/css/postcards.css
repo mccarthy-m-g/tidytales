@@ -1,12 +1,9 @@
 /*-- Main site colours --*/
 /*-- With help from http://colormind.io/bootstrap/#      --*/
 :root {
-  --dark-shade: #191F3D;
-  --dark-shade-alpha: #191F3D85;
-  --dark-accent: #B981A5;
-  --main-colour: #214368;
-  --light-accent: #557B9F;
-  --light-shade: #FFFEFC;
+  --dark-accent: #BA70A0;
+  --main-colour: #123C69;
+  --light-shade: #FFF5ED;
 }
 
 h1 {
