@@ -3,7 +3,7 @@
 
 # Mark as generated
 _site/* linguist-documentation
-_site/**/* linguist-documentation
+_site/** linguist-documentation
 _posts/**/*_files/** linguist-documentation
 
 # Mark as vendored
