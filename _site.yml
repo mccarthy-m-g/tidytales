@@ -10,7 +10,7 @@ navbar:
       href: index.html
     - text: "About"
       href: about.html
-  source_url: https://github.com/mccarthy-m-g/tidytuesday
+  source_url: https://github.com/mccarthy-m-g/tidytales
 base_url: https://tidytales.ca
 output:
   distill::distill_article:
