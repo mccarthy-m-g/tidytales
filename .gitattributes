@@ -1,14 +1,7 @@
 # Mark as different language
-*.Rmd linguist-detectable linguist-language=R
+*.Rmd linguist-detectable=true linguist-language=R
 
 # Mark as generated
 _site/* linguist-generated
 _posts/**/*.html linguist-generated
 _posts/**/*_files/* linguist-generated
-
-# Mark as vendored
-
-# Mark as documentation
-# *.html linguist-documentation
-# *.css linguist-documentation
-# *.bib linguist-documentation
