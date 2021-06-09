@@ -115,7 +115,11 @@ summary {
 }
 
 .utterances {
-  margin-left: -10px;
+  /* border: 1px solid rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 1.0);
+  padding: 10px 18px;
+  border-radius: 3px; */
+  filter: opacity(20%);
 }
 /*-- BODY TEXT --*/
 
