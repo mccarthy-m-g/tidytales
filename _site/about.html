@@ -632,7 +632,7 @@
              script.setAttribute("issue-term", "title");
              script.setAttribute("crossorigin", "anonymous");
              script.setAttribute("label", "utterances");
-             script.setAttribute("theme", "boxy-light");
+             script.setAttribute("theme", "photon-dark");
 
              /* wait for article to load, append script to article element */
              var observer = new MutationObserver(function (mutations, observer) {
@@ -850,6 +850,12 @@
             cursor: pointer;
           }
 
+          .utterances {
+            border: 1px solid rgba(0,0,0,0.1);
+            background: rgba(0, 0, 0, 0.02);
+            padding: 10px 18px;
+            border-radius: 3px;
+          }
           /*-- BODY TEXT --*/
 
           h1 {
