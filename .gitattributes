@@ -2,9 +2,10 @@
 *.Rmd linguist-detectable=true
 
 # Mark as generated
-_site/* linguist-detectable=false
-_site/** linguist-documentation
-_posts/**/*_files/** linguist-documentation
+_site/* linguist-generated
+_site/** linguist-generated
+_posts/**/*_files/* linguist-generated
+_posts/**/*_files/** linguist-generated
 
 # Mark as vendored
 
