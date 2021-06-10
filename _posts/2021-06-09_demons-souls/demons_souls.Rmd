@@ -1,0 +1,136 @@
+---
+draft: true
+title: "So the world might be mended"
+description: |
+  A short description of the post.
+author:
+  - name: Michael McCarthy
+    url: {}
+date: 06-09-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+# Ensure the project root is set up correctly using {here} --------------------
+here::i_am("_posts/2021-06-09_demons-souls/demons_souls.Rmd")
+
+# Load general set up packages used in all posts ------------------------------
+library(here)
+
+# Load R scripts located in R/ ------------------------------------------------
+
+# Set default options for knitr code chunks -----------------------------------
+knitr::opts_chunk$set(comment = "#>",
+                      echo = TRUE)
+
+# Create templates for knitr code chunks --------------------------------------
+knitr::opts_template$set(
+  fig.graphic = list(echo = FALSE),
+  no.message = list(message = FALSE, warning = FALSE)
+)
+```
+
+## Overview
+
+Demon's Souls is an ...
+
+## R
+
+```{r}
+library(tidyverse)
+```
+
+I'll be using PlayStation Network trophy data for my plot. The data contains statistics for the percent of players who have slain a given boss in Demon's Souls out of all the players who have ever played the game. I have constructed the data manually since Sony does not provide an API to access PlayStation Network trophy data programmatically. Demon's Souls was released on February 5, 2009, so it is unlikely these stats will change much in the future.
+
+```{r}
+# Tribbles are not just useful for scaring Klingons, they make it easy to
+# create tibbles too
+demons_souls <- tribble(
+  ~boss,            ~boss_type,  ~location,              ~archstone, ~percent_completed,
+  "Phalanx",        "Demon",     "Boletarian Palace",    "1-1",      63.1,               
+  "Tower Knight",   "Demon",     "Boletarian Palace",    "1-2",      46.6,               
+  "Penetrator",     "Demon",     "Boletarian Palace",    "1-3",      30.3,               
+  "False King",     "Archdemon", "Boletarian Palace",    "1-4",      24.2,               
+  "Armor Spider",   "Demon",     "Stonefang Tunnel",     "2-1",      43.9,               
+  "Flamelurker",    "Demon",     "Stonefang Tunnel",     "2-2",      35.1,               
+  "Dragon God",     "Archdemon", "Stonefang Tunnel",     "2-3",      33.1,               
+  "Fool’s Idol",    "Demon",     "Tower of Latria",      "3-1",      35.7,               
+  "Maneater",       "Demon",     "Tower of Latria",      "3-2",      28.7,               
+  "Old Monk",       "Archdemon", "Tower of Latria",      "3-3",      27.7,               
+  "Adjudicator",    "Demon",     "Shrine of Storms",     "4-1",      36.1,               
+  "Old Hero",       "Demon",     "Shrine of Storms",     "4-2",      28.8,               
+  "Storm King",     "Archdemon", "Shrine of Storms",     "4-3",      28.1,               
+  "Leechmonger",    "Demon",     "Valley of Defilement", "5-1",      32.5,               
+  "Dirty Colossus", "Demon",     "Valley of Defilement", "5-2",      27.2,               
+  "Maiden Astraea", "Archdemon", "Valley of Defilement", "5-3",      26.6
+) %>%
+  mutate(across(boss_type:archstone, as_factor))
+
+demons_souls
+```
+
+### Wrangle
+
+The data is already structured the way I want it for my plot, but there are still some interesting things to explore through wrangling and summary stats.
+
+Within each location, players have to slay each demon in the order specified by the archstones. For example, in the Boletarian Palace a player cannot face the Tower Knight before they have slain the Phalanx. So each location has a first, second, and third boss (and the Boletarian Palace has a fourth that can only be faced after slaying all the other demons). This can be used to get an imperfect idea of player attrition in the game.
+
+```{r}
+# Detect the order of bosses based on archstone suffix
+demons_souls <- demons_souls %>%
+  mutate(
+    archstone_boss = case_when(
+      str_detect(archstone, "-1") ~ "First",
+      str_detect(archstone, "-2") ~ "Second",
+      str_detect(archstone, "-3") ~ "Third",
+      str_detect(archstone, "-4") ~ "Fourth (False King)"
+    ),
+    archstone_boss = as_factor(archstone_boss),
+    .after = archstone
+  )
+
+demons_souls
+```
+
+Now, there are two ways to go about getting this imperfect idea of player attrition in the game. The first involves using the entire data set.
+
+```{r}
+# Calculate the average percent of players who have slain the first, second,
+# ..., archstone boss across locations. 
+demons_souls %>%
+  group_by(archstone_boss) %>%
+  summarise(average_completed = mean(percent_completed))
+```
+
+The second involves removing the Phalanx from the data set due to its influential pull on the average for the first archstone boss. It has a much higher completion percent (63.1%) than the other bosses in the game, and the reason for this is that the Phalanx is the first boss in the game. Players must slay it before they can go to the other locations in the game to face their first bosses. Removing the Phalanx might give a more accurate picture of average completion for first archstone bosses.
+
+```{r}
+# Trophy earned: Slayer of Demon "Phalanx"
+demons_souls %>%
+  filter(boss != "Phalanx") %>%
+  group_by(archstone_boss) %>%
+  summarise(average_completed = mean(percent_completed))
+```
+
+With the Phalanx's influence removed, it looks like there is roughly a 4% drop in average completion for each successive archstone boss. In order to face the False King players must first slay every other demon and archdemon in the game, so it is interesting the drop stays consistent there. Most players who made it far enough to slay their first archdemon then went on to slay the rest.
+
+<aside>
+Umbassa.
+</aside>
+
+About one quarter of Demon's Souls players persisted to the end of the game. But three quarters did not. Assuming most players at least attempted each location, then averaging by location can give an imperfect idea of their overall difficulty for players.
+
+```{r}
+# Calculate the average completion rate by location, arranged from "easiest" to
+# "hardest"
+demons_souls %>%
+  group_by(location) %>%
+  summarise(average_completed = mean(percent_completed)) %>%
+  arrange(desc(average_completed))
+```
+
+It looks like there are two clusters here, an easier one with the Boletarian Palace and Stonefang Tunnel, and a harder one with Shrine of Storms, Tower of Latria, and the Valley of Defilement.
+
+### Visualize
