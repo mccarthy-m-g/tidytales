@@ -154,22 +154,38 @@ borderlands <- borderlands %>%
 borderlands <- borderlands %>%
   filter(gamename == "Borderlands 2" &
          date %within% interval(ymd("2012--09-01"), ymd("2013--08-01")) |
-         gamename == "Borderlands 3"
-         ) %>%
-  # The number of months since release might make for an insightful variable.
-  # This code is sufficient since the data is in reverse chronological order.
-  group_by(gamename) %>%
-  mutate(since_release = 11:0, .after = month) %>%
-  ungroup()
+         gamename == "Borderlands 3") 
 
 borderlands
 ```
+
+Now there is monthly data for the first year of release for each game. I want to compare how the two games performed against each other in their first year. This will give some insight on how the player stats changed over time within and between the games. Creating a new variable counting the number of months since release is a clean way to do this. I could also stick with nominal months, but using a count variable will make the comparison between the games more apparent in my plot.
+
+```{r}
+# This code is sufficient since the data is in reverse chronological order.
+borderlands <- borderlands %>%
+  group_by(gamename) %>%
+  mutate(since_release = 11:0, .after = month)
+
+borderlands
+```
+
+Finally, I need to decide how to relate the five rarity colours from Figure\ \@ref(fig:loot-rarity) to the player stats for the first year of release for each game. Assigning each month a colour based on its performance relative to other months 
 
 ```{r}
 # these can be used as cutoffs for colouring bars
 borderlands %>%
   group_by(gamename) %>%
   summarise(quantile = quantile(peak))
+
+borderlands <- borderlands %>%
+  mutate(rarity = case_when(
+    between(peak, 0, 19999) ~ "white",
+    between(peak, 20000, 39999) ~ "green",
+    between(peak, 40000, 59999) ~ "blue",
+    between(peak, 60000, 79999) ~ "purple",
+    between(peak, 80000, 150000) ~ "orange"
+  ))
 ```
 
 ### Visualize
@@ -220,6 +236,7 @@ blue
 
 ```{r}
 # Produce image using graphics device
+# TODO: Add kerning to letters with {hrbragg} if I can resolve install error
 fig <- image_graph(width = 800, height = 800, res = 320)
 ggplot(borderlands, aes(since_release, peak)) +
   geom_col(fill = light_blue) +
@@ -271,6 +288,133 @@ image_flatten(c(test_fig_edge, test_fig_trans)) %>%
   image_negate()
 ```
 
+```{r}
+# Create plot used for the outline
+file <- tempfile(fileext = '.png')
+ragg::agg_png(file, width = 300, height = 220, res = 300, units = "mm", pointsize = 6)
+ggplot(borderlands, aes(since_release, peak)) +
+  geom_col(fill = "white") +
+  facet_wrap(vars(gamename)) +
+  labs(x = "Month Since Release",
+       y = "Peak Player Count",
+       title = "Borderlands Peak Players",
+       subtitle = "Data from Steam",
+       caption = "Data Source: TidyTuesday") +
+  theme_bw() +
+  theme(text = element_text(family = "Compacta Bold", colour = "black"),
+        # Axis
+        axis.title = element_text(size = 36),
+        axis.text = element_text(size = 28, colour = "black"),
+        axis.text.x = element_text(margin = margin(5, 0, 5, 0, "pt")),
+        axis.text.y = element_text(margin = margin(0, 5, 0, 5, "pt")),
+        axis.line = element_line(size = 0),
+        axis.ticks = element_line(size = 2),
+        axis.ticks.length = unit(10, "pt"),
+        # Panel
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(size = 0),
+        panel.background = element_rect(colour = "black", size = 5),
+        panel.spacing = unit(3, "lines"),
+        # Plot
+        plot.title = element_text(size = 72),
+        plot.subtitle = element_text(size = 56),
+        plot.margin = unit(c(40, 40, 40, 40), "pt"),
+        # Strip
+        strip.text = element_text(size = 36, margin = margin(0.5,0,0.5,0, "cm")),
+        strip.background = element_rect(fill = "white", size = 5),
+        # Caption
+        plot.caption = element_text(size = 24))
+dev.off()
+
+plot_outline_layer <- image_read(file) %>%
+  image_convert(type="Grayscale") %>%
+  image_negate() %>%
+  image_threshold("white", "5%") %>%
+  image_morphology('EdgeOut', "Diamond", iterations = 12) %>%
+  image_morphology('Dilate', "Diamond", iterations = 1) %>%
+  image_negate() %>%
+  image_transparent("white", fuzz = 7)
+
+image_flatten(c(image_blank(3543, 2598, color = "red"), plot_outline_layer))
+```
+
+
+```{r}
+blue <- "#08283c"
+light_blue <- "#115190"
+baby_blue <- "#a7e5ff"
+indigo <- "#cef8ff"
+  
+plot_fill <- tempfile(fileext = '.png')
+ragg::agg_png(plot_fill, width = 300, height = 220, res = 300, units = "mm", pointsize = 6)
+ggplot(borderlands, aes(since_release, peak, fill = rarity)) +
+  geom_col(colour = "black", size = 2) +
+  scale_fill_identity() +
+  facet_wrap(vars(gamename)) +
+  guides(fill=FALSE) +
+  labs(x = "Month Since Release",
+       y = "Peak Player Count",
+       title = "Borderlands Peak Players",
+       subtitle = "Data from Steam",
+       caption = "Data Source: TidyTuesday") +
+  theme_bw() +
+  theme(text = element_text(family = "Compacta Bold", colour = "white"),
+        # Axis
+        axis.title = element_text(size = 36),
+        axis.text = element_text(size = 28, colour = indigo),
+        axis.text.x = element_text(margin = margin(5, 0, 5, 0, "pt")),
+        axis.text.y = element_text(margin = margin(0, 5, 0, 5, "pt")),
+        axis.line = element_line(size = 0),
+        axis.ticks = element_line(size = 2, colour = light_blue),
+        axis.ticks.length = unit(10, "pt"),
+        # Panel
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(size = 0),
+        panel.background = element_rect(fill = blue, colour = light_blue, size = 5),
+        panel.spacing = unit(3, "lines"),
+        # Plot
+        plot.title = element_text(size = 72),
+        plot.subtitle = element_text(size = 56),
+        plot.margin = unit(c(40, 40, 40, 40), "pt"),
+        plot.background = element_rect(fill = "#00378f"),
+        # Strip
+        strip.text = element_text(size = 36, margin = margin(0.5,0,0.5,0, "cm"), colour = baby_blue),
+        strip.background = element_rect(fill = blue, colour = light_blue, size = 5),
+        # Caption
+        plot.caption = element_text(size = 24))
+dev.off()
+
+image_flatten(c(image_read(plot_fill), plot_outline_layer)) %>%
+  image_despeckle()
+
+image_composite(image_read(plot_fill), plot_outline_layer)
+
+  # image_resize("600x") %>%
+  # image_fill("skyblue", "+108+250", fuzz=25, refcolor = "white")
+
+#image_read(plot_fill)
+
+#image_canny("1x5+15%+30%") %>%
+  #image_edge(5) # does nothing?
+  #image_morphology('EdgeOut', "Diamond", iterations = 1) %>%
+  #image_morphology("Close", "Diamond", iterations = 1)
+
+#image_composite(image_read(plot_fill), plot_outline_layer, operator = "CopyOpacity")
+```
+
+
+```{r}
+# Post-process
+# fig %>%
+#   image_convert(type="Grayscale") %>%
+#   image_canny("1x2+15%+30%") %>%
+#   image_morphology('EdgeOut', "Diamond", iterations = 3) %>%
+#   image_negate() %>%
+#   image_fill("red", "+370+250", fuzz=25, refcolor = "white")
+
+```
 
 ## Data Source {.appendix}
 
