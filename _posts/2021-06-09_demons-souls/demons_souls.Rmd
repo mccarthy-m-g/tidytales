@@ -229,8 +229,8 @@ ggplot(demons_souls_plot) +
   # used here instead of geom_vline() because the latter goes up into the title
   # text.
   # FIXME: alpha isn't working.
-  geom_segment(aes(x = 0, xend = 0, y = 10.9, yend = 0, size = 0.6, alpha = 0.3),
-               lineend = "round", colour = "grey", linetype = "twodash") +
+  geom_segment(aes(x = 0, xend = 0, y = 10.9, yend = 0, size = 0.6), data = data.frame(),
+               lineend = "round", colour = "grey", alpha = 0.3, linetype = "twodash") +
   scale_alpha_identity() +
   # Set bounding box for yellow portion of text
   as_reference(
@@ -319,6 +319,9 @@ ggplot(demons_souls_plot) +
                lineend = "round", colour = "grey") +
   annotate("point", x  = 0, y = 11.4, colour = "grey", shape = 5, size = 2, stroke = 0.6) +
   annotate("point", x  = 0, y = 11.4, colour = "grey", shape = 5, size = 0.75) +
+  # Draw caption
+  annotate("text", x = 1, y = 10.33, angle = 270, hjust = 0, size = 3, alpha = 0.3,
+           label = "SOURCE: PLAYSTATION NETWORK | GRAPHIC: MICHAEL MCCARTHY",  family = optimus, color = "grey") +
   # Make sure the text size calculated for each string is used so that strings
   # are justified
   scale_size_identity() +
@@ -337,7 +340,14 @@ ggplot(demons_souls_plot) +
     plot.background = element_rect(fill = "black", color = NA))
 dev.off()
 
-image_read(file)
+mask <- image_read(here("_posts", "2021-06-09_demons-souls", "figures", "texture.png")) %>%
+  image_transparent("white") %>%
+  image_threshold("black", "90%")
+
+image_composite(image_read(file),
+                mask,
+                operator = "Over", #"DstOut" "Over
+                offset = "+0+0")
 ```
 
 ```{r}
