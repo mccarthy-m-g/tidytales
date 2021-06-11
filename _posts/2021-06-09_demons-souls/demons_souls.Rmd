@@ -2,14 +2,21 @@
 draft: true
 title: "So the world might be mended"
 description: |
-  Text plots with {ggfx}.
+  Blending {ggplot2} geoms with {ggfx}.
 author:
-  - name: Michael McCarthy
-    url: {}
+  - name: Michael McCarthy 
+    url: about.html
+    affiliation: The Nexus
 date: 06-09-2021
+categories:
+  - Data Visualization
+  - "{ggplot2}"
+  - "{ggfx}"
+  - "{magick}"
 output:
   distill::distill_article:
     self_contained: false
+    toc: true
 ---
 
 ```{r setup, include=FALSE}
@@ -173,32 +180,18 @@ It looks like there are two clusters here, an easier one with the Boletarian Pal
 ```{r}
 library(ggfx)
 library(magick)
-```
 
-```{r}
-
-
-demons_souls_plot <- demons_souls %>%
-  mutate(
-    percent_completed = percent_completed/100,
-    boss = fct_reorder(toupper(boss), percent_completed),
-    str_width = strwidth(boss, family = optimus_b, units = "inches") * 25.4, # in millimetres
-    text_size = 4.9 * max(str_width)/str_width,
-    h = text_size / 10
-  ) %>%
-  # Bosses will appear from top to bottom based on completion ratios
-  arrange(percent_completed) %>%
-  mutate(y = cumsum(lag(h/2, default = 0) + h/2))
-```
-
-```{r}
-
-# Define aliases for plot fonts
+# Define aliases for plot fonts and colours
 optimus <- "OptimusPrinceps"
 optimus_b <- "OptimusPrincepsSemiBold"
-
 yellow <- "#ffaf24" #  #fec056
+```
 
+The plot I want to make is inspired by [this Tidy Tuesday plot](https://github.com/gkaramanis/tidytuesday/tree/master/2021/2021-week8) by Georgios Karamanis. I used Georgios' code as a starting point, then modified it to get the behaviour and result I wanted.
+
+The centrepiece of the plot is the coloured text that shows the percent of Demon's Souls players who have completed a given boss in yellow and who have not in red. This effect is achieved by applying a rectangular filter over the text that only allows the portion of the text within the filter's borders to be shown. Doing this once for yellow text and once for red text allows the full string to appear, with the ratio of colours within a boss's name reflecting the percent of players that have completed it. A few calculations are needed in order for the ratios to be accurate, and for the text to look aesthetically pleasing.
+
+```{r}
 demons_souls_plot <- demons_souls %>%
   mutate(
     # Percentages need to be in decimal form for the calculations and plotting
@@ -212,7 +205,7 @@ demons_souls_plot <- demons_souls %>%
     str_width = strwidth(boss, family = optimus_b, units = "inches") * 25.4, # in millimetres
     str_ratio = max(str_width)/str_width,
     text_size = 4.9 * str_ratio,
-    # The division here is arbitrary, its effect is reflect in the scale of the
+    # The division here is arbitrary, its effect is reflected in the scale of the
     # y-axis
     tile_height = text_size / 10
   ) %>%
@@ -220,19 +213,37 @@ demons_souls_plot <- demons_souls %>%
   # calculation here accounts for the differences in text size for each string.
   arrange(percent_completed) %>%
   mutate(y = cumsum(lag(tile_height/2, default = 0) + tile_height/2))
+```
 
-# PLOT: the trick for spacing seems to be setting the size of the plot from the start
+Now the plot can be constructed. The final code for the plot is roughly 100 lines long, so I've hidden it in the section below.
+
+<details class="code-fold">
+
+```{r final-plot, opts.label='no.message'}
+# The trick for geom spacing is to set the size of the plot from the start
 file <- tempfile(fileext = '.png')
 ragg::agg_png(file, width = 4, height = 5.5, res = 300, units = "in")
+
 ggplot(demons_souls_plot) +
   # Make it easier to see where 50% is using a vertical line. geom_segment() is
   # used here instead of geom_vline() because the latter goes up into the title
-  # text.
-  # FIXME: alpha isn't working.
-  geom_segment(aes(x = 0, xend = 0, y = 10.9, yend = 0, size = 0.6), data = data.frame(),
-               lineend = "round", colour = "grey", alpha = 0.3, linetype = "twodash") +
+  # text. An empty data frame is supplied so that only one copy of the geom is
+  # drawn.
+  geom_segment(aes(
+    x = 0,
+    xend = 0,
+    y = 10.9,
+    yend = 0,
+    size = 0.6),
+    data = data.frame(),
+    alpha = 0.3,
+    colour = "grey",
+    lineend = "round",
+    linetype = "twodash"
+  ) +
   scale_alpha_identity() +
-  # Set bounding box for yellow portion of text
+  
+  # Set bounding box for yellow portion of centrepiece text
   as_reference(
     geom_rect(aes(
       xmin = -0.5,
@@ -242,7 +253,8 @@ ggplot(demons_souls_plot) +
     )), 
     id = "demon_destroyed"
   ) +
-  # Only show the portion of yellow text located within the bounding box
+  # Only show the portion of yellow centrepiece text located within the
+  # bounding box
   with_blend(
     geom_text(aes(
       x = 0,
@@ -255,7 +267,7 @@ ggplot(demons_souls_plot) +
     bg_layer = "demon_destroyed",
     blend_type = "in"
   ) +
-  # Set bounding box for red portion of text
+  # Set bounding box for red portion of centrepiece text
   as_reference(
     geom_rect(aes(
       xmin = 0.5 - ((1 - percent_completed)),
@@ -265,144 +277,8 @@ ggplot(demons_souls_plot) +
     )), 
     id = "you_died"
   ) +
-  # Only show the portion of red text located within the bounding box
-  with_blend(
-    geom_text(aes(
-      x = 0,
-      y = y,
-      label = boss,
-      size = text_size
-    ),
-    colour = "red",
-    family = optimus_b),
-    bg_layer = "you_died",
-    blend_type = "in"
-  ) +
-  # Draw "axis" for Demon Vanquished
-  annotate(
-    "text",
-    x = -0.65,
-    y = 7.75,
-    label = "demon vanquished",
-    angle = 90,
-    size = 5,
-    family = optimus,
-    colour = yellow
-  ) +
-  geom_segment(aes(x = -0.645, xend = -0.645,
-                   y = 10.05, yend = 10.45),
-               lineend = "round", colour = yellow, size = 0.3,
-               arrow = arrow(angle = 45, length = unit(1, "mm"), type = "open")) +
-  # Draw "axis" for You Died
-  annotate(
-    "text",
-    x = 0.65,
-    y = 4.65,
-    label = "you died",
-    angle = 270,
-    size = 5,
-    family = optimus,
-    colour = "red"
-  ) +
-  geom_segment(aes(x = 0.645, xend = 0.645,
-                   y = 3.51, yend = 3.01),
-               lineend = "round", colour = "red", size = 0.3,
-               arrow = arrow(angle = 45, length = unit(1, "mm"), type = "open")) +
-  # Draw a title at the top of the panel
-  geom_segment(aes(x = -0.75, xend = 0.75, y = 13.2, yend = 13.2, size = 0.3),
-               lineend = "round", colour = "grey") +
-  annotate("text", x = 0, y = 12.325, size = 7, family = optimus_b, colour = "white", lineheight = 0.75,
-           label = "DEMON’S SOULS\nBOSS COMPLETION") +
-  geom_segment(aes(x = -0.025, xend = -0.75, y = 11.4, yend = 11.4, size = 0.3),
-               lineend = "round", colour = "grey") +
-  geom_segment(aes(x = 0.025, xend = 0.75, y = 11.4, yend = 11.4, size = 0.3),
-               lineend = "round", colour = "grey") +
-  annotate("point", x  = 0, y = 11.4, colour = "grey", shape = 5, size = 2, stroke = 0.6) +
-  annotate("point", x  = 0, y = 11.4, colour = "grey", shape = 5, size = 0.75) +
-  # Draw caption
-  annotate("text", x = 1, y = 10.33, angle = 270, hjust = 0, size = 3, alpha = 0.3,
-           label = "SOURCE: PLAYSTATION NETWORK | GRAPHIC: MICHAEL MCCARTHY",  family = optimus, color = "grey") +
-  # Make sure the text size calculated for each string is used so that strings
-  # are justified
-  scale_size_identity() +
-  # Take axis limits exactly from data so there's no spacing around the panel,
-  # allow drawing outside of the panel for annotations, and set the axis limits
-  # to match the limits of the text.
-  coord_cartesian(expand = FALSE, clip = "off", xlim = c(-0.5, 0.5)) +
-  # Specify the panel size manually. This makes it easier to position plot
-  # elements with absolute positions.
-  ggh4x::force_panelsizes(rows = unit(5, "in"), # height
-                          cols = unit(1.8, "in")) + # width
-  theme_void() +
-  theme(
-    legend.position = "none",
-    plot.margin = unit(c(0.5, 4, 0.5, 4), "in"),
-    plot.background = element_rect(fill = "black", color = NA))
-dev.off()
-
-mask <- image_read(here("_posts", "2021-06-09_demons-souls", "figures", "texture.png")) %>%
-  image_transparent("white") %>%
-  image_threshold("black", "90%")
-
-image_composite(image_read(file),
-                mask,
-                operator = "Over", #"DstOut" "Over
-                offset = "+0+0")
-```
-
-```{r}
-# # Draw a decorative line at the top of the panel
-#   geom_segment(aes(x = -0.025, xend = -0.51, y = 11.05, yend = 11.05, size = 0.3),
-#                lineend = "round", colour = "grey") +
-#   geom_segment(aes(x = 0.025, xend = 0.51, y = 11.05, yend = 11.05, size = 0.3),
-#                lineend = "round", colour = "grey") +
-#   annotate("point", x  = 0, y = 11.05, colour = "grey", shape = 5, size = 2, stroke = 0.6) +
-#   annotate("point", x  = 0, y = 11.05, colour = "grey", shape = 5, size = 0.75) +
-```
-
-
-
-```{r}
-# PLOT: the trick for spacing seems to be setting the size of the plot from the start
-file <- tempfile(fileext = '.png')
-ragg::agg_png(file, width = 4, height = 8, res = 300, units = "in")
-ggplot(demons_souls_plot) +
-  # Make it easier to see where 50% is using a vertical line
-  geom_vline(xintercept = 0, color = "grey", size = 0.6, alpha = 0.3, linetype = "twodash") +
-  # Set bounding box for yellow portion of text
-  as_reference(
-    geom_rect(aes(
-      xmin = -0.5,
-      xmax = -0.5 + ((percent_completed)),
-      ymin = y - (tile_height * 0.5),
-      ymax = y + (tile_height * 0.5)
-    )), 
-    id = "demon_destroyed"
-  ) +
-  # Only show the portion of yellow text located within the bounding box
-  with_blend(
-    geom_text(aes(
-      x = 0,
-      y = y,
-      label = boss,
-      size = text_size
-    ),
-    colour = yellow,
-    family = optimus_b),
-    bg_layer = "demon_destroyed",
-    blend_type = "in"
-  ) +
-  # Set bounding box for red portion of text
-  as_reference(
-    geom_rect(aes(
-      xmin = 0.5 - ((1 - percent_completed)),
-      xmax = 0.5,
-      ymin = y - (tile_height * 0.5),
-      ymax = y + (tile_height * 0.5)
-    )), 
-    id = "you_died"
-  ) +
-  # Only show the portion of red text located within the bounding box
+  # Only show the portion of red centrepiece text located within the bounding
+  # box
   with_blend(
     geom_text(aes(
       x = 0,
@@ -419,53 +295,159 @@ ggplot(demons_souls_plot) +
   # Draw "axis" for Demon Vanquished
   annotate(
     "text",
-    x = -0.6,
-    y = 6,
+    x = -0.65,
+    y = 7.75,
     label = "demon vanquished",
     angle = 90,
-    size = 6,
+    size = 5,
     family = optimus,
     colour = yellow
   ) +
-  # Draw a decorative line at the top of the panel
-  geom_segment(aes(x = -0.025, xend = -0.51, y = 11.1, yend = 11.1, size = 0.3),
-               lineend = "round", colour = "grey") +
-  geom_segment(aes(x = 0.025, xend = 0.51, y = 11.1, yend = 11.1, size = 0.3),
-               lineend = "round", colour = "grey") +
-  annotate("point", x  = 0, y = 11.1, colour = "grey", shape = 5, size = 2, stroke = 0.6) +
-  annotate("point", x  = 0, y = 11.1, colour = "grey", shape = 5, size = 0.75) +
-  # Draw a decorative line at the bottom of the panel
-  geom_segment(aes(x = -0.51, xend = 0.51, y = 0, yend = 0, size = 0.3),
-               lineend = "round", colour = "grey") +
-  labs(title = "Demon’s Souls\nBoss Completion") +
-  # geom_segment(aes(x = -0.6, xend = -0.6,
-  #                  y = 7.5, yend = 10.4,
-  #                  linetype = "twodash", ),
-  #              lineend = "round", linejoin = "mitre",
-  #              arrow = arrow(angle = 30, length = unit(0.2, "cm"), type = "closed")) +
-  # scale_linetype_identity() +
+  geom_segment(aes(
+    x = -0.645,
+    xend = -0.645,
+    y = 10.05,
+    yend = 10.45),
+    lineend = "round",
+    colour = yellow,
+    size = 0.3,
+    arrow = arrow(angle = 45, length = unit(1, "mm"), type = "open")
+  ) +
+  # Draw "axis" for You Died
+  annotate(
+    "text",
+    x = 0.65,
+    y = 4.65,
+    label = "you died",
+    angle = 270,
+    size = 5,
+    family = optimus,
+    colour = "red"
+  ) +
+  geom_segment(aes(
+    x = 0.645,
+    xend = 0.645,
+    y = 3.51,
+    yend = 3.01),
+    lineend = "round",
+    colour = "red",
+    size = 0.3,
+    arrow = arrow(angle = 45, length = unit(1, "mm"), type = "open")
+  ) +
+  
+  # Draw a title surrounded by line decorations at the top of the panel
+  geom_segment(aes(
+    x = -0.75,
+    xend = 0.75,
+    y = 13.2,
+    yend = 13.2,
+    size = 0.3),
+    lineend = "round",
+    colour = "grey"
+  ) +
+  annotate(
+    "text",
+    x = 0,
+    y = 12.325,
+    size = 7,
+    family = optimus_b,
+    colour = "white",
+    lineheight = 0.75,
+    label = "DEMON’S SOULS\nBOSS COMPLETION"
+  ) +
+  geom_segment(aes(
+    x = -0.025,
+    xend = -0.75,
+    y = 11.4,
+    yend = 11.4,
+    size = 0.3),
+    lineend = "round",
+    colour = "grey"
+  ) +
+  geom_segment(aes(
+    x = 0.025,
+    xend = 0.75,
+    y = 11.4,
+    yend = 11.4,
+    size = 0.3),
+    lineend = "round",
+    colour = "grey"
+  ) +
+  annotate(
+    "point",
+    x  = 0,
+    y = 11.4,
+    colour = "grey",
+    shape = 5,
+    size = 2,
+    stroke = 0.6
+  ) +
+  annotate(
+    "point",
+    x  = 0,
+    y = 11.4,
+    colour = "grey",
+    shape = 5,
+    size = 0.75
+  ) +
+  
+  # Draw plot caption
+  annotate(
+    "text",
+    x = 1,
+    y = 10.33,
+    angle = 270,
+    hjust = 0,
+    size = 3,
+    alpha = 0.3,
+    label = "SOURCE: PLAYSTATION NETWORK | GRAPHIC: MICHAEL MCCARTHY",
+    family = optimus,
+    color = "grey"
+  ) +
+  
   # Make sure the text size calculated for each string is used so that strings
   # are justified
   scale_size_identity() +
   # Take axis limits exactly from data so there's no spacing around the panel,
   # allow drawing outside of the panel for annotations, and set the axis limits
   # to match the limits of the text.
-  coord_cartesian(expand = TRUE, clip = "off", xlim = c(-0.5, 0.5)) +
+  coord_cartesian(expand = FALSE, clip = "off", xlim = c(-0.5, 0.5)) +
   # Specify the panel size manually. This makes it easier to position plot
   # elements with absolute positions.
-  ggh4x::force_panelsizes(rows = unit(4.2, "in"), # height
+  ggh4x::force_panelsizes(rows = unit(5, "in"), # height
                           cols = unit(1.8, "in")) + # width
   theme_void() +
   theme(
     legend.position = "none",
-    plot.margin = unit(c(2, 4, 2, 4), "in"),
-    plot.background = element_rect(fill = "black", color = NA),
-    plot.title = element_text(family = optimus,
-                              colour = "white",
-                              hjust = 0.5,
-                              size = 25,
-                              margin = margin(5, 0, 20, 0)))
+    plot.margin = unit(c(0.5, 4, 0.5, 4), "in"),
+    plot.background = element_rect(fill = "black", color = NA))
+
 dev.off()
 
-image_read(file)
+# Apply a mask texture to the final image to mimic the style of the Demon's
+# Souls logo in the plot title
+mask <- image_read(
+  here("_posts", "2021-06-09_demons-souls", "figures", "texture.png")
+  ) %>%
+  image_transparent("white") %>%
+  image_threshold("black", "90%")
+
+final_plot <- image_composite(image_read(file), mask, operator = "Over")
 ```
+
+</details>
+
+```{r final-plot-output, preview=TRUE}
+final_plot
+```
+
+## Comments {.appendix}
+
+<details open class="comment-section">
+   <summary>
+   </summary>
+</details>
+
+## Fair Dealing {.appendix}
+
+Any of the trademarks, service marks, collective marks, design rights or similar rights that are mentioned, used, or cited in this article are the property of their respective owners. They are used here as fair dealing for the purpose of education in accordance with [section 29 of the Copyright Act](https://laws-lois.justice.gc.ca/eng/acts/c-42/page-8.html#h-103270) and do not infringe copyright.
