@@ -3,16 +3,24 @@ title: "Tidy Tales | Michael McCarthy"
 description: |
   A data science blog about wrangling, visualizing, modelling, and communicating data.
 output_dir: "_site"
-theme: inst/css/theme.css
+base_url: https://tidytales.ca
+
+google_analytics: "G-B377YMMZ69"
+twitter:
+  site: "@mccarthymg"
+
 navbar:
   right:
     - text: "Home"
       href: index.html
     - text: "About"
       href: about.html
-  source_url: https://github.com/mccarthy-m-g/tidytales
-base_url: https://tidytales.ca
-google_analytics: "G-B377YMMZ69"
+    - icon: fab fa-github
+      href: https://github.com/mccarthy-m-g/tidytales
+    - icon: fa fa-rss
+      href: index.xml
+
+theme: inst/css/theme.css
 output:
   distill::distill_article:
     highlight: highlight.theme
