@@ -821,42 +821,37 @@
               background-color: var(--light-shade);
           }
 
-          d-article a:hover, a:focus {
-              color: var(--dark-accent);
-          }
-
-          /*-- UTTERANCES --*/
-
           :focus {
             outline: 0 !important;
             box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
           }
 
-          details.comment-section {
-            color: var(--dark-shade-alpha);
-            font-family: var(--heading-font);
-            font-size: 15px !important;
+          /* Sidebar */
+
+          .posts-sidebar a {
+            color: var(--dark-shade);
           }
 
-          details.comment-section summary:after {
-            content: "Show";
+          .posts-sidebar a.active {
+            color: var(--dark-accent);
           }
 
-          details[open].comment-section summary:after {
-            content: "Hide";
+          /* Post List */
+
+          .posts-list .metadata {
+            color: var(--dark-shade);
           }
 
-          summary {
-            cursor: pointer;
+          .posts-list .description p {
+            color: var(--dark-shade);
           }
 
-          .utterances {
-            /*border: 1px solid rgba(0, 0, 0, 0.2);
-            background: rgba(255, 255, 255, 1.0);
-            padding: 10px 18px;
-            border-radius: 3px; */
-            filter: brightness(90%) opacity(90%);
+          .posts-list .description .dt-tag:hover,
+          .posts-list .description .dt-tag:focus {
+            color: var(--dark-accent) !important;
+            border-color: var(--dark-accent) !important;
           }
+
           /*-- BODY TEXT --*/
 
           h1 {
@@ -903,6 +898,69 @@
 
           p code {
             color: inherit;
+          }
+
+          /* Code chunk folding */
+
+          details.code-fold {
+            color: var(--dark-shade);
+            font-family: var(--heading-font);
+            font-size: var(--body-size) !important;
+          }
+
+          details.code-fold summary:after {
+            content: "Show Code";
+          }
+
+          details[open].code-fold summary:after {
+            content: "Hide Code";
+          }
+
+          /*-- APPENDIX --*/
+
+          /*-- Utterances --*/
+
+          details.comment-section {
+            color: var(--dark-shade-alpha);
+            font-family: var(--heading-font);
+            font-size: 15px !important;
+          }
+
+          details.comment-section summary:after {
+            content: "Show";
+          }
+
+          details[open].comment-section summary:after {
+            content: "Hide";
+          }
+
+          summary {
+            cursor: pointer;
+          }
+
+          .utterances {
+            filter: brightness(90%) greyscale(100%) opacity(90%);
+          }
+
+          /* Session Info */
+
+          details.session-info code {
+            color: var(--dark-shade-alpha);
+            font-size: 0.8em !important;
+          }
+
+          details.session-info {
+            color: var(--dark-shade-alpha);
+            font-family: var(--heading-font);
+            font-size: 15px !important;
+          }
+
+          details.session-info summary:after {
+            content: "Show";
+          }
+
+          details[open].session-info summary:after {
+            content: "Hide";
           }</style>
           <style type="text/css">
           /* base style */

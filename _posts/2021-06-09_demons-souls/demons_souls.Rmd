@@ -9,7 +9,7 @@ author:
     affiliation: The Nexus
 date: 06-09-2021
 categories:
-  - Data Visualization
+  - .Visualize
   - "{ggplot2}"
   - "{ggfx}"
   - "{magick}"
@@ -218,8 +218,10 @@ demons_souls_plot <- demons_souls %>%
 Now the plot can be constructed. The final code for the plot is roughly 100 lines long, so I've hidden it in the section below.
 
 <details class="code-fold">
+  <summary>
+  </summary>
 
-```{r final-plot, opts.label='no.message'}
+```{r final-plot}
 # The trick for geom spacing is to set the size of the plot from the start
 file <- tempfile(fileext = '.png')
 ragg::agg_png(file, width = 4, height = 5.5, res = 300, units = "in")
@@ -422,7 +424,7 @@ ggplot(demons_souls_plot) +
     plot.margin = unit(c(0.5, 4, 0.5, 4), "in"),
     plot.background = element_rect(fill = "black", color = NA))
 
-dev.off()
+invisible(dev.off())
 
 # Apply a mask texture to the final image to mimic the style of the Demon's
 # Souls logo in the plot title
@@ -446,6 +448,16 @@ final_plot
 <details open class="comment-section">
    <summary>
    </summary>
+</details>
+
+## Session Info {.appendix}
+
+<details class="session-info">
+   <summary>
+   </summary>
+```{r, echo=FALSE}
+sessionInfo()
+```
 </details>
 
 ## Fair Dealing {.appendix}
