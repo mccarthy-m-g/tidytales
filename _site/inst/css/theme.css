@@ -203,7 +203,7 @@ summary {
 }
 
 .utterances {
-  filter: brightness(90%) greyscale(100%) opacity(90%);
+  filter: brightness(90%) grayscale(100%) opacity(90%);
 }
 
 /* Session Info */
