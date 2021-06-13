@@ -3,16 +3,39 @@ title: "Data from the Beast with One Billion Backs"
 description: |
   A short description of the post.
 author:
-  - name: Michael McCarthy
+  - name: Michael McCarthy 
+    url: ../../about.html # link does not work
+    affiliation: The Nexus
 date: 06-05-2021
+repository_url: https://github.com/mccarthy-m-g/tidytales
 output:
   distill::distill_article:
     self_contained: false
 ---
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, include=FALSE, results='asis'}
+library(metathis)
+
+meta() %>%
+  meta_social(
+    title = "Tidy Tales: Data from the Beast with One Billion Backs",
+    description = "A short meta description of the post.",
+    url = "https://tidytales.ca/posts/2021-06-05-test-post/",
+    image = "https://tidytales.ca/inst/images/twittercard.png",
+    image_alt = "Tidy Tales logo",
+    og_type = "website",
+    og_author = "Michael McCarthy",
+    twitter_card_type = "summary_large_image",
+    twitter_creator = "@mccarthymg"
+  )
+```
+
+```{r, preview=TRUE}
+plot(mtcars)
 ```
 
 This is just a post to test out utterances on a live site.
