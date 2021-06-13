@@ -6,6 +6,11 @@
     <atom:link href="https://tidytales.ca/index.xml" rel="self" type="application/rss+xml"/>
     <description>A data science blog about wrangling, visualizing, modelling, and communicating data.
 </description>
+    <image>
+      <title>Tidy Tales | Michael McCarthy</title>
+      <url>https://tidytales.ca/inst/images/favicon.png</url>
+      <link>https://tidytales.ca</link>
+    </image>
     <generator>Distill</generator>
     <lastBuildDate>Sat, 05 Jun 2021 00:00:00 +0000</lastBuildDate>
     <item>

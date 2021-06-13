@@ -745,7 +745,6 @@
 
           /* Embed custom fonts */
           /* This must remain at the top of this file.                 */
-          @import url('https://fonts.googleapis.com/css2?family=Codystar');
           @import url('https://fonts.googleapis.com/css2?family=Fugaz+One');
           @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;500');
           @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500');
@@ -778,7 +777,7 @@
             --heading-font:    'Fugaz One', sans-serif;
             --mono-font:       'Inconsolata', monospace;
             --body-font:       'Assistant', sans-serif;
-            --navbar-font:     'Codystar', sans-serif;
+            --navbar-font:     'Assistant', sans-serif;
           }
 
           /*-- ARTICLE METADATA --*/
@@ -1134,14 +1133,20 @@
           <header class="header header--fixed" role="banner">
           <nav class="distill-site-nav distill-site-header">
           <div class="nav-left">
+          <a class="logo" href="index.html">
+          <img src="inst/images/logo.png" alt="Logo"/>
+          </a>
           <a href="index.html" class="title">Tidy Tales | Michael McCarthy</a>
           <input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
           </div>
           <div class="nav-right">
           <a href="index.html">Home</a>
           <a href="about.html">About</a>
-          <a href="https://github.com/mccarthy-m-g/tidytales" aria-label="Link to source">
+          <a href="https://github.com/mccarthy-m-g/tidytales">
           <i class="fab fa-github" aria-hidden="true"></i>
+          </a>
+          <a href="index.xml">
+          <i class="fa fa-rss" aria-hidden="true"></i>
           </a>
           <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
           </div>
@@ -1248,10 +1253,10 @@
             <p>
                © Copyright 2021 <a href="https://michaelmccarthy.netlify.app">Michael McCarthy</a>
             </p>
-            <div>
+            <!-- <div>
               <a ><i class="fab fa-twitter"></i></a>
               <a ><i class="fab fa-github"></i></a>
-            </div>
+            </div> -->
           </footer>
           </div>
           <!--/radix_placeholder_navigation_after_body-->

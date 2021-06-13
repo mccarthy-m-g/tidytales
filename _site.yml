@@ -5,11 +5,15 @@ description: |
 output_dir: "_site"
 base_url: https://tidytales.ca
 
+favicon: inst/images/favicon.png
 google_analytics: "G-B377YMMZ69"
 twitter:
   site: "@mccarthymg"
 
 navbar:
+  logo:
+    image: inst/images/logo.png
+    href: index.html
   right:
     - text: "Home"
       href: index.html
@@ -19,6 +23,11 @@ navbar:
       href: https://github.com/mccarthy-m-g/tidytales
     - icon: fa fa-rss
       href: index.xml
+
+collections:
+  posts:
+    authors_metadata: false
+    feed_items_max: 24
 
 theme: inst/css/theme.css
 output:
