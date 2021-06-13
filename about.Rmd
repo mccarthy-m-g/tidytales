@@ -11,8 +11,8 @@ library(metathis)
 
 meta() %>%
   meta_social(
-    title = "Tidy Tales",
-    description = "About",
+    title = "Tidy Tales: About",
+    description = "A data science blog",
     url = "https://tidytales.ca/about.html",
     image = "https://tidytales.ca/inst/images/twittercard.png",
     image_alt = "Tidy Tales logo",
