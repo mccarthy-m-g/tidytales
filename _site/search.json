@@ -5,14 +5,14 @@
       "title": "About Tidy Tales",
       "author": [],
       "contents": "\nTidy Tales is a data science blog meant to demonstrate the skills needed in a typical data science project. Namely, wrangling, visualizing, modelling, and communicating data, all with the assistance of programming. The blog takes its name from the tidy data framework for structuring data, and from its narrative style. My inspiration for the blog came from Tidy Tuesday, a weekly data project for practicing and building data science skills with real-world data. Many, but not all, of the posts on Tidy Tales will use data from Tidy Tuesday.\nYou can support Tidy Tales by sharing it with others or by making a donation.\nMichael McCarthy\nHi, I’m Michael, the voice behind Tidy Tales. My background is in psychology research, where I’ve studied topics ranging from attitude formation, to decision-making, to individual differences in brain function. Studying how people think and act has given me a deep appreciation for the human elements of data science. Much of our data is about humans. All of our data is communicated to humans. Understanding these relationships has been key to successfully navigating my role as a data scientist.\nWhen I’m not writing new posts for Tidy Tales you can find me writing music in my studio, riding my bike on the local trails, or spending time with my friends and family.\nContact\nMy email is michael.mccarthy@tidytales.ca. Please get in touch if you are interested in working with me or just want to chat.\nYou can keep up to date with my work by subscribing to the Tidy Tales RSS feed or by following me on Twitter or GitHub.\n\n\n\n",
-      "last_modified": "2021-06-13T15:47:31-06:00"
+      "last_modified": "2021-06-13T16:13:56-06:00"
     },
     {
       "path": "index.html",
       "title": "Wrangling, Visualizing, Modelling, Communicating data",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-06-13T15:47:32-06:00"
+      "last_modified": "2021-06-13T16:13:56-06:00"
     }
   ],
   "collections": ["posts/posts.json"]
