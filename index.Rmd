@@ -3,3 +3,21 @@ title: "Wrangling, Visualizing, Modelling, Communicating data"
 site: distill::distill_website
 listing: posts
 ---
+
+```{r, include=FALSE, results='asis'}
+library(metathis)
+
+meta() %>%
+  meta_social(
+    title = "Tidy Tales",
+    description = "Wrangling, Visualizing, Modelling, Communicating data",
+    url = "https://tidytales.ca",
+    image = "https://tidytales.ca/inst/images/logo.png",
+    image_alt = "Tidy Tales logo",
+    og_type = "website",
+    og_author = "Michael McCarthy",
+    twitter_card_type = "summary",
+    twitter_creator = "@mccarthymg"
+  )
+```
+
