@@ -12,7 +12,7 @@ meta() %>%
     title = "Tidy Tales",
     description = "Wrangling, Visualizing, Modelling, Communicating data",
     url = "https://tidytales.ca",
-    image = "https://tidytales.ca/inst/images/favicon.png",
+    image = "https://tidytales.ca/inst/images/twittercard.png",
     image_alt = "Tidy Tales logo",
     og_type = "website",
     og_author = "Michael McCarthy",
