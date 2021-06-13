@@ -18,6 +18,6 @@ When I'm not writing new posts for Tidy Tales you can find me writing music in m
 
 ## Contact
 
-My email is [michael.mccarthy@tidytails.ca](mailto:michael.mccarthy@tidytails.ca). Please get in touch if you are interested in working with me or just want to chat.
+My email is [michael.mccarthy@tidytales.ca](mailto:michael.mccarthy@tidytales.ca). Please get in touch if you are interested in working with me or just want to chat.
 
 You can keep up to date with my work by subscribing to the [Tidy Tales RSS feed](index.xml) or by following me on [Twitter](https://twitter.com/mccarthymg) or [GitHub](https://github.com/mccarthy-m-g).
