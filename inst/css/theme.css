@@ -2,7 +2,6 @@
 
 /* Embed custom fonts */
 /* This must remain at the top of this file.                 */
-@import url('https://fonts.googleapis.com/css2?family=Codystar');
 @import url('https://fonts.googleapis.com/css2?family=Fugaz+One');
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;500');
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500');
@@ -35,7 +34,7 @@ html {
   --heading-font:    'Fugaz One', sans-serif;
   --mono-font:       'Inconsolata', monospace;
   --body-font:       'Assistant', sans-serif;
-  --navbar-font:     'Codystar', sans-serif;
+  --navbar-font:     'Assistant', sans-serif;
 }
 
 /*-- ARTICLE METADATA --*/
