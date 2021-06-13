@@ -23,3 +23,7 @@ button:hover {
   color: var(--light-shade) !important;
   background-color: var(--dark-accent) !important;
 }
+
+.distill-site-header .logo img {
+  margin-bottom: -8;
+}
