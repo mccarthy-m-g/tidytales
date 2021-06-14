@@ -1,4 +1,4 @@
-here::i_am("R/submit.R")
+here::i_am("R/share.R")
 library(here)
 
 # Create images of source code with carbon.js ---------------------------------
@@ -26,3 +26,58 @@ carbon_script <- function(path,
   # Open URL in browser
   browseURL(x$uri())
 }
+
+# Compose Twitter summary card for post----------------------------------------
+# tidytales/_posts/2021-06-09_demons-souls/demons_souls_files/figure-html5
+# //
+library(magick)
+
+get_twitter_card <- function(theme) {
+  if (theme == "light") {
+    image_read(here("inst", "images", "twittercard-light.png"))
+  } else if (theme == "dark") {
+    image_read(here("inst", "images", "twittercard-dark.png"))
+  }
+}
+
+get_hero_image <- function(path, resize, colour = "none") {
+
+  hero <- image_read(path)
+
+  if (resize == "width") {
+    geometry <- "500x" # Resize width to 500 keep aspect ratio
+  } else if (resize == "height") {
+    geometry <- "x500" # Resize height to 500 keep aspect ratio
+  }
+
+  canvas <- image_blank(width = 1200, height = 628, color = colour)
+  hero <- image_resize(hero, geometry, filter = "Lanczos")
+
+  # Calculate offset based on resize dimensions
+  hero_width <- image_info(hero)$width
+  offset_x <- 50 + ((500 - hero_width) / 2)
+  hero_height <- image_info(hero)$height
+  offset_y <- 64 + ((500 - hero_height) / 2)
+  offset_amount <- paste0("+", offset_x, "+", offset_y)
+
+  image_composite(canvas, hero, operator = "Over", offset = offset_amount)
+}
+
+# twitter_card <- get_twitter_card("light")
+# hero_image <- get_hero_image("_posts/2021-06-09_demons-souls/demons_souls_files/figure-html5/final-plot-output-1.png",
+#                              resize = "height", colour = "#123C69")
+# # TODO: Combine all this into a single function
+# image_composite(hero_image, twitter_card, operator = "Over")
+
+# Function to create Twitter summary cards
+compose_twitter_card <- function(path,
+                                 theme = "light",
+                                 resize = "width") {
+  twitter_card <- get_twitter_card(theme)
+  colour <- ifelse(theme == "light", "#123C69", "#FFF5ED")
+  hero_image <- get_hero_image(path = path, resize = resize, colour = colour)
+  image_composite(hero_image, twitter_card, operator = "Over")
+}
+
+compose_twitter_card("_posts/2021-06-09_demons-souls/demons_souls_files/figure-html5/final-plot-output-1.png",
+                     resize = "height")
