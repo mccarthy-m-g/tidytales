@@ -32,6 +32,5 @@ collections:
 theme: inst/css/theme.css
 output:
   distill::distill_article:
-    highlight: highlight.theme
     includes:
       in_header: "inst/html/utterances.html"

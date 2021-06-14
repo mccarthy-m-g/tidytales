@@ -12,15 +12,19 @@
       <link>https://tidytales.ca</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Sat, 05 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 15 Jun 2021 00:00:00 +0000</lastBuildDate>
     <item>
-      <title>Data from the Beast with One Billion Backs</title>
+      <title>Go forth, slayer of Demons</title>
       <dc:creator>Michael McCarthy</dc:creator>
-      <link>https://tidytales.ca/posts/2021-06-05-test-post</link>
-      <description>A short description of the post.</description>
-      <guid>https://tidytales.ca/posts/2021-06-05-test-post</guid>
-      <pubDate>Sat, 05 Jun 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://tidytales.ca/posts/2021-06-05-test-post/test-post_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1248" height="768"/>
+      <link>https://tidytales.ca/posts/2021-06-15_demons-souls</link>
+      <description>Blending {ggplot2} geoms with {ggfx} and other {magick} tricks.</description>
+      <category>.Visualize</category>
+      <category>{ggplot2}</category>
+      <category>{ggfx}</category>
+      <category>{magick}</category>
+      <guid>https://tidytales.ca/posts/2021-06-15_demons-souls</guid>
+      <pubDate>Tue, 15 Jun 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://tidytales.ca/posts/2021-06-15_demons-souls/demons_souls_files/figure-html5/final-plot-1.png" medium="image" type="image/png" width="1200" height="1650"/>
     </item>
   </channel>
 </rss>

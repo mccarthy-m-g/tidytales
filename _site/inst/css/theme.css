@@ -4,7 +4,7 @@
 /* This must remain at the top of this file.                 */
 @import url('https://fonts.googleapis.com/css2?family=Fugaz+One');
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;500');
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;500');
 
 /*-- Main site colours --*/
 /*-- With help from http://colormind.io/bootstrap/#      --*/
@@ -151,6 +151,7 @@ aside .caption {
 /* In-text code should inherit the colour of the paragraph it's in */
 p code {
   color: inherit;
+  font-weight: 200 !important;
 }
 
 /* Code chunk output */
@@ -207,7 +208,7 @@ d-article div.sourceCode pre code span.fl {
 /* Code chunk folding */
 
 d-article details.code-fold {
-  color: var(--dark-shade);
+  color: var(--main-colour);
   font-family: var(--heading-font);
   font-size: var(--body-size) !important;
 }

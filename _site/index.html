@@ -54,34 +54,34 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #b6005b; } /* Alert */
+code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { } /* Attribute */
-code span.bn { color: #b6005b; } /* BaseN */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #5a00b5; } /* ControlFlow */
-code span.ch { color: #008643; } /* Char */
-code span.cn { color: #b65b00; } /* Constant */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
 code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
 code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-code span.dt { color: #b6005b; } /* DataType */
-code span.dv { color: #b6005b; } /* DecVal */
-code span.er { color: #b6005b; } /* Error */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
 code span.ex { } /* Extension */
-code span.fl { color: #b6005b; } /* Float */
-code span.fu { color: #005bb6; } /* Function */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #5a00b5; } /* Keyword */
+code span.kw { color: #007ba5; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #5a00b5; } /* Other */
-code span.pp { color: #b6005b; } /* Preprocessor */
-code span.sc { color: #5e5e5e; } /* SpecialChar */
-code span.ss { color: #008643; } /* SpecialString */
-code span.st { color: #008643; } /* String */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
-code span.vs { color: #008643; } /* VerbatimString */
+code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
@@ -2115,7 +2115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   /* This must remain at the top of this file.                 */
   @import url('https://fonts.googleapis.com/css2?family=Fugaz+One');
   @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;500');
-  @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500');
+  @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;500');
 
   /*-- Main site colours --*/
   /*-- With help from http://colormind.io/bootstrap/#      --*/
@@ -2262,6 +2262,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   /* In-text code should inherit the colour of the paragraph it's in */
   p code {
     color: inherit;
+    font-weight: 200 !important;
   }
 
   /* Code chunk output */
@@ -2318,7 +2319,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   /* Code chunk folding */
 
   d-article details.code-fold {
-    color: var(--dark-shade);
+    color: var(--main-colour);
     font-family: var(--heading-font);
     font-size: var(--body-size) !important;
   }
@@ -2762,23 +2763,55 @@ function init_posts_list() {
 
 
 
-<div class="posts-container posts-apply-limit l-page">
+<div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
 <div class="posts-list">
 <h1 class="posts-list-caption" data-caption="Wrangling, Visualizing, Modelling, Communicating data">Wrangling, Visualizing, Modelling, Communicating data</h1>
-<a href="posts/2021-06-05-test-post/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
+<a href="posts/2021-06-15_demons-souls/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":[".Visualize","{ggplot2}","{ggfx}","{magick}"]}</script>
 <div class="metadata">
-<div class="publishedDate">June 5, 2021</div>
+<div class="publishedDate">June 15, 2021</div>
 </div>
 <div class="thumbnail">
-<img src="posts/2021-06-05-test-post/test-post_files/figure-html5/unnamed-chunk-4-1.png"/>
+<img src="posts/2021-06-15_demons-souls/demons_souls_files/figure-html5/final-plot-1.png"/>
 </div>
 <div class="description">
-<h2>Data from the Beast with One Billion Backs</h2>
-<div class="dt-tags"></div>
-<p>A short description of the post.</p>
+<h2>Go forth, slayer of Demons</h2>
+<div class="dt-tags">
+<div class="dt-tag">.Visualize</div>
+<div class="dt-tag">{ggplot2}</div>
+<div class="dt-tag">{ggfx}</div>
+<div class="dt-tag">{magick}</div>
+</div>
+<p>Blending {ggplot2} geoms with {ggfx} and other {magick} tricks.</p>
 </div>
 </a>
+</div>
+<div class="posts-sidebar">
+<div class="sidebar-section categories">
+<h3>Categories</h3>
+<ul>
+<li>
+<a href="#category:Articles">Articles</a>
+<span class="category-count">(1)</span>
+</li>
+<li>
+<a href="#category:.Visualize">.Visualize</a>
+<span class="category-count">(1)</span>
+</li>
+<li>
+<a href="#category:{ggfx}">{ggfx}</a>
+<span class="category-count">(1)</span>
+</li>
+<li>
+<a href="#category:{ggplot2}">{ggplot2}</a>
+<span class="category-count">(1)</span>
+</li>
+<li>
+<a href="#category:{magick}">{magick}</a>
+<span class="category-count">(1)</span>
+</li>
+</ul>
+</div>
 </div>
 <div class="posts-more">
 <a href="#">More articles &raquo;</a>

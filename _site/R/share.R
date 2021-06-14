@@ -73,5 +73,6 @@ compose_twitter_card <- function(path,
   image_composite(hero_image, twitter_card, operator = "Over")
 }
 
-compose_twitter_card("_posts/2021-06-09_demons-souls/demons_souls_files/figure-html5/final-plot-output-1.png",
-                     resize = "height")
+compose_twitter_card("",
+                     resize = "height") %>%
+  image_write(path = , format = ".png")
