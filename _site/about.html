@@ -2125,6 +2125,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     --main-colour: #123C69; /* #214368; */
     --light-accent: #24639E; /* #557B9F; */
     --light-shade: #FFF5ED;
+    --chunk-variables: #111111;
+    --chunk-comments: #191F3D90; /* #5e5e5e */
+    --chunk-operators: #191F3D90; /* #5e5e5e */
+    --chunk-keywords: #247d9e; /* #007ba5 */
+    --chunk-functions: #24479e; /* #4758ab */
+    --chunk-strings: #20792a; /* #20794d */
+    --chunk-floats: #ba4a93; /* #ad0000 */
   }
 
   html {
@@ -2199,6 +2206,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
   }
 
+  summary {
+    cursor: pointer;
+  }
+
   /* Sidebar */
 
   .posts-sidebar a {
@@ -2247,45 +2258,75 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   /*-- CODE CHUNKS --*/
 
-  /*-- Code chunk box --*/
-  pre {
-    border-radius: .2rem;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    padding-right: 10px;
-  }
-
-  .sourceCode {
-    background-color: #DFE5ED;
-  }
-
-  /* Code chunk output */
-  code {
-    color: var(--light-accent);
-  }
-
-  /* Do not apply the code chunk output colour to other code */
-  code.sourceCode {
-    color: #111111;
-  }
-
+  /* In-text code should inherit the colour of the paragraph it's in */
   p code {
     color: inherit;
   }
 
+  /* Code chunk output */
+  d-article pre code {
+    color: var(--main-colour);
+  }
+
+  /* Code chunk box */
+  d-article div.sourceCode pre {
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 3px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 10px;
+    background-color: #E8ECF1; /* #DFE5ED */
+  }
+
+  /* Plain text and variables in chunks */
+  d-article div.sourceCode pre code,
+  d-article div.sourceCode pre code span.va {
+    color: var(--chunk-variables);
+  }
+
+  /* Comments in chunks */
+  d-article div.sourceCode pre code span.co {
+    color: var(--chunk-comments);
+  }
+
+  /* Operators in chunks */
+  d-article div.sourceCode pre code span.op {
+    color: var(--chunk-operators);
+  }
+
+  /* Library and function calls in chunks */
+  d-article div.sourceCode pre code span.kw {
+    color: var(--chunk-keywords);
+  }
+
+  /* Functions in chunks */
+  d-article div.sourceCode pre code span.fu {
+    color: var(--chunk-functions);
+  }
+
+  /* Strings in chunks */
+  d-article div.sourceCode pre code span.st {
+    color: var(--chunk-strings);
+  }
+
+  /* Numbers in chunks */
+  d-article div.sourceCode pre code span.fl {
+    color: var(--chunk-floats);
+  }
+
   /* Code chunk folding */
 
-  details.code-fold {
+  d-article details.code-fold {
     color: var(--dark-shade);
     font-family: var(--heading-font);
     font-size: var(--body-size) !important;
   }
 
-  details.code-fold summary:after {
+  d-article details.code-fold summary:after {
     content: "Show Code";
   }
 
-  details[open].code-fold summary:after {
+  d-article details[open].code-fold summary:after {
     content: "Hide Code";
   }
 
@@ -2293,46 +2334,42 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   /*-- Utterances --*/
 
-  details.comment-section {
+  d-appendix details.comment-section {
     color: var(--dark-shade-alpha);
     font-family: var(--heading-font);
     font-size: 15px !important;
   }
 
-  details.comment-section summary:after {
+  d-appendix details.comment-section summary:after {
     content: "Show";
   }
 
-  details[open].comment-section summary:after {
+  d-appendix details[open].comment-section summary:after {
     content: "Hide";
-  }
-
-  summary {
-    cursor: pointer;
   }
 
   .utterances {
     filter: brightness(95%) opacity(85%);
   }
 
-  /* Session Info */
+  /*-- Session Info --*/
 
-  details.session-info code {
+  d-appendix details.session-info code {
     color: var(--dark-shade-alpha);
     font-size: 0.8em !important;
   }
 
-  details.session-info {
+  d-appendix details.session-info {
     color: var(--dark-shade-alpha);
     font-family: var(--heading-font);
     font-size: 15px !important;
   }
 
-  details.session-info summary:after {
+  d-appendix details.session-info summary:after {
     content: "Show";
   }
 
-  details[open].session-info summary:after {
+  d-appendix details[open].session-info summary:after {
     content: "Hide";
   }</style>
   <style type="text/css">

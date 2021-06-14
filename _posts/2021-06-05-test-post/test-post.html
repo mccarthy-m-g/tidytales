@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["meta/testcard.png","test-post_files/anchor-4.2.2/anchor.min.js","test-post_files/bowser-1.9.3/bowser.min.js","test-post_files/distill-2.2.21/template.v2.js","test-post_files/figure-html5/unnamed-chunk-1-1.png","test-post_files/figure-html5/unnamed-chunk-2-1.png","test-post_files/header-attrs-2.7/header-attrs.js","test-post_files/jquery-1.11.3/jquery.min.js","test-post_files/popper-2.6.0/popper.min.js","test-post_files/tippy-6.2.7/tippy-bundle.umd.min.js","test-post_files/tippy-6.2.7/tippy-light-border.css","test-post_files/tippy-6.2.7/tippy.css","test-post_files/tippy-6.2.7/tippy.umd.min.js","test-post_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["meta/testcard.png","test-post_files/anchor-4.2.2/anchor.min.js","test-post_files/bowser-1.9.3/bowser.min.js","test-post_files/distill-2.2.21/template.v2.js","test-post_files/figure-html5/unnamed-chunk-1-1.png","test-post_files/figure-html5/unnamed-chunk-2-1.png","test-post_files/figure-html5/unnamed-chunk-4-1.png","test-post_files/header-attrs-2.7/header-attrs.js","test-post_files/jquery-1.11.3/jquery.min.js","test-post_files/popper-2.6.0/popper.min.js","test-post_files/tippy-6.2.7/tippy-bundle.umd.min.js","test-post_files/tippy-6.2.7/tippy-light-border.css","test-post_files/tippy-6.2.7/tippy.css","test-post_files/tippy-6.2.7/tippy.umd.min.js","test-post_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1494,7 +1494,33 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <div class="d-article">
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="test-post_files/figure-html5/unnamed-chunk-2-1.png" width="624" data-distill-preview=1 /></p>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Some code comments reaaaaaaaaaaally long comments to test right padding of the chunky chunk</span>
+<span class='va'>some_function</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>arg</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='fl'>1</span> <span class='op'>+</span> <span class='va'>arg</span>
+<span class='op'>}</span>
+
+<span class='fu'>some_function</span><span class='op'>(</span>arg <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 5</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"Some strings"</span>, <span class='st'>"strings"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;Some stringsstrings&quot;</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
+
+<span class='va'>mtcars</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="test-post_files/figure-html5/unnamed-chunk-4-1.png" width="624" data-distill-preview=1 /></p>
 </div>
 <p>This is just a post to test out utterances on a live site.</p>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -1507,6 +1533,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <summary>
 </summary>
 </details>
+<h2 class="appendix" id="data-source">Data Source</h2>
+<p>Download the data used in this article with <code>tidytuesdayR::tt_load("2021-03-16")</code>.</p>
 <h2 class="appendix" id="session-info">Session Info</h2>
 <details class="session-info">
 <summary>
@@ -1528,22 +1556,26 @@ attached base packages:
 [7] base     
 
 other attached packages:
-[1] metathis_1.0.3
+[1] dplyr_1.0.4    metathis_1.0.3
 
 loaded via a namespace (and not attached):
- [1] fansi_0.5.0       digest_0.6.27     R6_2.5.0         
- [4] jsonlite_1.7.2    magrittr_2.0.1    evaluate_0.14    
- [7] highr_0.8         stringi_1.6.2     rlang_0.4.11     
-[10] jquerylib_0.1.3   bslib_0.2.4       vctrs_0.3.8      
-[13] rmarkdown_2.7     distill_1.2       tools_4.0.3      
-[16] stringr_1.4.0     purrr_0.3.4       xfun_0.23        
-[19] yaml_2.2.1        compiler_4.0.3    htmltools_0.5.1.1
-[22] knitr_1.31        downlit_0.2.1     sass_0.3.1       </code></pre>
+ [1] knitr_1.31        magrittr_2.0.1    tidyselect_1.1.0 
+ [4] downlit_0.2.1     R6_2.5.0          rlang_0.4.11     
+ [7] fansi_0.5.0       highr_0.8         stringr_1.4.0    
+[10] tools_4.0.3       xfun_0.23         utf8_1.2.1       
+[13] DBI_1.1.1         jquerylib_0.1.3   ellipsis_0.3.2   
+[16] htmltools_0.5.1.1 assertthat_0.2.1  yaml_2.2.1       
+[19] digest_0.6.27     tibble_3.1.2      lifecycle_1.0.0  
+[22] crayon_1.4.1      purrr_0.3.4       sass_0.3.1       
+[25] vctrs_0.3.8       distill_1.2       glue_1.4.2       
+[28] evaluate_0.14     rmarkdown_2.7     stringi_1.6.2    
+[31] pillar_1.6.1      compiler_4.0.3    bslib_0.2.4      
+[34] generics_0.1.0    jsonlite_1.7.2    pkgconfig_2.0.3  </code></pre>
 </div>
 </details>
 <h2 class="appendix" id="fair-dealing">Fair Dealing</h2>
 <p>Any of the trademarks, service marks, collective marks, design rights or similar rights that are mentioned, used, or cited in this article are the property of their respective owners. They are used here as fair dealing for the purpose of education in accordance with <a href="https://laws-lois.justice.gc.ca/eng/acts/c-42/page-8.html#h-103270">section 29 of the Copyright Act</a> and do not infringe copyright.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
