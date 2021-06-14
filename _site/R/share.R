@@ -63,12 +63,6 @@ get_hero_image <- function(path, resize, colour = "none") {
   image_composite(canvas, hero, operator = "Over", offset = offset_amount)
 }
 
-# twitter_card <- get_twitter_card("light")
-# hero_image <- get_hero_image("_posts/2021-06-09_demons-souls/demons_souls_files/figure-html5/final-plot-output-1.png",
-#                              resize = "height", colour = "#123C69")
-# # TODO: Combine all this into a single function
-# image_composite(hero_image, twitter_card, operator = "Over")
-
 # Function to create Twitter summary cards
 compose_twitter_card <- function(path,
                                  theme = "light",

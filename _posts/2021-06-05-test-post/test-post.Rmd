@@ -23,7 +23,6 @@ library(metathis)
 meta() %>%
   meta_social(
     title = "Tidy Tales: Data from the Beast with One Billion Backs",
-    description = "A short meta description of the post.",
     url = "https://tidytales.ca/posts/2021-06-05-test-post/",
     image = "https://tidytales.ca/posts/2021-06-05-test-post/meta/testcard.png",
     image_alt = "Tidy Tales logo",
