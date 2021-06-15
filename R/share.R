@@ -70,9 +70,15 @@ compose_twitter_card <- function(path,
   twitter_card <- get_twitter_card(theme)
   colour <- ifelse(theme == "light", "#123C69", "#FFF5ED")
   hero_image <- get_hero_image(path = path, resize = resize, colour = colour)
-  image_composite(hero_image, twitter_card, operator = "Over")
+  image_composite(hero_image, twitter_card, operator = "Over") %>%
+    image_flatten()
 }
 
-compose_twitter_card("",
-                     resize = "height") %>%
-  image_write(path = , format = ".png")
+compose_twitter_card(
+  path = "",
+  resize = "height"
+  ) %>%
+  image_write(
+    path = "",
+    format = "png"
+    )
