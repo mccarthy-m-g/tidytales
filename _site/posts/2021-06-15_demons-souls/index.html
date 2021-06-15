@@ -102,7 +102,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <meta property="og:type" content="article"/>
 <meta property="og:description" content="Blending {ggplot2} geoms with {ggfx} and other {magick} tricks."/>
 <meta property="og:url" content="https://tidytales.ca/posts/2021-06-15_demons-souls/"/>
-<meta property="og:image" content="https://tidytales.ca/posts/2021-06-15_demons-souls/demons_souls_files/figure-html5/final-plot-1.png"/>
+<meta property="og:image" content="https://tidytales.ca/posts/2021-06-15_demons-souls/demons-souls_files/figure-html5/final-plot-1.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="1650"/>
 <meta property="og:locale" content="en_US"/>
@@ -113,7 +113,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <meta property="twitter:title" content="Tidy Tales | Michael McCarthy: Go forth, slayer of Demons"/>
 <meta property="twitter:description" content="Blending {ggplot2} geoms with {ggfx} and other {magick} tricks."/>
 <meta property="twitter:url" content="https://tidytales.ca/posts/2021-06-15_demons-souls/"/>
-<meta property="twitter:image" content="https://tidytales.ca/posts/2021-06-15_demons-souls/demons_souls_files/figure-html5/final-plot-1.png"/>
+<meta property="twitter:image" content="https://tidytales.ca/posts/2021-06-15_demons-souls/demons-souls_files/figure-html5/final-plot-1.png"/>
 <meta property="twitter:image:width" content="1200"/>
 <meta property="twitter:image:height" content="1650"/>
 <meta property="twitter:site" content="@propertidytales"/>
@@ -135,7 +135,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["demons_souls_files/anchor-4.2.2/anchor.min.js","demons_souls_files/bowser-1.9.3/bowser.min.js","demons_souls_files/distill-2.2.21/template.v2.js","demons_souls_files/figure-html5/final-plot-1.png","demons_souls_files/figure-html5/final-plot-output-1.png","demons_souls_files/figure-html5/unnamed-chunk-10-1.png","demons_souls_files/figure-html5/unnamed-chunk-11-1.png","demons_souls_files/figure-html5/unnamed-chunk-12-1.png","demons_souls_files/figure-html5/unnamed-chunk-9-1.png","demons_souls_files/header-attrs-2.7/header-attrs.js","demons_souls_files/jquery-1.11.3/jquery.min.js","demons_souls_files/popper-2.6.0/popper.min.js","demons_souls_files/tippy-6.2.7/tippy-bundle.umd.min.js","demons_souls_files/tippy-6.2.7/tippy-light-border.css","demons_souls_files/tippy-6.2.7/tippy.css","demons_souls_files/tippy-6.2.7/tippy.umd.min.js","demons_souls_files/webcomponents-2.0.0/webcomponents.js","images/demon_destroyed.jpeg","images/demons_souls_plot.png","images/demons_souls_twittercard.png","images/logo.jpg","images/texture.png","images/you_died.jpeg"]}
+  {"type":"character","attributes":{},"value":["demons-souls_files/anchor-4.2.2/anchor.min.js","demons-souls_files/bowser-1.9.3/bowser.min.js","demons-souls_files/distill-2.2.21/template.v2.js","demons-souls_files/figure-html5/final-plot-1.png","demons-souls_files/figure-html5/final-plot-output-1.png","demons-souls_files/figure-html5/unnamed-chunk-10-1.png","demons-souls_files/figure-html5/unnamed-chunk-11-1.png","demons-souls_files/figure-html5/unnamed-chunk-12-1.png","demons-souls_files/figure-html5/unnamed-chunk-9-1.png","demons-souls_files/header-attrs-2.7/header-attrs.js","demons-souls_files/jquery-1.11.3/jquery.min.js","demons-souls_files/popper-2.6.0/popper.min.js","demons-souls_files/tippy-6.2.7/tippy-bundle.umd.min.js","demons-souls_files/tippy-6.2.7/tippy-light-border.css","demons-souls_files/tippy-6.2.7/tippy.css","demons-souls_files/tippy-6.2.7/tippy.umd.min.js","demons-souls_files/webcomponents-2.0.0/webcomponents.js","images/demon-destroyed.jpeg","images/demons-souls_card.png","images/demons-souls_plot.png","images/logo.jpg","images/texture.png","images/you-died.jpeg"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2559,18 +2559,19 @@ d-appendix d-footnote-list a.footnote-backlink {
   <script src="../../site_libs/header-attrs-2.7/header-attrs.js"></script>
   <meta name="twitter:title" content="Tidy Tales: Go forth, slayer of Demons"/>
   <meta name="twitter:url" content="https://tidytales.ca/posts/2021-06-15_demons-souls/"/>
-  <meta name="twitter:image:src" content="https://tidytales.ca/posts/2021-06-15_demons-souls/images/demons_souls_twittercard.png"/>
-  <meta name="twitter:image:alt" content="Tidy Tales logo"/>
+  <meta name="twitter:image:src" content="https://tidytales.ca/posts/2021-06-15_demons-souls/images/demons-souls_card.png"/>
+  <meta name="twitter:image:alt" content="Hero image of plot and Tidy Tales logo"/>
+  <meta name="twitter:image:width" content="1200"/>
+  <meta name="twitter:image:height" content="628"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:creator" content="@mccarthymg"/>
-  <meta name="twitter:site" content="@mccarthymg"/>
   <meta property="og:title" content="Tidy Tales: Go forth, slayer of Demons"/>
   <meta property="og:url" content="https://tidytales.ca/posts/2021-06-15_demons-souls/"/>
-  <meta property="og:image" content="https://tidytales.ca/posts/2021-06-15_demons-souls/images/demons_souls_twittercard.png"/>
-  <meta property="og:image:alt" content="Tidy Tales logo"/>
-  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://tidytales.ca/posts/2021-06-15_demons-souls/images/demons-souls_card.png"/>
+  <meta property="og:image:alt" content="Hero image of plot and Tidy Tales logo"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="628"/>
+  <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="article:author" content="Michael McCarthy"/>
   <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
   <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -2708,16 +2709,13 @@ an irrevocable poison<br />
 A soul-devouring demon</p>
 </blockquote>
 <p>Demon’s Souls is an action role-playing video game set in the dark fantasy kingdom of Boletaria, a land cursed with a deep, terrible fog brought forth by an ancient soul-devouring demon called the Old One. To lift the curse and mend the world players must slay and absorb the souls of five powerful archdemons, whereafter they can face the Old One and lull it back to slumber. Demon’s Souls is renowned for its challenge and design, and has made a lasting impact on the video game industry. It is also the progenitor of what has become one of my favourite video game franchises.</p>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
 <h2 id="theming-inspiration">Theming Inspiration</h2>
 <p>Hero text appears on the screen whenever the player performs a significant action in Demon’s Souls, such as slaying a demon or, infamously, dying themselves. These provide a great design reference for plot theming.</p>
 <!-- ------------------------------------------------------------------------------------------ -->
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span id="fig:hero-text"></span>
-<img src="images/demon_destroyed.jpeg" alt="In-game screenshots of the hero text from Demon’s Souls." width="100%" /><img src="images/you_died.jpeg" alt="In-game screenshots of the hero text from Demon’s Souls." width="100%" />
+<img src="images/demon-destroyed.jpeg" alt="In-game screenshots of the hero text from Demon’s Souls." width="100%" /><img src="images/you-died.jpeg" alt="In-game screenshots of the hero text from Demon’s Souls." width="100%" />
 <p class="caption">
 Figure 1: In-game screenshots of the hero text from Demon’s Souls.
 </p>
@@ -3226,7 +3224,7 @@ Umbassa.
 <p>Finally, I just wanted to note that the decorative lines around the plot’s title text are actually made up of ggplot2 geoms. I used two <code>ggplot2::geom_point()</code> geoms with different sizes to create the diamond on the bottom line.</p>
 <h2 id="final-graphic">Final Graphic</h2>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="demons_souls_files/figure-html5/final-plot-1.png" width="600" data-distill-preview=1 /></p>
+<p><img src="demons-souls_files/figure-html5/final-plot-1.png" width="600" data-distill-preview=1 /></p>
 </div>
 <h2 class="appendix" id="comments">Comments</h2>
 <details open class="comment-section">

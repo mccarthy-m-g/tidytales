@@ -22,7 +22,7 @@ output:
 
 ```{r setup, include=FALSE}
 # Ensure the project root is set up correctly using {here} --------------------
-here::i_am("_posts/2021-06-15_demons-souls/demons_souls.Rmd")
+here::i_am("_posts/2021-06-15_demons-souls/demons-souls.Rmd")
 
 # Load general set up packages used in all posts ------------------------------
 library(here)
@@ -47,12 +47,12 @@ meta() %>%
   meta_social(
     title = "Tidy Tales: Go forth, slayer of Demons",
     url = "https://tidytales.ca/posts/2021-06-15_demons-souls/",
-    image = "https://tidytales.ca/posts/2021-06-15_demons-souls/images/demons_souls_twittercard.png",
-    image_alt = "Tidy Tales logo",
-    og_type = "website",
-    og_author = "Michael McCarthy",
+    image = "https://tidytales.ca/posts/2021-06-15_demons-souls/images/demons-souls_card.png",
+    image_alt = "Hero image of plot and Tidy Tales logo",
+    image_width = 1200,
+    image_height = 628,
+    og_type = "article",
     twitter_card_type = "summary_large_image",
-    twitter_creator = "@mccarthymg"
   )
 ```
 
@@ -69,10 +69,6 @@ A soul-devouring demon
 
 Demon's Souls is an action role-playing video game set in the dark fantasy kingdom of Boletaria, a land cursed with a deep, terrible fog brought forth by an ancient soul-devouring demon called the Old One. To lift the curse and mend the world players must slay and absorb the souls of five powerful archdemons, whereafter they can face the Old One and lull it back to slumber. Demon's Souls is renowned for its challenge and design, and has made a lasting impact on the video game industry. It is also the progenitor of what has become one of my favourite video game franchises.
 
-```{r}
-
-```
-
 ## Theming Inspiration
 
 Hero text appears on the screen whenever the player performs a significant action in Demon's Souls, such as slaying a demon or, infamously, dying themselves. These provide a great design reference for plot theming.
@@ -84,11 +80,11 @@ Hero text appears on the screen whenever the player performs a significant actio
 knitr::include_graphics(c(here("_posts",
                              "2021-06-15_demons-souls",
                              "images",
-                             "demon_destroyed.jpeg"),
+                             "demon-destroyed.jpeg"),
                           here("_posts",
                              "2021-06-15_demons-souls",
                              "images",
-                             "you_died.jpeg"))
+                             "you-died.jpeg"))
                         )
 ```
 
