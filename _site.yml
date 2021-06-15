@@ -8,7 +8,8 @@ base_url: https://tidytales.ca
 favicon: inst/images/favicon.png
 google_analytics: "G-B377YMMZ69"
 twitter:
-  site: "@mccarthymg"
+  site: "@propertidytales"
+  creator: "@mccarthymg"
 
 navbar:
   logo:
