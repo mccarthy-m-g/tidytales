@@ -1,7 +1,14 @@
 library(tidytuesdayR)
 
-data_date <- "2021-03-16"
+# Search for available Tidy Tuesday data
+tt_available()
 
-tt_data <- tt_load("2019-01-15")
+# Load the data using the date it was released on
+data_date <- "yyyy-mm-dd"
+tt_data <- tt_load(data_date)
 
-games <- tt_data$games
+# Save all data from the selected Tidy Tuesday. Files should be named with the
+# following scheme: "data/yyyy-mm-dd_name.csv". If there are multiple files
+# then: "data/yyyy-mm-dd_name-dataset.csv".
+data_file <- tt_data$name
+write_csv(data_file, "data/yyyy-mm-dd_name.csv")
