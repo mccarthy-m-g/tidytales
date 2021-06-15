@@ -80,7 +80,7 @@ meta() %>%
 
 ## Data Source {.appendix}
 
-[Download](../../data/2021-06-15_demons-souls.csv) the data used in this article.
+Download the data used in this article with `tidytuesdayR::tt_load("yyyy-mm-dd")`.
 
 ## Session Info {.appendix}
 
