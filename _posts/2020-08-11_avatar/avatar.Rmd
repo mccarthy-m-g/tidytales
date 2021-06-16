@@ -44,12 +44,12 @@ meta() %>%
   meta_social(
     title = "Tidy Tales: ...",
     url = "https://tidytales.ca/posts/yyyy-mm-dd_post-name/",
-    image = "https://tidytales.ca/posts/yyyy-mm-dd_post-name/images/post-name_twittercard.png",
-    image_alt = "Tidy Tales logo",
-    og_type = "website",
-    og_author = "Michael McCarthy",
+    image = "https://tidytales.ca/posts/yyyy-mm-dd_post-name/images/post-name_card.png",
+    image_alt = "Hero image of plot and Tidy Tales logo",
+    image_width = 1200,
+    image_height = 628,
+    og_type = "article",
     twitter_card_type = "summary_large_image",
-    twitter_creator = "@mccarthymg"
   )
 ```
 
