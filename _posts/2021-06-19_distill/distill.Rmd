@@ -143,7 +143,7 @@ This preview image will be used alongside post listings and in social cards. How
 
 ```{r preview-card, opts.label='fig.graphic', fig.cap='(ref:preview-card)'}
 knitr::include_graphics(here("_posts",
-                             "2021-06-15_demons-souls",
+                             "2021-06-19_distill",
                              "images",
                              "demons-souls_card.png"
                              )
