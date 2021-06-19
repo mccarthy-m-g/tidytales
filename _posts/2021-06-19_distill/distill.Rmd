@@ -65,7 +65,7 @@ Tidy Tales is built using [Distill for R Markdown](https://rstudio.github.io/dis
 
 Distill comes equipped with a number of features to automatically enable richer sharing of article links on the web using [article metadata](https://rstudio.github.io/distill/metadata.html). However, some of these features are not available for non-article pages on distill blogs (such as link preview images for the home page), and the automatic behaviour of these features limits how much they can be customized. Both of these limitations can be overcome using the [**metathis**](https://pkg.garrickadenbuie.com/metathis/) package by [Garrick Aden-Buie](https://github.com/gadenbuie).
 
-Tom Mock has a great [blog post](https://themockup.blog/posts/2021-03-21-including-and-meta-tagging-extra-content-in-a-distill-blog/) diving into how metadata can be used to customize how links from a distill blog appear on social media. It's a great resource and I followed it to add metadata and preview images to the [home](../../index.html) and [about](../../about.html) pages of Tidy Tales.
+Tom Mock has a great [blog post](https://themockup.blog/posts/2021-03-21-including-and-meta-tagging-extra-content-in-a-distill-blog/) diving into how metadata can be used to customize how links from a distill blog appear on social media. It's a great resource and I followed it to add metadata and preview images to the [home](https://tidytales.ca) and [about](https://tidytales.ca/about.html) pages of Tidy Tales.
 
 Here is what the `index.Rmd` file for the Tidy Tales home page looks like.
 
@@ -136,10 +136,10 @@ ggplot(diamonds, aes(carat, price)) +
 ```
 ````
 
-This preview image will be used alongside post listings and in social cards. However, if a different image is specified in `metathis::meta_social()` that image will be used in social cards but the preview image specified in the post chunk will still be used alongside post listings. I'm using this on Tidy Tales to have branded images for social cards and plain images for post listings. Here's an example of the branded social card image from my [first post](../../_posts/2021-06-15_demons-souls/demons-souls.html).
+This preview image will be used alongside post listings and in social cards. However, if a different image is specified in `metathis::meta_social()` that image will be used in social cards but the preview image specified in the post chunk will still be used alongside post listings. I'm using this on Tidy Tales to have branded images for social cards and plain images for post listings. Here's an example of the branded social card image from my [first post](https://tidytales.ca/posts/2021-06-15_demons-souls/).
 
 <!-- ------------------------------------------------------------------------------------------ -->
-(ref:preview-card) The branded social card image for my first post. Copy the [post link](../../_posts/2021-06-15_demons-souls/demons-souls.html) into a tweet to see it in action.
+(ref:preview-card) The branded social card image for my first post. Copy the [post link](https://tidytales.ca/posts/2021-06-15_demons-souls/) into a tweet to see it in action.
 
 ```{r preview-card, opts.label='fig.graphic', fig.cap='(ref:preview-card)'}
 knitr::include_graphics(here("_posts",
