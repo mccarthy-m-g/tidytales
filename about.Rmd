@@ -17,9 +17,8 @@ meta() %>%
     image = "https://tidytales.ca/inst/images/twittercard.png",
     image_alt = "Tidy Tales logo",
     og_type = "website",
-    og_author = "Michael McCarthy",
     twitter_card_type = "summary",
-    twitter_creator = "@mccarthymg"
+    twitter_site = NULL
   )
 ```
 
