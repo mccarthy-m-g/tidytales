@@ -12,7 +12,20 @@
       <link>https://tidytales.ca</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 15 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 19 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>What's he building in there?</title>
+      <dc:creator>Michael McCarthy</dc:creator>
+      <link>https://tidytales.ca/posts/2021-06-19_distill</link>
+      <description>Customizing a {distill} website.</description>
+      <category>.Misc</category>
+      <category>{distill}</category>
+      <category>{distilltools}</category>
+      <category>{metathis}</category>
+      <guid>https://tidytales.ca/posts/2021-06-19_distill</guid>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://tidytales.ca/posts/2021-06-19_distill/images/distillclub.png" medium="image" type="image/png" width="2052" height="2373"/>
+    </item>
     <item>
       <title>Go forth, slayer of Demons</title>
       <dc:creator>Michael McCarthy</dc:creator>

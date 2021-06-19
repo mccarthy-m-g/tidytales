@@ -3,7 +3,7 @@
 /* Embed custom fonts */
 /* This must remain at the top of this file.                 */
 @import url('https://fonts.googleapis.com/css2?family=Fugaz+One');
-@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;500');
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500');
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;500');
 
 /*-- Main site colours --*/
@@ -15,9 +15,9 @@
   --main-colour: #123C69; /* #214368; */
   --light-accent: #24639E; /* #557B9F; */
   --light-shade: #FFF5ED;
-  --chunk-variables: #111111;
-  --chunk-comments: #191F3D90; /* #5e5e5e */
-  --chunk-operators: #191F3D90; /* #5e5e5e */
+  --chunk-variables: #191F3D; /* #111111 */
+  --chunk-comments: #73798b; /* #5e5e5e */
+  --chunk-operators: #73798b; /* #5e5e5e */
   --chunk-keywords: #247d9e; /* #007ba5 */
   --chunk-functions: #24479e; /* #4758ab */
   --chunk-strings: #20792a; /* #20794d */
@@ -136,6 +136,10 @@ p, ul, ol {
   font-weight: 300 !important;
 }
 
+strong {
+  font-weight: 500;
+}
+
 aside,
 .caption,
 d-appendix p {
@@ -144,6 +148,10 @@ d-appendix p {
 
 aside .caption {
   color: var(--dark-accent) !important;
+}
+
+.figure .caption a {
+  color: inherit;
 }
 
 /*-- CODE CHUNKS --*/
@@ -161,6 +169,7 @@ d-article pre code {
 
 /* Code chunk box */
 d-article div.sourceCode pre {
+  overflow: auto !important;
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 3px;
   padding-top: 8px;
@@ -171,7 +180,9 @@ d-article div.sourceCode pre {
 
 /* Plain text and variables in chunks */
 d-article div.sourceCode pre code,
-d-article div.sourceCode pre code span.va {
+d-article div.sourceCode pre code span.va,
+d-article div.sourceCode pre code span.bu,
+d-article div.sourceCode pre code span.at {
   color: var(--chunk-variables);
 }
 
@@ -201,7 +212,11 @@ d-article div.sourceCode pre code span.st {
 }
 
 /* Numbers in chunks */
-d-article div.sourceCode pre code span.fl {
+d-article div.sourceCode pre code span.fl,
+d-article div.sourceCode pre code span.al,
+d-article div.sourceCode pre code span.dt,
+d-article div.sourceCode pre code span.dv,
+d-article div.sourceCode pre code span.pp {
   color: var(--chunk-floats);
 }
 

@@ -2,11 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
     <loc>https://tidytales.ca/about.html</loc>
-    <lastmod>2021-06-13T15:26:33-06:00</lastmod>
+    <lastmod>2021-06-19T15:48:32-06:00</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/</loc>
-    <lastmod>2021-06-13T15:00:04-06:00</lastmod>
+    <lastmod>2021-06-18T20:00:28-06:00</lastmod>
+  </url>
+  <url>
+    <loc>https://tidytales.ca/posts/2021-06-19_distill/</loc>
+    <lastmod>2021-06-19T16:26:36-06:00</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/posts/2021-06-15_demons-souls/</loc>

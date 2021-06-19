@@ -2115,7 +2115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   /* Embed custom fonts */
   /* This must remain at the top of this file.                 */
   @import url('https://fonts.googleapis.com/css2?family=Fugaz+One');
-  @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;500');
+  @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500');
   @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;500');
 
   /*-- Main site colours --*/
@@ -2127,9 +2127,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     --main-colour: #123C69; /* #214368; */
     --light-accent: #24639E; /* #557B9F; */
     --light-shade: #FFF5ED;
-    --chunk-variables: #111111;
-    --chunk-comments: #191F3D90; /* #5e5e5e */
-    --chunk-operators: #191F3D90; /* #5e5e5e */
+    --chunk-variables: #191F3D; /* #111111 */
+    --chunk-comments: #73798b; /* #5e5e5e */
+    --chunk-operators: #73798b; /* #5e5e5e */
     --chunk-keywords: #247d9e; /* #007ba5 */
     --chunk-functions: #24479e; /* #4758ab */
     --chunk-strings: #20792a; /* #20794d */
@@ -2248,6 +2248,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     font-weight: 300 !important;
   }
 
+  strong {
+    font-weight: 500;
+  }
+
   aside,
   .caption,
   d-appendix p {
@@ -2256,6 +2260,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   aside .caption {
     color: var(--dark-accent) !important;
+  }
+
+  .figure .caption a {
+    color: inherit;
   }
 
   /*-- CODE CHUNKS --*/
@@ -2273,6 +2281,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   /* Code chunk box */
   d-article div.sourceCode pre {
+    overflow: auto !important;
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 3px;
     padding-top: 8px;
@@ -2283,7 +2292,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   /* Plain text and variables in chunks */
   d-article div.sourceCode pre code,
-  d-article div.sourceCode pre code span.va {
+  d-article div.sourceCode pre code span.va,
+  d-article div.sourceCode pre code span.bu,
+  d-article div.sourceCode pre code span.at {
     color: var(--chunk-variables);
   }
 
@@ -2313,7 +2324,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   }
 
   /* Numbers in chunks */
-  d-article div.sourceCode pre code span.fl {
+  d-article div.sourceCode pre code span.fl,
+  d-article div.sourceCode pre code span.al,
+  d-article div.sourceCode pre code span.dt,
+  d-article div.sourceCode pre code span.dv,
+  d-article div.sourceCode pre code span.pp {
     color: var(--chunk-floats);
   }
 
@@ -2537,8 +2552,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <meta name="twitter:image:src" content="https://tidytales.ca/inst/images/twittercard.png"/>
   <meta name="twitter:image:alt" content="Tidy Tales logo"/>
   <meta name="twitter:card" content="summary"/>
-  <meta name="twitter:creator" content="@mccarthymg"/>
-  <meta name="twitter:site" content="@mccarthymg"/>
   <meta property="og:title" content="Tidy Tales"/>
   <meta property="og:description" content="Wrangling, Visualizing, Modelling, Communicating data"/>
   <meta property="og:url" content="https://tidytales.ca"/>
@@ -2546,7 +2559,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <meta property="og:image:alt" content="Tidy Tales logo"/>
   <meta property="og:type" content="website"/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="article:author" content="Michael McCarthy"/>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2767,6 +2779,25 @@ function init_posts_list() {
 <div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
 <div class="posts-list">
 <h1 class="posts-list-caption" data-caption="Wrangling, Visualizing, Modelling, Communicating data">Wrangling, Visualizing, Modelling, Communicating data</h1>
+<a href="posts/2021-06-19_distill/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":[".Misc","{distill}","{distilltools}","{metathis}"]}</script>
+<div class="metadata">
+<div class="publishedDate">June 19, 2021</div>
+</div>
+<div class="thumbnail">
+<img src="posts/2021-06-19_distill/images/distillclub.png"/>
+</div>
+<div class="description">
+<h2>What's he building in there?</h2>
+<div class="dt-tags">
+<div class="dt-tag">.Misc</div>
+<div class="dt-tag">{distill}</div>
+<div class="dt-tag">{distilltools}</div>
+<div class="dt-tag">{metathis}</div>
+</div>
+<p>Customizing a {distill} website.</p>
+</div>
+</a>
 <a href="posts/2021-06-15_demons-souls/" class="post-preview">
 <script class="post-metadata" type="text/json">{"categories":[".Visualize","{ggplot2}","{ggfx}","{magick}"]}</script>
 <div class="metadata">
@@ -2793,10 +2824,22 @@ function init_posts_list() {
 <ul>
 <li>
 <a href="#category:Articles">Articles</a>
+<span class="category-count">(2)</span>
+</li>
+<li>
+<a href="#category:.Misc">.Misc</a>
 <span class="category-count">(1)</span>
 </li>
 <li>
 <a href="#category:.Visualize">.Visualize</a>
+<span class="category-count">(1)</span>
+</li>
+<li>
+<a href="#category:{distill}">{distill}</a>
+<span class="category-count">(1)</span>
+</li>
+<li>
+<a href="#category:{distilltools}">{distilltools}</a>
 <span class="category-count">(1)</span>
 </li>
 <li>
@@ -2809,6 +2852,10 @@ function init_posts_list() {
 </li>
 <li>
 <a href="#category:{magick}">{magick}</a>
+<span class="category-count">(1)</span>
+</li>
+<li>
+<a href="#category:{metathis}">{metathis}</a>
 <span class="category-count">(1)</span>
 </li>
 </ul>
