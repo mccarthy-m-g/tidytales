@@ -1,6 +1,6 @@
 ---
 draft: true
-title: "Data from the Borderlands"
+title: "Tales from the Borderlands"
 description: |
   Post-processing plots with {magick}.
 author:
@@ -37,6 +37,22 @@ knitr::opts_template$set(
   fig.graphic = list(echo = FALSE),
   no.message = list(message = FALSE, warning = FALSE)
 )
+```
+
+```{r meta, include=FALSE, results='asis'}
+library(metathis)
+
+meta() %>%
+  meta_social(
+    title = "Tidy Tales: ...",
+    url = "https://tidytales.ca/posts/yyyy-mm-dd_post-name/",
+    image = "https://tidytales.ca/posts/yyyy-mm-dd_post-name/images/post-name_card.png",
+    image_alt = "Hero image of plot and Tidy Tales logo",
+    image_width = 1200,
+    image_height = 628,
+    og_type = "article",
+    twitter_card_type = "summary_large_image",
+  )
 ```
 
 ## Overview
