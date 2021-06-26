@@ -130,6 +130,10 @@ Outer Wilds uses its physics realism to great effect in other parts of the game 
 
 ```{r requirements-setup}
 library(tidyverse)
+library(gganimate)
+library(ggtext)
+library(formattable)
+library(glue)
 ```
 
 I'll be simulating data for my plot by turning the equations for projectile motion into R functions. You can [download this data](#data-source) with the Data Source link in the appendix. The [sources](#references) I used for the equations can also be found in the appendix.
@@ -207,7 +211,8 @@ where $V_x$ is the horizontal velocity and $t$ is the time of flight. The range 
 
 ```{r distance}
 distance <- function(velocity_x, velocity_y, height, gravity = 9.80665) {
-  velocity_x * ( velocity_y + sqrt(velocity_y^2 + 2 * gravity * height) ) / gravity
+  velocity_x * ( velocity_y + sqrt(velocity_y^2 + 2 * gravity * height) ) /
+  gravity
 }
 ```
 
@@ -290,7 +295,136 @@ projectile_motion <- function(velocity, angle, height, gravity = 9.80665, nframe
 
 ### Wrangle
 
-Create some different trajectories
+Instead of jumping straight into a visualization, I want to play around with the output of `projectile_motion()`. First to show what its output looks like, and second to explore the interesting ways it can be extended through wrangling.
+
+#### A simple trajectory
+
+First off, demonstrating `projectile_motion()` and its output. The function takes five arguments:
+
+- `velocity` in metres per second,
+- `angle` in degrees,
+- `height` in metres per second,
+- `gravity` in metres per second (this defaults to Earth's gravity, 9.80665 m/s), and
+- `nframes` which represents how many points in time to record in the trajectory data frame. 
+
+```{r simple-trajectory}
+projectile_motion(
+  velocity = 11.4,
+  angle = 52.1,
+  height = 18,
+  nframes = 10
+)
+```
+
+The function returns calculations for each of the projectile motion equations I covered above, as well as some additional output that can be used for plotting and animation:
+
+- `max_height_time` and `max_height_dist` give the time (s) and distance (m) it takes for the projectile to reach its maximum height.
+- `trajectory` gives the horizontal and vertical position and velocity at a given moment during the projectile's trajectory.
+- `fps` gives the number of frames per second that are needed to animate the trajectory in real time based on `nframes`. Because it is impossible to have a fraction of a frame there will be variance in how closely an animation's duration matches the actual time of flight based on the value of `nframes`.
+
+#### Launching a projectile on different planets
+
+Given the inspiration for this post, a space themed simulation seems appropriate. Here I want to test how the gravity of each planet in our solar system influences projectile motion, given a projectile is launched with the same velocity, angle, and height.
+
+First I need to construct a named vector of the [gravity of each planet](https://nssdc.gsfc.nasa.gov/planetary/factsheet/planet_table_ratio.html) in our solar system. NASA provides these values came as ratios of each planet's gravity relative to Earth, so I had to multiply each one by Earth's gravity to get the units correct.
+
+```{r planets-gravity}
+# All values are in metres per second
+planets <- c(
+  mercury = 3.7069137,
+  venus   = 8.8946315,
+  earth   = 9.80665,
+  moon    = 1.6279039,
+  mars    = 3.697107,
+  jupiter = 23.143694,
+  saturn  = 8.9828914,
+  uranus  = 8.7181118,
+  neptune = 10.983448,
+  pluto   = 0.6962721
+)
+```
+
+Then I can create a named list of projectile motion calculations, one for each planet. Each planet has its own list of output from `projectile_motion()`, so the resulting list of projectile motion calculations is actually a list of lists. This can be tidied into a tibble to make it easier to work with.
+
+```{r planets-pm}
+# Calculate projectile motion for each planet, given the same velocity,
+# angle, and height
+planets_pm <- map(planets, ~{
+  projectile_motion(velocity = 20, angle = 45, height = 35, gravity = .x)
+})
+
+# Tidying the list of lists into a tibble makes it easier to work with. Note
+# that the trajectory column is a list column since it contains the trajectory
+# data frame for each planet.
+planets_df <- planets_pm %>%
+  enframe() %>%
+  unnest_wider(value)
+
+planets_df
+```
+
+#### bouncing ball
+
+This can be done by simulating the same motion multiple times, but with reduced velocity and height = 0 for each subsequent bounce, stopping when there isn't any more bouncing. Each simulation will have its own time span starting from 0, so the first bounce will need to take the last time point from the initial trajectory (maybe with a slight addition of time since the landing downwards and bounce upwards aren't simultaneous) and add that to the time on each of its rows; this process would repeat with each subsequent bounce.
+
+https://en.m.wikipedia.org/wiki/Bouncing_ball
+https://en.m.wikipedia.org/wiki/Coefficient_of_restitution
+
+```{r}
+velocity <- 5
+x <- velocity
+repeat {
+  velocity <- velocity * 0.5
+  if (velocity <= 0) {
+    break
+  }
+  x <- c(x, velocity)
+}
+
+initial_pm <- projectile_motion(velocity = 5, angle = 60, height = 1.83)
+
+initial_pm %>%
+  bind_rows()
+```
+
+
+```{r}
+velocity <- 5
+height   <- 1.83
+
+pm_list <- list()
+v <- NULL
+i <- 1
+
+repeat {
+  
+  pm <- projectile_motion(velocity = velocity, angle = 60, height = height)
+  if (pm$max_height <= 0.01) { # this value can be tweaked to get one that works nice
+    break
+  }
+  height <- 0
+  velocity <- velocity * 0.5
+  
+  pm_list[[i]] <- pm
+  names(pm_list)[[i]] <- paste0("launch_", i)
+  
+  v[i] <- velocity
+  i <- i + 1
+}
+
+pm_df <- pm_list %>%
+  enframe() %>%
+  unnest_wider(value)
+```
+
+This is clearly wrong. I probably have to do the calculations based on the vertical velocity rather than the velocity 
+
+```{r}
+ggplot(mapping = aes(x, y)) +
+  geom_line(data = pm_list$launch_1$trajectory) +
+  geom_line(data = pm_list$launch_2$trajectory) +
+  geom_line(data = pm_list$launch_3$trajectory)
+```
 
 ```{r}
 
@@ -298,15 +432,147 @@ Create some different trajectories
 
 ### Visualize
 
+#### Simple trajectory
+
+```{r}
+simple_trajectory <- projectile_motion(
+  velocity = 11.4,
+  angle = 52.1,
+  height = 18,
+  nframes = 100
+)
+
+df <- simple_trajectory$trajectory
+#df_copy <- select(df, -second)
+max_height_dist <- simple_trajectory$max_height_dist
+max_height <- simple_trajectory$max_height
+
+# FIXME: For whatever reason the code for the velocity subtitle only works when there
+# are a high number of frames in the data. For example, if nframes is 10 ten then
+# this `{formattable(df$vy[df$second == frame_time], digits = 2, format = 'f')}`
+# throws an error.
+ggplot(df, aes(x = x, y = y)) +
+  #geom_vline(xintercept = max_height_dist) +
+  geom_line(
+    aes(group = 1),
+    linetype = "dashed",
+    colour = "red",
+    alpha = 0.5
+  ) +
+  geom_point(aes(group = 1)) +
+  geom_curve(
+    data = data.frame(
+      second = simple_trajectory$max_height_time
+    ),
+    aes(
+      xend = max_height_dist,
+      yend = max_height + 0.2,
+      x = max_height_dist + 2,
+      y = max_height + 2,
+      group = 2
+    ),
+    curvature = 0.45,
+    angle = 105,
+    ncp = 15,
+    arrow = arrow(length = unit(0.1,"cm"))
+  ) +
+  geom_text(
+    data = data.frame(
+      second = simple_trajectory$max_height_time
+    ),
+    aes(
+      x = max_height_dist + 2.4,
+      y = max_height + 2,
+      group = 2
+    ),
+    hjust = "left",
+    lineheight = 1,
+    family = "serif",
+    label = "At its maximum height, the vertical \nvelocity of the projectile is 0 m/s."
+  ) +
+  labs(
+    title = "Projectile motion",
+    subtitle = str_c(
+      "Time (s): ",
+      "{formattable(frame_along, digits = 2, format = 'f')}",
+      " | ",
+      "Velocity<sub>y</sub> (m/s): ",
+      "{formattable(df$vy[df$second == frame_along], digits = 2, format = 'f')}"
+    ),
+    x = "Distance (m)",
+    y = "Height (m)",
+    caption = "Graphic: Michael McCarthy"
+  ) +
+  coord_cartesian(clip = "off") +
+  ggthemes::geom_rangeframe(data = data.frame(x = 0:25, y = 0:25), aes(x = x, y = y, group = 3)) +
+  ggthemes::theme_tufte() +
+  theme(plot.subtitle = element_markdown()) +
+  transition_reveal(second) +
+  ease_aes('linear') +
+  enter_fade()
+```
+
+
+```{r}
+ggplot(df, aes(x = x, y = y)) +
+  #geom_vline(xintercept = max_height_dist, size = 0.25) +
+  geom_line(
+    aes(group = 1),
+    linetype = "dashed",
+    colour = "red",
+    alpha = 0.1
+  ) +
+  #geom_point(aes(group = 1)) +
+  geom_curve(
+    data = data.frame(
+      x = max_height_dist + 2,
+      y = max_height + 2,
+      second = simple_trajectory$max_height_time
+    ),
+    aes(
+      xend = max_height_dist,
+      yend = max_height + 0.2,
+      x = x,
+      y = y,
+      group = 2
+    ),
+    curvature = 0.45,
+    angle = 105,
+    ncp = 15,
+    arrow = arrow(length = unit(0.1,"cm"))
+  ) +
+  geom_text(
+    data = data.frame(
+      second = simple_trajectory$max_height_time
+    ),
+    aes(
+      x = max_height_dist + 2.4,
+      y = max_height + 2
+    ),
+    hjust = "left",
+    lineheight = 1,
+    family = "serif",
+    label = "At its maximum height, the vertical \nvelocity of the projectile is 0 m/s."
+  ) +
+  coord_cartesian(clip = "off") +
+  ggthemes::geom_rangeframe(data = data.frame(x = 0:25, y = 0:25), aes(x = x, y = y, group = 2)) +
+  ggthemes::theme_tufte()
+```
+
+
+
+
+
+
+
+***
+
 approximate real time.
 
 note: for the static line to work it seems like the time variable cannot be present in the dataframe used to plot the line. https://github.com/thomasp85/gganimate/issues/94
 
 ```{r, eval=FALSE}
-library(glue)
-library(formattable)
-library(gganimate)
-library(ggtext)
+
 test_trajectory <- projectile_motion(11.4, 52.1, 18, nframes = 100)
 test_trajectory2 <- select(test_trajectory$trajectory, x, y, vy)
 
