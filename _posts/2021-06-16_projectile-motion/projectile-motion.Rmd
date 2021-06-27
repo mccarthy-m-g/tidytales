@@ -350,7 +350,12 @@ Then I can create a named list of projectile motion calculations, one for each p
 # Calculate projectile motion for each planet, given the same velocity,
 # angle, and height
 planets_pm <- map(planets, ~{
-  projectile_motion(velocity = 20, angle = 45, height = 35, gravity = .x)
+  projectile_motion(
+    velocity = 20,
+    angle = 45,
+    height = 35,
+    gravity = .x,
+    nframes = 100)
 })
 
 # Tidying the list of lists into a tibble makes it easier to work with. Note
@@ -358,12 +363,18 @@ planets_pm <- map(planets, ~{
 # data frame for each planet.
 planets_df <- planets_pm %>%
   enframe() %>%
-  unnest_wider(value)
+  unnest_wider(value) %>%
+  rename(planet = name)
 
-planets_df
+planets_trajectory <- planets_df %>%
+  select(planet, trajectory) %>%
+  unnest(trajectory)
 ```
 
 #### bouncing ball
+
+I think cutting the bounce example is a good idea
+
 
 This can be done by simulating the same motion multiple times, but with reduced velocity and height = 0 for each subsequent bounce, stopping when there isn't any more bouncing. Each simulation will have its own time span starting from 0, so the first bounce will need to take the last time point from the initial trajectory (maybe with a slight addition of time since the landing downwards and bounce upwards aren't simultaneous) and add that to the time on each of its rows; this process would repeat with each subsequent bounce.
 
@@ -432,9 +443,11 @@ ggplot(mapping = aes(x, y)) +
 
 ### Visualize
 
-#### Simple trajectory
+#### A simple trajectory
 
-```{r}
+This is the same simple trajectory I showed the output for earlier, only with more frames to make the animation smoother.
+
+```{r simple-trajectory-data}
 simple_trajectory <- projectile_motion(
   velocity = 11.4,
   angle = 52.1,
@@ -442,27 +455,36 @@ simple_trajectory <- projectile_motion(
   nframes = 100
 )
 
+# Assign the data frame and max height parameters to objects to make the plot
+# code easier to read
 df <- simple_trajectory$trajectory
-#df_copy <- select(df, -second)
 max_height_dist <- simple_trajectory$max_height_dist
+max_height_time <- simple_trajectory$max_height_time
 max_height <- simple_trajectory$max_height
+```
 
-# FIXME: For whatever reason the code for the velocity subtitle only works when there
-# are a high number of frames in the data. For example, if nframes is 10 ten then
-# this `{formattable(df$vy[df$second == frame_time], digits = 2, format = 'f')}`
-# throws an error.
-ggplot(df, aes(x = x, y = y)) +
-  #geom_vline(xintercept = max_height_dist) +
+I'm going to build the plot for this simple trajectory up in chunks to make the code easier to understand. The foundation of the plot is fairly standard. The only unusual thing here are the `group` aesthetics in `geom_line()` and `geom_point()`. These are used to tell `gganimate` which rows in the data correspond to the same graphic element.
+
+```{r}
+p <- ggplot(df, aes(x = x, y = y)) +
   geom_line(
     aes(group = 1),
     linetype = "dashed",
     colour = "red",
     alpha = 0.5
   ) +
-  geom_point(aes(group = 1)) +
+  geom_point(aes(group = 1), size = 2)
+```
+
+For the data I simulated, the projectile starts with a positive vertical velocity. However, at its maximum height, the vertical velocity of the projectile becomes 0 m/s for a brief moment, as it stops rising and starts falling. This happens Because gravity is constantly influencing the vertical velocity of the projectile. This is an important an interesting piece of information I want to communicate in my plot. This can be accomplished subtly by displaying the vertical velocity of the projectile at each point in time, or more overtly using a text annotation. I'm going to do both.
+
+First the text annotation. I'm using `geom_curve()` to draw an arrow between the annotation and the point at which the projectile is at its maximum height, and `geom_text()` to draw the annotation. I've supplied each geom with its own data frame containing a `second` column whose sole value corresponds to the time the projectile reaches its maximum height. This will control when the annotation appears in the animation. I've also given the pair a different `group` aesthetic from `geom_line()` and `geom_point()`.
+
+```{r}
+p <- p +
   geom_curve(
     data = data.frame(
-      second = simple_trajectory$max_height_time
+      second = max_height_time
     ),
     aes(
       xend = max_height_dist,
@@ -474,11 +496,11 @@ ggplot(df, aes(x = x, y = y)) +
     curvature = 0.45,
     angle = 105,
     ncp = 15,
-    arrow = arrow(length = unit(0.1,"cm"))
+    arrow = arrow(length = unit(0.1,"cm"), type = "closed")
   ) +
   geom_text(
     data = data.frame(
-      second = simple_trajectory$max_height_time
+      second = max_height_time
     ),
     aes(
       x = max_height_dist + 2.4,
@@ -488,79 +510,117 @@ ggplot(df, aes(x = x, y = y)) +
     hjust = "left",
     lineheight = 1,
     family = "serif",
-    label = "At its maximum height, the vertical \nvelocity of the projectile is 0 m/s."
-  ) +
+    label = str_c(
+      "At its maximum height, the vertical velocity \n", 
+      "of the projectile is 0 m/s for a brief moment, \n",
+      "as it stops rising and starts falling."
+    )
+  )
+```
+
+Second the vertical velocity. I'm displaying this in the plot's subtitle along with the time elapsed since the projectile was launched. The displayed values are updated each frame using the value returned by the expression enclosed in glue braces for a frame. The variable `frame_along` is made available by `gganimate::transition_along()` (see below) and gives the position on the along-dimension (time in seconds in this case) that a frame corresponds to. Here I'm using `frame_along` to display the elapsed time, and to index the data frame `df` for the vertical velocity at a given second. The latter is a slight workaround because `vy` cannot be accessed directly in the glue braces.
+
+```{r}
+p <- p +
   labs(
-    title = "Projectile motion",
+    title = str_c(
+      "Projectile motion of an object launched with ",
+      #" <br> ",
+      "a speed of 11.4 m/s at an angle of 52.1°"
+    ),
     subtitle = str_c(
-      "Time (s): ",
-      "{formattable(frame_along, digits = 2, format = 'f')}",
-      " | ",
-      "Velocity<sub>y</sub> (m/s): ",
-      "{formattable(df$vy[df$second == frame_along], digits = 2, format = 'f')}"
+      "Time: ",
+      "{formattable(frame_along, digits = 2, format = 'f')}s",
+      " <br> ",
+      "Velocity<sub>y</sub> = ",
+      "{formattable(df$vy[df$second == frame_along], digits = 2, format = 'f')}",
+      " m/s"
     ),
     x = "Distance (m)",
     y = "Height (m)",
     caption = "Graphic: Michael McCarthy"
-  ) +
+  )
+```
+
+Now for theming. I wanted something minimalistic with a scientific feel---the Tufte theme paired with `geom_rangeframe()` from ggthemes does this nicely. To correctly draw `geom_rangeframe()` I've set `clip` to off in `coord_cartesian()`, as the function's documentation recommends. Finally, `element_markdown()` from ggtext is being used to enable markdown text in in the title and subtitle in the plot. I'm using this to get subscripts and line breaks.
+
+<aside>
+I also tried base R methods to get line breaks and subscripts but they did not work along with gganimate. I like the ggtext syntax better anyways, but felt it was worth noting this.
+</aside>
+
+```{r}
+p <- p +
   coord_cartesian(clip = "off") +
   ggthemes::geom_rangeframe(data = data.frame(x = 0:25, y = 0:25), aes(x = x, y = y, group = 3)) +
   ggthemes::theme_tufte() +
-  theme(plot.subtitle = element_markdown()) +
-  transition_reveal(second) +
-  ease_aes('linear') +
-  enter_fade()
+  theme(
+    plot.title = element_markdown(),
+    plot.subtitle = element_markdown(lineheight = 1.2)
+  )
 ```
 
+And finally, the animation code. Yes, that's it. Animations can be tweaked and spiced up with [other functions](https://gganimate.com/reference/index.html) in gganimate, but I [ran into issues](https://github.com/thomasp85/gganimate/issues/445) making the ones I wanted to use work with `transition_reveal()`.
 
 ```{r}
-ggplot(df, aes(x = x, y = y)) +
-  #geom_vline(xintercept = max_height_dist, size = 0.25) +
-  geom_line(
-    aes(group = 1),
-    linetype = "dashed",
-    colour = "red",
-    alpha = 0.1
-  ) +
-  #geom_point(aes(group = 1)) +
-  geom_curve(
-    data = data.frame(
-      x = max_height_dist + 2,
-      y = max_height + 2,
-      second = simple_trajectory$max_height_time
-    ),
-    aes(
-      xend = max_height_dist,
-      yend = max_height + 0.2,
-      x = x,
-      y = y,
-      group = 2
-    ),
-    curvature = 0.45,
-    angle = 105,
-    ncp = 15,
-    arrow = arrow(length = unit(0.1,"cm"))
-  ) +
-  geom_text(
-    data = data.frame(
-      second = simple_trajectory$max_height_time
-    ),
-    aes(
-      x = max_height_dist + 2.4,
-      y = max_height + 2
-    ),
-    hjust = "left",
-    lineheight = 1,
-    family = "serif",
-    label = "At its maximum height, the vertical \nvelocity of the projectile is 0 m/s."
-  ) +
-  coord_cartesian(clip = "off") +
-  ggthemes::geom_rangeframe(data = data.frame(x = 0:25, y = 0:25), aes(x = x, y = y, group = 2)) +
-  ggthemes::theme_tufte()
+# FIXME: For whatever reason the code for the velocity subtitle only works when there
+# are 100 frames in the data. For example, if nframes is 10 ten then
+# this `{formattable(df$vy[df$second == frame_time], digits = 2, format = 'f')}`
+# throws an error.
+anim <- p +
+  transition_reveal(second)
 ```
 
+#### Launching a projectile on different planets
 
+```{r}
 
+#TODO: Generate random x, y, and size values that can be used for stars in the background. could also add a time dimension to make them twinkle. can use the diamond shape to make them look starlike
+# the shadowtext package or whatever it was could be used to add a glow effect to the propulsion or stars
+
+# Make it so the propulsion is only present for first half of animation
+planets_shadow <- planets_trajectory %>%
+  group_by(planet) %>%
+  mutate(retain = rep(c(TRUE, FALSE), each = 50)) %>%
+  ungroup() %>%
+  mutate(x = case_when(
+    retain == FALSE ~ NA_real_,
+    TRUE ~ x
+  ))
+
+#emojifont::load.fontawesome()
+p <- planets_trajectory %>%
+ggplot(aes(x = x, y = y)) +
+  geom_line(
+    aes(colour = planet, group = planet),
+    linetype = "dashed",
+    alpha = 0.5
+  ) +
+  geom_point(
+    data = planets_shadow,
+    aes(group = planet),
+    colour = "orange"
+  ) +
+  geom_text(
+    aes(colour = planet, group = planet, label = emojifont::fontawesome("fa-rocket")),
+    family='fontawesome-webfont',
+    angle = rep(seq(0, 45, length = 100), 10),
+    size = 6) +
+  scale_color_viridis_d() +
+  guides(colour = FALSE)
+
+anim <- p +
+  transition_reveal(second) +
+  shadow_wake(wake_length = 0.1, size = 2, exclude_layer = c(1, 3))
+
+# TODO: This is a good size for sharing on Twitter. I should note this down in the wiki
+animate(anim,
+        nframes = 100,
+        device = "ragg_png",
+        width = 960,
+        height = 540,
+        res = 300,
+        scaling = 0.5)
+```
 
 
 
