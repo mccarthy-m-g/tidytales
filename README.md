@@ -1,7 +1,7 @@
 # Tidy Tales <a href='https://tidytales.ca'><img src="inst/images/hexsticker.png" align="right" height="139"/></a>
 
 <!-- badges: start -->
-
+[![Writing Status: on hiatus](https://img.shields.io/badge/writing_status-on_hiatus-orange.svg)](https://tidytales.ca)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/2f583a6c-babe-4320-90b3-686fdcbb3c0e/deploy-status)](https://app.netlify.com/sites/tidytales/deploys)
 <!-- badges: end -->
 
