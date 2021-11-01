@@ -419,6 +419,17 @@ image_composite(image_read(plot_fill), plot_outline_layer)
 
 #image_composite(image_read(plot_fill), plot_outline_layer, operator = "CopyOpacity")
 ```
+https://www.ddrive.no/post/miracles-with-magick-and-bunny/
+https://stackoverflow.com/questions/19506630/control-point-border-thickness-in-ggplot
+https://imagemagick.org/script/gradient.php
+https://legacy.imagemagick.org/discourse-server/viewtopic.php?t=29867
+https://legacy.imagemagick.org/discourse-server/viewtopic.php?t=32877
+https://legacy.imagemagick.org/discourse-server/viewtopic.php?t=28214
+https://legacy.imagemagick.org/Usage/morphology/#thicken
+https://legacy.imagemagick.org/Usage/transform/#canny
+https://legacy.imagemagick.org/Usage/crop/
+https://cran.r-project.org/web/packages/magick/vignettes/intro.html
+https://stackoverflow.com/questions/36613033/conditionally-colouring-bars-in-ggplot2
 
 
 ```{r}
