@@ -573,7 +573,6 @@ anim <- p +
 #### Launching a projectile on different planets
 
 ```{r}
-
 #TODO: Generate random x, y, and size values that can be used for stars in the background. could also add a time dimension to make them twinkle. can use the diamond shape to make them look starlike
 # the shadowtext package or whatever it was could be used to add a glow effect to the propulsion or stars
 
@@ -586,7 +585,74 @@ planets_shadow <- planets_trajectory %>%
     retain == FALSE ~ NA_real_,
     TRUE ~ x
   ))
+```
 
+
+```{r}
+test_data <- planets_trajectory %>%
+  filter(planet == "earth")
+
+set.seed(43)
+
+x <- 0:149
+y <- rnorm(150, 75, 1)
+
+star_background <- tibble(
+  x = rep(x, 100),
+  y = rep(y, 100),
+  size = rep(sample(c(1, 1.5), 150, prob = c(0.75, 0.5), replace = TRUE), 100),
+  alpha = rep(rnorm(150, 0.5, 0.5), 100),
+  second = rep(test_data$second, each = 150)
+)
+
+ggplot(mapping = aes(x, y, group = 1)) +
+  geom_point(
+    data = star_background,
+    aes(size = size, alpha = alpha),
+    shape = 23,
+    colour = "white",
+    fill = "white"
+  ) +
+  scale_size_identity() +
+  scale_alpha_identity() +
+  theme_void() +
+  theme(plot.background = element_rect(fill = "black")) +
+  transition_states(second)
+```
+
+
+```{r}
+test_data <- planets_trajectory %>%
+  filter(planet == "earth" | planet == "mars")
+
+test_data %>%
+  group_by(planet) %>%
+  summarise(end = tail(second, 1))
+
+p <- test_data %>%
+  mutate(second = case_when(planet == "earth" ~ second,
+                            planet == "mars" ~ second + 4.48)
+  ) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_line(
+    aes(colour = planet, group = planet),
+    linetype = "dashed",
+    alpha = 0.5
+  ) +
+  geom_point(
+    aes(group = planet),
+    colour = "orange"
+  ) +
+  scale_color_viridis_d() +
+  guides(colour = "none")
+
+p +
+  transition_reveal(second)
+
+```
+
+
+```{r}
 #emojifont::load.fontawesome()
 p <- planets_trajectory %>%
 ggplot(aes(x = x, y = y)) +
