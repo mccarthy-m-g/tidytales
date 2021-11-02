@@ -1,0 +1,21 @@
+---
+title: "Snippets"
+listing: snippets
+---
+
+```{r, include=FALSE, results='asis'}
+library(metathis)
+
+meta() %>%
+  meta_social(
+    title = "Tidy Tales: Snippets",
+    description = "Wrangling, Visualizing, Modelling, Communicating data",
+    url = "https://tidytales.ca/snippets",
+    image = "https://tidytales.ca/inst/images/twittercard.png",
+    image_alt = "Tidy Tales logo",
+    og_type = "website",
+    twitter_card_type = "summary",
+    twitter_site = NULL
+  )
+```
+

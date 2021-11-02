@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Tidy Tales | Michael McCarthy</title>
+    <link>https://tidytales.ca</link>
+    <atom:link href="https://tidytales.ca/snippets.xml" rel="self" type="application/rss+xml"/>
+    <description>A data science blog about wrangling, visualizing, modelling, and communicating data.
+</description>
+    <image>
+      <title>Tidy Tales | Michael McCarthy</title>
+      <url>https://tidytales.ca/inst/images/favicon.png</url>
+      <link>https://tidytales.ca</link>
+    </image>
+    <generator>Distill</generator>
+    <lastBuildDate>Mon, 01 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Longitudinal Measurement Invariance</title>
+      <dc:creator>Michael McCarthy</dc:creator>
+      <link>https://tidytales.ca/snippets/2021-11-01_longitudinal-measurement-invariance</link>
+      <description>Testing longitudinal measurement invariance with {lavaan} and {semTools}.</description>
+      <category>.Model</category>
+      <category>{lavaan}</category>
+      <category>{semTools}</category>
+      <guid>https://tidytales.ca/snippets/2021-11-01_longitudinal-measurement-invariance</guid>
+      <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
