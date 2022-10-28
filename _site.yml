@@ -16,8 +16,10 @@ navbar:
     image: inst/images/logo.png
     href: index.html
   right:
-    - text: "Home"
+    - text: "Posts"
       href: index.html
+    - text: "Snippets"
+      href: snippets.html
     - text: "About"
       href: about.html
     - icon: fab fa-twitter

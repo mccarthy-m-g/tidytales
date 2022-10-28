@@ -150,6 +150,13 @@ aside .caption {
   color: var(--dark-accent) !important;
 }
 
+@media (min-width: 768px) {
+  d-article aside {
+    height: 0px;
+    overflow: visible;
+  }
+}
+
 .figure .caption a {
   color: inherit;
 }
