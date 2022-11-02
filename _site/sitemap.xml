@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://tidytales.ca/about.html</loc>
-    <lastmod>2021-06-19T14:48:32-07:00</lastmod>
+    <loc>https://tidytales.ca/snippets/2022-10-29_geomtextpath-with-ggdist/index.html</loc>
+    <lastmod>2022-11-02T00:52:02.949Z</lastmod>
   </url>
   <url>
-    <loc>https://tidytales.ca/</loc>
-    <lastmod>2021-06-18T19:00:28-07:00</lastmod>
+    <loc>https://tidytales.ca/snippets/2021-11-01_longitudinal-measurement-invariance/index.html</loc>
+    <lastmod>2022-11-02T00:52:05.266Z</lastmod>
   </url>
   <url>
-    <loc>https://tidytales.ca/snippets.html</loc>
-    <lastmod>2022-10-28T15:12:02-07:00</lastmod>
+    <loc>https://tidytales.ca/posts/2021-06-15_demons-souls/index.html</loc>
+    <lastmod>2022-11-02T00:52:07.809Z</lastmod>
   </url>
   <url>
-    <loc>https://tidytales.ca/posts/2021-06-19_distill/</loc>
-    <lastmod>2021-06-19T15:43:14-07:00</lastmod>
+    <loc>https://tidytales.ca/posts/2022-06-16_projectile-motion/index.html</loc>
+    <lastmod>2022-11-02T00:52:10.626Z</lastmod>
   </url>
   <url>
-    <loc>https://tidytales.ca/posts/2021-06-15_demons-souls/</loc>
-    <lastmod>2021-06-15T15:24:44-07:00</lastmod>
+    <loc>https://tidytales.ca/posts/2021-06-19_distill/index.html</loc>
+    <lastmod>2022-11-02T00:52:12.308Z</lastmod>
   </url>
   <url>
-    <loc>https://tidytales.ca/snippets/2022-10-29_geomtextpath-with-ggdist/</loc>
-    <lastmod>2022-10-29T16:23:15-07:00</lastmod>
+    <loc>https://tidytales.ca/posts/2022-09-29_borderlands/index.html</loc>
+    <lastmod>2022-11-02T00:52:14.708Z</lastmod>
   </url>
   <url>
-    <loc>https://tidytales.ca/snippets/2021-11-01_longitudinal-measurement-invariance/</loc>
-    <lastmod>2022-10-28T15:12:02-07:00</lastmod>
+    <loc>https://tidytales.ca/about/index.html</loc>
+    <lastmod>2022-11-02T00:52:16.469Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tidytales.ca/index.html</loc>
+    <lastmod>2022-11-02T00:52:17.051Z</lastmod>
   </url>
 </urlset>

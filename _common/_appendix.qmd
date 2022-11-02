@@ -1,0 +1,64 @@
+
+## {.appendix .unnumbered .unlisted}
+
+::: {.d-flex}
+
+![](https://github.com/mccarthy-m-g/michaelmccarthy/raw/main/content/about/sidebar/avatar.png){fig-align="left" fig-alt="Avatar" .rounded .avatar}
+
+::: {}
+
+::: {}
+## Michael McCarthy {.quarto-appendix-heading}
+:::
+
+I am an award winning data scientist and R programmer creating data solutions for the problems you care about. I offer training consulting services to help you accomplish your goals at any point in your project lifecycle. I value building new connections and would love to discuss opportunities to work with you. Let’s get to know each other.
+:::
+
+:::
+
+## Comments {.appendix .unnumbered .unlisted}
+
+<details open>
+<summary></summary>
+::: {.giscus}
+:::
+</details>
+
+## Session Info {.appendix .unnumbered .unlisted}
+
+<details>
+<summary></summary>
+```{r session-info}
+#| echo: false
+#| comment: ""
+library(sessioninfo)
+
+# save the session info as an object
+pkg_sesh <- session_info(pkgs = "attached")
+
+# get the quarto version
+quarto_version <- system("quarto --version", intern = TRUE)
+
+# inject the quarto info
+pkg_sesh$platform$quarto <- paste(
+  system("quarto --version", intern = TRUE),
+  "@",
+  quarto::quarto_path()
+  )
+
+# print it out
+pkg_sesh
+```
+</details>
+
+`r if (is.null(params$data_file)) "<!--"`
+## Data {.appendix .unnumbered .unlisted}
+
+[Download](`r paste0("/data/", params$data_file)`) the data used in this post.
+`r if (is.null(params$data_file)) "-->"`
+
+`r if (!params$fair_dealing) "<!--"`
+## Fair Dealing {.appendix .unnumbered .unlisted}
+
+Any of the trademarks, service marks, collective marks, design rights or similar rights that are mentioned, used, or cited in this article are the property of their respective owners. They are used here as fair dealing for the purpose of education in accordance with [section 29 of the Copyright Act](https://laws-lois.justice.gc.ca/eng/acts/c-42/page-8.html#h-103270) and do not infringe copyright.
+`r if (!params$fair_dealing) "-->"`

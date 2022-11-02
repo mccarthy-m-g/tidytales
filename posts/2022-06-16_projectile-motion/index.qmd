@@ -1,0 +1,674 @@
+---
+title: On motion
+description: |
+  Simulating projectile motion with {gganimate}.
+
+author:
+  - name: Michael McCarthy
+    url: https://michaelmccarthy.tidytales.ca
+    affiliation: Outer Wilds Ventures
+
+date: '2022-06-16'
+
+categories:
+  - .Simulate
+  - .Visualize
+  - "{tidyverse}"
+  - "{ggplot2}"
+  - "{gganimate}"
+  - "{ggh4x}"
+  - "{emojifont}"
+
+image: images/featured.png
+
+twitter-card:
+  title: "Tidy Tales: On motion"
+  image: images/twittercard.png
+  image-width: 1200
+  image-height: 628
+  card-style: summary_large_image
+  
+open-graph:
+  title: "Tidy Tales: On motion"
+  image: images/twittercard.png
+
+bibliography: sources.bib
+nocite: | 
+  @omni_projectile_nodate, @lumen_projectile_nodate, @khan_projectile_nodate
+
+resources:
+  - "images/moon-gravity.mp4"
+  - "images/simple-trajectory.mp4"
+  - "images/planets-trajectory.mp4"
+
+params:
+  use_renv: FALSE
+  data_file: NULL
+  fair_dealing: FALSE
+---
+
+```{r setup, include=FALSE}
+# Ensure the project root is set up correctly using {here} --------------------
+here::i_am("posts/2022-06-16_projectile-motion/index.qmd")
+
+# # Load general set up packages used in all posts ------------------------------
+library(here)
+
+# Load R scripts located in R/ ------------------------------------------------
+source(here("posts", "2022-06-16_projectile-motion", "projectile-motion.R"))
+
+# Create templates for knitr code chunks --------------------------------------
+knitr::opts_template$set(
+  fig.graphic = list(echo = FALSE, out.width = "100%"),
+  no.message = list(message = FALSE, warning = FALSE)
+)
+```
+
+## Overview
+
+Projectile motion describes the motion of an object launched into the air whose trajectory after launch is influenced only by the force of gravity and for which air resistance is negligible. Projectile motion was first accurately described by Galileo Galilei in his book [Two New Sciences](https://en.wikipedia.org/wiki/Two_New_Sciences), published in 1638. In what he dubbed *compound motion*, Galileo demonstrated that projectile motion can be broken down into independent horizontal and vertical components that can be analyzed separately to describe an object's trajectory. He used this principle to prove that the trajectory of an object in projectile motion will always follow a curve in the shape of a parabola.
+
+```{r parabola}
+#| fig.cap: |
+#|   Projectile motion of an object launched at the same height and velocity but different angles. The symmetrical U-shaped curve of each trajectory is known as a parabola.
+#| opts.label: 'fig.graphic'
+library(tidyverse)
+
+a <- projectile_motion(10, 10, 0)$trajectory %>%
+  mutate(group = "a")
+
+b <- projectile_motion(10, 20, 0)$trajectory %>%
+  mutate(group = "b")
+
+c <- projectile_motion(10, 30, 0)$trajectory %>%
+  mutate(group = "c")
+
+d <- projectile_motion(10, 40, 0)$trajectory %>%
+  mutate(group = "d")
+
+e <- projectile_motion(10, 50, 0)$trajectory %>%
+  mutate(group = "e")
+
+ggplot() +
+  geom_line(data = a, aes(x, y, colour = group)) +
+  geom_line(data = b, aes(x, y, colour = group)) +
+  geom_line(data = c, aes(x, y, colour = group)) +
+  geom_line(data = d, aes(x, y, colour = group)) +
+  geom_line(data = e, aes(x, y, colour = group)) +
+  scale_color_brewer(palette="Dark2") +
+  theme_classic() +
+  theme(legend.position = "none")
+```
+
+Galileo used an inclined plane to demonstrate his principle of compound motion. I'm going to use R.
+
+## Post Inspiration
+
+I recently finished Outer Wilds, an open world adventure game set in a strange, constantly evolving solar system trapped in an endless time loop. It's a great game and I really enjoyed solving the mysteries of the solar system. The reason I bring it up here is that, on top of being a great game, the physics realism of Outer Wilds is something that really stood out to me.
+
+For instance, at the start of the game there’s a museum exhibit consisting of a low table and three gently rolling balls that appear to move around on their own.
+
+::: {.column-margin}
+Emphasis on *gently*. Wait for it...
+:::
+
+```{r moon-gravity}
+#| opts.label: 'fig.graphic'
+embedr::embed_video(
+  ifelse(
+    interactive(),
+    here("posts", "2022-06-16_projectile-motion", "images", "moon-gravity.mp4"),
+    "images/moon-gravity.mp4"
+  ),
+  type = "mp4",
+  width = "100%",
+  height = "",
+  attribute = c("autoplay", "loop", "muted")
+)
+```
+
+But the balls are not actually moving on their own. Their motion is being affected by the moon's gravity. As the placard beside them explains: “As it orbits our planet, the Attlerock’s gravity pulls on objects from different directions. In fact, it’s pulling on you right now!” This isn't just flavour text---the game is [actually simulating planetary gravity](https://www.rockpapershotgun.com/how-outer-wilds-built-a-planet-which-falls-apart).
+
+Outer Wilds uses its physics realism to great effect in other parts of the game (ever wondered what it's like to stand on planet while it breaks apart into a black hole?), and experiencing it all got me curious: What kinds of physics simulations could I do in the two-dimensional space of a plot? After some research and reading I landed on projectile motion.
+
+## Prerequisites
+
+```{r requirements-setup}
+library(tidyverse)
+library(gganimate)
+library(ggh4x)
+library(formattable)
+library(emojifont)
+library(glue)
+```
+
+I'll be simulating data for my plot by turning the equations for projectile motion into R functions. You can [download this data](#data-source) with the Data Source link in the appendix. The [sources](#references) I used for the equations can also be found in the appendix.
+
+## Simulate
+
+The equations for projectile motion use a common set of variables which are listed below. The equations assume that the force of air resistance is negligible 
+
+$$
+\begin{align}
+V &\leftarrow \textrm{initial velocity}, \\
+V_x &\leftarrow \textrm{horizontal velocity}, \\
+V_y &\leftarrow \textrm{vertical velocity}, \\
+\alpha &\leftarrow \textrm{launch angle}, \\
+h &\leftarrow \textrm{initial height}, \\
+t &\leftarrow \textrm{time of flight}, \\
+d &\leftarrow \textrm{distance (range)}, \\
+h_{\textrm{max}} &\leftarrow \textrm{maximum height}, \\
+g &\leftarrow \textrm{gravity}.
+\end{align}
+$$
+
+### Horizontal and vertical velocity
+
+The horizontal velocity, $V_x$, and vertical velocity, $V_y$, of an object moving in projectile motion are given by the equations
+
+$$
+\begin{align}
+V_x &= V \times \cos(\alpha), \textrm{ and} \\
+V_y &= V \times \sin(\alpha),
+\end{align}
+$$
+
+where $V$ is the initial velocity and $\alpha$ is the launch angle. Horizontal and vertical velocity can be computed in R with the following functions.
+
+```{r velocity}
+velocity_x <- function(velocity, angle) {
+  # Degrees need to be converted to radians in cos() since that is what the
+  # function uses
+  velocity * cos(angle * (pi/180))
+}
+
+velocity_y <- function(velocity, angle) {
+  # Degrees need to be converted to radians in sin() since that is what the
+  # function uses
+  velocity * sin(angle * (pi/180))
+}
+```
+
+### Time of flight
+
+The time of flight, $t$, of an object moving in projectile motion is given by the equation
+
+$$
+t = \left(V_y + \sqrt{V_y^2 + 2 \times g \times h}\right) \div g,
+$$
+
+where $V_y$ is the vertical velocity, $g$ is the force of gravity, and $h$, is the initial height the object is launched from. Time of flight is the time from when the object is launched to the time the object reaches the surface. It can be computed in R with the following function.
+
+```{r time-of-flight}
+flight_time <- function(velocity_y, height, gravity = 9.80665) {
+  ( velocity_y + sqrt(velocity_y^2 + 2 * gravity * height) ) / gravity
+}
+```
+
+### Distance (range)
+
+The distance, $d$, or range travelled by an object moving in projectile motion is given by the equation
+
+$$
+d = V_x \times t,
+$$
+
+where $V_x$ is the horizontal velocity and $t$ is the time of flight. The range of the projectile is the total horizontal distance travelled during the time of flight. It can be computed in R with the following function.
+
+```{r distance}
+distance <- function(velocity_x, velocity_y, height, gravity = 9.80665) {
+  velocity_x * ( velocity_y + sqrt(velocity_y^2 + 2 * gravity * height) ) /
+  gravity
+}
+```
+
+### Maximum height
+
+The maximum height, $h_{\textrm{max}}$, reached by an object moving in projectile motion is given by the equation
+
+$$
+h_{\textrm{max}} = h + V_y^2 \div (2 \times g),
+$$
+
+where $h$ is the initial height, $V_y$ is the vertical velocity, and $g$ is the force of gravity. The maximum height is reached when $V_y = 0$. It can be computed in R with the following function.
+
+```{r maximum-height}
+height_max <- function(velocity_y, height, gravity = 9.80665) {
+  height + velocity_y^2 / (2 * gravity)
+}
+```
+
+### Projectile motion calculator
+
+Now to wrap all the components into a single function that will calculate the result for each component based on a set of parameters given to it. These results can then be used to determine the position and velocity of the projectile at any point in time during its trajectory, which I want to return as a data frame that can be used for plotting.
+
+```{r projectile-motion}
+#' nframes and fps can be used to animate the trajectory as close to real time as possible.
+#' There will be some rounding error though so it won't be exactly the same as the flight
+#' time.
+projectile_motion <- function(velocity, angle, height, gravity = 9.80665, nframes = 30) {
+  
+  # Velocity components
+  vx <- velocity_x(velocity, angle)
+  vy <- velocity_y(velocity, angle)
+  # Flight components
+  t  <- flight_time(vy, height, gravity)
+  d  <- distance(vx, vy, height, gravity)
+  # Max height components
+  hm <- height_max(vy, height, gravity)
+  th <- vy / gravity
+  hd <- vx * th
+  
+  # Calculate the position of the projectile in 2D space at a given point in
+  # time to approximate its trajectory over time
+  x_pos <- map_dbl(seq(0, t, length = nframes), ~ {
+    vx * .x
+  })
+  
+  y_pos <- map_dbl(seq(0, t, length = nframes), ~ {
+    height + ( vy * .x + 0.5 * -gravity * .x^2 )
+  })
+  
+  # Calculate the vertical velocity of the projectile at a given point in time
+  vy_t  <- map_dbl(seq(0, t, length = nframes), ~ {
+    vy - gravity * .x
+  })
+  
+  trajectory <- data.frame(
+    x = x_pos,
+    y = y_pos,
+    vx = vx,
+    vy = vy_t,
+    second = seq(0, t, length = nframes)
+  )
+  
+  # Return a list with all calculated values
+  list(
+    velocity_x = vx,
+    velocity_y = vy,
+    flight_time = t,
+    distance = d,
+    max_height = hm,
+    max_height_time = th,
+    max_height_dist = hd,
+    trajectory = trajectory,
+    nframes = nframes,
+    fps = nframes/t
+  )
+  
+}
+```
+
+## Wrangle
+
+Instead of jumping straight into a visualization, I want to play around with the output of `projectile_motion()`. First to show what its output looks like, and second to explore the interesting ways it can be extended through wrangling.
+
+### A simple trajectory
+
+First off, demonstrating `projectile_motion()` and its output. The function takes five arguments:
+
+- `velocity` in metres per second,
+- `angle` in degrees,
+- `height` in metres per second,
+- `gravity` in metres per second (this defaults to Earth's gravity, 9.80665 m/s), and
+- `nframes` which represents how many points in time to record in the trajectory data frame. 
+
+```{r simple-trajectory}
+projectile_motion(
+  velocity = 11.4,
+  angle = 52.1,
+  height = 18,
+  nframes = 10
+)
+```
+
+The function returns calculations for each of the projectile motion equations I covered above, as well as some additional output that can be used for plotting and animation:
+
+- `max_height_time` and `max_height_dist` give the time (s) and distance (m) it takes for the projectile to reach its maximum height.
+- `trajectory` gives the horizontal and vertical position and velocity at a given moment during the projectile's trajectory.
+- `fps` gives the number of frames per second that are needed to animate the trajectory in real time based on `nframes`. Because it is impossible to have a fraction of a frame there will be variance in how closely an animation's duration matches the actual time of flight based on the value of `nframes`.
+
+### Launching a projectile on different planets
+
+Given the inspiration for this post, a space themed simulation seems appropriate. Here I want to test how the gravity of each planet in our solar system influences projectile motion, given a projectile is launched with the same velocity, angle, and height.
+
+First I need to construct a named vector of the [gravity of each planet](https://nssdc.gsfc.nasa.gov/planetary/factsheet/planet_table_ratio.html) in our solar system. NASA provides these values came as ratios of each planet's gravity relative to Earth, so I had to multiply each one by Earth's gravity to get the units correct.
+
+```{r planets-gravity}
+# All values are in metres per second
+planets <- c(
+  mercury = 3.7069137,
+  venus   = 8.8946315,
+  earth   = 9.80665,
+  moon    = 1.6279039,
+  mars    = 3.697107,
+  jupiter = 23.143694,
+  saturn  = 8.9828914,
+  uranus  = 8.7181118,
+  neptune = 10.983448,
+  pluto   = 0.6962721
+)
+```
+
+Then I can create a named list of projectile motion calculations, one for each planet. Each planet has its own list of output from `projectile_motion()`, so the resulting list of projectile motion calculations is actually a list of lists. This can be tidied into a tibble to make it easier to work with.
+
+```{r planets-pm}
+# Calculate projectile motion for each planet, given the same velocity,
+# angle, and height
+planets_pm <- map(planets, ~{
+  projectile_motion(
+    velocity = 20,
+    angle = 45,
+    height = 35,
+    gravity = .x,
+    nframes = 100)
+})
+
+# Tidying the list of lists into a tibble makes it easier to work with. Note
+# that the trajectory column is a list column since it contains the trajectory
+# data frame for each planet.
+planets_df <- planets_pm %>%
+  enframe() %>%
+  unnest_wider(value) %>%
+  rename(planet = name)
+
+planets_trajectory <- planets_df %>%
+  select(planet, trajectory) %>%
+  unnest(trajectory) %>% 
+  mutate(planet = factor(planet, levels = names(planets)))
+```
+
+## Visualize
+
+Now for visualization. First I'll plot a simple trajectory, then a projectile launched on different planets.
+
+### A simple trajectory
+
+This is the same simple trajectory I showed the output for earlier, only with more frames to make the animation smoother.
+
+```{r simple-trajectory-data}
+simple_trajectory <- projectile_motion(
+  velocity = 11.4,
+  angle = 52.1,
+  height = 18,
+  nframes = 100
+)
+
+# Assign the data frame and max height parameters to objects to make the plot
+# code easier to read
+df <- simple_trajectory$trajectory
+max_height_dist <- simple_trajectory$max_height_dist
+max_height_time <- simple_trajectory$max_height_time
+max_height <- simple_trajectory$max_height
+```
+
+I'm going to build the plot for this simple trajectory up in chunks to make the code easier to understand. The foundation of the plot is fairly standard. The only unusual thing here are the `group` aesthetics in `geom_line()` and `geom_point()`. These are used to tell `gganimate` which rows in the data correspond to the same graphic element.
+
+```{r}
+p <- ggplot(df, aes(x = x, y = y)) +
+  geom_line(
+    aes(group = 1),
+    linetype = "dashed",
+    colour = "red",
+    alpha = 0.5
+  ) +
+  geom_point(aes(group = 1), size = 2)
+```
+
+For the data I simulated, the projectile starts with a positive vertical velocity. However, at its maximum height, the vertical velocity of the projectile becomes 0 m/s for a brief moment, as it stops rising and starts falling. This happens Because gravity is constantly influencing the vertical velocity of the projectile. This is an important and interesting piece of information I want to communicate in my plot. This can be accomplished subtly by displaying the vertical velocity of the projectile at each point in time, or more overtly using a text annotation. I'm going to do both.
+
+First the text annotation. I'm using `geom_curve()` to draw an arrow between the annotation and the point at which the projectile is at its maximum height, and `geom_text()` to draw the annotation. I've supplied each geom with its own data frame containing a `second` column whose sole value corresponds to the time the projectile reaches its maximum height. This will control when the annotation appears in the animation. I've also given the pair a different `group` aesthetic from `geom_line()` and `geom_point()`.
+
+```{r}
+p <- p +
+  geom_curve(
+    data = data.frame(
+      second = max_height_time
+    ),
+    aes(
+      xend = max_height_dist,
+      yend = max_height + 0.2,
+      x = max_height_dist + 2,
+      y = max_height + 2,
+      group = 2
+    ),
+    curvature = 0.45,
+    angle = 105,
+    ncp = 15,
+    arrow = arrow(length = unit(0.1,"cm"), type = "closed")
+  ) +
+  geom_text(
+    data = data.frame(
+      second = max_height_time
+    ),
+    aes(
+      x = max_height_dist + 2.4,
+      y = max_height + 2,
+      group = 2
+    ),
+    hjust = "left",
+    lineheight = 1,
+    family = "serif",
+    label = str_c(
+      "At its maximum height, the vertical velocity \n", 
+      "of the projectile is 0 m/s for a brief moment, \n",
+      "as it stops rising and starts falling."
+    )
+  )
+```
+
+Second the vertical velocity. I'm displaying this in the plot's subtitle along with the time elapsed since the projectile was launched. The displayed values are updated each frame using the value returned by the expression enclosed in glue braces for a frame. The variable `frame_along` is made available by `gganimate::transition_along()` (see below) and gives the position on the along-dimension (time in seconds in this case) that a frame corresponds to. Here I'm using `frame_along` to display the elapsed time, and to index the data frame `df` for the vertical velocity at a given second. The latter is a slight workaround because `vy` cannot be accessed directly in the glue braces.
+
+```{r}
+p <- p +
+  labs(
+    title = str_c(
+      "Projectile motion of an object launched with ",
+      #" <br> ",
+      "a speed of 11.4 m/s at an angle of 52.1°"
+    ),
+    subtitle = str_c(
+      "Time: ",
+      "{formattable(frame_along, digits = 2, format = 'f')}s",
+      "\n",
+      "Vertical velocity = ",
+      "{formattable(df$vy[df$second == frame_along], digits = 2, format = 'f')}",
+      " m/s"
+    ),
+    x = "Distance (m)",
+    y = "Height (m)",
+    caption = "Graphic: Michael McCarthy"
+  )
+```
+
+Now for theming. I wanted something minimalistic with a scientific feel---the classic theme  paired with truncated axes courtesy of ggh4x does this nicely. Finally, I originally planned to use `element_markdown()` from ggtext to enable markdown text in the subtitle of the plot so that vertical velocity could be written like $\textrm{Velocity}_Y$; however, this caused issues with the text spacing when rendering the animation to video, so I opted not to.[^1]
+
+[^1]: I didn't look into it too deeply, but I'm guessing it's related to [this issue](https://github.com/wilkelab/ggtext/issues/95) in ggtext. If you render to a gif instead you won't have this issue and can use ggtext as normal.
+
+```{r}
+p <- p +
+  guides(x = "axis_truncated", y = "axis_truncated") +
+  theme_classic(base_family = "serif")
+```
+
+And finally, the animation code. Yes, that's it. Animations can be tweaked and spiced up with [other functions](https://gganimate.com/reference/index.html) in gganimate, but I [ran into issues](https://github.com/thomasp85/gganimate/issues/445) making the ones I wanted to use work with `transition_reveal()`.
+
+```{r}
+#| eval: false
+anim <- p +
+  transition_reveal(second)
+
+anim
+```
+
+```{r}
+#| echo: false
+#| opts.label: 'fig.graphic'
+# FIXME: For whatever reason the code for the velocity subtitle only works when there
+# are 100 frames in the data. For example, if nframes is 10 ten then
+# this `{formattable(df$vy[df$second == frame_time], digits = 2, format = 'f')}`
+# throws an error.
+anim <- p +
+  transition_reveal(second)
+
+anim <- animate(
+  anim,
+  nframes = simple_trajectory$nframes,
+  fps = simple_trajectory$fps,
+  renderer = av_renderer(),
+  device = "ragg_png",
+  width = 1080,
+  height = 1080,
+  res = 300,
+  scaling = 0.5
+)
+
+anim_save(
+  here("posts", "2022-06-16_projectile-motion", "images", "simple-trajectory.mp4"),
+  anim
+)
+
+embedr::embed_video(
+  ifelse(
+    interactive(),
+    here("posts", "2022-06-16_projectile-motion", "images", "simple-trajectory.mp4"),
+    "images/simple-trajectory.mp4"
+  ),
+  type = "mp4",
+  width = "100%",
+  height = "",
+  attribute = c("autoplay", "loop", "muted")
+)
+```
+
+### Launching a projectile on different planets
+
+Now to test how the gravity of each planet in our solar system influences projectile motion. As a reminder, I already simulated the projectile motion data in `planets_trajectory`, so now it's just a matter of plotting it.
+
+Since the simulation is space themed, the plot should be too. Instead of using a simple point to represent the projectile, I'm going to use Font Awesome's rocket icon by way of the emojifont package. To make it extra, I'll also add propulsion and rotation to the rocket's animation.
+
+```{r}
+# Make it so the propulsion is only present for first half of animation, so it
+# looks like the rockets are launching.
+rocket_propulsion <- planets_trajectory %>%
+  group_by(planet) %>%
+  mutate(retain = rep(c(TRUE, FALSE), each = 50)) %>%
+  ungroup() %>%
+  mutate(x = case_when(
+    retain == FALSE ~ NA_real_,
+    TRUE ~ x
+  ))
+```
+
+The plotting code is mostly boilerplate, but I've added comments to highlight a few noteworthy points.
+
+```{r}
+p <- ggplot(planets_trajectory, aes(x = x, y = y)) +
+  geom_line(
+    aes(colour = planet, group = planet),
+    linetype = "dashed",
+    alpha = 0.5,
+    # Change the key glyph in the legend to a point, to represent a planet
+    key_glyph = "point"
+  ) +
+  geom_point(
+    data = rocket_propulsion,
+    aes(group = planet),
+    colour = "orange"
+  ) +
+  # Change the angle at different frames to rotate the rocket
+  geom_text(
+    aes(colour = planet, group = planet, label = fontawesome("fa-rocket")),
+    family='fontawesome-webfont',
+    angle = rep(seq(0, 45, length = 100), 10),
+    size = 6,
+    # There is no rocket key glyph, so override this too
+    key_glyph = "point"
+  ) +
+  scale_color_manual(
+    values = c(
+      "#97979F",
+      "#BBB7AB",
+      "#8CB1DE",
+      "#DAD9D7",
+      "#E27B58",
+      "#C88B3A",
+      "#C5AB6E",
+      "#93B8BE",
+      "#6081FF",
+      "#4390BA"
+    )
+  ) +
+  labs(
+    title = str_c(
+      "projectile motion of an object launched on different planets in our solar system"
+    ),
+    x = "distance (m)",
+    y = "height (m)",
+    caption = "graphic: michael mccarthy"
+  ) +
+  guides(
+    x = "axis_truncated",
+    y = "axis_truncated",
+    colour = guide_legend(title.vjust = .7, nrow = 1, label.position = "bottom")
+  ) +
+  theme_classic(base_family = "mono") +
+  theme(
+    text = element_text(colour = "white"),
+    axis.text = element_text(colour = "white"),
+    rect = element_rect(fill = "black"),
+    panel.background = element_rect(fill = "black"),
+    axis.ticks = element_line(colour = "white"),
+    axis.line = element_line(colour = "white"),
+    legend.position = "top",
+    legend.justification = "left"
+  )
+```
+
+Finally, the animation code. The `shadow_wake()` function is applied to the orange points used for rocket propulsion to really sell the effect.
+
+```{r}
+#| eval: false
+anim <- p +
+  transition_reveal(second) +
+  shadow_wake(wake_length = 0.1, size = 2, exclude_layer = c(1, 3))
+```
+
+```{r}
+#| echo: false
+#| opts.label: 'fig.graphic'
+anim <- p +
+  transition_reveal(second) +
+  shadow_wake(wake_length = 0.1, size = 2, exclude_layer = c(1, 3))
+
+anim <- animate(
+  anim,
+  nframes = planets_pm$earth$nframes,
+  fps = planets_pm$earth$fps,
+  renderer = av_renderer(),
+  device = "ragg_png",
+  width = 1080,
+  height = 720,
+  res = 300,
+  scaling = 0.5
+)
+
+anim_save(
+  here("posts", "2022-06-16_projectile-motion", "images", "planets-trajectory.mp4"),
+  anim
+)
+
+embedr::embed_video(
+  ifelse(
+    interactive(),
+    here("posts", "2022-06-16_projectile-motion", "images", "planets-trajectory.mp4"),
+    "images/planets-trajectory.mp4"
+  ),
+  type = "mp4",
+  width = "100%",
+  height = "",
+  attribute = c("autoplay", "loop", "muted")
+)
+```
+
+{{< include /_common/_appendix.qmd >}}

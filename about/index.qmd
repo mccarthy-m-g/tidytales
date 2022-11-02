@@ -1,0 +1,26 @@
+---
+title: "About Tidy Tales"
+
+page-layout: article
+title-block-banner: false
+
+search: false
+comments: false
+code-tools: false
+---
+
+Tidy Tales is a data science blog meant to demonstrate the skills needed in a typical data science project. Namely, wrangling, visualizing, modelling, and communicating data, all with the assistance of programming. The blog takes its name from the [tidy data](https://www.jstatsoft.org/article/view/v059i10) framework for structuring data, and from its narrative style. My inspiration for the blog came from [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday), a weekly data project for practicing and building data science skills with real-world data. Many, but not all, of the posts on Tidy Tales will use data from Tidy Tuesday.
+
+You can support Tidy Tales by sharing it with others or by making a [donation](https://www.paypal.com/donate?hosted_button_id=BT3A5MBCASKFQ).
+
+## Michael McCarthy
+ 
+Hi, I’m Michael, the voice behind Tidy Tales. My background is in psychology research, where I've studied topics ranging from attitude formation, to decision-making, to individual differences in brain function. Studying how people think and act has given me a deep appreciation for the human elements of data science. Much of our data is about humans. All of our data is communicated to humans. Understanding these relationships has been key to successfully navigating my role as a data scientist. 
+
+When I'm not writing new posts for Tidy Tales you can find me writing music in my studio, riding my bike on the local trails, or spending time with my friends and family.
+
+## Contact
+
+My email is [michael.mccarthy@tidytales.ca](mailto:michael.mccarthy@tidytales.ca). Please get in touch if you are interested in working with me or just want to chat.
+
+You can keep up to date with my work by following Tidy Tales on [Twitter](https://twitter.com/propertidytales) or subscribing to the Tidy Tales [RSS feed](index.xml).
