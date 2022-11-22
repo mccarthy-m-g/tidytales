@@ -1,0 +1,178 @@
+/*-- scss:defaults --*/
+
+// Quarto SASS sass-variables
+// https://quarto.org/docs/output-formats/html-themes.html#sass-variables
+//
+// Bootsrap SASS sass-variables
+// https://github.com/quarto-dev/quarto-cli/blob/d16d9f13110e084ef3c5a4b0f9561a5eb5f3158f/src/resources/formats/html/bootstrap/themes/
+
+// Import google fonts
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One');
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;500');
+
+// Color system
+$dark-shade: #191F3D;
+$dark-shade-alpha: #191F3D85;
+$dark-accent: #BA70A0;
+$main-colour: #123C69;
+$light-accent: #24639E;
+$light-shade: #fffbfa;
+
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #ddd !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #868e96 !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$blue:    #0033a0 !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #c8102e !default;
+$orange:  #CB793A !default;
+$yellow:  #FCDC4D !default;
+$green:   #02b875 !default;
+$teal:    #20c997 !default;
+$cyan:    #41b6e6 !default;
+
+$primary:       $main-colour !default;
+$secondary:     $gray-500 !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $gray-100 !default;
+$dark:          $gray-800 !default;
+
+// Colours
+// https://quarto.org/docs/output-formats/html-themes.html#colors
+$body-bg: $light-shade !default; // The page background color.
+$body-color: $dark-shade !default; // The page text color.
+$headings-color: $main-colour !default; // The heading color.
+$link-color: $body-color !default; // The link color.
+$input-bg: $white !default; // The background color for HTML inputs.
+$popover-bg: $white !default;	// The background color for popovers.
+
+// Fonts
+// https://quarto.org/docs/output-formats/html-themes.html#fonts
+$headings-font-family:   'Fugaz One', sans-serif !default;
+$font-family-sans-serif: 'Assistant', sans-serif !default;
+$font-family-monospace:  'Inconsolata', monospace !default;
+$navbar-font-family:     'Assistant', sans-serif !default;
+$font-size-root:       16px !default;
+$font-size-base:       1rem !default;
+$headings-font-weight: 700 !default;
+$toc-font-size:        16px !default;
+
+// Navigation
+$navbar-bg: $light-shade !default; // The background color of the navbar.
+$navbar-fg: $main-colour !default; // The colour of foreground elements in the navbar.
+$navbar-hl: $light-accent !default; // The highlight colour for links in the navbar.
+$footer-bg: $body-bg !default; // The background colour of the footer.
+$footer-fg: $main-colour !default; //	The colour of foreground elements in the footer.
+
+// Code
+$code-color: $dark-accent !default;
+
+/*-- scss:rules --*/
+
+// Navbar
+.navbar {
+  font-weight: 300;
+}
+
+.navbar-nav {
+  font-size: 18px;
+}
+
+.navbar-logo {
+  max-height: 23.5px;
+  padding-right: 0px;
+}
+
+.navbar-brand-container:hover > .navbar-brand {
+  filter: brightness(155%);
+  color: $navbar-fg;
+}
+
+.navbar-dark .navbar-toggler {
+  border-color: rgba($black, 0);
+}
+
+// Catgories
+.category {
+  color: $dark-shade;
+}
+
+.category.active {
+  color: $dark-accent;
+}
+
+// Category Buttons
+div.quarto-post .listing-categories .listing-category:hover,
+.quarto-title .quarto-categories .quarto-category:hover {
+  color: $dark-accent;
+  border-color: $dark-accent;
+}
+
+// Title Banner
+#title-block-header.quarto-title-block.default .description, #title-block-header.quarto-title-block.default .abstract {
+  margin-top: .75em;
+}
+.quarto-title-banner .code-tools-button {
+  color: $main-colour; //#123C69
+}
+
+.quarto-title-banner .code-tools-button>.bi::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(18, 60, 105)" viewBox="0 0 16 16"><path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/></svg>');
+}
+
+#title-block-header.quarto-title-block.default .quarto-title-meta-heading {
+  font-family: $headings-font-family;
+  color: $dark-accent;
+}
+
+// Margin Content
+.column-margin {
+  color: $dark-accent;
+}
+
+// Appendix
+#quarto-appendix #michael-mccarthy {
+  padding-bottom: 0px;
+  opacity: 1.0;
+}
+
+#quarto-appendix #michael-mccarthy .quarto-appendix-heading {
+  opacity: 1.0;
+  margin-top: 0rem;
+}
+
+.avatar {
+  max-width: 60px;
+  max-height: 60px;
+  margin-right: 1rem;
+}
+
+#quarto-appendix details {
+  margin-bottom: 0px;
+}
+
+#quarto-appendix details summary:after {
+  content: "Show";
+}
+
+#quarto-appendix details[open] summary:after {
+  content: "Hide";
+}
+
+.giscus {
+  margin-top: 1rem;
+}

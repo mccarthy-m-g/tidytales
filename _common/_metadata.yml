@@ -1,0 +1,17 @@
+# options specified here will apply to all posts in this site
+
+# Freeze computational output
+# (see https://quarto.org/docs/projects/code-execution.html#freeze)
+freeze: true
+
+# Enable banner style title blocks
+title-block-banner: true
+
+# Table of Contents
+toc: true
+toc-depth: 3
+toc-location: left
+
+# Citation Metadata
+citation: true
+csl: ../../assets/apa.csl

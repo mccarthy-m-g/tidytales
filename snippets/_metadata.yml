@@ -1,0 +1,16 @@
+# options specified here will apply to all posts in this folder
+
+# Site-wide options
+metadata-files:
+  - ../_common/_metadata.yml
+
+# Author
+author:
+  - name: Michael McCarthy
+    url: https://michaelmccarthy.tidytales.ca
+
+# Table of Contents
+toc-title: "In this snippet"
+
+# License
+license: "CC BY"

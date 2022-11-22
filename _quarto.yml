@@ -1,0 +1,99 @@
+project:
+  type: website
+
+website:
+  title: "Tidy Tales"
+  site-url: https://tidytales.ca
+  repo-url: https://github.com/mccarthy-m-g/tidytales
+  repo-actions: []
+  favicon: assets/images/favicon.png
+
+  # google-analytics: "G-B377YMMZ69"
+
+  navbar:
+    logo: assets/images/logo.png
+    right:
+      - text: Posts
+        href: /#posts
+      - text: Snippets
+        href: /#code-snippets
+      - text: About
+        href: about/index.qmd
+      - icon: twitter
+        href: https://twitter.com
+      - icon: github
+        href: https://github.com/mccarthy-m-g/tidytales
+      - icon: rss-fill
+        href: index.xml
+
+  search:
+    location: navbar
+    type: textbox
+    copy-button: true
+
+  page-footer:
+    border: false
+    center: "\u00A9 Copyright 2022 [Michael McCarthy](https://michaelmccarthy.tidytales.ca)"
+
+  page-navigation: true
+
+  # https://quarto.org/docs/output-formats/html-basics.html#commenting
+  comments:
+    giscus:
+      repo: mccarthy-m-g/tidytales
+      category: Comments
+      reactions-enabled: false
+      theme: light
+
+  twitter-card:
+    title: "Tidy Tales"
+    description: "Wrangling, Visualizing, Modelling, Communicating data"
+    image: "assets/images/twittercard.png"
+    card-style: summary
+    creator: "@mccarthymg"
+    site: "@propertidytales"
+
+  open-graph:
+    title: "Tidy Tales"
+    description: "Wrangling, Visualizing, Modelling, Communicating data"
+    image: "assets/images/twittercard.png"
+
+# Site-wide options
+# See: https://quarto.org/docs/reference/formats/html.html
+
+## Format options
+format:
+  html:
+
+    theme:
+    - assets/theme.scss
+    css:
+    - assets/styles.css
+
+    code-tools:
+      source: true
+      toggle: true
+      caption: none
+    code-overflow: scroll
+    df-print: paged
+
+    from: markdown+emoji
+    link-external-newwindow: true
+
+## knitr options
+knitr:
+  opts_chunk:
+    echo: true
+    message: false
+    warning: false
+    comment: "#>"
+    dev: "ragg_png"
+    R.options:
+      knitr.graphics.auto_pdf: true
+
+## Code options
+code-link: false
+highlight-style: assets/highlight.theme # https://github.com/quarto-dev/quarto-cli/tree/bf27dbe4e688ac93e704dc904a193ba5a552c34f/src/resources/pandoc/highlight-styles
+
+## Quarto version
+quarto-required: ">= 1.0.0"

@@ -4,5 +4,5 @@
 
 # Mark as generated
 _site/** linguist-generated
-_posts/**/*.html linguist-generated
-_posts/**/*_files/** linguist-generated
+posts/**/*.html linguist-generated
+posts/**/*_files/** linguist-generated

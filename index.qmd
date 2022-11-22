@@ -1,0 +1,38 @@
+---
+title: "Tidy Tales: Wrangling, Visualizing, Modelling, Communicating data"
+subtitle: "A data science blog by Michael McCarthy"
+
+listing:
+  - id: posts
+    contents: "posts"
+    fields: [date, title, description, categories, image]
+    sort: "date desc"
+    type: default
+    categories: numbered
+    sort-ui: true
+    filter-ui: false
+  - id: snippets
+    contents: "snippets"
+    fields: [date, title, description, categories]
+    sort: "date desc"
+    type: default
+    sort-ui: true
+    filter-ui: false
+
+page-layout: full
+title-block-banner: true
+
+search: false
+comments: false
+code-tools: false
+---
+
+## Posts
+
+:::{#posts}
+:::
+
+## Code Snippets
+
+:::{#snippets}
+:::
