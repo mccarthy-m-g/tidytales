@@ -633,13 +633,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="960"></p>
 </div>
 </div>
-<p>And the background image can be added for the final composite.</p>
+<p>And the background image can be added for the final composite. To make it stand out less, I’ve overlaid a solid black frame with 50% opacity.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>background_layer <span class="ot">&lt;-</span> <span class="fu">image_read</span>(</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"2022-09-29_borderlands"</span>, <span class="st">"images"</span>, <span class="st">"plot-background.png"</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>final_graphic <span class="ot">&lt;-</span> <span class="fu">image_composite</span>(background_layer, plot_layer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">image_colorize</span>(<span class="dv">50</span>, <span class="st">"black"</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>final_graphic <span class="ot">&lt;-</span> <span class="fu">image_composite</span>(background_layer, plot_layer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This plot isn’t going to win any awards (unless it’s for an ugly plots contest), but it does show that you can do some pretty cool programmatic image processing of your plots (or any other images) with the magick package.</p>
 </section>
@@ -698,7 +699,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  collate  en_CA.UTF-8
  ctype    en_CA.UTF-8
  tz       America/Vancouver
- date     2022-11-01
+ date     2022-11-22
  pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)
  quarto   1.2.247 @ /usr/local/bin/quarto
 
@@ -1322,31 +1323,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb17-396"><a href="#cb17-396" aria-hidden="true" tabindex="-1"></a>plot_layer</span>
 <span id="cb17-397"><a href="#cb17-397" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb17-398"><a href="#cb17-398" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-399"><a href="#cb17-399" aria-hidden="true" tabindex="-1"></a>And the background image can be added for the final composite.</span>
+<span id="cb17-399"><a href="#cb17-399" aria-hidden="true" tabindex="-1"></a>And the background image can be added for the final composite. To make it stand out less, I've overlaid a solid black frame with 50% opacity.</span>
 <span id="cb17-400"><a href="#cb17-400" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-403"><a href="#cb17-403" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb17-404"><a href="#cb17-404" aria-hidden="true" tabindex="-1"></a>background_layer <span class="ot">&lt;-</span> <span class="fu">image_read</span>(</span>
 <span id="cb17-405"><a href="#cb17-405" aria-hidden="true" tabindex="-1"></a>  <span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"2022-09-29_borderlands"</span>, <span class="st">"images"</span>, <span class="st">"plot-background.png"</span>)</span>
-<span id="cb17-406"><a href="#cb17-406" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb17-407"><a href="#cb17-407" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-408"><a href="#cb17-408" aria-hidden="true" tabindex="-1"></a>final_graphic <span class="ot">&lt;-</span> <span class="fu">image_composite</span>(background_layer, plot_layer)</span>
-<span id="cb17-409"><a href="#cb17-409" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb17-410"><a href="#cb17-410" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-411"><a href="#cb17-411" aria-hidden="true" tabindex="-1"></a>This plot isn't going to win any awards (unless it's for an ugly plots contest), but it does show that you can do some pretty cool programmatic image processing of your plots (or any other images) with the magick package.</span>
-<span id="cb17-412"><a href="#cb17-412" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-413"><a href="#cb17-413" aria-hidden="true" tabindex="-1"></a><span class="fu">## Final Graphic</span></span>
-<span id="cb17-414"><a href="#cb17-414" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-417"><a href="#cb17-417" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb17-418"><a href="#cb17-418" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb17-419"><a href="#cb17-419" aria-hidden="true" tabindex="-1"></a>magick<span class="sc">::</span><span class="fu">image_write</span>(</span>
-<span id="cb17-420"><a href="#cb17-420" aria-hidden="true" tabindex="-1"></a>  final_graphic,</span>
-<span id="cb17-421"><a href="#cb17-421" aria-hidden="true" tabindex="-1"></a>  <span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"2022-09-29_borderlands"</span>, <span class="st">"images"</span>, <span class="st">"borderlands-plot.png"</span>)</span>
-<span id="cb17-422"><a href="#cb17-422" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb17-423"><a href="#cb17-423" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-424"><a href="#cb17-424" aria-hidden="true" tabindex="-1"></a>final_graphic</span>
-<span id="cb17-425"><a href="#cb17-425" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb17-426"><a href="#cb17-426" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-427"><a href="#cb17-427" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_common/_appendix.qmd &gt;}}</span>
+<span id="cb17-406"><a href="#cb17-406" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-407"><a href="#cb17-407" aria-hidden="true" tabindex="-1"></a>  <span class="fu">image_colorize</span>(<span class="dv">50</span>, <span class="st">"black"</span>)</span>
+<span id="cb17-408"><a href="#cb17-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-409"><a href="#cb17-409" aria-hidden="true" tabindex="-1"></a>final_graphic <span class="ot">&lt;-</span> <span class="fu">image_composite</span>(background_layer, plot_layer)</span>
+<span id="cb17-410"><a href="#cb17-410" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb17-411"><a href="#cb17-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-412"><a href="#cb17-412" aria-hidden="true" tabindex="-1"></a>This plot isn't going to win any awards (unless it's for an ugly plots contest), but it does show that you can do some pretty cool programmatic image processing of your plots (or any other images) with the magick package.</span>
+<span id="cb17-413"><a href="#cb17-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-414"><a href="#cb17-414" aria-hidden="true" tabindex="-1"></a><span class="fu">## Final Graphic</span></span>
+<span id="cb17-415"><a href="#cb17-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-418"><a href="#cb17-418" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb17-419"><a href="#cb17-419" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb17-420"><a href="#cb17-420" aria-hidden="true" tabindex="-1"></a>magick<span class="sc">::</span><span class="fu">image_write</span>(</span>
+<span id="cb17-421"><a href="#cb17-421" aria-hidden="true" tabindex="-1"></a>  final_graphic,</span>
+<span id="cb17-422"><a href="#cb17-422" aria-hidden="true" tabindex="-1"></a>  <span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"2022-09-29_borderlands"</span>, <span class="st">"images"</span>, <span class="st">"borderlands-plot.png"</span>)</span>
+<span id="cb17-423"><a href="#cb17-423" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-424"><a href="#cb17-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-425"><a href="#cb17-425" aria-hidden="true" tabindex="-1"></a>final_graphic</span>
+<span id="cb17-426"><a href="#cb17-426" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb17-427"><a href="#cb17-427" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-428"><a href="#cb17-428" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_common/_appendix.qmd &gt;}}</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

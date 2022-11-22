@@ -279,7 +279,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="configural-invariance">Configural Invariance</h2>
 <p>Using the <strong>lavaan</strong> package.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>configural_model_lav <span class="ot">&lt;-</span> <span class="st">'</span></span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>configural_model_lav <span class="ot">&lt;-</span> (<span class="st">"</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="st">  # Measurement model</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="st">  w1comp =~ w1vst1 + w1vst2 + w1vst3</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="st">  w2comp =~ w2vst1 + w2vst2 + w2vst3</span></span>
@@ -297,9 +297,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="st">  w2vst3 ~~ w2vst3</span></span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst1 ~~ w2vst1</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="st">    w1vst2 ~~ w2vst2</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="st">    w1vst3 ~~ w2vst3</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst2 ~~ w2vst2</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst3 ~~ w2vst3</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span>
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>configural_model_lav_fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(configural_model_lav, <span class="at">data =</span> social_exchanges)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -307,11 +307,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First, define the configural model, using the repeated measures factors and</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># indicators.</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>configural_model_smt <span class="ot">&lt;-</span> <span class="st">'</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>configural_model_smt <span class="ot">&lt;-</span> (<span class="st">"</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">  # Measurement model</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="st">  w1comp =~ w1vst1 + w1vst2 + w1vst3</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="st">    w2comp =~ w2vst1 + w2vst2 + w2vst3</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="st">  w2comp =~ w2vst1 + w2vst2 + w2vst3</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Second, create a named list indicating which factors are actually the same</span></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># latent variable measured repeatedly.</span></span>
@@ -353,13 +353,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="weak-invariance">Weak Invariance</h2>
 <p>Using the lavaan package.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>weak_model_lav <span class="ot">&lt;-</span> <span class="st">'</span></span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>weak_model_lav <span class="ot">&lt;-</span> (<span class="st">"</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="st">  # Measurement model</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="st">  w1comp =~ w1vst1 + a*w1vst2 + b*w1vst3 # Factor loading equality constraint</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="st">    w2comp =~ w2vst1 + a*w2vst2 + b*w2vst3 # Factor loading equality constraint</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="st">  w2comp =~ w2vst1 + a*w2vst2 + b*w2vst3 # Factor loading equality constraint</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="st">  # Variances and covariances</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="st">    w2comp ~~ w1comp</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="st">  w2comp ~~ w1comp</span></span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="st">  w1comp ~~ w1comp</span></span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="st">  w2comp ~~ w2comp</span></span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
@@ -371,9 +371,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="st">  w2vst3 ~~ w2vst3</span></span>
 <span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst1 ~~ w2vst1</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="st">    w1vst2 ~~ w2vst2</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="st">    w1vst3 ~~ w2vst3</span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst2 ~~ w2vst2</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst3 ~~ w2vst3</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span>
 <span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>weak_model_lav_fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(weak_model_lav, social_exchanges)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -424,20 +424,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="no-row-height column-margin column-container"><div class="">
 <p>Equality tests of factor variances should only be conducted when all factor loadings also are constrained to be equal over time. When all non-referent loadings are set equal in the constrained model, the chi-square is the same regardless of the referent.</p>
 </div></div><div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>strong_model_lav <span class="ot">&lt;-</span> <span class="st">'</span></span>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>strong_model_lav <span class="ot">&lt;-</span> (<span class="st">"</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="st">  # Measurement model</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="st">  w1comp =~ w1vst1 + a*w1vst2 + b*w1vst3 # Factor loading equality constraint</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="st">  w2comp =~ w2vst1 + a*w2vst2 + b*w2vst3 # Factor loading equality constraint</span></span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="st">  # Variances and covariances</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="st">    w2comp ~~ w1comp</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="st">    w2comp ~~ v*w2comp # Factor variance equality constraint</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="st">    w1comp ~~ v*w1comp # Factor variance equality constraint</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="st">  w2comp ~~ w1comp</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="st">  w2comp ~~ v*w2comp # Factor variance equality constraint</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="st">  w1comp ~~ v*w1comp # Factor variance equality constraint</span></span>
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="st">    w1vst1 ~~ w2vst1</span></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="st">    w1vst2 ~~ w2vst2</span></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="st">    w1vst3 ~~ w2vst3</span></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst1 ~~ w2vst1</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst2 ~~ w2vst2</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst3 ~~ w2vst3</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span>
 <span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>strong_model_lav_fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(strong_model_lav, social_exchanges)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -486,29 +486,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="strict-invariance">Strict Invariance</h2>
 <p>Using the lavaan package.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>strict_model_lav <span class="ot">&lt;-</span> <span class="st">'</span></span>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>strict_model_lav <span class="ot">&lt;-</span> (<span class="st">"</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="st">  # Measurement model</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="st">  w1comp =~ w1vst1 + a*w1vst2 + b*w1vst3 # Factor loading equality constraint</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="st">    w2comp =~ w2vst1 + a*w2vst2 + b*w2vst3 # Factor loading equality constraint</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="st">  w2comp =~ w2vst1 + a*w2vst2 + b*w2vst3 # Factor loading equality constraint</span></span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="st">  # Variances &amp; covariances</span></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="st">    w2comp ~~ w1comp</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="st">  w2comp ~~ w1comp</span></span>
 <span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="st">    w1comp ~~ c*w1comp # Factor variance equality constraint</span></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="st">    w2comp ~~ c*w2comp # Factor variance equality constraint</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="st">  w1comp ~~ c*w1comp # Factor variance equality constraint</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="st">  w2comp ~~ c*w2comp # Factor variance equality constraint</span></span>
 <span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst1 ~~ w2vst1</span></span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="st">    w1vst2 ~~ w2vst2</span></span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="st">    w1vst3 ~~ w2vst3</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst2 ~~ w2vst2</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst3 ~~ w2vst3</span></span>
 <span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="st">    w1vst1 ~~ d*w1vst1 # Measurement residual equality constraint</span></span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a><span class="st">    w1vst2 ~~ e*w1vst2 # Measurement residual equality constraint</span></span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a><span class="st">    w1vst3 ~~ f*w1vst3 # Measurement residual equality constraint</span></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst1 ~~ d*w1vst1 # Measurement residual equality constraint</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst2 ~~ e*w1vst2 # Measurement residual equality constraint</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst3 ~~ f*w1vst3 # Measurement residual equality constraint</span></span>
 <span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a><span class="st">    w2vst1 ~~ d*w2vst1 # Measurement residual equality constraint</span></span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a><span class="st">    w2vst2 ~~ e*w2vst2 # Measurement residual equality constraint</span></span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a><span class="st">    w2vst3 ~~ f*w2vst3 # Measurement residual equality constraint</span></span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a><span class="st">  w2vst1 ~~ d*w2vst1 # Measurement residual equality constraint</span></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a><span class="st">  w2vst2 ~~ e*w2vst2 # Measurement residual equality constraint</span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a><span class="st">  w2vst3 ~~ f*w2vst3 # Measurement residual equality constraint</span></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span>
 <span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>strict_model_lav_fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(strict_model_lav, social_exchanges)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -603,7 +603,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  collate  en_CA.UTF-8
  ctype    en_CA.UTF-8
  tz       America/Vancouver
- date     2022-10-31
+ date     2022-11-22
  pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)
  quarto   1.2.247 @ /usr/local/bin/quarto
 
@@ -902,7 +902,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb31-56"><a href="#cb31-56" aria-hidden="true" tabindex="-1"></a>Using the **lavaan** package.</span>
 <span id="cb31-57"><a href="#cb31-57" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-58"><a href="#cb31-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{r configural-invariance-lavaan}</span></span>
-<span id="cb31-59"><a href="#cb31-59" aria-hidden="true" tabindex="-1"></a>configural_model_lav <span class="ot">&lt;-</span> <span class="st">'</span></span>
+<span id="cb31-59"><a href="#cb31-59" aria-hidden="true" tabindex="-1"></a>configural_model_lav <span class="ot">&lt;-</span> (<span class="st">"</span></span>
 <span id="cb31-60"><a href="#cb31-60" aria-hidden="true" tabindex="-1"></a><span class="st">  # Measurement model</span></span>
 <span id="cb31-61"><a href="#cb31-61" aria-hidden="true" tabindex="-1"></a><span class="st">  w1comp =~ w1vst1 + w1vst2 + w1vst3</span></span>
 <span id="cb31-62"><a href="#cb31-62" aria-hidden="true" tabindex="-1"></a><span class="st">  w2comp =~ w2vst1 + w2vst2 + w2vst3</span></span>
@@ -920,9 +920,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb31-74"><a href="#cb31-74" aria-hidden="true" tabindex="-1"></a><span class="st">  w2vst3 ~~ w2vst3</span></span>
 <span id="cb31-75"><a href="#cb31-75" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-76"><a href="#cb31-76" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst1 ~~ w2vst1</span></span>
-<span id="cb31-77"><a href="#cb31-77" aria-hidden="true" tabindex="-1"></a><span class="st">    w1vst2 ~~ w2vst2</span></span>
-<span id="cb31-78"><a href="#cb31-78" aria-hidden="true" tabindex="-1"></a><span class="st">    w1vst3 ~~ w2vst3</span></span>
-<span id="cb31-79"><a href="#cb31-79" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span>
+<span id="cb31-77"><a href="#cb31-77" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst2 ~~ w2vst2</span></span>
+<span id="cb31-78"><a href="#cb31-78" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst3 ~~ w2vst3</span></span>
+<span id="cb31-79"><a href="#cb31-79" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span>
 <span id="cb31-80"><a href="#cb31-80" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-81"><a href="#cb31-81" aria-hidden="true" tabindex="-1"></a>configural_model_lav_fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(configural_model_lav, <span class="at">data =</span> social_exchanges)</span>
 <span id="cb31-82"><a href="#cb31-82" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -932,11 +932,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb31-86"><a href="#cb31-86" aria-hidden="true" tabindex="-1"></a><span class="in">```{r configural-invariance-semtools}</span></span>
 <span id="cb31-87"><a href="#cb31-87" aria-hidden="true" tabindex="-1"></a><span class="co"># First, define the configural model, using the repeated measures factors and</span></span>
 <span id="cb31-88"><a href="#cb31-88" aria-hidden="true" tabindex="-1"></a><span class="co"># indicators.</span></span>
-<span id="cb31-89"><a href="#cb31-89" aria-hidden="true" tabindex="-1"></a>configural_model_smt <span class="ot">&lt;-</span> <span class="st">'</span></span>
+<span id="cb31-89"><a href="#cb31-89" aria-hidden="true" tabindex="-1"></a>configural_model_smt <span class="ot">&lt;-</span> (<span class="st">"</span></span>
 <span id="cb31-90"><a href="#cb31-90" aria-hidden="true" tabindex="-1"></a><span class="st">  # Measurement model</span></span>
 <span id="cb31-91"><a href="#cb31-91" aria-hidden="true" tabindex="-1"></a><span class="st">  w1comp =~ w1vst1 + w1vst2 + w1vst3</span></span>
-<span id="cb31-92"><a href="#cb31-92" aria-hidden="true" tabindex="-1"></a><span class="st">    w2comp =~ w2vst1 + w2vst2 + w2vst3</span></span>
-<span id="cb31-93"><a href="#cb31-93" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span>
+<span id="cb31-92"><a href="#cb31-92" aria-hidden="true" tabindex="-1"></a><span class="st">  w2comp =~ w2vst1 + w2vst2 + w2vst3</span></span>
+<span id="cb31-93"><a href="#cb31-93" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span>
 <span id="cb31-94"><a href="#cb31-94" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-95"><a href="#cb31-95" aria-hidden="true" tabindex="-1"></a><span class="co"># Second, create a named list indicating which factors are actually the same</span></span>
 <span id="cb31-96"><a href="#cb31-96" aria-hidden="true" tabindex="-1"></a><span class="co"># latent variable measured repeatedly.</span></span>
@@ -975,13 +975,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb31-129"><a href="#cb31-129" aria-hidden="true" tabindex="-1"></a>Using the lavaan package.</span>
 <span id="cb31-130"><a href="#cb31-130" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-131"><a href="#cb31-131" aria-hidden="true" tabindex="-1"></a><span class="in">```{r weak-invariance-lavaan}</span></span>
-<span id="cb31-132"><a href="#cb31-132" aria-hidden="true" tabindex="-1"></a>weak_model_lav <span class="ot">&lt;-</span> <span class="st">'</span></span>
+<span id="cb31-132"><a href="#cb31-132" aria-hidden="true" tabindex="-1"></a>weak_model_lav <span class="ot">&lt;-</span> (<span class="st">"</span></span>
 <span id="cb31-133"><a href="#cb31-133" aria-hidden="true" tabindex="-1"></a><span class="st">  # Measurement model</span></span>
 <span id="cb31-134"><a href="#cb31-134" aria-hidden="true" tabindex="-1"></a><span class="st">  w1comp =~ w1vst1 + a*w1vst2 + b*w1vst3 # Factor loading equality constraint</span></span>
-<span id="cb31-135"><a href="#cb31-135" aria-hidden="true" tabindex="-1"></a><span class="st">    w2comp =~ w2vst1 + a*w2vst2 + b*w2vst3 # Factor loading equality constraint</span></span>
+<span id="cb31-135"><a href="#cb31-135" aria-hidden="true" tabindex="-1"></a><span class="st">  w2comp =~ w2vst1 + a*w2vst2 + b*w2vst3 # Factor loading equality constraint</span></span>
 <span id="cb31-136"><a href="#cb31-136" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-137"><a href="#cb31-137" aria-hidden="true" tabindex="-1"></a><span class="st">  # Variances and covariances</span></span>
-<span id="cb31-138"><a href="#cb31-138" aria-hidden="true" tabindex="-1"></a><span class="st">    w2comp ~~ w1comp</span></span>
+<span id="cb31-138"><a href="#cb31-138" aria-hidden="true" tabindex="-1"></a><span class="st">  w2comp ~~ w1comp</span></span>
 <span id="cb31-139"><a href="#cb31-139" aria-hidden="true" tabindex="-1"></a><span class="st">  w1comp ~~ w1comp</span></span>
 <span id="cb31-140"><a href="#cb31-140" aria-hidden="true" tabindex="-1"></a><span class="st">  w2comp ~~ w2comp</span></span>
 <span id="cb31-141"><a href="#cb31-141" aria-hidden="true" tabindex="-1"></a></span>
@@ -993,9 +993,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb31-147"><a href="#cb31-147" aria-hidden="true" tabindex="-1"></a><span class="st">  w2vst3 ~~ w2vst3</span></span>
 <span id="cb31-148"><a href="#cb31-148" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-149"><a href="#cb31-149" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst1 ~~ w2vst1</span></span>
-<span id="cb31-150"><a href="#cb31-150" aria-hidden="true" tabindex="-1"></a><span class="st">    w1vst2 ~~ w2vst2</span></span>
-<span id="cb31-151"><a href="#cb31-151" aria-hidden="true" tabindex="-1"></a><span class="st">    w1vst3 ~~ w2vst3</span></span>
-<span id="cb31-152"><a href="#cb31-152" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span>
+<span id="cb31-150"><a href="#cb31-150" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst2 ~~ w2vst2</span></span>
+<span id="cb31-151"><a href="#cb31-151" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst3 ~~ w2vst3</span></span>
+<span id="cb31-152"><a href="#cb31-152" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span>
 <span id="cb31-153"><a href="#cb31-153" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-154"><a href="#cb31-154" aria-hidden="true" tabindex="-1"></a>weak_model_lav_fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(weak_model_lav, social_exchanges)</span>
 <span id="cb31-155"><a href="#cb31-155" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -1038,20 +1038,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb31-192"><a href="#cb31-192" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb31-193"><a href="#cb31-193" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-194"><a href="#cb31-194" aria-hidden="true" tabindex="-1"></a><span class="in">```{r strong-invariance-lavaan}</span></span>
-<span id="cb31-195"><a href="#cb31-195" aria-hidden="true" tabindex="-1"></a>strong_model_lav <span class="ot">&lt;-</span> <span class="st">'</span></span>
+<span id="cb31-195"><a href="#cb31-195" aria-hidden="true" tabindex="-1"></a>strong_model_lav <span class="ot">&lt;-</span> (<span class="st">"</span></span>
 <span id="cb31-196"><a href="#cb31-196" aria-hidden="true" tabindex="-1"></a><span class="st">  # Measurement model</span></span>
 <span id="cb31-197"><a href="#cb31-197" aria-hidden="true" tabindex="-1"></a><span class="st">  w1comp =~ w1vst1 + a*w1vst2 + b*w1vst3 # Factor loading equality constraint</span></span>
 <span id="cb31-198"><a href="#cb31-198" aria-hidden="true" tabindex="-1"></a><span class="st">  w2comp =~ w2vst1 + a*w2vst2 + b*w2vst3 # Factor loading equality constraint</span></span>
 <span id="cb31-199"><a href="#cb31-199" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-200"><a href="#cb31-200" aria-hidden="true" tabindex="-1"></a><span class="st">  # Variances and covariances</span></span>
-<span id="cb31-201"><a href="#cb31-201" aria-hidden="true" tabindex="-1"></a><span class="st">    w2comp ~~ w1comp</span></span>
-<span id="cb31-202"><a href="#cb31-202" aria-hidden="true" tabindex="-1"></a><span class="st">    w2comp ~~ v*w2comp # Factor variance equality constraint</span></span>
-<span id="cb31-203"><a href="#cb31-203" aria-hidden="true" tabindex="-1"></a><span class="st">    w1comp ~~ v*w1comp # Factor variance equality constraint</span></span>
+<span id="cb31-201"><a href="#cb31-201" aria-hidden="true" tabindex="-1"></a><span class="st">  w2comp ~~ w1comp</span></span>
+<span id="cb31-202"><a href="#cb31-202" aria-hidden="true" tabindex="-1"></a><span class="st">  w2comp ~~ v*w2comp # Factor variance equality constraint</span></span>
+<span id="cb31-203"><a href="#cb31-203" aria-hidden="true" tabindex="-1"></a><span class="st">  w1comp ~~ v*w1comp # Factor variance equality constraint</span></span>
 <span id="cb31-204"><a href="#cb31-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-205"><a href="#cb31-205" aria-hidden="true" tabindex="-1"></a><span class="st">    w1vst1 ~~ w2vst1</span></span>
-<span id="cb31-206"><a href="#cb31-206" aria-hidden="true" tabindex="-1"></a><span class="st">    w1vst2 ~~ w2vst2</span></span>
-<span id="cb31-207"><a href="#cb31-207" aria-hidden="true" tabindex="-1"></a><span class="st">    w1vst3 ~~ w2vst3</span></span>
-<span id="cb31-208"><a href="#cb31-208" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span>
+<span id="cb31-205"><a href="#cb31-205" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst1 ~~ w2vst1</span></span>
+<span id="cb31-206"><a href="#cb31-206" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst2 ~~ w2vst2</span></span>
+<span id="cb31-207"><a href="#cb31-207" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst3 ~~ w2vst3</span></span>
+<span id="cb31-208"><a href="#cb31-208" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span>
 <span id="cb31-209"><a href="#cb31-209" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-210"><a href="#cb31-210" aria-hidden="true" tabindex="-1"></a>strong_model_lav_fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(strong_model_lav, social_exchanges)</span>
 <span id="cb31-211"><a href="#cb31-211" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -1091,29 +1091,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb31-245"><a href="#cb31-245" aria-hidden="true" tabindex="-1"></a>Using the lavaan package.</span>
 <span id="cb31-246"><a href="#cb31-246" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-247"><a href="#cb31-247" aria-hidden="true" tabindex="-1"></a><span class="in">```{r strict-invariance-lavaan}</span></span>
-<span id="cb31-248"><a href="#cb31-248" aria-hidden="true" tabindex="-1"></a>strict_model_lav <span class="ot">&lt;-</span> <span class="st">'</span></span>
+<span id="cb31-248"><a href="#cb31-248" aria-hidden="true" tabindex="-1"></a>strict_model_lav <span class="ot">&lt;-</span> (<span class="st">"</span></span>
 <span id="cb31-249"><a href="#cb31-249" aria-hidden="true" tabindex="-1"></a><span class="st">  # Measurement model</span></span>
 <span id="cb31-250"><a href="#cb31-250" aria-hidden="true" tabindex="-1"></a><span class="st">  w1comp =~ w1vst1 + a*w1vst2 + b*w1vst3 # Factor loading equality constraint</span></span>
-<span id="cb31-251"><a href="#cb31-251" aria-hidden="true" tabindex="-1"></a><span class="st">    w2comp =~ w2vst1 + a*w2vst2 + b*w2vst3 # Factor loading equality constraint</span></span>
+<span id="cb31-251"><a href="#cb31-251" aria-hidden="true" tabindex="-1"></a><span class="st">  w2comp =~ w2vst1 + a*w2vst2 + b*w2vst3 # Factor loading equality constraint</span></span>
 <span id="cb31-252"><a href="#cb31-252" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-253"><a href="#cb31-253" aria-hidden="true" tabindex="-1"></a><span class="st">  # Variances &amp; covariances</span></span>
-<span id="cb31-254"><a href="#cb31-254" aria-hidden="true" tabindex="-1"></a><span class="st">    w2comp ~~ w1comp</span></span>
+<span id="cb31-254"><a href="#cb31-254" aria-hidden="true" tabindex="-1"></a><span class="st">  w2comp ~~ w1comp</span></span>
 <span id="cb31-255"><a href="#cb31-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-256"><a href="#cb31-256" aria-hidden="true" tabindex="-1"></a><span class="st">    w1comp ~~ c*w1comp # Factor variance equality constraint</span></span>
-<span id="cb31-257"><a href="#cb31-257" aria-hidden="true" tabindex="-1"></a><span class="st">    w2comp ~~ c*w2comp # Factor variance equality constraint</span></span>
+<span id="cb31-256"><a href="#cb31-256" aria-hidden="true" tabindex="-1"></a><span class="st">  w1comp ~~ c*w1comp # Factor variance equality constraint</span></span>
+<span id="cb31-257"><a href="#cb31-257" aria-hidden="true" tabindex="-1"></a><span class="st">  w2comp ~~ c*w2comp # Factor variance equality constraint</span></span>
 <span id="cb31-258"><a href="#cb31-258" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-259"><a href="#cb31-259" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst1 ~~ w2vst1</span></span>
-<span id="cb31-260"><a href="#cb31-260" aria-hidden="true" tabindex="-1"></a><span class="st">    w1vst2 ~~ w2vst2</span></span>
-<span id="cb31-261"><a href="#cb31-261" aria-hidden="true" tabindex="-1"></a><span class="st">    w1vst3 ~~ w2vst3</span></span>
+<span id="cb31-260"><a href="#cb31-260" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst2 ~~ w2vst2</span></span>
+<span id="cb31-261"><a href="#cb31-261" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst3 ~~ w2vst3</span></span>
 <span id="cb31-262"><a href="#cb31-262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-263"><a href="#cb31-263" aria-hidden="true" tabindex="-1"></a><span class="st">    w1vst1 ~~ d*w1vst1 # Measurement residual equality constraint</span></span>
-<span id="cb31-264"><a href="#cb31-264" aria-hidden="true" tabindex="-1"></a><span class="st">    w1vst2 ~~ e*w1vst2 # Measurement residual equality constraint</span></span>
-<span id="cb31-265"><a href="#cb31-265" aria-hidden="true" tabindex="-1"></a><span class="st">    w1vst3 ~~ f*w1vst3 # Measurement residual equality constraint</span></span>
+<span id="cb31-263"><a href="#cb31-263" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst1 ~~ d*w1vst1 # Measurement residual equality constraint</span></span>
+<span id="cb31-264"><a href="#cb31-264" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst2 ~~ e*w1vst2 # Measurement residual equality constraint</span></span>
+<span id="cb31-265"><a href="#cb31-265" aria-hidden="true" tabindex="-1"></a><span class="st">  w1vst3 ~~ f*w1vst3 # Measurement residual equality constraint</span></span>
 <span id="cb31-266"><a href="#cb31-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-267"><a href="#cb31-267" aria-hidden="true" tabindex="-1"></a><span class="st">    w2vst1 ~~ d*w2vst1 # Measurement residual equality constraint</span></span>
-<span id="cb31-268"><a href="#cb31-268" aria-hidden="true" tabindex="-1"></a><span class="st">    w2vst2 ~~ e*w2vst2 # Measurement residual equality constraint</span></span>
-<span id="cb31-269"><a href="#cb31-269" aria-hidden="true" tabindex="-1"></a><span class="st">    w2vst3 ~~ f*w2vst3 # Measurement residual equality constraint</span></span>
-<span id="cb31-270"><a href="#cb31-270" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span>
+<span id="cb31-267"><a href="#cb31-267" aria-hidden="true" tabindex="-1"></a><span class="st">  w2vst1 ~~ d*w2vst1 # Measurement residual equality constraint</span></span>
+<span id="cb31-268"><a href="#cb31-268" aria-hidden="true" tabindex="-1"></a><span class="st">  w2vst2 ~~ e*w2vst2 # Measurement residual equality constraint</span></span>
+<span id="cb31-269"><a href="#cb31-269" aria-hidden="true" tabindex="-1"></a><span class="st">  w2vst3 ~~ f*w2vst3 # Measurement residual equality constraint</span></span>
+<span id="cb31-270"><a href="#cb31-270" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span>
 <span id="cb31-271"><a href="#cb31-271" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-272"><a href="#cb31-272" aria-hidden="true" tabindex="-1"></a>strict_model_lav_fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(strict_model_lav, social_exchanges)</span>
 <span id="cb31-273"><a href="#cb31-273" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>

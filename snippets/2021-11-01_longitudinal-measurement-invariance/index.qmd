@@ -56,7 +56,7 @@ The data contains simulated values for several indicators of positive and negati
 Using the **lavaan** package.
 
 ```{r configural-invariance-lavaan}
-configural_model_lav <- '
+configural_model_lav <- ("
   # Measurement model
   w1comp =~ w1vst1 + w1vst2 + w1vst3
   w2comp =~ w2vst1 + w2vst2 + w2vst3
@@ -74,9 +74,9 @@ configural_model_lav <- '
   w2vst3 ~~ w2vst3
 
   w1vst1 ~~ w2vst1
-	w1vst2 ~~ w2vst2
-	w1vst3 ~~ w2vst3
-'
+  w1vst2 ~~ w2vst2
+  w1vst3 ~~ w2vst3
+")
 
 configural_model_lav_fit <- sem(configural_model_lav, data = social_exchanges)
 ```
@@ -86,11 +86,11 @@ Using the **semTools** package.
 ```{r configural-invariance-semtools}
 # First, define the configural model, using the repeated measures factors and
 # indicators.
-configural_model_smt <- '
+configural_model_smt <- ("
   # Measurement model
   w1comp =~ w1vst1 + w1vst2 + w1vst3
-	w2comp =~ w2vst1 + w2vst2 + w2vst3
-'
+  w2comp =~ w2vst1 + w2vst2 + w2vst3
+")
 
 # Second, create a named list indicating which factors are actually the same
 # latent variable measured repeatedly.
@@ -129,13 +129,13 @@ fitMeasures(configural_model_smt_fit, c("chisq", "df", "pvalue", "cfi", "rmsea")
 Using the lavaan package.
 
 ```{r weak-invariance-lavaan}
-weak_model_lav <- '
+weak_model_lav <- ("
   # Measurement model
   w1comp =~ w1vst1 + a*w1vst2 + b*w1vst3 # Factor loading equality constraint
-	w2comp =~ w2vst1 + a*w2vst2 + b*w2vst3 # Factor loading equality constraint
+  w2comp =~ w2vst1 + a*w2vst2 + b*w2vst3 # Factor loading equality constraint
 
   # Variances and covariances
-	w2comp ~~ w1comp
+  w2comp ~~ w1comp
   w1comp ~~ w1comp
   w2comp ~~ w2comp
 
@@ -147,9 +147,9 @@ weak_model_lav <- '
   w2vst3 ~~ w2vst3
 
   w1vst1 ~~ w2vst1
-	w1vst2 ~~ w2vst2
-	w1vst3 ~~ w2vst3
-'
+  w1vst2 ~~ w2vst2
+  w1vst3 ~~ w2vst3
+")
 
 weak_model_lav_fit <- sem(weak_model_lav, social_exchanges)
 ```
@@ -192,20 +192,20 @@ Equality tests of factor variances should only be conducted when all factor load
 :::
 
 ```{r strong-invariance-lavaan}
-strong_model_lav <- '
+strong_model_lav <- ("
   # Measurement model
   w1comp =~ w1vst1 + a*w1vst2 + b*w1vst3 # Factor loading equality constraint
   w2comp =~ w2vst1 + a*w2vst2 + b*w2vst3 # Factor loading equality constraint
 
   # Variances and covariances
-	w2comp ~~ w1comp
-	w2comp ~~ v*w2comp # Factor variance equality constraint
-	w1comp ~~ v*w1comp # Factor variance equality constraint
+  w2comp ~~ w1comp
+  w2comp ~~ v*w2comp # Factor variance equality constraint
+  w1comp ~~ v*w1comp # Factor variance equality constraint
 
-	w1vst1 ~~ w2vst1
-	w1vst2 ~~ w2vst2
-	w1vst3 ~~ w2vst3
-'
+  w1vst1 ~~ w2vst1
+  w1vst2 ~~ w2vst2
+  w1vst3 ~~ w2vst3
+")
 
 strong_model_lav_fit <- sem(strong_model_lav, social_exchanges)
 ```
@@ -245,29 +245,29 @@ lavTestLRT(configural_model_lav_fit, weak_model_lav_fit, strong_model_lav_fit)
 Using the lavaan package.
 
 ```{r strict-invariance-lavaan}
-strict_model_lav <- '
+strict_model_lav <- ("
   # Measurement model
   w1comp =~ w1vst1 + a*w1vst2 + b*w1vst3 # Factor loading equality constraint
-	w2comp =~ w2vst1 + a*w2vst2 + b*w2vst3 # Factor loading equality constraint
+  w2comp =~ w2vst1 + a*w2vst2 + b*w2vst3 # Factor loading equality constraint
 
   # Variances & covariances
-	w2comp ~~ w1comp
+  w2comp ~~ w1comp
 
-	w1comp ~~ c*w1comp # Factor variance equality constraint
-	w2comp ~~ c*w2comp # Factor variance equality constraint
+  w1comp ~~ c*w1comp # Factor variance equality constraint
+  w2comp ~~ c*w2comp # Factor variance equality constraint
 
   w1vst1 ~~ w2vst1
-	w1vst2 ~~ w2vst2
-	w1vst3 ~~ w2vst3
+  w1vst2 ~~ w2vst2
+  w1vst3 ~~ w2vst3
 
-	w1vst1 ~~ d*w1vst1 # Measurement residual equality constraint
-	w1vst2 ~~ e*w1vst2 # Measurement residual equality constraint
-	w1vst3 ~~ f*w1vst3 # Measurement residual equality constraint
+  w1vst1 ~~ d*w1vst1 # Measurement residual equality constraint
+  w1vst2 ~~ e*w1vst2 # Measurement residual equality constraint
+  w1vst3 ~~ f*w1vst3 # Measurement residual equality constraint
 
-	w2vst1 ~~ d*w2vst1 # Measurement residual equality constraint
-	w2vst2 ~~ e*w2vst2 # Measurement residual equality constraint
-	w2vst3 ~~ f*w2vst3 # Measurement residual equality constraint
-'
+  w2vst1 ~~ d*w2vst1 # Measurement residual equality constraint
+  w2vst2 ~~ e*w2vst2 # Measurement residual equality constraint
+  w2vst3 ~~ f*w2vst3 # Measurement residual equality constraint
+")
 
 strict_model_lav_fit <- sem(strict_model_lav, social_exchanges)
 ```

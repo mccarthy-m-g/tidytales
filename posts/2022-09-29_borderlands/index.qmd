@@ -372,12 +372,13 @@ plot_layer <- image_composite(plot_fill_layer, plot_outline_layer) %>%
 plot_layer
 ```
 
-And the background image can be added for the final composite.
+And the background image can be added for the final composite. To make it stand out less, I've overlaid a solid black frame with 50% opacity.
 
 ```{r}
 background_layer <- image_read(
   here("posts", "2022-09-29_borderlands", "images", "plot-background.png")
-)
+) %>% 
+  image_colorize(50, "black")
 
 final_graphic <- image_composite(background_layer, plot_layer)
 ```
