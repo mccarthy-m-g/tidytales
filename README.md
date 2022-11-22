@@ -1,4 +1,4 @@
-# Tidy Tales <a href='https://tidytales.ca'><img src="inst/images/hexsticker.png" align="right" height="139"/></a>
+# Tidy Tales <a href='https://tidytales.ca'><img src="assets/images/hexsticker.png" align="right" height="139"/></a>
 
 <!-- badges: start -->
 [![Writing Status: on hiatus](https://img.shields.io/badge/writing_status-on_hiatus-orange.svg)](https://tidytales.ca)
