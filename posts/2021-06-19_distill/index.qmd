@@ -1,8 +1,11 @@
 ---
-draft: false
 title: What's he building in there?
 description: |
   Customizing a {distill} website.
+
+author:
+  - name: Michael McCarthy
+    url: https://michaelmccarthy.tidytales.ca
 
 date: '2021-06-19'
 

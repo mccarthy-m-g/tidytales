@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.247">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -469,7 +469,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  collate  en_CA.UTF-8
  ctype    en_CA.UTF-8
  tz       America/Vancouver
- date     2022-10-31
+ date     2022-11-22
  pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)
  quarto   1.2.247 @ /usr/local/bin/quarto
 
@@ -711,242 +711,245 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <script src="https://giscus.app/client.js" data-repo="mccarthy-m-g/tidytales" data-repo-id="MDEwOlJlcG9zaXRvcnkzNzI2MTI0NjU=" data-category="Comments" data-category-id="DIC_kwDOFjWdcc4CSRY9" data-mapping="title" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">draft:</span><span class="co"> false</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> What's he building in there?</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> |</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">  Customizing a {distill} website.</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> '2021-06-19'</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">  - .Misc</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">  - "{distill}"</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co">  - "{distilltools}"</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">  - "{metathis}"</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> images/distillclub.png</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="an">twitter-card:</span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co">  title: "Tidy Tales: What's he building in there?"</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co">  image: images/twittercard.png</span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co">  image-width: 1200</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co">  image-height: 628</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co">  card-style: summary_large_image</span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co">  </span></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="an">open-graph:</span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co">  title: "Tidy Tales: What's he building in there?"</span></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co">  image: images/twittercard.png</span></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co">  </span></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="an">params:</span></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="co">  use_renv: FALSE</span></span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="co">  data_file: NULL</span></span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="co">  fair_dealing: FALSE</span></span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure the project root is set up correctly using {here} --------------------</span></span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>here<span class="sc">::</span><span class="fu">i_am</span>(<span class="st">"posts/2021-06-19_distill/index.qmd"</span>)</span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Load general set up packages used in all posts ------------------------------</span></span>
-<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> What's he building in there?</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> |</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">  Customizing a {distill} website.</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: Michael McCarthy</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">    url: https://michaelmccarthy.tidytales.ca</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> '2021-06-19'</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">  - .Misc</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co">  - "{distill}"</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">  - "{distilltools}"</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">  - "{metathis}"</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> images/distillclub.png</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="an">twitter-card:</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co">  title: "Tidy Tales: What's he building in there?"</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co">  image: images/twittercard.png</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co">  image-width: 1200</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co">  image-height: 628</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co">  card-style: summary_large_image</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co">  </span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="an">open-graph:</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co">  title: "Tidy Tales: What's he building in there?"</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="co">  image: images/twittercard.png</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="co">  </span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="an">params:</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="co">  use_renv: FALSE</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="co">  data_file: NULL</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="co">  fair_dealing: FALSE</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure the project root is set up correctly using {here} --------------------</span></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>here<span class="sc">::</span><span class="fu">i_am</span>(<span class="st">"posts/2021-06-19_distill/index.qmd"</span>)</span>
 <span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Load R scripts located in R/ ------------------------------------------------</span></span>
-<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Create templates for knitr code chunks --------------------------------------</span></span>
-<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_template<span class="sc">$</span><span class="fu">set</span>(</span>
-<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>  <span class="at">fig.graphic =</span> <span class="fu">list</span>(<span class="at">echo =</span> <span class="cn">FALSE</span>, <span class="at">out.width =</span> <span class="st">"100%"</span>),</span>
-<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>  <span class="at">no.message =</span> <span class="fu">list</span>(<span class="at">message =</span> <span class="cn">FALSE</span>, <span class="at">warning =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>*Note: This blog is no longer built with Distill. It is now built with [Quarto](https://quarto.org), which is in many ways a successor to Distill.*</span>
-<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overview</span></span>
-<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>Tidy Tales is built using <span class="co">[</span><span class="ot">Distill for R Markdown</span><span class="co">](https://rstudio.github.io/distill/)</span>, a web publishing format optimized for scientific and technical communication. I chose Distill for Tidy Tales over other R website formats for its simplicity and style. My <span class="co">[</span><span class="ot">personal website</span><span class="co">](https://michaelmccarthy.tidytales.ca/)</span> uses <span class="co">[</span><span class="ot">**blogdown**</span><span class="co">](https://github.com/rstudio/blogdown)</span>, a more customizable but also more complicated format, which I did not want or need for Tidy Tales. That said, I did encounter some restrictions that I wanted to overcome while customizing Tidy Tales using the tools provided by Distill. This post covers some tips and tricks to get around these restrictions.</span>
-<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a><span class="fu">## Page and Article Metadata</span></span>
-<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>Distill comes equipped with a number of features to automatically enable richer sharing of article links on the web using <span class="co">[</span><span class="ot">article metadata</span><span class="co">](https://rstudio.github.io/distill/metadata.html)</span>. However, some of these features are not available for non-article pages on distill blogs (such as link preview images for the home page), and the automatic behaviour of these features limits how much they can be customized. Both of these limitations can be overcome using the <span class="co">[</span><span class="ot">**metathis**</span><span class="co">](https://pkg.garrickadenbuie.com/metathis/)</span> package by <span class="co">[</span><span class="ot">Garrick Aden-Buie</span><span class="co">](https://github.com/gadenbuie)</span>.</span>
-<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>Tom Mock has a great <span class="co">[</span><span class="ot">blog post</span><span class="co">](https://themockup.blog/posts/2021-03-21-including-and-meta-tagging-extra-content-in-a-distill-blog/)</span> diving into how metadata can be used to customize how links from a distill blog appear on social media. It's a great resource and I followed it to add metadata and preview images to the <span class="co">[</span><span class="ot">home</span><span class="co">](https://tidytales.ca)</span> and <span class="co">[</span><span class="ot">about</span><span class="co">](https://tidytales.ca/about.html)</span> pages of Tidy Tales.</span>
-<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>Here is what the <span class="in">`index.Rmd`</span> file for the Tidy Tales home page looks like.</span>
-<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a><span class="in">````yaml</span></span>
-<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Wrangling, Visualizing, Modelling, Communicating data"</span></span>
-<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a><span class="fu">site</span><span class="kw">:</span><span class="at"> distill::distill_website</span></span>
-<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a><span class="fu">listing</span><span class="kw">:</span><span class="at"> posts</span></span>
-<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a>```{r,<span class="at"> </span>include=FALSE,<span class="at"> </span>results='asis'}`r<span class="at"> </span>''`</span>
-<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a>library(metathis)</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Load general set up packages used in all posts ------------------------------</span></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Load R scripts located in R/ ------------------------------------------------</span></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Create templates for knitr code chunks --------------------------------------</span></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_template<span class="sc">$</span><span class="fu">set</span>(</span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>  <span class="at">fig.graphic =</span> <span class="fu">list</span>(<span class="at">echo =</span> <span class="cn">FALSE</span>, <span class="at">out.width =</span> <span class="st">"100%"</span>),</span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>  <span class="at">no.message =</span> <span class="fu">list</span>(<span class="at">message =</span> <span class="cn">FALSE</span>, <span class="at">warning =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>*Note: This blog is no longer built with Distill. It is now built with [Quarto](https://quarto.org), which is in many ways a successor to Distill.*</span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overview</span></span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>Tidy Tales is built using <span class="co">[</span><span class="ot">Distill for R Markdown</span><span class="co">](https://rstudio.github.io/distill/)</span>, a web publishing format optimized for scientific and technical communication. I chose Distill for Tidy Tales over other R website formats for its simplicity and style. My <span class="co">[</span><span class="ot">personal website</span><span class="co">](https://michaelmccarthy.tidytales.ca/)</span> uses <span class="co">[</span><span class="ot">**blogdown**</span><span class="co">](https://github.com/rstudio/blogdown)</span>, a more customizable but also more complicated format, which I did not want or need for Tidy Tales. That said, I did encounter some restrictions that I wanted to overcome while customizing Tidy Tales using the tools provided by Distill. This post covers some tips and tricks to get around these restrictions.</span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Page and Article Metadata</span></span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>Distill comes equipped with a number of features to automatically enable richer sharing of article links on the web using <span class="co">[</span><span class="ot">article metadata</span><span class="co">](https://rstudio.github.io/distill/metadata.html)</span>. However, some of these features are not available for non-article pages on distill blogs (such as link preview images for the home page), and the automatic behaviour of these features limits how much they can be customized. Both of these limitations can be overcome using the <span class="co">[</span><span class="ot">**metathis**</span><span class="co">](https://pkg.garrickadenbuie.com/metathis/)</span> package by <span class="co">[</span><span class="ot">Garrick Aden-Buie</span><span class="co">](https://github.com/gadenbuie)</span>.</span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>Tom Mock has a great <span class="co">[</span><span class="ot">blog post</span><span class="co">](https://themockup.blog/posts/2021-03-21-including-and-meta-tagging-extra-content-in-a-distill-blog/)</span> diving into how metadata can be used to customize how links from a distill blog appear on social media. It's a great resource and I followed it to add metadata and preview images to the <span class="co">[</span><span class="ot">home</span><span class="co">](https://tidytales.ca)</span> and <span class="co">[</span><span class="ot">about</span><span class="co">](https://tidytales.ca/about.html)</span> pages of Tidy Tales.</span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>Here is what the <span class="in">`index.Rmd`</span> file for the Tidy Tales home page looks like.</span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a><span class="in">````yaml</span></span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Wrangling, Visualizing, Modelling, Communicating data"</span></span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a><span class="fu">site</span><span class="kw">:</span><span class="at"> distill::distill_website</span></span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a><span class="fu">listing</span><span class="kw">:</span><span class="at"> posts</span></span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a>meta()<span class="at"> </span>%&gt;%</span>
-<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a><span class="at">  </span>meta_social(</span>
-<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a><span class="at">    </span>title<span class="at"> </span>=<span class="at"> </span>"Tidy<span class="at"> </span>Tales",</span>
-<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a><span class="at">    </span>description<span class="at"> </span>=<span class="at"> </span>"Wrangling,<span class="at"> </span>Visualizing,<span class="at"> </span>Modelling,<span class="at"> </span>Communicating<span class="at"> </span>data",</span>
-<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a><span class="at">    </span>url<span class="at"> </span>=<span class="at"> </span>"https://tidytales.ca",</span>
-<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a><span class="at">    </span>image<span class="at"> </span>=<span class="at"> </span>"https://tidytales.ca/inst/images/twittercard.png",</span>
-<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a><span class="at">    </span>image_alt<span class="at"> </span>=<span class="at"> </span>"Tidy<span class="at"> </span>Tales<span class="at"> </span>logo",</span>
-<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a><span class="at">    </span>og_type<span class="at"> </span>=<span class="at"> </span>"website",</span>
-<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a><span class="at">    </span>twitter_card_type<span class="at"> </span>=<span class="at"> </span>"summary",</span>
-<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a><span class="at">    </span>twitter_site<span class="at"> </span>=<span class="at"> </span>NULL</span>
-<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a><span class="at">  </span>)</span>
-<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a>```</span>
-<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a><span class="in">````</span></span>
-<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a>When the site is built distill will automatically generate metadata for the home page, and the metathis code in <span class="in">`index.Rmd`</span> will generate additional metadata for the home page. Here is what it looks like in HTML.</span>
-<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a><span class="in">```html</span></span>
-<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;!--</span> Generated by distill <span class="op">--&gt;</span></span>
-<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"og:title"</span> content<span class="op">=</span><span class="st">"Tidy Tales | Michael McCarthy: Wrangling, Visualizing, Modelling, Communicating data"</span><span class="op">&gt;</span></span>
-<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"og:type"</span> content<span class="op">=</span><span class="st">"article"</span><span class="op">&gt;</span></span>
-<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"og:locale"</span> content<span class="op">=</span><span class="st">"en_US"</span><span class="op">&gt;</span></span>
-<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"og:site_name"</span> content<span class="op">=</span><span class="st">"Tidy Tales | Michael McCarthy"</span><span class="op">&gt;</span></span>
-<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"twitter:card"</span> content<span class="op">=</span><span class="st">"summary"</span><span class="op">&gt;</span></span>
-<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"twitter:title"</span> content<span class="op">=</span><span class="st">"Tidy Tales | Michael McCarthy: Wrangling, Visualizing, Modelling, Communicating data"</span><span class="op">&gt;</span></span>
-<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"twitter:site"</span> content<span class="op">=</span><span class="st">"@propertidytales"</span><span class="op">&gt;</span></span>
-<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"twitter:creator"</span> content<span class="op">=</span><span class="st">"@mccarthymg"</span><span class="op">&gt;</span></span>
-<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;!--</span> Generated by metathis <span class="op">--&gt;</span></span>
-<span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"og:locale"</span> content<span class="op">=</span><span class="st">"en_US"</span><span class="op">&gt;</span></span>
-<span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta name<span class="op">=</span><span class="st">"twitter:title"</span> content<span class="op">=</span><span class="st">"Tidy Tales"</span><span class="op">&gt;</span></span>
-<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta name<span class="op">=</span><span class="st">"twitter:description"</span> content<span class="op">=</span><span class="st">"Wrangling, Visualizing, Modelling, Communicating data"</span><span class="op">&gt;</span></span>
-<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta name<span class="op">=</span><span class="st">"twitter:url"</span> content<span class="op">=</span><span class="st">"https://tidytales.ca"</span><span class="op">&gt;</span></span>
-<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta name<span class="op">=</span><span class="st">"twitter:image:src"</span> content<span class="op">=</span><span class="st">"https://tidytales.ca/inst/images/twittercard.png"</span><span class="op">&gt;</span></span>
-<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta name<span class="op">=</span><span class="st">"twitter:image:alt"</span> content<span class="op">=</span><span class="st">"Tidy Tales logo"</span><span class="op">&gt;</span></span>
-<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta name<span class="op">=</span><span class="st">"twitter:card"</span> content<span class="op">=</span><span class="st">"summary"</span><span class="op">&gt;</span></span>
-<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"og:title"</span> content<span class="op">=</span><span class="st">"Tidy Tales"</span><span class="op">&gt;</span></span>
-<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"og:description"</span> content<span class="op">=</span><span class="st">"Wrangling, Visualizing, Modelling, Communicating data"</span><span class="op">&gt;</span></span>
-<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"og:url"</span> content<span class="op">=</span><span class="st">"https://tidytales.ca"</span><span class="op">&gt;</span></span>
-<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"og:image"</span> content<span class="op">=</span><span class="st">"https://tidytales.ca/inst/images/twittercard.png"</span><span class="op">&gt;</span></span>
-<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"og:image:alt"</span> content<span class="op">=</span><span class="st">"Tidy Tales logo"</span><span class="op">&gt;</span></span>
-<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"og:type"</span> content<span class="op">=</span><span class="st">"website"</span><span class="op">&gt;</span></span>
-<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a>There is some overlap between the <span class="in">`&lt;meta&gt;`</span> tags generated by distill and metathis, however, the metadata tags generated by metathis seem to take precedence over those automatically generated by distill. For example, the Twitter card for the Tidy Tales home page displays "Tidy Tales" as its title, rather than "Tidy Tales | Michael McCarthy: Wrangling, Visualizing, Modelling, Communicating data".</span>
-<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a><span class="fu">### Article Metadata</span></span>
-<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a>The ability to override some of the metadata generated by distill using metathis is hacky, but it also affords more customization for distill blogs. One trick I'm taking full advantage of with this is to have unique preview images between posts on Tidy Tales and their social cards. Distill allows you to specify a <span class="co">[</span><span class="ot">preview image</span><span class="co">](https://rstudio.github.io/distill/blog.html#preview-images)</span> for a post using the preview chunk option.</span>
-<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a><span class="in">````yaml</span></span>
-<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a>```{r,<span class="at"> </span>preview=TRUE}`r<span class="at"> </span>''`</span>
-<span id="cb8-125"><a href="#cb8-125" aria-hidden="true" tabindex="-1"></a>library(ggplot2)</span>
-<span id="cb8-126"><a href="#cb8-126" aria-hidden="true" tabindex="-1"></a>ggplot(diamonds,<span class="at"> </span>aes(carat,<span class="at"> </span>price))<span class="at"> </span>+</span>
-<span id="cb8-127"><a href="#cb8-127" aria-hidden="true" tabindex="-1"></a><span class="at">  </span>geom_smooth()</span>
-<span id="cb8-128"><a href="#cb8-128" aria-hidden="true" tabindex="-1"></a>```</span>
-<span id="cb8-129"><a href="#cb8-129" aria-hidden="true" tabindex="-1"></a><span class="in">````</span></span>
-<span id="cb8-130"><a href="#cb8-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-131"><a href="#cb8-131" aria-hidden="true" tabindex="-1"></a>This preview image will be used alongside post listings and in social cards. However, if a different image is specified in <span class="in">`metathis::meta_social()`</span> that image will be used in social cards but the preview image specified in the post chunk will still be used alongside post listings. I'm using this on Tidy Tales to have branded images for social cards and plain images for post listings. Here's an example of the branded social card image from my <span class="co">[</span><span class="ot">first post</span><span class="co">](https://tidytales.ca/posts/2021-06-15_demons-souls/)</span>.</span>
-<span id="cb8-132"><a href="#cb8-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-133"><a href="#cb8-133" aria-hidden="true" tabindex="-1"></a><span class="in">```{r preview-card, opts.label='fig.graphic'}</span></span>
-<span id="cb8-134"><a href="#cb8-134" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig.cap: |</span></span>
-<span id="cb8-135"><a href="#cb8-135" aria-hidden="true" tabindex="-1"></a><span class="co">#|   The branded social card image for my first post. Copy the [post link](https://tidytales.ca/posts/2021-06-15_demons-souls/) into a tweet to see it in action.</span></span>
-<span id="cb8-136"><a href="#cb8-136" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">here</span>(<span class="st">"posts"</span>,</span>
-<span id="cb8-137"><a href="#cb8-137" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"2021-06-19_distill"</span>,</span>
-<span id="cb8-138"><a href="#cb8-138" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"images"</span>,</span>
-<span id="cb8-139"><a href="#cb8-139" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"demons-souls_card.png"</span></span>
-<span id="cb8-140"><a href="#cb8-140" aria-hidden="true" tabindex="-1"></a>                             )</span>
-<span id="cb8-141"><a href="#cb8-141" aria-hidden="true" tabindex="-1"></a>                        )</span>
-<span id="cb8-142"><a href="#cb8-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-143"><a href="#cb8-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-144"><a href="#cb8-144" aria-hidden="true" tabindex="-1"></a><span class="fu">## Utterances Comments</span></span>
-<span id="cb8-145"><a href="#cb8-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-146"><a href="#cb8-146" aria-hidden="true" tabindex="-1"></a>Distill only supports <span class="co">[</span><span class="ot">Disqus comments</span><span class="co">](https://rstudio.github.io/distill/blog.html#comments-and-sharing)</span> officially. I did not want to use Disqus comments on Tidy Tales because it would add bloat to my posts, and because I do not want a third-party data mining and tracking Tidy Tales readers. <span class="co">[</span><span class="ot">Utterances</span><span class="co">](https://github.com/utterance/utterances)</span> is a lightweight alternative that uses GitHub issues for comments. Miles McBain shared an <span class="co">[</span><span class="ot">HTML script</span><span class="co">](https://github.com/MilesMcBain/milesmcbain.com/blob/master/utterances.html)</span> on his blog to <span class="co">[</span><span class="ot">add Utterances to a distill blog</span><span class="co">](https://milesmcbain.micro.blog/2020/09/04/how-i-got.html)</span>.</span>
-<span id="cb8-147"><a href="#cb8-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-148"><a href="#cb8-148" aria-hidden="true" tabindex="-1"></a>Here is what the script for Tidy Tales looks like.</span>
-<span id="cb8-149"><a href="#cb8-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-150"><a href="#cb8-150" aria-hidden="true" tabindex="-1"></a><span class="in">```html</span></span>
-<span id="cb8-151"><a href="#cb8-151" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>script<span class="op">&gt;</span></span>
-<span id="cb8-152"><a href="#cb8-152" aria-hidden="true" tabindex="-1"></a> document<span class="op">.</span>addEventListener<span class="op">(</span><span class="st">"DOMContentLoaded"</span><span class="op">,</span> function <span class="op">()</span> <span class="op">{</span></span>
-<span id="cb8-153"><a href="#cb8-153" aria-hidden="true" tabindex="-1"></a>   <span class="cf">if</span> <span class="op">(!/</span>posts<span class="op">/.</span>test<span class="op">(</span>location<span class="op">.</span>pathname<span class="op">))</span> <span class="op">{</span></span>
-<span id="cb8-154"><a href="#cb8-154" aria-hidden="true" tabindex="-1"></a>     <span class="cf">return</span><span class="op">;</span></span>
-<span id="cb8-155"><a href="#cb8-155" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
-<span id="cb8-156"><a href="#cb8-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-157"><a href="#cb8-157" aria-hidden="true" tabindex="-1"></a>   var script <span class="op">=</span> document<span class="op">.</span>createElement<span class="op">(</span><span class="st">"script"</span><span class="op">);</span></span>
-<span id="cb8-158"><a href="#cb8-158" aria-hidden="true" tabindex="-1"></a>   script<span class="op">.</span>src <span class="op">=</span> <span class="st">"https://utteranc.es/client.js"</span><span class="op">;</span></span>
-<span id="cb8-159"><a href="#cb8-159" aria-hidden="true" tabindex="-1"></a>   script<span class="op">.</span>setAttribute<span class="op">(</span><span class="st">"repo"</span><span class="op">,</span> <span class="st">"mccarthy-m-g/tidytales"</span><span class="op">);</span></span>
-<span id="cb8-160"><a href="#cb8-160" aria-hidden="true" tabindex="-1"></a>   script<span class="op">.</span>setAttribute<span class="op">(</span><span class="st">"issue-term"</span><span class="op">,</span> <span class="st">"title"</span><span class="op">);</span></span>
-<span id="cb8-161"><a href="#cb8-161" aria-hidden="true" tabindex="-1"></a>   script<span class="op">.</span>setAttribute<span class="op">(</span><span class="st">"crossorigin"</span><span class="op">,</span> <span class="st">"anonymous"</span><span class="op">);</span></span>
-<span id="cb8-162"><a href="#cb8-162" aria-hidden="true" tabindex="-1"></a>   script<span class="op">.</span>setAttribute<span class="op">(</span><span class="st">"label"</span><span class="op">,</span> <span class="st">"utterances"</span><span class="op">);</span></span>
-<span id="cb8-163"><a href="#cb8-163" aria-hidden="true" tabindex="-1"></a>   script<span class="op">.</span>setAttribute<span class="op">(</span><span class="st">"theme"</span><span class="op">,</span> <span class="st">"github-light"</span><span class="op">);</span></span>
-<span id="cb8-164"><a href="#cb8-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-165"><a href="#cb8-165" aria-hidden="true" tabindex="-1"></a>   <span class="co">/* wait for article to load, append script to article element */</span></span>
-<span id="cb8-166"><a href="#cb8-166" aria-hidden="true" tabindex="-1"></a>   var observer <span class="op">=</span> new MutationObserver<span class="op">(</span>function <span class="op">(</span>mutations<span class="op">,</span> observer<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb8-167"><a href="#cb8-167" aria-hidden="true" tabindex="-1"></a>     var article <span class="op">=</span> document<span class="op">.</span>querySelector<span class="op">(</span><span class="st">"details.comment-section"</span><span class="op">);</span></span>
-<span id="cb8-168"><a href="#cb8-168" aria-hidden="true" tabindex="-1"></a>     <span class="cf">if</span> <span class="op">(</span>article<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb8-169"><a href="#cb8-169" aria-hidden="true" tabindex="-1"></a>       observer<span class="op">.</span>disconnect<span class="op">();</span></span>
-<span id="cb8-170"><a href="#cb8-170" aria-hidden="true" tabindex="-1"></a>       <span class="co">/* </span><span class="al">HACK</span><span class="co">: article scroll */</span></span>
-<span id="cb8-171"><a href="#cb8-171" aria-hidden="true" tabindex="-1"></a>       article<span class="op">.</span>setAttribute<span class="op">(</span><span class="st">"style"</span><span class="op">,</span> <span class="st">"overflow-y: hidden"</span><span class="op">);</span></span>
-<span id="cb8-172"><a href="#cb8-172" aria-hidden="true" tabindex="-1"></a>       article<span class="op">.</span>appendChild<span class="op">(</span>script<span class="op">);</span></span>
-<span id="cb8-173"><a href="#cb8-173" aria-hidden="true" tabindex="-1"></a>     <span class="op">}</span></span>
-<span id="cb8-174"><a href="#cb8-174" aria-hidden="true" tabindex="-1"></a>   <span class="op">});</span></span>
-<span id="cb8-175"><a href="#cb8-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-176"><a href="#cb8-176" aria-hidden="true" tabindex="-1"></a>   observer<span class="op">.</span>observe<span class="op">(</span>document<span class="op">.</span>body<span class="op">,</span> <span class="op">{</span> childList<span class="op">:</span> true <span class="op">});</span></span>
-<span id="cb8-177"><a href="#cb8-177" aria-hidden="true" tabindex="-1"></a> <span class="op">});</span></span>
-<span id="cb8-178"><a href="#cb8-178" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>script<span class="op">&gt;</span></span>
-<span id="cb8-179"><a href="#cb8-179" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-180"><a href="#cb8-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-181"><a href="#cb8-181" aria-hidden="true" tabindex="-1"></a>The script uses JavaScript to inject the Utterances <span class="in">`&lt;iframe&gt;`</span> into the end of the first HTML Element within the document that matches the CSS selector specified in <span class="in">`document.querySelector()`</span>. By default, the script shared by Miles will place the comment section at the end of a distill post's body. Since Utterances comments sections are not collapsible this presents a problem though, as more comments are made readers will have to scroll further and further to reach a post's appendix.</span>
-<span id="cb8-182"><a href="#cb8-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-183"><a href="#cb8-183" aria-hidden="true" tabindex="-1"></a>To overcome this on Tidy Tales I created new CSS selectors that use the <span class="in">`&lt;details&gt;`</span> tag, so readers can show and hide the comments section as they please, and added a brightness and opacity filter to the selector for the Utterances <span class="in">`&lt;iframe&gt;`</span> to make it fit into the Tidy Tales colour scheme better. I also wanted my comments section to be in the appendix of my posts rather than the body.</span>
-<span id="cb8-184"><a href="#cb8-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-185"><a href="#cb8-185" aria-hidden="true" tabindex="-1"></a><span class="in">```css</span></span>
-<span id="cb8-186"><a href="#cb8-186" aria-hidden="true" tabindex="-1"></a>d<span class="op">-</span>appendix details<span class="op">.</span><span class="fu">comment</span><span class="op">-</span>section <span class="op">{</span></span>
-<span id="cb8-187"><a href="#cb8-187" aria-hidden="true" tabindex="-1"></a>  color<span class="op">:</span> <span class="fu">var</span><span class="op">(--</span>dark<span class="op">-</span>shade<span class="op">-</span>alpha<span class="op">);</span></span>
-<span id="cb8-188"><a href="#cb8-188" aria-hidden="true" tabindex="-1"></a>  font<span class="op">-</span>family<span class="op">:</span> <span class="fu">var</span><span class="op">(--</span>heading<span class="op">-</span>font<span class="op">);</span></span>
-<span id="cb8-189"><a href="#cb8-189" aria-hidden="true" tabindex="-1"></a>  font<span class="op">-</span>size<span class="op">:</span> 15px <span class="op">!</span>important<span class="op">;</span></span>
-<span id="cb8-190"><a href="#cb8-190" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb8-191"><a href="#cb8-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-192"><a href="#cb8-192" aria-hidden="true" tabindex="-1"></a>d<span class="op">-</span>appendix details<span class="op">.</span><span class="fu">comment</span><span class="op">-</span>section summary<span class="op">:</span>after <span class="op">{</span></span>
-<span id="cb8-193"><a href="#cb8-193" aria-hidden="true" tabindex="-1"></a>  content<span class="op">:</span> <span class="st">"Show"</span><span class="op">;</span></span>
-<span id="cb8-194"><a href="#cb8-194" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb8-195"><a href="#cb8-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-196"><a href="#cb8-196" aria-hidden="true" tabindex="-1"></a>d<span class="op">-</span>appendix details<span class="op">[</span>open<span class="op">].</span><span class="fu">comment</span><span class="op">-</span>section summary<span class="op">:</span>after <span class="op">{</span></span>
-<span id="cb8-197"><a href="#cb8-197" aria-hidden="true" tabindex="-1"></a>  content<span class="op">:</span> <span class="st">"Hide"</span><span class="op">;</span></span>
-<span id="cb8-198"><a href="#cb8-198" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb8-199"><a href="#cb8-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-200"><a href="#cb8-200" aria-hidden="true" tabindex="-1"></a><span class="op">.</span><span class="fu">utterances</span> <span class="op">{</span></span>
-<span id="cb8-201"><a href="#cb8-201" aria-hidden="true" tabindex="-1"></a>  filter<span class="op">:</span> <span class="fu">brightness</span><span class="op">(</span><span class="dv">95</span><span class="op">%)</span> <span class="fu">opacity</span><span class="op">(</span><span class="dv">85</span><span class="op">%);</span></span>
-<span id="cb8-202"><a href="#cb8-202" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb8-203"><a href="#cb8-203" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-204"><a href="#cb8-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-205"><a href="#cb8-205" aria-hidden="true" tabindex="-1"></a>The above HTML and CSS is applied to all Tidy Tales posts using the <span class="in">`theme`</span> and <span class="in">`includes`</span> parameters in <span class="in">`_site.yml`</span>, so to add Utterances to a post I only need to include the following in the R Markdown file for a post as an <span class="co">[</span><span class="ot">appendix header</span><span class="co">](https://rstudio.github.io/distill/basics.html#appendices)</span>.</span>
-<span id="cb8-206"><a href="#cb8-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-207"><a href="#cb8-207" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
-<span id="cb8-208"><a href="#cb8-208" aria-hidden="true" tabindex="-1"></a><span class="fu">## Comments {.appendix}</span></span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a>```{r,<span class="at"> </span>include=FALSE,<span class="at"> </span>results='asis'}`r<span class="at"> </span>''`</span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a>library(metathis)</span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a>meta()<span class="at"> </span>%&gt;%</span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a><span class="at">  </span>meta_social(</span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a><span class="at">    </span>title<span class="at"> </span>=<span class="at"> </span>"Tidy<span class="at"> </span>Tales",</span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a><span class="at">    </span>description<span class="at"> </span>=<span class="at"> </span>"Wrangling,<span class="at"> </span>Visualizing,<span class="at"> </span>Modelling,<span class="at"> </span>Communicating<span class="at"> </span>data",</span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a><span class="at">    </span>url<span class="at"> </span>=<span class="at"> </span>"https://tidytales.ca",</span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a><span class="at">    </span>image<span class="at"> </span>=<span class="at"> </span>"https://tidytales.ca/inst/images/twittercard.png",</span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a><span class="at">    </span>image_alt<span class="at"> </span>=<span class="at"> </span>"Tidy<span class="at"> </span>Tales<span class="at"> </span>logo",</span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a><span class="at">    </span>og_type<span class="at"> </span>=<span class="at"> </span>"website",</span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a><span class="at">    </span>twitter_card_type<span class="at"> </span>=<span class="at"> </span>"summary",</span>
+<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a><span class="at">    </span>twitter_site<span class="at"> </span>=<span class="at"> </span>NULL</span>
+<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a><span class="at">  </span>)</span>
+<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a><span class="in">````</span></span>
+<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a>When the site is built distill will automatically generate metadata for the home page, and the metathis code in <span class="in">`index.Rmd`</span> will generate additional metadata for the home page. Here is what it looks like in HTML.</span>
+<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a><span class="in">```html</span></span>
+<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;!--</span> Generated by distill <span class="op">--&gt;</span></span>
+<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"og:title"</span> content<span class="op">=</span><span class="st">"Tidy Tales | Michael McCarthy: Wrangling, Visualizing, Modelling, Communicating data"</span><span class="op">&gt;</span></span>
+<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"og:type"</span> content<span class="op">=</span><span class="st">"article"</span><span class="op">&gt;</span></span>
+<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"og:locale"</span> content<span class="op">=</span><span class="st">"en_US"</span><span class="op">&gt;</span></span>
+<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"og:site_name"</span> content<span class="op">=</span><span class="st">"Tidy Tales | Michael McCarthy"</span><span class="op">&gt;</span></span>
+<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"twitter:card"</span> content<span class="op">=</span><span class="st">"summary"</span><span class="op">&gt;</span></span>
+<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"twitter:title"</span> content<span class="op">=</span><span class="st">"Tidy Tales | Michael McCarthy: Wrangling, Visualizing, Modelling, Communicating data"</span><span class="op">&gt;</span></span>
+<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"twitter:site"</span> content<span class="op">=</span><span class="st">"@propertidytales"</span><span class="op">&gt;</span></span>
+<span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"twitter:creator"</span> content<span class="op">=</span><span class="st">"@mccarthymg"</span><span class="op">&gt;</span></span>
+<span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;!--</span> Generated by metathis <span class="op">--&gt;</span></span>
+<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"og:locale"</span> content<span class="op">=</span><span class="st">"en_US"</span><span class="op">&gt;</span></span>
+<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta name<span class="op">=</span><span class="st">"twitter:title"</span> content<span class="op">=</span><span class="st">"Tidy Tales"</span><span class="op">&gt;</span></span>
+<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta name<span class="op">=</span><span class="st">"twitter:description"</span> content<span class="op">=</span><span class="st">"Wrangling, Visualizing, Modelling, Communicating data"</span><span class="op">&gt;</span></span>
+<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta name<span class="op">=</span><span class="st">"twitter:url"</span> content<span class="op">=</span><span class="st">"https://tidytales.ca"</span><span class="op">&gt;</span></span>
+<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta name<span class="op">=</span><span class="st">"twitter:image:src"</span> content<span class="op">=</span><span class="st">"https://tidytales.ca/inst/images/twittercard.png"</span><span class="op">&gt;</span></span>
+<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta name<span class="op">=</span><span class="st">"twitter:image:alt"</span> content<span class="op">=</span><span class="st">"Tidy Tales logo"</span><span class="op">&gt;</span></span>
+<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta name<span class="op">=</span><span class="st">"twitter:card"</span> content<span class="op">=</span><span class="st">"summary"</span><span class="op">&gt;</span></span>
+<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"og:title"</span> content<span class="op">=</span><span class="st">"Tidy Tales"</span><span class="op">&gt;</span></span>
+<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"og:description"</span> content<span class="op">=</span><span class="st">"Wrangling, Visualizing, Modelling, Communicating data"</span><span class="op">&gt;</span></span>
+<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"og:url"</span> content<span class="op">=</span><span class="st">"https://tidytales.ca"</span><span class="op">&gt;</span></span>
+<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"og:image"</span> content<span class="op">=</span><span class="st">"https://tidytales.ca/inst/images/twittercard.png"</span><span class="op">&gt;</span></span>
+<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"og:image:alt"</span> content<span class="op">=</span><span class="st">"Tidy Tales logo"</span><span class="op">&gt;</span></span>
+<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>meta property<span class="op">=</span><span class="st">"og:type"</span> content<span class="op">=</span><span class="st">"website"</span><span class="op">&gt;</span></span>
+<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a>There is some overlap between the <span class="in">`&lt;meta&gt;`</span> tags generated by distill and metathis, however, the metadata tags generated by metathis seem to take precedence over those automatically generated by distill. For example, the Twitter card for the Tidy Tales home page displays "Tidy Tales" as its title, rather than "Tidy Tales | Michael McCarthy: Wrangling, Visualizing, Modelling, Communicating data".</span>
+<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a><span class="fu">### Article Metadata</span></span>
+<span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a>The ability to override some of the metadata generated by distill using metathis is hacky, but it also affords more customization for distill blogs. One trick I'm taking full advantage of with this is to have unique preview images between posts on Tidy Tales and their social cards. Distill allows you to specify a <span class="co">[</span><span class="ot">preview image</span><span class="co">](https://rstudio.github.io/distill/blog.html#preview-images)</span> for a post using the preview chunk option.</span>
+<span id="cb8-125"><a href="#cb8-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-126"><a href="#cb8-126" aria-hidden="true" tabindex="-1"></a><span class="in">````yaml</span></span>
+<span id="cb8-127"><a href="#cb8-127" aria-hidden="true" tabindex="-1"></a>```{r,<span class="at"> </span>preview=TRUE}`r<span class="at"> </span>''`</span>
+<span id="cb8-128"><a href="#cb8-128" aria-hidden="true" tabindex="-1"></a>library(ggplot2)</span>
+<span id="cb8-129"><a href="#cb8-129" aria-hidden="true" tabindex="-1"></a>ggplot(diamonds,<span class="at"> </span>aes(carat,<span class="at"> </span>price))<span class="at"> </span>+</span>
+<span id="cb8-130"><a href="#cb8-130" aria-hidden="true" tabindex="-1"></a><span class="at">  </span>geom_smooth()</span>
+<span id="cb8-131"><a href="#cb8-131" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb8-132"><a href="#cb8-132" aria-hidden="true" tabindex="-1"></a><span class="in">````</span></span>
+<span id="cb8-133"><a href="#cb8-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-134"><a href="#cb8-134" aria-hidden="true" tabindex="-1"></a>This preview image will be used alongside post listings and in social cards. However, if a different image is specified in <span class="in">`metathis::meta_social()`</span> that image will be used in social cards but the preview image specified in the post chunk will still be used alongside post listings. I'm using this on Tidy Tales to have branded images for social cards and plain images for post listings. Here's an example of the branded social card image from my <span class="co">[</span><span class="ot">first post</span><span class="co">](https://tidytales.ca/posts/2021-06-15_demons-souls/)</span>.</span>
+<span id="cb8-135"><a href="#cb8-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-136"><a href="#cb8-136" aria-hidden="true" tabindex="-1"></a><span class="in">```{r preview-card, opts.label='fig.graphic'}</span></span>
+<span id="cb8-137"><a href="#cb8-137" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig.cap: |</span></span>
+<span id="cb8-138"><a href="#cb8-138" aria-hidden="true" tabindex="-1"></a><span class="co">#|   The branded social card image for my first post. Copy the [post link](https://tidytales.ca/posts/2021-06-15_demons-souls/) into a tweet to see it in action.</span></span>
+<span id="cb8-139"><a href="#cb8-139" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">here</span>(<span class="st">"posts"</span>,</span>
+<span id="cb8-140"><a href="#cb8-140" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"2021-06-19_distill"</span>,</span>
+<span id="cb8-141"><a href="#cb8-141" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"images"</span>,</span>
+<span id="cb8-142"><a href="#cb8-142" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"demons-souls_card.png"</span></span>
+<span id="cb8-143"><a href="#cb8-143" aria-hidden="true" tabindex="-1"></a>                             )</span>
+<span id="cb8-144"><a href="#cb8-144" aria-hidden="true" tabindex="-1"></a>                        )</span>
+<span id="cb8-145"><a href="#cb8-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-146"><a href="#cb8-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-147"><a href="#cb8-147" aria-hidden="true" tabindex="-1"></a><span class="fu">## Utterances Comments</span></span>
+<span id="cb8-148"><a href="#cb8-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-149"><a href="#cb8-149" aria-hidden="true" tabindex="-1"></a>Distill only supports <span class="co">[</span><span class="ot">Disqus comments</span><span class="co">](https://rstudio.github.io/distill/blog.html#comments-and-sharing)</span> officially. I did not want to use Disqus comments on Tidy Tales because it would add bloat to my posts, and because I do not want a third-party data mining and tracking Tidy Tales readers. <span class="co">[</span><span class="ot">Utterances</span><span class="co">](https://github.com/utterance/utterances)</span> is a lightweight alternative that uses GitHub issues for comments. Miles McBain shared an <span class="co">[</span><span class="ot">HTML script</span><span class="co">](https://github.com/MilesMcBain/milesmcbain.com/blob/master/utterances.html)</span> on his blog to <span class="co">[</span><span class="ot">add Utterances to a distill blog</span><span class="co">](https://milesmcbain.micro.blog/2020/09/04/how-i-got.html)</span>.</span>
+<span id="cb8-150"><a href="#cb8-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-151"><a href="#cb8-151" aria-hidden="true" tabindex="-1"></a>Here is what the script for Tidy Tales looks like.</span>
+<span id="cb8-152"><a href="#cb8-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-153"><a href="#cb8-153" aria-hidden="true" tabindex="-1"></a><span class="in">```html</span></span>
+<span id="cb8-154"><a href="#cb8-154" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>script<span class="op">&gt;</span></span>
+<span id="cb8-155"><a href="#cb8-155" aria-hidden="true" tabindex="-1"></a> document<span class="op">.</span>addEventListener<span class="op">(</span><span class="st">"DOMContentLoaded"</span><span class="op">,</span> function <span class="op">()</span> <span class="op">{</span></span>
+<span id="cb8-156"><a href="#cb8-156" aria-hidden="true" tabindex="-1"></a>   <span class="cf">if</span> <span class="op">(!/</span>posts<span class="op">/.</span>test<span class="op">(</span>location<span class="op">.</span>pathname<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb8-157"><a href="#cb8-157" aria-hidden="true" tabindex="-1"></a>     <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb8-158"><a href="#cb8-158" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb8-159"><a href="#cb8-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-160"><a href="#cb8-160" aria-hidden="true" tabindex="-1"></a>   var script <span class="op">=</span> document<span class="op">.</span>createElement<span class="op">(</span><span class="st">"script"</span><span class="op">);</span></span>
+<span id="cb8-161"><a href="#cb8-161" aria-hidden="true" tabindex="-1"></a>   script<span class="op">.</span>src <span class="op">=</span> <span class="st">"https://utteranc.es/client.js"</span><span class="op">;</span></span>
+<span id="cb8-162"><a href="#cb8-162" aria-hidden="true" tabindex="-1"></a>   script<span class="op">.</span>setAttribute<span class="op">(</span><span class="st">"repo"</span><span class="op">,</span> <span class="st">"mccarthy-m-g/tidytales"</span><span class="op">);</span></span>
+<span id="cb8-163"><a href="#cb8-163" aria-hidden="true" tabindex="-1"></a>   script<span class="op">.</span>setAttribute<span class="op">(</span><span class="st">"issue-term"</span><span class="op">,</span> <span class="st">"title"</span><span class="op">);</span></span>
+<span id="cb8-164"><a href="#cb8-164" aria-hidden="true" tabindex="-1"></a>   script<span class="op">.</span>setAttribute<span class="op">(</span><span class="st">"crossorigin"</span><span class="op">,</span> <span class="st">"anonymous"</span><span class="op">);</span></span>
+<span id="cb8-165"><a href="#cb8-165" aria-hidden="true" tabindex="-1"></a>   script<span class="op">.</span>setAttribute<span class="op">(</span><span class="st">"label"</span><span class="op">,</span> <span class="st">"utterances"</span><span class="op">);</span></span>
+<span id="cb8-166"><a href="#cb8-166" aria-hidden="true" tabindex="-1"></a>   script<span class="op">.</span>setAttribute<span class="op">(</span><span class="st">"theme"</span><span class="op">,</span> <span class="st">"github-light"</span><span class="op">);</span></span>
+<span id="cb8-167"><a href="#cb8-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-168"><a href="#cb8-168" aria-hidden="true" tabindex="-1"></a>   <span class="co">/* wait for article to load, append script to article element */</span></span>
+<span id="cb8-169"><a href="#cb8-169" aria-hidden="true" tabindex="-1"></a>   var observer <span class="op">=</span> new MutationObserver<span class="op">(</span>function <span class="op">(</span>mutations<span class="op">,</span> observer<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-170"><a href="#cb8-170" aria-hidden="true" tabindex="-1"></a>     var article <span class="op">=</span> document<span class="op">.</span>querySelector<span class="op">(</span><span class="st">"details.comment-section"</span><span class="op">);</span></span>
+<span id="cb8-171"><a href="#cb8-171" aria-hidden="true" tabindex="-1"></a>     <span class="cf">if</span> <span class="op">(</span>article<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-172"><a href="#cb8-172" aria-hidden="true" tabindex="-1"></a>       observer<span class="op">.</span>disconnect<span class="op">();</span></span>
+<span id="cb8-173"><a href="#cb8-173" aria-hidden="true" tabindex="-1"></a>       <span class="co">/* </span><span class="al">HACK</span><span class="co">: article scroll */</span></span>
+<span id="cb8-174"><a href="#cb8-174" aria-hidden="true" tabindex="-1"></a>       article<span class="op">.</span>setAttribute<span class="op">(</span><span class="st">"style"</span><span class="op">,</span> <span class="st">"overflow-y: hidden"</span><span class="op">);</span></span>
+<span id="cb8-175"><a href="#cb8-175" aria-hidden="true" tabindex="-1"></a>       article<span class="op">.</span>appendChild<span class="op">(</span>script<span class="op">);</span></span>
+<span id="cb8-176"><a href="#cb8-176" aria-hidden="true" tabindex="-1"></a>     <span class="op">}</span></span>
+<span id="cb8-177"><a href="#cb8-177" aria-hidden="true" tabindex="-1"></a>   <span class="op">});</span></span>
+<span id="cb8-178"><a href="#cb8-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-179"><a href="#cb8-179" aria-hidden="true" tabindex="-1"></a>   observer<span class="op">.</span>observe<span class="op">(</span>document<span class="op">.</span>body<span class="op">,</span> <span class="op">{</span> childList<span class="op">:</span> true <span class="op">});</span></span>
+<span id="cb8-180"><a href="#cb8-180" aria-hidden="true" tabindex="-1"></a> <span class="op">});</span></span>
+<span id="cb8-181"><a href="#cb8-181" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>script<span class="op">&gt;</span></span>
+<span id="cb8-182"><a href="#cb8-182" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-183"><a href="#cb8-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-184"><a href="#cb8-184" aria-hidden="true" tabindex="-1"></a>The script uses JavaScript to inject the Utterances <span class="in">`&lt;iframe&gt;`</span> into the end of the first HTML Element within the document that matches the CSS selector specified in <span class="in">`document.querySelector()`</span>. By default, the script shared by Miles will place the comment section at the end of a distill post's body. Since Utterances comments sections are not collapsible this presents a problem though, as more comments are made readers will have to scroll further and further to reach a post's appendix.</span>
+<span id="cb8-185"><a href="#cb8-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-186"><a href="#cb8-186" aria-hidden="true" tabindex="-1"></a>To overcome this on Tidy Tales I created new CSS selectors that use the <span class="in">`&lt;details&gt;`</span> tag, so readers can show and hide the comments section as they please, and added a brightness and opacity filter to the selector for the Utterances <span class="in">`&lt;iframe&gt;`</span> to make it fit into the Tidy Tales colour scheme better. I also wanted my comments section to be in the appendix of my posts rather than the body.</span>
+<span id="cb8-187"><a href="#cb8-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-188"><a href="#cb8-188" aria-hidden="true" tabindex="-1"></a><span class="in">```css</span></span>
+<span id="cb8-189"><a href="#cb8-189" aria-hidden="true" tabindex="-1"></a>d<span class="op">-</span>appendix details<span class="op">.</span><span class="fu">comment</span><span class="op">-</span>section <span class="op">{</span></span>
+<span id="cb8-190"><a href="#cb8-190" aria-hidden="true" tabindex="-1"></a>  color<span class="op">:</span> <span class="fu">var</span><span class="op">(--</span>dark<span class="op">-</span>shade<span class="op">-</span>alpha<span class="op">);</span></span>
+<span id="cb8-191"><a href="#cb8-191" aria-hidden="true" tabindex="-1"></a>  font<span class="op">-</span>family<span class="op">:</span> <span class="fu">var</span><span class="op">(--</span>heading<span class="op">-</span>font<span class="op">);</span></span>
+<span id="cb8-192"><a href="#cb8-192" aria-hidden="true" tabindex="-1"></a>  font<span class="op">-</span>size<span class="op">:</span> 15px <span class="op">!</span>important<span class="op">;</span></span>
+<span id="cb8-193"><a href="#cb8-193" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb8-194"><a href="#cb8-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-195"><a href="#cb8-195" aria-hidden="true" tabindex="-1"></a>d<span class="op">-</span>appendix details<span class="op">.</span><span class="fu">comment</span><span class="op">-</span>section summary<span class="op">:</span>after <span class="op">{</span></span>
+<span id="cb8-196"><a href="#cb8-196" aria-hidden="true" tabindex="-1"></a>  content<span class="op">:</span> <span class="st">"Show"</span><span class="op">;</span></span>
+<span id="cb8-197"><a href="#cb8-197" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb8-198"><a href="#cb8-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-199"><a href="#cb8-199" aria-hidden="true" tabindex="-1"></a>d<span class="op">-</span>appendix details<span class="op">[</span>open<span class="op">].</span><span class="fu">comment</span><span class="op">-</span>section summary<span class="op">:</span>after <span class="op">{</span></span>
+<span id="cb8-200"><a href="#cb8-200" aria-hidden="true" tabindex="-1"></a>  content<span class="op">:</span> <span class="st">"Hide"</span><span class="op">;</span></span>
+<span id="cb8-201"><a href="#cb8-201" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb8-202"><a href="#cb8-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-203"><a href="#cb8-203" aria-hidden="true" tabindex="-1"></a><span class="op">.</span><span class="fu">utterances</span> <span class="op">{</span></span>
+<span id="cb8-204"><a href="#cb8-204" aria-hidden="true" tabindex="-1"></a>  filter<span class="op">:</span> <span class="fu">brightness</span><span class="op">(</span><span class="dv">95</span><span class="op">%)</span> <span class="fu">opacity</span><span class="op">(</span><span class="dv">85</span><span class="op">%);</span></span>
+<span id="cb8-205"><a href="#cb8-205" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb8-206"><a href="#cb8-206" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-207"><a href="#cb8-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-208"><a href="#cb8-208" aria-hidden="true" tabindex="-1"></a>The above HTML and CSS is applied to all Tidy Tales posts using the <span class="in">`theme`</span> and <span class="in">`includes`</span> parameters in <span class="in">`_site.yml`</span>, so to add Utterances to a post I only need to include the following in the R Markdown file for a post as an <span class="co">[</span><span class="ot">appendix header</span><span class="co">](https://rstudio.github.io/distill/basics.html#appendices)</span>.</span>
 <span id="cb8-209"><a href="#cb8-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-210"><a href="#cb8-210" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details</span> <span class="er">open</span> <span class="er">class</span><span class="ot">=</span><span class="st">"comment-section"</span><span class="kw">&gt;</span></span>
-<span id="cb8-211"><a href="#cb8-211" aria-hidden="true" tabindex="-1"></a>   <span class="kw">&lt;summary&gt;</span></span>
-<span id="cb8-212"><a href="#cb8-212" aria-hidden="true" tabindex="-1"></a>   <span class="kw">&lt;/summary&gt;</span></span>
-<span id="cb8-213"><a href="#cb8-213" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
-<span id="cb8-214"><a href="#cb8-214" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-215"><a href="#cb8-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-216"><a href="#cb8-216" aria-hidden="true" tabindex="-1"></a><span class="in">## Post Templates</span></span>
-<span id="cb8-217"><a href="#cb8-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-218"><a href="#cb8-218" aria-hidden="true" tabindex="-1"></a><span class="in">Finally, and most importantly, I am using an R Markdown template for new Tidy Tales posts so I don't need to copy and paste all of my customizations into the YAML and body of every post I create. This is easily done using the `create_post_from_template()` function in the [**distilltools**](https://github.com/EllaKaye/distilltools) package by [Ella Kaye](https://github.com/EllaKaye). And it will be even easier after the [Pull Request](https://github.com/EllaKaye/distilltools/pull/12) I'm working on with Ella adds an RStudio addin for creating new posts from a template to the package.</span></span>
-<span id="cb8-219"><a href="#cb8-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-220"><a href="#cb8-220" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.column-margin}</span></span>
-<span id="cb8-221"><a href="#cb8-221" aria-hidden="true" tabindex="-1"></a><span class="in">Ella also created the awesome [Distill Club hex sticker](https://github.com/EllaKaye/distillclub) I used for this post's preview image.</span></span>
-<span id="cb8-222"><a href="#cb8-222" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb8-223"><a href="#cb8-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-224"><a href="#cb8-224" aria-hidden="true" tabindex="-1"></a><span class="in">```{r rstudio-addin, opts.label='fig.graphic'}</span></span>
-<span id="cb8-225"><a href="#cb8-225" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig.cap: Preview of the *new post from template* RStudio addin for distilltools.</span></span>
-<span id="cb8-226"><a href="#cb8-226" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::include_graphics(here("posts",</span></span>
-<span id="cb8-227"><a href="#cb8-227" aria-hidden="true" tabindex="-1"></a><span class="in">                             "2021-06-19_distill",</span></span>
-<span id="cb8-228"><a href="#cb8-228" aria-hidden="true" tabindex="-1"></a><span class="in">                             "images",</span></span>
-<span id="cb8-229"><a href="#cb8-229" aria-hidden="true" tabindex="-1"></a><span class="in">                             "rstudio-addin.png"</span></span>
-<span id="cb8-230"><a href="#cb8-230" aria-hidden="true" tabindex="-1"></a><span class="in">                             ))</span></span>
-<span id="cb8-231"><a href="#cb8-231" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-232"><a href="#cb8-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-233"><a href="#cb8-233" aria-hidden="true" tabindex="-1"></a><span class="fu">## Community Tips and Tricks</span></span>
-<span id="cb8-234"><a href="#cb8-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-235"><a href="#cb8-235" aria-hidden="true" tabindex="-1"></a>Distill has a great community of users supporting each other to build and customize their sites. <span class="co">[</span><span class="ot">John Paul Helveston</span><span class="co">](https://github.com/jhelvy)</span> has put together the <span class="co">[</span><span class="ot">Distillery</span><span class="co">](https://distillery.rbind.io)</span>---a distill blog about building distill websites and blogs---to collect <span class="co">[</span><span class="ot">tips and tricks</span><span class="co">](https://distillery.rbind.io/tips_and_tricks.html)</span> from the community and to <span class="co">[</span><span class="ot">showcase</span><span class="co">](https://distillery.rbind.io/showcase.html)</span> their distill websites and blogs. Check it out if you're thinking of joining the Distill Club!</span>
-<span id="cb8-236"><a href="#cb8-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-237"><a href="#cb8-237" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_common/_appendix.qmd &gt;}}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-210"><a href="#cb8-210" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb8-211"><a href="#cb8-211" aria-hidden="true" tabindex="-1"></a><span class="fu">## Comments {.appendix}</span></span>
+<span id="cb8-212"><a href="#cb8-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-213"><a href="#cb8-213" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details</span> <span class="er">open</span> <span class="er">class</span><span class="ot">=</span><span class="st">"comment-section"</span><span class="kw">&gt;</span></span>
+<span id="cb8-214"><a href="#cb8-214" aria-hidden="true" tabindex="-1"></a>   <span class="kw">&lt;summary&gt;</span></span>
+<span id="cb8-215"><a href="#cb8-215" aria-hidden="true" tabindex="-1"></a>   <span class="kw">&lt;/summary&gt;</span></span>
+<span id="cb8-216"><a href="#cb8-216" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
+<span id="cb8-217"><a href="#cb8-217" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-218"><a href="#cb8-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-219"><a href="#cb8-219" aria-hidden="true" tabindex="-1"></a><span class="in">## Post Templates</span></span>
+<span id="cb8-220"><a href="#cb8-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-221"><a href="#cb8-221" aria-hidden="true" tabindex="-1"></a><span class="in">Finally, and most importantly, I am using an R Markdown template for new Tidy Tales posts so I don't need to copy and paste all of my customizations into the YAML and body of every post I create. This is easily done using the `create_post_from_template()` function in the [**distilltools**](https://github.com/EllaKaye/distilltools) package by [Ella Kaye](https://github.com/EllaKaye). And it will be even easier after the [Pull Request](https://github.com/EllaKaye/distilltools/pull/12) I'm working on with Ella adds an RStudio addin for creating new posts from a template to the package.</span></span>
+<span id="cb8-222"><a href="#cb8-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-223"><a href="#cb8-223" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.column-margin}</span></span>
+<span id="cb8-224"><a href="#cb8-224" aria-hidden="true" tabindex="-1"></a><span class="in">Ella also created the awesome [Distill Club hex sticker](https://github.com/EllaKaye/distillclub) I used for this post's preview image.</span></span>
+<span id="cb8-225"><a href="#cb8-225" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb8-226"><a href="#cb8-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-227"><a href="#cb8-227" aria-hidden="true" tabindex="-1"></a><span class="in">```{r rstudio-addin, opts.label='fig.graphic'}</span></span>
+<span id="cb8-228"><a href="#cb8-228" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig.cap: Preview of the *new post from template* RStudio addin for distilltools.</span></span>
+<span id="cb8-229"><a href="#cb8-229" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::include_graphics(here("posts",</span></span>
+<span id="cb8-230"><a href="#cb8-230" aria-hidden="true" tabindex="-1"></a><span class="in">                             "2021-06-19_distill",</span></span>
+<span id="cb8-231"><a href="#cb8-231" aria-hidden="true" tabindex="-1"></a><span class="in">                             "images",</span></span>
+<span id="cb8-232"><a href="#cb8-232" aria-hidden="true" tabindex="-1"></a><span class="in">                             "rstudio-addin.png"</span></span>
+<span id="cb8-233"><a href="#cb8-233" aria-hidden="true" tabindex="-1"></a><span class="in">                             ))</span></span>
+<span id="cb8-234"><a href="#cb8-234" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-235"><a href="#cb8-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-236"><a href="#cb8-236" aria-hidden="true" tabindex="-1"></a><span class="fu">## Community Tips and Tricks</span></span>
+<span id="cb8-237"><a href="#cb8-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-238"><a href="#cb8-238" aria-hidden="true" tabindex="-1"></a>Distill has a great community of users supporting each other to build and customize their sites. <span class="co">[</span><span class="ot">John Paul Helveston</span><span class="co">](https://github.com/jhelvy)</span> has put together the <span class="co">[</span><span class="ot">Distillery</span><span class="co">](https://distillery.rbind.io)</span>---a distill blog about building distill websites and blogs---to collect <span class="co">[</span><span class="ot">tips and tricks</span><span class="co">](https://distillery.rbind.io/tips_and_tricks.html)</span> from the community and to <span class="co">[</span><span class="ot">showcase</span><span class="co">](https://distillery.rbind.io/showcase.html)</span> their distill websites and blogs. Check it out if you're thinking of joining the Distill Club!</span>
+<span id="cb8-239"><a href="#cb8-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-240"><a href="#cb8-240" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_common/_appendix.qmd &gt;}}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

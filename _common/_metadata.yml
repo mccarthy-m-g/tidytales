@@ -12,11 +12,6 @@ toc: true
 toc-depth: 3
 toc-location: left
 
-# Author
-author:
-  - name: Michael McCarthy
-    url: https://michaelmccarthy.tidytales.ca
-
 # Citation Metadata
 citation: true
 csl: ../../assets/apa.csl

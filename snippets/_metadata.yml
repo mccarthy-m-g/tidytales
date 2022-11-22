@@ -4,6 +4,11 @@
 metadata-files:
   - ../_common/_metadata.yml
 
+# Author
+author:
+  - name: Michael McCarthy
+    url: https://michaelmccarthy.tidytales.ca
+
 # Table of Contents
 toc-title: "In this snippet"
 
