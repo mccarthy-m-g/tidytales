@@ -11,7 +11,7 @@ code-tools: false
 
 Tidy Tales is a data science blog meant to demonstrate the skills needed in a typical data science project. Namely, wrangling, visualizing, modelling, and communicating data, all with the assistance of programming. The blog takes its name from the [tidy data](https://www.jstatsoft.org/article/view/v059i10) framework for structuring data, and from its narrative style. My inspiration for the blog came from [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday), a weekly data project for practicing and building data science skills with real-world data. Many, but not all, of the posts on Tidy Tales will use data from Tidy Tuesday.
 
-You can support Tidy Tales by sharing it with others or by making a [donation](https://www.paypal.com/donate?hosted_button_id=BT3A5MBCASKFQ).
+You can support Tidy Tales by sharing it with others or by making a [donation](https://www.paypal.com/donate?hosted_button_id=BT3A5MBCASKFQ). You can keep up to date with my work by following Tidy Tales on [Twitter](https://twitter.com/propertidytales) or subscribing to the Tidy Tales [RSS feed](index.xml).
 
 ## Michael McCarthy
  
@@ -19,8 +19,28 @@ Hi, I’m Michael, the voice behind Tidy Tales. My background is in psychology r
 
 When I'm not writing new posts for Tidy Tales you can find me writing music in my studio, riding my bike on the local trails, or spending time with my friends and family.
 
-## Contact
-
 My email is [michael.mccarthy@tidytales.ca](mailto:michael.mccarthy@tidytales.ca). Please get in touch if you are interested in working with me or just want to chat.
 
-You can keep up to date with my work by following Tidy Tales on [Twitter](https://twitter.com/propertidytales) or subscribing to the Tidy Tales [RSS feed](index.xml).
+## Contact
+
+::: {}
+<form action="https://formspree.io/f/mgeqbvdk" method="POST" accept-charset="utf-8">
+
+::: {.form-group .col-12}
+<label for="full-name">Full Name</label>
+<input type="text" name="name" id="full-name" class="form-control" placeholder="First and Last" required>
+:::
+
+::: {.form-group}
+<label for="email-address">Email Address</label>
+<input type="email" name="_replyto" id="email-address" class="form-control" placeholder="your@email.here" required>
+:::
+
+::: {.form-group}
+<label for="message">Message</label>
+  <textarea rows="6" name="message" id="message" class="form-control" placeholder="Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor fringilla nullam quis risus." required></textarea>
+:::
+<!-- your other form fields go here -->
+<button type="submit" class="btn btn-primary mt-4">Send</button>
+</form>
+:::
