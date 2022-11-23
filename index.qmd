@@ -11,6 +11,7 @@ listing:
     categories: numbered
     sort-ui: true
     filter-ui: false
+    feed: true
   - id: snippets
     contents: "snippets"
     fields: [date, title, description, categories]
@@ -18,6 +19,7 @@ listing:
     type: default
     sort-ui: true
     filter-ui: false
+    feed: true
 
 page-layout: full
 title-block-banner: true
