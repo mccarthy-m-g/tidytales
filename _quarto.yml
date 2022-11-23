@@ -23,6 +23,8 @@ website:
         href: https://twitter.com/propertidytales
       - icon: github
         href: https://github.com/mccarthy-m-g/tidytales
+      - icon: person-circle
+        href: https://michaelmccarthy.tidytales.ca
       - icon: rss-fill
         href: index.xml
 
