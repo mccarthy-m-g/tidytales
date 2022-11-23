@@ -502,7 +502,6 @@ anim
 ```
 
 ```{r}
-#| echo: false
 #| opts.label: 'fig.graphic'
 # FIXME: For whatever reason the code for the velocity subtitle only works when there
 # are 100 frames in the data. For example, if nframes is 10 ten then
@@ -635,7 +634,6 @@ anim <- p +
 ```
 
 ```{r}
-#| echo: false
 #| opts.label: 'fig.graphic'
 anim <- p +
   transition_reveal(second) +

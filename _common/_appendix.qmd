@@ -3,7 +3,7 @@
 
 ::: {.d-flex}
 
-![](https://github.com/mccarthy-m-g/michaelmccarthy/raw/main/content/about/sidebar/avatar.png){fig-align="left" fig-alt="Avatar" .rounded .avatar}
+![](/assets/images/avatar.png){fig-align="left" fig-alt="Avatar" .rounded .avatar}
 
 ::: {}
 
@@ -11,7 +11,7 @@
 ## Michael McCarthy {.quarto-appendix-heading}
 :::
 
-I am an award winning data scientist and R programmer creating data solutions for the problems you care about. I offer training consulting services to help you accomplish your goals at any point in your project lifecycle. I value building new connections and would love to discuss opportunities to work with you. Let’s get to know each other.
+Thanks for reading! I’m Michael, the voice behind Tidy Tales. I am an award winning data scientist and R programmer with the skills and experience to help you solve the problems you care about. You can learn more about me, my [consulting services](https://michaelmccarthy.tidytales.ca/consulting/), and my other projects on my [personal website](https://michaelmccarthy.tidytales.ca).
 :::
 
 :::
