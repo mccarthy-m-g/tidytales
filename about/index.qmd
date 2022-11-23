@@ -11,16 +11,36 @@ code-tools: false
 
 Tidy Tales is a data science blog meant to demonstrate the skills needed in a typical data science project. Namely, wrangling, visualizing, modelling, and communicating data, all with the assistance of programming. The blog takes its name from the [tidy data](https://www.jstatsoft.org/article/view/v059i10) framework for structuring data, and from its narrative style. My inspiration for the blog came from [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday), a weekly data project for practicing and building data science skills with real-world data. Many, but not all, of the posts on Tidy Tales will use data from Tidy Tuesday.
 
-You can support Tidy Tales by sharing it with others or by making a [donation](https://www.paypal.com/donate?hosted_button_id=BT3A5MBCASKFQ).
+You can stay up to date by following Tidy Tales on [Twitter](https://twitter.com/propertidytales) or subscribing to the Tidy Tales [RSS feed](/index.xml). If you enjoy the content here, you can support Tidy Tales by sharing it with others or by making a [donation](https://www.paypal.com/donate?hosted_button_id=BT3A5MBCASKFQ). 
 
 ## Michael McCarthy
  
-Hi, I’m Michael, the voice behind Tidy Tales. My background is in psychology research, where I've studied topics ranging from attitude formation, to decision-making, to individual differences in brain function. Studying how people think and act has given me a deep appreciation for the human elements of data science. Much of our data is about humans. All of our data is communicated to humans. Understanding these relationships has been key to successfully navigating my role as a data scientist. 
+Hi, I’m Michael, the voice behind Tidy Tales. I am an award winning data scientist and R programmer passionate about solving problems with data. My background is in psychology research, where I’ve studied topics ranging from attitude formation, to decision-making, to individual differences in brain function. Studying how people think and act has given me a deep appreciation for the human side of data science. Much of our data is about people. All of our data is communicated to people. Understanding these relationships has been key to successfully navigating my role as a data scientist.
 
-When I'm not writing new posts for Tidy Tales you can find me writing music in my studio, riding my bike on the local trails, or spending time with my friends and family.
+If you have a problem that you want to use data science to answer, I would love to help you. I offer several [consulting services](https://michaelmccarthy.tidytales.ca/consulting/) to help you accomplish your goals at any point in your project lifecycle, including long and short term consulting work, private training, and drop-in consulting. I value building new connections and would love to discuss opportunities to work with you. Let’s get to know each other.
+
+You can learn more about me and find my other projects on my [personal website](https://michaelmccarthy.tidytales.ca).
 
 ## Contact
 
-My email is [michael.mccarthy@tidytales.ca](mailto:michael.mccarthy@tidytales.ca). Please get in touch if you are interested in working with me or just want to chat.
+::: {}
+<form action="https://formspree.io/f/mgeqbvdk" method="POST" accept-charset="utf-8">
 
-You can keep up to date with my work by following Tidy Tales on [Twitter](https://twitter.com/propertidytales) or subscribing to the Tidy Tales [RSS feed](index.xml).
+::: {.form-group .col-12}
+<label for="full-name">Full Name</label>
+<input type="text" name="name" id="full-name" class="form-control" placeholder="First and Last" required>
+:::
+
+::: {.form-group}
+<label for="email-address">Email Address</label>
+<input type="email" name="_replyto" id="email-address" class="form-control" placeholder="your@email.here" required>
+:::
+
+::: {.form-group}
+<label for="message">Message</label>
+  <textarea rows="6" name="message" id="message" class="form-control" placeholder="Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor fringilla nullam quis risus." required></textarea>
+:::
+
+<button type="submit" class="btn btn-primary mt-4">Send</button>
+</form>
+:::
