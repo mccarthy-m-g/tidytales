@@ -21,14 +21,14 @@ image: images/borderlands-plot.png
 
 twitter-card:
   title: "Tidy Tales: Tales from the Borderlands"
-  # image: images/twittercard.png
-  # image-width: 1200
-  # image-height: 628
-  # card-style: summary_large_image
+  image: images/twittercard.png
+  image-width: 1200
+  image-height: 628
+  card-style: summary_large_image
 
 open-graph:
   title: "Tidy Tales: Tales from the Borderlands"
-  # image: images/twittercard.png
+  image: images/twittercard.png
   
 params:
   use_renv: FALSE
