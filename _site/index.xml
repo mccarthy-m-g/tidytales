@@ -9,8 +9,316 @@
 <link>https://tidytales.ca/index.html</link>
 <atom:link href="https://tidytales.ca/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.2.269</generator>
-<lastBuildDate>Sat, 29 Oct 2022 07:00:00 GMT</lastBuildDate>
+<generator>quarto-1.2.280</generator>
+<lastBuildDate>Mon, 19 Dec 2022 08:00:00 GMT</lastBuildDate>
+<item>
+  <title>Introducing the palettes package</title>
+  <dc:creator>Michael McCarthy</dc:creator>
+  <link>https://tidytales.ca/posts/2022-12-20_palettes/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<!-- Quarto does not support ANSI colour output through downlit at the time this post was written, but fansi knitr hooks can be used to make it work. -->
+<style type="text/css" scoped="">
+PRE.fansi SPAN {padding-top: .25em; padding-bottom: .25em};
+</style>
+<!-- The font I'm using makes the bullets really small. Changing the font provides a nice and quick fix. -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
+<script>
+$(function(){
+  $("span").each(function(){
+    var text = $(this).text()
+    if (text === "•") {
+      $(this).css("font-family", "monospace");
+    }
+  });
+});
+</script>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>I am proud to announce that version 0.1.0 of the <a href="https://mccarthy-m-g.github.io/palettes/index.html">palettes package</a> is now on <a href="">CRAN</a>. palettes is an R package for working with colour vectors and colour palettes. I made it with three main goals in mind, each described in a vignette on the package website:</p>
+<ul>
+<li><p>To provide <a href="https://mccarthy-m-g.github.io/palettes/articles/palettes.html">a new family of colour classes</a> (<code>palettes_colour</code> and <code>palettes_palette</code>) that always print as hex codes with colour previews.</p></li>
+<li><p>To provide a comprehensive library of methods for working with colour vectors and colour palettes, including methods for <a href="https://mccarthy-m-g.github.io/palettes/articles/ggplot2.html">ggplot2</a>, <a href="https://mccarthy-m-g.github.io/palettes/articles/gt.html">gt</a>, <a href="https://mccarthy-m-g.github.io/palettes/articles/biscale.html">biscale</a>, and <a href="https://mccarthy-m-g.github.io/palettes/articles/compatibility.html">other colour packages</a>.</p></li>
+<li><p>To make it easy for anyone to <a href="https://mccarthy-m-g.github.io/palettes/articles/creating-packages.html">make their own colour palette package</a>. Colour palette packages made with palettes exist solely for the purpose of distributing colour palettes and get access to all the features of palettes for free.</p></li>
+</ul>
+<p>If you just want to jump in and start using palettes, you can install it from CRAN with:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;">install.packages</span>(<span class="st" style="color: #20794D;">"palettes"</span>)</span></code></pre></div>
+<p>The package website is the best place to start: <a href="https://mccarthy-m-g.github.io/palettes/index.html" class="uri">https://mccarthy-m-g.github.io/palettes/index.html</a></p>
+<p>If you want to learn more about <em>why</em> you should be using palettes, read on to learn more about the motivation of the package and how it makes working with colour vectors and colour palettes easy and fun for everyone.</p>
+</section>
+<section id="origins" class="level2">
+<h2 class="anchored" data-anchor-id="origins">Origins</h2>
+<p>The origins of palettes start with a different (in purgatory) package, <strong>BPRDcolours</strong>, which I was inspired to make while reading Mike Mignola’s Hellboy comics. Every page of Hellboy is a masterclass in colour and contrast, and I thought it would be fun to bring those colours into R:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://tidytales.ca/posts/2022-12-20_palettes/images/hellboy.jpg" height="500" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Hellboy promo poster by Mike Mignola</figcaption><p></p>
+</figure>
+</div>
+<p>So how does one make a colour palette package in R? My answer now is to read the <a href="https://mccarthy-m-g.github.io/palettes/articles/creating-packages.html">Creating a colour palette package</a> vignette and make it with palettes. My answer then was to read the source code of several other colour palette packages, then reimplement the relevant functions in BPRDcolours. Not a great answer, but it’s the approach everyone else was using.</p>
+<p>I managed to put together a rough <a href="https://github.com/mccarthy-m-g/BPRDcolours">development version</a>, but got sidetracked with other projects soon after and put BPRDcolours on hold. And so my mind was left to brew on a better way to go about this whole colour palette package thing.</p>
+</section>
+<section id="enter-palettes" class="level2">
+<h2 class="anchored" data-anchor-id="enter-palettes">Enter palettes</h2>
+<p>One year after development on BPRDcolours stopped, I started palettes.</p>
+<p>The main motivation behind palettes was to standardize and simplify the process of making a colour palette package. No more reading through other’s source code to figure out how to store colours or make them work with ggplot2 plots. No more unnecessary code duplication. I wanted the process of shipping a set of hex colour codes in an R package to be as simple as, well… shipping a set of hex colour codes in an R package. Anything extra like ggplot2 functionality should come for free.</p>
+<p>A secondary motivation was to provide pretty printing of colour palettes, with colour previews next to the hex colour codes. This was inspired by packages like <a href="https://taylor.wjakethompson.com/reference/color_palette.html">taylor</a> and <a href="https://github.com/EmilHvitfeldt/prismatic">prismatic</a>, which provide their own pretty printing methods for colours using the <strong>crayon</strong> package. palettes uses the <strong>cli</strong> package for pretty printing, which has superseded crayon.</p>
+</section>
+<section id="just-show-me-some-colour-palettes-already" class="level2">
+<h2 class="anchored" data-anchor-id="just-show-me-some-colour-palettes-already">Just show me some colour palettes already!</h2>
+<p>Okay, okay.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;">library</span>(palettes)</span></code></pre></div>
+</div>
+<p>Colour classes in palettes come in two forms:</p>
+<ul>
+<li>Colour vectors (<code>palettes_colour</code>), which are created by <code>pal_colour()</code></li>
+<li>Colour palettes (<code>palettes_palette</code>), which are created by <code>pal_palette()</code></li>
+</ul>
+<p>Colour vectors can be thought of as a base type for colours, and colour palettes are just (named) lists of colour vectors. To illustrate, let’s use some colours from the <a href="https://github.com/BlakeRMills/MetBrewer">MetBrewer</a> package.</p>
+<p><code>pal_colour()</code> is a nice way to create a colour vector.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">java <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">pal_colour</span>(<span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"#663171"</span>, <span class="st" style="color: #20794D;">"#cf3a36"</span>, <span class="st" style="color: #20794D;">"#ea7428"</span>, <span class="st" style="color: #20794D;">"#e2998a"</span>, <span class="st" style="color: #20794D;">"#0c7156"</span>))</span>
+<span id="cb3-2">java</span></code></pre></div>
+<pre class="fansi fansi-output"><code>#&gt; &lt;palettes_colour[5]&gt;
+#&gt; <span style="color: #875F87;">•</span> #663171
+#&gt; <span style="color: #D75F5F;">•</span> #CF3A36
+#&gt; <span style="color: #FF8700;">•</span> #EA7428
+#&gt; <span style="color: #FFAFAF;">•</span> #E2998A
+#&gt; <span style="color: #008787;">•</span> #0C7156
+</code></pre>
+</div>
+<p><code>pal_palette()</code> is a nice way to create named colour palettes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">metbrewer_palettes <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">pal_palette</span>(</span>
+<span id="cb4-2">  <span class="at" style="color: #657422;">egypt =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"#dd5129"</span>, <span class="st" style="color: #20794D;">"#0f7ba2"</span>, <span class="st" style="color: #20794D;">"#43b284"</span>, <span class="st" style="color: #20794D;">"#fab255"</span>),</span>
+<span id="cb4-3">  <span class="at" style="color: #657422;">java  =</span> java</span>
+<span id="cb4-4">)</span>
+<span id="cb4-5">metbrewer_palettes</span></code></pre></div>
+<pre class="fansi fansi-output"><code>#&gt; &lt;palettes_palette[2]&gt;
+#&gt; $egypt
+#&gt; &lt;palettes_colour[4]&gt;
+#&gt; <span style="color: #FF5F00;">•</span> #DD5129
+#&gt; <span style="color: #0087AF;">•</span> #0F7BA2
+#&gt; <span style="color: #5FD7AF;">•</span> #43B284
+#&gt; <span style="color: #FFD75F;">•</span> #FAB255
+#&gt; 
+#&gt; $java
+#&gt; &lt;palettes_colour[5]&gt;
+#&gt; <span style="color: #875F87;">•</span> #663171
+#&gt; <span style="color: #D75F5F;">•</span> #CF3A36
+#&gt; <span style="color: #FF8700;">•</span> #EA7428
+#&gt; <span style="color: #FFAFAF;">•</span> #E2998A
+#&gt; <span style="color: #008787;">•</span> #0C7156
+</code></pre>
+</div>
+<p><code>plot()</code> is a nice way to showcase colour vectors and colour palettes. The appearance of the plot <a href="https://mccarthy-m-g.github.io/palettes/articles/palettes.html#plotting">depends on the input</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;">plot</span>(metbrewer_palettes)</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://tidytales.ca/posts/2022-12-20_palettes/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><a href="https://mccarthy-m-g.github.io/palettes/articles/palettes.html#casting-and-coercion">Casting and coercion methods</a> are also available to turn other objects (like character vectors or lists) into colour vectors and colour palettes.</p>
+<p>You can even cast colour vectors and colour palettes into tibbles.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">metbrewer_tbl <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">as_tibble</span>(metbrewer_palettes)</span>
+<span id="cb6-2">metbrewer_tbl</span></code></pre></div>
+<pre class="fansi fansi-output"><code>#&gt; <span style="color: #949494;"># A tibble: 9 × 2</span>
+#&gt;   palette colour   
+#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;colour&gt;</span> 
+#&gt; <span style="color: #BCBCBC;">1</span> egypt   <span style="color: #FF5F00;">•</span> #DD5129
+#&gt; <span style="color: #BCBCBC;">2</span> egypt   <span style="color: #0087AF;">•</span> #0F7BA2
+#&gt; <span style="color: #BCBCBC;">3</span> egypt   <span style="color: #5FD7AF;">•</span> #43B284
+#&gt; <span style="color: #BCBCBC;">4</span> egypt   <span style="color: #FFD75F;">•</span> #FAB255
+#&gt; <span style="color: #BCBCBC;">5</span> java    <span style="color: #875F87;">•</span> #663171
+#&gt; <span style="color: #BCBCBC;">6</span> java    <span style="color: #D75F5F;">•</span> #CF3A36
+#&gt; <span style="color: #BCBCBC;">7</span> java    <span style="color: #FF8700;">•</span> #EA7428
+#&gt; <span style="color: #BCBCBC;">8</span> java    <span style="color: #FFAFAF;">•</span> #E2998A
+#&gt; <span style="color: #BCBCBC;">9</span> java    <span style="color: #008787;">•</span> #0C7156
+</code></pre>
+</div>
+<p>This is useful if you want to wrangle the colours with <strong>dplyr</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;">library</span>(dplyr)</span>
+<span id="cb7-2"></span>
+<span id="cb7-3">metbrewer_tbl <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">slice</span>(metbrewer_tbl, <span class="sc" style="color: #5E5E5E;">-</span><span class="dv" style="color: #AD0000;">8</span>)</span>
+<span id="cb7-4">metbrewer_tbl</span></code></pre></div>
+<pre class="fansi fansi-output"><code>#&gt; <span style="color: #949494;"># A tibble: 8 × 2</span>
+#&gt;   palette colour   
+#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;colour&gt;</span> 
+#&gt; <span style="color: #BCBCBC;">1</span> egypt   <span style="color: #FF5F00;">•</span> #DD5129
+#&gt; <span style="color: #BCBCBC;">2</span> egypt   <span style="color: #0087AF;">•</span> #0F7BA2
+#&gt; <span style="color: #BCBCBC;">3</span> egypt   <span style="color: #5FD7AF;">•</span> #43B284
+#&gt; <span style="color: #BCBCBC;">4</span> egypt   <span style="color: #FFD75F;">•</span> #FAB255
+#&gt; <span style="color: #BCBCBC;">5</span> java    <span style="color: #875F87;">•</span> #663171
+#&gt; <span style="color: #BCBCBC;">6</span> java    <span style="color: #D75F5F;">•</span> #CF3A36
+#&gt; <span style="color: #BCBCBC;">7</span> java    <span style="color: #FF8700;">•</span> #EA7428
+#&gt; <span style="color: #BCBCBC;">8</span> java    <span style="color: #008787;">•</span> #0C7156
+</code></pre>
+</div>
+<p>Then go back to a colour palette with the <code>deframe()</code> function from <strong>tibble</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;">library</span>(tibble)</span>
+<span id="cb8-2"></span>
+<span id="cb8-3">metbrewer_tbl <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb8-4">  <span class="fu" style="color: #4758AB;">group_by</span>(palette) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb8-5">  <span class="fu" style="color: #4758AB;">summarise</span>(<span class="fu" style="color: #4758AB;">pal_palette</span>(colour)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb8-6">  <span class="fu" style="color: #4758AB;">deframe</span>()</span></code></pre></div>
+<pre class="fansi fansi-output"><code>#&gt; &lt;palettes_palette[2]&gt;
+#&gt; $egypt
+#&gt; &lt;palettes_colour[4]&gt;
+#&gt; <span style="color: #FF5F00;">•</span> #DD5129
+#&gt; <span style="color: #0087AF;">•</span> #0F7BA2
+#&gt; <span style="color: #5FD7AF;">•</span> #43B284
+#&gt; <span style="color: #FFD75F;">•</span> #FAB255
+#&gt; 
+#&gt; $java
+#&gt; &lt;palettes_colour[4]&gt;
+#&gt; <span style="color: #875F87;">•</span> #663171
+#&gt; <span style="color: #D75F5F;">•</span> #CF3A36
+#&gt; <span style="color: #FF8700;">•</span> #EA7428
+#&gt; <span style="color: #008787;">•</span> #0C7156
+</code></pre>
+</div>
+</section>
+<section id="what-about-ggplot2-plots" class="level2">
+<h2 class="anchored" data-anchor-id="what-about-ggplot2-plots">What about ggplot2 plots?</h2>
+<p>Just use one of the <code>scale_</code> functions!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="fu" style="color: #4758AB;">library</span>(ggplot2)</span>
+<span id="cb9-2"></span>
+<span id="cb9-3">hiroshige <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">pal_colour</span>(<span class="fu" style="color: #4758AB;">c</span>(</span>
+<span id="cb9-4">  <span class="st" style="color: #20794D;">"#1e466e"</span>, <span class="st" style="color: #20794D;">"#376795"</span>, <span class="st" style="color: #20794D;">"#528fad"</span>, <span class="st" style="color: #20794D;">"#72bcd5"</span>, <span class="st" style="color: #20794D;">"#aadce0"</span>,</span>
+<span id="cb9-5">  <span class="st" style="color: #20794D;">"#ffe6b7"</span>, <span class="st" style="color: #20794D;">"#ffd06f"</span>, <span class="st" style="color: #20794D;">"#f7aa58"</span>, <span class="st" style="color: #20794D;">"#ef8a47"</span>, <span class="st" style="color: #20794D;">"#e76254"</span></span>
+<span id="cb9-6">))</span>
+<span id="cb9-7"></span>
+<span id="cb9-8"><span class="fu" style="color: #4758AB;">ggplot</span>(faithfuld, <span class="fu" style="color: #4758AB;">aes</span>(waiting, eruptions, <span class="at" style="color: #657422;">fill =</span> density)) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb9-9">  <span class="fu" style="color: #4758AB;">geom_raster</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb9-10">  <span class="fu" style="color: #4758AB;">coord_cartesian</span>(<span class="at" style="color: #657422;">expand =</span> <span class="cn" style="color: #8f5902;">FALSE</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb9-11">  <span class="fu" style="color: #4758AB;">scale_fill_palette_c</span>(hiroshige)</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://tidytales.ca/posts/2022-12-20_palettes/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>There are <code>scale_</code> functions for discrete, continuous, and binned data, and you can pass additional arguments to them for <a href="https://mccarthy-m-g.github.io/palettes/articles/ggplot2.html#customizing-scales">further customization</a>.</p>
+</section>
+<section id="im-sold.-how-do-i-make-a-colour-palette-package" class="level2">
+<h2 class="anchored" data-anchor-id="im-sold.-how-do-i-make-a-colour-palette-package">I’m sold. How do I make a colour palette package?</h2>
+<p>See the <a href="https://mccarthy-m-g.github.io/palettes/articles/creating-packages.html">Creating a colour palette package</a> vignette, which works through an <a href="https://github.com/mccarthy-m-g/sunsets">example package</a> showing the steps needed to make a colour palette package with palettes.</p>
+<p>If you do make a package with palettes, let me know through <a href="../../about/#contact">email</a> or <a href="https://fosstodon.org/@mccarthymg">Mastodon</a>! In the future I’d like to make a “palettesverse” to showcase and collect all the packages using palettes in one place.</p>
+</section>
+<section id="whats-next" class="level2">
+<h2 class="anchored" data-anchor-id="whats-next">What’s next?</h2>
+<p>In future versions I would like to:</p>
+<ul>
+<li>Provide an option to choose the symbol used for colour previews</li>
+<li>Add functions for manipulating colour palettes</li>
+<li>Add an interpolation function for bivariate colour scales</li>
+<li>Make a better hex sticker (looking for help on this one!)</li>
+</ul>
+<p>If you have other suggestions or requests, please <a href="https://github.com/mccarthy-m-g/palettes/issues">file an issue on GitHub</a>.</p>
+</section>
+
+
+
+
+<div id="quarto-appendix" class="default"><section id="section" class="level2 appendix unnumbered unlisted"><h2 class="quarto-appendix-heading"></h2><div class="quarto-appendix-contents">
+
+<div class="d-flex">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="https://tidytales.ca/assets/images/avatar.png" class="rounded avatar img-fluid figure-img" alt="Avatar"></p>
+</figure>
+</div>
+<div>
+<section id="michael-mccarthy" class="level2 quarto-appendix-heading">
+<h2 class="quarto-appendix-heading anchored" data-anchor-id="michael-mccarthy">Michael McCarthy</h2>
+</section>
+<p>Thanks for reading! I’m Michael, the voice behind Tidy Tales. I am an award winning data scientist and R programmer with the skills and experience to help you solve the problems you care about. You can learn more about me, my <a href="https://michaelmccarthy.tidytales.ca/consulting/">consulting services</a>, and my other projects on my <a href="https://michaelmccarthy.tidytales.ca">personal website</a>.</p>
+</div>
+</div>
+</div></section><section id="comments" class="level2 appendix unnumbered unlisted"><h2 class="quarto-appendix-heading">Comments</h2><div class="quarto-appendix-contents">
+
+<details open="">
+<summary>
+</summary>
+<div class="giscus">
+
+</div>
+</details>
+</div></section><section id="session-info" class="level2 appendix unnumbered unlisted"><h2 class="quarto-appendix-heading">Session Info</h2><div class="quarto-appendix-contents">
+
+<details>
+<summary>
+</summary>
+<div class="cell">
+<pre class="fansi fansi-output"><code><span style="color: #00BBBB; font-weight: bold;">─ Session info ───────────────────────────────────────────────────────────────</span>
+ <span style="color: #555555; font-style: italic;">setting </span> <span style="color: #555555; font-style: italic;">value</span>
+ version  R version 4.2.2 (2022-10-31)
+ os       macOS Mojave 10.14.6
+ system   x86_64, darwin17.0
+ ui       X11
+ language (EN)
+ collate  en_CA.UTF-8
+ ctype    en_CA.UTF-8
+ tz       America/Vancouver
+ date     2022-12-20
+ pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)
+ quarto   1.2.280 @ /usr/local/bin/quarto
+
+<span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────</span>
+ <span style="color: #555555; font-style: italic;">package    </span> <span style="color: #555555; font-style: italic;">*</span> <span style="color: #555555; font-style: italic;">version</span> <span style="color: #555555; font-style: italic;">date (UTC)</span> <span style="color: #555555; font-style: italic;">lib</span> <span style="color: #555555; font-style: italic;">source</span>
+ dplyr       * 1.0.10  <span style="color: #555555;">2022-09-01</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span>
+ ggplot2     * 3.4.0   <span style="color: #555555;">2022-11-04</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span>
+ palettes    * 0.1.0   <span style="color: #555555;">2022-12-19</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.2)</span>
+ sessioninfo * 1.2.2   <span style="color: #555555;">2021-12-06</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span>
+ tibble      * 3.1.8   <span style="color: #555555;">2022-07-22</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span>
+
+<span style="color: #555555;"> [1] /Users/Michael/Library/R/x86_64/4.2/library/__devel</span>
+<span style="color: #555555;"> [2] /Library/Frameworks/R.framework/Versions/4.2/Resources/library</span>
+
+<span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────</span>
+</code></pre>
+</div>
+</details>
+<!--
+## Data {.appendix .unnumbered .unlisted}
+
+[Download](/data/) the data used in this post.
+-->
+<!--
+## Fair Dealing {.appendix .unnumbered .unlisted}
+
+Any of the trademarks, service marks, collective marks, design rights or similar rights that are mentioned, used, or cited in this article are the property of their respective owners. They are used here as fair dealing for the purpose of education in accordance with [section 29 of the Copyright Act](https://laws-lois.justice.gc.ca/eng/acts/c-42/page-8.html#h-103270) and do not infringe copyright.
+-->
+
+
+<!-- -->
+
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{mccarthy2022,
+  author = {Michael McCarthy},
+  title = {Introducing the Palettes Package},
+  date = {2022-12-19},
+  url = {https://tidytales.ca/posts/2022-12-20_palettes},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mccarthy2022" class="csl-entry quarto-appendix-citeas">
+Michael McCarthy. (2022, December 19). <em>Introducing the palettes
+package</em>. <a href="https://tidytales.ca/posts/2022-12-20_palettes">https://tidytales.ca/posts/2022-12-20_palettes</a>
+</div></div></section></div> ]]></description>
+  <category>.Visualize</category>
+  <category>{palettes}</category>
+  <category>{ggplot2}</category>
+  <category>{gt}</category>
+  <category>{biscale}</category>
+  <guid>https://tidytales.ca/posts/2022-12-20_palettes/index.html</guid>
+  <pubDate>Mon, 19 Dec 2022 08:00:00 GMT</pubDate>
+  <media:content url="https://tidytales.ca/posts/2022-12-20_palettes/images/logo.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
 <item>
   <title>Directly labeling ggdist lineribbons with geomtextpath</title>
   <dc:creator>Michael McCarthy</dc:creator>

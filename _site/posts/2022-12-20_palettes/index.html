@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Michael McCarthy">
+<meta name="dcterms.date" content="2022-12-19">
+<meta name="description" content="I am proud to announce the first release of the palettes package is now on CRAN. This version introduces a new family of colour classes that make working with colour vectors and colour palettes easy and fun.">
+
+<title>Tidy Tales - Introducing the palettes package</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../assets/images/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": true,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../assets/styles.css">
+<meta property="og:title" content="Tidy Tales: Introducing the palettes package">
+<meta property="og:description" content="Wrangling, Visualizing, Modelling, Communicating data">
+<meta property="og:image" content="https://tidytales.ca/posts/2022-12-20_palettes/images/card.png">
+<meta property="og:site-name" content="Tidy Tales">
+<meta property="og:image:height" content="628">
+<meta property="og:image:width" content="1200">
+<meta name="twitter:title" content="Tidy Tales: Introducing the palettes package">
+<meta name="twitter:description" content="Wrangling, Visualizing, Modelling, Communicating data">
+<meta name="twitter:image" content="https://tidytales.ca/posts/2022-12-20_palettes/images/card.png">
+<meta name="twitter:creator" content="@mccarthymg">
+<meta name="twitter:site" content="@propertidytales">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="628">
+<meta name="twitter:image-width" content="1200">
+</head>
+
+<body class="floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../assets/images/logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Tidy Tales</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../#posts">
+ <span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../#code-snippets">
+ <span class="menu-text">Snippets</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about/index.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/propertidytales"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/mccarthy-m-g/tidytales"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://michaelmccarthy.tidytales.ca"><i class="bi bi-person-circle" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"><i class="bi bi-rss-fill" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <div class="quarto-title-block"><div><h1 class="title">Introducing the palettes package</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
+                  <div>
+        <div class="description">
+          <p>I am proud to announce the first release of the palettes package is now on CRAN. This version introduces a new family of colour classes that make working with colour vectors and colour palettes easy and fun.</p>
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">.Visualize</div>
+                <div class="quarto-category">{palettes}</div>
+                <div class="quarto-category">{ggplot2}</div>
+                <div class="quarto-category">{gt}</div>
+                <div class="quarto-category">{biscale}</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Michael McCarthy </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 19, 2022</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">In this post</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#origins" id="toc-origins" class="nav-link" data-scroll-target="#origins">Origins</a></li>
+  <li><a href="#enter-palettes" id="toc-enter-palettes" class="nav-link" data-scroll-target="#enter-palettes">Enter palettes</a></li>
+  <li><a href="#just-show-me-some-colour-palettes-already" id="toc-just-show-me-some-colour-palettes-already" class="nav-link" data-scroll-target="#just-show-me-some-colour-palettes-already">Just show me some colour palettes already!</a></li>
+  <li><a href="#what-about-ggplot2-plots" id="toc-what-about-ggplot2-plots" class="nav-link" data-scroll-target="#what-about-ggplot2-plots">What about ggplot2 plots?</a></li>
+  <li><a href="#im-sold.-how-do-i-make-a-colour-palette-package" id="toc-im-sold.-how-do-i-make-a-colour-palette-package" class="nav-link" data-scroll-target="#im-sold.-how-do-i-make-a-colour-palette-package">I’m sold. How do I make a colour palette package?</a></li>
+  <li><a href="#whats-next" id="toc-whats-next" class="nav-link" data-scroll-target="#whats-next">What’s next?</a></li>
+  </ul>
+</nav>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<!-- Quarto does not support ANSI colour output through downlit at the time this post was written, but fansi knitr hooks can be used to make it work. -->
+<style type="text/css" scoped="">
+PRE.fansi SPAN {padding-top: .25em; padding-bottom: .25em};
+</style>
+<!-- The font I'm using makes the bullets really small. Changing the font provides a nice and quick fix. -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
+<script>
+$(function(){
+  $("span").each(function(){
+    var text = $(this).text()
+    if (text === "•") {
+      $(this).css("font-family", "monospace");
+    }
+  });
+});
+</script>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>I am proud to announce that version 0.1.0 of the <a href="https://mccarthy-m-g.github.io/palettes/index.html">palettes package</a> is now on <a href="">CRAN</a>. palettes is an R package for working with colour vectors and colour palettes. I made it with three main goals in mind, each described in a vignette on the package website:</p>
+<ul>
+<li><p>To provide <a href="https://mccarthy-m-g.github.io/palettes/articles/palettes.html">a new family of colour classes</a> (<code>palettes_colour</code> and <code>palettes_palette</code>) that always print as hex codes with colour previews.</p></li>
+<li><p>To provide a comprehensive library of methods for working with colour vectors and colour palettes, including methods for <a href="https://mccarthy-m-g.github.io/palettes/articles/ggplot2.html">ggplot2</a>, <a href="https://mccarthy-m-g.github.io/palettes/articles/gt.html">gt</a>, <a href="https://mccarthy-m-g.github.io/palettes/articles/biscale.html">biscale</a>, and <a href="https://mccarthy-m-g.github.io/palettes/articles/compatibility.html">other colour packages</a>.</p></li>
+<li><p>To make it easy for anyone to <a href="https://mccarthy-m-g.github.io/palettes/articles/creating-packages.html">make their own colour palette package</a>. Colour palette packages made with palettes exist solely for the purpose of distributing colour palettes and get access to all the features of palettes for free.</p></li>
+</ul>
+<p>If you just want to jump in and start using palettes, you can install it from CRAN with:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"palettes"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The package website is the best place to start: <a href="https://mccarthy-m-g.github.io/palettes/index.html" class="uri">https://mccarthy-m-g.github.io/palettes/index.html</a></p>
+<p>If you want to learn more about <em>why</em> you should be using palettes, read on to learn more about the motivation of the package and how it makes working with colour vectors and colour palettes easy and fun for everyone.</p>
+</section>
+<section id="origins" class="level2">
+<h2 class="anchored" data-anchor-id="origins">Origins</h2>
+<p>The origins of palettes start with a different (in purgatory) package, <strong>BPRDcolours</strong>, which I was inspired to make while reading Mike Mignola’s Hellboy comics. Every page of Hellboy is a masterclass in colour and contrast, and I thought it would be fun to bring those colours into R:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/hellboy.jpg" height="500" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Hellboy promo poster by Mike Mignola</figcaption><p></p>
+</figure>
+</div>
+<p>So how does one make a colour palette package in R? My answer now is to read the <a href="https://mccarthy-m-g.github.io/palettes/articles/creating-packages.html">Creating a colour palette package</a> vignette and make it with palettes. My answer then was to read the source code of several other colour palette packages, then reimplement the relevant functions in BPRDcolours. Not a great answer, but it’s the approach everyone else was using.</p>
+<p>I managed to put together a rough <a href="https://github.com/mccarthy-m-g/BPRDcolours">development version</a>, but got sidetracked with other projects soon after and put BPRDcolours on hold. And so my mind was left to brew on a better way to go about this whole colour palette package thing.</p>
+</section>
+<section id="enter-palettes" class="level2">
+<h2 class="anchored" data-anchor-id="enter-palettes">Enter palettes</h2>
+<p>One year after development on BPRDcolours stopped, I started palettes.</p>
+<p>The main motivation behind palettes was to standardize and simplify the process of making a colour palette package. No more reading through other’s source code to figure out how to store colours or make them work with ggplot2 plots. No more unnecessary code duplication. I wanted the process of shipping a set of hex colour codes in an R package to be as simple as, well… shipping a set of hex colour codes in an R package. Anything extra like ggplot2 functionality should come for free.</p>
+<p>A secondary motivation was to provide pretty printing of colour palettes, with colour previews next to the hex colour codes. This was inspired by packages like <a href="https://taylor.wjakethompson.com/reference/color_palette.html">taylor</a> and <a href="https://github.com/EmilHvitfeldt/prismatic">prismatic</a>, which provide their own pretty printing methods for colours using the <strong>crayon</strong> package. palettes uses the <strong>cli</strong> package for pretty printing, which has superseded crayon.</p>
+</section>
+<section id="just-show-me-some-colour-palettes-already" class="level2">
+<h2 class="anchored" data-anchor-id="just-show-me-some-colour-palettes-already">Just show me some colour palettes already!</h2>
+<p>Okay, okay.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palettes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Colour classes in palettes come in two forms:</p>
+<ul>
+<li>Colour vectors (<code>palettes_colour</code>), which are created by <code>pal_colour()</code></li>
+<li>Colour palettes (<code>palettes_palette</code>), which are created by <code>pal_palette()</code></li>
+</ul>
+<p>Colour vectors can be thought of as a base type for colours, and colour palettes are just (named) lists of colour vectors. To illustrate, let’s use some colours from the <a href="https://github.com/BlakeRMills/MetBrewer">MetBrewer</a> package.</p>
+<p><code>pal_colour()</code> is a nice way to create a colour vector.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>java <span class="ot">&lt;-</span> <span class="fu">pal_colour</span>(<span class="fu">c</span>(<span class="st">"#663171"</span>, <span class="st">"#cf3a36"</span>, <span class="st">"#ea7428"</span>, <span class="st">"#e2998a"</span>, <span class="st">"#0c7156"</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>java</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="fansi fansi-output"><code>#&gt; &lt;palettes_colour[5]&gt;
+#&gt; <span style="color: #875F87;">•</span> #663171
+#&gt; <span style="color: #D75F5F;">•</span> #CF3A36
+#&gt; <span style="color: #FF8700;">•</span> #EA7428
+#&gt; <span style="color: #FFAFAF;">•</span> #E2998A
+#&gt; <span style="color: #008787;">•</span> #0C7156
+</code></pre>
+</div>
+<p><code>pal_palette()</code> is a nice way to create named colour palettes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>metbrewer_palettes <span class="ot">&lt;-</span> <span class="fu">pal_palette</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">egypt =</span> <span class="fu">c</span>(<span class="st">"#dd5129"</span>, <span class="st">"#0f7ba2"</span>, <span class="st">"#43b284"</span>, <span class="st">"#fab255"</span>),</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">java  =</span> java</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>metbrewer_palettes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="fansi fansi-output"><code>#&gt; &lt;palettes_palette[2]&gt;
+#&gt; $egypt
+#&gt; &lt;palettes_colour[4]&gt;
+#&gt; <span style="color: #FF5F00;">•</span> #DD5129
+#&gt; <span style="color: #0087AF;">•</span> #0F7BA2
+#&gt; <span style="color: #5FD7AF;">•</span> #43B284
+#&gt; <span style="color: #FFD75F;">•</span> #FAB255
+#&gt; 
+#&gt; $java
+#&gt; &lt;palettes_colour[5]&gt;
+#&gt; <span style="color: #875F87;">•</span> #663171
+#&gt; <span style="color: #D75F5F;">•</span> #CF3A36
+#&gt; <span style="color: #FF8700;">•</span> #EA7428
+#&gt; <span style="color: #FFAFAF;">•</span> #E2998A
+#&gt; <span style="color: #008787;">•</span> #0C7156
+</code></pre>
+</div>
+<p><code>plot()</code> is a nice way to showcase colour vectors and colour palettes. The appearance of the plot <a href="https://mccarthy-m-g.github.io/palettes/articles/palettes.html#plotting">depends on the input</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(metbrewer_palettes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><a href="https://mccarthy-m-g.github.io/palettes/articles/palettes.html#casting-and-coercion">Casting and coercion methods</a> are also available to turn other objects (like character vectors or lists) into colour vectors and colour palettes.</p>
+<p>You can even cast colour vectors and colour palettes into tibbles.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>metbrewer_tbl <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(metbrewer_palettes)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>metbrewer_tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="fansi fansi-output"><code>#&gt; <span style="color: #949494;"># A tibble: 9 × 2</span>
+#&gt;   palette colour   
+#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;colour&gt;</span> 
+#&gt; <span style="color: #BCBCBC;">1</span> egypt   <span style="color: #FF5F00;">•</span> #DD5129
+#&gt; <span style="color: #BCBCBC;">2</span> egypt   <span style="color: #0087AF;">•</span> #0F7BA2
+#&gt; <span style="color: #BCBCBC;">3</span> egypt   <span style="color: #5FD7AF;">•</span> #43B284
+#&gt; <span style="color: #BCBCBC;">4</span> egypt   <span style="color: #FFD75F;">•</span> #FAB255
+#&gt; <span style="color: #BCBCBC;">5</span> java    <span style="color: #875F87;">•</span> #663171
+#&gt; <span style="color: #BCBCBC;">6</span> java    <span style="color: #D75F5F;">•</span> #CF3A36
+#&gt; <span style="color: #BCBCBC;">7</span> java    <span style="color: #FF8700;">•</span> #EA7428
+#&gt; <span style="color: #BCBCBC;">8</span> java    <span style="color: #FFAFAF;">•</span> #E2998A
+#&gt; <span style="color: #BCBCBC;">9</span> java    <span style="color: #008787;">•</span> #0C7156
+</code></pre>
+</div>
+<p>This is useful if you want to wrangle the colours with <strong>dplyr</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>metbrewer_tbl <span class="ot">&lt;-</span> <span class="fu">slice</span>(metbrewer_tbl, <span class="sc">-</span><span class="dv">8</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>metbrewer_tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="fansi fansi-output"><code>#&gt; <span style="color: #949494;"># A tibble: 8 × 2</span>
+#&gt;   palette colour   
+#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;colour&gt;</span> 
+#&gt; <span style="color: #BCBCBC;">1</span> egypt   <span style="color: #FF5F00;">•</span> #DD5129
+#&gt; <span style="color: #BCBCBC;">2</span> egypt   <span style="color: #0087AF;">•</span> #0F7BA2
+#&gt; <span style="color: #BCBCBC;">3</span> egypt   <span style="color: #5FD7AF;">•</span> #43B284
+#&gt; <span style="color: #BCBCBC;">4</span> egypt   <span style="color: #FFD75F;">•</span> #FAB255
+#&gt; <span style="color: #BCBCBC;">5</span> java    <span style="color: #875F87;">•</span> #663171
+#&gt; <span style="color: #BCBCBC;">6</span> java    <span style="color: #D75F5F;">•</span> #CF3A36
+#&gt; <span style="color: #BCBCBC;">7</span> java    <span style="color: #FF8700;">•</span> #EA7428
+#&gt; <span style="color: #BCBCBC;">8</span> java    <span style="color: #008787;">•</span> #0C7156
+</code></pre>
+</div>
+<p>Then go back to a colour palette with the <code>deframe()</code> function from <strong>tibble</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>metbrewer_tbl <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(palette) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">pal_palette</span>(colour)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">deframe</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="fansi fansi-output"><code>#&gt; &lt;palettes_palette[2]&gt;
+#&gt; $egypt
+#&gt; &lt;palettes_colour[4]&gt;
+#&gt; <span style="color: #FF5F00;">•</span> #DD5129
+#&gt; <span style="color: #0087AF;">•</span> #0F7BA2
+#&gt; <span style="color: #5FD7AF;">•</span> #43B284
+#&gt; <span style="color: #FFD75F;">•</span> #FAB255
+#&gt; 
+#&gt; $java
+#&gt; &lt;palettes_colour[4]&gt;
+#&gt; <span style="color: #875F87;">•</span> #663171
+#&gt; <span style="color: #D75F5F;">•</span> #CF3A36
+#&gt; <span style="color: #FF8700;">•</span> #EA7428
+#&gt; <span style="color: #008787;">•</span> #0C7156
+</code></pre>
+</div>
+</section>
+<section id="what-about-ggplot2-plots" class="level2">
+<h2 class="anchored" data-anchor-id="what-about-ggplot2-plots">What about ggplot2 plots?</h2>
+<p>Just use one of the <code>scale_</code> functions!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>hiroshige <span class="ot">&lt;-</span> <span class="fu">pal_colour</span>(<span class="fu">c</span>(</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"#1e466e"</span>, <span class="st">"#376795"</span>, <span class="st">"#528fad"</span>, <span class="st">"#72bcd5"</span>, <span class="st">"#aadce0"</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"#ffe6b7"</span>, <span class="st">"#ffd06f"</span>, <span class="st">"#f7aa58"</span>, <span class="st">"#ef8a47"</span>, <span class="st">"#e76254"</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(faithfuld, <span class="fu">aes</span>(waiting, eruptions, <span class="at">fill =</span> density)) <span class="sc">+</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_raster</span>() <span class="sc">+</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_palette_c</span>(hiroshige)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>There are <code>scale_</code> functions for discrete, continuous, and binned data, and you can pass additional arguments to them for <a href="https://mccarthy-m-g.github.io/palettes/articles/ggplot2.html#customizing-scales">further customization</a>.</p>
+</section>
+<section id="im-sold.-how-do-i-make-a-colour-palette-package" class="level2">
+<h2 class="anchored" data-anchor-id="im-sold.-how-do-i-make-a-colour-palette-package">I’m sold. How do I make a colour palette package?</h2>
+<p>See the <a href="https://mccarthy-m-g.github.io/palettes/articles/creating-packages.html">Creating a colour palette package</a> vignette, which works through an <a href="https://github.com/mccarthy-m-g/sunsets">example package</a> showing the steps needed to make a colour palette package with palettes.</p>
+<p>If you do make a package with palettes, let me know through <a href="../../about/#contact">email</a> or <a href="https://fosstodon.org/@mccarthymg">Mastodon</a>! In the future I’d like to make a “palettesverse” to showcase and collect all the packages using palettes in one place.</p>
+</section>
+<section id="whats-next" class="level2">
+<h2 class="anchored" data-anchor-id="whats-next">What’s next?</h2>
+<p>In future versions I would like to:</p>
+<ul>
+<li>Provide an option to choose the symbol used for colour previews</li>
+<li>Add functions for manipulating colour palettes</li>
+<li>Add an interpolation function for bivariate colour scales</li>
+<li>Make a better hex sticker (looking for help on this one!)</li>
+</ul>
+<p>If you have other suggestions or requests, please <a href="https://github.com/mccarthy-m-g/palettes/issues">file an issue on GitHub</a>.</p>
+</section>
+
+
+
+
+<div id="quarto-appendix" class="default"><section id="section" class="level2 appendix unnumbered unlisted"><h2 class="quarto-appendix-heading"></h2><div class="quarto-appendix-contents">
+
+<div class="d-flex">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="../../assets/images/avatar.png" class="rounded avatar img-fluid figure-img" alt="Avatar"></p>
+</figure>
+</div>
+<div>
+<section id="michael-mccarthy" class="level2 quarto-appendix-heading">
+<h2 class="quarto-appendix-heading anchored" data-anchor-id="michael-mccarthy">Michael McCarthy</h2>
+</section>
+<p>Thanks for reading! I’m Michael, the voice behind Tidy Tales. I am an award winning data scientist and R programmer with the skills and experience to help you solve the problems you care about. You can learn more about me, my <a href="https://michaelmccarthy.tidytales.ca/consulting/">consulting services</a>, and my other projects on my <a href="https://michaelmccarthy.tidytales.ca">personal website</a>.</p>
+</div>
+</div>
+</div></section><section id="comments" class="level2 appendix unnumbered unlisted"><h2 class="quarto-appendix-heading">Comments</h2><div class="quarto-appendix-contents">
+
+<details open="">
+<summary>
+</summary>
+<div class="giscus">
+
+</div>
+</details>
+</div></section><section id="session-info" class="level2 appendix unnumbered unlisted"><h2 class="quarto-appendix-heading">Session Info</h2><div class="quarto-appendix-contents">
+
+<details>
+<summary>
+</summary>
+<div class="cell">
+<pre class="fansi fansi-output"><code><span style="color: #00BBBB; font-weight: bold;">─ Session info ───────────────────────────────────────────────────────────────</span>
+ <span style="color: #555555; font-style: italic;">setting </span> <span style="color: #555555; font-style: italic;">value</span>
+ version  R version 4.2.2 (2022-10-31)
+ os       macOS Mojave 10.14.6
+ system   x86_64, darwin17.0
+ ui       X11
+ language (EN)
+ collate  en_CA.UTF-8
+ ctype    en_CA.UTF-8
+ tz       America/Vancouver
+ date     2022-12-20
+ pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)
+ quarto   1.2.280 @ /usr/local/bin/quarto
+
+<span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────</span>
+ <span style="color: #555555; font-style: italic;">package    </span> <span style="color: #555555; font-style: italic;">*</span> <span style="color: #555555; font-style: italic;">version</span> <span style="color: #555555; font-style: italic;">date (UTC)</span> <span style="color: #555555; font-style: italic;">lib</span> <span style="color: #555555; font-style: italic;">source</span>
+ dplyr       * 1.0.10  <span style="color: #555555;">2022-09-01</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span>
+ ggplot2     * 3.4.0   <span style="color: #555555;">2022-11-04</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span>
+ palettes    * 0.1.0   <span style="color: #555555;">2022-12-19</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.2)</span>
+ sessioninfo * 1.2.2   <span style="color: #555555;">2021-12-06</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span>
+ tibble      * 3.1.8   <span style="color: #555555;">2022-07-22</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span>
+
+<span style="color: #555555;"> [1] /Users/Michael/Library/R/x86_64/4.2/library/__devel</span>
+<span style="color: #555555;"> [2] /Library/Frameworks/R.framework/Versions/4.2/Resources/library</span>
+
+<span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────</span>
+</code></pre>
+</div>
+</details>
+<!--
+## Data {.appendix .unnumbered .unlisted}
+
+[Download](/data/) the data used in this post.
+-->
+<!--
+## Fair Dealing {.appendix .unnumbered .unlisted}
+
+Any of the trademarks, service marks, collective marks, design rights or similar rights that are mentioned, used, or cited in this article are the property of their respective owners. They are used here as fair dealing for the purpose of education in accordance with [section 29 of the Copyright Act](https://laws-lois.justice.gc.ca/eng/acts/c-42/page-8.html#h-103270) and do not infringe copyright.
+-->
+
+
+<!-- -->
+
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{mccarthy2022,
+  author = {Michael McCarthy},
+  title = {Introducing the Palettes Package},
+  date = {2022-12-19},
+  url = {https://tidytales.ca/posts/2022-12-20_palettes},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mccarthy2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Michael McCarthy. (2022, December 19). <em>Introducing the palettes
+package</em>. <a href="https://tidytales.ca/posts/2022-12-20_palettes">https://tidytales.ca/posts/2022-12-20_palettes</a>
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/tidytales\.ca/);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="mccarthy-m-g/tidytales" data-repo-id="MDEwOlJlcG9zaXRvcnkzNzI2MTI0NjU=" data-category="Comments" data-category-id="DIC_kwDOFjWdcc4CSRY9" data-mapping="title" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb10" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Introducing the palettes package</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> |</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">  I am proud to announce the first release of the palettes package is now on</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">  CRAN. This version introduces a new family of colour classes that make working</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">  with colour vectors and colour palettes easy and fun.</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">  </span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: Michael McCarthy</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">    url: https://michaelmccarthy.tidytales.ca</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> '2022-12-19'</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co">  - .Visualize</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co">  - "{palettes}"</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co">  - "{ggplot2}"</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co">  - "{gt}"</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co">  - "{biscale}"</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> images/logo.png</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="an">twitter-card:</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="co">  title: "Tidy Tales: Introducing the palettes package"</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="co">  image: images/card.png</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="co">  image-width: 1200</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="co">  image-height: 628</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="co">  card-style: summary_large_image</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a><span class="an">open-graph:</span></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a><span class="co">  title: "Tidy Tales: Introducing the palettes package"</span></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a><span class="co">  image: images/card.png</span></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a><span class="an">params:</span></span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a><span class="co">  use_renv: FALSE</span></span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a><span class="co">  data_file: NULL</span></span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a><span class="co">  fair_dealing: FALSE</span></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a><span class="co">  </span></span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a><span class="an">df-print:</span><span class="co"> default</span></span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Quarto does not support ANSI colour output through downlit at the time this post was written, but fansi knitr hooks can be used to make it work. --&gt;</span></span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fansi}</span></span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a><span class="co">#| comment: ''</span></span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>old_hook <span class="ot">&lt;-</span> fansi<span class="sc">::</span><span class="fu">set_knit_hooks</span>(knitr<span class="sc">::</span>knit_hooks, <span class="at">which =</span> <span class="fu">c</span>(<span class="st">"output"</span>, <span class="st">"warning"</span>, <span class="st">"error"</span>, <span class="st">"message"</span>))</span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">crayon.enabled =</span> <span class="cn">TRUE</span>, <span class="at">cli.num_colors =</span> <span class="dv">256</span>)</span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- The font I'm using makes the bullets really small. Changing the font provides a nice and quick fix. --&gt;</span></span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script type="text/javascript" src="https://code.jquery.com/jquery-3.6.2.min.js"&gt;&lt;/script&gt;</span></span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script&gt;</span></span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a><span class="in">$(function(){</span></span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a><span class="in">  $("span").each(function(){</span></span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a><span class="in">    var text = $(this).text()</span></span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a><span class="in">    if (text === "•") {</span></span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a><span class="in">      $(this).css("font-family", "monospace");</span></span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a><span class="in">  });</span></span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a><span class="in">});</span></span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/script&gt;</span></span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overview</span></span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a>I am proud to announce that version 0.1.0 of the <span class="co">[</span><span class="ot">palettes package</span><span class="co">](https://mccarthy-m-g.github.io/palettes/index.html)</span> is now on <span class="co">[</span><span class="ot">CRAN</span><span class="co">]()</span>. palettes is an R package for working with colour vectors and colour palettes. I made it with three main goals in mind, each described in a vignette on the package website:</span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>To provide <span class="co">[</span><span class="ot">a new family of colour classes</span><span class="co">](https://mccarthy-m-g.github.io/palettes/articles/palettes.html)</span> (<span class="in">`palettes_colour`</span> and <span class="in">`palettes_palette`</span>) that always print as hex codes with colour previews.</span>
+<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>To provide a comprehensive library of methods for working with colour vectors and colour palettes, including methods for <span class="co">[</span><span class="ot">ggplot2</span><span class="co">](https://mccarthy-m-g.github.io/palettes/articles/ggplot2.html)</span>, <span class="co">[</span><span class="ot">gt</span><span class="co">](https://mccarthy-m-g.github.io/palettes/articles/gt.html)</span>, <span class="co">[</span><span class="ot">biscale</span><span class="co">](https://mccarthy-m-g.github.io/palettes/articles/biscale.html)</span>, and <span class="co">[</span><span class="ot">other colour packages</span><span class="co">](https://mccarthy-m-g.github.io/palettes/articles/compatibility.html)</span>.</span>
+<span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>To make it easy for anyone to <span class="co">[</span><span class="ot">make their own colour palette package</span><span class="co">](https://mccarthy-m-g.github.io/palettes/articles/creating-packages.html)</span>. Colour palette packages made with palettes exist solely for the purpose of distributing colour palettes and get access to all the features of palettes for free.</span>
+<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a>If you just want to jump in and start using palettes, you can install it from CRAN with:</span>
+<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"palettes"</span>)</span>
+<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a>The package website is the best place to start: <span class="ot">&lt;https://mccarthy-m-g.github.io/palettes/index.html&gt;</span></span>
+<span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a>If you want to learn more about *why* you should be using palettes, read on to learn more about the motivation of the package and how it makes working with colour vectors and colour palettes easy and fun for everyone.</span>
+<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a><span class="fu">## Origins</span></span>
+<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a>The origins of palettes start with a different (in purgatory) package, **BPRDcolours**, which I was inspired to make while reading Mike Mignola’s Hellboy comics. Every page of Hellboy is a masterclass in colour and contrast, and I thought it would be fun to bring those colours into R:</span>
+<span id="cb10-91"><a href="#cb10-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a><span class="al">![Hellboy promo poster by Mike Mignola](images/hellboy.jpg)</span>{height=500px}</span>
+<span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-94"><a href="#cb10-94" aria-hidden="true" tabindex="-1"></a>So how does one make a colour palette package in R? My answer now is to read the <span class="co">[</span><span class="ot">Creating a colour palette package</span><span class="co">](https://mccarthy-m-g.github.io/palettes/articles/creating-packages.html)</span> vignette and make it with palettes. My answer then was to read the source code of several other colour palette packages, then reimplement the relevant functions in BPRDcolours. Not a great answer, but it’s the approach everyone else was using.</span>
+<span id="cb10-95"><a href="#cb10-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-96"><a href="#cb10-96" aria-hidden="true" tabindex="-1"></a>I managed to put together a rough <span class="co">[</span><span class="ot">development version</span><span class="co">](https://github.com/mccarthy-m-g/BPRDcolours)</span>, but got sidetracked with other projects soon after and put BPRDcolours on hold. And so my mind was left to brew on a better way to go about this whole colour palette package thing.</span>
+<span id="cb10-97"><a href="#cb10-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-98"><a href="#cb10-98" aria-hidden="true" tabindex="-1"></a><span class="fu">## Enter palettes</span></span>
+<span id="cb10-99"><a href="#cb10-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-100"><a href="#cb10-100" aria-hidden="true" tabindex="-1"></a>One year after development on BPRDcolours stopped, I started palettes.</span>
+<span id="cb10-101"><a href="#cb10-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-102"><a href="#cb10-102" aria-hidden="true" tabindex="-1"></a>The main motivation behind palettes was to standardize and simplify the process of making a colour palette package. No more reading through other’s source code to figure out how to store colours or make them work with ggplot2 plots. No more unnecessary code duplication. I wanted the process of shipping a set of hex colour codes in an R package to be as simple as, well... shipping a set of hex colour codes in an R package. Anything extra like ggplot2 functionality should come for free.</span>
+<span id="cb10-103"><a href="#cb10-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-104"><a href="#cb10-104" aria-hidden="true" tabindex="-1"></a>A secondary motivation was to provide pretty printing of colour palettes, with colour previews next to the hex colour codes. This was inspired by packages like <span class="co">[</span><span class="ot">taylor</span><span class="co">](https://taylor.wjakethompson.com/reference/color_palette.html)</span> and <span class="co">[</span><span class="ot">prismatic</span><span class="co">](https://github.com/EmilHvitfeldt/prismatic)</span>, which provide their own pretty printing methods for colours using the **crayon** package. palettes uses the **cli** package for pretty printing, which has superseded crayon.</span>
+<span id="cb10-105"><a href="#cb10-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-106"><a href="#cb10-106" aria-hidden="true" tabindex="-1"></a><span class="fu">## Just show me some colour palettes already!</span></span>
+<span id="cb10-107"><a href="#cb10-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-108"><a href="#cb10-108" aria-hidden="true" tabindex="-1"></a>Okay, okay. </span>
+<span id="cb10-109"><a href="#cb10-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-112"><a href="#cb10-112" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-113"><a href="#cb10-113" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palettes)</span>
+<span id="cb10-114"><a href="#cb10-114" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-115"><a href="#cb10-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-116"><a href="#cb10-116" aria-hidden="true" tabindex="-1"></a>Colour classes in palettes come in two forms:</span>
+<span id="cb10-117"><a href="#cb10-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-118"><a href="#cb10-118" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Colour vectors (<span class="in">`palettes_colour`</span>), which are created by <span class="in">`pal_colour()`</span></span>
+<span id="cb10-119"><a href="#cb10-119" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Colour palettes (<span class="in">`palettes_palette`</span>), which are created by <span class="in">`pal_palette()`</span></span>
+<span id="cb10-120"><a href="#cb10-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-121"><a href="#cb10-121" aria-hidden="true" tabindex="-1"></a>Colour vectors can be thought of as a base type for colours, and colour palettes are just (named) lists of colour vectors. To illustrate, let's use some colours from the <span class="co">[</span><span class="ot">MetBrewer</span><span class="co">](https://github.com/BlakeRMills/MetBrewer)</span> package.</span>
+<span id="cb10-122"><a href="#cb10-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-123"><a href="#cb10-123" aria-hidden="true" tabindex="-1"></a><span class="in">`pal_colour()`</span> is a nice way to create a colour vector.</span>
+<span id="cb10-124"><a href="#cb10-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-127"><a href="#cb10-127" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-128"><a href="#cb10-128" aria-hidden="true" tabindex="-1"></a>java <span class="ot">&lt;-</span> <span class="fu">pal_colour</span>(<span class="fu">c</span>(<span class="st">"#663171"</span>, <span class="st">"#cf3a36"</span>, <span class="st">"#ea7428"</span>, <span class="st">"#e2998a"</span>, <span class="st">"#0c7156"</span>))</span>
+<span id="cb10-129"><a href="#cb10-129" aria-hidden="true" tabindex="-1"></a>java</span>
+<span id="cb10-130"><a href="#cb10-130" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-131"><a href="#cb10-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-132"><a href="#cb10-132" aria-hidden="true" tabindex="-1"></a><span class="in">`pal_palette()`</span> is a nice way to create named colour palettes.</span>
+<span id="cb10-133"><a href="#cb10-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-136"><a href="#cb10-136" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-137"><a href="#cb10-137" aria-hidden="true" tabindex="-1"></a>metbrewer_palettes <span class="ot">&lt;-</span> <span class="fu">pal_palette</span>(</span>
+<span id="cb10-138"><a href="#cb10-138" aria-hidden="true" tabindex="-1"></a>  <span class="at">egypt =</span> <span class="fu">c</span>(<span class="st">"#dd5129"</span>, <span class="st">"#0f7ba2"</span>, <span class="st">"#43b284"</span>, <span class="st">"#fab255"</span>),</span>
+<span id="cb10-139"><a href="#cb10-139" aria-hidden="true" tabindex="-1"></a>  <span class="at">java  =</span> java</span>
+<span id="cb10-140"><a href="#cb10-140" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-141"><a href="#cb10-141" aria-hidden="true" tabindex="-1"></a>metbrewer_palettes</span>
+<span id="cb10-142"><a href="#cb10-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-143"><a href="#cb10-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-144"><a href="#cb10-144" aria-hidden="true" tabindex="-1"></a><span class="in">`plot()`</span> is a nice way to showcase colour vectors and colour palettes. The appearance of the plot <span class="co">[</span><span class="ot">depends on the input</span><span class="co">](https://mccarthy-m-g.github.io/palettes/articles/palettes.html#plotting)</span>.</span>
+<span id="cb10-145"><a href="#cb10-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-148"><a href="#cb10-148" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-149"><a href="#cb10-149" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(metbrewer_palettes)</span>
+<span id="cb10-150"><a href="#cb10-150" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-151"><a href="#cb10-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-152"><a href="#cb10-152" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Casting and coercion methods</span><span class="co">](https://mccarthy-m-g.github.io/palettes/articles/palettes.html#casting-and-coercion)</span> are also available to turn other objects (like character vectors or lists) into colour vectors and colour palettes.</span>
+<span id="cb10-153"><a href="#cb10-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-154"><a href="#cb10-154" aria-hidden="true" tabindex="-1"></a>You can even cast colour vectors and colour palettes into tibbles.</span>
+<span id="cb10-155"><a href="#cb10-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-158"><a href="#cb10-158" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-159"><a href="#cb10-159" aria-hidden="true" tabindex="-1"></a>metbrewer_tbl <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(metbrewer_palettes)</span>
+<span id="cb10-160"><a href="#cb10-160" aria-hidden="true" tabindex="-1"></a>metbrewer_tbl</span>
+<span id="cb10-161"><a href="#cb10-161" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-162"><a href="#cb10-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-163"><a href="#cb10-163" aria-hidden="true" tabindex="-1"></a>This is useful if you want to wrangle the colours with **dplyr**.</span>
+<span id="cb10-164"><a href="#cb10-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-167"><a href="#cb10-167" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-168"><a href="#cb10-168" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb10-169"><a href="#cb10-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-170"><a href="#cb10-170" aria-hidden="true" tabindex="-1"></a>metbrewer_tbl <span class="ot">&lt;-</span> <span class="fu">slice</span>(metbrewer_tbl, <span class="sc">-</span><span class="dv">8</span>)</span>
+<span id="cb10-171"><a href="#cb10-171" aria-hidden="true" tabindex="-1"></a>metbrewer_tbl</span>
+<span id="cb10-172"><a href="#cb10-172" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-173"><a href="#cb10-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-174"><a href="#cb10-174" aria-hidden="true" tabindex="-1"></a>Then go back to a colour palette with the <span class="in">`deframe()`</span> function from **tibble**.</span>
+<span id="cb10-175"><a href="#cb10-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-178"><a href="#cb10-178" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-179"><a href="#cb10-179" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb10-180"><a href="#cb10-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-181"><a href="#cb10-181" aria-hidden="true" tabindex="-1"></a>metbrewer_tbl <span class="sc">%&gt;%</span></span>
+<span id="cb10-182"><a href="#cb10-182" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(palette) <span class="sc">%&gt;%</span></span>
+<span id="cb10-183"><a href="#cb10-183" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">pal_palette</span>(colour)) <span class="sc">%&gt;%</span></span>
+<span id="cb10-184"><a href="#cb10-184" aria-hidden="true" tabindex="-1"></a>  <span class="fu">deframe</span>()</span>
+<span id="cb10-185"><a href="#cb10-185" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-186"><a href="#cb10-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-187"><a href="#cb10-187" aria-hidden="true" tabindex="-1"></a><span class="fu">## What about ggplot2 plots?</span></span>
+<span id="cb10-188"><a href="#cb10-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-189"><a href="#cb10-189" aria-hidden="true" tabindex="-1"></a>Just use one of the <span class="in">`scale_`</span> functions!</span>
+<span id="cb10-190"><a href="#cb10-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-193"><a href="#cb10-193" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-194"><a href="#cb10-194" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb10-195"><a href="#cb10-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-196"><a href="#cb10-196" aria-hidden="true" tabindex="-1"></a>hiroshige <span class="ot">&lt;-</span> <span class="fu">pal_colour</span>(<span class="fu">c</span>(</span>
+<span id="cb10-197"><a href="#cb10-197" aria-hidden="true" tabindex="-1"></a>  <span class="st">"#1e466e"</span>, <span class="st">"#376795"</span>, <span class="st">"#528fad"</span>, <span class="st">"#72bcd5"</span>, <span class="st">"#aadce0"</span>,</span>
+<span id="cb10-198"><a href="#cb10-198" aria-hidden="true" tabindex="-1"></a>  <span class="st">"#ffe6b7"</span>, <span class="st">"#ffd06f"</span>, <span class="st">"#f7aa58"</span>, <span class="st">"#ef8a47"</span>, <span class="st">"#e76254"</span></span>
+<span id="cb10-199"><a href="#cb10-199" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb10-200"><a href="#cb10-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-201"><a href="#cb10-201" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(faithfuld, <span class="fu">aes</span>(waiting, eruptions, <span class="at">fill =</span> density)) <span class="sc">+</span></span>
+<span id="cb10-202"><a href="#cb10-202" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_raster</span>() <span class="sc">+</span></span>
+<span id="cb10-203"><a href="#cb10-203" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb10-204"><a href="#cb10-204" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_palette_c</span>(hiroshige)</span>
+<span id="cb10-205"><a href="#cb10-205" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-206"><a href="#cb10-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-207"><a href="#cb10-207" aria-hidden="true" tabindex="-1"></a>There are <span class="in">`scale_`</span> functions for discrete, continuous, and binned data, and you can pass additional arguments to them for <span class="co">[</span><span class="ot">further customization</span><span class="co">](https://mccarthy-m-g.github.io/palettes/articles/ggplot2.html#customizing-scales)</span>.</span>
+<span id="cb10-208"><a href="#cb10-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-209"><a href="#cb10-209" aria-hidden="true" tabindex="-1"></a><span class="fu">## I'm sold. How do I make a colour palette package?</span></span>
+<span id="cb10-210"><a href="#cb10-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-211"><a href="#cb10-211" aria-hidden="true" tabindex="-1"></a>See the <span class="co">[</span><span class="ot">Creating a colour palette package</span><span class="co">](https://mccarthy-m-g.github.io/palettes/articles/creating-packages.html)</span> vignette, which works through an <span class="co">[</span><span class="ot">example package</span><span class="co">](https://github.com/mccarthy-m-g/sunsets)</span> showing the steps needed to make a colour palette package with palettes.</span>
+<span id="cb10-212"><a href="#cb10-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-213"><a href="#cb10-213" aria-hidden="true" tabindex="-1"></a>If you do make a package with palettes, let me know through <span class="co">[</span><span class="ot">email</span><span class="co">](/about/#contact)</span> or <span class="co">[</span><span class="ot">Mastodon</span><span class="co">](https://fosstodon.org/@mccarthymg)</span>! In the future I'd like to make a "palettesverse" to showcase and collect all the packages using palettes in one place.</span>
+<span id="cb10-214"><a href="#cb10-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-215"><a href="#cb10-215" aria-hidden="true" tabindex="-1"></a><span class="fu">## What's next?</span></span>
+<span id="cb10-216"><a href="#cb10-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-217"><a href="#cb10-217" aria-hidden="true" tabindex="-1"></a>In future versions I would like to:</span>
+<span id="cb10-218"><a href="#cb10-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-219"><a href="#cb10-219" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Provide an option to choose the symbol used for colour previews</span>
+<span id="cb10-220"><a href="#cb10-220" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Add functions for manipulating colour palettes</span>
+<span id="cb10-221"><a href="#cb10-221" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Add an interpolation function for bivariate colour scales</span>
+<span id="cb10-222"><a href="#cb10-222" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Make a better hex sticker (looking for help on this one!)</span>
+<span id="cb10-223"><a href="#cb10-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-224"><a href="#cb10-224" aria-hidden="true" tabindex="-1"></a>If you have other suggestions or requests, please <span class="co">[</span><span class="ot">file an issue on GitHub</span><span class="co">](https://github.com/mccarthy-m-g/palettes/issues)</span>.</span>
+<span id="cb10-225"><a href="#cb10-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-226"><a href="#cb10-226" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_common/_appendix.qmd &gt;}}</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">© Copyright 2022 <a href="https://michaelmccarthy.tidytales.ca">Michael McCarthy</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>

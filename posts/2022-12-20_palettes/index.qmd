@@ -1,0 +1,210 @@
+---
+title: Introducing the palettes package
+description: |
+  I am proud to announce the first release of the palettes package is now on
+  CRAN. This version introduces a new family of colour classes that make working
+  with colour vectors and colour palettes easy and fun.
+  
+author:
+  - name: Michael McCarthy
+    url: https://michaelmccarthy.tidytales.ca
+
+date: '2022-12-19'
+
+categories:
+  - .Visualize
+  - "{palettes}"
+  - "{ggplot2}"
+  - "{gt}"
+  - "{biscale}"
+
+image: images/logo.png
+
+twitter-card:
+  title: "Tidy Tales: Introducing the palettes package"
+  image: images/card.png
+  image-width: 1200
+  image-height: 628
+  card-style: summary_large_image
+
+open-graph:
+  title: "Tidy Tales: Introducing the palettes package"
+  image: images/card.png
+
+params:
+  use_renv: FALSE
+  data_file: NULL
+  fair_dealing: FALSE
+  
+df-print: default
+---
+
+<!-- Quarto does not support ANSI colour output through downlit at the time this post was written, but fansi knitr hooks can be used to make it work. -->
+
+```{r fansi}
+#| comment: ''
+#| results: asis
+#| echo: false
+old_hook <- fansi::set_knit_hooks(knitr::knit_hooks, which = c("output", "warning", "error", "message"))
+options(crayon.enabled = TRUE, cli.num_colors = 256)
+```
+
+<!-- The font I'm using makes the bullets really small. Changing the font provides a nice and quick fix. -->
+
+```{=html}
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
+<script>
+$(function(){
+  $("span").each(function(){
+    var text = $(this).text()
+    if (text === "•") {
+      $(this).css("font-family", "monospace");
+    }
+  });
+});
+</script>
+```
+
+## Overview
+
+I am proud to announce that version 0.1.0 of the [palettes package](https://mccarthy-m-g.github.io/palettes/index.html) is now on [CRAN](). palettes is an R package for working with colour vectors and colour palettes. I made it with three main goals in mind, each described in a vignette on the package website:
+
+- To provide [a new family of colour classes](https://mccarthy-m-g.github.io/palettes/articles/palettes.html) (`palettes_colour` and `palettes_palette`) that always print as hex codes with colour previews.
+
+- To provide a comprehensive library of methods for working with colour vectors and colour palettes, including methods for [ggplot2](https://mccarthy-m-g.github.io/palettes/articles/ggplot2.html), [gt](https://mccarthy-m-g.github.io/palettes/articles/gt.html), [biscale](https://mccarthy-m-g.github.io/palettes/articles/biscale.html), and [other colour packages](https://mccarthy-m-g.github.io/palettes/articles/compatibility.html).
+
+- To make it easy for anyone to [make their own colour palette package](https://mccarthy-m-g.github.io/palettes/articles/creating-packages.html). Colour palette packages made with palettes exist solely for the purpose of distributing colour palettes and get access to all the features of palettes for free.
+
+If you just want to jump in and start using palettes, you can install it from CRAN with:
+
+```r
+install.packages("palettes")
+```
+
+The package website is the best place to start: <https://mccarthy-m-g.github.io/palettes/index.html>
+
+If you want to learn more about *why* you should be using palettes, read on to learn more about the motivation of the package and how it makes working with colour vectors and colour palettes easy and fun for everyone.
+
+## Origins
+
+The origins of palettes start with a different (in purgatory) package, **BPRDcolours**, which I was inspired to make while reading Mike Mignola’s Hellboy comics. Every page of Hellboy is a masterclass in colour and contrast, and I thought it would be fun to bring those colours into R:
+
+![Hellboy promo poster by Mike Mignola](images/hellboy.jpg){height=500px}
+
+So how does one make a colour palette package in R? My answer now is to read the [Creating a colour palette package](https://mccarthy-m-g.github.io/palettes/articles/creating-packages.html) vignette and make it with palettes. My answer then was to read the source code of several other colour palette packages, then reimplement the relevant functions in BPRDcolours. Not a great answer, but it’s the approach everyone else was using.
+
+I managed to put together a rough [development version](https://github.com/mccarthy-m-g/BPRDcolours), but got sidetracked with other projects soon after and put BPRDcolours on hold. And so my mind was left to brew on a better way to go about this whole colour palette package thing.
+
+## Enter palettes
+
+One year after development on BPRDcolours stopped, I started palettes.
+
+The main motivation behind palettes was to standardize and simplify the process of making a colour palette package. No more reading through other’s source code to figure out how to store colours or make them work with ggplot2 plots. No more unnecessary code duplication. I wanted the process of shipping a set of hex colour codes in an R package to be as simple as, well... shipping a set of hex colour codes in an R package. Anything extra like ggplot2 functionality should come for free.
+
+A secondary motivation was to provide pretty printing of colour palettes, with colour previews next to the hex colour codes. This was inspired by packages like [taylor](https://taylor.wjakethompson.com/reference/color_palette.html) and [prismatic](https://github.com/EmilHvitfeldt/prismatic), which provide their own pretty printing methods for colours using the **crayon** package. palettes uses the **cli** package for pretty printing, which has superseded crayon.
+
+## Just show me some colour palettes already!
+
+Okay, okay. 
+
+```{r}
+library(palettes)
+```
+
+Colour classes in palettes come in two forms:
+
+- Colour vectors (`palettes_colour`), which are created by `pal_colour()`
+- Colour palettes (`palettes_palette`), which are created by `pal_palette()`
+
+Colour vectors can be thought of as a base type for colours, and colour palettes are just (named) lists of colour vectors. To illustrate, let's use some colours from the [MetBrewer](https://github.com/BlakeRMills/MetBrewer) package.
+
+`pal_colour()` is a nice way to create a colour vector.
+
+```{r}
+java <- pal_colour(c("#663171", "#cf3a36", "#ea7428", "#e2998a", "#0c7156"))
+java
+```
+
+`pal_palette()` is a nice way to create named colour palettes.
+
+```{r}
+metbrewer_palettes <- pal_palette(
+  egypt = c("#dd5129", "#0f7ba2", "#43b284", "#fab255"),
+  java  = java
+)
+metbrewer_palettes
+```
+
+`plot()` is a nice way to showcase colour vectors and colour palettes. The appearance of the plot [depends on the input](https://mccarthy-m-g.github.io/palettes/articles/palettes.html#plotting).
+
+```{r}
+plot(metbrewer_palettes)
+```
+
+[Casting and coercion methods](https://mccarthy-m-g.github.io/palettes/articles/palettes.html#casting-and-coercion) are also available to turn other objects (like character vectors or lists) into colour vectors and colour palettes.
+
+You can even cast colour vectors and colour palettes into tibbles.
+
+```{r}
+metbrewer_tbl <- as_tibble(metbrewer_palettes)
+metbrewer_tbl
+```
+
+This is useful if you want to wrangle the colours with **dplyr**.
+
+```{r}
+library(dplyr)
+
+metbrewer_tbl <- slice(metbrewer_tbl, -8)
+metbrewer_tbl
+```
+
+Then go back to a colour palette with the `deframe()` function from **tibble**.
+
+```{r}
+library(tibble)
+
+metbrewer_tbl %>%
+  group_by(palette) %>%
+  summarise(pal_palette(colour)) %>%
+  deframe()
+```
+
+## What about ggplot2 plots?
+
+Just use one of the `scale_` functions!
+
+```{r}
+library(ggplot2)
+
+hiroshige <- pal_colour(c(
+  "#1e466e", "#376795", "#528fad", "#72bcd5", "#aadce0",
+  "#ffe6b7", "#ffd06f", "#f7aa58", "#ef8a47", "#e76254"
+))
+
+ggplot(faithfuld, aes(waiting, eruptions, fill = density)) +
+  geom_raster() +
+  coord_cartesian(expand = FALSE) +
+  scale_fill_palette_c(hiroshige)
+```
+
+There are `scale_` functions for discrete, continuous, and binned data, and you can pass additional arguments to them for [further customization](https://mccarthy-m-g.github.io/palettes/articles/ggplot2.html#customizing-scales).
+
+## I'm sold. How do I make a colour palette package?
+
+See the [Creating a colour palette package](https://mccarthy-m-g.github.io/palettes/articles/creating-packages.html) vignette, which works through an [example package](https://github.com/mccarthy-m-g/sunsets) showing the steps needed to make a colour palette package with palettes.
+
+If you do make a package with palettes, let me know through [email](/about/#contact) or [Mastodon](https://fosstodon.org/@mccarthymg)! In the future I'd like to make a "palettesverse" to showcase and collect all the packages using palettes in one place.
+
+## What's next?
+
+In future versions I would like to:
+
+- Provide an option to choose the symbol used for colour previews
+- Add functions for manipulating colour palettes
+- Add an interpolation function for bivariate colour scales
+- Make a better hex sticker (looking for help on this one!)
+
+If you have other suggestions or requests, please [file an issue on GitHub](https://github.com/mccarthy-m-g/palettes/issues).
+
+{{< include /_common/_appendix.qmd >}}

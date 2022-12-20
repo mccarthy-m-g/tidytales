@@ -112,6 +112,83 @@
     "text": "Data\n\nDownload the data used in this post."
   },
   {
+    "objectID": "posts/2022-12-20_palettes/index.html",
+    "href": "posts/2022-12-20_palettes/index.html",
+    "title": "Introducing the palettes package",
+    "section": "",
+    "text": "I am proud to announce that version 0.1.0 of the palettes package is now on CRAN. palettes is an R package for working with colour vectors and colour palettes. I made it with three main goals in mind, each described in a vignette on the package website:\n\nTo provide a new family of colour classes (palettes_colour and palettes_palette) that always print as hex codes with colour previews.\nTo provide a comprehensive library of methods for working with colour vectors and colour palettes, including methods for ggplot2, gt, biscale, and other colour packages.\nTo make it easy for anyone to make their own colour palette package. Colour palette packages made with palettes exist solely for the purpose of distributing colour palettes and get access to all the features of palettes for free.\n\nIf you just want to jump in and start using palettes, you can install it from CRAN with:\ninstall.packages(\"palettes\")\nThe package website is the best place to start: https://mccarthy-m-g.github.io/palettes/index.html\nIf you want to learn more about why you should be using palettes, read on to learn more about the motivation of the package and how it makes working with colour vectors and colour palettes easy and fun for everyone."
+  },
+  {
+    "objectID": "posts/2022-12-20_palettes/index.html#origins",
+    "href": "posts/2022-12-20_palettes/index.html#origins",
+    "title": "Introducing the palettes package",
+    "section": "Origins",
+    "text": "Origins\nThe origins of palettes start with a different (in purgatory) package, BPRDcolours, which I was inspired to make while reading Mike Mignola’s Hellboy comics. Every page of Hellboy is a masterclass in colour and contrast, and I thought it would be fun to bring those colours into R:\n\n\n\nHellboy promo poster by Mike Mignola\n\n\nSo how does one make a colour palette package in R? My answer now is to read the Creating a colour palette package vignette and make it with palettes. My answer then was to read the source code of several other colour palette packages, then reimplement the relevant functions in BPRDcolours. Not a great answer, but it’s the approach everyone else was using.\nI managed to put together a rough development version, but got sidetracked with other projects soon after and put BPRDcolours on hold. And so my mind was left to brew on a better way to go about this whole colour palette package thing."
+  },
+  {
+    "objectID": "posts/2022-12-20_palettes/index.html#enter-palettes",
+    "href": "posts/2022-12-20_palettes/index.html#enter-palettes",
+    "title": "Introducing the palettes package",
+    "section": "Enter palettes",
+    "text": "Enter palettes\nOne year after development on BPRDcolours stopped, I started palettes.\nThe main motivation behind palettes was to standardize and simplify the process of making a colour palette package. No more reading through other’s source code to figure out how to store colours or make them work with ggplot2 plots. No more unnecessary code duplication. I wanted the process of shipping a set of hex colour codes in an R package to be as simple as, well… shipping a set of hex colour codes in an R package. Anything extra like ggplot2 functionality should come for free.\nA secondary motivation was to provide pretty printing of colour palettes, with colour previews next to the hex colour codes. This was inspired by packages like taylor and prismatic, which provide their own pretty printing methods for colours using the crayon package. palettes uses the cli package for pretty printing, which has superseded crayon."
+  },
+  {
+    "objectID": "posts/2022-12-20_palettes/index.html#just-show-me-some-colour-palettes-already",
+    "href": "posts/2022-12-20_palettes/index.html#just-show-me-some-colour-palettes-already",
+    "title": "Introducing the palettes package",
+    "section": "Just show me some colour palettes already!",
+    "text": "Just show me some colour palettes already!\nOkay, okay.\n\nlibrary(palettes)\n\nColour classes in palettes come in two forms:\n\nColour vectors (palettes_colour), which are created by pal_colour()\nColour palettes (palettes_palette), which are created by pal_palette()\n\nColour vectors can be thought of as a base type for colours, and colour palettes are just (named) lists of colour vectors. To illustrate, let’s use some colours from the MetBrewer package.\npal_colour() is a nice way to create a colour vector.\n\njava <- pal_colour(c(\"#663171\", \"#cf3a36\", \"#ea7428\", \"#e2998a\", \"#0c7156\"))\njava\n#> <palettes_colour[5]>\n#> • #663171\n#> • #CF3A36\n#> • #EA7428\n#> • #E2998A\n#> • #0C7156\n\n\npal_palette() is a nice way to create named colour palettes.\n\nmetbrewer_palettes <- pal_palette(\n  egypt = c(\"#dd5129\", \"#0f7ba2\", \"#43b284\", \"#fab255\"),\n  java  = java\n)\nmetbrewer_palettes\n#> <palettes_palette[2]>\n#> $egypt\n#> <palettes_colour[4]>\n#> • #DD5129\n#> • #0F7BA2\n#> • #43B284\n#> • #FAB255\n#> \n#> $java\n#> <palettes_colour[5]>\n#> • #663171\n#> • #CF3A36\n#> • #EA7428\n#> • #E2998A\n#> • #0C7156\n\n\nplot() is a nice way to showcase colour vectors and colour palettes. The appearance of the plot depends on the input.\n\nplot(metbrewer_palettes)\n\n\n\n\nCasting and coercion methods are also available to turn other objects (like character vectors or lists) into colour vectors and colour palettes.\nYou can even cast colour vectors and colour palettes into tibbles.\n\nmetbrewer_tbl <- as_tibble(metbrewer_palettes)\nmetbrewer_tbl\n#> # A tibble: 9 × 2\n#>   palette colour   \n#>   <chr>   <colour> \n#> 1 egypt   • #DD5129\n#> 2 egypt   • #0F7BA2\n#> 3 egypt   • #43B284\n#> 4 egypt   • #FAB255\n#> 5 java    • #663171\n#> 6 java    • #CF3A36\n#> 7 java    • #EA7428\n#> 8 java    • #E2998A\n#> 9 java    • #0C7156\n\n\nThis is useful if you want to wrangle the colours with dplyr.\n\nlibrary(dplyr)\n\nmetbrewer_tbl <- slice(metbrewer_tbl, -8)\nmetbrewer_tbl\n#> # A tibble: 8 × 2\n#>   palette colour   \n#>   <chr>   <colour> \n#> 1 egypt   • #DD5129\n#> 2 egypt   • #0F7BA2\n#> 3 egypt   • #43B284\n#> 4 egypt   • #FAB255\n#> 5 java    • #663171\n#> 6 java    • #CF3A36\n#> 7 java    • #EA7428\n#> 8 java    • #0C7156\n\n\nThen go back to a colour palette with the deframe() function from tibble.\n\nlibrary(tibble)\n\nmetbrewer_tbl %>%\n  group_by(palette) %>%\n  summarise(pal_palette(colour)) %>%\n  deframe()\n#> <palettes_palette[2]>\n#> $egypt\n#> <palettes_colour[4]>\n#> • #DD5129\n#> • #0F7BA2\n#> • #43B284\n#> • #FAB255\n#> \n#> $java\n#> <palettes_colour[4]>\n#> • #663171\n#> • #CF3A36\n#> • #EA7428\n#> • #0C7156"
+  },
+  {
+    "objectID": "posts/2022-12-20_palettes/index.html#what-about-ggplot2-plots",
+    "href": "posts/2022-12-20_palettes/index.html#what-about-ggplot2-plots",
+    "title": "Introducing the palettes package",
+    "section": "What about ggplot2 plots?",
+    "text": "What about ggplot2 plots?\nJust use one of the scale_ functions!\n\nlibrary(ggplot2)\n\nhiroshige <- pal_colour(c(\n  \"#1e466e\", \"#376795\", \"#528fad\", \"#72bcd5\", \"#aadce0\",\n  \"#ffe6b7\", \"#ffd06f\", \"#f7aa58\", \"#ef8a47\", \"#e76254\"\n))\n\nggplot(faithfuld, aes(waiting, eruptions, fill = density)) +\n  geom_raster() +\n  coord_cartesian(expand = FALSE) +\n  scale_fill_palette_c(hiroshige)\n\n\n\n\nThere are scale_ functions for discrete, continuous, and binned data, and you can pass additional arguments to them for further customization."
+  },
+  {
+    "objectID": "posts/2022-12-20_palettes/index.html#im-sold.-how-do-i-make-a-colour-palette-package",
+    "href": "posts/2022-12-20_palettes/index.html#im-sold.-how-do-i-make-a-colour-palette-package",
+    "title": "Introducing the palettes package",
+    "section": "I’m sold. How do I make a colour palette package?",
+    "text": "I’m sold. How do I make a colour palette package?\nSee the Creating a colour palette package vignette, which works through an example package showing the steps needed to make a colour palette package with palettes.\nIf you do make a package with palettes, let me know through email or Mastodon! In the future I’d like to make a “palettesverse” to showcase and collect all the packages using palettes in one place."
+  },
+  {
+    "objectID": "posts/2022-12-20_palettes/index.html#whats-next",
+    "href": "posts/2022-12-20_palettes/index.html#whats-next",
+    "title": "Introducing the palettes package",
+    "section": "What’s next?",
+    "text": "What’s next?\nIn future versions I would like to:\n\nProvide an option to choose the symbol used for colour previews\nAdd functions for manipulating colour palettes\nAdd an interpolation function for bivariate colour scales\nMake a better hex sticker (looking for help on this one!)\n\nIf you have other suggestions or requests, please file an issue on GitHub."
+  },
+  {
+    "objectID": "posts/2022-12-20_palettes/index.html#section",
+    "href": "posts/2022-12-20_palettes/index.html#section",
+    "title": "Introducing the palettes package",
+    "section": "",
+    "text": "Michael McCarthy\n\nThanks for reading! I’m Michael, the voice behind Tidy Tales. I am an award winning data scientist and R programmer with the skills and experience to help you solve the problems you care about. You can learn more about me, my consulting services, and my other projects on my personal website."
+  },
+  {
+    "objectID": "posts/2022-12-20_palettes/index.html#michael-mccarthy",
+    "href": "posts/2022-12-20_palettes/index.html#michael-mccarthy",
+    "title": "Introducing the palettes package",
+    "section": "Michael McCarthy",
+    "text": "Michael McCarthy"
+  },
+  {
+    "objectID": "posts/2022-12-20_palettes/index.html#comments",
+    "href": "posts/2022-12-20_palettes/index.html#comments",
+    "title": "Introducing the palettes package",
+    "section": "Comments",
+    "text": "Comments"
+  },
+  {
+    "objectID": "posts/2022-12-20_palettes/index.html#session-info",
+    "href": "posts/2022-12-20_palettes/index.html#session-info",
+    "title": "Introducing the palettes package",
+    "section": "Session Info",
+    "text": "Session Info\n\n\n\n\n\n─ Session info ───────────────────────────────────────────────────────────────\n setting  value\n version  R version 4.2.2 (2022-10-31)\n os       macOS Mojave 10.14.6\n system   x86_64, darwin17.0\n ui       X11\n language (EN)\n collate  en_CA.UTF-8\n ctype    en_CA.UTF-8\n tz       America/Vancouver\n date     2022-12-20\n pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)\n quarto   1.2.280 @ /usr/local/bin/quarto\n\n─ Packages ───────────────────────────────────────────────────────────────────\n package     * version date (UTC) lib source\n dplyr       * 1.0.10  2022-09-01 [1] CRAN (R 4.2.0)\n ggplot2     * 3.4.0   2022-11-04 [1] CRAN (R 4.2.0)\n palettes    * 0.1.0   2022-12-19 [1] CRAN (R 4.2.2)\n sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.2.0)\n tibble      * 3.1.8   2022-07-22 [1] CRAN (R 4.2.0)\n\n [1] /Users/Michael/Library/R/x86_64/4.2/library/__devel\n [2] /Library/Frameworks/R.framework/Versions/4.2/Resources/library\n\n──────────────────────────────────────────────────────────────────────────────"
+  },
+  {
     "objectID": "posts/2021-06-15_demons-souls/index.html",
     "href": "posts/2021-06-15_demons-souls/index.html",
     "title": "Go forth, slayer of Demons",
