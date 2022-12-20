@@ -30,6 +30,8 @@ twitter-card:
 open-graph:
   title: "Tidy Tales: Introducing the palettes package"
   image: images/card.png
+  
+resources: images/card.png
 
 params:
   use_renv: FALSE
