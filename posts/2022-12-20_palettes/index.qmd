@@ -209,4 +209,10 @@ In future versions I would like to:
 
 If you have other suggestions or requests, please [file an issue on GitHub](https://github.com/mccarthy-m-g/palettes/issues).
 
+```{r}
+#| echo: false
+do.call(knitr::knit_hooks$set, old_hook)
+options(crayon.enabled = FALSE, cli.num_colors = 0)
+```
+
 {{< include /_common/_appendix.qmd >}}
