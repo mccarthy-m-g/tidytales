@@ -10,7 +10,7 @@
 <atom:link href="https://tidytales.ca/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.2.280</generator>
-<lastBuildDate>Mon, 19 Dec 2022 08:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 20 Dec 2022 08:00:00 GMT</lastBuildDate>
 <item>
   <title>Introducing the palettes package</title>
   <dc:creator>Michael McCarthy</dc:creator>
@@ -221,6 +221,9 @@ $(function(){
 <li>Make a better hex sticker (looking for help on this one!)</li>
 </ul>
 <p>If you have other suggestions or requests, please <a href="https://github.com/mccarthy-m-g/palettes/issues">file an issue on GitHub</a>.</p>
+<div class="cell">
+
+</div>
 </section>
 
 
@@ -256,8 +259,9 @@ $(function(){
 <summary>
 </summary>
 <div class="cell">
-<pre class="fansi fansi-output"><code><span style="color: #00BBBB; font-weight: bold;">─ Session info ───────────────────────────────────────────────────────────────</span>
- <span style="color: #555555; font-style: italic;">setting </span> <span style="color: #555555; font-style: italic;">value</span>
+<div class="cell-output cell-output-stdout">
+<pre><code>─ Session info ───────────────────────────────────────────────────────────────
+ setting  value
  version  R version 4.2.2 (2022-10-31)
  os       macOS Mojave 10.14.6
  system   x86_64, darwin17.0
@@ -266,23 +270,23 @@ $(function(){
  collate  en_CA.UTF-8
  ctype    en_CA.UTF-8
  tz       America/Vancouver
- date     2022-12-20
+ date     2022-12-21
  pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)
  quarto   1.2.280 @ /usr/local/bin/quarto
 
-<span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────</span>
- <span style="color: #555555; font-style: italic;">package    </span> <span style="color: #555555; font-style: italic;">*</span> <span style="color: #555555; font-style: italic;">version</span> <span style="color: #555555; font-style: italic;">date (UTC)</span> <span style="color: #555555; font-style: italic;">lib</span> <span style="color: #555555; font-style: italic;">source</span>
- dplyr       * 1.0.10  <span style="color: #555555;">2022-09-01</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span>
- ggplot2     * 3.4.0   <span style="color: #555555;">2022-11-04</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span>
- palettes    * 0.1.0   <span style="color: #555555;">2022-12-19</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.2)</span>
- sessioninfo * 1.2.2   <span style="color: #555555;">2021-12-06</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span>
- tibble      * 3.1.8   <span style="color: #555555;">2022-07-22</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span>
+─ Packages ───────────────────────────────────────────────────────────────────
+ package     * version date (UTC) lib source
+ dplyr       * 1.0.10  2022-09-01 [1] CRAN (R 4.2.0)
+ ggplot2     * 3.4.0   2022-11-04 [1] CRAN (R 4.2.0)
+ palettes    * 0.1.0   2022-12-19 [1] CRAN (R 4.2.0)
+ sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.2.0)
+ tibble      * 3.1.8   2022-07-22 [1] CRAN (R 4.2.0)
 
-<span style="color: #555555;"> [1] /Users/Michael/Library/R/x86_64/4.2/library/__devel</span>
-<span style="color: #555555;"> [2] /Library/Frameworks/R.framework/Versions/4.2/Resources/library</span>
+ [1] /Users/Michael/Library/R/x86_64/4.2/library/__tidytales
+ [2] /Library/Frameworks/R.framework/Versions/4.2/Resources/library
 
-<span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────</span>
-</code></pre>
+──────────────────────────────────────────────────────────────────────────────</code></pre>
+</div>
 </div>
 </details>
 <!--
@@ -302,12 +306,12 @@ Any of the trademarks, service marks, collective marks, design rights or similar
 </div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{mccarthy2022,
   author = {Michael McCarthy},
   title = {Introducing the Palettes Package},
-  date = {2022-12-19},
+  date = {2022-12-20},
   url = {https://tidytales.ca/posts/2022-12-20_palettes},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mccarthy2022" class="csl-entry quarto-appendix-citeas">
-Michael McCarthy. (2022, December 19). <em>Introducing the palettes
+Michael McCarthy. (2022, December 20). <em>Introducing the palettes
 package</em>. <a href="https://tidytales.ca/posts/2022-12-20_palettes">https://tidytales.ca/posts/2022-12-20_palettes</a>
 </div></div></section></div> ]]></description>
   <category>.Visualize</category>
@@ -316,7 +320,7 @@ package</em>. <a href="https://tidytales.ca/posts/2022-12-20_palettes">https://t
   <category>{gt}</category>
   <category>{biscale}</category>
   <guid>https://tidytales.ca/posts/2022-12-20_palettes/index.html</guid>
-  <pubDate>Mon, 19 Dec 2022 08:00:00 GMT</pubDate>
+  <pubDate>Tue, 20 Dec 2022 08:00:00 GMT</pubDate>
   <media:content url="https://tidytales.ca/posts/2022-12-20_palettes/images/logo.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 <item>
@@ -487,7 +491,7 @@ lineribbons with geomtextpath</em>. <a href="https://tidytales.ca/snippets/2022-
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://tidytales.ca/posts/2022-09-29_borderlands/images/borderlands-screenshot.jpeg" class="img-fluid figure-img" width="1920"></p>
+<p><img src="https://tidytales.ca/posts/2022-09-29_borderlands/images/borderlands-screenshot.jpeg" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">In-game screenshot from Borderlands 3.</figcaption><p></p>
 </figure>
 </div>
@@ -506,7 +510,7 @@ lineribbons with geomtextpath</em>. <a href="https://tidytales.ca/snippets/2022-
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://tidytales.ca/posts/2022-09-29_borderlands/images/echo-menu.jpeg" class="img-fluid figure-img" width="1920"></p>
+<p><img src="https://tidytales.ca/posts/2022-09-29_borderlands/images/echo-menu.jpeg" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">The ECHO-3 in-game menu in Borderlands 3.</figcaption><p></p>
 </figure>
 </div>
@@ -518,7 +522,7 @@ lineribbons with geomtextpath</em>. <a href="https://tidytales.ca/snippets/2022-
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://tidytales.ca/posts/2022-09-29_borderlands/images/loot-rarity.png" class="img-fluid figure-img" width="900"></p>
+<p><img src="https://tidytales.ca/posts/2022-09-29_borderlands/images/loot-rarity.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Loot in Borderlands (guns, grenades, shields, etc.) are colour categorized by the rarity with which they can be found in containers or dropped by defeated enemies. From left to right the categories are: Common, Uncommon, Rare, Epic, Legendary.</figcaption><p></p>
 </figure>
 </div>
@@ -770,7 +774,7 @@ lineribbons with geomtextpath</em>. <a href="https://tidytales.ca/snippets/2022-
 <span id="cb12-9"></span>
 <span id="cb12-10"><span class="fu" style="color: #4758AB;">image_flatten</span>(<span class="fu" style="color: #4758AB;">c</span>(<span class="fu" style="color: #4758AB;">image_blank</span>(<span class="dv" style="color: #AD0000;">1920</span>, <span class="dv" style="color: #AD0000;">1200</span>, <span class="at" style="color: #657422;">color =</span> <span class="st" style="color: #20794D;">"white"</span>), plot_outline_layer))</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://tidytales.ca/posts/2022-09-29_borderlands/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="960"></p>
+<p><img src="https://tidytales.ca/posts/2022-09-29_borderlands/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Next the colour plot, which just needs to be scaled up with the bars added to it, then saved to a temporary file. Here I’ve used <a href="https://mjskay.github.io/ggdist/articles/slabinterval.html#ccdf-bar-plots">CCDF bars</a> with a gradient, courtesy of the ggdist package, going from black to colour to match the gradients in the ECHO-3 in-game menu in Borderlands 3. It’s a bit tacky, and there isn’t an easy way to add gradients to any other plot elements, but it fits the theme.</p>
@@ -826,7 +830,7 @@ lineribbons with geomtextpath</em>. <a href="https://tidytales.ca/snippets/2022-
 <span id="cb13-49"></span>
 <span id="cb13-50">plot_fill_layer</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://tidytales.ca/posts/2022-09-29_borderlands/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="960"></p>
+<p><img src="https://tidytales.ca/posts/2022-09-29_borderlands/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Finally, the outline and fill layers can be combined, and the background made transparent. I think the outline effect is actually pretty convincing.</p>
@@ -836,7 +840,7 @@ lineribbons with geomtextpath</em>. <a href="https://tidytales.ca/snippets/2022-
 <span id="cb14-3"></span>
 <span id="cb14-4">plot_layer</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://tidytales.ca/posts/2022-09-29_borderlands/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="960"></p>
+<p><img src="https://tidytales.ca/posts/2022-09-29_borderlands/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>And the background image can be added for the final composite. To make it stand out less, I’ve overlaid a solid black frame with 50% opacity.</p>
@@ -854,7 +858,7 @@ lineribbons with geomtextpath</em>. <a href="https://tidytales.ca/snippets/2022-
 <h2 class="anchored" data-anchor-id="final-graphic">Final Graphic</h2>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="https://tidytales.ca/posts/2022-09-29_borderlands/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="960"></p>
+<p><img src="https://tidytales.ca/posts/2022-09-29_borderlands/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -897,7 +901,7 @@ lineribbons with geomtextpath</em>. <a href="https://tidytales.ca/snippets/2022-
 <div class="cell-output cell-output-stdout">
 <pre><code>─ Session info ───────────────────────────────────────────────────────────────
  setting  value
- version  R version 4.1.1 (2021-08-10)
+ version  R version 4.2.2 (2022-10-31)
  os       macOS Mojave 10.14.6
  system   x86_64, darwin17.0
  ui       X11
@@ -905,30 +909,31 @@ lineribbons with geomtextpath</em>. <a href="https://tidytales.ca/snippets/2022-
  collate  en_CA.UTF-8
  ctype    en_CA.UTF-8
  tz       America/Vancouver
- date     2022-11-23
+ date     2022-12-21
  pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)
- quarto   1.2.269 @ /usr/local/bin/quarto
+ quarto   1.2.280 @ /usr/local/bin/quarto
 
 ─ Packages ───────────────────────────────────────────────────────────────────
- package     * version    date (UTC) lib source
- dplyr       * 1.0.10     2022-09-01 [1] CRAN (R 4.1.2)
- forcats     * 0.5.1      2021-01-27 [1] CRAN (R 4.1.0)
- ggdist      * 3.1.1.9001 2022-06-19 [1] Github (mjskay/ggdist@25a813d)
- ggplot2     * 3.3.6      2022-05-03 [1] CRAN (R 4.1.2)
- glue        * 1.6.2      2022-02-24 [1] CRAN (R 4.1.2)
- here        * 1.0.1      2020-12-13 [1] CRAN (R 4.1.0)
- lubridate   * 1.8.0      2021-10-07 [1] CRAN (R 4.1.0)
- magick      * 2.7.3      2021-08-18 [1] CRAN (R 4.1.0)
- purrr       * 0.3.4      2020-04-17 [1] CRAN (R 4.1.0)
- readr       * 2.1.2      2022-01-30 [1] CRAN (R 4.1.2)
- sessioninfo * 1.2.2      2021-12-06 [1] CRAN (R 4.1.0)
- stringr     * 1.4.0      2019-02-10 [1] CRAN (R 4.1.0)
- tibble      * 3.1.6      2021-11-07 [1] CRAN (R 4.1.0)
- tidyr       * 1.2.0      2022-02-01 [1] CRAN (R 4.1.2)
- tidyverse   * 1.3.1      2021-04-15 [1] CRAN (R 4.1.0)
+ package     * version date (UTC) lib source
+ dplyr       * 1.0.10  2022-09-01 [1] CRAN (R 4.2.0)
+ forcats     * 0.5.2   2022-08-19 [1] CRAN (R 4.2.0)
+ ggdist      * 3.2.0   2022-07-19 [1] CRAN (R 4.2.0)
+ ggplot2     * 3.4.0   2022-11-04 [1] CRAN (R 4.2.0)
+ glue        * 1.6.2   2022-02-24 [1] CRAN (R 4.2.0)
+ here        * 1.0.1   2020-12-13 [1] CRAN (R 4.2.0)
+ lubridate   * 1.9.0   2022-11-06 [1] CRAN (R 4.2.0)
+ magick      * 2.7.3   2021-08-18 [1] CRAN (R 4.2.0)
+ purrr       * 0.3.5   2022-10-06 [1] CRAN (R 4.2.0)
+ readr       * 2.1.3   2022-10-01 [1] CRAN (R 4.2.0)
+ sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.2.0)
+ stringr     * 1.5.0   2022-12-02 [1] CRAN (R 4.2.0)
+ tibble      * 3.1.8   2022-07-22 [1] CRAN (R 4.2.0)
+ tidyr       * 1.2.1   2022-09-08 [1] CRAN (R 4.2.0)
+ tidyverse   * 1.3.2   2022-07-18 [1] CRAN (R 4.2.0)
+ timechange  * 0.1.1   2022-11-04 [1] CRAN (R 4.2.0)
 
- [1] /Users/Michael/Library/R/4.1/library
- [2] /Library/Frameworks/R.framework/Versions/4.1/Resources/library
+ [1] /Users/Michael/Library/R/x86_64/4.2/library/__tidytales
+ [2] /Library/Frameworks/R.framework/Versions/4.2/Resources/library
 
 ──────────────────────────────────────────────────────────────────────────────</code></pre>
 </div>
@@ -1491,7 +1496,7 @@ Borderlands</em>. <a href="https://tidytales.ca/posts/2022-09-29_borderlands">ht
 <div class="cell-output cell-output-stdout">
 <pre><code>─ Session info ───────────────────────────────────────────────────────────────
  setting  value
- version  R version 4.1.1 (2021-08-10)
+ version  R version 4.2.2 (2022-10-31)
  os       macOS Mojave 10.14.6
  system   x86_64, darwin17.0
  ui       X11
@@ -1499,31 +1504,31 @@ Borderlands</em>. <a href="https://tidytales.ca/posts/2022-09-29_borderlands">ht
  collate  en_CA.UTF-8
  ctype    en_CA.UTF-8
  tz       America/Vancouver
- date     2022-11-23
+ date     2022-12-21
  pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)
- quarto   1.2.269 @ /usr/local/bin/quarto
+ quarto   1.2.280 @ /usr/local/bin/quarto
 
 ─ Packages ───────────────────────────────────────────────────────────────────
  package     * version date (UTC) lib source
- dplyr       * 1.0.10  2022-09-01 [1] CRAN (R 4.1.2)
- emojifont   * 0.5.5   2021-04-20 [1] CRAN (R 4.1.0)
- forcats     * 0.5.1   2021-01-27 [1] CRAN (R 4.1.0)
- formattable * 0.2.1   2021-01-07 [1] CRAN (R 4.1.0)
- gganimate   * 1.0.7   2020-10-15 [1] CRAN (R 4.1.0)
- ggh4x       * 0.2.1   2021-11-24 [1] CRAN (R 4.1.0)
- ggplot2     * 3.3.6   2022-05-03 [1] CRAN (R 4.1.2)
- glue        * 1.6.2   2022-02-24 [1] CRAN (R 4.1.2)
- here        * 1.0.1   2020-12-13 [1] CRAN (R 4.1.0)
- purrr       * 0.3.4   2020-04-17 [1] CRAN (R 4.1.0)
- readr       * 2.1.2   2022-01-30 [1] CRAN (R 4.1.2)
- sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.1.0)
- stringr     * 1.4.0   2019-02-10 [1] CRAN (R 4.1.0)
- tibble      * 3.1.6   2021-11-07 [1] CRAN (R 4.1.0)
- tidyr       * 1.2.0   2022-02-01 [1] CRAN (R 4.1.2)
- tidyverse   * 1.3.1   2021-04-15 [1] CRAN (R 4.1.0)
+ dplyr       * 1.0.10  2022-09-01 [1] CRAN (R 4.2.0)
+ emojifont   * 0.5.5   2021-04-20 [1] CRAN (R 4.2.0)
+ forcats     * 0.5.2   2022-08-19 [1] CRAN (R 4.2.0)
+ formattable * 0.2.1   2021-01-07 [1] CRAN (R 4.2.0)
+ gganimate   * 1.0.8   2022-09-08 [1] CRAN (R 4.2.0)
+ ggh4x       * 0.2.3   2022-11-09 [1] CRAN (R 4.2.0)
+ ggplot2     * 3.4.0   2022-11-04 [1] CRAN (R 4.2.0)
+ glue        * 1.6.2   2022-02-24 [1] CRAN (R 4.2.0)
+ here        * 1.0.1   2020-12-13 [1] CRAN (R 4.2.0)
+ purrr       * 0.3.5   2022-10-06 [1] CRAN (R 4.2.0)
+ readr       * 2.1.3   2022-10-01 [1] CRAN (R 4.2.0)
+ sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.2.0)
+ stringr     * 1.5.0   2022-12-02 [1] CRAN (R 4.2.0)
+ tibble      * 3.1.8   2022-07-22 [1] CRAN (R 4.2.0)
+ tidyr       * 1.2.1   2022-09-08 [1] CRAN (R 4.2.0)
+ tidyverse   * 1.3.2   2022-07-18 [1] CRAN (R 4.2.0)
 
- [1] /Users/Michael/Library/R/4.1/library
- [2] /Library/Frameworks/R.framework/Versions/4.1/Resources/library
+ [1] /Users/Michael/Library/R/x86_64/4.2/library/__tidytales
+ [2] /Library/Frameworks/R.framework/Versions/4.2/Resources/library
 
 ──────────────────────────────────────────────────────────────────────────────</code></pre>
 </div>
@@ -2181,7 +2186,7 @@ Invariance</em>. <a href="https://tidytales.ca/snippets/2021-11-01_longitudinal-
 <div class="cell-output cell-output-stdout">
 <pre><code>─ Session info ───────────────────────────────────────────────────────────────
  setting  value
- version  R version 4.1.1 (2021-08-10)
+ version  R version 4.2.2 (2022-10-31)
  os       macOS Mojave 10.14.6
  system   x86_64, darwin17.0
  ui       X11
@@ -2189,17 +2194,17 @@ Invariance</em>. <a href="https://tidytales.ca/snippets/2021-11-01_longitudinal-
  collate  en_CA.UTF-8
  ctype    en_CA.UTF-8
  tz       America/Vancouver
- date     2022-11-23
+ date     2022-12-21
  pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)
- quarto   1.2.269 @ /usr/local/bin/quarto
+ quarto   1.2.280 @ /usr/local/bin/quarto
 
 ─ Packages ───────────────────────────────────────────────────────────────────
  package     * version date (UTC) lib source
- here        * 1.0.1   2020-12-13 [1] CRAN (R 4.1.0)
- sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.1.0)
+ here        * 1.0.1   2020-12-13 [1] CRAN (R 4.2.0)
+ sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.2.0)
 
- [1] /Users/Michael/Library/R/4.1/library
- [2] /Library/Frameworks/R.framework/Versions/4.1/Resources/library
+ [1] /Users/Michael/Library/R/x86_64/4.2/library/__tidytales
+ [2] /Library/Frameworks/R.framework/Versions/4.2/Resources/library
 
 ──────────────────────────────────────────────────────────────────────────────</code></pre>
 </div>
@@ -2777,7 +2782,7 @@ A soul-devouring demon</p>
 <div class="cell-output cell-output-stdout">
 <pre><code>─ Session info ───────────────────────────────────────────────────────────────
  setting  value
- version  R version 4.1.1 (2021-08-10)
+ version  R version 4.2.2 (2022-10-31)
  os       macOS Mojave 10.14.6
  system   x86_64, darwin17.0
  ui       X11
@@ -2785,28 +2790,28 @@ A soul-devouring demon</p>
  collate  en_CA.UTF-8
  ctype    en_CA.UTF-8
  tz       America/Vancouver
- date     2022-11-23
+ date     2022-12-21
  pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)
- quarto   1.2.269 @ /usr/local/bin/quarto
+ quarto   1.2.280 @ /usr/local/bin/quarto
 
 ─ Packages ───────────────────────────────────────────────────────────────────
  package     * version date (UTC) lib source
- dplyr       * 1.0.10  2022-09-01 [1] CRAN (R 4.1.2)
- forcats     * 0.5.1   2021-01-27 [1] CRAN (R 4.1.0)
- ggfx        * 1.0.0   2021-03-31 [1] CRAN (R 4.1.0)
- ggplot2     * 3.3.6   2022-05-03 [1] CRAN (R 4.1.2)
- here        * 1.0.1   2020-12-13 [1] CRAN (R 4.1.0)
- magick      * 2.7.3   2021-08-18 [1] CRAN (R 4.1.0)
- purrr       * 0.3.4   2020-04-17 [1] CRAN (R 4.1.0)
- readr       * 2.1.2   2022-01-30 [1] CRAN (R 4.1.2)
- sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.1.0)
- stringr     * 1.4.0   2019-02-10 [1] CRAN (R 4.1.0)
- tibble      * 3.1.6   2021-11-07 [1] CRAN (R 4.1.0)
- tidyr       * 1.2.0   2022-02-01 [1] CRAN (R 4.1.2)
- tidyverse   * 1.3.1   2021-04-15 [1] CRAN (R 4.1.0)
+ dplyr       * 1.0.10  2022-09-01 [1] CRAN (R 4.2.0)
+ forcats     * 0.5.2   2022-08-19 [1] CRAN (R 4.2.0)
+ ggfx        * 1.0.1   2022-08-22 [1] CRAN (R 4.2.0)
+ ggplot2     * 3.4.0   2022-11-04 [1] CRAN (R 4.2.0)
+ here        * 1.0.1   2020-12-13 [1] CRAN (R 4.2.0)
+ magick      * 2.7.3   2021-08-18 [1] CRAN (R 4.2.0)
+ purrr       * 0.3.5   2022-10-06 [1] CRAN (R 4.2.0)
+ readr       * 2.1.3   2022-10-01 [1] CRAN (R 4.2.0)
+ sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.2.0)
+ stringr     * 1.5.0   2022-12-02 [1] CRAN (R 4.2.0)
+ tibble      * 3.1.8   2022-07-22 [1] CRAN (R 4.2.0)
+ tidyr       * 1.2.1   2022-09-08 [1] CRAN (R 4.2.0)
+ tidyverse   * 1.3.2   2022-07-18 [1] CRAN (R 4.2.0)
 
- [1] /Users/Michael/Library/R/4.1/library
- [2] /Library/Frameworks/R.framework/Versions/4.1/Resources/library
+ [1] /Users/Michael/Library/R/x86_64/4.2/library/__tidytales
+ [2] /Library/Frameworks/R.framework/Versions/4.2/Resources/library
 
 ──────────────────────────────────────────────────────────────────────────────</code></pre>
 </div>

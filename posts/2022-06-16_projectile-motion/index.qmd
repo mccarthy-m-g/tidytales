@@ -37,6 +37,7 @@ nocite: |
   @omni_projectile_nodate, @lumen_projectile_nodate, @khan_projectile_nodate
 
 resources:
+  - "images/twittercard.png"
   - "images/moon-gravity.mp4"
   - "images/simple-trajectory.mp4"
   - "images/planets-trajectory.mp4"

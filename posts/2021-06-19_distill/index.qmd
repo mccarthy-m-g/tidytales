@@ -27,7 +27,9 @@ twitter-card:
 open-graph:
   title: "Tidy Tales: What's he building in there?"
   image: images/twittercard.png
-  
+
+resources: images/twittercard.png
+
 params:
   use_renv: FALSE
   data_file: NULL

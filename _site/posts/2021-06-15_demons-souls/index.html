@@ -808,7 +808,7 @@ A soul-devouring demon</p>
 <div class="cell-output cell-output-stdout">
 <pre><code>─ Session info ───────────────────────────────────────────────────────────────
  setting  value
- version  R version 4.1.1 (2021-08-10)
+ version  R version 4.2.2 (2022-10-31)
  os       macOS Mojave 10.14.6
  system   x86_64, darwin17.0
  ui       X11
@@ -816,28 +816,28 @@ A soul-devouring demon</p>
  collate  en_CA.UTF-8
  ctype    en_CA.UTF-8
  tz       America/Vancouver
- date     2022-11-23
+ date     2022-12-21
  pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)
- quarto   1.2.269 @ /usr/local/bin/quarto
+ quarto   1.2.280 @ /usr/local/bin/quarto
 
 ─ Packages ───────────────────────────────────────────────────────────────────
  package     * version date (UTC) lib source
- dplyr       * 1.0.10  2022-09-01 [1] CRAN (R 4.1.2)
- forcats     * 0.5.1   2021-01-27 [1] CRAN (R 4.1.0)
- ggfx        * 1.0.0   2021-03-31 [1] CRAN (R 4.1.0)
- ggplot2     * 3.3.6   2022-05-03 [1] CRAN (R 4.1.2)
- here        * 1.0.1   2020-12-13 [1] CRAN (R 4.1.0)
- magick      * 2.7.3   2021-08-18 [1] CRAN (R 4.1.0)
- purrr       * 0.3.4   2020-04-17 [1] CRAN (R 4.1.0)
- readr       * 2.1.2   2022-01-30 [1] CRAN (R 4.1.2)
- sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.1.0)
- stringr     * 1.4.0   2019-02-10 [1] CRAN (R 4.1.0)
- tibble      * 3.1.6   2021-11-07 [1] CRAN (R 4.1.0)
- tidyr       * 1.2.0   2022-02-01 [1] CRAN (R 4.1.2)
- tidyverse   * 1.3.1   2021-04-15 [1] CRAN (R 4.1.0)
+ dplyr       * 1.0.10  2022-09-01 [1] CRAN (R 4.2.0)
+ forcats     * 0.5.2   2022-08-19 [1] CRAN (R 4.2.0)
+ ggfx        * 1.0.1   2022-08-22 [1] CRAN (R 4.2.0)
+ ggplot2     * 3.4.0   2022-11-04 [1] CRAN (R 4.2.0)
+ here        * 1.0.1   2020-12-13 [1] CRAN (R 4.2.0)
+ magick      * 2.7.3   2021-08-18 [1] CRAN (R 4.2.0)
+ purrr       * 0.3.5   2022-10-06 [1] CRAN (R 4.2.0)
+ readr       * 2.1.3   2022-10-01 [1] CRAN (R 4.2.0)
+ sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.2.0)
+ stringr     * 1.5.0   2022-12-02 [1] CRAN (R 4.2.0)
+ tibble      * 3.1.8   2022-07-22 [1] CRAN (R 4.2.0)
+ tidyr       * 1.2.1   2022-09-08 [1] CRAN (R 4.2.0)
+ tidyverse   * 1.3.2   2022-07-18 [1] CRAN (R 4.2.0)
 
- [1] /Users/Michael/Library/R/4.1/library
- [2] /Library/Frameworks/R.framework/Versions/4.1/Resources/library
+ [1] /Users/Michael/Library/R/x86_64/4.2/library/__tidytales
+ [2] /Library/Frameworks/R.framework/Versions/4.2/Resources/library
 
 ──────────────────────────────────────────────────────────────────────────────</code></pre>
 </div>
@@ -1096,513 +1096,515 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a><span class="an">open-graph:</span></span>
 <span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a><span class="co">  title: "Tidy Tales: Go forth, slayer of Demons"</span></span>
 <span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a><span class="co">  image: images/twittercard.png</span></span>
-<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a><span class="co">  </span></span>
-<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a><span class="an">params:</span></span>
-<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a><span class="co">  use_renv: FALSE</span></span>
-<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a><span class="co">  data_file: "2021-06-15_demons-souls.csv"</span></span>
-<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a><span class="co">  fair_dealing: TRUE</span></span>
-<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup}</span></span>
-<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure the project root is set up correctly using {here} --------------------</span></span>
-<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a>here<span class="sc">::</span><span class="fu">i_am</span>(<span class="st">"posts/2021-06-15_demons-souls/index.qmd"</span>)</span>
-<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Load general set up packages used in all posts ------------------------------</span></span>
-<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Load R scripts located in R/ ------------------------------------------------</span></span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a><span class="an">resources:</span><span class="co"> images/twittercard.png</span></span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a><span class="an">params:</span></span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a><span class="co">  use_renv: FALSE</span></span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a><span class="co">  data_file: "2021-06-15_demons-souls.csv"</span></span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a><span class="co">  fair_dealing: TRUE</span></span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup}</span></span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure the project root is set up correctly using {here} --------------------</span></span>
+<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a>here<span class="sc">::</span><span class="fu">i_am</span>(<span class="st">"posts/2021-06-15_demons-souls/index.qmd"</span>)</span>
+<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Load general set up packages used in all posts ------------------------------</span></span>
+<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
 <span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Create templates for knitr code chunks --------------------------------------</span></span>
-<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_template<span class="sc">$</span><span class="fu">set</span>(</span>
-<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a>  <span class="at">fig.graphic =</span> <span class="fu">list</span>(<span class="at">echo =</span> <span class="cn">FALSE</span>, <span class="at">out.width =</span> <span class="st">"100%"</span>),</span>
-<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a>  <span class="at">no.message =</span> <span class="fu">list</span>(<span class="at">message =</span> <span class="cn">FALSE</span>, <span class="at">warning =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overview</span></span>
+<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Load R scripts located in R/ ------------------------------------------------</span></span>
+<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Create templates for knitr code chunks --------------------------------------</span></span>
+<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_template<span class="sc">$</span><span class="fu">set</span>(</span>
+<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a>  <span class="at">fig.graphic =</span> <span class="fu">list</span>(<span class="at">echo =</span> <span class="cn">FALSE</span>, <span class="at">out.width =</span> <span class="st">"100%"</span>),</span>
+<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a>  <span class="at">no.message =</span> <span class="fu">list</span>(<span class="at">message =</span> <span class="cn">FALSE</span>, <span class="at">warning =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-59"><a href="#cb13-59" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; On the first day</span>  </span>
-<span id="cb13-60"><a href="#cb13-60" aria-hidden="true" tabindex="-1"></a><span class="at">Man was granted a soul</span>  </span>
-<span id="cb13-61"><a href="#cb13-61" aria-hidden="true" tabindex="-1"></a><span class="at">And with it, clarity</span>  </span>
-<span id="cb13-62"><a href="#cb13-62" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
-<span id="cb13-63"><a href="#cb13-63" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; On the second day</span>  </span>
-<span id="cb13-64"><a href="#cb13-64" aria-hidden="true" tabindex="-1"></a><span class="at">upon Earth was planted</span>  </span>
-<span id="cb13-65"><a href="#cb13-65" aria-hidden="true" tabindex="-1"></a><span class="at">an irrevocable poison</span>  </span>
-<span id="cb13-66"><a href="#cb13-66" aria-hidden="true" tabindex="-1"></a><span class="at">A soul-devouring demon</span></span>
-<span id="cb13-67"><a href="#cb13-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-68"><a href="#cb13-68" aria-hidden="true" tabindex="-1"></a>Demon's Souls is an action role-playing video game set in the dark fantasy kingdom of Boletaria, a land cursed with a deep, terrible fog brought forth by an ancient soul-devouring demon called the Old One. To lift the curse and mend the world players must slay and absorb the souls of five powerful archdemons, whereafter they can face the Old One and lull it back to slumber. Demon's Souls is renowned for its challenge and design, and has made a lasting impact on the video game industry. It is also the progenitor of what has become one of my favourite video game franchises.</span>
+<span id="cb13-59"><a href="#cb13-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overview</span></span>
+<span id="cb13-60"><a href="#cb13-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-61"><a href="#cb13-61" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; On the first day</span>  </span>
+<span id="cb13-62"><a href="#cb13-62" aria-hidden="true" tabindex="-1"></a><span class="at">Man was granted a soul</span>  </span>
+<span id="cb13-63"><a href="#cb13-63" aria-hidden="true" tabindex="-1"></a><span class="at">And with it, clarity</span>  </span>
+<span id="cb13-64"><a href="#cb13-64" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb13-65"><a href="#cb13-65" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; On the second day</span>  </span>
+<span id="cb13-66"><a href="#cb13-66" aria-hidden="true" tabindex="-1"></a><span class="at">upon Earth was planted</span>  </span>
+<span id="cb13-67"><a href="#cb13-67" aria-hidden="true" tabindex="-1"></a><span class="at">an irrevocable poison</span>  </span>
+<span id="cb13-68"><a href="#cb13-68" aria-hidden="true" tabindex="-1"></a><span class="at">A soul-devouring demon</span></span>
 <span id="cb13-69"><a href="#cb13-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-70"><a href="#cb13-70" aria-hidden="true" tabindex="-1"></a><span class="fu">## Theming Inspiration</span></span>
+<span id="cb13-70"><a href="#cb13-70" aria-hidden="true" tabindex="-1"></a>Demon's Souls is an action role-playing video game set in the dark fantasy kingdom of Boletaria, a land cursed with a deep, terrible fog brought forth by an ancient soul-devouring demon called the Old One. To lift the curse and mend the world players must slay and absorb the souls of five powerful archdemons, whereafter they can face the Old One and lull it back to slumber. Demon's Souls is renowned for its challenge and design, and has made a lasting impact on the video game industry. It is also the progenitor of what has become one of my favourite video game franchises.</span>
 <span id="cb13-71"><a href="#cb13-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-72"><a href="#cb13-72" aria-hidden="true" tabindex="-1"></a>Hero text appears on the screen whenever the player performs a significant action in Demon's Souls, such as slaying a demon or, infamously, dying themselves. These provide a great design reference for plot theming.</span>
+<span id="cb13-72"><a href="#cb13-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## Theming Inspiration</span></span>
 <span id="cb13-73"><a href="#cb13-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-74"><a href="#cb13-74" aria-hidden="true" tabindex="-1"></a><span class="in">```{r hero-text}</span></span>
-<span id="cb13-75"><a href="#cb13-75" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: hero-text</span></span>
-<span id="cb13-76"><a href="#cb13-76" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig.cap:</span></span>
-<span id="cb13-77"><a href="#cb13-77" aria-hidden="true" tabindex="-1"></a><span class="co">#| - ""</span></span>
-<span id="cb13-78"><a href="#cb13-78" aria-hidden="true" tabindex="-1"></a><span class="co">#| - In-game screenshots of the hero text from Demon's Souls.</span></span>
-<span id="cb13-79"><a href="#cb13-79" aria-hidden="true" tabindex="-1"></a><span class="co">#| opts.label: 'fig.graphic'</span></span>
-<span id="cb13-80"><a href="#cb13-80" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">c</span>(<span class="fu">here</span>(<span class="st">"posts"</span>,</span>
-<span id="cb13-81"><a href="#cb13-81" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"2021-06-15_demons-souls"</span>,</span>
-<span id="cb13-82"><a href="#cb13-82" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"images"</span>,</span>
-<span id="cb13-83"><a href="#cb13-83" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"demon-destroyed.jpeg"</span>),</span>
-<span id="cb13-84"><a href="#cb13-84" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">here</span>(<span class="st">"posts"</span>,</span>
-<span id="cb13-85"><a href="#cb13-85" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"2021-06-15_demons-souls"</span>,</span>
-<span id="cb13-86"><a href="#cb13-86" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"images"</span>,</span>
-<span id="cb13-87"><a href="#cb13-87" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"you-died.jpeg"</span>))</span>
-<span id="cb13-88"><a href="#cb13-88" aria-hidden="true" tabindex="-1"></a>                        )</span>
-<span id="cb13-89"><a href="#cb13-89" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-90"><a href="#cb13-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-91"><a href="#cb13-91" aria-hidden="true" tabindex="-1"></a>Demon's Souls also has a unique logo whose design I want to reference.</span>
+<span id="cb13-74"><a href="#cb13-74" aria-hidden="true" tabindex="-1"></a>Hero text appears on the screen whenever the player performs a significant action in Demon's Souls, such as slaying a demon or, infamously, dying themselves. These provide a great design reference for plot theming.</span>
+<span id="cb13-75"><a href="#cb13-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-76"><a href="#cb13-76" aria-hidden="true" tabindex="-1"></a><span class="in">```{r hero-text}</span></span>
+<span id="cb13-77"><a href="#cb13-77" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: hero-text</span></span>
+<span id="cb13-78"><a href="#cb13-78" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig.cap:</span></span>
+<span id="cb13-79"><a href="#cb13-79" aria-hidden="true" tabindex="-1"></a><span class="co">#| - ""</span></span>
+<span id="cb13-80"><a href="#cb13-80" aria-hidden="true" tabindex="-1"></a><span class="co">#| - In-game screenshots of the hero text from Demon's Souls.</span></span>
+<span id="cb13-81"><a href="#cb13-81" aria-hidden="true" tabindex="-1"></a><span class="co">#| opts.label: 'fig.graphic'</span></span>
+<span id="cb13-82"><a href="#cb13-82" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">c</span>(<span class="fu">here</span>(<span class="st">"posts"</span>,</span>
+<span id="cb13-83"><a href="#cb13-83" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"2021-06-15_demons-souls"</span>,</span>
+<span id="cb13-84"><a href="#cb13-84" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"images"</span>,</span>
+<span id="cb13-85"><a href="#cb13-85" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"demon-destroyed.jpeg"</span>),</span>
+<span id="cb13-86"><a href="#cb13-86" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">here</span>(<span class="st">"posts"</span>,</span>
+<span id="cb13-87"><a href="#cb13-87" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"2021-06-15_demons-souls"</span>,</span>
+<span id="cb13-88"><a href="#cb13-88" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"images"</span>,</span>
+<span id="cb13-89"><a href="#cb13-89" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"you-died.jpeg"</span>))</span>
+<span id="cb13-90"><a href="#cb13-90" aria-hidden="true" tabindex="-1"></a>                        )</span>
+<span id="cb13-91"><a href="#cb13-91" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-92"><a href="#cb13-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-93"><a href="#cb13-93" aria-hidden="true" tabindex="-1"></a><span class="in">```{r logo}</span></span>
-<span id="cb13-94"><a href="#cb13-94" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: logo</span></span>
-<span id="cb13-95"><a href="#cb13-95" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig.cap: The Demon's Souls logo.</span></span>
-<span id="cb13-96"><a href="#cb13-96" aria-hidden="true" tabindex="-1"></a><span class="co">#| opts.label: 'fig.graphic'</span></span>
-<span id="cb13-97"><a href="#cb13-97" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">here</span>(<span class="st">"posts"</span>,</span>
-<span id="cb13-98"><a href="#cb13-98" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"2021-06-15_demons-souls"</span>,</span>
-<span id="cb13-99"><a href="#cb13-99" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"images"</span>,</span>
-<span id="cb13-100"><a href="#cb13-100" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"logo.jpg"</span>)</span>
-<span id="cb13-101"><a href="#cb13-101" aria-hidden="true" tabindex="-1"></a>                        )</span>
-<span id="cb13-102"><a href="#cb13-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-103"><a href="#cb13-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-104"><a href="#cb13-104" aria-hidden="true" tabindex="-1"></a>I want to translate these design elements to my plot like so:</span>
+<span id="cb13-93"><a href="#cb13-93" aria-hidden="true" tabindex="-1"></a>Demon's Souls also has a unique logo whose design I want to reference.</span>
+<span id="cb13-94"><a href="#cb13-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-95"><a href="#cb13-95" aria-hidden="true" tabindex="-1"></a><span class="in">```{r logo}</span></span>
+<span id="cb13-96"><a href="#cb13-96" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: logo</span></span>
+<span id="cb13-97"><a href="#cb13-97" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig.cap: The Demon's Souls logo.</span></span>
+<span id="cb13-98"><a href="#cb13-98" aria-hidden="true" tabindex="-1"></a><span class="co">#| opts.label: 'fig.graphic'</span></span>
+<span id="cb13-99"><a href="#cb13-99" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">here</span>(<span class="st">"posts"</span>,</span>
+<span id="cb13-100"><a href="#cb13-100" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"2021-06-15_demons-souls"</span>,</span>
+<span id="cb13-101"><a href="#cb13-101" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"images"</span>,</span>
+<span id="cb13-102"><a href="#cb13-102" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"logo.jpg"</span>)</span>
+<span id="cb13-103"><a href="#cb13-103" aria-hidden="true" tabindex="-1"></a>                        )</span>
+<span id="cb13-104"><a href="#cb13-104" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-105"><a href="#cb13-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-106"><a href="#cb13-106" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The <span class="co">[</span><span class="ot">Optimus Princeps</span><span class="co">](https://www.dafont.com/optimusprinceps.font)</span> font can be used for plot text.</span>
-<span id="cb13-107"><a href="#cb13-107" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The yellow and red colours for the hero text can be used to contrast successes and failures, respectively.</span>
-<span id="cb13-108"><a href="#cb13-108" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The distressed, broken style of the Demon's Souls logo can be used for the plot's title.</span>
-<span id="cb13-109"><a href="#cb13-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-110"><a href="#cb13-110" aria-hidden="true" tabindex="-1"></a>Applying these elements to my plot will help it fit the Demon's Souls aesthetic.</span>
+<span id="cb13-106"><a href="#cb13-106" aria-hidden="true" tabindex="-1"></a>I want to translate these design elements to my plot like so:</span>
+<span id="cb13-107"><a href="#cb13-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-108"><a href="#cb13-108" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The <span class="co">[</span><span class="ot">Optimus Princeps</span><span class="co">](https://www.dafont.com/optimusprinceps.font)</span> font can be used for plot text.</span>
+<span id="cb13-109"><a href="#cb13-109" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The yellow and red colours for the hero text can be used to contrast successes and failures, respectively.</span>
+<span id="cb13-110"><a href="#cb13-110" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The distressed, broken style of the Demon's Souls logo can be used for the plot's title.</span>
 <span id="cb13-111"><a href="#cb13-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-112"><a href="#cb13-112" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prerequisites</span></span>
+<span id="cb13-112"><a href="#cb13-112" aria-hidden="true" tabindex="-1"></a>Applying these elements to my plot will help it fit the Demon's Souls aesthetic.</span>
 <span id="cb13-113"><a href="#cb13-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-114"><a href="#cb13-114" aria-hidden="true" tabindex="-1"></a><span class="in">```{r requirements-setup}</span></span>
-<span id="cb13-115"><a href="#cb13-115" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb13-116"><a href="#cb13-116" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggfx)</span>
-<span id="cb13-117"><a href="#cb13-117" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magick)</span>
-<span id="cb13-118"><a href="#cb13-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-119"><a href="#cb13-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-120"><a href="#cb13-120" aria-hidden="true" tabindex="-1"></a>I'll be using PlayStation Network trophy data for my plot. The data contains statistics for the percent of players who have slain a given boss in Demon's Souls out of all the players who have ever played the game. I have constructed the data manually since Sony does not provide an API to access PlayStation Network trophy data programmatically. Demon's Souls was released on February 5, 2009, so it is unlikely these stats will change much in the future.</span>
+<span id="cb13-114"><a href="#cb13-114" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prerequisites</span></span>
+<span id="cb13-115"><a href="#cb13-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-116"><a href="#cb13-116" aria-hidden="true" tabindex="-1"></a><span class="in">```{r requirements-setup}</span></span>
+<span id="cb13-117"><a href="#cb13-117" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb13-118"><a href="#cb13-118" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggfx)</span>
+<span id="cb13-119"><a href="#cb13-119" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magick)</span>
+<span id="cb13-120"><a href="#cb13-120" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-121"><a href="#cb13-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-122"><a href="#cb13-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{r load-data}</span></span>
-<span id="cb13-123"><a href="#cb13-123" aria-hidden="true" tabindex="-1"></a><span class="co"># Tribbles are not just useful for scaring Klingons, they make it easy to</span></span>
-<span id="cb13-124"><a href="#cb13-124" aria-hidden="true" tabindex="-1"></a><span class="co"># create tibbles too</span></span>
-<span id="cb13-125"><a href="#cb13-125" aria-hidden="true" tabindex="-1"></a>demons_souls <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
-<span id="cb13-126"><a href="#cb13-126" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>boss,            <span class="sc">~</span>boss_type,  <span class="sc">~</span>location,              <span class="sc">~</span>archstone, <span class="sc">~</span>percent_completed,</span>
-<span id="cb13-127"><a href="#cb13-127" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Phalanx"</span>,        <span class="st">"Demon"</span>,     <span class="st">"Boletarian Palace"</span>,    <span class="st">"1-1"</span>,      <span class="fl">63.1</span>,               </span>
-<span id="cb13-128"><a href="#cb13-128" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Tower Knight"</span>,   <span class="st">"Demon"</span>,     <span class="st">"Boletarian Palace"</span>,    <span class="st">"1-2"</span>,      <span class="fl">46.6</span>,               </span>
-<span id="cb13-129"><a href="#cb13-129" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Penetrator"</span>,     <span class="st">"Demon"</span>,     <span class="st">"Boletarian Palace"</span>,    <span class="st">"1-3"</span>,      <span class="fl">30.3</span>,               </span>
-<span id="cb13-130"><a href="#cb13-130" aria-hidden="true" tabindex="-1"></a>  <span class="st">"False King"</span>,     <span class="st">"Archdemon"</span>, <span class="st">"Boletarian Palace"</span>,    <span class="st">"1-4"</span>,      <span class="fl">24.2</span>,               </span>
-<span id="cb13-131"><a href="#cb13-131" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Armor Spider"</span>,   <span class="st">"Demon"</span>,     <span class="st">"Stonefang Tunnel"</span>,     <span class="st">"2-1"</span>,      <span class="fl">43.9</span>,               </span>
-<span id="cb13-132"><a href="#cb13-132" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Flamelurker"</span>,    <span class="st">"Demon"</span>,     <span class="st">"Stonefang Tunnel"</span>,     <span class="st">"2-2"</span>,      <span class="fl">35.1</span>,               </span>
-<span id="cb13-133"><a href="#cb13-133" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Dragon God"</span>,     <span class="st">"Archdemon"</span>, <span class="st">"Stonefang Tunnel"</span>,     <span class="st">"2-3"</span>,      <span class="fl">33.1</span>,               </span>
-<span id="cb13-134"><a href="#cb13-134" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Fool’s Idol"</span>,    <span class="st">"Demon"</span>,     <span class="st">"Tower of Latria"</span>,      <span class="st">"3-1"</span>,      <span class="fl">35.7</span>,               </span>
-<span id="cb13-135"><a href="#cb13-135" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Maneater"</span>,       <span class="st">"Demon"</span>,     <span class="st">"Tower of Latria"</span>,      <span class="st">"3-2"</span>,      <span class="fl">28.7</span>,               </span>
-<span id="cb13-136"><a href="#cb13-136" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Old Monk"</span>,       <span class="st">"Archdemon"</span>, <span class="st">"Tower of Latria"</span>,      <span class="st">"3-3"</span>,      <span class="fl">27.7</span>,               </span>
-<span id="cb13-137"><a href="#cb13-137" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Adjudicator"</span>,    <span class="st">"Demon"</span>,     <span class="st">"Shrine of Storms"</span>,     <span class="st">"4-1"</span>,      <span class="fl">36.1</span>,               </span>
-<span id="cb13-138"><a href="#cb13-138" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Old Hero"</span>,       <span class="st">"Demon"</span>,     <span class="st">"Shrine of Storms"</span>,     <span class="st">"4-2"</span>,      <span class="fl">28.8</span>,               </span>
-<span id="cb13-139"><a href="#cb13-139" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Storm King"</span>,     <span class="st">"Archdemon"</span>, <span class="st">"Shrine of Storms"</span>,     <span class="st">"4-3"</span>,      <span class="fl">28.1</span>,               </span>
-<span id="cb13-140"><a href="#cb13-140" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Leechmonger"</span>,    <span class="st">"Demon"</span>,     <span class="st">"Valley of Defilement"</span>, <span class="st">"5-1"</span>,      <span class="fl">32.5</span>,               </span>
-<span id="cb13-141"><a href="#cb13-141" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Dirty Colossus"</span>, <span class="st">"Demon"</span>,     <span class="st">"Valley of Defilement"</span>, <span class="st">"5-2"</span>,      <span class="fl">27.2</span>,               </span>
-<span id="cb13-142"><a href="#cb13-142" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Maiden Astraea"</span>, <span class="st">"Archdemon"</span>, <span class="st">"Valley of Defilement"</span>, <span class="st">"5-3"</span>,      <span class="fl">26.6</span></span>
-<span id="cb13-143"><a href="#cb13-143" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb13-144"><a href="#cb13-144" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(boss_type<span class="sc">:</span>archstone, as_factor))</span>
-<span id="cb13-145"><a href="#cb13-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-146"><a href="#cb13-146" aria-hidden="true" tabindex="-1"></a>demons_souls</span>
-<span id="cb13-147"><a href="#cb13-147" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-148"><a href="#cb13-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-149"><a href="#cb13-149" aria-hidden="true" tabindex="-1"></a><span class="fu">## Wrangle</span></span>
+<span id="cb13-122"><a href="#cb13-122" aria-hidden="true" tabindex="-1"></a>I'll be using PlayStation Network trophy data for my plot. The data contains statistics for the percent of players who have slain a given boss in Demon's Souls out of all the players who have ever played the game. I have constructed the data manually since Sony does not provide an API to access PlayStation Network trophy data programmatically. Demon's Souls was released on February 5, 2009, so it is unlikely these stats will change much in the future.</span>
+<span id="cb13-123"><a href="#cb13-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-124"><a href="#cb13-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{r load-data}</span></span>
+<span id="cb13-125"><a href="#cb13-125" aria-hidden="true" tabindex="-1"></a><span class="co"># Tribbles are not just useful for scaring Klingons, they make it easy to</span></span>
+<span id="cb13-126"><a href="#cb13-126" aria-hidden="true" tabindex="-1"></a><span class="co"># create tibbles too</span></span>
+<span id="cb13-127"><a href="#cb13-127" aria-hidden="true" tabindex="-1"></a>demons_souls <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb13-128"><a href="#cb13-128" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>boss,            <span class="sc">~</span>boss_type,  <span class="sc">~</span>location,              <span class="sc">~</span>archstone, <span class="sc">~</span>percent_completed,</span>
+<span id="cb13-129"><a href="#cb13-129" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Phalanx"</span>,        <span class="st">"Demon"</span>,     <span class="st">"Boletarian Palace"</span>,    <span class="st">"1-1"</span>,      <span class="fl">63.1</span>,               </span>
+<span id="cb13-130"><a href="#cb13-130" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Tower Knight"</span>,   <span class="st">"Demon"</span>,     <span class="st">"Boletarian Palace"</span>,    <span class="st">"1-2"</span>,      <span class="fl">46.6</span>,               </span>
+<span id="cb13-131"><a href="#cb13-131" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Penetrator"</span>,     <span class="st">"Demon"</span>,     <span class="st">"Boletarian Palace"</span>,    <span class="st">"1-3"</span>,      <span class="fl">30.3</span>,               </span>
+<span id="cb13-132"><a href="#cb13-132" aria-hidden="true" tabindex="-1"></a>  <span class="st">"False King"</span>,     <span class="st">"Archdemon"</span>, <span class="st">"Boletarian Palace"</span>,    <span class="st">"1-4"</span>,      <span class="fl">24.2</span>,               </span>
+<span id="cb13-133"><a href="#cb13-133" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Armor Spider"</span>,   <span class="st">"Demon"</span>,     <span class="st">"Stonefang Tunnel"</span>,     <span class="st">"2-1"</span>,      <span class="fl">43.9</span>,               </span>
+<span id="cb13-134"><a href="#cb13-134" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Flamelurker"</span>,    <span class="st">"Demon"</span>,     <span class="st">"Stonefang Tunnel"</span>,     <span class="st">"2-2"</span>,      <span class="fl">35.1</span>,               </span>
+<span id="cb13-135"><a href="#cb13-135" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Dragon God"</span>,     <span class="st">"Archdemon"</span>, <span class="st">"Stonefang Tunnel"</span>,     <span class="st">"2-3"</span>,      <span class="fl">33.1</span>,               </span>
+<span id="cb13-136"><a href="#cb13-136" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Fool’s Idol"</span>,    <span class="st">"Demon"</span>,     <span class="st">"Tower of Latria"</span>,      <span class="st">"3-1"</span>,      <span class="fl">35.7</span>,               </span>
+<span id="cb13-137"><a href="#cb13-137" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Maneater"</span>,       <span class="st">"Demon"</span>,     <span class="st">"Tower of Latria"</span>,      <span class="st">"3-2"</span>,      <span class="fl">28.7</span>,               </span>
+<span id="cb13-138"><a href="#cb13-138" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Old Monk"</span>,       <span class="st">"Archdemon"</span>, <span class="st">"Tower of Latria"</span>,      <span class="st">"3-3"</span>,      <span class="fl">27.7</span>,               </span>
+<span id="cb13-139"><a href="#cb13-139" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Adjudicator"</span>,    <span class="st">"Demon"</span>,     <span class="st">"Shrine of Storms"</span>,     <span class="st">"4-1"</span>,      <span class="fl">36.1</span>,               </span>
+<span id="cb13-140"><a href="#cb13-140" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Old Hero"</span>,       <span class="st">"Demon"</span>,     <span class="st">"Shrine of Storms"</span>,     <span class="st">"4-2"</span>,      <span class="fl">28.8</span>,               </span>
+<span id="cb13-141"><a href="#cb13-141" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Storm King"</span>,     <span class="st">"Archdemon"</span>, <span class="st">"Shrine of Storms"</span>,     <span class="st">"4-3"</span>,      <span class="fl">28.1</span>,               </span>
+<span id="cb13-142"><a href="#cb13-142" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Leechmonger"</span>,    <span class="st">"Demon"</span>,     <span class="st">"Valley of Defilement"</span>, <span class="st">"5-1"</span>,      <span class="fl">32.5</span>,               </span>
+<span id="cb13-143"><a href="#cb13-143" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Dirty Colossus"</span>, <span class="st">"Demon"</span>,     <span class="st">"Valley of Defilement"</span>, <span class="st">"5-2"</span>,      <span class="fl">27.2</span>,               </span>
+<span id="cb13-144"><a href="#cb13-144" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Maiden Astraea"</span>, <span class="st">"Archdemon"</span>, <span class="st">"Valley of Defilement"</span>, <span class="st">"5-3"</span>,      <span class="fl">26.6</span></span>
+<span id="cb13-145"><a href="#cb13-145" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-146"><a href="#cb13-146" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(boss_type<span class="sc">:</span>archstone, as_factor))</span>
+<span id="cb13-147"><a href="#cb13-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-148"><a href="#cb13-148" aria-hidden="true" tabindex="-1"></a>demons_souls</span>
+<span id="cb13-149"><a href="#cb13-149" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-150"><a href="#cb13-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-151"><a href="#cb13-151" aria-hidden="true" tabindex="-1"></a>The data is already structured the way I want it for my plot, but there are still some interesting things to explore through wrangling and summary stats.</span>
+<span id="cb13-151"><a href="#cb13-151" aria-hidden="true" tabindex="-1"></a><span class="fu">## Wrangle</span></span>
 <span id="cb13-152"><a href="#cb13-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-153"><a href="#cb13-153" aria-hidden="true" tabindex="-1"></a>Within each location, players have to slay each demon in the order specified by the archstones. For example, in the Boletarian Palace a player cannot face the Tower Knight before they have slain the Phalanx. So each location has a first, second, and third boss (and the Boletarian Palace has a fourth that can only be faced after slaying all the other demons). This can be used to get an imperfect idea of player attrition in the game.</span>
+<span id="cb13-153"><a href="#cb13-153" aria-hidden="true" tabindex="-1"></a>The data is already structured the way I want it for my plot, but there are still some interesting things to explore through wrangling and summary stats.</span>
 <span id="cb13-154"><a href="#cb13-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-155"><a href="#cb13-155" aria-hidden="true" tabindex="-1"></a><span class="in">```{r wrangle-one}</span></span>
-<span id="cb13-156"><a href="#cb13-156" aria-hidden="true" tabindex="-1"></a><span class="co"># Detect the order of bosses based on archstone suffix</span></span>
-<span id="cb13-157"><a href="#cb13-157" aria-hidden="true" tabindex="-1"></a>demons_souls <span class="ot">&lt;-</span> demons_souls <span class="sc">%&gt;%</span></span>
-<span id="cb13-158"><a href="#cb13-158" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb13-159"><a href="#cb13-159" aria-hidden="true" tabindex="-1"></a>    <span class="at">archstone_boss =</span> <span class="fu">case_when</span>(</span>
-<span id="cb13-160"><a href="#cb13-160" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(archstone, <span class="st">"-1"</span>) <span class="sc">~</span> <span class="st">"First"</span>,</span>
-<span id="cb13-161"><a href="#cb13-161" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(archstone, <span class="st">"-2"</span>) <span class="sc">~</span> <span class="st">"Second"</span>,</span>
-<span id="cb13-162"><a href="#cb13-162" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(archstone, <span class="st">"-3"</span>) <span class="sc">~</span> <span class="st">"Third"</span>,</span>
-<span id="cb13-163"><a href="#cb13-163" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(archstone, <span class="st">"-4"</span>) <span class="sc">~</span> <span class="st">"Fourth (False King)"</span></span>
-<span id="cb13-164"><a href="#cb13-164" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb13-165"><a href="#cb13-165" aria-hidden="true" tabindex="-1"></a>    <span class="at">archstone_boss =</span> <span class="fu">as_factor</span>(archstone_boss),</span>
-<span id="cb13-166"><a href="#cb13-166" aria-hidden="true" tabindex="-1"></a>    <span class="at">.after =</span> archstone</span>
-<span id="cb13-167"><a href="#cb13-167" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb13-168"><a href="#cb13-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-169"><a href="#cb13-169" aria-hidden="true" tabindex="-1"></a>demons_souls</span>
-<span id="cb13-170"><a href="#cb13-170" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-171"><a href="#cb13-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-172"><a href="#cb13-172" aria-hidden="true" tabindex="-1"></a>Now, there are two ways to go about getting this imperfect idea of player attrition in the game. The first involves using the entire data set.</span>
+<span id="cb13-155"><a href="#cb13-155" aria-hidden="true" tabindex="-1"></a>Within each location, players have to slay each demon in the order specified by the archstones. For example, in the Boletarian Palace a player cannot face the Tower Knight before they have slain the Phalanx. So each location has a first, second, and third boss (and the Boletarian Palace has a fourth that can only be faced after slaying all the other demons). This can be used to get an imperfect idea of player attrition in the game.</span>
+<span id="cb13-156"><a href="#cb13-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-157"><a href="#cb13-157" aria-hidden="true" tabindex="-1"></a><span class="in">```{r wrangle-one}</span></span>
+<span id="cb13-158"><a href="#cb13-158" aria-hidden="true" tabindex="-1"></a><span class="co"># Detect the order of bosses based on archstone suffix</span></span>
+<span id="cb13-159"><a href="#cb13-159" aria-hidden="true" tabindex="-1"></a>demons_souls <span class="ot">&lt;-</span> demons_souls <span class="sc">%&gt;%</span></span>
+<span id="cb13-160"><a href="#cb13-160" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb13-161"><a href="#cb13-161" aria-hidden="true" tabindex="-1"></a>    <span class="at">archstone_boss =</span> <span class="fu">case_when</span>(</span>
+<span id="cb13-162"><a href="#cb13-162" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(archstone, <span class="st">"-1"</span>) <span class="sc">~</span> <span class="st">"First"</span>,</span>
+<span id="cb13-163"><a href="#cb13-163" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(archstone, <span class="st">"-2"</span>) <span class="sc">~</span> <span class="st">"Second"</span>,</span>
+<span id="cb13-164"><a href="#cb13-164" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(archstone, <span class="st">"-3"</span>) <span class="sc">~</span> <span class="st">"Third"</span>,</span>
+<span id="cb13-165"><a href="#cb13-165" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(archstone, <span class="st">"-4"</span>) <span class="sc">~</span> <span class="st">"Fourth (False King)"</span></span>
+<span id="cb13-166"><a href="#cb13-166" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb13-167"><a href="#cb13-167" aria-hidden="true" tabindex="-1"></a>    <span class="at">archstone_boss =</span> <span class="fu">as_factor</span>(archstone_boss),</span>
+<span id="cb13-168"><a href="#cb13-168" aria-hidden="true" tabindex="-1"></a>    <span class="at">.after =</span> archstone</span>
+<span id="cb13-169"><a href="#cb13-169" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-170"><a href="#cb13-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-171"><a href="#cb13-171" aria-hidden="true" tabindex="-1"></a>demons_souls</span>
+<span id="cb13-172"><a href="#cb13-172" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-173"><a href="#cb13-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-174"><a href="#cb13-174" aria-hidden="true" tabindex="-1"></a><span class="in">```{r wrangle-two}</span></span>
-<span id="cb13-175"><a href="#cb13-175" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the average percent of players who have slain the first, second,</span></span>
-<span id="cb13-176"><a href="#cb13-176" aria-hidden="true" tabindex="-1"></a><span class="co"># ..., archstone boss across locations. </span></span>
-<span id="cb13-177"><a href="#cb13-177" aria-hidden="true" tabindex="-1"></a>demons_souls <span class="sc">%&gt;%</span></span>
-<span id="cb13-178"><a href="#cb13-178" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(archstone_boss) <span class="sc">%&gt;%</span></span>
-<span id="cb13-179"><a href="#cb13-179" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">average_completed =</span> <span class="fu">mean</span>(percent_completed))</span>
-<span id="cb13-180"><a href="#cb13-180" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-181"><a href="#cb13-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-182"><a href="#cb13-182" aria-hidden="true" tabindex="-1"></a>The second involves removing the Phalanx from the data set due to its influential pull on the average for the first archstone boss. It has a much higher completion percent (63.1%) than the other bosses in the game, and the reason for this is that the Phalanx is the first boss in the game. Players must slay it before they can go to face the first archstone boss from other locations in the game. Removing the Phalanx might give a more accurate picture of average completion for first archstone bosses.</span>
+<span id="cb13-174"><a href="#cb13-174" aria-hidden="true" tabindex="-1"></a>Now, there are two ways to go about getting this imperfect idea of player attrition in the game. The first involves using the entire data set.</span>
+<span id="cb13-175"><a href="#cb13-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-176"><a href="#cb13-176" aria-hidden="true" tabindex="-1"></a><span class="in">```{r wrangle-two}</span></span>
+<span id="cb13-177"><a href="#cb13-177" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the average percent of players who have slain the first, second,</span></span>
+<span id="cb13-178"><a href="#cb13-178" aria-hidden="true" tabindex="-1"></a><span class="co"># ..., archstone boss across locations. </span></span>
+<span id="cb13-179"><a href="#cb13-179" aria-hidden="true" tabindex="-1"></a>demons_souls <span class="sc">%&gt;%</span></span>
+<span id="cb13-180"><a href="#cb13-180" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(archstone_boss) <span class="sc">%&gt;%</span></span>
+<span id="cb13-181"><a href="#cb13-181" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">average_completed =</span> <span class="fu">mean</span>(percent_completed))</span>
+<span id="cb13-182"><a href="#cb13-182" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-183"><a href="#cb13-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-184"><a href="#cb13-184" aria-hidden="true" tabindex="-1"></a><span class="in">```{r wrangle-three}</span></span>
-<span id="cb13-185"><a href="#cb13-185" aria-hidden="true" tabindex="-1"></a><span class="co"># Trophy earned: Slayer of Demon "Phalanx"</span></span>
-<span id="cb13-186"><a href="#cb13-186" aria-hidden="true" tabindex="-1"></a>demons_souls <span class="sc">%&gt;%</span></span>
-<span id="cb13-187"><a href="#cb13-187" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(boss <span class="sc">!=</span> <span class="st">"Phalanx"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb13-188"><a href="#cb13-188" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(archstone_boss) <span class="sc">%&gt;%</span></span>
-<span id="cb13-189"><a href="#cb13-189" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">average_completed =</span> <span class="fu">mean</span>(percent_completed))</span>
-<span id="cb13-190"><a href="#cb13-190" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-191"><a href="#cb13-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-192"><a href="#cb13-192" aria-hidden="true" tabindex="-1"></a>With the Phalanx's influence removed, it looks like there is roughly a 4% drop in average completion for each successive archstone boss. In order to face the False King players must first slay every other demon and archdemon in the game, so it is interesting the drop stays consistent there. Most players who made it far enough to slay their first archdemon then went on to slay the rest.</span>
+<span id="cb13-184"><a href="#cb13-184" aria-hidden="true" tabindex="-1"></a>The second involves removing the Phalanx from the data set due to its influential pull on the average for the first archstone boss. It has a much higher completion percent (63.1%) than the other bosses in the game, and the reason for this is that the Phalanx is the first boss in the game. Players must slay it before they can go to face the first archstone boss from other locations in the game. Removing the Phalanx might give a more accurate picture of average completion for first archstone bosses.</span>
+<span id="cb13-185"><a href="#cb13-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-186"><a href="#cb13-186" aria-hidden="true" tabindex="-1"></a><span class="in">```{r wrangle-three}</span></span>
+<span id="cb13-187"><a href="#cb13-187" aria-hidden="true" tabindex="-1"></a><span class="co"># Trophy earned: Slayer of Demon "Phalanx"</span></span>
+<span id="cb13-188"><a href="#cb13-188" aria-hidden="true" tabindex="-1"></a>demons_souls <span class="sc">%&gt;%</span></span>
+<span id="cb13-189"><a href="#cb13-189" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(boss <span class="sc">!=</span> <span class="st">"Phalanx"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-190"><a href="#cb13-190" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(archstone_boss) <span class="sc">%&gt;%</span></span>
+<span id="cb13-191"><a href="#cb13-191" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">average_completed =</span> <span class="fu">mean</span>(percent_completed))</span>
+<span id="cb13-192"><a href="#cb13-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-193"><a href="#cb13-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-194"><a href="#cb13-194" aria-hidden="true" tabindex="-1"></a>::: {.column-margin}</span>
-<span id="cb13-195"><a href="#cb13-195" aria-hidden="true" tabindex="-1"></a>Umbassa.</span>
-<span id="cb13-196"><a href="#cb13-196" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb13-197"><a href="#cb13-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-198"><a href="#cb13-198" aria-hidden="true" tabindex="-1"></a>About one quarter of Demon's Souls players persisted to the end of the game. But three quarters did not. Assuming most players at least attempted each location, then averaging by location can give an imperfect idea of their overall difficulty for players during their first playthrough.</span>
+<span id="cb13-194"><a href="#cb13-194" aria-hidden="true" tabindex="-1"></a>With the Phalanx's influence removed, it looks like there is roughly a 4% drop in average completion for each successive archstone boss. In order to face the False King players must first slay every other demon and archdemon in the game, so it is interesting the drop stays consistent there. Most players who made it far enough to slay their first archdemon then went on to slay the rest.</span>
+<span id="cb13-195"><a href="#cb13-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-196"><a href="#cb13-196" aria-hidden="true" tabindex="-1"></a>::: {.column-margin}</span>
+<span id="cb13-197"><a href="#cb13-197" aria-hidden="true" tabindex="-1"></a>Umbassa.</span>
+<span id="cb13-198"><a href="#cb13-198" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb13-199"><a href="#cb13-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-200"><a href="#cb13-200" aria-hidden="true" tabindex="-1"></a><span class="in">```{r wrangle-four}</span></span>
-<span id="cb13-201"><a href="#cb13-201" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the average completion rate by location, arranged from "easiest" to</span></span>
-<span id="cb13-202"><a href="#cb13-202" aria-hidden="true" tabindex="-1"></a><span class="co"># "hardest"</span></span>
-<span id="cb13-203"><a href="#cb13-203" aria-hidden="true" tabindex="-1"></a>demons_souls <span class="sc">%&gt;%</span></span>
-<span id="cb13-204"><a href="#cb13-204" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(location) <span class="sc">%&gt;%</span></span>
-<span id="cb13-205"><a href="#cb13-205" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">average_completed =</span> <span class="fu">mean</span>(percent_completed)) <span class="sc">%&gt;%</span></span>
-<span id="cb13-206"><a href="#cb13-206" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(average_completed))</span>
-<span id="cb13-207"><a href="#cb13-207" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-208"><a href="#cb13-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-209"><a href="#cb13-209" aria-hidden="true" tabindex="-1"></a>It looks like there are two clusters here, an easier one with the Boletarian Palace and Stonefang Tunnel, and a harder one with Shrine of Storms, Tower of Latria, and the Valley of Defilement. I finished my first playthrough of the game in 2012, so I only have distant memories to reflect on, but this ranking looks sound to me. For experienced players I think this ranking is less relevant. Once you're experienced most of the variability in difficulty comes down to the character build you choose.</span>
+<span id="cb13-200"><a href="#cb13-200" aria-hidden="true" tabindex="-1"></a>About one quarter of Demon's Souls players persisted to the end of the game. But three quarters did not. Assuming most players at least attempted each location, then averaging by location can give an imperfect idea of their overall difficulty for players during their first playthrough.</span>
+<span id="cb13-201"><a href="#cb13-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-202"><a href="#cb13-202" aria-hidden="true" tabindex="-1"></a><span class="in">```{r wrangle-four}</span></span>
+<span id="cb13-203"><a href="#cb13-203" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the average completion rate by location, arranged from "easiest" to</span></span>
+<span id="cb13-204"><a href="#cb13-204" aria-hidden="true" tabindex="-1"></a><span class="co"># "hardest"</span></span>
+<span id="cb13-205"><a href="#cb13-205" aria-hidden="true" tabindex="-1"></a>demons_souls <span class="sc">%&gt;%</span></span>
+<span id="cb13-206"><a href="#cb13-206" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(location) <span class="sc">%&gt;%</span></span>
+<span id="cb13-207"><a href="#cb13-207" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">average_completed =</span> <span class="fu">mean</span>(percent_completed)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-208"><a href="#cb13-208" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(average_completed))</span>
+<span id="cb13-209"><a href="#cb13-209" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-210"><a href="#cb13-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-211"><a href="#cb13-211" aria-hidden="true" tabindex="-1"></a><span class="fu">## Visualize</span></span>
+<span id="cb13-211"><a href="#cb13-211" aria-hidden="true" tabindex="-1"></a>It looks like there are two clusters here, an easier one with the Boletarian Palace and Stonefang Tunnel, and a harder one with Shrine of Storms, Tower of Latria, and the Valley of Defilement. I finished my first playthrough of the game in 2012, so I only have distant memories to reflect on, but this ranking looks sound to me. For experienced players I think this ranking is less relevant. Once you're experienced most of the variability in difficulty comes down to the character build you choose.</span>
 <span id="cb13-212"><a href="#cb13-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-213"><a href="#cb13-213" aria-hidden="true" tabindex="-1"></a><span class="in">```{r visualize-one}</span></span>
-<span id="cb13-214"><a href="#cb13-214" aria-hidden="true" tabindex="-1"></a><span class="co"># Define aliases for plot fonts and colours</span></span>
-<span id="cb13-215"><a href="#cb13-215" aria-hidden="true" tabindex="-1"></a>optimus <span class="ot">&lt;-</span> <span class="st">"OptimusPrinceps"</span></span>
-<span id="cb13-216"><a href="#cb13-216" aria-hidden="true" tabindex="-1"></a>optimus_b <span class="ot">&lt;-</span> <span class="st">"OptimusPrincepsSemiBold"</span></span>
-<span id="cb13-217"><a href="#cb13-217" aria-hidden="true" tabindex="-1"></a>yellow <span class="ot">&lt;-</span> <span class="st">"#ffaf24"</span> <span class="co">#  #fec056</span></span>
-<span id="cb13-218"><a href="#cb13-218" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-219"><a href="#cb13-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-220"><a href="#cb13-220" aria-hidden="true" tabindex="-1"></a>The plot I want to make is inspired by <span class="co">[</span><span class="ot">this Tidy Tuesday plot</span><span class="co">](https://github.com/gkaramanis/tidytuesday/tree/master/2021/2021-week8)</span> by Georgios Karamanis. I used Georgios' code as a starting point, then modified it to get the behaviour and result I wanted.</span>
+<span id="cb13-213"><a href="#cb13-213" aria-hidden="true" tabindex="-1"></a><span class="fu">## Visualize</span></span>
+<span id="cb13-214"><a href="#cb13-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-215"><a href="#cb13-215" aria-hidden="true" tabindex="-1"></a><span class="in">```{r visualize-one}</span></span>
+<span id="cb13-216"><a href="#cb13-216" aria-hidden="true" tabindex="-1"></a><span class="co"># Define aliases for plot fonts and colours</span></span>
+<span id="cb13-217"><a href="#cb13-217" aria-hidden="true" tabindex="-1"></a>optimus <span class="ot">&lt;-</span> <span class="st">"OptimusPrinceps"</span></span>
+<span id="cb13-218"><a href="#cb13-218" aria-hidden="true" tabindex="-1"></a>optimus_b <span class="ot">&lt;-</span> <span class="st">"OptimusPrincepsSemiBold"</span></span>
+<span id="cb13-219"><a href="#cb13-219" aria-hidden="true" tabindex="-1"></a>yellow <span class="ot">&lt;-</span> <span class="st">"#ffaf24"</span> <span class="co">#  #fec056</span></span>
+<span id="cb13-220"><a href="#cb13-220" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-221"><a href="#cb13-221" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-222"><a href="#cb13-222" aria-hidden="true" tabindex="-1"></a>The centrepiece of the plot is the coloured text that shows the percent of Demon's Souls players who have completed a given boss in yellow and who have not in red. This effect is achieved by applying a rectangular filter over the text that only allows the portion of the text within the filter's borders to be shown. Doing this once for yellow text and once for red text allows the full string to appear, with the ratio of colours within a boss's name reflecting the percent of players that have completed it. A few calculations are needed in order for the ratios to be accurate, and for the text to look aesthetically pleasing.</span>
+<span id="cb13-222"><a href="#cb13-222" aria-hidden="true" tabindex="-1"></a>The plot I want to make is inspired by <span class="co">[</span><span class="ot">this Tidy Tuesday plot</span><span class="co">](https://github.com/gkaramanis/tidytuesday/tree/master/2021/2021-week8)</span> by Georgios Karamanis. I used Georgios' code as a starting point, then modified it to get the behaviour and result I wanted.</span>
 <span id="cb13-223"><a href="#cb13-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-224"><a href="#cb13-224" aria-hidden="true" tabindex="-1"></a><span class="in">```{r visualize-two}</span></span>
-<span id="cb13-225"><a href="#cb13-225" aria-hidden="true" tabindex="-1"></a>demons_souls_plot <span class="ot">&lt;-</span> demons_souls <span class="sc">%&gt;%</span></span>
-<span id="cb13-226"><a href="#cb13-226" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb13-227"><a href="#cb13-227" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Percentages need to be in decimal form for the calculations and plotting</span></span>
-<span id="cb13-228"><a href="#cb13-228" aria-hidden="true" tabindex="-1"></a>    <span class="co"># to work properly</span></span>
-<span id="cb13-229"><a href="#cb13-229" aria-hidden="true" tabindex="-1"></a>    <span class="at">percent_completed =</span> percent_completed<span class="sc">/</span><span class="dv">100</span>,</span>
-<span id="cb13-230"><a href="#cb13-230" aria-hidden="true" tabindex="-1"></a>    <span class="at">boss =</span> <span class="fu">fct_reorder</span>(<span class="fu">toupper</span>(boss), percent_completed),</span>
-<span id="cb13-231"><a href="#cb13-231" aria-hidden="true" tabindex="-1"></a>    <span class="co"># In order to justify text to the same width, a ratio of how many times</span></span>
-<span id="cb13-232"><a href="#cb13-232" aria-hidden="true" tabindex="-1"></a>    <span class="co"># each string would fit into the widest string needs to be calculated. This</span></span>
-<span id="cb13-233"><a href="#cb13-233" aria-hidden="true" tabindex="-1"></a>    <span class="co"># can then be multiplied by an arbitrary value to determine the final size</span></span>
-<span id="cb13-234"><a href="#cb13-234" aria-hidden="true" tabindex="-1"></a>    <span class="co"># for each string of text.</span></span>
-<span id="cb13-235"><a href="#cb13-235" aria-hidden="true" tabindex="-1"></a>    <span class="at">str_width =</span> <span class="fu">strwidth</span>(boss, <span class="at">family =</span> optimus_b, <span class="at">units =</span> <span class="st">"inches"</span>) <span class="sc">*</span> <span class="fl">25.4</span>, <span class="co"># in millimetres</span></span>
-<span id="cb13-236"><a href="#cb13-236" aria-hidden="true" tabindex="-1"></a>    <span class="at">str_ratio =</span> <span class="fu">max</span>(str_width)<span class="sc">/</span>str_width,</span>
-<span id="cb13-237"><a href="#cb13-237" aria-hidden="true" tabindex="-1"></a>    <span class="at">text_size =</span> <span class="fl">4.9</span> <span class="sc">*</span> str_ratio,</span>
-<span id="cb13-238"><a href="#cb13-238" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The division here is arbitrary, its effect is reflected in the scale of the</span></span>
-<span id="cb13-239"><a href="#cb13-239" aria-hidden="true" tabindex="-1"></a>    <span class="co"># y-axis</span></span>
-<span id="cb13-240"><a href="#cb13-240" aria-hidden="true" tabindex="-1"></a>    <span class="at">tile_height =</span> text_size <span class="sc">/</span> <span class="dv">10</span></span>
-<span id="cb13-241"><a href="#cb13-241" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb13-242"><a href="#cb13-242" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Bosses will appear from top to bottom based on completion ratios. The</span></span>
-<span id="cb13-243"><a href="#cb13-243" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calculation here accounts for the differences in text size for each string.</span></span>
-<span id="cb13-244"><a href="#cb13-244" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(percent_completed) <span class="sc">%&gt;%</span></span>
-<span id="cb13-245"><a href="#cb13-245" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">y =</span> <span class="fu">cumsum</span>(<span class="fu">lag</span>(tile_height<span class="sc">/</span><span class="dv">2</span>, <span class="at">default =</span> <span class="dv">0</span>) <span class="sc">+</span> tile_height<span class="sc">/</span><span class="dv">2</span>))</span>
-<span id="cb13-246"><a href="#cb13-246" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-247"><a href="#cb13-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-248"><a href="#cb13-248" aria-hidden="true" tabindex="-1"></a>Now the plot can be constructed. The final code for the plot is roughly 100 lines long, so I've hidden it in the section below. However, there are a few parts of the code I want to highlight before showing the final plot.</span>
+<span id="cb13-224"><a href="#cb13-224" aria-hidden="true" tabindex="-1"></a>The centrepiece of the plot is the coloured text that shows the percent of Demon's Souls players who have completed a given boss in yellow and who have not in red. This effect is achieved by applying a rectangular filter over the text that only allows the portion of the text within the filter's borders to be shown. Doing this once for yellow text and once for red text allows the full string to appear, with the ratio of colours within a boss's name reflecting the percent of players that have completed it. A few calculations are needed in order for the ratios to be accurate, and for the text to look aesthetically pleasing.</span>
+<span id="cb13-225"><a href="#cb13-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-226"><a href="#cb13-226" aria-hidden="true" tabindex="-1"></a><span class="in">```{r visualize-two}</span></span>
+<span id="cb13-227"><a href="#cb13-227" aria-hidden="true" tabindex="-1"></a>demons_souls_plot <span class="ot">&lt;-</span> demons_souls <span class="sc">%&gt;%</span></span>
+<span id="cb13-228"><a href="#cb13-228" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb13-229"><a href="#cb13-229" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Percentages need to be in decimal form for the calculations and plotting</span></span>
+<span id="cb13-230"><a href="#cb13-230" aria-hidden="true" tabindex="-1"></a>    <span class="co"># to work properly</span></span>
+<span id="cb13-231"><a href="#cb13-231" aria-hidden="true" tabindex="-1"></a>    <span class="at">percent_completed =</span> percent_completed<span class="sc">/</span><span class="dv">100</span>,</span>
+<span id="cb13-232"><a href="#cb13-232" aria-hidden="true" tabindex="-1"></a>    <span class="at">boss =</span> <span class="fu">fct_reorder</span>(<span class="fu">toupper</span>(boss), percent_completed),</span>
+<span id="cb13-233"><a href="#cb13-233" aria-hidden="true" tabindex="-1"></a>    <span class="co"># In order to justify text to the same width, a ratio of how many times</span></span>
+<span id="cb13-234"><a href="#cb13-234" aria-hidden="true" tabindex="-1"></a>    <span class="co"># each string would fit into the widest string needs to be calculated. This</span></span>
+<span id="cb13-235"><a href="#cb13-235" aria-hidden="true" tabindex="-1"></a>    <span class="co"># can then be multiplied by an arbitrary value to determine the final size</span></span>
+<span id="cb13-236"><a href="#cb13-236" aria-hidden="true" tabindex="-1"></a>    <span class="co"># for each string of text.</span></span>
+<span id="cb13-237"><a href="#cb13-237" aria-hidden="true" tabindex="-1"></a>    <span class="at">str_width =</span> <span class="fu">strwidth</span>(boss, <span class="at">family =</span> optimus_b, <span class="at">units =</span> <span class="st">"inches"</span>) <span class="sc">*</span> <span class="fl">25.4</span>, <span class="co"># in millimetres</span></span>
+<span id="cb13-238"><a href="#cb13-238" aria-hidden="true" tabindex="-1"></a>    <span class="at">str_ratio =</span> <span class="fu">max</span>(str_width)<span class="sc">/</span>str_width,</span>
+<span id="cb13-239"><a href="#cb13-239" aria-hidden="true" tabindex="-1"></a>    <span class="at">text_size =</span> <span class="fl">4.9</span> <span class="sc">*</span> str_ratio,</span>
+<span id="cb13-240"><a href="#cb13-240" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The division here is arbitrary, its effect is reflected in the scale of the</span></span>
+<span id="cb13-241"><a href="#cb13-241" aria-hidden="true" tabindex="-1"></a>    <span class="co"># y-axis</span></span>
+<span id="cb13-242"><a href="#cb13-242" aria-hidden="true" tabindex="-1"></a>    <span class="at">tile_height =</span> text_size <span class="sc">/</span> <span class="dv">10</span></span>
+<span id="cb13-243"><a href="#cb13-243" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb13-244"><a href="#cb13-244" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Bosses will appear from top to bottom based on completion ratios. The</span></span>
+<span id="cb13-245"><a href="#cb13-245" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calculation here accounts for the differences in text size for each string.</span></span>
+<span id="cb13-246"><a href="#cb13-246" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(percent_completed) <span class="sc">%&gt;%</span></span>
+<span id="cb13-247"><a href="#cb13-247" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">y =</span> <span class="fu">cumsum</span>(<span class="fu">lag</span>(tile_height<span class="sc">/</span><span class="dv">2</span>, <span class="at">default =</span> <span class="dv">0</span>) <span class="sc">+</span> tile_height<span class="sc">/</span><span class="dv">2</span>))</span>
+<span id="cb13-248"><a href="#cb13-248" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-249"><a href="#cb13-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-250"><a href="#cb13-250" aria-hidden="true" tabindex="-1"></a><span class="in">```{r visualize-three}</span></span>
-<span id="cb13-251"><a href="#cb13-251" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb13-252"><a href="#cb13-252" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show Code"</span></span>
-<span id="cb13-253"><a href="#cb13-253" aria-hidden="true" tabindex="-1"></a><span class="co"># The trick for geom spacing is to set the size of the plot from the start</span></span>
-<span id="cb13-254"><a href="#cb13-254" aria-hidden="true" tabindex="-1"></a>file <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">'.png'</span>)</span>
-<span id="cb13-255"><a href="#cb13-255" aria-hidden="true" tabindex="-1"></a>ragg<span class="sc">::</span><span class="fu">agg_png</span>(file, <span class="at">width =</span> <span class="dv">4</span>, <span class="at">height =</span> <span class="fl">5.5</span>, <span class="at">res =</span> <span class="dv">300</span>, <span class="at">units =</span> <span class="st">"in"</span>)</span>
-<span id="cb13-256"><a href="#cb13-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-257"><a href="#cb13-257" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(demons_souls_plot) <span class="sc">+</span></span>
-<span id="cb13-258"><a href="#cb13-258" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Make it easier to see where 50% is using a vertical line. geom_segment() is</span></span>
-<span id="cb13-259"><a href="#cb13-259" aria-hidden="true" tabindex="-1"></a>  <span class="co"># used here instead of geom_vline() because the latter goes up into the title</span></span>
-<span id="cb13-260"><a href="#cb13-260" aria-hidden="true" tabindex="-1"></a>  <span class="co"># text. An empty data frame is supplied so that only one copy of the geom is</span></span>
-<span id="cb13-261"><a href="#cb13-261" aria-hidden="true" tabindex="-1"></a>  <span class="co"># drawn.</span></span>
-<span id="cb13-262"><a href="#cb13-262" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(</span>
-<span id="cb13-263"><a href="#cb13-263" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="dv">0</span>,</span>
-<span id="cb13-264"><a href="#cb13-264" aria-hidden="true" tabindex="-1"></a>    <span class="at">xend =</span> <span class="dv">0</span>,</span>
-<span id="cb13-265"><a href="#cb13-265" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fl">10.9</span>,</span>
-<span id="cb13-266"><a href="#cb13-266" aria-hidden="true" tabindex="-1"></a>    <span class="at">yend =</span> <span class="dv">0</span>,</span>
-<span id="cb13-267"><a href="#cb13-267" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">0.6</span>),</span>
-<span id="cb13-268"><a href="#cb13-268" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">data.frame</span>(),</span>
-<span id="cb13-269"><a href="#cb13-269" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.3</span>,</span>
-<span id="cb13-270"><a href="#cb13-270" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"grey"</span>,</span>
-<span id="cb13-271"><a href="#cb13-271" aria-hidden="true" tabindex="-1"></a>    <span class="at">lineend =</span> <span class="st">"round"</span>,</span>
-<span id="cb13-272"><a href="#cb13-272" aria-hidden="true" tabindex="-1"></a>    <span class="at">linetype =</span> <span class="st">"twodash"</span></span>
-<span id="cb13-273"><a href="#cb13-273" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-274"><a href="#cb13-274" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_alpha_identity</span>() <span class="sc">+</span></span>
-<span id="cb13-275"><a href="#cb13-275" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-276"><a href="#cb13-276" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Set bounding box for yellow portion of centrepiece text</span></span>
-<span id="cb13-277"><a href="#cb13-277" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_reference</span>(</span>
-<span id="cb13-278"><a href="#cb13-278" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_rect</span>(<span class="fu">aes</span>(</span>
-<span id="cb13-279"><a href="#cb13-279" aria-hidden="true" tabindex="-1"></a>      <span class="at">xmin =</span> <span class="sc">-</span><span class="fl">0.5</span>,</span>
-<span id="cb13-280"><a href="#cb13-280" aria-hidden="true" tabindex="-1"></a>      <span class="at">xmax =</span> <span class="sc">-</span><span class="fl">0.5</span> <span class="sc">+</span> ((percent_completed)),</span>
-<span id="cb13-281"><a href="#cb13-281" aria-hidden="true" tabindex="-1"></a>      <span class="at">ymin =</span> y <span class="sc">-</span> (tile_height <span class="sc">*</span> <span class="fl">0.5</span>),</span>
-<span id="cb13-282"><a href="#cb13-282" aria-hidden="true" tabindex="-1"></a>      <span class="at">ymax =</span> y <span class="sc">+</span> (tile_height <span class="sc">*</span> <span class="fl">0.5</span>)</span>
-<span id="cb13-283"><a href="#cb13-283" aria-hidden="true" tabindex="-1"></a>    )), </span>
-<span id="cb13-284"><a href="#cb13-284" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="st">"demon_vanquished"</span></span>
-<span id="cb13-285"><a href="#cb13-285" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-286"><a href="#cb13-286" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Only show the portion of yellow centrepiece text located within the</span></span>
-<span id="cb13-287"><a href="#cb13-287" aria-hidden="true" tabindex="-1"></a>  <span class="co"># bounding box</span></span>
-<span id="cb13-288"><a href="#cb13-288" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with_blend</span>(</span>
-<span id="cb13-289"><a href="#cb13-289" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(</span>
-<span id="cb13-290"><a href="#cb13-290" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="dv">0</span>,</span>
-<span id="cb13-291"><a href="#cb13-291" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> y,</span>
-<span id="cb13-292"><a href="#cb13-292" aria-hidden="true" tabindex="-1"></a>      <span class="at">label =</span> boss,</span>
-<span id="cb13-293"><a href="#cb13-293" aria-hidden="true" tabindex="-1"></a>      <span class="at">size =</span> text_size</span>
-<span id="cb13-294"><a href="#cb13-294" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb13-295"><a href="#cb13-295" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> yellow,</span>
-<span id="cb13-296"><a href="#cb13-296" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> optimus_b),</span>
-<span id="cb13-297"><a href="#cb13-297" aria-hidden="true" tabindex="-1"></a>    <span class="at">bg_layer =</span> <span class="st">"demon_vanquished"</span>,</span>
-<span id="cb13-298"><a href="#cb13-298" aria-hidden="true" tabindex="-1"></a>    <span class="at">blend_type =</span> <span class="st">"in"</span></span>
-<span id="cb13-299"><a href="#cb13-299" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-300"><a href="#cb13-300" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Set bounding box for red portion of centrepiece text</span></span>
-<span id="cb13-301"><a href="#cb13-301" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_reference</span>(</span>
-<span id="cb13-302"><a href="#cb13-302" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_rect</span>(<span class="fu">aes</span>(</span>
-<span id="cb13-303"><a href="#cb13-303" aria-hidden="true" tabindex="-1"></a>      <span class="at">xmin =</span> <span class="fl">0.5</span> <span class="sc">-</span> ((<span class="dv">1</span> <span class="sc">-</span> percent_completed)),</span>
-<span id="cb13-304"><a href="#cb13-304" aria-hidden="true" tabindex="-1"></a>      <span class="at">xmax =</span> <span class="fl">0.5</span>,</span>
-<span id="cb13-305"><a href="#cb13-305" aria-hidden="true" tabindex="-1"></a>      <span class="at">ymin =</span> y <span class="sc">-</span> (tile_height <span class="sc">*</span> <span class="fl">0.5</span>),</span>
-<span id="cb13-306"><a href="#cb13-306" aria-hidden="true" tabindex="-1"></a>      <span class="at">ymax =</span> y <span class="sc">+</span> (tile_height <span class="sc">*</span> <span class="fl">0.5</span>)</span>
-<span id="cb13-307"><a href="#cb13-307" aria-hidden="true" tabindex="-1"></a>    )), </span>
-<span id="cb13-308"><a href="#cb13-308" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="st">"you_died"</span></span>
-<span id="cb13-309"><a href="#cb13-309" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-310"><a href="#cb13-310" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Only show the portion of red centrepiece text located within the bounding</span></span>
-<span id="cb13-311"><a href="#cb13-311" aria-hidden="true" tabindex="-1"></a>  <span class="co"># box</span></span>
-<span id="cb13-312"><a href="#cb13-312" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with_blend</span>(</span>
-<span id="cb13-313"><a href="#cb13-313" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(</span>
-<span id="cb13-314"><a href="#cb13-314" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="dv">0</span>,</span>
-<span id="cb13-315"><a href="#cb13-315" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> y,</span>
-<span id="cb13-316"><a href="#cb13-316" aria-hidden="true" tabindex="-1"></a>      <span class="at">label =</span> boss,</span>
-<span id="cb13-317"><a href="#cb13-317" aria-hidden="true" tabindex="-1"></a>      <span class="at">size =</span> text_size</span>
-<span id="cb13-318"><a href="#cb13-318" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb13-319"><a href="#cb13-319" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"red"</span>,</span>
-<span id="cb13-320"><a href="#cb13-320" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> optimus_b),</span>
-<span id="cb13-321"><a href="#cb13-321" aria-hidden="true" tabindex="-1"></a>    <span class="at">bg_layer =</span> <span class="st">"you_died"</span>,</span>
-<span id="cb13-322"><a href="#cb13-322" aria-hidden="true" tabindex="-1"></a>    <span class="at">blend_type =</span> <span class="st">"in"</span></span>
-<span id="cb13-323"><a href="#cb13-323" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-324"><a href="#cb13-324" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-325"><a href="#cb13-325" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Draw "axis" for Demon Vanquished</span></span>
-<span id="cb13-326"><a href="#cb13-326" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(</span>
-<span id="cb13-327"><a href="#cb13-327" aria-hidden="true" tabindex="-1"></a>    <span class="st">"text"</span>,</span>
-<span id="cb13-328"><a href="#cb13-328" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="sc">-</span><span class="fl">0.65</span>,</span>
-<span id="cb13-329"><a href="#cb13-329" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fl">7.75</span>,</span>
-<span id="cb13-330"><a href="#cb13-330" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">"demon vanquished"</span>,</span>
-<span id="cb13-331"><a href="#cb13-331" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="dv">90</span>,</span>
-<span id="cb13-332"><a href="#cb13-332" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">5</span>,</span>
-<span id="cb13-333"><a href="#cb13-333" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> optimus,</span>
-<span id="cb13-334"><a href="#cb13-334" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> yellow</span>
-<span id="cb13-335"><a href="#cb13-335" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-336"><a href="#cb13-336" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(</span>
-<span id="cb13-337"><a href="#cb13-337" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="sc">-</span><span class="fl">0.645</span>,</span>
-<span id="cb13-338"><a href="#cb13-338" aria-hidden="true" tabindex="-1"></a>    <span class="at">xend =</span> <span class="sc">-</span><span class="fl">0.645</span>,</span>
-<span id="cb13-339"><a href="#cb13-339" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fl">10.05</span>,</span>
-<span id="cb13-340"><a href="#cb13-340" aria-hidden="true" tabindex="-1"></a>    <span class="at">yend =</span> <span class="fl">10.45</span>),</span>
-<span id="cb13-341"><a href="#cb13-341" aria-hidden="true" tabindex="-1"></a>    <span class="at">lineend =</span> <span class="st">"round"</span>,</span>
-<span id="cb13-342"><a href="#cb13-342" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> yellow,</span>
-<span id="cb13-343"><a href="#cb13-343" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">0.3</span>,</span>
-<span id="cb13-344"><a href="#cb13-344" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"mm"</span>), <span class="at">type =</span> <span class="st">"open"</span>)</span>
-<span id="cb13-345"><a href="#cb13-345" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-346"><a href="#cb13-346" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Draw "axis" for You Died</span></span>
-<span id="cb13-347"><a href="#cb13-347" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(</span>
-<span id="cb13-348"><a href="#cb13-348" aria-hidden="true" tabindex="-1"></a>    <span class="st">"text"</span>,</span>
-<span id="cb13-349"><a href="#cb13-349" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fl">0.65</span>,</span>
-<span id="cb13-350"><a href="#cb13-350" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fl">4.65</span>,</span>
-<span id="cb13-351"><a href="#cb13-351" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">"you died"</span>,</span>
-<span id="cb13-352"><a href="#cb13-352" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="dv">270</span>,</span>
-<span id="cb13-353"><a href="#cb13-353" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">5</span>,</span>
-<span id="cb13-354"><a href="#cb13-354" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> optimus,</span>
-<span id="cb13-355"><a href="#cb13-355" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"red"</span></span>
-<span id="cb13-356"><a href="#cb13-356" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-357"><a href="#cb13-357" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(</span>
-<span id="cb13-358"><a href="#cb13-358" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fl">0.645</span>,</span>
-<span id="cb13-359"><a href="#cb13-359" aria-hidden="true" tabindex="-1"></a>    <span class="at">xend =</span> <span class="fl">0.645</span>,</span>
-<span id="cb13-360"><a href="#cb13-360" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fl">3.51</span>,</span>
-<span id="cb13-361"><a href="#cb13-361" aria-hidden="true" tabindex="-1"></a>    <span class="at">yend =</span> <span class="fl">3.01</span>),</span>
-<span id="cb13-362"><a href="#cb13-362" aria-hidden="true" tabindex="-1"></a>    <span class="at">lineend =</span> <span class="st">"round"</span>,</span>
-<span id="cb13-363"><a href="#cb13-363" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"red"</span>,</span>
-<span id="cb13-364"><a href="#cb13-364" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">0.3</span>,</span>
-<span id="cb13-365"><a href="#cb13-365" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"mm"</span>), <span class="at">type =</span> <span class="st">"open"</span>)</span>
-<span id="cb13-366"><a href="#cb13-366" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-367"><a href="#cb13-367" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-368"><a href="#cb13-368" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Draw a title surrounded by line decorations at the top of the panel</span></span>
-<span id="cb13-369"><a href="#cb13-369" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(</span>
-<span id="cb13-370"><a href="#cb13-370" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="sc">-</span><span class="fl">0.75</span>,</span>
-<span id="cb13-371"><a href="#cb13-371" aria-hidden="true" tabindex="-1"></a>    <span class="at">xend =</span> <span class="fl">0.75</span>,</span>
-<span id="cb13-372"><a href="#cb13-372" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fl">13.2</span>,</span>
-<span id="cb13-373"><a href="#cb13-373" aria-hidden="true" tabindex="-1"></a>    <span class="at">yend =</span> <span class="fl">13.2</span>,</span>
-<span id="cb13-374"><a href="#cb13-374" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">0.3</span>),</span>
-<span id="cb13-375"><a href="#cb13-375" aria-hidden="true" tabindex="-1"></a>    <span class="at">lineend =</span> <span class="st">"round"</span>,</span>
-<span id="cb13-376"><a href="#cb13-376" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"grey"</span></span>
-<span id="cb13-377"><a href="#cb13-377" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-378"><a href="#cb13-378" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(</span>
-<span id="cb13-379"><a href="#cb13-379" aria-hidden="true" tabindex="-1"></a>    <span class="st">"text"</span>,</span>
-<span id="cb13-380"><a href="#cb13-380" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="dv">0</span>,</span>
-<span id="cb13-381"><a href="#cb13-381" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fl">12.325</span>,</span>
-<span id="cb13-382"><a href="#cb13-382" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">7</span>,</span>
-<span id="cb13-383"><a href="#cb13-383" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> optimus_b,</span>
-<span id="cb13-384"><a href="#cb13-384" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"white"</span>,</span>
-<span id="cb13-385"><a href="#cb13-385" aria-hidden="true" tabindex="-1"></a>    <span class="at">lineheight =</span> <span class="fl">0.75</span>,</span>
-<span id="cb13-386"><a href="#cb13-386" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">"DEMON’S SOULS</span><span class="sc">\n</span><span class="st">BOSS COMPLETION"</span></span>
-<span id="cb13-387"><a href="#cb13-387" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-388"><a href="#cb13-388" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(</span>
-<span id="cb13-389"><a href="#cb13-389" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="sc">-</span><span class="fl">0.025</span>,</span>
-<span id="cb13-390"><a href="#cb13-390" aria-hidden="true" tabindex="-1"></a>    <span class="at">xend =</span> <span class="sc">-</span><span class="fl">0.75</span>,</span>
-<span id="cb13-391"><a href="#cb13-391" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fl">11.4</span>,</span>
-<span id="cb13-392"><a href="#cb13-392" aria-hidden="true" tabindex="-1"></a>    <span class="at">yend =</span> <span class="fl">11.4</span>,</span>
-<span id="cb13-393"><a href="#cb13-393" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">0.3</span>),</span>
-<span id="cb13-394"><a href="#cb13-394" aria-hidden="true" tabindex="-1"></a>    <span class="at">lineend =</span> <span class="st">"round"</span>,</span>
-<span id="cb13-395"><a href="#cb13-395" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"grey"</span></span>
-<span id="cb13-396"><a href="#cb13-396" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-397"><a href="#cb13-397" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(</span>
-<span id="cb13-398"><a href="#cb13-398" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fl">0.025</span>,</span>
-<span id="cb13-399"><a href="#cb13-399" aria-hidden="true" tabindex="-1"></a>    <span class="at">xend =</span> <span class="fl">0.75</span>,</span>
-<span id="cb13-400"><a href="#cb13-400" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fl">11.4</span>,</span>
-<span id="cb13-401"><a href="#cb13-401" aria-hidden="true" tabindex="-1"></a>    <span class="at">yend =</span> <span class="fl">11.4</span>,</span>
-<span id="cb13-402"><a href="#cb13-402" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">0.3</span>),</span>
-<span id="cb13-403"><a href="#cb13-403" aria-hidden="true" tabindex="-1"></a>    <span class="at">lineend =</span> <span class="st">"round"</span>,</span>
-<span id="cb13-404"><a href="#cb13-404" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"grey"</span></span>
-<span id="cb13-405"><a href="#cb13-405" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-406"><a href="#cb13-406" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(</span>
-<span id="cb13-407"><a href="#cb13-407" aria-hidden="true" tabindex="-1"></a>    <span class="st">"point"</span>,</span>
-<span id="cb13-408"><a href="#cb13-408" aria-hidden="true" tabindex="-1"></a>    <span class="at">x  =</span> <span class="dv">0</span>,</span>
-<span id="cb13-409"><a href="#cb13-409" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fl">11.4</span>,</span>
-<span id="cb13-410"><a href="#cb13-410" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"grey"</span>,</span>
-<span id="cb13-411"><a href="#cb13-411" aria-hidden="true" tabindex="-1"></a>    <span class="at">shape =</span> <span class="dv">5</span>,</span>
-<span id="cb13-412"><a href="#cb13-412" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">2</span>,</span>
-<span id="cb13-413"><a href="#cb13-413" aria-hidden="true" tabindex="-1"></a>    <span class="at">stroke =</span> <span class="fl">0.6</span></span>
-<span id="cb13-414"><a href="#cb13-414" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-415"><a href="#cb13-415" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(</span>
-<span id="cb13-416"><a href="#cb13-416" aria-hidden="true" tabindex="-1"></a>    <span class="st">"point"</span>,</span>
-<span id="cb13-417"><a href="#cb13-417" aria-hidden="true" tabindex="-1"></a>    <span class="at">x  =</span> <span class="dv">0</span>,</span>
-<span id="cb13-418"><a href="#cb13-418" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fl">11.4</span>,</span>
-<span id="cb13-419"><a href="#cb13-419" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"grey"</span>,</span>
-<span id="cb13-420"><a href="#cb13-420" aria-hidden="true" tabindex="-1"></a>    <span class="at">shape =</span> <span class="dv">5</span>,</span>
-<span id="cb13-421"><a href="#cb13-421" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">0.75</span></span>
-<span id="cb13-422"><a href="#cb13-422" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-423"><a href="#cb13-423" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-424"><a href="#cb13-424" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Draw plot caption</span></span>
-<span id="cb13-425"><a href="#cb13-425" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(</span>
-<span id="cb13-426"><a href="#cb13-426" aria-hidden="true" tabindex="-1"></a>    <span class="st">"text"</span>,</span>
-<span id="cb13-427"><a href="#cb13-427" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="dv">1</span>,</span>
-<span id="cb13-428"><a href="#cb13-428" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fl">10.33</span>,</span>
-<span id="cb13-429"><a href="#cb13-429" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="dv">270</span>,</span>
-<span id="cb13-430"><a href="#cb13-430" aria-hidden="true" tabindex="-1"></a>    <span class="at">hjust =</span> <span class="dv">0</span>,</span>
-<span id="cb13-431"><a href="#cb13-431" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">3</span>,</span>
-<span id="cb13-432"><a href="#cb13-432" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.3</span>,</span>
-<span id="cb13-433"><a href="#cb13-433" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">"SOURCE: PLAYSTATION NETWORK | GRAPHIC: MICHAEL MCCARTHY"</span>,</span>
-<span id="cb13-434"><a href="#cb13-434" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> optimus,</span>
-<span id="cb13-435"><a href="#cb13-435" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"grey"</span></span>
-<span id="cb13-436"><a href="#cb13-436" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-437"><a href="#cb13-437" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-438"><a href="#cb13-438" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Make sure the text size calculated for each string is used so that strings</span></span>
-<span id="cb13-439"><a href="#cb13-439" aria-hidden="true" tabindex="-1"></a>  <span class="co"># are justified</span></span>
-<span id="cb13-440"><a href="#cb13-440" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_identity</span>() <span class="sc">+</span></span>
-<span id="cb13-441"><a href="#cb13-441" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Take axis limits exactly from data so there's no spacing around the panel,</span></span>
-<span id="cb13-442"><a href="#cb13-442" aria-hidden="true" tabindex="-1"></a>  <span class="co"># allow drawing outside of the panel for annotations, and set the axis limits</span></span>
-<span id="cb13-443"><a href="#cb13-443" aria-hidden="true" tabindex="-1"></a>  <span class="co"># to match the limits of the text.</span></span>
-<span id="cb13-444"><a href="#cb13-444" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> <span class="cn">FALSE</span>, <span class="at">clip =</span> <span class="st">"off"</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb13-445"><a href="#cb13-445" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Specify the panel size manually. This makes it easier to position plot</span></span>
-<span id="cb13-446"><a href="#cb13-446" aria-hidden="true" tabindex="-1"></a>  <span class="co"># elements with absolute positions.</span></span>
-<span id="cb13-447"><a href="#cb13-447" aria-hidden="true" tabindex="-1"></a>  ggh4x<span class="sc">::</span><span class="fu">force_panelsizes</span>(<span class="at">rows =</span> <span class="fu">unit</span>(<span class="dv">5</span>, <span class="st">"in"</span>), <span class="co"># height</span></span>
-<span id="cb13-448"><a href="#cb13-448" aria-hidden="true" tabindex="-1"></a>                          <span class="at">cols =</span> <span class="fu">unit</span>(<span class="fl">1.8</span>, <span class="st">"in"</span>)) <span class="sc">+</span> <span class="co"># width</span></span>
-<span id="cb13-449"><a href="#cb13-449" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
-<span id="cb13-450"><a href="#cb13-450" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb13-451"><a href="#cb13-451" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb13-452"><a href="#cb13-452" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">unit</span>(<span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">4</span>, <span class="fl">0.5</span>, <span class="dv">4</span>), <span class="st">"in"</span>),</span>
-<span id="cb13-453"><a href="#cb13-453" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"black"</span>, <span class="at">color =</span> <span class="cn">NA</span>))</span>
-<span id="cb13-454"><a href="#cb13-454" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-455"><a href="#cb13-455" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">dev.off</span>())</span>
+<span id="cb13-250"><a href="#cb13-250" aria-hidden="true" tabindex="-1"></a>Now the plot can be constructed. The final code for the plot is roughly 100 lines long, so I've hidden it in the section below. However, there are a few parts of the code I want to highlight before showing the final plot.</span>
+<span id="cb13-251"><a href="#cb13-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-252"><a href="#cb13-252" aria-hidden="true" tabindex="-1"></a><span class="in">```{r visualize-three}</span></span>
+<span id="cb13-253"><a href="#cb13-253" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb13-254"><a href="#cb13-254" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show Code"</span></span>
+<span id="cb13-255"><a href="#cb13-255" aria-hidden="true" tabindex="-1"></a><span class="co"># The trick for geom spacing is to set the size of the plot from the start</span></span>
+<span id="cb13-256"><a href="#cb13-256" aria-hidden="true" tabindex="-1"></a>file <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">'.png'</span>)</span>
+<span id="cb13-257"><a href="#cb13-257" aria-hidden="true" tabindex="-1"></a>ragg<span class="sc">::</span><span class="fu">agg_png</span>(file, <span class="at">width =</span> <span class="dv">4</span>, <span class="at">height =</span> <span class="fl">5.5</span>, <span class="at">res =</span> <span class="dv">300</span>, <span class="at">units =</span> <span class="st">"in"</span>)</span>
+<span id="cb13-258"><a href="#cb13-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-259"><a href="#cb13-259" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(demons_souls_plot) <span class="sc">+</span></span>
+<span id="cb13-260"><a href="#cb13-260" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Make it easier to see where 50% is using a vertical line. geom_segment() is</span></span>
+<span id="cb13-261"><a href="#cb13-261" aria-hidden="true" tabindex="-1"></a>  <span class="co"># used here instead of geom_vline() because the latter goes up into the title</span></span>
+<span id="cb13-262"><a href="#cb13-262" aria-hidden="true" tabindex="-1"></a>  <span class="co"># text. An empty data frame is supplied so that only one copy of the geom is</span></span>
+<span id="cb13-263"><a href="#cb13-263" aria-hidden="true" tabindex="-1"></a>  <span class="co"># drawn.</span></span>
+<span id="cb13-264"><a href="#cb13-264" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(</span>
+<span id="cb13-265"><a href="#cb13-265" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="dv">0</span>,</span>
+<span id="cb13-266"><a href="#cb13-266" aria-hidden="true" tabindex="-1"></a>    <span class="at">xend =</span> <span class="dv">0</span>,</span>
+<span id="cb13-267"><a href="#cb13-267" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fl">10.9</span>,</span>
+<span id="cb13-268"><a href="#cb13-268" aria-hidden="true" tabindex="-1"></a>    <span class="at">yend =</span> <span class="dv">0</span>,</span>
+<span id="cb13-269"><a href="#cb13-269" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">0.6</span>),</span>
+<span id="cb13-270"><a href="#cb13-270" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">data.frame</span>(),</span>
+<span id="cb13-271"><a href="#cb13-271" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.3</span>,</span>
+<span id="cb13-272"><a href="#cb13-272" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"grey"</span>,</span>
+<span id="cb13-273"><a href="#cb13-273" aria-hidden="true" tabindex="-1"></a>    <span class="at">lineend =</span> <span class="st">"round"</span>,</span>
+<span id="cb13-274"><a href="#cb13-274" aria-hidden="true" tabindex="-1"></a>    <span class="at">linetype =</span> <span class="st">"twodash"</span></span>
+<span id="cb13-275"><a href="#cb13-275" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-276"><a href="#cb13-276" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_alpha_identity</span>() <span class="sc">+</span></span>
+<span id="cb13-277"><a href="#cb13-277" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-278"><a href="#cb13-278" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Set bounding box for yellow portion of centrepiece text</span></span>
+<span id="cb13-279"><a href="#cb13-279" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_reference</span>(</span>
+<span id="cb13-280"><a href="#cb13-280" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_rect</span>(<span class="fu">aes</span>(</span>
+<span id="cb13-281"><a href="#cb13-281" aria-hidden="true" tabindex="-1"></a>      <span class="at">xmin =</span> <span class="sc">-</span><span class="fl">0.5</span>,</span>
+<span id="cb13-282"><a href="#cb13-282" aria-hidden="true" tabindex="-1"></a>      <span class="at">xmax =</span> <span class="sc">-</span><span class="fl">0.5</span> <span class="sc">+</span> ((percent_completed)),</span>
+<span id="cb13-283"><a href="#cb13-283" aria-hidden="true" tabindex="-1"></a>      <span class="at">ymin =</span> y <span class="sc">-</span> (tile_height <span class="sc">*</span> <span class="fl">0.5</span>),</span>
+<span id="cb13-284"><a href="#cb13-284" aria-hidden="true" tabindex="-1"></a>      <span class="at">ymax =</span> y <span class="sc">+</span> (tile_height <span class="sc">*</span> <span class="fl">0.5</span>)</span>
+<span id="cb13-285"><a href="#cb13-285" aria-hidden="true" tabindex="-1"></a>    )), </span>
+<span id="cb13-286"><a href="#cb13-286" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="st">"demon_vanquished"</span></span>
+<span id="cb13-287"><a href="#cb13-287" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-288"><a href="#cb13-288" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Only show the portion of yellow centrepiece text located within the</span></span>
+<span id="cb13-289"><a href="#cb13-289" aria-hidden="true" tabindex="-1"></a>  <span class="co"># bounding box</span></span>
+<span id="cb13-290"><a href="#cb13-290" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with_blend</span>(</span>
+<span id="cb13-291"><a href="#cb13-291" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(</span>
+<span id="cb13-292"><a href="#cb13-292" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="dv">0</span>,</span>
+<span id="cb13-293"><a href="#cb13-293" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> y,</span>
+<span id="cb13-294"><a href="#cb13-294" aria-hidden="true" tabindex="-1"></a>      <span class="at">label =</span> boss,</span>
+<span id="cb13-295"><a href="#cb13-295" aria-hidden="true" tabindex="-1"></a>      <span class="at">size =</span> text_size</span>
+<span id="cb13-296"><a href="#cb13-296" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb13-297"><a href="#cb13-297" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> yellow,</span>
+<span id="cb13-298"><a href="#cb13-298" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> optimus_b),</span>
+<span id="cb13-299"><a href="#cb13-299" aria-hidden="true" tabindex="-1"></a>    <span class="at">bg_layer =</span> <span class="st">"demon_vanquished"</span>,</span>
+<span id="cb13-300"><a href="#cb13-300" aria-hidden="true" tabindex="-1"></a>    <span class="at">blend_type =</span> <span class="st">"in"</span></span>
+<span id="cb13-301"><a href="#cb13-301" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-302"><a href="#cb13-302" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Set bounding box for red portion of centrepiece text</span></span>
+<span id="cb13-303"><a href="#cb13-303" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_reference</span>(</span>
+<span id="cb13-304"><a href="#cb13-304" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_rect</span>(<span class="fu">aes</span>(</span>
+<span id="cb13-305"><a href="#cb13-305" aria-hidden="true" tabindex="-1"></a>      <span class="at">xmin =</span> <span class="fl">0.5</span> <span class="sc">-</span> ((<span class="dv">1</span> <span class="sc">-</span> percent_completed)),</span>
+<span id="cb13-306"><a href="#cb13-306" aria-hidden="true" tabindex="-1"></a>      <span class="at">xmax =</span> <span class="fl">0.5</span>,</span>
+<span id="cb13-307"><a href="#cb13-307" aria-hidden="true" tabindex="-1"></a>      <span class="at">ymin =</span> y <span class="sc">-</span> (tile_height <span class="sc">*</span> <span class="fl">0.5</span>),</span>
+<span id="cb13-308"><a href="#cb13-308" aria-hidden="true" tabindex="-1"></a>      <span class="at">ymax =</span> y <span class="sc">+</span> (tile_height <span class="sc">*</span> <span class="fl">0.5</span>)</span>
+<span id="cb13-309"><a href="#cb13-309" aria-hidden="true" tabindex="-1"></a>    )), </span>
+<span id="cb13-310"><a href="#cb13-310" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="st">"you_died"</span></span>
+<span id="cb13-311"><a href="#cb13-311" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-312"><a href="#cb13-312" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Only show the portion of red centrepiece text located within the bounding</span></span>
+<span id="cb13-313"><a href="#cb13-313" aria-hidden="true" tabindex="-1"></a>  <span class="co"># box</span></span>
+<span id="cb13-314"><a href="#cb13-314" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with_blend</span>(</span>
+<span id="cb13-315"><a href="#cb13-315" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(</span>
+<span id="cb13-316"><a href="#cb13-316" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="dv">0</span>,</span>
+<span id="cb13-317"><a href="#cb13-317" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> y,</span>
+<span id="cb13-318"><a href="#cb13-318" aria-hidden="true" tabindex="-1"></a>      <span class="at">label =</span> boss,</span>
+<span id="cb13-319"><a href="#cb13-319" aria-hidden="true" tabindex="-1"></a>      <span class="at">size =</span> text_size</span>
+<span id="cb13-320"><a href="#cb13-320" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb13-321"><a href="#cb13-321" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"red"</span>,</span>
+<span id="cb13-322"><a href="#cb13-322" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> optimus_b),</span>
+<span id="cb13-323"><a href="#cb13-323" aria-hidden="true" tabindex="-1"></a>    <span class="at">bg_layer =</span> <span class="st">"you_died"</span>,</span>
+<span id="cb13-324"><a href="#cb13-324" aria-hidden="true" tabindex="-1"></a>    <span class="at">blend_type =</span> <span class="st">"in"</span></span>
+<span id="cb13-325"><a href="#cb13-325" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-326"><a href="#cb13-326" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-327"><a href="#cb13-327" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Draw "axis" for Demon Vanquished</span></span>
+<span id="cb13-328"><a href="#cb13-328" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(</span>
+<span id="cb13-329"><a href="#cb13-329" aria-hidden="true" tabindex="-1"></a>    <span class="st">"text"</span>,</span>
+<span id="cb13-330"><a href="#cb13-330" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="sc">-</span><span class="fl">0.65</span>,</span>
+<span id="cb13-331"><a href="#cb13-331" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fl">7.75</span>,</span>
+<span id="cb13-332"><a href="#cb13-332" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">"demon vanquished"</span>,</span>
+<span id="cb13-333"><a href="#cb13-333" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="dv">90</span>,</span>
+<span id="cb13-334"><a href="#cb13-334" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">5</span>,</span>
+<span id="cb13-335"><a href="#cb13-335" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> optimus,</span>
+<span id="cb13-336"><a href="#cb13-336" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> yellow</span>
+<span id="cb13-337"><a href="#cb13-337" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-338"><a href="#cb13-338" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(</span>
+<span id="cb13-339"><a href="#cb13-339" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="sc">-</span><span class="fl">0.645</span>,</span>
+<span id="cb13-340"><a href="#cb13-340" aria-hidden="true" tabindex="-1"></a>    <span class="at">xend =</span> <span class="sc">-</span><span class="fl">0.645</span>,</span>
+<span id="cb13-341"><a href="#cb13-341" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fl">10.05</span>,</span>
+<span id="cb13-342"><a href="#cb13-342" aria-hidden="true" tabindex="-1"></a>    <span class="at">yend =</span> <span class="fl">10.45</span>),</span>
+<span id="cb13-343"><a href="#cb13-343" aria-hidden="true" tabindex="-1"></a>    <span class="at">lineend =</span> <span class="st">"round"</span>,</span>
+<span id="cb13-344"><a href="#cb13-344" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> yellow,</span>
+<span id="cb13-345"><a href="#cb13-345" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">0.3</span>,</span>
+<span id="cb13-346"><a href="#cb13-346" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"mm"</span>), <span class="at">type =</span> <span class="st">"open"</span>)</span>
+<span id="cb13-347"><a href="#cb13-347" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-348"><a href="#cb13-348" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Draw "axis" for You Died</span></span>
+<span id="cb13-349"><a href="#cb13-349" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(</span>
+<span id="cb13-350"><a href="#cb13-350" aria-hidden="true" tabindex="-1"></a>    <span class="st">"text"</span>,</span>
+<span id="cb13-351"><a href="#cb13-351" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fl">0.65</span>,</span>
+<span id="cb13-352"><a href="#cb13-352" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fl">4.65</span>,</span>
+<span id="cb13-353"><a href="#cb13-353" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">"you died"</span>,</span>
+<span id="cb13-354"><a href="#cb13-354" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="dv">270</span>,</span>
+<span id="cb13-355"><a href="#cb13-355" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">5</span>,</span>
+<span id="cb13-356"><a href="#cb13-356" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> optimus,</span>
+<span id="cb13-357"><a href="#cb13-357" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"red"</span></span>
+<span id="cb13-358"><a href="#cb13-358" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-359"><a href="#cb13-359" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(</span>
+<span id="cb13-360"><a href="#cb13-360" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fl">0.645</span>,</span>
+<span id="cb13-361"><a href="#cb13-361" aria-hidden="true" tabindex="-1"></a>    <span class="at">xend =</span> <span class="fl">0.645</span>,</span>
+<span id="cb13-362"><a href="#cb13-362" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fl">3.51</span>,</span>
+<span id="cb13-363"><a href="#cb13-363" aria-hidden="true" tabindex="-1"></a>    <span class="at">yend =</span> <span class="fl">3.01</span>),</span>
+<span id="cb13-364"><a href="#cb13-364" aria-hidden="true" tabindex="-1"></a>    <span class="at">lineend =</span> <span class="st">"round"</span>,</span>
+<span id="cb13-365"><a href="#cb13-365" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"red"</span>,</span>
+<span id="cb13-366"><a href="#cb13-366" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">0.3</span>,</span>
+<span id="cb13-367"><a href="#cb13-367" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"mm"</span>), <span class="at">type =</span> <span class="st">"open"</span>)</span>
+<span id="cb13-368"><a href="#cb13-368" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-369"><a href="#cb13-369" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-370"><a href="#cb13-370" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Draw a title surrounded by line decorations at the top of the panel</span></span>
+<span id="cb13-371"><a href="#cb13-371" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(</span>
+<span id="cb13-372"><a href="#cb13-372" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="sc">-</span><span class="fl">0.75</span>,</span>
+<span id="cb13-373"><a href="#cb13-373" aria-hidden="true" tabindex="-1"></a>    <span class="at">xend =</span> <span class="fl">0.75</span>,</span>
+<span id="cb13-374"><a href="#cb13-374" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fl">13.2</span>,</span>
+<span id="cb13-375"><a href="#cb13-375" aria-hidden="true" tabindex="-1"></a>    <span class="at">yend =</span> <span class="fl">13.2</span>,</span>
+<span id="cb13-376"><a href="#cb13-376" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">0.3</span>),</span>
+<span id="cb13-377"><a href="#cb13-377" aria-hidden="true" tabindex="-1"></a>    <span class="at">lineend =</span> <span class="st">"round"</span>,</span>
+<span id="cb13-378"><a href="#cb13-378" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"grey"</span></span>
+<span id="cb13-379"><a href="#cb13-379" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-380"><a href="#cb13-380" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(</span>
+<span id="cb13-381"><a href="#cb13-381" aria-hidden="true" tabindex="-1"></a>    <span class="st">"text"</span>,</span>
+<span id="cb13-382"><a href="#cb13-382" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="dv">0</span>,</span>
+<span id="cb13-383"><a href="#cb13-383" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fl">12.325</span>,</span>
+<span id="cb13-384"><a href="#cb13-384" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">7</span>,</span>
+<span id="cb13-385"><a href="#cb13-385" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> optimus_b,</span>
+<span id="cb13-386"><a href="#cb13-386" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"white"</span>,</span>
+<span id="cb13-387"><a href="#cb13-387" aria-hidden="true" tabindex="-1"></a>    <span class="at">lineheight =</span> <span class="fl">0.75</span>,</span>
+<span id="cb13-388"><a href="#cb13-388" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">"DEMON’S SOULS</span><span class="sc">\n</span><span class="st">BOSS COMPLETION"</span></span>
+<span id="cb13-389"><a href="#cb13-389" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-390"><a href="#cb13-390" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(</span>
+<span id="cb13-391"><a href="#cb13-391" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="sc">-</span><span class="fl">0.025</span>,</span>
+<span id="cb13-392"><a href="#cb13-392" aria-hidden="true" tabindex="-1"></a>    <span class="at">xend =</span> <span class="sc">-</span><span class="fl">0.75</span>,</span>
+<span id="cb13-393"><a href="#cb13-393" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fl">11.4</span>,</span>
+<span id="cb13-394"><a href="#cb13-394" aria-hidden="true" tabindex="-1"></a>    <span class="at">yend =</span> <span class="fl">11.4</span>,</span>
+<span id="cb13-395"><a href="#cb13-395" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">0.3</span>),</span>
+<span id="cb13-396"><a href="#cb13-396" aria-hidden="true" tabindex="-1"></a>    <span class="at">lineend =</span> <span class="st">"round"</span>,</span>
+<span id="cb13-397"><a href="#cb13-397" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"grey"</span></span>
+<span id="cb13-398"><a href="#cb13-398" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-399"><a href="#cb13-399" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(</span>
+<span id="cb13-400"><a href="#cb13-400" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fl">0.025</span>,</span>
+<span id="cb13-401"><a href="#cb13-401" aria-hidden="true" tabindex="-1"></a>    <span class="at">xend =</span> <span class="fl">0.75</span>,</span>
+<span id="cb13-402"><a href="#cb13-402" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fl">11.4</span>,</span>
+<span id="cb13-403"><a href="#cb13-403" aria-hidden="true" tabindex="-1"></a>    <span class="at">yend =</span> <span class="fl">11.4</span>,</span>
+<span id="cb13-404"><a href="#cb13-404" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">0.3</span>),</span>
+<span id="cb13-405"><a href="#cb13-405" aria-hidden="true" tabindex="-1"></a>    <span class="at">lineend =</span> <span class="st">"round"</span>,</span>
+<span id="cb13-406"><a href="#cb13-406" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"grey"</span></span>
+<span id="cb13-407"><a href="#cb13-407" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-408"><a href="#cb13-408" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(</span>
+<span id="cb13-409"><a href="#cb13-409" aria-hidden="true" tabindex="-1"></a>    <span class="st">"point"</span>,</span>
+<span id="cb13-410"><a href="#cb13-410" aria-hidden="true" tabindex="-1"></a>    <span class="at">x  =</span> <span class="dv">0</span>,</span>
+<span id="cb13-411"><a href="#cb13-411" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fl">11.4</span>,</span>
+<span id="cb13-412"><a href="#cb13-412" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"grey"</span>,</span>
+<span id="cb13-413"><a href="#cb13-413" aria-hidden="true" tabindex="-1"></a>    <span class="at">shape =</span> <span class="dv">5</span>,</span>
+<span id="cb13-414"><a href="#cb13-414" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">2</span>,</span>
+<span id="cb13-415"><a href="#cb13-415" aria-hidden="true" tabindex="-1"></a>    <span class="at">stroke =</span> <span class="fl">0.6</span></span>
+<span id="cb13-416"><a href="#cb13-416" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-417"><a href="#cb13-417" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(</span>
+<span id="cb13-418"><a href="#cb13-418" aria-hidden="true" tabindex="-1"></a>    <span class="st">"point"</span>,</span>
+<span id="cb13-419"><a href="#cb13-419" aria-hidden="true" tabindex="-1"></a>    <span class="at">x  =</span> <span class="dv">0</span>,</span>
+<span id="cb13-420"><a href="#cb13-420" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fl">11.4</span>,</span>
+<span id="cb13-421"><a href="#cb13-421" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"grey"</span>,</span>
+<span id="cb13-422"><a href="#cb13-422" aria-hidden="true" tabindex="-1"></a>    <span class="at">shape =</span> <span class="dv">5</span>,</span>
+<span id="cb13-423"><a href="#cb13-423" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">0.75</span></span>
+<span id="cb13-424"><a href="#cb13-424" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-425"><a href="#cb13-425" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-426"><a href="#cb13-426" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Draw plot caption</span></span>
+<span id="cb13-427"><a href="#cb13-427" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(</span>
+<span id="cb13-428"><a href="#cb13-428" aria-hidden="true" tabindex="-1"></a>    <span class="st">"text"</span>,</span>
+<span id="cb13-429"><a href="#cb13-429" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="dv">1</span>,</span>
+<span id="cb13-430"><a href="#cb13-430" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fl">10.33</span>,</span>
+<span id="cb13-431"><a href="#cb13-431" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="dv">270</span>,</span>
+<span id="cb13-432"><a href="#cb13-432" aria-hidden="true" tabindex="-1"></a>    <span class="at">hjust =</span> <span class="dv">0</span>,</span>
+<span id="cb13-433"><a href="#cb13-433" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb13-434"><a href="#cb13-434" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.3</span>,</span>
+<span id="cb13-435"><a href="#cb13-435" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">"SOURCE: PLAYSTATION NETWORK | GRAPHIC: MICHAEL MCCARTHY"</span>,</span>
+<span id="cb13-436"><a href="#cb13-436" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> optimus,</span>
+<span id="cb13-437"><a href="#cb13-437" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"grey"</span></span>
+<span id="cb13-438"><a href="#cb13-438" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-439"><a href="#cb13-439" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-440"><a href="#cb13-440" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Make sure the text size calculated for each string is used so that strings</span></span>
+<span id="cb13-441"><a href="#cb13-441" aria-hidden="true" tabindex="-1"></a>  <span class="co"># are justified</span></span>
+<span id="cb13-442"><a href="#cb13-442" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_identity</span>() <span class="sc">+</span></span>
+<span id="cb13-443"><a href="#cb13-443" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Take axis limits exactly from data so there's no spacing around the panel,</span></span>
+<span id="cb13-444"><a href="#cb13-444" aria-hidden="true" tabindex="-1"></a>  <span class="co"># allow drawing outside of the panel for annotations, and set the axis limits</span></span>
+<span id="cb13-445"><a href="#cb13-445" aria-hidden="true" tabindex="-1"></a>  <span class="co"># to match the limits of the text.</span></span>
+<span id="cb13-446"><a href="#cb13-446" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> <span class="cn">FALSE</span>, <span class="at">clip =</span> <span class="st">"off"</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb13-447"><a href="#cb13-447" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Specify the panel size manually. This makes it easier to position plot</span></span>
+<span id="cb13-448"><a href="#cb13-448" aria-hidden="true" tabindex="-1"></a>  <span class="co"># elements with absolute positions.</span></span>
+<span id="cb13-449"><a href="#cb13-449" aria-hidden="true" tabindex="-1"></a>  ggh4x<span class="sc">::</span><span class="fu">force_panelsizes</span>(<span class="at">rows =</span> <span class="fu">unit</span>(<span class="dv">5</span>, <span class="st">"in"</span>), <span class="co"># height</span></span>
+<span id="cb13-450"><a href="#cb13-450" aria-hidden="true" tabindex="-1"></a>                          <span class="at">cols =</span> <span class="fu">unit</span>(<span class="fl">1.8</span>, <span class="st">"in"</span>)) <span class="sc">+</span> <span class="co"># width</span></span>
+<span id="cb13-451"><a href="#cb13-451" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb13-452"><a href="#cb13-452" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb13-453"><a href="#cb13-453" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb13-454"><a href="#cb13-454" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">unit</span>(<span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">4</span>, <span class="fl">0.5</span>, <span class="dv">4</span>), <span class="st">"in"</span>),</span>
+<span id="cb13-455"><a href="#cb13-455" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"black"</span>, <span class="at">color =</span> <span class="cn">NA</span>))</span>
 <span id="cb13-456"><a href="#cb13-456" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-457"><a href="#cb13-457" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply a mask texture to the final image to mimic the style of the Demon's</span></span>
-<span id="cb13-458"><a href="#cb13-458" aria-hidden="true" tabindex="-1"></a><span class="co"># Souls logo in the plot title</span></span>
-<span id="cb13-459"><a href="#cb13-459" aria-hidden="true" tabindex="-1"></a>mask <span class="ot">&lt;-</span> <span class="fu">image_read</span>(</span>
-<span id="cb13-460"><a href="#cb13-460" aria-hidden="true" tabindex="-1"></a>  <span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"2021-06-15_demons-souls"</span>, <span class="st">"images"</span>, <span class="st">"texture.png"</span>)</span>
-<span id="cb13-461"><a href="#cb13-461" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb13-462"><a href="#cb13-462" aria-hidden="true" tabindex="-1"></a>  <span class="fu">image_transparent</span>(<span class="st">"white"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb13-463"><a href="#cb13-463" aria-hidden="true" tabindex="-1"></a>  <span class="fu">image_threshold</span>(<span class="st">"black"</span>, <span class="st">"90%"</span>)</span>
-<span id="cb13-464"><a href="#cb13-464" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-465"><a href="#cb13-465" aria-hidden="true" tabindex="-1"></a>final_plot <span class="ot">&lt;-</span> <span class="fu">image_composite</span>(<span class="fu">image_read</span>(file), mask, <span class="at">operator =</span> <span class="st">"Over"</span>)</span>
-<span id="cb13-466"><a href="#cb13-466" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-467"><a href="#cb13-467" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-468"><a href="#cb13-468" aria-hidden="true" tabindex="-1"></a>First, the code behind the coloured centrepiece text. It uses <span class="in">`ggfx::as_reference()`</span> and <span class="in">`ggfx::with_blend()`</span> to selectively apply a filter over portions of the text, as I discussed earlier. The boundaries of the filter are defined by the ggplot2 geom inside of <span class="in">`ggfx::as_reference()`</span>, then <span class="in">`ggfx::with_blend()`</span> applies a filter specified by <span class="in">`blend_type`</span> to the ggplot2 geom inside of it. By duplicating this process twice---once for yellow text and again for red text---but with different filter boundaries based on the percent completed and not completed, the entire boss name is displayed with accurate colour fills.</span>
+<span id="cb13-457"><a href="#cb13-457" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">dev.off</span>())</span>
+<span id="cb13-458"><a href="#cb13-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-459"><a href="#cb13-459" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply a mask texture to the final image to mimic the style of the Demon's</span></span>
+<span id="cb13-460"><a href="#cb13-460" aria-hidden="true" tabindex="-1"></a><span class="co"># Souls logo in the plot title</span></span>
+<span id="cb13-461"><a href="#cb13-461" aria-hidden="true" tabindex="-1"></a>mask <span class="ot">&lt;-</span> <span class="fu">image_read</span>(</span>
+<span id="cb13-462"><a href="#cb13-462" aria-hidden="true" tabindex="-1"></a>  <span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"2021-06-15_demons-souls"</span>, <span class="st">"images"</span>, <span class="st">"texture.png"</span>)</span>
+<span id="cb13-463"><a href="#cb13-463" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb13-464"><a href="#cb13-464" aria-hidden="true" tabindex="-1"></a>  <span class="fu">image_transparent</span>(<span class="st">"white"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-465"><a href="#cb13-465" aria-hidden="true" tabindex="-1"></a>  <span class="fu">image_threshold</span>(<span class="st">"black"</span>, <span class="st">"90%"</span>)</span>
+<span id="cb13-466"><a href="#cb13-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-467"><a href="#cb13-467" aria-hidden="true" tabindex="-1"></a>final_plot <span class="ot">&lt;-</span> <span class="fu">image_composite</span>(<span class="fu">image_read</span>(file), mask, <span class="at">operator =</span> <span class="st">"Over"</span>)</span>
+<span id="cb13-468"><a href="#cb13-468" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-469"><a href="#cb13-469" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-470"><a href="#cb13-470" aria-hidden="true" tabindex="-1"></a><span class="in">```{r visualize-four}</span></span>
-<span id="cb13-471"><a href="#cb13-471" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb13-472"><a href="#cb13-472" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Set bounding box for yellow portion of centrepiece text</span></span>
-<span id="cb13-473"><a href="#cb13-473" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_reference</span>(</span>
-<span id="cb13-474"><a href="#cb13-474" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_rect</span>(<span class="fu">aes</span>(</span>
-<span id="cb13-475"><a href="#cb13-475" aria-hidden="true" tabindex="-1"></a>      <span class="at">xmin =</span> <span class="sc">-</span><span class="fl">0.5</span>,</span>
-<span id="cb13-476"><a href="#cb13-476" aria-hidden="true" tabindex="-1"></a>      <span class="at">xmax =</span> <span class="sc">-</span><span class="fl">0.5</span> <span class="sc">+</span> ((percent_completed)),</span>
-<span id="cb13-477"><a href="#cb13-477" aria-hidden="true" tabindex="-1"></a>      <span class="at">ymin =</span> y <span class="sc">-</span> (tile_height <span class="sc">*</span> <span class="fl">0.5</span>),</span>
-<span id="cb13-478"><a href="#cb13-478" aria-hidden="true" tabindex="-1"></a>      <span class="at">ymax =</span> y <span class="sc">+</span> (tile_height <span class="sc">*</span> <span class="fl">0.5</span>)</span>
-<span id="cb13-479"><a href="#cb13-479" aria-hidden="true" tabindex="-1"></a>    )), </span>
-<span id="cb13-480"><a href="#cb13-480" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="st">"demon_vanquished"</span></span>
-<span id="cb13-481"><a href="#cb13-481" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-482"><a href="#cb13-482" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Only show the portion of yellow centrepiece text located within the</span></span>
-<span id="cb13-483"><a href="#cb13-483" aria-hidden="true" tabindex="-1"></a>  <span class="co"># bounding box</span></span>
-<span id="cb13-484"><a href="#cb13-484" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with_blend</span>(</span>
-<span id="cb13-485"><a href="#cb13-485" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(</span>
-<span id="cb13-486"><a href="#cb13-486" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="dv">0</span>,</span>
-<span id="cb13-487"><a href="#cb13-487" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> y,</span>
-<span id="cb13-488"><a href="#cb13-488" aria-hidden="true" tabindex="-1"></a>      <span class="at">label =</span> boss,</span>
-<span id="cb13-489"><a href="#cb13-489" aria-hidden="true" tabindex="-1"></a>      <span class="at">size =</span> text_size</span>
-<span id="cb13-490"><a href="#cb13-490" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb13-491"><a href="#cb13-491" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> yellow,</span>
-<span id="cb13-492"><a href="#cb13-492" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> optimus_b),</span>
-<span id="cb13-493"><a href="#cb13-493" aria-hidden="true" tabindex="-1"></a>    <span class="at">bg_layer =</span> <span class="st">"demon_vanquished"</span>,</span>
-<span id="cb13-494"><a href="#cb13-494" aria-hidden="true" tabindex="-1"></a>    <span class="at">blend_type =</span> <span class="st">"in"</span></span>
-<span id="cb13-495"><a href="#cb13-495" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-496"><a href="#cb13-496" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Set bounding box for red portion of centrepiece text</span></span>
-<span id="cb13-497"><a href="#cb13-497" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_reference</span>(</span>
-<span id="cb13-498"><a href="#cb13-498" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_rect</span>(<span class="fu">aes</span>(</span>
-<span id="cb13-499"><a href="#cb13-499" aria-hidden="true" tabindex="-1"></a>      <span class="at">xmin =</span> <span class="fl">0.5</span> <span class="sc">-</span> ((<span class="dv">1</span> <span class="sc">-</span> percent_completed)),</span>
-<span id="cb13-500"><a href="#cb13-500" aria-hidden="true" tabindex="-1"></a>      <span class="at">xmax =</span> <span class="fl">0.5</span>,</span>
-<span id="cb13-501"><a href="#cb13-501" aria-hidden="true" tabindex="-1"></a>      <span class="at">ymin =</span> y <span class="sc">-</span> (tile_height <span class="sc">*</span> <span class="fl">0.5</span>),</span>
-<span id="cb13-502"><a href="#cb13-502" aria-hidden="true" tabindex="-1"></a>      <span class="at">ymax =</span> y <span class="sc">+</span> (tile_height <span class="sc">*</span> <span class="fl">0.5</span>)</span>
-<span id="cb13-503"><a href="#cb13-503" aria-hidden="true" tabindex="-1"></a>    )), </span>
-<span id="cb13-504"><a href="#cb13-504" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="st">"you_died"</span></span>
-<span id="cb13-505"><a href="#cb13-505" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-506"><a href="#cb13-506" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Only show the portion of red centrepiece text located within the bounding</span></span>
-<span id="cb13-507"><a href="#cb13-507" aria-hidden="true" tabindex="-1"></a>  <span class="co"># box</span></span>
-<span id="cb13-508"><a href="#cb13-508" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with_blend</span>(</span>
-<span id="cb13-509"><a href="#cb13-509" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(</span>
-<span id="cb13-510"><a href="#cb13-510" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="dv">0</span>,</span>
-<span id="cb13-511"><a href="#cb13-511" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> y,</span>
-<span id="cb13-512"><a href="#cb13-512" aria-hidden="true" tabindex="-1"></a>      <span class="at">label =</span> boss,</span>
-<span id="cb13-513"><a href="#cb13-513" aria-hidden="true" tabindex="-1"></a>      <span class="at">size =</span> text_size</span>
-<span id="cb13-514"><a href="#cb13-514" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb13-515"><a href="#cb13-515" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"red"</span>,</span>
-<span id="cb13-516"><a href="#cb13-516" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> optimus_b),</span>
-<span id="cb13-517"><a href="#cb13-517" aria-hidden="true" tabindex="-1"></a>    <span class="at">bg_layer =</span> <span class="st">"you_died"</span>,</span>
-<span id="cb13-518"><a href="#cb13-518" aria-hidden="true" tabindex="-1"></a>    <span class="at">blend_type =</span> <span class="st">"in"</span></span>
-<span id="cb13-519"><a href="#cb13-519" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb13-520"><a href="#cb13-520" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-521"><a href="#cb13-521" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-522"><a href="#cb13-522" aria-hidden="true" tabindex="-1"></a>Second, the code behind the distressed, broken style of the title text. This one is actually quite simple. It uses <span class="in">`magick::image_composite()`</span> to apply a texture mask I made in <span class="co">[</span><span class="ot">Krita</span><span class="co">](https://krita.org/)</span> over the composed plot. The mask has a transparent background with black lines located over the space where the plot title is. Both the composed plot and mask images have the same dimensions, so when they're composed together the effect is applied exactly where I want it.</span>
+<span id="cb13-470"><a href="#cb13-470" aria-hidden="true" tabindex="-1"></a>First, the code behind the coloured centrepiece text. It uses <span class="in">`ggfx::as_reference()`</span> and <span class="in">`ggfx::with_blend()`</span> to selectively apply a filter over portions of the text, as I discussed earlier. The boundaries of the filter are defined by the ggplot2 geom inside of <span class="in">`ggfx::as_reference()`</span>, then <span class="in">`ggfx::with_blend()`</span> applies a filter specified by <span class="in">`blend_type`</span> to the ggplot2 geom inside of it. By duplicating this process twice---once for yellow text and again for red text---but with different filter boundaries based on the percent completed and not completed, the entire boss name is displayed with accurate colour fills.</span>
+<span id="cb13-471"><a href="#cb13-471" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-472"><a href="#cb13-472" aria-hidden="true" tabindex="-1"></a><span class="in">```{r visualize-four}</span></span>
+<span id="cb13-473"><a href="#cb13-473" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb13-474"><a href="#cb13-474" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Set bounding box for yellow portion of centrepiece text</span></span>
+<span id="cb13-475"><a href="#cb13-475" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_reference</span>(</span>
+<span id="cb13-476"><a href="#cb13-476" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_rect</span>(<span class="fu">aes</span>(</span>
+<span id="cb13-477"><a href="#cb13-477" aria-hidden="true" tabindex="-1"></a>      <span class="at">xmin =</span> <span class="sc">-</span><span class="fl">0.5</span>,</span>
+<span id="cb13-478"><a href="#cb13-478" aria-hidden="true" tabindex="-1"></a>      <span class="at">xmax =</span> <span class="sc">-</span><span class="fl">0.5</span> <span class="sc">+</span> ((percent_completed)),</span>
+<span id="cb13-479"><a href="#cb13-479" aria-hidden="true" tabindex="-1"></a>      <span class="at">ymin =</span> y <span class="sc">-</span> (tile_height <span class="sc">*</span> <span class="fl">0.5</span>),</span>
+<span id="cb13-480"><a href="#cb13-480" aria-hidden="true" tabindex="-1"></a>      <span class="at">ymax =</span> y <span class="sc">+</span> (tile_height <span class="sc">*</span> <span class="fl">0.5</span>)</span>
+<span id="cb13-481"><a href="#cb13-481" aria-hidden="true" tabindex="-1"></a>    )), </span>
+<span id="cb13-482"><a href="#cb13-482" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="st">"demon_vanquished"</span></span>
+<span id="cb13-483"><a href="#cb13-483" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-484"><a href="#cb13-484" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Only show the portion of yellow centrepiece text located within the</span></span>
+<span id="cb13-485"><a href="#cb13-485" aria-hidden="true" tabindex="-1"></a>  <span class="co"># bounding box</span></span>
+<span id="cb13-486"><a href="#cb13-486" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with_blend</span>(</span>
+<span id="cb13-487"><a href="#cb13-487" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(</span>
+<span id="cb13-488"><a href="#cb13-488" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="dv">0</span>,</span>
+<span id="cb13-489"><a href="#cb13-489" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> y,</span>
+<span id="cb13-490"><a href="#cb13-490" aria-hidden="true" tabindex="-1"></a>      <span class="at">label =</span> boss,</span>
+<span id="cb13-491"><a href="#cb13-491" aria-hidden="true" tabindex="-1"></a>      <span class="at">size =</span> text_size</span>
+<span id="cb13-492"><a href="#cb13-492" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb13-493"><a href="#cb13-493" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> yellow,</span>
+<span id="cb13-494"><a href="#cb13-494" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> optimus_b),</span>
+<span id="cb13-495"><a href="#cb13-495" aria-hidden="true" tabindex="-1"></a>    <span class="at">bg_layer =</span> <span class="st">"demon_vanquished"</span>,</span>
+<span id="cb13-496"><a href="#cb13-496" aria-hidden="true" tabindex="-1"></a>    <span class="at">blend_type =</span> <span class="st">"in"</span></span>
+<span id="cb13-497"><a href="#cb13-497" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-498"><a href="#cb13-498" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Set bounding box for red portion of centrepiece text</span></span>
+<span id="cb13-499"><a href="#cb13-499" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_reference</span>(</span>
+<span id="cb13-500"><a href="#cb13-500" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_rect</span>(<span class="fu">aes</span>(</span>
+<span id="cb13-501"><a href="#cb13-501" aria-hidden="true" tabindex="-1"></a>      <span class="at">xmin =</span> <span class="fl">0.5</span> <span class="sc">-</span> ((<span class="dv">1</span> <span class="sc">-</span> percent_completed)),</span>
+<span id="cb13-502"><a href="#cb13-502" aria-hidden="true" tabindex="-1"></a>      <span class="at">xmax =</span> <span class="fl">0.5</span>,</span>
+<span id="cb13-503"><a href="#cb13-503" aria-hidden="true" tabindex="-1"></a>      <span class="at">ymin =</span> y <span class="sc">-</span> (tile_height <span class="sc">*</span> <span class="fl">0.5</span>),</span>
+<span id="cb13-504"><a href="#cb13-504" aria-hidden="true" tabindex="-1"></a>      <span class="at">ymax =</span> y <span class="sc">+</span> (tile_height <span class="sc">*</span> <span class="fl">0.5</span>)</span>
+<span id="cb13-505"><a href="#cb13-505" aria-hidden="true" tabindex="-1"></a>    )), </span>
+<span id="cb13-506"><a href="#cb13-506" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="st">"you_died"</span></span>
+<span id="cb13-507"><a href="#cb13-507" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-508"><a href="#cb13-508" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Only show the portion of red centrepiece text located within the bounding</span></span>
+<span id="cb13-509"><a href="#cb13-509" aria-hidden="true" tabindex="-1"></a>  <span class="co"># box</span></span>
+<span id="cb13-510"><a href="#cb13-510" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with_blend</span>(</span>
+<span id="cb13-511"><a href="#cb13-511" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(</span>
+<span id="cb13-512"><a href="#cb13-512" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="dv">0</span>,</span>
+<span id="cb13-513"><a href="#cb13-513" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> y,</span>
+<span id="cb13-514"><a href="#cb13-514" aria-hidden="true" tabindex="-1"></a>      <span class="at">label =</span> boss,</span>
+<span id="cb13-515"><a href="#cb13-515" aria-hidden="true" tabindex="-1"></a>      <span class="at">size =</span> text_size</span>
+<span id="cb13-516"><a href="#cb13-516" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb13-517"><a href="#cb13-517" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"red"</span>,</span>
+<span id="cb13-518"><a href="#cb13-518" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> optimus_b),</span>
+<span id="cb13-519"><a href="#cb13-519" aria-hidden="true" tabindex="-1"></a>    <span class="at">bg_layer =</span> <span class="st">"you_died"</span>,</span>
+<span id="cb13-520"><a href="#cb13-520" aria-hidden="true" tabindex="-1"></a>    <span class="at">blend_type =</span> <span class="st">"in"</span></span>
+<span id="cb13-521"><a href="#cb13-521" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-522"><a href="#cb13-522" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-523"><a href="#cb13-523" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-524"><a href="#cb13-524" aria-hidden="true" tabindex="-1"></a><span class="in">```{r visualize-five}</span></span>
-<span id="cb13-525"><a href="#cb13-525" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb13-526"><a href="#cb13-526" aria-hidden="true" tabindex="-1"></a><span class="fu">image_composite</span>(plot, mask, <span class="at">operator =</span> <span class="st">"Over"</span>)</span>
-<span id="cb13-527"><a href="#cb13-527" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-528"><a href="#cb13-528" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-529"><a href="#cb13-529" aria-hidden="true" tabindex="-1"></a>Finally, I just wanted to note that the decorative lines around the plot's title text are actually made up of ggplot2 geoms. I used two <span class="in">`ggplot2::geom_point()`</span> geoms with different sizes to create the diamond on the bottom line.</span>
+<span id="cb13-524"><a href="#cb13-524" aria-hidden="true" tabindex="-1"></a>Second, the code behind the distressed, broken style of the title text. This one is actually quite simple. It uses <span class="in">`magick::image_composite()`</span> to apply a texture mask I made in <span class="co">[</span><span class="ot">Krita</span><span class="co">](https://krita.org/)</span> over the composed plot. The mask has a transparent background with black lines located over the space where the plot title is. Both the composed plot and mask images have the same dimensions, so when they're composed together the effect is applied exactly where I want it.</span>
+<span id="cb13-525"><a href="#cb13-525" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-526"><a href="#cb13-526" aria-hidden="true" tabindex="-1"></a><span class="in">```{r visualize-five}</span></span>
+<span id="cb13-527"><a href="#cb13-527" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb13-528"><a href="#cb13-528" aria-hidden="true" tabindex="-1"></a><span class="fu">image_composite</span>(plot, mask, <span class="at">operator =</span> <span class="st">"Over"</span>)</span>
+<span id="cb13-529"><a href="#cb13-529" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-530"><a href="#cb13-530" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-531"><a href="#cb13-531" aria-hidden="true" tabindex="-1"></a><span class="fu">## Final Graphic</span></span>
+<span id="cb13-531"><a href="#cb13-531" aria-hidden="true" tabindex="-1"></a>Finally, I just wanted to note that the decorative lines around the plot's title text are actually made up of ggplot2 geoms. I used two <span class="in">`ggplot2::geom_point()`</span> geoms with different sizes to create the diamond on the bottom line.</span>
 <span id="cb13-532"><a href="#cb13-532" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-533"><a href="#cb13-533" aria-hidden="true" tabindex="-1"></a><span class="in">```{r final-plot}</span></span>
-<span id="cb13-534"><a href="#cb13-534" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb13-535"><a href="#cb13-535" aria-hidden="true" tabindex="-1"></a><span class="co">#| opts.label: 'fig.graphic'</span></span>
-<span id="cb13-536"><a href="#cb13-536" aria-hidden="true" tabindex="-1"></a>final_plot</span>
-<span id="cb13-537"><a href="#cb13-537" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-538"><a href="#cb13-538" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-539"><a href="#cb13-539" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_common/_appendix.qmd &gt;}}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-533"><a href="#cb13-533" aria-hidden="true" tabindex="-1"></a><span class="fu">## Final Graphic</span></span>
+<span id="cb13-534"><a href="#cb13-534" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-535"><a href="#cb13-535" aria-hidden="true" tabindex="-1"></a><span class="in">```{r final-plot}</span></span>
+<span id="cb13-536"><a href="#cb13-536" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb13-537"><a href="#cb13-537" aria-hidden="true" tabindex="-1"></a><span class="co">#| opts.label: 'fig.graphic'</span></span>
+<span id="cb13-538"><a href="#cb13-538" aria-hidden="true" tabindex="-1"></a>final_plot</span>
+<span id="cb13-539"><a href="#cb13-539" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-540"><a href="#cb13-540" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-541"><a href="#cb13-541" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_common/_appendix.qmd &gt;}}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

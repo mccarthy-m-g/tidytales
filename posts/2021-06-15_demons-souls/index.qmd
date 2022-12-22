@@ -30,7 +30,9 @@ twitter-card:
 open-graph:
   title: "Tidy Tales: Go forth, slayer of Demons"
   image: images/twittercard.png
-  
+
+resources: images/twittercard.png
+
 params:
   use_renv: FALSE
   data_file: "2021-06-15_demons-souls.csv"

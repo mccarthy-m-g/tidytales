@@ -29,7 +29,9 @@ twitter-card:
 open-graph:
   title: "Tidy Tales: Tales from the Borderlands"
   image: images/twittercard.png
-  
+
+resources: images/twittercard.png
+
 params:
   use_renv: FALSE
   data_file: "2021-03-16_games.csv"
