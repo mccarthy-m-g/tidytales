@@ -79,6 +79,41 @@
 </div>
 </div>
 </section>
+<section id="shared-axis-labels-without-using-patchwork" class="level2">
+<h2 class="anchored" data-anchor-id="shared-axis-labels-without-using-patchwork">Shared axis labels without using patchwork</h2>
+<p><a href="https://eliocamp.github.io">Elio Campitelli</a> shared a solution <a href="https://mastodon.social/@eliocamp/109559635126510130">on Mastodon</a> that accomplishes the same results as above, but without patchwork. It uses the magic tilde notation to create functions in the <code>data</code> argument of each geom that adds a grouping variable <code>var</code> that can be faceted on.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">h <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">ggplot</span>(huron, <span class="fu" style="color: #4758AB;">aes</span>(year)) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb5-2">  <span class="fu" style="color: #4758AB;">geom_ribbon</span>(</span>
+<span id="cb5-3">    <span class="at" style="color: #657422;">data =</span> <span class="sc" style="color: #5E5E5E;">~</span> <span class="fu" style="color: #4758AB;">transform</span>(.x, <span class="at" style="color: #657422;">var =</span> <span class="st" style="color: #20794D;">"a"</span>),</span>
+<span id="cb5-4">    <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">ymin =</span> level <span class="sc" style="color: #5E5E5E;">-</span> <span class="dv" style="color: #AD0000;">1</span>, <span class="at" style="color: #657422;">ymax =</span> level <span class="sc" style="color: #5E5E5E;">+</span> <span class="dv" style="color: #AD0000;">1</span>),</span>
+<span id="cb5-5">    <span class="at" style="color: #657422;">fill =</span> <span class="st" style="color: #20794D;">"grey70"</span></span>
+<span id="cb5-6">  ) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb5-7">  <span class="fu" style="color: #4758AB;">geom_line</span>(<span class="at" style="color: #657422;">data =</span> <span class="sc" style="color: #5E5E5E;">~</span> <span class="fu" style="color: #4758AB;">transform</span>(.x, <span class="at" style="color: #657422;">var =</span> <span class="st" style="color: #20794D;">"a"</span>), <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">y =</span> level)) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb5-8">  <span class="fu" style="color: #4758AB;">geom_area</span>(<span class="at" style="color: #657422;">data =</span> <span class="sc" style="color: #5E5E5E;">~</span> <span class="fu" style="color: #4758AB;">transform</span>(.x, <span class="at" style="color: #657422;">var =</span> <span class="st" style="color: #20794D;">"b"</span>), <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">y =</span> level)) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb5-9">  <span class="co" style="color: #5E5E5E;"># Since we don't care about the facet strips here, we can remove them.</span></span>
+<span id="cb5-10">  <span class="fu" style="color: #4758AB;">theme</span>(</span>
+<span id="cb5-11">    <span class="at" style="color: #657422;">strip.text =</span> <span class="fu" style="color: #4758AB;">element_blank</span>(),</span>
+<span id="cb5-12">    <span class="at" style="color: #657422;">strip.background =</span> <span class="fu" style="color: #4758AB;">element_blank</span>()</span>
+<span id="cb5-13">  )</span></code></pre></div>
+</div>
+<p>Facet by rows for a shared x-axis.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">h <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb6-2">  <span class="fu" style="color: #4758AB;">facet_wrap</span>(<span class="fu" style="color: #4758AB;">vars</span>(var), <span class="at" style="color: #657422;">scales =</span> <span class="st" style="color: #20794D;">"free_y"</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://tidytales.ca/snippets/2022-12-22_patchwork-shared-axis-labels/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Facet by columns for a shared y-axis.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">h <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb7-2">  <span class="fu" style="color: #4758AB;">facet_wrap</span>(<span class="fu" style="color: #4758AB;">vars</span>(var), <span class="at" style="color: #657422;">scales =</span> <span class="st" style="color: #20794D;">"free_y"</span>, <span class="at" style="color: #657422;">ncol =</span> <span class="dv" style="color: #AD0000;">1</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://tidytales.ca/snippets/2022-12-22_patchwork-shared-axis-labels/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
 
 
 

@@ -537,5 +537,12 @@
     "title": "Shared axis labels in patchwork plots",
     "section": "Session Info",
     "text": "Session Info\n\n\n\n\n\n\n─ Session info ───────────────────────────────────────────────────────────────\n setting  value\n version  R version 4.2.2 (2022-10-31)\n os       macOS Mojave 10.14.6\n system   x86_64, darwin17.0\n ui       X11\n language (EN)\n collate  en_CA.UTF-8\n ctype    en_CA.UTF-8\n tz       America/Vancouver\n date     2022-12-22\n pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)\n quarto   1.2.280 @ /usr/local/bin/quarto\n\n─ Packages ───────────────────────────────────────────────────────────────────\n package     * version date (UTC) lib source\n ggplot2     * 3.4.0   2022-11-04 [1] CRAN (R 4.2.0)\n patchwork   * 1.1.2   2022-08-19 [1] CRAN (R 4.2.0)\n sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.2.0)\n\n [1] /Users/Michael/Library/R/x86_64/4.2/library/__tidytales\n [2] /Library/Frameworks/R.framework/Versions/4.2/Resources/library\n\n──────────────────────────────────────────────────────────────────────────────"
+  },
+  {
+    "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#shared-axis-labels-without-using-patchwork",
+    "href": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#shared-axis-labels-without-using-patchwork",
+    "title": "Shared axis labels in patchwork plots",
+    "section": "Shared axis labels without using patchwork",
+    "text": "Shared axis labels without using patchwork\nElio Campitelli shared a solution on Mastodon that accomplishes the same results as above, but without patchwork. It uses the magic tilde notation to create functions in the data argument of each geom that adds a grouping variable var that can be faceted on.\n\nh <- ggplot(huron, aes(year)) +\n  geom_ribbon(\n    data = ~ transform(.x, var = \"a\"),\n    aes(ymin = level - 1, ymax = level + 1),\n    fill = \"grey70\"\n  ) +\n  geom_line(data = ~ transform(.x, var = \"a\"), aes(y = level)) +\n  geom_area(data = ~ transform(.x, var = \"b\"), aes(y = level)) +\n  # Since we don't care about the facet strips here, we can remove them.\n  theme(\n    strip.text = element_blank(),\n    strip.background = element_blank()\n  )\n\nFacet by rows for a shared x-axis.\n\nh +\n  facet_wrap(vars(var), scales = \"free_y\")\n\n\n\n\nFacet by columns for a shared y-axis.\n\nh +\n  facet_wrap(vars(var), scales = \"free_y\", ncol = 1)"
   }
 ]

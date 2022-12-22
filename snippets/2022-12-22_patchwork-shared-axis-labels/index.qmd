@@ -81,4 +81,38 @@ wrap_elements(h_patch) +
   )
 ```
 
+## Shared axis labels without using patchwork
+
+[Elio Campitelli](https://eliocamp.github.io) shared a solution [on Mastodon](https://mastodon.social/@eliocamp/109559635126510130) that accomplishes the same results as above, but without patchwork. It uses the magic tilde notation to create functions in the `data` argument of each geom that adds a grouping variable `var` that can be faceted on.
+
+```{r}
+h <- ggplot(huron, aes(year)) +
+  geom_ribbon(
+    data = ~ transform(.x, var = "a"),
+    aes(ymin = level - 1, ymax = level + 1),
+    fill = "grey70"
+  ) +
+  geom_line(data = ~ transform(.x, var = "a"), aes(y = level)) +
+  geom_area(data = ~ transform(.x, var = "b"), aes(y = level)) +
+  # Since we don't care about the facet strips here, we can remove them.
+  theme(
+    strip.text = element_blank(),
+    strip.background = element_blank()
+  )
+```
+
+Facet by rows for a shared x-axis.
+
+```{r}
+h +
+  facet_wrap(vars(var), scales = "free_y")
+```
+
+Facet by columns for a shared y-axis.
+
+```{r}
+h +
+  facet_wrap(vars(var), scales = "free_y", ncol = 1)
+```
+
 {{< include /_common/_appendix.qmd >}}
