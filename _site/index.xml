@@ -10,7 +10,168 @@
 <atom:link href="https://tidytales.ca/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.2.280</generator>
-<lastBuildDate>Tue, 20 Dec 2022 08:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 22 Dec 2022 08:00:00 GMT</lastBuildDate>
+<item>
+  <title>Shared axis labels in patchwork plots</title>
+  <dc:creator>Michael McCarthy</dc:creator>
+  <link>https://tidytales.ca/snippets/2022-12-22_patchwork-shared-axis-labels/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<p>To access the datasets, help pages, and functions that we will use in this code snippet, load the following packages:</p>
+<div class="cell" data-opts.label="no.message">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;">library</span>(ggplot2)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;">library</span>(patchwork)</span></code></pre></div>
+</div>
+<p>Then make some data and <strong>ggplot2</strong> plots to be used in the patchwork.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">huron <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">data.frame</span>(<span class="at" style="color: #657422;">year =</span> <span class="dv" style="color: #AD0000;">1875</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">1972</span>, <span class="at" style="color: #657422;">level =</span> <span class="fu" style="color: #4758AB;">as.vector</span>(LakeHuron))</span>
+<span id="cb2-2">h <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">ggplot</span>(huron, <span class="fu" style="color: #4758AB;">aes</span>(year))</span>
+<span id="cb2-3"></span>
+<span id="cb2-4">h1 <span class="ot" style="color: #003B4F;">&lt;-</span> h <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb2-5">  <span class="fu" style="color: #4758AB;">geom_ribbon</span>(<span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">ymin =</span> level <span class="sc" style="color: #5E5E5E;">-</span> <span class="dv" style="color: #AD0000;">1</span>, <span class="at" style="color: #657422;">ymax =</span> level <span class="sc" style="color: #5E5E5E;">+</span> <span class="dv" style="color: #AD0000;">1</span>), <span class="at" style="color: #657422;">fill =</span> <span class="st" style="color: #20794D;">"grey70"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb2-6">  <span class="fu" style="color: #4758AB;">geom_line</span>(<span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">y =</span> level))</span>
+<span id="cb2-7"></span>
+<span id="cb2-8">h2 <span class="ot" style="color: #003B4F;">&lt;-</span> h <span class="sc" style="color: #5E5E5E;">+</span> <span class="fu" style="color: #4758AB;">geom_area</span>(<span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">y =</span> level))</span></code></pre></div>
+</div>
+</section>
+<section id="shared-x-axis-labels" class="level2">
+<h2 class="anchored" data-anchor-id="shared-x-axis-labels">Shared x-axis labels</h2>
+<p>We set the bottom margin to 0 so the tag is in the same vertical position that the x-axis would otherwise be in.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="co" style="color: #5E5E5E;"># Create the patchwork, dropping the x-axis labels from the plots, and setting</span></span>
+<span id="cb3-2"><span class="co" style="color: #5E5E5E;"># the margins</span></span>
+<span id="cb3-3">h_patch <span class="ot" style="color: #003B4F;">&lt;-</span> h1 <span class="sc" style="color: #5E5E5E;">+</span> h2 <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="fu" style="color: #4758AB;">xlab</span>(<span class="cn" style="color: #8f5902;">NULL</span>) <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #657422;">plot.margin =</span> <span class="fu" style="color: #4758AB;">margin</span>(<span class="fl" style="color: #AD0000;">5.5</span>, <span class="fl" style="color: #AD0000;">5.5</span>, <span class="dv" style="color: #AD0000;">0</span>, <span class="fl" style="color: #AD0000;">5.5</span>))</span>
+<span id="cb3-4"></span>
+<span id="cb3-5"><span class="co" style="color: #5E5E5E;"># Use the tag label as an x-axis label</span></span>
+<span id="cb3-6"><span class="fu" style="color: #4758AB;">wrap_elements</span>(<span class="at" style="color: #657422;">panel =</span> h_patch) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb3-7">  <span class="fu" style="color: #4758AB;">labs</span>(<span class="at" style="color: #657422;">tag =</span> <span class="st" style="color: #20794D;">"year"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb3-8">  <span class="fu" style="color: #4758AB;">theme</span>(</span>
+<span id="cb3-9">    <span class="at" style="color: #657422;">plot.tag =</span> <span class="fu" style="color: #4758AB;">element_text</span>(<span class="at" style="color: #657422;">size =</span> <span class="fu" style="color: #4758AB;">rel</span>(<span class="dv" style="color: #AD0000;">1</span>)),</span>
+<span id="cb3-10">    <span class="at" style="color: #657422;">plot.tag.position =</span> <span class="st" style="color: #20794D;">"bottom"</span></span>
+<span id="cb3-11">  )</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://tidytales.ca/snippets/2022-12-22_patchwork-shared-axis-labels/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="shared-y-axis-labels" class="level2">
+<h2 class="anchored" data-anchor-id="shared-y-axis-labels">Shared y-axis labels</h2>
+<p>We set the left margin to 0 so the tag is in the same horizontal position that the y-axis would otherwise be in.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="co" style="color: #5E5E5E;"># Create the patchwork, dropping the y-axis labels from the plots, and setting</span></span>
+<span id="cb4-2"><span class="co" style="color: #5E5E5E;"># the margins</span></span>
+<span id="cb4-3">h_patch <span class="ot" style="color: #003B4F;">&lt;-</span> h1 <span class="sc" style="color: #5E5E5E;">/</span> h2 <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="fu" style="color: #4758AB;">ylab</span>(<span class="cn" style="color: #8f5902;">NULL</span>) <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #657422;">plot.margin =</span> <span class="fu" style="color: #4758AB;">margin</span>(<span class="fl" style="color: #AD0000;">5.5</span>, <span class="fl" style="color: #AD0000;">5.5</span>, <span class="fl" style="color: #AD0000;">5.5</span>, <span class="dv" style="color: #AD0000;">0</span>))</span>
+<span id="cb4-4"></span>
+<span id="cb4-5"><span class="co" style="color: #5E5E5E;"># Use the tag label as a y-axis label</span></span>
+<span id="cb4-6"><span class="fu" style="color: #4758AB;">wrap_elements</span>(h_patch) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb4-7">  <span class="fu" style="color: #4758AB;">labs</span>(<span class="at" style="color: #657422;">tag =</span> <span class="st" style="color: #20794D;">"level"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb4-8">  <span class="fu" style="color: #4758AB;">theme</span>(</span>
+<span id="cb4-9">    <span class="at" style="color: #657422;">plot.tag =</span> <span class="fu" style="color: #4758AB;">element_text</span>(<span class="at" style="color: #657422;">size =</span> <span class="fu" style="color: #4758AB;">rel</span>(<span class="dv" style="color: #AD0000;">1</span>), <span class="at" style="color: #657422;">angle =</span> <span class="dv" style="color: #AD0000;">90</span>),</span>
+<span id="cb4-10">    <span class="at" style="color: #657422;">plot.tag.position =</span> <span class="st" style="color: #20794D;">"left"</span></span>
+<span id="cb4-11">  )</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://tidytales.ca/snippets/2022-12-22_patchwork-shared-axis-labels/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+
+
+
+
+<div id="quarto-appendix" class="default"><section id="section" class="level2 appendix unnumbered unlisted"><h2 class="quarto-appendix-heading"></h2><div class="quarto-appendix-contents">
+
+<div class="d-flex">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="https://tidytales.ca/assets/images/avatar.png" class="rounded avatar img-fluid figure-img" alt="Avatar"></p>
+</figure>
+</div>
+<div>
+<section id="michael-mccarthy" class="level2 quarto-appendix-heading">
+<h2 class="quarto-appendix-heading anchored" data-anchor-id="michael-mccarthy">Michael McCarthy</h2>
+</section>
+<p>Thanks for reading! I’m Michael, the voice behind Tidy Tales. I am an award winning data scientist and R programmer with the skills and experience to help you solve the problems you care about. You can learn more about me, my <a href="https://michaelmccarthy.tidytales.ca/consulting/">consulting services</a>, and my other projects on my <a href="https://michaelmccarthy.tidytales.ca">personal website</a>.</p>
+</div>
+</div>
+</div></section><section id="comments" class="level2 appendix unnumbered unlisted"><h2 class="quarto-appendix-heading">Comments</h2><div class="quarto-appendix-contents">
+
+<details open="">
+<summary>
+</summary>
+<div class="giscus">
+
+</div>
+</details>
+</div></section><section id="session-info" class="level2 appendix unnumbered unlisted"><h2 class="quarto-appendix-heading">Session Info</h2><div class="quarto-appendix-contents">
+
+<details>
+<summary>
+</summary>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>─ Session info ───────────────────────────────────────────────────────────────
+ setting  value
+ version  R version 4.2.2 (2022-10-31)
+ os       macOS Mojave 10.14.6
+ system   x86_64, darwin17.0
+ ui       X11
+ language (EN)
+ collate  en_CA.UTF-8
+ ctype    en_CA.UTF-8
+ tz       America/Vancouver
+ date     2022-12-22
+ pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)
+ quarto   1.2.280 @ /usr/local/bin/quarto
+
+─ Packages ───────────────────────────────────────────────────────────────────
+ package     * version date (UTC) lib source
+ ggplot2     * 3.4.0   2022-11-04 [1] CRAN (R 4.2.0)
+ patchwork   * 1.1.2   2022-08-19 [1] CRAN (R 4.2.0)
+ sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.2.0)
+
+ [1] /Users/Michael/Library/R/x86_64/4.2/library/__tidytales
+ [2] /Library/Frameworks/R.framework/Versions/4.2/Resources/library
+
+──────────────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+</div>
+</details>
+<!--
+## Data {.appendix .unnumbered .unlisted}
+
+[Download](/data/) the data used in this post.
+-->
+<!--
+## Fair Dealing {.appendix .unnumbered .unlisted}
+
+Any of the trademarks, service marks, collective marks, design rights or similar rights that are mentioned, used, or cited in this article are the property of their respective owners. They are used here as fair dealing for the purpose of education in accordance with [section 29 of the Copyright Act](https://laws-lois.justice.gc.ca/eng/acts/c-42/page-8.html#h-103270) and do not infringe copyright.
+-->
+
+
+<!-- -->
+
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{mccarthy2022,
+  author = {Michael McCarthy},
+  title = {Shared Axis Labels in Patchwork Plots},
+  date = {2022-12-22},
+  url = {https://tidytales.ca/snippets/2022-12-22_patchwork-shared-axis-labels},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mccarthy2022" class="csl-entry quarto-appendix-citeas">
+Michael McCarthy. (2022, December 22). <em>Shared axis labels in
+patchwork plots</em>. <a href="https://tidytales.ca/snippets/2022-12-22_patchwork-shared-axis-labels">https://tidytales.ca/snippets/2022-12-22_patchwork-shared-axis-labels</a>
+</div></div></section></div> ]]></description>
+  <category>.Visualize</category>
+  <category>{ggplot2}</category>
+  <category>{patchwork}</category>
+  <guid>https://tidytales.ca/snippets/2022-12-22_patchwork-shared-axis-labels/index.html</guid>
+  <pubDate>Thu, 22 Dec 2022 08:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Introducing the palettes package</title>
   <dc:creator>Michael McCarthy</dc:creator>

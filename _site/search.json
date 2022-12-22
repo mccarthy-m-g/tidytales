@@ -488,5 +488,54 @@
     "title": "Tales from the Borderlands",
     "section": "Fair Dealing",
     "text": "Fair Dealing\n\nAny of the trademarks, service marks, collective marks, design rights or similar rights that are mentioned, used, or cited in this article are the property of their respective owners. They are used here as fair dealing for the purpose of education in accordance with section 29 of the Copyright Act and do not infringe copyright."
+  },
+  {
+    "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html",
+    "href": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html",
+    "title": "Shared axis labels in patchwork plots",
+    "section": "",
+    "text": "To access the datasets, help pages, and functions that we will use in this code snippet, load the following packages:\n\nlibrary(ggplot2)\nlibrary(patchwork)\n\nThen make some data and ggplot2 plots to be used in the patchwork.\n\nhuron <- data.frame(year = 1875:1972, level = as.vector(LakeHuron))\nh <- ggplot(huron, aes(year))\n\nh1 <- h +\n  geom_ribbon(aes(ymin = level - 1, ymax = level + 1), fill = \"grey70\") +\n  geom_line(aes(y = level))\n\nh2 <- h + geom_area(aes(y = level))"
+  },
+  {
+    "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#shared-x-axis-labels",
+    "href": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#shared-x-axis-labels",
+    "title": "Shared axis labels in patchwork plots",
+    "section": "Shared x-axis labels",
+    "text": "Shared x-axis labels\nWe set the bottom margin to 0 so the tag is in the same vertical position that the x-axis would otherwise be in.\n\n# Create the patchwork, dropping the x-axis labels from the plots, and setting\n# the margins\nh_patch <- h1 + h2 & xlab(NULL) & theme(plot.margin = margin(5.5, 5.5, 0, 5.5))\n\n# Use the tag label as an x-axis label\nwrap_elements(panel = h_patch) +\n  labs(tag = \"year\") +\n  theme(\n    plot.tag = element_text(size = rel(1)),\n    plot.tag.position = \"bottom\"\n  )"
+  },
+  {
+    "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#shared-y-axis-labels",
+    "href": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#shared-y-axis-labels",
+    "title": "Shared axis labels in patchwork plots",
+    "section": "Shared y-axis labels",
+    "text": "Shared y-axis labels\nWe set the left margin to 0 so the tag is in the same horizontal position that the y-axis would otherwise be in.\n\n# Create the patchwork, dropping the y-axis labels from the plots, and setting\n# the margins\nh_patch <- h1 / h2 & ylab(NULL) & theme(plot.margin = margin(5.5, 5.5, 5.5, 0))\n\n# Use the tag label as a y-axis label\nwrap_elements(h_patch) +\n  labs(tag = \"level\") +\n  theme(\n    plot.tag = element_text(size = rel(1), angle = 90),\n    plot.tag.position = \"left\"\n  )"
+  },
+  {
+    "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#section",
+    "href": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#section",
+    "title": "Shared axis labels in patchwork plots",
+    "section": "",
+    "text": "Michael McCarthy\n\nThanks for reading! I’m Michael, the voice behind Tidy Tales. I am an award winning data scientist and R programmer with the skills and experience to help you solve the problems you care about. You can learn more about me, my consulting services, and my other projects on my personal website."
+  },
+  {
+    "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#michael-mccarthy",
+    "href": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#michael-mccarthy",
+    "title": "Shared axis labels in patchwork plots",
+    "section": "Michael McCarthy",
+    "text": "Michael McCarthy"
+  },
+  {
+    "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#comments",
+    "href": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#comments",
+    "title": "Shared axis labels in patchwork plots",
+    "section": "Comments",
+    "text": "Comments"
+  },
+  {
+    "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#session-info",
+    "href": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#session-info",
+    "title": "Shared axis labels in patchwork plots",
+    "section": "Session Info",
+    "text": "Session Info\n\n\n\n\n\n\n─ Session info ───────────────────────────────────────────────────────────────\n setting  value\n version  R version 4.2.2 (2022-10-31)\n os       macOS Mojave 10.14.6\n system   x86_64, darwin17.0\n ui       X11\n language (EN)\n collate  en_CA.UTF-8\n ctype    en_CA.UTF-8\n tz       America/Vancouver\n date     2022-12-22\n pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)\n quarto   1.2.280 @ /usr/local/bin/quarto\n\n─ Packages ───────────────────────────────────────────────────────────────────\n package     * version date (UTC) lib source\n ggplot2     * 3.4.0   2022-11-04 [1] CRAN (R 4.2.0)\n patchwork   * 1.1.2   2022-08-19 [1] CRAN (R 4.2.0)\n sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.2.0)\n\n [1] /Users/Michael/Library/R/x86_64/4.2/library/__tidytales\n [2] /Library/Frameworks/R.framework/Versions/4.2/Resources/library\n\n──────────────────────────────────────────────────────────────────────────────"
   }
 ]
