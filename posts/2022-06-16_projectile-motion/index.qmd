@@ -150,7 +150,7 @@ I'll be simulating data for my plot by turning the equations for projectile moti
 The equations for projectile motion use a common set of variables which are listed below. The equations assume that the force of air resistance is negligible 
 
 $$
-\begin{align}
+\begin{align*}
 V &\leftarrow \textrm{initial velocity}, \\
 V_x &\leftarrow \textrm{horizontal velocity}, \\
 V_y &\leftarrow \textrm{vertical velocity}, \\
@@ -160,7 +160,7 @@ t &\leftarrow \textrm{time of flight}, \\
 d &\leftarrow \textrm{distance (range)}, \\
 h_{\textrm{max}} &\leftarrow \textrm{maximum height}, \\
 g &\leftarrow \textrm{gravity}.
-\end{align}
+\end{align*}
 $$
 
 ### Horizontal and vertical velocity
@@ -168,10 +168,10 @@ $$
 The horizontal velocity, $V_x$, and vertical velocity, $V_y$, of an object moving in projectile motion are given by the equations
 
 $$
-\begin{align}
+\begin{align*}
 V_x &= V \times \cos(\alpha), \textrm{ and} \\
 V_y &= V \times \sin(\alpha),
-\end{align}
+\end{align*}
 $$
 
 where $V$ is the initial velocity and $\alpha$ is the launch angle. Horizontal and vertical velocity can be computed in R with the following functions.

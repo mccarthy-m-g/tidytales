@@ -148,7 +148,22 @@ div.csl-indent {
 <link href="../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../assets/styles.css">
 <meta property="og:title" content="Tidy Tales: On motion">
@@ -359,8 +374,8 @@ div.csl-indent {
 <section id="simulate" class="level2">
 <h2 class="anchored" data-anchor-id="simulate">Simulate</h2>
 <p>The equations for projectile motion use a common set of variables which are listed below. The equations assume that the force of air resistance is negligible</p>
-<p><span class="math display">\[
-\begin{align}
+<p><span class="math display">
+\begin{align*}
 V &amp;\leftarrow \textrm{initial velocity}, \\
 V_x &amp;\leftarrow \textrm{horizontal velocity}, \\
 V_y &amp;\leftarrow \textrm{vertical velocity}, \\
@@ -370,18 +385,18 @@ t &amp;\leftarrow \textrm{time of flight}, \\
 d &amp;\leftarrow \textrm{distance (range)}, \\
 h_{\textrm{max}} &amp;\leftarrow \textrm{maximum height}, \\
 g &amp;\leftarrow \textrm{gravity}.
-\end{align}
-\]</span></p>
+\end{align*}
+</span></p>
 <section id="horizontal-and-vertical-velocity" class="level3">
 <h3 class="anchored" data-anchor-id="horizontal-and-vertical-velocity">Horizontal and vertical velocity</h3>
-<p>The horizontal velocity, <span class="math inline">\(V_x\)</span>, and vertical velocity, <span class="math inline">\(V_y\)</span>, of an object moving in projectile motion are given by the equations</p>
-<p><span class="math display">\[
-\begin{align}
+<p>The horizontal velocity, <span class="math inline">V_x</span>, and vertical velocity, <span class="math inline">V_y</span>, of an object moving in projectile motion are given by the equations</p>
+<p><span class="math display">
+\begin{align*}
 V_x &amp;= V \times \cos(\alpha), \textrm{ and} \\
 V_y &amp;= V \times \sin(\alpha),
-\end{align}
-\]</span></p>
-<p>where <span class="math inline">\(V\)</span> is the initial velocity and <span class="math inline">\(\alpha\)</span> is the launch angle. Horizontal and vertical velocity can be computed in R with the following functions.</p>
+\end{align*}
+</span></p>
+<p>where <span class="math inline">V</span> is the initial velocity and <span class="math inline">\alpha</span> is the launch angle. Horizontal and vertical velocity can be computed in R with the following functions.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>velocity_x <span class="ot">&lt;-</span> <span class="cf">function</span>(velocity, angle) {</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Degrees need to be converted to radians in cos() since that is what the</span></span>
@@ -398,11 +413,11 @@ V_y &amp;= V \times \sin(\alpha),
 </section>
 <section id="time-of-flight" class="level3">
 <h3 class="anchored" data-anchor-id="time-of-flight">Time of flight</h3>
-<p>The time of flight, <span class="math inline">\(t\)</span>, of an object moving in projectile motion is given by the equation</p>
-<p><span class="math display">\[
+<p>The time of flight, <span class="math inline">t</span>, of an object moving in projectile motion is given by the equation</p>
+<p><span class="math display">
 t = \left(V_y + \sqrt{V_y^2 + 2 \times g \times h}\right) \div g,
-\]</span></p>
-<p>where <span class="math inline">\(V_y\)</span> is the vertical velocity, <span class="math inline">\(g\)</span> is the force of gravity, and <span class="math inline">\(h\)</span>, is the initial height the object is launched from. Time of flight is the time from when the object is launched to the time the object reaches the surface. It can be computed in R with the following function.</p>
+</span></p>
+<p>where <span class="math inline">V_y</span> is the vertical velocity, <span class="math inline">g</span> is the force of gravity, and <span class="math inline">h</span>, is the initial height the object is launched from. Time of flight is the time from when the object is launched to the time the object reaches the surface. It can be computed in R with the following function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>flight_time <span class="ot">&lt;-</span> <span class="cf">function</span>(velocity_y, height, <span class="at">gravity =</span> <span class="fl">9.80665</span>) {</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  ( velocity_y <span class="sc">+</span> <span class="fu">sqrt</span>(velocity_y<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> gravity <span class="sc">*</span> height) ) <span class="sc">/</span> gravity</span>
@@ -411,11 +426,11 @@ t = \left(V_y + \sqrt{V_y^2 + 2 \times g \times h}\right) \div g,
 </section>
 <section id="distance-range" class="level3">
 <h3 class="anchored" data-anchor-id="distance-range">Distance (range)</h3>
-<p>The distance, <span class="math inline">\(d\)</span>, or range travelled by an object moving in projectile motion is given by the equation</p>
-<p><span class="math display">\[
+<p>The distance, <span class="math inline">d</span>, or range travelled by an object moving in projectile motion is given by the equation</p>
+<p><span class="math display">
 d = V_x \times t,
-\]</span></p>
-<p>where <span class="math inline">\(V_x\)</span> is the horizontal velocity and <span class="math inline">\(t\)</span> is the time of flight. The range of the projectile is the total horizontal distance travelled during the time of flight. It can be computed in R with the following function.</p>
+</span></p>
+<p>where <span class="math inline">V_x</span> is the horizontal velocity and <span class="math inline">t</span> is the time of flight. The range of the projectile is the total horizontal distance travelled during the time of flight. It can be computed in R with the following function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>distance <span class="ot">&lt;-</span> <span class="cf">function</span>(velocity_x, velocity_y, height, <span class="at">gravity =</span> <span class="fl">9.80665</span>) {</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  velocity_x <span class="sc">*</span> ( velocity_y <span class="sc">+</span> <span class="fu">sqrt</span>(velocity_y<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> gravity <span class="sc">*</span> height) ) <span class="sc">/</span></span>
@@ -425,11 +440,11 @@ d = V_x \times t,
 </section>
 <section id="maximum-height" class="level3">
 <h3 class="anchored" data-anchor-id="maximum-height">Maximum height</h3>
-<p>The maximum height, <span class="math inline">\(h_{\textrm{max}}\)</span>, reached by an object moving in projectile motion is given by the equation</p>
-<p><span class="math display">\[
+<p>The maximum height, <span class="math inline">h_{\textrm{max}}</span>, reached by an object moving in projectile motion is given by the equation</p>
+<p><span class="math display">
 h_{\textrm{max}} = h + V_y^2 \div (2 \times g),
-\]</span></p>
-<p>where <span class="math inline">\(h\)</span> is the initial height, <span class="math inline">\(V_y\)</span> is the vertical velocity, and <span class="math inline">\(g\)</span> is the force of gravity. The maximum height is reached when <span class="math inline">\(V_y = 0\)</span>. It can be computed in R with the following function.</p>
+</span></p>
+<p>where <span class="math inline">h</span> is the initial height, <span class="math inline">V_y</span> is the vertical velocity, and <span class="math inline">g</span> is the force of gravity. The maximum height is reached when <span class="math inline">V_y = 0</span>. It can be computed in R with the following function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>height_max <span class="ot">&lt;-</span> <span class="cf">function</span>(velocity_y, height, <span class="at">gravity =</span> <span class="fl">9.80665</span>) {</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  height <span class="sc">+</span> velocity_y<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> gravity)</span>
@@ -706,7 +721,7 @@ h_{\textrm{max}} = h + V_y^2 \div (2 \times g),
 <span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Graphic: Michael McCarthy"</span></span>
 <span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now for theming. I wanted something minimalistic with a scientific feel—the classic theme paired with truncated axes courtesy of ggh4x does this nicely. Finally, I originally planned to use <code>element_markdown()</code> from ggtext to enable markdown text in the subtitle of the plot so that vertical velocity could be written like <span class="math inline">\(\textrm{Velocity}_Y\)</span>; however, this caused issues with the text spacing when rendering the animation to video, so I opted not to.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Now for theming. I wanted something minimalistic with a scientific feel—the classic theme paired with truncated axes courtesy of ggh4x does this nicely. Finally, I originally planned to use <code>element_markdown()</code> from ggtext to enable markdown text in the subtitle of the plot so that vertical velocity could be written like <span class="math inline">\textrm{Velocity}_Y</span>; however, this caused issues with the text spacing when rendering the animation to video, so I opted not to.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">x =</span> <span class="st">"axis_truncated"</span>, <span class="at">y =</span> <span class="st">"axis_truncated"</span>) <span class="sc">+</span></span>
@@ -863,7 +878,7 @@ h_{\textrm{max}} = h + V_y^2 \div (2 \times g),
  collate  en_CA.UTF-8
  ctype    en_CA.UTF-8
  tz       America/Vancouver
- date     2022-12-21
+ date     2022-12-23
  pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)
  quarto   1.2.280 @ /usr/local/bin/quarto
 
@@ -1285,7 +1300,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb21-150"><a href="#cb21-150" aria-hidden="true" tabindex="-1"></a>The equations for projectile motion use a common set of variables which are listed below. The equations assume that the force of air resistance is negligible </span>
 <span id="cb21-151"><a href="#cb21-151" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-152"><a href="#cb21-152" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb21-153"><a href="#cb21-153" aria-hidden="true" tabindex="-1"></a>\begin{align}</span>
+<span id="cb21-153"><a href="#cb21-153" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
 <span id="cb21-154"><a href="#cb21-154" aria-hidden="true" tabindex="-1"></a>V &amp;\leftarrow \textrm{initial velocity}, <span class="sc">\\</span></span>
 <span id="cb21-155"><a href="#cb21-155" aria-hidden="true" tabindex="-1"></a>V_x &amp;\leftarrow \textrm{horizontal velocity}, <span class="sc">\\</span></span>
 <span id="cb21-156"><a href="#cb21-156" aria-hidden="true" tabindex="-1"></a>V_y &amp;\leftarrow \textrm{vertical velocity}, <span class="sc">\\</span></span>
@@ -1295,7 +1310,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb21-160"><a href="#cb21-160" aria-hidden="true" tabindex="-1"></a>d &amp;\leftarrow \textrm{distance (range)}, <span class="sc">\\</span></span>
 <span id="cb21-161"><a href="#cb21-161" aria-hidden="true" tabindex="-1"></a>h_{\textrm{max}} &amp;\leftarrow \textrm{maximum height}, <span class="sc">\\</span></span>
 <span id="cb21-162"><a href="#cb21-162" aria-hidden="true" tabindex="-1"></a>g &amp;\leftarrow \textrm{gravity}.</span>
-<span id="cb21-163"><a href="#cb21-163" aria-hidden="true" tabindex="-1"></a>\end{align}</span>
+<span id="cb21-163"><a href="#cb21-163" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
 <span id="cb21-164"><a href="#cb21-164" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb21-165"><a href="#cb21-165" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-166"><a href="#cb21-166" aria-hidden="true" tabindex="-1"></a><span class="fu">### Horizontal and vertical velocity</span></span>
@@ -1303,10 +1318,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb21-168"><a href="#cb21-168" aria-hidden="true" tabindex="-1"></a>The horizontal velocity, $V_x$, and vertical velocity, $V_y$, of an object moving in projectile motion are given by the equations</span>
 <span id="cb21-169"><a href="#cb21-169" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-170"><a href="#cb21-170" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb21-171"><a href="#cb21-171" aria-hidden="true" tabindex="-1"></a>\begin{align}</span>
+<span id="cb21-171"><a href="#cb21-171" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
 <span id="cb21-172"><a href="#cb21-172" aria-hidden="true" tabindex="-1"></a>V_x &amp;= V \times \cos(\alpha), \textrm{ and} <span class="sc">\\</span></span>
 <span id="cb21-173"><a href="#cb21-173" aria-hidden="true" tabindex="-1"></a>V_y &amp;= V \times \sin(\alpha),</span>
-<span id="cb21-174"><a href="#cb21-174" aria-hidden="true" tabindex="-1"></a>\end{align}</span>
+<span id="cb21-174"><a href="#cb21-174" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
 <span id="cb21-175"><a href="#cb21-175" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb21-176"><a href="#cb21-176" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-177"><a href="#cb21-177" aria-hidden="true" tabindex="-1"></a>where $V$ is the initial velocity and $\alpha$ is the launch angle. Horizontal and vertical velocity can be computed in R with the following functions.</span>
