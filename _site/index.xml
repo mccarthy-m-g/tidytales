@@ -1219,11 +1219,11 @@ Borderlands</em>. <a href="https://tidytales.ca/posts/2022-09-29_borderlands">ht
 <section id="simulate" class="level2">
 <h2 class="anchored" data-anchor-id="simulate">Simulate</h2>
 <p>The equations for projectile motion use a common set of variables which are listed below. The equations assume that the force of air resistance is negligible</p>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0AV%20&amp;%5Cleftarrow%20%5Ctextrm%7Binitial%20velocity%7D,%20%5C%5C%0AV_x%20&amp;%5Cleftarrow%20%5Ctextrm%7Bhorizontal%20velocity%7D,%20%5C%5C%0AV_y%20&amp;%5Cleftarrow%20%5Ctextrm%7Bvertical%20velocity%7D,%20%5C%5C%0A%5Calpha%20&amp;%5Cleftarrow%20%5Ctextrm%7Blaunch%20angle%7D,%20%5C%5C%0Ah%20&amp;%5Cleftarrow%20%5Ctextrm%7Binitial%20height%7D,%20%5C%5C%0At%20&amp;%5Cleftarrow%20%5Ctextrm%7Btime%20of%20flight%7D,%20%5C%5C%0Ad%20&amp;%5Cleftarrow%20%5Ctextrm%7Bdistance%20(range)%7D,%20%5C%5C%0Ah_%7B%5Ctextrm%7Bmax%7D%7D%20&amp;%5Cleftarrow%20%5Ctextrm%7Bmaximum%20height%7D,%20%5C%5C%0Ag%20&amp;%5Cleftarrow%20%5Ctextrm%7Bgravity%7D.%0A%5Cend%7Balign%7D%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign*%7D%0AV%20&amp;%5Cleftarrow%20%5Ctextrm%7Binitial%20velocity%7D,%20%5C%5C%0AV_x%20&amp;%5Cleftarrow%20%5Ctextrm%7Bhorizontal%20velocity%7D,%20%5C%5C%0AV_y%20&amp;%5Cleftarrow%20%5Ctextrm%7Bvertical%20velocity%7D,%20%5C%5C%0A%5Calpha%20&amp;%5Cleftarrow%20%5Ctextrm%7Blaunch%20angle%7D,%20%5C%5C%0Ah%20&amp;%5Cleftarrow%20%5Ctextrm%7Binitial%20height%7D,%20%5C%5C%0At%20&amp;%5Cleftarrow%20%5Ctextrm%7Btime%20of%20flight%7D,%20%5C%5C%0Ad%20&amp;%5Cleftarrow%20%5Ctextrm%7Bdistance%20(range)%7D,%20%5C%5C%0Ah_%7B%5Ctextrm%7Bmax%7D%7D%20&amp;%5Cleftarrow%20%5Ctextrm%7Bmaximum%20height%7D,%20%5C%5C%0Ag%20&amp;%5Cleftarrow%20%5Ctextrm%7Bgravity%7D.%0A%5Cend%7Balign*%7D%0A"></p>
 <section id="horizontal-and-vertical-velocity" class="level3">
 <h3 class="anchored" data-anchor-id="horizontal-and-vertical-velocity">Horizontal and vertical velocity</h3>
 <p>The horizontal velocity, <img src="https://latex.codecogs.com/png.latex?V_x">, and vertical velocity, <img src="https://latex.codecogs.com/png.latex?V_y">, of an object moving in projectile motion are given by the equations</p>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0AV_x%20&amp;=%20V%20%5Ctimes%20%5Ccos(%5Calpha),%20%5Ctextrm%7B%20and%7D%20%5C%5C%0AV_y%20&amp;=%20V%20%5Ctimes%20%5Csin(%5Calpha),%0A%5Cend%7Balign%7D%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign*%7D%0AV_x%20&amp;=%20V%20%5Ctimes%20%5Ccos(%5Calpha),%20%5Ctextrm%7B%20and%7D%20%5C%5C%0AV_y%20&amp;=%20V%20%5Ctimes%20%5Csin(%5Calpha),%0A%5Cend%7Balign*%7D%0A"></p>
 <p>where <img src="https://latex.codecogs.com/png.latex?V"> is the initial velocity and <img src="https://latex.codecogs.com/png.latex?%5Calpha"> is the launch angle. Horizontal and vertical velocity can be computed in R with the following functions.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">velocity_x <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="cf" style="color: #003B4F;">function</span>(velocity, angle) {</span>
@@ -1700,7 +1700,7 @@ Borderlands</em>. <a href="https://tidytales.ca/posts/2022-09-29_borderlands">ht
  collate  en_CA.UTF-8
  ctype    en_CA.UTF-8
  tz       America/Vancouver
- date     2022-12-21
+ date     2022-12-23
  pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)
  quarto   1.2.280 @ /usr/local/bin/quarto
 

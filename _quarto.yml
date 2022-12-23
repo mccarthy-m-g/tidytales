@@ -80,6 +80,7 @@ format:
     df-print: paged
 
     from: markdown+emoji
+    html-math-method: katex
     link-external-newwindow: true
 
 ## knitr options
