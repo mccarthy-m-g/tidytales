@@ -628,10 +628,10 @@ h_{\textrm{max}} = h + V_y^2 \div (2 \times g),
 </div>
 </section>
 </section>
-<section id="visualize" class="level2">
+<section id="visualize" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="visualize">Visualize</h2>
 <p>Now for visualization. First I’ll plot a simple trajectory, then a projectile launched on different planets.</p>
-<section id="a-simple-trajectory-1" class="level3">
+<section id="a-simple-trajectory-1" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="a-simple-trajectory-1">A simple trajectory</h3>
 <p>This is the same simple trajectory I showed the output for earlier, only with more frames to make the animation smoother.</p>
 <div class="cell">
@@ -728,7 +728,10 @@ h_{\textrm{max}} = h + V_y^2 \div (2 \times g),
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_family =</span> <span class="st">"serif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And finally, the animation code. Yes, that’s it. Animations can be tweaked and spiced up with <a href="https://gganimate.com/reference/index.html">other functions</a> in gganimate, but I <a href="https://github.com/thomasp85/gganimate/issues/445">ran into issues</a> making the ones I wanted to use work with <code>transition_reveal()</code>.</p>
-<div class="cell">
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Just a note: The behaviour of <code>transition_reveal()</code> shown here was <a href="https://github.com/thomasp85/gganimate/issues/468">broken in v1.0.8</a> of gganimate.</p>
+</div></div><div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_reveal</span>(second)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -888,7 +891,7 @@ h_{\textrm{max}} = h + V_y^2 \div (2 \times g),
  emojifont   * 0.5.5   2021-04-20 [1] CRAN (R 4.2.0)
  forcats     * 0.5.2   2022-08-19 [1] CRAN (R 4.2.0)
  formattable * 0.2.1   2021-01-07 [1] CRAN (R 4.2.0)
- gganimate   * 1.0.8   2022-09-08 [1] CRAN (R 4.2.0)
+ gganimate   * 1.0.7   2020-10-15 [1] CRAN (R 4.2.2)
  ggh4x       * 0.2.3   2022-11-09 [1] CRAN (R 4.2.0)
  ggplot2     * 3.4.0   2022-11-04 [1] CRAN (R 4.2.0)
  glue        * 1.6.2   2022-02-24 [1] CRAN (R 4.2.0)
@@ -1644,183 +1647,187 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb21-502"><a href="#cb21-502" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-503"><a href="#cb21-503" aria-hidden="true" tabindex="-1"></a>And finally, the animation code. Yes, that's it. Animations can be tweaked and spiced up with <span class="co">[</span><span class="ot">other functions</span><span class="co">](https://gganimate.com/reference/index.html)</span> in gganimate, but I <span class="co">[</span><span class="ot">ran into issues</span><span class="co">](https://github.com/thomasp85/gganimate/issues/445)</span> making the ones I wanted to use work with <span class="in">`transition_reveal()`</span>.</span>
 <span id="cb21-504"><a href="#cb21-504" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-507"><a href="#cb21-507" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-508"><a href="#cb21-508" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb21-509"><a href="#cb21-509" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
-<span id="cb21-510"><a href="#cb21-510" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_reveal</span>(second)</span>
-<span id="cb21-511"><a href="#cb21-511" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-512"><a href="#cb21-512" aria-hidden="true" tabindex="-1"></a>anim</span>
-<span id="cb21-513"><a href="#cb21-513" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-514"><a href="#cb21-514" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-517"><a href="#cb21-517" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-518"><a href="#cb21-518" aria-hidden="true" tabindex="-1"></a><span class="co">#| opts.label: 'fig.graphic'</span></span>
-<span id="cb21-519"><a href="#cb21-519" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">FIXME</span><span class="co">: For whatever reason the code for the velocity subtitle only works when there</span></span>
-<span id="cb21-520"><a href="#cb21-520" aria-hidden="true" tabindex="-1"></a><span class="co"># are 100 frames in the data. For example, if nframes is 10 ten then</span></span>
-<span id="cb21-521"><a href="#cb21-521" aria-hidden="true" tabindex="-1"></a><span class="co"># this `{formattable(df$vy[df$second == frame_time], digits = 2, format = 'f')}`</span></span>
-<span id="cb21-522"><a href="#cb21-522" aria-hidden="true" tabindex="-1"></a><span class="co"># throws an error.</span></span>
-<span id="cb21-523"><a href="#cb21-523" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
-<span id="cb21-524"><a href="#cb21-524" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_reveal</span>(second)</span>
-<span id="cb21-525"><a href="#cb21-525" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-526"><a href="#cb21-526" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> <span class="fu">animate</span>(</span>
-<span id="cb21-527"><a href="#cb21-527" aria-hidden="true" tabindex="-1"></a>  anim,</span>
-<span id="cb21-528"><a href="#cb21-528" aria-hidden="true" tabindex="-1"></a>  <span class="at">nframes =</span> simple_trajectory<span class="sc">$</span>nframes,</span>
-<span id="cb21-529"><a href="#cb21-529" aria-hidden="true" tabindex="-1"></a>  <span class="at">fps =</span> simple_trajectory<span class="sc">$</span>fps,</span>
-<span id="cb21-530"><a href="#cb21-530" aria-hidden="true" tabindex="-1"></a>  <span class="at">renderer =</span> <span class="fu">av_renderer</span>(),</span>
-<span id="cb21-531"><a href="#cb21-531" aria-hidden="true" tabindex="-1"></a>  <span class="at">device =</span> <span class="st">"ragg_png"</span>,</span>
-<span id="cb21-532"><a href="#cb21-532" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">1080</span>,</span>
-<span id="cb21-533"><a href="#cb21-533" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">1080</span>,</span>
-<span id="cb21-534"><a href="#cb21-534" aria-hidden="true" tabindex="-1"></a>  <span class="at">res =</span> <span class="dv">300</span>,</span>
-<span id="cb21-535"><a href="#cb21-535" aria-hidden="true" tabindex="-1"></a>  <span class="at">scaling =</span> <span class="fl">0.5</span></span>
-<span id="cb21-536"><a href="#cb21-536" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-537"><a href="#cb21-537" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-538"><a href="#cb21-538" aria-hidden="true" tabindex="-1"></a><span class="fu">anim_save</span>(</span>
-<span id="cb21-539"><a href="#cb21-539" aria-hidden="true" tabindex="-1"></a>  <span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"2022-06-16_projectile-motion"</span>, <span class="st">"images"</span>, <span class="st">"simple-trajectory.mp4"</span>),</span>
-<span id="cb21-540"><a href="#cb21-540" aria-hidden="true" tabindex="-1"></a>  anim</span>
-<span id="cb21-541"><a href="#cb21-541" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-542"><a href="#cb21-542" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-543"><a href="#cb21-543" aria-hidden="true" tabindex="-1"></a>embedr<span class="sc">::</span><span class="fu">embed_video</span>(</span>
-<span id="cb21-544"><a href="#cb21-544" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(</span>
-<span id="cb21-545"><a href="#cb21-545" aria-hidden="true" tabindex="-1"></a>    <span class="fu">interactive</span>(),</span>
-<span id="cb21-546"><a href="#cb21-546" aria-hidden="true" tabindex="-1"></a>    <span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"2022-06-16_projectile-motion"</span>, <span class="st">"images"</span>, <span class="st">"simple-trajectory.mp4"</span>),</span>
-<span id="cb21-547"><a href="#cb21-547" aria-hidden="true" tabindex="-1"></a>    <span class="st">"images/simple-trajectory.mp4"</span></span>
-<span id="cb21-548"><a href="#cb21-548" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb21-549"><a href="#cb21-549" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"mp4"</span>,</span>
-<span id="cb21-550"><a href="#cb21-550" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="st">"100%"</span>,</span>
-<span id="cb21-551"><a href="#cb21-551" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="st">""</span>,</span>
-<span id="cb21-552"><a href="#cb21-552" aria-hidden="true" tabindex="-1"></a>  <span class="at">attribute =</span> <span class="fu">c</span>(<span class="st">"autoplay"</span>, <span class="st">"loop"</span>, <span class="st">"muted"</span>)</span>
-<span id="cb21-553"><a href="#cb21-553" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-554"><a href="#cb21-554" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-555"><a href="#cb21-555" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-556"><a href="#cb21-556" aria-hidden="true" tabindex="-1"></a><span class="fu">### Launching a projectile on different planets</span></span>
-<span id="cb21-557"><a href="#cb21-557" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-558"><a href="#cb21-558" aria-hidden="true" tabindex="-1"></a>Now to test how the gravity of each planet in our solar system influences projectile motion. As a reminder, I already simulated the projectile motion data in <span class="in">`planets_trajectory`</span>, so now it's just a matter of plotting it.</span>
+<span id="cb21-505"><a href="#cb21-505" aria-hidden="true" tabindex="-1"></a>::: {.column-margin}</span>
+<span id="cb21-506"><a href="#cb21-506" aria-hidden="true" tabindex="-1"></a>Just a note: The behaviour of <span class="in">`transition_reveal()`</span> shown here was <span class="co">[</span><span class="ot">broken in v1.0.8</span><span class="co">](https://github.com/thomasp85/gganimate/issues/468)</span> of gganimate.</span>
+<span id="cb21-507"><a href="#cb21-507" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb21-508"><a href="#cb21-508" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-511"><a href="#cb21-511" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-512"><a href="#cb21-512" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb21-513"><a href="#cb21-513" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
+<span id="cb21-514"><a href="#cb21-514" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_reveal</span>(second)</span>
+<span id="cb21-515"><a href="#cb21-515" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-516"><a href="#cb21-516" aria-hidden="true" tabindex="-1"></a>anim</span>
+<span id="cb21-517"><a href="#cb21-517" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-518"><a href="#cb21-518" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-521"><a href="#cb21-521" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-522"><a href="#cb21-522" aria-hidden="true" tabindex="-1"></a><span class="co">#| opts.label: 'fig.graphic'</span></span>
+<span id="cb21-523"><a href="#cb21-523" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">FIXME</span><span class="co">: For whatever reason the code for the velocity subtitle only works when there</span></span>
+<span id="cb21-524"><a href="#cb21-524" aria-hidden="true" tabindex="-1"></a><span class="co"># are 100 frames in the data. For example, if nframes is 10 ten then</span></span>
+<span id="cb21-525"><a href="#cb21-525" aria-hidden="true" tabindex="-1"></a><span class="co"># this `{formattable(df$vy[df$second == frame_time], digits = 2, format = 'f')}`</span></span>
+<span id="cb21-526"><a href="#cb21-526" aria-hidden="true" tabindex="-1"></a><span class="co"># throws an error.</span></span>
+<span id="cb21-527"><a href="#cb21-527" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
+<span id="cb21-528"><a href="#cb21-528" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_reveal</span>(second)</span>
+<span id="cb21-529"><a href="#cb21-529" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-530"><a href="#cb21-530" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> <span class="fu">animate</span>(</span>
+<span id="cb21-531"><a href="#cb21-531" aria-hidden="true" tabindex="-1"></a>  anim,</span>
+<span id="cb21-532"><a href="#cb21-532" aria-hidden="true" tabindex="-1"></a>  <span class="at">nframes =</span> simple_trajectory<span class="sc">$</span>nframes,</span>
+<span id="cb21-533"><a href="#cb21-533" aria-hidden="true" tabindex="-1"></a>  <span class="at">fps =</span> simple_trajectory<span class="sc">$</span>fps,</span>
+<span id="cb21-534"><a href="#cb21-534" aria-hidden="true" tabindex="-1"></a>  <span class="at">renderer =</span> <span class="fu">av_renderer</span>(),</span>
+<span id="cb21-535"><a href="#cb21-535" aria-hidden="true" tabindex="-1"></a>  <span class="at">device =</span> <span class="st">"ragg_png"</span>,</span>
+<span id="cb21-536"><a href="#cb21-536" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">1080</span>,</span>
+<span id="cb21-537"><a href="#cb21-537" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">1080</span>,</span>
+<span id="cb21-538"><a href="#cb21-538" aria-hidden="true" tabindex="-1"></a>  <span class="at">res =</span> <span class="dv">300</span>,</span>
+<span id="cb21-539"><a href="#cb21-539" aria-hidden="true" tabindex="-1"></a>  <span class="at">scaling =</span> <span class="fl">0.5</span></span>
+<span id="cb21-540"><a href="#cb21-540" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-541"><a href="#cb21-541" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-542"><a href="#cb21-542" aria-hidden="true" tabindex="-1"></a><span class="fu">anim_save</span>(</span>
+<span id="cb21-543"><a href="#cb21-543" aria-hidden="true" tabindex="-1"></a>  <span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"2022-06-16_projectile-motion"</span>, <span class="st">"images"</span>, <span class="st">"simple-trajectory.mp4"</span>),</span>
+<span id="cb21-544"><a href="#cb21-544" aria-hidden="true" tabindex="-1"></a>  anim</span>
+<span id="cb21-545"><a href="#cb21-545" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-546"><a href="#cb21-546" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-547"><a href="#cb21-547" aria-hidden="true" tabindex="-1"></a>embedr<span class="sc">::</span><span class="fu">embed_video</span>(</span>
+<span id="cb21-548"><a href="#cb21-548" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(</span>
+<span id="cb21-549"><a href="#cb21-549" aria-hidden="true" tabindex="-1"></a>    <span class="fu">interactive</span>(),</span>
+<span id="cb21-550"><a href="#cb21-550" aria-hidden="true" tabindex="-1"></a>    <span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"2022-06-16_projectile-motion"</span>, <span class="st">"images"</span>, <span class="st">"simple-trajectory.mp4"</span>),</span>
+<span id="cb21-551"><a href="#cb21-551" aria-hidden="true" tabindex="-1"></a>    <span class="st">"images/simple-trajectory.mp4"</span></span>
+<span id="cb21-552"><a href="#cb21-552" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb21-553"><a href="#cb21-553" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"mp4"</span>,</span>
+<span id="cb21-554"><a href="#cb21-554" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="st">"100%"</span>,</span>
+<span id="cb21-555"><a href="#cb21-555" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="st">""</span>,</span>
+<span id="cb21-556"><a href="#cb21-556" aria-hidden="true" tabindex="-1"></a>  <span class="at">attribute =</span> <span class="fu">c</span>(<span class="st">"autoplay"</span>, <span class="st">"loop"</span>, <span class="st">"muted"</span>)</span>
+<span id="cb21-557"><a href="#cb21-557" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-558"><a href="#cb21-558" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb21-559"><a href="#cb21-559" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-560"><a href="#cb21-560" aria-hidden="true" tabindex="-1"></a>Since the simulation is space themed, the plot should be too. Instead of using a simple point to represent the projectile, I'm going to use Font Awesome's rocket icon by way of the emojifont package. To make it extra, I'll also add propulsion and rotation to the rocket's animation.</span>
+<span id="cb21-560"><a href="#cb21-560" aria-hidden="true" tabindex="-1"></a><span class="fu">### Launching a projectile on different planets</span></span>
 <span id="cb21-561"><a href="#cb21-561" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-564"><a href="#cb21-564" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-565"><a href="#cb21-565" aria-hidden="true" tabindex="-1"></a><span class="co"># Make it so the propulsion is only present for first half of animation, so it</span></span>
-<span id="cb21-566"><a href="#cb21-566" aria-hidden="true" tabindex="-1"></a><span class="co"># looks like the rockets are launching.</span></span>
-<span id="cb21-567"><a href="#cb21-567" aria-hidden="true" tabindex="-1"></a>rocket_propulsion <span class="ot">&lt;-</span> planets_trajectory <span class="sc">%&gt;%</span></span>
-<span id="cb21-568"><a href="#cb21-568" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(planet) <span class="sc">%&gt;%</span></span>
-<span id="cb21-569"><a href="#cb21-569" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">retain =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>), <span class="at">each =</span> <span class="dv">50</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb21-570"><a href="#cb21-570" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb21-571"><a href="#cb21-571" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">x =</span> <span class="fu">case_when</span>(</span>
-<span id="cb21-572"><a href="#cb21-572" aria-hidden="true" tabindex="-1"></a>    retain <span class="sc">==</span> <span class="cn">FALSE</span> <span class="sc">~</span> <span class="cn">NA_real_</span>,</span>
-<span id="cb21-573"><a href="#cb21-573" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> x</span>
-<span id="cb21-574"><a href="#cb21-574" aria-hidden="true" tabindex="-1"></a>  ))</span>
-<span id="cb21-575"><a href="#cb21-575" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-576"><a href="#cb21-576" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-577"><a href="#cb21-577" aria-hidden="true" tabindex="-1"></a>The plotting code is mostly boilerplate, but I've added comments to highlight a few noteworthy points.</span>
-<span id="cb21-578"><a href="#cb21-578" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-581"><a href="#cb21-581" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-582"><a href="#cb21-582" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(planets_trajectory, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb21-583"><a href="#cb21-583" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(</span>
-<span id="cb21-584"><a href="#cb21-584" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">colour =</span> planet, <span class="at">group =</span> planet),</span>
-<span id="cb21-585"><a href="#cb21-585" aria-hidden="true" tabindex="-1"></a>    <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
-<span id="cb21-586"><a href="#cb21-586" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
-<span id="cb21-587"><a href="#cb21-587" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Change the key glyph in the legend to a point, to represent a planet</span></span>
-<span id="cb21-588"><a href="#cb21-588" aria-hidden="true" tabindex="-1"></a>    <span class="at">key_glyph =</span> <span class="st">"point"</span></span>
-<span id="cb21-589"><a href="#cb21-589" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb21-590"><a href="#cb21-590" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb21-591"><a href="#cb21-591" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> rocket_propulsion,</span>
-<span id="cb21-592"><a href="#cb21-592" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">group =</span> planet),</span>
-<span id="cb21-593"><a href="#cb21-593" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"orange"</span></span>
-<span id="cb21-594"><a href="#cb21-594" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb21-595"><a href="#cb21-595" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Change the angle at different frames to rotate the rocket</span></span>
-<span id="cb21-596"><a href="#cb21-596" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
-<span id="cb21-597"><a href="#cb21-597" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">colour =</span> planet, <span class="at">group =</span> planet, <span class="at">label =</span> <span class="fu">fontawesome</span>(<span class="st">"fa-rocket"</span>)),</span>
-<span id="cb21-598"><a href="#cb21-598" aria-hidden="true" tabindex="-1"></a>    <span class="at">family=</span><span class="st">'fontawesome-webfont'</span>,</span>
-<span id="cb21-599"><a href="#cb21-599" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="fu">rep</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">45</span>, <span class="at">length =</span> <span class="dv">100</span>), <span class="dv">10</span>),</span>
-<span id="cb21-600"><a href="#cb21-600" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">6</span>,</span>
-<span id="cb21-601"><a href="#cb21-601" aria-hidden="true" tabindex="-1"></a>    <span class="co"># There is no rocket key glyph, so override this too</span></span>
-<span id="cb21-602"><a href="#cb21-602" aria-hidden="true" tabindex="-1"></a>    <span class="at">key_glyph =</span> <span class="st">"point"</span></span>
-<span id="cb21-603"><a href="#cb21-603" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb21-604"><a href="#cb21-604" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
-<span id="cb21-605"><a href="#cb21-605" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(</span>
-<span id="cb21-606"><a href="#cb21-606" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#97979F"</span>,</span>
-<span id="cb21-607"><a href="#cb21-607" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#BBB7AB"</span>,</span>
-<span id="cb21-608"><a href="#cb21-608" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#8CB1DE"</span>,</span>
-<span id="cb21-609"><a href="#cb21-609" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#DAD9D7"</span>,</span>
-<span id="cb21-610"><a href="#cb21-610" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#E27B58"</span>,</span>
-<span id="cb21-611"><a href="#cb21-611" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#C88B3A"</span>,</span>
-<span id="cb21-612"><a href="#cb21-612" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#C5AB6E"</span>,</span>
-<span id="cb21-613"><a href="#cb21-613" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#93B8BE"</span>,</span>
-<span id="cb21-614"><a href="#cb21-614" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#6081FF"</span>,</span>
-<span id="cb21-615"><a href="#cb21-615" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#4390BA"</span></span>
-<span id="cb21-616"><a href="#cb21-616" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb21-617"><a href="#cb21-617" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb21-618"><a href="#cb21-618" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb21-619"><a href="#cb21-619" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">str_c</span>(</span>
-<span id="cb21-620"><a href="#cb21-620" aria-hidden="true" tabindex="-1"></a>      <span class="st">"projectile motion of an object launched on different planets in our solar system"</span></span>
-<span id="cb21-621"><a href="#cb21-621" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb21-622"><a href="#cb21-622" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"distance (m)"</span>,</span>
-<span id="cb21-623"><a href="#cb21-623" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"height (m)"</span>,</span>
-<span id="cb21-624"><a href="#cb21-624" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"graphic: michael mccarthy"</span></span>
-<span id="cb21-625"><a href="#cb21-625" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb21-626"><a href="#cb21-626" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(</span>
-<span id="cb21-627"><a href="#cb21-627" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"axis_truncated"</span>,</span>
-<span id="cb21-628"><a href="#cb21-628" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"axis_truncated"</span>,</span>
-<span id="cb21-629"><a href="#cb21-629" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="fu">guide_legend</span>(<span class="at">title.vjust =</span> .<span class="dv">7</span>, <span class="at">nrow =</span> <span class="dv">1</span>, <span class="at">label.position =</span> <span class="st">"bottom"</span>)</span>
-<span id="cb21-630"><a href="#cb21-630" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb21-631"><a href="#cb21-631" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_family =</span> <span class="st">"mono"</span>) <span class="sc">+</span></span>
-<span id="cb21-632"><a href="#cb21-632" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb21-633"><a href="#cb21-633" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"white"</span>),</span>
-<span id="cb21-634"><a href="#cb21-634" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"white"</span>),</span>
-<span id="cb21-635"><a href="#cb21-635" aria-hidden="true" tabindex="-1"></a>    <span class="at">rect =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"black"</span>),</span>
-<span id="cb21-636"><a href="#cb21-636" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"black"</span>),</span>
-<span id="cb21-637"><a href="#cb21-637" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"white"</span>),</span>
-<span id="cb21-638"><a href="#cb21-638" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"white"</span>),</span>
-<span id="cb21-639"><a href="#cb21-639" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"top"</span>,</span>
-<span id="cb21-640"><a href="#cb21-640" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.justification =</span> <span class="st">"left"</span></span>
-<span id="cb21-641"><a href="#cb21-641" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb21-642"><a href="#cb21-642" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-643"><a href="#cb21-643" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-644"><a href="#cb21-644" aria-hidden="true" tabindex="-1"></a>Finally, the animation code. The <span class="in">`shadow_wake()`</span> function is applied to the orange points used for rocket propulsion to really sell the effect.</span>
-<span id="cb21-645"><a href="#cb21-645" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-648"><a href="#cb21-648" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-649"><a href="#cb21-649" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb21-650"><a href="#cb21-650" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
-<span id="cb21-651"><a href="#cb21-651" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_reveal</span>(second) <span class="sc">+</span></span>
-<span id="cb21-652"><a href="#cb21-652" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shadow_wake</span>(<span class="at">wake_length =</span> <span class="fl">0.1</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">exclude_layer =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
-<span id="cb21-653"><a href="#cb21-653" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-654"><a href="#cb21-654" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-657"><a href="#cb21-657" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-658"><a href="#cb21-658" aria-hidden="true" tabindex="-1"></a><span class="co">#| opts.label: 'fig.graphic'</span></span>
-<span id="cb21-659"><a href="#cb21-659" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
-<span id="cb21-660"><a href="#cb21-660" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_reveal</span>(second) <span class="sc">+</span></span>
-<span id="cb21-661"><a href="#cb21-661" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shadow_wake</span>(<span class="at">wake_length =</span> <span class="fl">0.1</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">exclude_layer =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
-<span id="cb21-662"><a href="#cb21-662" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-663"><a href="#cb21-663" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> <span class="fu">animate</span>(</span>
-<span id="cb21-664"><a href="#cb21-664" aria-hidden="true" tabindex="-1"></a>  anim,</span>
-<span id="cb21-665"><a href="#cb21-665" aria-hidden="true" tabindex="-1"></a>  <span class="at">nframes =</span> planets_pm<span class="sc">$</span>earth<span class="sc">$</span>nframes,</span>
-<span id="cb21-666"><a href="#cb21-666" aria-hidden="true" tabindex="-1"></a>  <span class="at">fps =</span> planets_pm<span class="sc">$</span>earth<span class="sc">$</span>fps,</span>
-<span id="cb21-667"><a href="#cb21-667" aria-hidden="true" tabindex="-1"></a>  <span class="at">renderer =</span> <span class="fu">av_renderer</span>(),</span>
-<span id="cb21-668"><a href="#cb21-668" aria-hidden="true" tabindex="-1"></a>  <span class="at">device =</span> <span class="st">"ragg_png"</span>,</span>
-<span id="cb21-669"><a href="#cb21-669" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">1080</span>,</span>
-<span id="cb21-670"><a href="#cb21-670" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">720</span>,</span>
-<span id="cb21-671"><a href="#cb21-671" aria-hidden="true" tabindex="-1"></a>  <span class="at">res =</span> <span class="dv">300</span>,</span>
-<span id="cb21-672"><a href="#cb21-672" aria-hidden="true" tabindex="-1"></a>  <span class="at">scaling =</span> <span class="fl">0.5</span></span>
-<span id="cb21-673"><a href="#cb21-673" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-674"><a href="#cb21-674" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-675"><a href="#cb21-675" aria-hidden="true" tabindex="-1"></a><span class="fu">anim_save</span>(</span>
-<span id="cb21-676"><a href="#cb21-676" aria-hidden="true" tabindex="-1"></a>  <span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"2022-06-16_projectile-motion"</span>, <span class="st">"images"</span>, <span class="st">"planets-trajectory.mp4"</span>),</span>
-<span id="cb21-677"><a href="#cb21-677" aria-hidden="true" tabindex="-1"></a>  anim</span>
-<span id="cb21-678"><a href="#cb21-678" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-679"><a href="#cb21-679" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-680"><a href="#cb21-680" aria-hidden="true" tabindex="-1"></a>embedr<span class="sc">::</span><span class="fu">embed_video</span>(</span>
-<span id="cb21-681"><a href="#cb21-681" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(</span>
-<span id="cb21-682"><a href="#cb21-682" aria-hidden="true" tabindex="-1"></a>    <span class="fu">interactive</span>(),</span>
-<span id="cb21-683"><a href="#cb21-683" aria-hidden="true" tabindex="-1"></a>    <span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"2022-06-16_projectile-motion"</span>, <span class="st">"images"</span>, <span class="st">"planets-trajectory.mp4"</span>),</span>
-<span id="cb21-684"><a href="#cb21-684" aria-hidden="true" tabindex="-1"></a>    <span class="st">"images/planets-trajectory.mp4"</span></span>
-<span id="cb21-685"><a href="#cb21-685" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb21-686"><a href="#cb21-686" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"mp4"</span>,</span>
-<span id="cb21-687"><a href="#cb21-687" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="st">"100%"</span>,</span>
-<span id="cb21-688"><a href="#cb21-688" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="st">""</span>,</span>
-<span id="cb21-689"><a href="#cb21-689" aria-hidden="true" tabindex="-1"></a>  <span class="at">attribute =</span> <span class="fu">c</span>(<span class="st">"autoplay"</span>, <span class="st">"loop"</span>, <span class="st">"muted"</span>)</span>
-<span id="cb21-690"><a href="#cb21-690" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-691"><a href="#cb21-691" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-692"><a href="#cb21-692" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-693"><a href="#cb21-693" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_common/_appendix.qmd &gt;}}</span>
+<span id="cb21-562"><a href="#cb21-562" aria-hidden="true" tabindex="-1"></a>Now to test how the gravity of each planet in our solar system influences projectile motion. As a reminder, I already simulated the projectile motion data in <span class="in">`planets_trajectory`</span>, so now it's just a matter of plotting it.</span>
+<span id="cb21-563"><a href="#cb21-563" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-564"><a href="#cb21-564" aria-hidden="true" tabindex="-1"></a>Since the simulation is space themed, the plot should be too. Instead of using a simple point to represent the projectile, I'm going to use Font Awesome's rocket icon by way of the emojifont package. To make it extra, I'll also add propulsion and rotation to the rocket's animation.</span>
+<span id="cb21-565"><a href="#cb21-565" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-568"><a href="#cb21-568" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-569"><a href="#cb21-569" aria-hidden="true" tabindex="-1"></a><span class="co"># Make it so the propulsion is only present for first half of animation, so it</span></span>
+<span id="cb21-570"><a href="#cb21-570" aria-hidden="true" tabindex="-1"></a><span class="co"># looks like the rockets are launching.</span></span>
+<span id="cb21-571"><a href="#cb21-571" aria-hidden="true" tabindex="-1"></a>rocket_propulsion <span class="ot">&lt;-</span> planets_trajectory <span class="sc">%&gt;%</span></span>
+<span id="cb21-572"><a href="#cb21-572" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(planet) <span class="sc">%&gt;%</span></span>
+<span id="cb21-573"><a href="#cb21-573" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">retain =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>), <span class="at">each =</span> <span class="dv">50</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb21-574"><a href="#cb21-574" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb21-575"><a href="#cb21-575" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">x =</span> <span class="fu">case_when</span>(</span>
+<span id="cb21-576"><a href="#cb21-576" aria-hidden="true" tabindex="-1"></a>    retain <span class="sc">==</span> <span class="cn">FALSE</span> <span class="sc">~</span> <span class="cn">NA_real_</span>,</span>
+<span id="cb21-577"><a href="#cb21-577" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> x</span>
+<span id="cb21-578"><a href="#cb21-578" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb21-579"><a href="#cb21-579" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-580"><a href="#cb21-580" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-581"><a href="#cb21-581" aria-hidden="true" tabindex="-1"></a>The plotting code is mostly boilerplate, but I've added comments to highlight a few noteworthy points.</span>
+<span id="cb21-582"><a href="#cb21-582" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-585"><a href="#cb21-585" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-586"><a href="#cb21-586" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(planets_trajectory, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb21-587"><a href="#cb21-587" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(</span>
+<span id="cb21-588"><a href="#cb21-588" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">colour =</span> planet, <span class="at">group =</span> planet),</span>
+<span id="cb21-589"><a href="#cb21-589" aria-hidden="true" tabindex="-1"></a>    <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb21-590"><a href="#cb21-590" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb21-591"><a href="#cb21-591" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Change the key glyph in the legend to a point, to represent a planet</span></span>
+<span id="cb21-592"><a href="#cb21-592" aria-hidden="true" tabindex="-1"></a>    <span class="at">key_glyph =</span> <span class="st">"point"</span></span>
+<span id="cb21-593"><a href="#cb21-593" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb21-594"><a href="#cb21-594" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb21-595"><a href="#cb21-595" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> rocket_propulsion,</span>
+<span id="cb21-596"><a href="#cb21-596" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">group =</span> planet),</span>
+<span id="cb21-597"><a href="#cb21-597" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"orange"</span></span>
+<span id="cb21-598"><a href="#cb21-598" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb21-599"><a href="#cb21-599" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Change the angle at different frames to rotate the rocket</span></span>
+<span id="cb21-600"><a href="#cb21-600" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
+<span id="cb21-601"><a href="#cb21-601" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">colour =</span> planet, <span class="at">group =</span> planet, <span class="at">label =</span> <span class="fu">fontawesome</span>(<span class="st">"fa-rocket"</span>)),</span>
+<span id="cb21-602"><a href="#cb21-602" aria-hidden="true" tabindex="-1"></a>    <span class="at">family=</span><span class="st">'fontawesome-webfont'</span>,</span>
+<span id="cb21-603"><a href="#cb21-603" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="fu">rep</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">45</span>, <span class="at">length =</span> <span class="dv">100</span>), <span class="dv">10</span>),</span>
+<span id="cb21-604"><a href="#cb21-604" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">6</span>,</span>
+<span id="cb21-605"><a href="#cb21-605" aria-hidden="true" tabindex="-1"></a>    <span class="co"># There is no rocket key glyph, so override this too</span></span>
+<span id="cb21-606"><a href="#cb21-606" aria-hidden="true" tabindex="-1"></a>    <span class="at">key_glyph =</span> <span class="st">"point"</span></span>
+<span id="cb21-607"><a href="#cb21-607" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb21-608"><a href="#cb21-608" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb21-609"><a href="#cb21-609" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb21-610"><a href="#cb21-610" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#97979F"</span>,</span>
+<span id="cb21-611"><a href="#cb21-611" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#BBB7AB"</span>,</span>
+<span id="cb21-612"><a href="#cb21-612" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#8CB1DE"</span>,</span>
+<span id="cb21-613"><a href="#cb21-613" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#DAD9D7"</span>,</span>
+<span id="cb21-614"><a href="#cb21-614" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#E27B58"</span>,</span>
+<span id="cb21-615"><a href="#cb21-615" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#C88B3A"</span>,</span>
+<span id="cb21-616"><a href="#cb21-616" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#C5AB6E"</span>,</span>
+<span id="cb21-617"><a href="#cb21-617" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#93B8BE"</span>,</span>
+<span id="cb21-618"><a href="#cb21-618" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#6081FF"</span>,</span>
+<span id="cb21-619"><a href="#cb21-619" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#4390BA"</span></span>
+<span id="cb21-620"><a href="#cb21-620" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb21-621"><a href="#cb21-621" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb21-622"><a href="#cb21-622" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb21-623"><a href="#cb21-623" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">str_c</span>(</span>
+<span id="cb21-624"><a href="#cb21-624" aria-hidden="true" tabindex="-1"></a>      <span class="st">"projectile motion of an object launched on different planets in our solar system"</span></span>
+<span id="cb21-625"><a href="#cb21-625" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb21-626"><a href="#cb21-626" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"distance (m)"</span>,</span>
+<span id="cb21-627"><a href="#cb21-627" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"height (m)"</span>,</span>
+<span id="cb21-628"><a href="#cb21-628" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"graphic: michael mccarthy"</span></span>
+<span id="cb21-629"><a href="#cb21-629" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb21-630"><a href="#cb21-630" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(</span>
+<span id="cb21-631"><a href="#cb21-631" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"axis_truncated"</span>,</span>
+<span id="cb21-632"><a href="#cb21-632" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"axis_truncated"</span>,</span>
+<span id="cb21-633"><a href="#cb21-633" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="fu">guide_legend</span>(<span class="at">title.vjust =</span> .<span class="dv">7</span>, <span class="at">nrow =</span> <span class="dv">1</span>, <span class="at">label.position =</span> <span class="st">"bottom"</span>)</span>
+<span id="cb21-634"><a href="#cb21-634" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb21-635"><a href="#cb21-635" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_family =</span> <span class="st">"mono"</span>) <span class="sc">+</span></span>
+<span id="cb21-636"><a href="#cb21-636" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb21-637"><a href="#cb21-637" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"white"</span>),</span>
+<span id="cb21-638"><a href="#cb21-638" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"white"</span>),</span>
+<span id="cb21-639"><a href="#cb21-639" aria-hidden="true" tabindex="-1"></a>    <span class="at">rect =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"black"</span>),</span>
+<span id="cb21-640"><a href="#cb21-640" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"black"</span>),</span>
+<span id="cb21-641"><a href="#cb21-641" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"white"</span>),</span>
+<span id="cb21-642"><a href="#cb21-642" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"white"</span>),</span>
+<span id="cb21-643"><a href="#cb21-643" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"top"</span>,</span>
+<span id="cb21-644"><a href="#cb21-644" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.justification =</span> <span class="st">"left"</span></span>
+<span id="cb21-645"><a href="#cb21-645" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb21-646"><a href="#cb21-646" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-647"><a href="#cb21-647" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-648"><a href="#cb21-648" aria-hidden="true" tabindex="-1"></a>Finally, the animation code. The <span class="in">`shadow_wake()`</span> function is applied to the orange points used for rocket propulsion to really sell the effect.</span>
+<span id="cb21-649"><a href="#cb21-649" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-652"><a href="#cb21-652" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-653"><a href="#cb21-653" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb21-654"><a href="#cb21-654" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
+<span id="cb21-655"><a href="#cb21-655" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_reveal</span>(second) <span class="sc">+</span></span>
+<span id="cb21-656"><a href="#cb21-656" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shadow_wake</span>(<span class="at">wake_length =</span> <span class="fl">0.1</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">exclude_layer =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
+<span id="cb21-657"><a href="#cb21-657" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-658"><a href="#cb21-658" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-661"><a href="#cb21-661" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-662"><a href="#cb21-662" aria-hidden="true" tabindex="-1"></a><span class="co">#| opts.label: 'fig.graphic'</span></span>
+<span id="cb21-663"><a href="#cb21-663" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
+<span id="cb21-664"><a href="#cb21-664" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_reveal</span>(second) <span class="sc">+</span></span>
+<span id="cb21-665"><a href="#cb21-665" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shadow_wake</span>(<span class="at">wake_length =</span> <span class="fl">0.1</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">exclude_layer =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
+<span id="cb21-666"><a href="#cb21-666" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-667"><a href="#cb21-667" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> <span class="fu">animate</span>(</span>
+<span id="cb21-668"><a href="#cb21-668" aria-hidden="true" tabindex="-1"></a>  anim,</span>
+<span id="cb21-669"><a href="#cb21-669" aria-hidden="true" tabindex="-1"></a>  <span class="at">nframes =</span> planets_pm<span class="sc">$</span>earth<span class="sc">$</span>nframes,</span>
+<span id="cb21-670"><a href="#cb21-670" aria-hidden="true" tabindex="-1"></a>  <span class="at">fps =</span> planets_pm<span class="sc">$</span>earth<span class="sc">$</span>fps,</span>
+<span id="cb21-671"><a href="#cb21-671" aria-hidden="true" tabindex="-1"></a>  <span class="at">renderer =</span> <span class="fu">av_renderer</span>(),</span>
+<span id="cb21-672"><a href="#cb21-672" aria-hidden="true" tabindex="-1"></a>  <span class="at">device =</span> <span class="st">"ragg_png"</span>,</span>
+<span id="cb21-673"><a href="#cb21-673" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">1080</span>,</span>
+<span id="cb21-674"><a href="#cb21-674" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">720</span>,</span>
+<span id="cb21-675"><a href="#cb21-675" aria-hidden="true" tabindex="-1"></a>  <span class="at">res =</span> <span class="dv">300</span>,</span>
+<span id="cb21-676"><a href="#cb21-676" aria-hidden="true" tabindex="-1"></a>  <span class="at">scaling =</span> <span class="fl">0.5</span></span>
+<span id="cb21-677"><a href="#cb21-677" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-678"><a href="#cb21-678" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-679"><a href="#cb21-679" aria-hidden="true" tabindex="-1"></a><span class="fu">anim_save</span>(</span>
+<span id="cb21-680"><a href="#cb21-680" aria-hidden="true" tabindex="-1"></a>  <span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"2022-06-16_projectile-motion"</span>, <span class="st">"images"</span>, <span class="st">"planets-trajectory.mp4"</span>),</span>
+<span id="cb21-681"><a href="#cb21-681" aria-hidden="true" tabindex="-1"></a>  anim</span>
+<span id="cb21-682"><a href="#cb21-682" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-683"><a href="#cb21-683" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-684"><a href="#cb21-684" aria-hidden="true" tabindex="-1"></a>embedr<span class="sc">::</span><span class="fu">embed_video</span>(</span>
+<span id="cb21-685"><a href="#cb21-685" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(</span>
+<span id="cb21-686"><a href="#cb21-686" aria-hidden="true" tabindex="-1"></a>    <span class="fu">interactive</span>(),</span>
+<span id="cb21-687"><a href="#cb21-687" aria-hidden="true" tabindex="-1"></a>    <span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"2022-06-16_projectile-motion"</span>, <span class="st">"images"</span>, <span class="st">"planets-trajectory.mp4"</span>),</span>
+<span id="cb21-688"><a href="#cb21-688" aria-hidden="true" tabindex="-1"></a>    <span class="st">"images/planets-trajectory.mp4"</span></span>
+<span id="cb21-689"><a href="#cb21-689" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb21-690"><a href="#cb21-690" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"mp4"</span>,</span>
+<span id="cb21-691"><a href="#cb21-691" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="st">"100%"</span>,</span>
+<span id="cb21-692"><a href="#cb21-692" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="st">""</span>,</span>
+<span id="cb21-693"><a href="#cb21-693" aria-hidden="true" tabindex="-1"></a>  <span class="at">attribute =</span> <span class="fu">c</span>(<span class="st">"autoplay"</span>, <span class="st">"loop"</span>, <span class="st">"muted"</span>)</span>
+<span id="cb21-694"><a href="#cb21-694" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-695"><a href="#cb21-695" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-696"><a href="#cb21-696" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-697"><a href="#cb21-697" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_common/_appendix.qmd &gt;}}</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
