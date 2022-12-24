@@ -1450,10 +1450,10 @@ Borderlands</em>. <a href="https://tidytales.ca/posts/2022-09-29_borderlands">ht
 </div>
 </section>
 </section>
-<section id="visualize" class="level2">
+<section id="visualize" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="visualize">Visualize</h2>
 <p>Now for visualization. First I’ll plot a simple trajectory, then a projectile launched on different planets.</p>
-<section id="a-simple-trajectory-1" class="level3">
+<section id="a-simple-trajectory-1" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="a-simple-trajectory-1">A simple trajectory</h3>
 <p>This is the same simple trajectory I showed the output for earlier, only with more frames to make the animation smoother.</p>
 <div class="cell">
@@ -1550,7 +1550,10 @@ Borderlands</em>. <a href="https://tidytales.ca/posts/2022-09-29_borderlands">ht
 <span id="cb15-3">  <span class="fu" style="color: #4758AB;">theme_classic</span>(<span class="at" style="color: #657422;">base_family =</span> <span class="st" style="color: #20794D;">"serif"</span>)</span></code></pre></div>
 </div>
 <p>And finally, the animation code. Yes, that’s it. Animations can be tweaked and spiced up with <a href="https://gganimate.com/reference/index.html">other functions</a> in gganimate, but I <a href="https://github.com/thomasp85/gganimate/issues/445">ran into issues</a> making the ones I wanted to use work with <code>transition_reveal()</code>.</p>
-<div class="cell">
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Just a note: The behaviour of <code>transition_reveal()</code> shown here was <a href="https://github.com/thomasp85/gganimate/issues/468">broken in v1.0.8</a> of gganimate.</p>
+</div></div><div class="cell">
 <div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1">anim <span class="ot" style="color: #003B4F;">&lt;-</span> p <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb16-2">  <span class="fu" style="color: #4758AB;">transition_reveal</span>(second)</span>
 <span id="cb16-3"></span>
@@ -1710,7 +1713,7 @@ Borderlands</em>. <a href="https://tidytales.ca/posts/2022-09-29_borderlands">ht
  emojifont   * 0.5.5   2021-04-20 [1] CRAN (R 4.2.0)
  forcats     * 0.5.2   2022-08-19 [1] CRAN (R 4.2.0)
  formattable * 0.2.1   2021-01-07 [1] CRAN (R 4.2.0)
- gganimate   * 1.0.8   2022-09-08 [1] CRAN (R 4.2.0)
+ gganimate   * 1.0.7   2020-10-15 [1] CRAN (R 4.2.2)
  ggh4x       * 0.2.3   2022-11-09 [1] CRAN (R 4.2.0)
  ggplot2     * 3.4.0   2022-11-04 [1] CRAN (R 4.2.0)
  glue        * 1.6.2   2022-02-24 [1] CRAN (R 4.2.0)

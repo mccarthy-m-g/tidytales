@@ -494,6 +494,10 @@ p <- p +
 
 And finally, the animation code. Yes, that's it. Animations can be tweaked and spiced up with [other functions](https://gganimate.com/reference/index.html) in gganimate, but I [ran into issues](https://github.com/thomasp85/gganimate/issues/445) making the ones I wanted to use work with `transition_reveal()`.
 
+::: {.column-margin}
+Just a note: The behaviour of `transition_reveal()` shown here was [broken in v1.0.8](https://github.com/thomasp85/gganimate/issues/468) of gganimate.
+:::
+
 ```{r}
 #| eval: false
 anim <- p +
