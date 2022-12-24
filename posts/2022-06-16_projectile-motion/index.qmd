@@ -42,6 +42,8 @@ resources:
   - "images/simple-trajectory.mp4"
   - "images/planets-trajectory.mp4"
 
+include-after-body: "../../_common/mp4-img-fallback.html"
+
 params:
   use_renv: FALSE
   data_file: NULL
@@ -113,20 +115,7 @@ For instance, at the start of the game there’s a museum exhibit consisting of 
 Emphasis on *gently*. Wait for it...
 :::
 
-```{r moon-gravity}
-#| opts.label: 'fig.graphic'
-embedr::embed_video(
-  ifelse(
-    interactive(),
-    here("posts", "2022-06-16_projectile-motion", "images", "moon-gravity.mp4"),
-    "images/moon-gravity.mp4"
-  ),
-  type = "mp4",
-  width = "100%",
-  height = "",
-  attribute = c("autoplay", "loop", "muted")
-)
-```
+<img src='images/moon-gravity.mp4' width ="100%">
 
 But the balls are not actually moving on their own. Their motion is being affected by the moon's gravity. As the placard beside them explains: “As it orbits our planet, the Attlerock’s gravity pulls on objects from different directions. In fact, it’s pulling on you right now!” This isn't just flavour text---the game is [actually simulating planetary gravity](https://www.rockpapershotgun.com/how-outer-wilds-built-a-planet-which-falls-apart).
 
@@ -531,19 +520,9 @@ anim_save(
   here("posts", "2022-06-16_projectile-motion", "images", "simple-trajectory.mp4"),
   anim
 )
-
-embedr::embed_video(
-  ifelse(
-    interactive(),
-    here("posts", "2022-06-16_projectile-motion", "images", "simple-trajectory.mp4"),
-    "images/simple-trajectory.mp4"
-  ),
-  type = "mp4",
-  width = "100%",
-  height = "",
-  attribute = c("autoplay", "loop", "muted")
-)
 ```
+
+<img src='images/simple-trajectory.mp4' width ="100%">
 
 ### Launching a projectile on different planets
 
@@ -660,18 +639,8 @@ anim_save(
   here("posts", "2022-06-16_projectile-motion", "images", "planets-trajectory.mp4"),
   anim
 )
-
-embedr::embed_video(
-  ifelse(
-    interactive(),
-    here("posts", "2022-06-16_projectile-motion", "images", "planets-trajectory.mp4"),
-    "images/planets-trajectory.mp4"
-  ),
-  type = "mp4",
-  width = "100%",
-  height = "",
-  attribute = c("autoplay", "loop", "muted")
-)
 ```
+
+<img src='images/planets-trajectory.mp4' width ="100%">
 
 {{< include /_common/_appendix.qmd >}}

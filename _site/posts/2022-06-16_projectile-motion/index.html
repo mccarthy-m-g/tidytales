@@ -351,11 +351,7 @@ div.csl-indent {
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p>Emphasis on <em>gently</em>. Wait for it…</p>
-</div></div><div class="cell" data-opts.label="fig.graphic">
-<div class="cell-output-display">
-<video width="100%" height="" autoplay="" loop="" muted=""> <source src="images/moon-gravity.mp4" type="video/mp4"> Your browser does not support the video tag;  for browser support, please see:  https://www.w3schools.com/tags/tag_video.asp </video>
-</div>
-</div>
+</div></div><p><img src="images/moon-gravity.mp4" width="100%"></p>
 <p>But the balls are not actually moving on their own. Their motion is being affected by the moon’s gravity. As the placard beside them explains: “As it orbits our planet, the Attlerock’s gravity pulls on objects from different directions. In fact, it’s pulling on you right now!” This isn’t just flavour text—the game is <a href="https://www.rockpapershotgun.com/how-outer-wilds-built-a-planet-which-falls-apart">actually simulating planetary gravity</a>.</p>
 <p>Outer Wilds uses its physics realism to great effect in other parts of the game (ever wondered what it’s like to stand on planet while it breaks apart into a black hole?), and experiencing it all got me curious: What kinds of physics simulations could I do in the two-dimensional space of a plot? After some research and reading I landed on projectile motion.</p>
 </section>
@@ -738,10 +734,9 @@ h_{\textrm{max}} = h + V_y^2 \div (2 \times g),
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>anim</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-opts.label="fig.graphic">
-<div class="cell-output-display">
-<video width="100%" height="" autoplay="" loop="" muted=""> <source src="images/simple-trajectory.mp4" type="video/mp4"> Your browser does not support the video tag;  for browser support, please see:  https://www.w3schools.com/tags/tag_video.asp </video>
+
 </div>
-</div>
+<p><img src="images/simple-trajectory.mp4" width="100%"></p>
 </section>
 <section id="launching-a-projectile-on-different-planets-1" class="level3">
 <h3 class="anchored" data-anchor-id="launching-a-projectile-on-different-planets-1">Launching a projectile on different planets</h3>
@@ -829,10 +824,9 @@ h_{\textrm{max}} = h + V_y^2 \div (2 \times g),
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shadow_wake</span>(<span class="at">wake_length =</span> <span class="fl">0.1</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">exclude_layer =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-opts.label="fig.graphic">
-<div class="cell-output-display">
-<video width="100%" height="" autoplay="" loop="" muted=""> <source src="images/planets-trajectory.mp4" type="video/mp4"> Your browser does not support the video tag;  for browser support, please see:  https://www.w3schools.com/tags/tag_video.asp </video>
+
 </div>
-</div>
+<p><img src="images/planets-trajectory.mp4" width="100%"></p>
 </section>
 </section>
 
@@ -881,7 +875,7 @@ h_{\textrm{max}} = h + V_y^2 \div (2 \times g),
  collate  en_CA.UTF-8
  ctype    en_CA.UTF-8
  tz       America/Vancouver
- date     2022-12-23
+ date     2022-12-24
  pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)
  quarto   1.2.280 @ /usr/local/bin/quarto
 
@@ -951,6 +945,54 @@ Any of the trademarks, service marks, collective marks, design rights or similar
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mccarthy2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
 Michael McCarthy. (2022, June 16). <em>On motion</em>. <a href="https://tidytales.ca/posts/2022-06-16_projectile-motion">https://tidytales.ca/posts/2022-06-16_projectile-motion</a>
 </div></div></section></div></main> <!-- /main -->
+<script>
+/*
+Copyright (c) 2022 by Shaw (https://codepen.io/shshaw/pen/MOMezY)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so
+*/
+var videoAttr = {
+  'autoplay': true,
+  'loop': true,
+  'mute': true,
+  'playsinline': true,
+  'width': '100%'
+};
+var imgMP4s = Array.prototype.map.call(
+  document.querySelectorAll('img[src*=".mp4"]'),
+  function(img){
+
+    var src = img.src;
+    img.src = null;
+
+    img.addEventListener('error', function(e){
+      console.log('.mp4 in img not supported. Replacing with video.', e);
+      var video = document.createElement('video');
+
+      for (var key in videoAttr) { video.setAttribute(key, videoAttr[key]); }
+
+      for (
+        var imgAttr = img.attributes,
+        len = imgAttr.length,
+        i = 0;
+        i < len;
+        i++
+      ) {
+        video.setAttribute(imgAttr[i].name,  imgAttr[i].value);
+      }
+
+      img.parentNode.insertBefore(video, img);
+      img.parentNode.removeChild(img);
+    });
+
+    img.src = src;
+  });
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1195,639 +1237,608 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb21-42"><a href="#cb21-42" aria-hidden="true" tabindex="-1"></a><span class="co">  - "images/simple-trajectory.mp4"</span></span>
 <span id="cb21-43"><a href="#cb21-43" aria-hidden="true" tabindex="-1"></a><span class="co">  - "images/planets-trajectory.mp4"</span></span>
 <span id="cb21-44"><a href="#cb21-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-45"><a href="#cb21-45" aria-hidden="true" tabindex="-1"></a><span class="an">params:</span></span>
-<span id="cb21-46"><a href="#cb21-46" aria-hidden="true" tabindex="-1"></a><span class="co">  use_renv: FALSE</span></span>
-<span id="cb21-47"><a href="#cb21-47" aria-hidden="true" tabindex="-1"></a><span class="co">  data_file: NULL</span></span>
-<span id="cb21-48"><a href="#cb21-48" aria-hidden="true" tabindex="-1"></a><span class="co">  fair_dealing: FALSE</span></span>
-<span id="cb21-49"><a href="#cb21-49" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb21-50"><a href="#cb21-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-51"><a href="#cb21-51" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
-<span id="cb21-52"><a href="#cb21-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure the project root is set up correctly using {here} --------------------</span></span>
-<span id="cb21-53"><a href="#cb21-53" aria-hidden="true" tabindex="-1"></a>here<span class="sc">::</span><span class="fu">i_am</span>(<span class="st">"posts/2022-06-16_projectile-motion/index.qmd"</span>)</span>
-<span id="cb21-54"><a href="#cb21-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-55"><a href="#cb21-55" aria-hidden="true" tabindex="-1"></a><span class="co"># # Load general set up packages used in all posts ------------------------------</span></span>
-<span id="cb21-56"><a href="#cb21-56" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb21-57"><a href="#cb21-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-58"><a href="#cb21-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Load R scripts located in R/ ------------------------------------------------</span></span>
-<span id="cb21-59"><a href="#cb21-59" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"2022-06-16_projectile-motion"</span>, <span class="st">"projectile-motion.R"</span>))</span>
-<span id="cb21-60"><a href="#cb21-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-61"><a href="#cb21-61" aria-hidden="true" tabindex="-1"></a><span class="co"># Create templates for knitr code chunks --------------------------------------</span></span>
-<span id="cb21-62"><a href="#cb21-62" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_template<span class="sc">$</span><span class="fu">set</span>(</span>
-<span id="cb21-63"><a href="#cb21-63" aria-hidden="true" tabindex="-1"></a>  <span class="at">fig.graphic =</span> <span class="fu">list</span>(<span class="at">echo =</span> <span class="cn">FALSE</span>, <span class="at">out.width =</span> <span class="st">"100%"</span>),</span>
-<span id="cb21-64"><a href="#cb21-64" aria-hidden="true" tabindex="-1"></a>  <span class="at">no.message =</span> <span class="fu">list</span>(<span class="at">message =</span> <span class="cn">FALSE</span>, <span class="at">warning =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb21-65"><a href="#cb21-65" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-66"><a href="#cb21-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-67"><a href="#cb21-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-68"><a href="#cb21-68" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overview</span></span>
+<span id="cb21-45"><a href="#cb21-45" aria-hidden="true" tabindex="-1"></a><span class="an">include-after-body:</span><span class="co"> "../../_common/mp4-img-fallback.html"</span></span>
+<span id="cb21-46"><a href="#cb21-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-47"><a href="#cb21-47" aria-hidden="true" tabindex="-1"></a><span class="an">params:</span></span>
+<span id="cb21-48"><a href="#cb21-48" aria-hidden="true" tabindex="-1"></a><span class="co">  use_renv: FALSE</span></span>
+<span id="cb21-49"><a href="#cb21-49" aria-hidden="true" tabindex="-1"></a><span class="co">  data_file: NULL</span></span>
+<span id="cb21-50"><a href="#cb21-50" aria-hidden="true" tabindex="-1"></a><span class="co">  fair_dealing: FALSE</span></span>
+<span id="cb21-51"><a href="#cb21-51" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb21-52"><a href="#cb21-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-53"><a href="#cb21-53" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb21-54"><a href="#cb21-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure the project root is set up correctly using {here} --------------------</span></span>
+<span id="cb21-55"><a href="#cb21-55" aria-hidden="true" tabindex="-1"></a>here<span class="sc">::</span><span class="fu">i_am</span>(<span class="st">"posts/2022-06-16_projectile-motion/index.qmd"</span>)</span>
+<span id="cb21-56"><a href="#cb21-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-57"><a href="#cb21-57" aria-hidden="true" tabindex="-1"></a><span class="co"># # Load general set up packages used in all posts ------------------------------</span></span>
+<span id="cb21-58"><a href="#cb21-58" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb21-59"><a href="#cb21-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-60"><a href="#cb21-60" aria-hidden="true" tabindex="-1"></a><span class="co"># Load R scripts located in R/ ------------------------------------------------</span></span>
+<span id="cb21-61"><a href="#cb21-61" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"2022-06-16_projectile-motion"</span>, <span class="st">"projectile-motion.R"</span>))</span>
+<span id="cb21-62"><a href="#cb21-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-63"><a href="#cb21-63" aria-hidden="true" tabindex="-1"></a><span class="co"># Create templates for knitr code chunks --------------------------------------</span></span>
+<span id="cb21-64"><a href="#cb21-64" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_template<span class="sc">$</span><span class="fu">set</span>(</span>
+<span id="cb21-65"><a href="#cb21-65" aria-hidden="true" tabindex="-1"></a>  <span class="at">fig.graphic =</span> <span class="fu">list</span>(<span class="at">echo =</span> <span class="cn">FALSE</span>, <span class="at">out.width =</span> <span class="st">"100%"</span>),</span>
+<span id="cb21-66"><a href="#cb21-66" aria-hidden="true" tabindex="-1"></a>  <span class="at">no.message =</span> <span class="fu">list</span>(<span class="at">message =</span> <span class="cn">FALSE</span>, <span class="at">warning =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb21-67"><a href="#cb21-67" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-68"><a href="#cb21-68" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb21-69"><a href="#cb21-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-70"><a href="#cb21-70" aria-hidden="true" tabindex="-1"></a>Projectile motion describes the motion of an object launched into the air whose trajectory after launch is influenced only by the force of gravity and for which air resistance is negligible. Projectile motion was first accurately described by Galileo Galilei in his book <span class="co">[</span><span class="ot">Two New Sciences</span><span class="co">](https://en.wikipedia.org/wiki/Two_New_Sciences)</span>, published in 1638. In what he dubbed *compound motion*, Galileo demonstrated that projectile motion can be broken down into independent horizontal and vertical components that can be analyzed separately to describe an object's trajectory. He used this principle to prove that the trajectory of an object in projectile motion will always follow a curve in the shape of a parabola.</span>
+<span id="cb21-70"><a href="#cb21-70" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overview</span></span>
 <span id="cb21-71"><a href="#cb21-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-72"><a href="#cb21-72" aria-hidden="true" tabindex="-1"></a><span class="in">```{r parabola}</span></span>
-<span id="cb21-73"><a href="#cb21-73" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig.cap: |</span></span>
-<span id="cb21-74"><a href="#cb21-74" aria-hidden="true" tabindex="-1"></a><span class="co">#|   Projectile motion of an object launched at the same height and velocity but different angles. The symmetrical U-shaped curve of each trajectory is known as a parabola.</span></span>
-<span id="cb21-75"><a href="#cb21-75" aria-hidden="true" tabindex="-1"></a><span class="co">#| opts.label: 'fig.graphic'</span></span>
-<span id="cb21-76"><a href="#cb21-76" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb21-77"><a href="#cb21-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-78"><a href="#cb21-78" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">projectile_motion</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">0</span>)<span class="sc">$</span>trajectory <span class="sc">%&gt;%</span></span>
-<span id="cb21-79"><a href="#cb21-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="st">"a"</span>)</span>
-<span id="cb21-80"><a href="#cb21-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-81"><a href="#cb21-81" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">projectile_motion</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">0</span>)<span class="sc">$</span>trajectory <span class="sc">%&gt;%</span></span>
-<span id="cb21-82"><a href="#cb21-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="st">"b"</span>)</span>
-<span id="cb21-83"><a href="#cb21-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-84"><a href="#cb21-84" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="fu">projectile_motion</span>(<span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">0</span>)<span class="sc">$</span>trajectory <span class="sc">%&gt;%</span></span>
-<span id="cb21-85"><a href="#cb21-85" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="st">"c"</span>)</span>
-<span id="cb21-86"><a href="#cb21-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-87"><a href="#cb21-87" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">projectile_motion</span>(<span class="dv">10</span>, <span class="dv">40</span>, <span class="dv">0</span>)<span class="sc">$</span>trajectory <span class="sc">%&gt;%</span></span>
-<span id="cb21-88"><a href="#cb21-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="st">"d"</span>)</span>
-<span id="cb21-89"><a href="#cb21-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-90"><a href="#cb21-90" aria-hidden="true" tabindex="-1"></a>e <span class="ot">&lt;-</span> <span class="fu">projectile_motion</span>(<span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">0</span>)<span class="sc">$</span>trajectory <span class="sc">%&gt;%</span></span>
-<span id="cb21-91"><a href="#cb21-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="st">"e"</span>)</span>
-<span id="cb21-92"><a href="#cb21-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-93"><a href="#cb21-93" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb21-94"><a href="#cb21-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> a, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> group)) <span class="sc">+</span></span>
-<span id="cb21-95"><a href="#cb21-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> b, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> group)) <span class="sc">+</span></span>
-<span id="cb21-96"><a href="#cb21-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> c, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> group)) <span class="sc">+</span></span>
-<span id="cb21-97"><a href="#cb21-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> d, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> group)) <span class="sc">+</span></span>
-<span id="cb21-98"><a href="#cb21-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> e, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> group)) <span class="sc">+</span></span>
-<span id="cb21-99"><a href="#cb21-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">"Dark2"</span>) <span class="sc">+</span></span>
-<span id="cb21-100"><a href="#cb21-100" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb21-101"><a href="#cb21-101" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
-<span id="cb21-102"><a href="#cb21-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-103"><a href="#cb21-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-104"><a href="#cb21-104" aria-hidden="true" tabindex="-1"></a>Galileo used an inclined plane to demonstrate his principle of compound motion. I'm going to use R.</span>
+<span id="cb21-72"><a href="#cb21-72" aria-hidden="true" tabindex="-1"></a>Projectile motion describes the motion of an object launched into the air whose trajectory after launch is influenced only by the force of gravity and for which air resistance is negligible. Projectile motion was first accurately described by Galileo Galilei in his book <span class="co">[</span><span class="ot">Two New Sciences</span><span class="co">](https://en.wikipedia.org/wiki/Two_New_Sciences)</span>, published in 1638. In what he dubbed *compound motion*, Galileo demonstrated that projectile motion can be broken down into independent horizontal and vertical components that can be analyzed separately to describe an object's trajectory. He used this principle to prove that the trajectory of an object in projectile motion will always follow a curve in the shape of a parabola.</span>
+<span id="cb21-73"><a href="#cb21-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-74"><a href="#cb21-74" aria-hidden="true" tabindex="-1"></a><span class="in">```{r parabola}</span></span>
+<span id="cb21-75"><a href="#cb21-75" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig.cap: |</span></span>
+<span id="cb21-76"><a href="#cb21-76" aria-hidden="true" tabindex="-1"></a><span class="co">#|   Projectile motion of an object launched at the same height and velocity but different angles. The symmetrical U-shaped curve of each trajectory is known as a parabola.</span></span>
+<span id="cb21-77"><a href="#cb21-77" aria-hidden="true" tabindex="-1"></a><span class="co">#| opts.label: 'fig.graphic'</span></span>
+<span id="cb21-78"><a href="#cb21-78" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb21-79"><a href="#cb21-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-80"><a href="#cb21-80" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">projectile_motion</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">0</span>)<span class="sc">$</span>trajectory <span class="sc">%&gt;%</span></span>
+<span id="cb21-81"><a href="#cb21-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="st">"a"</span>)</span>
+<span id="cb21-82"><a href="#cb21-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-83"><a href="#cb21-83" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">projectile_motion</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">0</span>)<span class="sc">$</span>trajectory <span class="sc">%&gt;%</span></span>
+<span id="cb21-84"><a href="#cb21-84" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="st">"b"</span>)</span>
+<span id="cb21-85"><a href="#cb21-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-86"><a href="#cb21-86" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="fu">projectile_motion</span>(<span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">0</span>)<span class="sc">$</span>trajectory <span class="sc">%&gt;%</span></span>
+<span id="cb21-87"><a href="#cb21-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="st">"c"</span>)</span>
+<span id="cb21-88"><a href="#cb21-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-89"><a href="#cb21-89" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">projectile_motion</span>(<span class="dv">10</span>, <span class="dv">40</span>, <span class="dv">0</span>)<span class="sc">$</span>trajectory <span class="sc">%&gt;%</span></span>
+<span id="cb21-90"><a href="#cb21-90" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="st">"d"</span>)</span>
+<span id="cb21-91"><a href="#cb21-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-92"><a href="#cb21-92" aria-hidden="true" tabindex="-1"></a>e <span class="ot">&lt;-</span> <span class="fu">projectile_motion</span>(<span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">0</span>)<span class="sc">$</span>trajectory <span class="sc">%&gt;%</span></span>
+<span id="cb21-93"><a href="#cb21-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="st">"e"</span>)</span>
+<span id="cb21-94"><a href="#cb21-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-95"><a href="#cb21-95" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb21-96"><a href="#cb21-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> a, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> group)) <span class="sc">+</span></span>
+<span id="cb21-97"><a href="#cb21-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> b, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> group)) <span class="sc">+</span></span>
+<span id="cb21-98"><a href="#cb21-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> c, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> group)) <span class="sc">+</span></span>
+<span id="cb21-99"><a href="#cb21-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> d, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> group)) <span class="sc">+</span></span>
+<span id="cb21-100"><a href="#cb21-100" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> e, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> group)) <span class="sc">+</span></span>
+<span id="cb21-101"><a href="#cb21-101" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">"Dark2"</span>) <span class="sc">+</span></span>
+<span id="cb21-102"><a href="#cb21-102" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb21-103"><a href="#cb21-103" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb21-104"><a href="#cb21-104" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb21-105"><a href="#cb21-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-106"><a href="#cb21-106" aria-hidden="true" tabindex="-1"></a><span class="fu">## Post Inspiration</span></span>
+<span id="cb21-106"><a href="#cb21-106" aria-hidden="true" tabindex="-1"></a>Galileo used an inclined plane to demonstrate his principle of compound motion. I'm going to use R.</span>
 <span id="cb21-107"><a href="#cb21-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-108"><a href="#cb21-108" aria-hidden="true" tabindex="-1"></a>I recently finished Outer Wilds, an open world adventure game set in a strange, constantly evolving solar system trapped in an endless time loop. It's a great game and I really enjoyed solving the mysteries of the solar system. The reason I bring it up here is that, on top of being a great game, the physics realism of Outer Wilds is something that really stood out to me.</span>
+<span id="cb21-108"><a href="#cb21-108" aria-hidden="true" tabindex="-1"></a><span class="fu">## Post Inspiration</span></span>
 <span id="cb21-109"><a href="#cb21-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-110"><a href="#cb21-110" aria-hidden="true" tabindex="-1"></a>For instance, at the start of the game there’s a museum exhibit consisting of a low table and three gently rolling balls that appear to move around on their own.</span>
+<span id="cb21-110"><a href="#cb21-110" aria-hidden="true" tabindex="-1"></a>I recently finished Outer Wilds, an open world adventure game set in a strange, constantly evolving solar system trapped in an endless time loop. It's a great game and I really enjoyed solving the mysteries of the solar system. The reason I bring it up here is that, on top of being a great game, the physics realism of Outer Wilds is something that really stood out to me.</span>
 <span id="cb21-111"><a href="#cb21-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-112"><a href="#cb21-112" aria-hidden="true" tabindex="-1"></a>::: {.column-margin}</span>
-<span id="cb21-113"><a href="#cb21-113" aria-hidden="true" tabindex="-1"></a>Emphasis on *gently*. Wait for it...</span>
-<span id="cb21-114"><a href="#cb21-114" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb21-115"><a href="#cb21-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-116"><a href="#cb21-116" aria-hidden="true" tabindex="-1"></a><span class="in">```{r moon-gravity}</span></span>
-<span id="cb21-117"><a href="#cb21-117" aria-hidden="true" tabindex="-1"></a><span class="co">#| opts.label: 'fig.graphic'</span></span>
-<span id="cb21-118"><a href="#cb21-118" aria-hidden="true" tabindex="-1"></a>embedr<span class="sc">::</span><span class="fu">embed_video</span>(</span>
-<span id="cb21-119"><a href="#cb21-119" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(</span>
-<span id="cb21-120"><a href="#cb21-120" aria-hidden="true" tabindex="-1"></a>    <span class="fu">interactive</span>(),</span>
-<span id="cb21-121"><a href="#cb21-121" aria-hidden="true" tabindex="-1"></a>    <span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"2022-06-16_projectile-motion"</span>, <span class="st">"images"</span>, <span class="st">"moon-gravity.mp4"</span>),</span>
-<span id="cb21-122"><a href="#cb21-122" aria-hidden="true" tabindex="-1"></a>    <span class="st">"images/moon-gravity.mp4"</span></span>
-<span id="cb21-123"><a href="#cb21-123" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb21-124"><a href="#cb21-124" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"mp4"</span>,</span>
-<span id="cb21-125"><a href="#cb21-125" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="st">"100%"</span>,</span>
-<span id="cb21-126"><a href="#cb21-126" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="st">""</span>,</span>
-<span id="cb21-127"><a href="#cb21-127" aria-hidden="true" tabindex="-1"></a>  <span class="at">attribute =</span> <span class="fu">c</span>(<span class="st">"autoplay"</span>, <span class="st">"loop"</span>, <span class="st">"muted"</span>)</span>
-<span id="cb21-128"><a href="#cb21-128" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-129"><a href="#cb21-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-130"><a href="#cb21-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-131"><a href="#cb21-131" aria-hidden="true" tabindex="-1"></a>But the balls are not actually moving on their own. Their motion is being affected by the moon's gravity. As the placard beside them explains: “As it orbits our planet, the Attlerock’s gravity pulls on objects from different directions. In fact, it’s pulling on you right now!” This isn't just flavour text---the game is <span class="co">[</span><span class="ot">actually simulating planetary gravity</span><span class="co">](https://www.rockpapershotgun.com/how-outer-wilds-built-a-planet-which-falls-apart)</span>.</span>
-<span id="cb21-132"><a href="#cb21-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-133"><a href="#cb21-133" aria-hidden="true" tabindex="-1"></a>Outer Wilds uses its physics realism to great effect in other parts of the game (ever wondered what it's like to stand on planet while it breaks apart into a black hole?), and experiencing it all got me curious: What kinds of physics simulations could I do in the two-dimensional space of a plot? After some research and reading I landed on projectile motion.</span>
+<span id="cb21-112"><a href="#cb21-112" aria-hidden="true" tabindex="-1"></a>For instance, at the start of the game there’s a museum exhibit consisting of a low table and three gently rolling balls that appear to move around on their own.</span>
+<span id="cb21-113"><a href="#cb21-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-114"><a href="#cb21-114" aria-hidden="true" tabindex="-1"></a>::: {.column-margin}</span>
+<span id="cb21-115"><a href="#cb21-115" aria-hidden="true" tabindex="-1"></a>Emphasis on *gently*. Wait for it...</span>
+<span id="cb21-116"><a href="#cb21-116" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb21-117"><a href="#cb21-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-118"><a href="#cb21-118" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;img</span> <span class="er">src</span><span class="ot">=</span><span class="st">'images/moon-gravity.mp4'</span> <span class="er">width</span> <span class="ot">=</span><span class="st">"100%"</span><span class="kw">&gt;</span></span>
+<span id="cb21-119"><a href="#cb21-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-120"><a href="#cb21-120" aria-hidden="true" tabindex="-1"></a>But the balls are not actually moving on their own. Their motion is being affected by the moon's gravity. As the placard beside them explains: “As it orbits our planet, the Attlerock’s gravity pulls on objects from different directions. In fact, it’s pulling on you right now!” This isn't just flavour text---the game is <span class="co">[</span><span class="ot">actually simulating planetary gravity</span><span class="co">](https://www.rockpapershotgun.com/how-outer-wilds-built-a-planet-which-falls-apart)</span>.</span>
+<span id="cb21-121"><a href="#cb21-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-122"><a href="#cb21-122" aria-hidden="true" tabindex="-1"></a>Outer Wilds uses its physics realism to great effect in other parts of the game (ever wondered what it's like to stand on planet while it breaks apart into a black hole?), and experiencing it all got me curious: What kinds of physics simulations could I do in the two-dimensional space of a plot? After some research and reading I landed on projectile motion.</span>
+<span id="cb21-123"><a href="#cb21-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-124"><a href="#cb21-124" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prerequisites</span></span>
+<span id="cb21-125"><a href="#cb21-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-126"><a href="#cb21-126" aria-hidden="true" tabindex="-1"></a><span class="in">```{r requirements-setup}</span></span>
+<span id="cb21-127"><a href="#cb21-127" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb21-128"><a href="#cb21-128" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gganimate)</span>
+<span id="cb21-129"><a href="#cb21-129" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggh4x)</span>
+<span id="cb21-130"><a href="#cb21-130" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(formattable)</span>
+<span id="cb21-131"><a href="#cb21-131" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emojifont)</span>
+<span id="cb21-132"><a href="#cb21-132" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
+<span id="cb21-133"><a href="#cb21-133" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb21-134"><a href="#cb21-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-135"><a href="#cb21-135" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prerequisites</span></span>
+<span id="cb21-135"><a href="#cb21-135" aria-hidden="true" tabindex="-1"></a>I'll be simulating data for my plot by turning the equations for projectile motion into R functions. You can <span class="co">[</span><span class="ot">download this data</span><span class="co">](#data-source)</span> with the Data Source link in the appendix. The <span class="co">[</span><span class="ot">sources</span><span class="co">](#references)</span> I used for the equations can also be found in the appendix.</span>
 <span id="cb21-136"><a href="#cb21-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-137"><a href="#cb21-137" aria-hidden="true" tabindex="-1"></a><span class="in">```{r requirements-setup}</span></span>
-<span id="cb21-138"><a href="#cb21-138" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb21-139"><a href="#cb21-139" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gganimate)</span>
-<span id="cb21-140"><a href="#cb21-140" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggh4x)</span>
-<span id="cb21-141"><a href="#cb21-141" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(formattable)</span>
-<span id="cb21-142"><a href="#cb21-142" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emojifont)</span>
-<span id="cb21-143"><a href="#cb21-143" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
-<span id="cb21-144"><a href="#cb21-144" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-145"><a href="#cb21-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-146"><a href="#cb21-146" aria-hidden="true" tabindex="-1"></a>I'll be simulating data for my plot by turning the equations for projectile motion into R functions. You can <span class="co">[</span><span class="ot">download this data</span><span class="co">](#data-source)</span> with the Data Source link in the appendix. The <span class="co">[</span><span class="ot">sources</span><span class="co">](#references)</span> I used for the equations can also be found in the appendix.</span>
-<span id="cb21-147"><a href="#cb21-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-148"><a href="#cb21-148" aria-hidden="true" tabindex="-1"></a><span class="fu">## Simulate</span></span>
-<span id="cb21-149"><a href="#cb21-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-150"><a href="#cb21-150" aria-hidden="true" tabindex="-1"></a>The equations for projectile motion use a common set of variables which are listed below. The equations assume that the force of air resistance is negligible </span>
-<span id="cb21-151"><a href="#cb21-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-152"><a href="#cb21-152" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb21-153"><a href="#cb21-153" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
-<span id="cb21-154"><a href="#cb21-154" aria-hidden="true" tabindex="-1"></a>V &amp;\leftarrow \textrm{initial velocity}, <span class="sc">\\</span></span>
-<span id="cb21-155"><a href="#cb21-155" aria-hidden="true" tabindex="-1"></a>V_x &amp;\leftarrow \textrm{horizontal velocity}, <span class="sc">\\</span></span>
-<span id="cb21-156"><a href="#cb21-156" aria-hidden="true" tabindex="-1"></a>V_y &amp;\leftarrow \textrm{vertical velocity}, <span class="sc">\\</span></span>
-<span id="cb21-157"><a href="#cb21-157" aria-hidden="true" tabindex="-1"></a>\alpha &amp;\leftarrow \textrm{launch angle}, <span class="sc">\\</span></span>
-<span id="cb21-158"><a href="#cb21-158" aria-hidden="true" tabindex="-1"></a>h &amp;\leftarrow \textrm{initial height}, <span class="sc">\\</span></span>
-<span id="cb21-159"><a href="#cb21-159" aria-hidden="true" tabindex="-1"></a>t &amp;\leftarrow \textrm{time of flight}, <span class="sc">\\</span></span>
-<span id="cb21-160"><a href="#cb21-160" aria-hidden="true" tabindex="-1"></a>d &amp;\leftarrow \textrm{distance (range)}, <span class="sc">\\</span></span>
-<span id="cb21-161"><a href="#cb21-161" aria-hidden="true" tabindex="-1"></a>h_{\textrm{max}} &amp;\leftarrow \textrm{maximum height}, <span class="sc">\\</span></span>
-<span id="cb21-162"><a href="#cb21-162" aria-hidden="true" tabindex="-1"></a>g &amp;\leftarrow \textrm{gravity}.</span>
+<span id="cb21-137"><a href="#cb21-137" aria-hidden="true" tabindex="-1"></a><span class="fu">## Simulate</span></span>
+<span id="cb21-138"><a href="#cb21-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-139"><a href="#cb21-139" aria-hidden="true" tabindex="-1"></a>The equations for projectile motion use a common set of variables which are listed below. The equations assume that the force of air resistance is negligible </span>
+<span id="cb21-140"><a href="#cb21-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-141"><a href="#cb21-141" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb21-142"><a href="#cb21-142" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb21-143"><a href="#cb21-143" aria-hidden="true" tabindex="-1"></a>V &amp;\leftarrow \textrm{initial velocity}, <span class="sc">\\</span></span>
+<span id="cb21-144"><a href="#cb21-144" aria-hidden="true" tabindex="-1"></a>V_x &amp;\leftarrow \textrm{horizontal velocity}, <span class="sc">\\</span></span>
+<span id="cb21-145"><a href="#cb21-145" aria-hidden="true" tabindex="-1"></a>V_y &amp;\leftarrow \textrm{vertical velocity}, <span class="sc">\\</span></span>
+<span id="cb21-146"><a href="#cb21-146" aria-hidden="true" tabindex="-1"></a>\alpha &amp;\leftarrow \textrm{launch angle}, <span class="sc">\\</span></span>
+<span id="cb21-147"><a href="#cb21-147" aria-hidden="true" tabindex="-1"></a>h &amp;\leftarrow \textrm{initial height}, <span class="sc">\\</span></span>
+<span id="cb21-148"><a href="#cb21-148" aria-hidden="true" tabindex="-1"></a>t &amp;\leftarrow \textrm{time of flight}, <span class="sc">\\</span></span>
+<span id="cb21-149"><a href="#cb21-149" aria-hidden="true" tabindex="-1"></a>d &amp;\leftarrow \textrm{distance (range)}, <span class="sc">\\</span></span>
+<span id="cb21-150"><a href="#cb21-150" aria-hidden="true" tabindex="-1"></a>h_{\textrm{max}} &amp;\leftarrow \textrm{maximum height}, <span class="sc">\\</span></span>
+<span id="cb21-151"><a href="#cb21-151" aria-hidden="true" tabindex="-1"></a>g &amp;\leftarrow \textrm{gravity}.</span>
+<span id="cb21-152"><a href="#cb21-152" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb21-153"><a href="#cb21-153" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb21-154"><a href="#cb21-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-155"><a href="#cb21-155" aria-hidden="true" tabindex="-1"></a><span class="fu">### Horizontal and vertical velocity</span></span>
+<span id="cb21-156"><a href="#cb21-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-157"><a href="#cb21-157" aria-hidden="true" tabindex="-1"></a>The horizontal velocity, $V_x$, and vertical velocity, $V_y$, of an object moving in projectile motion are given by the equations</span>
+<span id="cb21-158"><a href="#cb21-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-159"><a href="#cb21-159" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb21-160"><a href="#cb21-160" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb21-161"><a href="#cb21-161" aria-hidden="true" tabindex="-1"></a>V_x &amp;= V \times \cos(\alpha), \textrm{ and} <span class="sc">\\</span></span>
+<span id="cb21-162"><a href="#cb21-162" aria-hidden="true" tabindex="-1"></a>V_y &amp;= V \times \sin(\alpha),</span>
 <span id="cb21-163"><a href="#cb21-163" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
 <span id="cb21-164"><a href="#cb21-164" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb21-165"><a href="#cb21-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-166"><a href="#cb21-166" aria-hidden="true" tabindex="-1"></a><span class="fu">### Horizontal and vertical velocity</span></span>
+<span id="cb21-166"><a href="#cb21-166" aria-hidden="true" tabindex="-1"></a>where $V$ is the initial velocity and $\alpha$ is the launch angle. Horizontal and vertical velocity can be computed in R with the following functions.</span>
 <span id="cb21-167"><a href="#cb21-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-168"><a href="#cb21-168" aria-hidden="true" tabindex="-1"></a>The horizontal velocity, $V_x$, and vertical velocity, $V_y$, of an object moving in projectile motion are given by the equations</span>
-<span id="cb21-169"><a href="#cb21-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-170"><a href="#cb21-170" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb21-171"><a href="#cb21-171" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
-<span id="cb21-172"><a href="#cb21-172" aria-hidden="true" tabindex="-1"></a>V_x &amp;= V \times \cos(\alpha), \textrm{ and} <span class="sc">\\</span></span>
-<span id="cb21-173"><a href="#cb21-173" aria-hidden="true" tabindex="-1"></a>V_y &amp;= V \times \sin(\alpha),</span>
-<span id="cb21-174"><a href="#cb21-174" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
-<span id="cb21-175"><a href="#cb21-175" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb21-176"><a href="#cb21-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-177"><a href="#cb21-177" aria-hidden="true" tabindex="-1"></a>where $V$ is the initial velocity and $\alpha$ is the launch angle. Horizontal and vertical velocity can be computed in R with the following functions.</span>
-<span id="cb21-178"><a href="#cb21-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-179"><a href="#cb21-179" aria-hidden="true" tabindex="-1"></a><span class="in">```{r velocity}</span></span>
-<span id="cb21-180"><a href="#cb21-180" aria-hidden="true" tabindex="-1"></a>velocity_x <span class="ot">&lt;-</span> <span class="cf">function</span>(velocity, angle) {</span>
-<span id="cb21-181"><a href="#cb21-181" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Degrees need to be converted to radians in cos() since that is what the</span></span>
-<span id="cb21-182"><a href="#cb21-182" aria-hidden="true" tabindex="-1"></a>  <span class="co"># function uses</span></span>
-<span id="cb21-183"><a href="#cb21-183" aria-hidden="true" tabindex="-1"></a>  velocity <span class="sc">*</span> <span class="fu">cos</span>(angle <span class="sc">*</span> (pi<span class="sc">/</span><span class="dv">180</span>))</span>
-<span id="cb21-184"><a href="#cb21-184" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-168"><a href="#cb21-168" aria-hidden="true" tabindex="-1"></a><span class="in">```{r velocity}</span></span>
+<span id="cb21-169"><a href="#cb21-169" aria-hidden="true" tabindex="-1"></a>velocity_x <span class="ot">&lt;-</span> <span class="cf">function</span>(velocity, angle) {</span>
+<span id="cb21-170"><a href="#cb21-170" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Degrees need to be converted to radians in cos() since that is what the</span></span>
+<span id="cb21-171"><a href="#cb21-171" aria-hidden="true" tabindex="-1"></a>  <span class="co"># function uses</span></span>
+<span id="cb21-172"><a href="#cb21-172" aria-hidden="true" tabindex="-1"></a>  velocity <span class="sc">*</span> <span class="fu">cos</span>(angle <span class="sc">*</span> (pi<span class="sc">/</span><span class="dv">180</span>))</span>
+<span id="cb21-173"><a href="#cb21-173" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-174"><a href="#cb21-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-175"><a href="#cb21-175" aria-hidden="true" tabindex="-1"></a>velocity_y <span class="ot">&lt;-</span> <span class="cf">function</span>(velocity, angle) {</span>
+<span id="cb21-176"><a href="#cb21-176" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Degrees need to be converted to radians in sin() since that is what the</span></span>
+<span id="cb21-177"><a href="#cb21-177" aria-hidden="true" tabindex="-1"></a>  <span class="co"># function uses</span></span>
+<span id="cb21-178"><a href="#cb21-178" aria-hidden="true" tabindex="-1"></a>  velocity <span class="sc">*</span> <span class="fu">sin</span>(angle <span class="sc">*</span> (pi<span class="sc">/</span><span class="dv">180</span>))</span>
+<span id="cb21-179"><a href="#cb21-179" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-180"><a href="#cb21-180" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-181"><a href="#cb21-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-182"><a href="#cb21-182" aria-hidden="true" tabindex="-1"></a><span class="fu">### Time of flight</span></span>
+<span id="cb21-183"><a href="#cb21-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-184"><a href="#cb21-184" aria-hidden="true" tabindex="-1"></a>The time of flight, $t$, of an object moving in projectile motion is given by the equation</span>
 <span id="cb21-185"><a href="#cb21-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-186"><a href="#cb21-186" aria-hidden="true" tabindex="-1"></a>velocity_y <span class="ot">&lt;-</span> <span class="cf">function</span>(velocity, angle) {</span>
-<span id="cb21-187"><a href="#cb21-187" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Degrees need to be converted to radians in sin() since that is what the</span></span>
-<span id="cb21-188"><a href="#cb21-188" aria-hidden="true" tabindex="-1"></a>  <span class="co"># function uses</span></span>
-<span id="cb21-189"><a href="#cb21-189" aria-hidden="true" tabindex="-1"></a>  velocity <span class="sc">*</span> <span class="fu">sin</span>(angle <span class="sc">*</span> (pi<span class="sc">/</span><span class="dv">180</span>))</span>
-<span id="cb21-190"><a href="#cb21-190" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb21-191"><a href="#cb21-191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-192"><a href="#cb21-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-193"><a href="#cb21-193" aria-hidden="true" tabindex="-1"></a><span class="fu">### Time of flight</span></span>
-<span id="cb21-194"><a href="#cb21-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-195"><a href="#cb21-195" aria-hidden="true" tabindex="-1"></a>The time of flight, $t$, of an object moving in projectile motion is given by the equation</span>
-<span id="cb21-196"><a href="#cb21-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-197"><a href="#cb21-197" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb21-198"><a href="#cb21-198" aria-hidden="true" tabindex="-1"></a>t = \left(V_y + \sqrt{V_y^2 + 2 \times g \times h}\right) \div g,</span>
-<span id="cb21-199"><a href="#cb21-199" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb21-200"><a href="#cb21-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-201"><a href="#cb21-201" aria-hidden="true" tabindex="-1"></a>where $V_y$ is the vertical velocity, $g$ is the force of gravity, and $h$, is the initial height the object is launched from. Time of flight is the time from when the object is launched to the time the object reaches the surface. It can be computed in R with the following function.</span>
-<span id="cb21-202"><a href="#cb21-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-203"><a href="#cb21-203" aria-hidden="true" tabindex="-1"></a><span class="in">```{r time-of-flight}</span></span>
-<span id="cb21-204"><a href="#cb21-204" aria-hidden="true" tabindex="-1"></a>flight_time <span class="ot">&lt;-</span> <span class="cf">function</span>(velocity_y, height, <span class="at">gravity =</span> <span class="fl">9.80665</span>) {</span>
-<span id="cb21-205"><a href="#cb21-205" aria-hidden="true" tabindex="-1"></a>  ( velocity_y <span class="sc">+</span> <span class="fu">sqrt</span>(velocity_y<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> gravity <span class="sc">*</span> height) ) <span class="sc">/</span> gravity</span>
-<span id="cb21-206"><a href="#cb21-206" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb21-207"><a href="#cb21-207" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-208"><a href="#cb21-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-209"><a href="#cb21-209" aria-hidden="true" tabindex="-1"></a><span class="fu">### Distance (range)</span></span>
-<span id="cb21-210"><a href="#cb21-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-211"><a href="#cb21-211" aria-hidden="true" tabindex="-1"></a>The distance, $d$, or range travelled by an object moving in projectile motion is given by the equation</span>
-<span id="cb21-212"><a href="#cb21-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-213"><a href="#cb21-213" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb21-214"><a href="#cb21-214" aria-hidden="true" tabindex="-1"></a>d = V_x \times t,</span>
-<span id="cb21-215"><a href="#cb21-215" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb21-186"><a href="#cb21-186" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb21-187"><a href="#cb21-187" aria-hidden="true" tabindex="-1"></a>t = \left(V_y + \sqrt{V_y^2 + 2 \times g \times h}\right) \div g,</span>
+<span id="cb21-188"><a href="#cb21-188" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb21-189"><a href="#cb21-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-190"><a href="#cb21-190" aria-hidden="true" tabindex="-1"></a>where $V_y$ is the vertical velocity, $g$ is the force of gravity, and $h$, is the initial height the object is launched from. Time of flight is the time from when the object is launched to the time the object reaches the surface. It can be computed in R with the following function.</span>
+<span id="cb21-191"><a href="#cb21-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-192"><a href="#cb21-192" aria-hidden="true" tabindex="-1"></a><span class="in">```{r time-of-flight}</span></span>
+<span id="cb21-193"><a href="#cb21-193" aria-hidden="true" tabindex="-1"></a>flight_time <span class="ot">&lt;-</span> <span class="cf">function</span>(velocity_y, height, <span class="at">gravity =</span> <span class="fl">9.80665</span>) {</span>
+<span id="cb21-194"><a href="#cb21-194" aria-hidden="true" tabindex="-1"></a>  ( velocity_y <span class="sc">+</span> <span class="fu">sqrt</span>(velocity_y<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> gravity <span class="sc">*</span> height) ) <span class="sc">/</span> gravity</span>
+<span id="cb21-195"><a href="#cb21-195" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-196"><a href="#cb21-196" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-197"><a href="#cb21-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-198"><a href="#cb21-198" aria-hidden="true" tabindex="-1"></a><span class="fu">### Distance (range)</span></span>
+<span id="cb21-199"><a href="#cb21-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-200"><a href="#cb21-200" aria-hidden="true" tabindex="-1"></a>The distance, $d$, or range travelled by an object moving in projectile motion is given by the equation</span>
+<span id="cb21-201"><a href="#cb21-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-202"><a href="#cb21-202" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb21-203"><a href="#cb21-203" aria-hidden="true" tabindex="-1"></a>d = V_x \times t,</span>
+<span id="cb21-204"><a href="#cb21-204" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb21-205"><a href="#cb21-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-206"><a href="#cb21-206" aria-hidden="true" tabindex="-1"></a>where $V_x$ is the horizontal velocity and $t$ is the time of flight. The range of the projectile is the total horizontal distance travelled during the time of flight. It can be computed in R with the following function.</span>
+<span id="cb21-207"><a href="#cb21-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-208"><a href="#cb21-208" aria-hidden="true" tabindex="-1"></a><span class="in">```{r distance}</span></span>
+<span id="cb21-209"><a href="#cb21-209" aria-hidden="true" tabindex="-1"></a>distance <span class="ot">&lt;-</span> <span class="cf">function</span>(velocity_x, velocity_y, height, <span class="at">gravity =</span> <span class="fl">9.80665</span>) {</span>
+<span id="cb21-210"><a href="#cb21-210" aria-hidden="true" tabindex="-1"></a>  velocity_x <span class="sc">*</span> ( velocity_y <span class="sc">+</span> <span class="fu">sqrt</span>(velocity_y<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> gravity <span class="sc">*</span> height) ) <span class="sc">/</span></span>
+<span id="cb21-211"><a href="#cb21-211" aria-hidden="true" tabindex="-1"></a>  gravity</span>
+<span id="cb21-212"><a href="#cb21-212" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-213"><a href="#cb21-213" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-214"><a href="#cb21-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-215"><a href="#cb21-215" aria-hidden="true" tabindex="-1"></a><span class="fu">### Maximum height</span></span>
 <span id="cb21-216"><a href="#cb21-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-217"><a href="#cb21-217" aria-hidden="true" tabindex="-1"></a>where $V_x$ is the horizontal velocity and $t$ is the time of flight. The range of the projectile is the total horizontal distance travelled during the time of flight. It can be computed in R with the following function.</span>
+<span id="cb21-217"><a href="#cb21-217" aria-hidden="true" tabindex="-1"></a>The maximum height, $h_{\textrm{max}}$, reached by an object moving in projectile motion is given by the equation</span>
 <span id="cb21-218"><a href="#cb21-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-219"><a href="#cb21-219" aria-hidden="true" tabindex="-1"></a><span class="in">```{r distance}</span></span>
-<span id="cb21-220"><a href="#cb21-220" aria-hidden="true" tabindex="-1"></a>distance <span class="ot">&lt;-</span> <span class="cf">function</span>(velocity_x, velocity_y, height, <span class="at">gravity =</span> <span class="fl">9.80665</span>) {</span>
-<span id="cb21-221"><a href="#cb21-221" aria-hidden="true" tabindex="-1"></a>  velocity_x <span class="sc">*</span> ( velocity_y <span class="sc">+</span> <span class="fu">sqrt</span>(velocity_y<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> gravity <span class="sc">*</span> height) ) <span class="sc">/</span></span>
-<span id="cb21-222"><a href="#cb21-222" aria-hidden="true" tabindex="-1"></a>  gravity</span>
-<span id="cb21-223"><a href="#cb21-223" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb21-224"><a href="#cb21-224" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-225"><a href="#cb21-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-226"><a href="#cb21-226" aria-hidden="true" tabindex="-1"></a><span class="fu">### Maximum height</span></span>
-<span id="cb21-227"><a href="#cb21-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-228"><a href="#cb21-228" aria-hidden="true" tabindex="-1"></a>The maximum height, $h_{\textrm{max}}$, reached by an object moving in projectile motion is given by the equation</span>
-<span id="cb21-229"><a href="#cb21-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-230"><a href="#cb21-230" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb21-231"><a href="#cb21-231" aria-hidden="true" tabindex="-1"></a>h_{\textrm{max}} = h + V_y^2 \div (2 \times g),</span>
-<span id="cb21-232"><a href="#cb21-232" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb21-233"><a href="#cb21-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-234"><a href="#cb21-234" aria-hidden="true" tabindex="-1"></a>where $h$ is the initial height, $V_y$ is the vertical velocity, and $g$ is the force of gravity. The maximum height is reached when $V_y = 0$. It can be computed in R with the following function.</span>
-<span id="cb21-235"><a href="#cb21-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-236"><a href="#cb21-236" aria-hidden="true" tabindex="-1"></a><span class="in">```{r maximum-height}</span></span>
-<span id="cb21-237"><a href="#cb21-237" aria-hidden="true" tabindex="-1"></a>height_max <span class="ot">&lt;-</span> <span class="cf">function</span>(velocity_y, height, <span class="at">gravity =</span> <span class="fl">9.80665</span>) {</span>
-<span id="cb21-238"><a href="#cb21-238" aria-hidden="true" tabindex="-1"></a>  height <span class="sc">+</span> velocity_y<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> gravity)</span>
-<span id="cb21-239"><a href="#cb21-239" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb21-240"><a href="#cb21-240" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-241"><a href="#cb21-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-242"><a href="#cb21-242" aria-hidden="true" tabindex="-1"></a><span class="fu">### Projectile motion calculator</span></span>
-<span id="cb21-243"><a href="#cb21-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-244"><a href="#cb21-244" aria-hidden="true" tabindex="-1"></a>Now to wrap all the components into a single function that will calculate the result for each component based on a set of parameters given to it. These results can then be used to determine the position and velocity of the projectile at any point in time during its trajectory, which I want to return as a data frame that can be used for plotting.</span>
-<span id="cb21-245"><a href="#cb21-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-246"><a href="#cb21-246" aria-hidden="true" tabindex="-1"></a><span class="in">```{r projectile-motion}</span></span>
-<span id="cb21-247"><a href="#cb21-247" aria-hidden="true" tabindex="-1"></a><span class="co">#' nframes and fps can be used to animate the trajectory as close to real time as possible.</span></span>
-<span id="cb21-248"><a href="#cb21-248" aria-hidden="true" tabindex="-1"></a><span class="co">#' There will be some rounding error though so it won't be exactly the same as the flight</span></span>
-<span id="cb21-249"><a href="#cb21-249" aria-hidden="true" tabindex="-1"></a><span class="co">#' time.</span></span>
-<span id="cb21-250"><a href="#cb21-250" aria-hidden="true" tabindex="-1"></a>projectile_motion <span class="ot">&lt;-</span> <span class="cf">function</span>(velocity, angle, height, <span class="at">gravity =</span> <span class="fl">9.80665</span>, <span class="at">nframes =</span> <span class="dv">30</span>) {</span>
+<span id="cb21-219"><a href="#cb21-219" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb21-220"><a href="#cb21-220" aria-hidden="true" tabindex="-1"></a>h_{\textrm{max}} = h + V_y^2 \div (2 \times g),</span>
+<span id="cb21-221"><a href="#cb21-221" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb21-222"><a href="#cb21-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-223"><a href="#cb21-223" aria-hidden="true" tabindex="-1"></a>where $h$ is the initial height, $V_y$ is the vertical velocity, and $g$ is the force of gravity. The maximum height is reached when $V_y = 0$. It can be computed in R with the following function.</span>
+<span id="cb21-224"><a href="#cb21-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-225"><a href="#cb21-225" aria-hidden="true" tabindex="-1"></a><span class="in">```{r maximum-height}</span></span>
+<span id="cb21-226"><a href="#cb21-226" aria-hidden="true" tabindex="-1"></a>height_max <span class="ot">&lt;-</span> <span class="cf">function</span>(velocity_y, height, <span class="at">gravity =</span> <span class="fl">9.80665</span>) {</span>
+<span id="cb21-227"><a href="#cb21-227" aria-hidden="true" tabindex="-1"></a>  height <span class="sc">+</span> velocity_y<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> gravity)</span>
+<span id="cb21-228"><a href="#cb21-228" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-229"><a href="#cb21-229" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-230"><a href="#cb21-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-231"><a href="#cb21-231" aria-hidden="true" tabindex="-1"></a><span class="fu">### Projectile motion calculator</span></span>
+<span id="cb21-232"><a href="#cb21-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-233"><a href="#cb21-233" aria-hidden="true" tabindex="-1"></a>Now to wrap all the components into a single function that will calculate the result for each component based on a set of parameters given to it. These results can then be used to determine the position and velocity of the projectile at any point in time during its trajectory, which I want to return as a data frame that can be used for plotting.</span>
+<span id="cb21-234"><a href="#cb21-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-235"><a href="#cb21-235" aria-hidden="true" tabindex="-1"></a><span class="in">```{r projectile-motion}</span></span>
+<span id="cb21-236"><a href="#cb21-236" aria-hidden="true" tabindex="-1"></a><span class="co">#' nframes and fps can be used to animate the trajectory as close to real time as possible.</span></span>
+<span id="cb21-237"><a href="#cb21-237" aria-hidden="true" tabindex="-1"></a><span class="co">#' There will be some rounding error though so it won't be exactly the same as the flight</span></span>
+<span id="cb21-238"><a href="#cb21-238" aria-hidden="true" tabindex="-1"></a><span class="co">#' time.</span></span>
+<span id="cb21-239"><a href="#cb21-239" aria-hidden="true" tabindex="-1"></a>projectile_motion <span class="ot">&lt;-</span> <span class="cf">function</span>(velocity, angle, height, <span class="at">gravity =</span> <span class="fl">9.80665</span>, <span class="at">nframes =</span> <span class="dv">30</span>) {</span>
+<span id="cb21-240"><a href="#cb21-240" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-241"><a href="#cb21-241" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Velocity components</span></span>
+<span id="cb21-242"><a href="#cb21-242" aria-hidden="true" tabindex="-1"></a>  vx <span class="ot">&lt;-</span> <span class="fu">velocity_x</span>(velocity, angle)</span>
+<span id="cb21-243"><a href="#cb21-243" aria-hidden="true" tabindex="-1"></a>  vy <span class="ot">&lt;-</span> <span class="fu">velocity_y</span>(velocity, angle)</span>
+<span id="cb21-244"><a href="#cb21-244" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Flight components</span></span>
+<span id="cb21-245"><a href="#cb21-245" aria-hidden="true" tabindex="-1"></a>  t  <span class="ot">&lt;-</span> <span class="fu">flight_time</span>(vy, height, gravity)</span>
+<span id="cb21-246"><a href="#cb21-246" aria-hidden="true" tabindex="-1"></a>  d  <span class="ot">&lt;-</span> <span class="fu">distance</span>(vx, vy, height, gravity)</span>
+<span id="cb21-247"><a href="#cb21-247" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Max height components</span></span>
+<span id="cb21-248"><a href="#cb21-248" aria-hidden="true" tabindex="-1"></a>  hm <span class="ot">&lt;-</span> <span class="fu">height_max</span>(vy, height, gravity)</span>
+<span id="cb21-249"><a href="#cb21-249" aria-hidden="true" tabindex="-1"></a>  th <span class="ot">&lt;-</span> vy <span class="sc">/</span> gravity</span>
+<span id="cb21-250"><a href="#cb21-250" aria-hidden="true" tabindex="-1"></a>  hd <span class="ot">&lt;-</span> vx <span class="sc">*</span> th</span>
 <span id="cb21-251"><a href="#cb21-251" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb21-252"><a href="#cb21-252" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Velocity components</span></span>
-<span id="cb21-253"><a href="#cb21-253" aria-hidden="true" tabindex="-1"></a>  vx <span class="ot">&lt;-</span> <span class="fu">velocity_x</span>(velocity, angle)</span>
-<span id="cb21-254"><a href="#cb21-254" aria-hidden="true" tabindex="-1"></a>  vy <span class="ot">&lt;-</span> <span class="fu">velocity_y</span>(velocity, angle)</span>
-<span id="cb21-255"><a href="#cb21-255" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Flight components</span></span>
-<span id="cb21-256"><a href="#cb21-256" aria-hidden="true" tabindex="-1"></a>  t  <span class="ot">&lt;-</span> <span class="fu">flight_time</span>(vy, height, gravity)</span>
-<span id="cb21-257"><a href="#cb21-257" aria-hidden="true" tabindex="-1"></a>  d  <span class="ot">&lt;-</span> <span class="fu">distance</span>(vx, vy, height, gravity)</span>
-<span id="cb21-258"><a href="#cb21-258" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Max height components</span></span>
-<span id="cb21-259"><a href="#cb21-259" aria-hidden="true" tabindex="-1"></a>  hm <span class="ot">&lt;-</span> <span class="fu">height_max</span>(vy, height, gravity)</span>
-<span id="cb21-260"><a href="#cb21-260" aria-hidden="true" tabindex="-1"></a>  th <span class="ot">&lt;-</span> vy <span class="sc">/</span> gravity</span>
-<span id="cb21-261"><a href="#cb21-261" aria-hidden="true" tabindex="-1"></a>  hd <span class="ot">&lt;-</span> vx <span class="sc">*</span> th</span>
-<span id="cb21-262"><a href="#cb21-262" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb21-263"><a href="#cb21-263" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate the position of the projectile in 2D space at a given point in</span></span>
-<span id="cb21-264"><a href="#cb21-264" aria-hidden="true" tabindex="-1"></a>  <span class="co"># time to approximate its trajectory over time</span></span>
-<span id="cb21-265"><a href="#cb21-265" aria-hidden="true" tabindex="-1"></a>  x_pos <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="fu">seq</span>(<span class="dv">0</span>, t, <span class="at">length =</span> nframes), <span class="sc">~</span> {</span>
-<span id="cb21-266"><a href="#cb21-266" aria-hidden="true" tabindex="-1"></a>    vx <span class="sc">*</span> .x</span>
-<span id="cb21-267"><a href="#cb21-267" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb21-268"><a href="#cb21-268" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb21-269"><a href="#cb21-269" aria-hidden="true" tabindex="-1"></a>  y_pos <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="fu">seq</span>(<span class="dv">0</span>, t, <span class="at">length =</span> nframes), <span class="sc">~</span> {</span>
-<span id="cb21-270"><a href="#cb21-270" aria-hidden="true" tabindex="-1"></a>    height <span class="sc">+</span> ( vy <span class="sc">*</span> .x <span class="sc">+</span> <span class="fl">0.5</span> <span class="sc">*</span> <span class="sc">-</span>gravity <span class="sc">*</span> .x<span class="sc">^</span><span class="dv">2</span> )</span>
-<span id="cb21-271"><a href="#cb21-271" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb21-272"><a href="#cb21-272" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb21-273"><a href="#cb21-273" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate the vertical velocity of the projectile at a given point in time</span></span>
-<span id="cb21-274"><a href="#cb21-274" aria-hidden="true" tabindex="-1"></a>  vy_t  <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="fu">seq</span>(<span class="dv">0</span>, t, <span class="at">length =</span> nframes), <span class="sc">~</span> {</span>
-<span id="cb21-275"><a href="#cb21-275" aria-hidden="true" tabindex="-1"></a>    vy <span class="sc">-</span> gravity <span class="sc">*</span> .x</span>
-<span id="cb21-276"><a href="#cb21-276" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb21-277"><a href="#cb21-277" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb21-278"><a href="#cb21-278" aria-hidden="true" tabindex="-1"></a>  trajectory <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb21-279"><a href="#cb21-279" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> x_pos,</span>
-<span id="cb21-280"><a href="#cb21-280" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> y_pos,</span>
-<span id="cb21-281"><a href="#cb21-281" aria-hidden="true" tabindex="-1"></a>    <span class="at">vx =</span> vx,</span>
-<span id="cb21-282"><a href="#cb21-282" aria-hidden="true" tabindex="-1"></a>    <span class="at">vy =</span> vy_t,</span>
-<span id="cb21-283"><a href="#cb21-283" aria-hidden="true" tabindex="-1"></a>    <span class="at">second =</span> <span class="fu">seq</span>(<span class="dv">0</span>, t, <span class="at">length =</span> nframes)</span>
-<span id="cb21-284"><a href="#cb21-284" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb21-285"><a href="#cb21-285" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb21-286"><a href="#cb21-286" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return a list with all calculated values</span></span>
-<span id="cb21-287"><a href="#cb21-287" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
-<span id="cb21-288"><a href="#cb21-288" aria-hidden="true" tabindex="-1"></a>    <span class="at">velocity_x =</span> vx,</span>
-<span id="cb21-289"><a href="#cb21-289" aria-hidden="true" tabindex="-1"></a>    <span class="at">velocity_y =</span> vy,</span>
-<span id="cb21-290"><a href="#cb21-290" aria-hidden="true" tabindex="-1"></a>    <span class="at">flight_time =</span> t,</span>
-<span id="cb21-291"><a href="#cb21-291" aria-hidden="true" tabindex="-1"></a>    <span class="at">distance =</span> d,</span>
-<span id="cb21-292"><a href="#cb21-292" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_height =</span> hm,</span>
-<span id="cb21-293"><a href="#cb21-293" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_height_time =</span> th,</span>
-<span id="cb21-294"><a href="#cb21-294" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_height_dist =</span> hd,</span>
-<span id="cb21-295"><a href="#cb21-295" aria-hidden="true" tabindex="-1"></a>    <span class="at">trajectory =</span> trajectory,</span>
-<span id="cb21-296"><a href="#cb21-296" aria-hidden="true" tabindex="-1"></a>    <span class="at">nframes =</span> nframes,</span>
-<span id="cb21-297"><a href="#cb21-297" aria-hidden="true" tabindex="-1"></a>    <span class="at">fps =</span> nframes<span class="sc">/</span>t</span>
-<span id="cb21-298"><a href="#cb21-298" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb21-299"><a href="#cb21-299" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb21-300"><a href="#cb21-300" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb21-301"><a href="#cb21-301" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-302"><a href="#cb21-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-303"><a href="#cb21-303" aria-hidden="true" tabindex="-1"></a><span class="fu">## Wrangle</span></span>
-<span id="cb21-304"><a href="#cb21-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-305"><a href="#cb21-305" aria-hidden="true" tabindex="-1"></a>Instead of jumping straight into a visualization, I want to play around with the output of <span class="in">`projectile_motion()`</span>. First to show what its output looks like, and second to explore the interesting ways it can be extended through wrangling.</span>
-<span id="cb21-306"><a href="#cb21-306" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-307"><a href="#cb21-307" aria-hidden="true" tabindex="-1"></a><span class="fu">### A simple trajectory</span></span>
-<span id="cb21-308"><a href="#cb21-308" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-309"><a href="#cb21-309" aria-hidden="true" tabindex="-1"></a>First off, demonstrating <span class="in">`projectile_motion()`</span> and its output. The function takes five arguments:</span>
-<span id="cb21-310"><a href="#cb21-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-311"><a href="#cb21-311" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`velocity`</span> in metres per second,</span>
-<span id="cb21-312"><a href="#cb21-312" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`angle`</span> in degrees,</span>
-<span id="cb21-313"><a href="#cb21-313" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`height`</span> in metres per second,</span>
-<span id="cb21-314"><a href="#cb21-314" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`gravity`</span> in metres per second (this defaults to Earth's gravity, 9.80665 m/s), and</span>
-<span id="cb21-315"><a href="#cb21-315" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`nframes`</span> which represents how many points in time to record in the trajectory data frame. </span>
+<span id="cb21-252"><a href="#cb21-252" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate the position of the projectile in 2D space at a given point in</span></span>
+<span id="cb21-253"><a href="#cb21-253" aria-hidden="true" tabindex="-1"></a>  <span class="co"># time to approximate its trajectory over time</span></span>
+<span id="cb21-254"><a href="#cb21-254" aria-hidden="true" tabindex="-1"></a>  x_pos <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="fu">seq</span>(<span class="dv">0</span>, t, <span class="at">length =</span> nframes), <span class="sc">~</span> {</span>
+<span id="cb21-255"><a href="#cb21-255" aria-hidden="true" tabindex="-1"></a>    vx <span class="sc">*</span> .x</span>
+<span id="cb21-256"><a href="#cb21-256" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb21-257"><a href="#cb21-257" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-258"><a href="#cb21-258" aria-hidden="true" tabindex="-1"></a>  y_pos <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="fu">seq</span>(<span class="dv">0</span>, t, <span class="at">length =</span> nframes), <span class="sc">~</span> {</span>
+<span id="cb21-259"><a href="#cb21-259" aria-hidden="true" tabindex="-1"></a>    height <span class="sc">+</span> ( vy <span class="sc">*</span> .x <span class="sc">+</span> <span class="fl">0.5</span> <span class="sc">*</span> <span class="sc">-</span>gravity <span class="sc">*</span> .x<span class="sc">^</span><span class="dv">2</span> )</span>
+<span id="cb21-260"><a href="#cb21-260" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb21-261"><a href="#cb21-261" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-262"><a href="#cb21-262" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate the vertical velocity of the projectile at a given point in time</span></span>
+<span id="cb21-263"><a href="#cb21-263" aria-hidden="true" tabindex="-1"></a>  vy_t  <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="fu">seq</span>(<span class="dv">0</span>, t, <span class="at">length =</span> nframes), <span class="sc">~</span> {</span>
+<span id="cb21-264"><a href="#cb21-264" aria-hidden="true" tabindex="-1"></a>    vy <span class="sc">-</span> gravity <span class="sc">*</span> .x</span>
+<span id="cb21-265"><a href="#cb21-265" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb21-266"><a href="#cb21-266" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-267"><a href="#cb21-267" aria-hidden="true" tabindex="-1"></a>  trajectory <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb21-268"><a href="#cb21-268" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> x_pos,</span>
+<span id="cb21-269"><a href="#cb21-269" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> y_pos,</span>
+<span id="cb21-270"><a href="#cb21-270" aria-hidden="true" tabindex="-1"></a>    <span class="at">vx =</span> vx,</span>
+<span id="cb21-271"><a href="#cb21-271" aria-hidden="true" tabindex="-1"></a>    <span class="at">vy =</span> vy_t,</span>
+<span id="cb21-272"><a href="#cb21-272" aria-hidden="true" tabindex="-1"></a>    <span class="at">second =</span> <span class="fu">seq</span>(<span class="dv">0</span>, t, <span class="at">length =</span> nframes)</span>
+<span id="cb21-273"><a href="#cb21-273" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb21-274"><a href="#cb21-274" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-275"><a href="#cb21-275" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return a list with all calculated values</span></span>
+<span id="cb21-276"><a href="#cb21-276" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb21-277"><a href="#cb21-277" aria-hidden="true" tabindex="-1"></a>    <span class="at">velocity_x =</span> vx,</span>
+<span id="cb21-278"><a href="#cb21-278" aria-hidden="true" tabindex="-1"></a>    <span class="at">velocity_y =</span> vy,</span>
+<span id="cb21-279"><a href="#cb21-279" aria-hidden="true" tabindex="-1"></a>    <span class="at">flight_time =</span> t,</span>
+<span id="cb21-280"><a href="#cb21-280" aria-hidden="true" tabindex="-1"></a>    <span class="at">distance =</span> d,</span>
+<span id="cb21-281"><a href="#cb21-281" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_height =</span> hm,</span>
+<span id="cb21-282"><a href="#cb21-282" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_height_time =</span> th,</span>
+<span id="cb21-283"><a href="#cb21-283" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_height_dist =</span> hd,</span>
+<span id="cb21-284"><a href="#cb21-284" aria-hidden="true" tabindex="-1"></a>    <span class="at">trajectory =</span> trajectory,</span>
+<span id="cb21-285"><a href="#cb21-285" aria-hidden="true" tabindex="-1"></a>    <span class="at">nframes =</span> nframes,</span>
+<span id="cb21-286"><a href="#cb21-286" aria-hidden="true" tabindex="-1"></a>    <span class="at">fps =</span> nframes<span class="sc">/</span>t</span>
+<span id="cb21-287"><a href="#cb21-287" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb21-288"><a href="#cb21-288" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-289"><a href="#cb21-289" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-290"><a href="#cb21-290" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-291"><a href="#cb21-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-292"><a href="#cb21-292" aria-hidden="true" tabindex="-1"></a><span class="fu">## Wrangle</span></span>
+<span id="cb21-293"><a href="#cb21-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-294"><a href="#cb21-294" aria-hidden="true" tabindex="-1"></a>Instead of jumping straight into a visualization, I want to play around with the output of <span class="in">`projectile_motion()`</span>. First to show what its output looks like, and second to explore the interesting ways it can be extended through wrangling.</span>
+<span id="cb21-295"><a href="#cb21-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-296"><a href="#cb21-296" aria-hidden="true" tabindex="-1"></a><span class="fu">### A simple trajectory</span></span>
+<span id="cb21-297"><a href="#cb21-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-298"><a href="#cb21-298" aria-hidden="true" tabindex="-1"></a>First off, demonstrating <span class="in">`projectile_motion()`</span> and its output. The function takes five arguments:</span>
+<span id="cb21-299"><a href="#cb21-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-300"><a href="#cb21-300" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`velocity`</span> in metres per second,</span>
+<span id="cb21-301"><a href="#cb21-301" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`angle`</span> in degrees,</span>
+<span id="cb21-302"><a href="#cb21-302" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`height`</span> in metres per second,</span>
+<span id="cb21-303"><a href="#cb21-303" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`gravity`</span> in metres per second (this defaults to Earth's gravity, 9.80665 m/s), and</span>
+<span id="cb21-304"><a href="#cb21-304" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`nframes`</span> which represents how many points in time to record in the trajectory data frame. </span>
+<span id="cb21-305"><a href="#cb21-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-306"><a href="#cb21-306" aria-hidden="true" tabindex="-1"></a><span class="in">```{r simple-trajectory}</span></span>
+<span id="cb21-307"><a href="#cb21-307" aria-hidden="true" tabindex="-1"></a><span class="fu">projectile_motion</span>(</span>
+<span id="cb21-308"><a href="#cb21-308" aria-hidden="true" tabindex="-1"></a>  <span class="at">velocity =</span> <span class="fl">11.4</span>,</span>
+<span id="cb21-309"><a href="#cb21-309" aria-hidden="true" tabindex="-1"></a>  <span class="at">angle =</span> <span class="fl">52.1</span>,</span>
+<span id="cb21-310"><a href="#cb21-310" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">18</span>,</span>
+<span id="cb21-311"><a href="#cb21-311" aria-hidden="true" tabindex="-1"></a>  <span class="at">nframes =</span> <span class="dv">10</span></span>
+<span id="cb21-312"><a href="#cb21-312" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-313"><a href="#cb21-313" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-314"><a href="#cb21-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-315"><a href="#cb21-315" aria-hidden="true" tabindex="-1"></a>The function returns calculations for each of the projectile motion equations I covered above, as well as some additional output that can be used for plotting and animation:</span>
 <span id="cb21-316"><a href="#cb21-316" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-317"><a href="#cb21-317" aria-hidden="true" tabindex="-1"></a><span class="in">```{r simple-trajectory}</span></span>
-<span id="cb21-318"><a href="#cb21-318" aria-hidden="true" tabindex="-1"></a><span class="fu">projectile_motion</span>(</span>
-<span id="cb21-319"><a href="#cb21-319" aria-hidden="true" tabindex="-1"></a>  <span class="at">velocity =</span> <span class="fl">11.4</span>,</span>
-<span id="cb21-320"><a href="#cb21-320" aria-hidden="true" tabindex="-1"></a>  <span class="at">angle =</span> <span class="fl">52.1</span>,</span>
-<span id="cb21-321"><a href="#cb21-321" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">18</span>,</span>
-<span id="cb21-322"><a href="#cb21-322" aria-hidden="true" tabindex="-1"></a>  <span class="at">nframes =</span> <span class="dv">10</span></span>
-<span id="cb21-323"><a href="#cb21-323" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-324"><a href="#cb21-324" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-325"><a href="#cb21-325" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-326"><a href="#cb21-326" aria-hidden="true" tabindex="-1"></a>The function returns calculations for each of the projectile motion equations I covered above, as well as some additional output that can be used for plotting and animation:</span>
-<span id="cb21-327"><a href="#cb21-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-328"><a href="#cb21-328" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`max_height_time`</span> and <span class="in">`max_height_dist`</span> give the time (s) and distance (m) it takes for the projectile to reach its maximum height.</span>
-<span id="cb21-329"><a href="#cb21-329" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`trajectory`</span> gives the horizontal and vertical position and velocity at a given moment during the projectile's trajectory.</span>
-<span id="cb21-330"><a href="#cb21-330" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`fps`</span> gives the number of frames per second that are needed to animate the trajectory in real time based on <span class="in">`nframes`</span>. Because it is impossible to have a fraction of a frame there will be variance in how closely an animation's duration matches the actual time of flight based on the value of <span class="in">`nframes`</span>.</span>
-<span id="cb21-331"><a href="#cb21-331" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-332"><a href="#cb21-332" aria-hidden="true" tabindex="-1"></a><span class="fu">### Launching a projectile on different planets</span></span>
-<span id="cb21-333"><a href="#cb21-333" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-334"><a href="#cb21-334" aria-hidden="true" tabindex="-1"></a>Given the inspiration for this post, a space themed simulation seems appropriate. Here I want to test how the gravity of each planet in our solar system influences projectile motion, given a projectile is launched with the same velocity, angle, and height.</span>
-<span id="cb21-335"><a href="#cb21-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-336"><a href="#cb21-336" aria-hidden="true" tabindex="-1"></a>First I need to construct a named vector of the <span class="co">[</span><span class="ot">gravity of each planet</span><span class="co">](https://nssdc.gsfc.nasa.gov/planetary/factsheet/planet_table_ratio.html)</span> in our solar system. NASA provides these values came as ratios of each planet's gravity relative to Earth, so I had to multiply each one by Earth's gravity to get the units correct.</span>
-<span id="cb21-337"><a href="#cb21-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-338"><a href="#cb21-338" aria-hidden="true" tabindex="-1"></a><span class="in">```{r planets-gravity}</span></span>
-<span id="cb21-339"><a href="#cb21-339" aria-hidden="true" tabindex="-1"></a><span class="co"># All values are in metres per second</span></span>
-<span id="cb21-340"><a href="#cb21-340" aria-hidden="true" tabindex="-1"></a>planets <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb21-341"><a href="#cb21-341" aria-hidden="true" tabindex="-1"></a>  <span class="at">mercury =</span> <span class="fl">3.7069137</span>,</span>
-<span id="cb21-342"><a href="#cb21-342" aria-hidden="true" tabindex="-1"></a>  <span class="at">venus   =</span> <span class="fl">8.8946315</span>,</span>
-<span id="cb21-343"><a href="#cb21-343" aria-hidden="true" tabindex="-1"></a>  <span class="at">earth   =</span> <span class="fl">9.80665</span>,</span>
-<span id="cb21-344"><a href="#cb21-344" aria-hidden="true" tabindex="-1"></a>  <span class="at">moon    =</span> <span class="fl">1.6279039</span>,</span>
-<span id="cb21-345"><a href="#cb21-345" aria-hidden="true" tabindex="-1"></a>  <span class="at">mars    =</span> <span class="fl">3.697107</span>,</span>
-<span id="cb21-346"><a href="#cb21-346" aria-hidden="true" tabindex="-1"></a>  <span class="at">jupiter =</span> <span class="fl">23.143694</span>,</span>
-<span id="cb21-347"><a href="#cb21-347" aria-hidden="true" tabindex="-1"></a>  <span class="at">saturn  =</span> <span class="fl">8.9828914</span>,</span>
-<span id="cb21-348"><a href="#cb21-348" aria-hidden="true" tabindex="-1"></a>  <span class="at">uranus  =</span> <span class="fl">8.7181118</span>,</span>
-<span id="cb21-349"><a href="#cb21-349" aria-hidden="true" tabindex="-1"></a>  <span class="at">neptune =</span> <span class="fl">10.983448</span>,</span>
-<span id="cb21-350"><a href="#cb21-350" aria-hidden="true" tabindex="-1"></a>  <span class="at">pluto   =</span> <span class="fl">0.6962721</span></span>
-<span id="cb21-351"><a href="#cb21-351" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-352"><a href="#cb21-352" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-353"><a href="#cb21-353" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-354"><a href="#cb21-354" aria-hidden="true" tabindex="-1"></a>Then I can create a named list of projectile motion calculations, one for each planet. Each planet has its own list of output from <span class="in">`projectile_motion()`</span>, so the resulting list of projectile motion calculations is actually a list of lists. This can be tidied into a tibble to make it easier to work with.</span>
-<span id="cb21-355"><a href="#cb21-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-356"><a href="#cb21-356" aria-hidden="true" tabindex="-1"></a><span class="in">```{r planets-pm}</span></span>
-<span id="cb21-357"><a href="#cb21-357" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate projectile motion for each planet, given the same velocity,</span></span>
-<span id="cb21-358"><a href="#cb21-358" aria-hidden="true" tabindex="-1"></a><span class="co"># angle, and height</span></span>
-<span id="cb21-359"><a href="#cb21-359" aria-hidden="true" tabindex="-1"></a>planets_pm <span class="ot">&lt;-</span> <span class="fu">map</span>(planets, <span class="sc">~</span>{</span>
-<span id="cb21-360"><a href="#cb21-360" aria-hidden="true" tabindex="-1"></a>  <span class="fu">projectile_motion</span>(</span>
-<span id="cb21-361"><a href="#cb21-361" aria-hidden="true" tabindex="-1"></a>    <span class="at">velocity =</span> <span class="dv">20</span>,</span>
-<span id="cb21-362"><a href="#cb21-362" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="dv">45</span>,</span>
-<span id="cb21-363"><a href="#cb21-363" aria-hidden="true" tabindex="-1"></a>    <span class="at">height =</span> <span class="dv">35</span>,</span>
-<span id="cb21-364"><a href="#cb21-364" aria-hidden="true" tabindex="-1"></a>    <span class="at">gravity =</span> .x,</span>
-<span id="cb21-365"><a href="#cb21-365" aria-hidden="true" tabindex="-1"></a>    <span class="at">nframes =</span> <span class="dv">100</span>)</span>
-<span id="cb21-366"><a href="#cb21-366" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb21-367"><a href="#cb21-367" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-368"><a href="#cb21-368" aria-hidden="true" tabindex="-1"></a><span class="co"># Tidying the list of lists into a tibble makes it easier to work with. Note</span></span>
-<span id="cb21-369"><a href="#cb21-369" aria-hidden="true" tabindex="-1"></a><span class="co"># that the trajectory column is a list column since it contains the trajectory</span></span>
-<span id="cb21-370"><a href="#cb21-370" aria-hidden="true" tabindex="-1"></a><span class="co"># data frame for each planet.</span></span>
-<span id="cb21-371"><a href="#cb21-371" aria-hidden="true" tabindex="-1"></a>planets_df <span class="ot">&lt;-</span> planets_pm <span class="sc">%&gt;%</span></span>
-<span id="cb21-372"><a href="#cb21-372" aria-hidden="true" tabindex="-1"></a>  <span class="fu">enframe</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb21-373"><a href="#cb21-373" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_wider</span>(value) <span class="sc">%&gt;%</span></span>
-<span id="cb21-374"><a href="#cb21-374" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">planet =</span> name)</span>
-<span id="cb21-375"><a href="#cb21-375" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-376"><a href="#cb21-376" aria-hidden="true" tabindex="-1"></a>planets_trajectory <span class="ot">&lt;-</span> planets_df <span class="sc">%&gt;%</span></span>
-<span id="cb21-377"><a href="#cb21-377" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(planet, trajectory) <span class="sc">%&gt;%</span></span>
-<span id="cb21-378"><a href="#cb21-378" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(trajectory) <span class="sc">%&gt;%</span> </span>
-<span id="cb21-379"><a href="#cb21-379" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">planet =</span> <span class="fu">factor</span>(planet, <span class="at">levels =</span> <span class="fu">names</span>(planets)))</span>
-<span id="cb21-380"><a href="#cb21-380" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-381"><a href="#cb21-381" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-382"><a href="#cb21-382" aria-hidden="true" tabindex="-1"></a><span class="fu">## Visualize</span></span>
-<span id="cb21-383"><a href="#cb21-383" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-384"><a href="#cb21-384" aria-hidden="true" tabindex="-1"></a>Now for visualization. First I'll plot a simple trajectory, then a projectile launched on different planets.</span>
-<span id="cb21-385"><a href="#cb21-385" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-386"><a href="#cb21-386" aria-hidden="true" tabindex="-1"></a><span class="fu">### A simple trajectory</span></span>
-<span id="cb21-387"><a href="#cb21-387" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-388"><a href="#cb21-388" aria-hidden="true" tabindex="-1"></a>This is the same simple trajectory I showed the output for earlier, only with more frames to make the animation smoother.</span>
-<span id="cb21-389"><a href="#cb21-389" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-390"><a href="#cb21-390" aria-hidden="true" tabindex="-1"></a><span class="in">```{r simple-trajectory-data}</span></span>
-<span id="cb21-391"><a href="#cb21-391" aria-hidden="true" tabindex="-1"></a>simple_trajectory <span class="ot">&lt;-</span> <span class="fu">projectile_motion</span>(</span>
-<span id="cb21-392"><a href="#cb21-392" aria-hidden="true" tabindex="-1"></a>  <span class="at">velocity =</span> <span class="fl">11.4</span>,</span>
-<span id="cb21-393"><a href="#cb21-393" aria-hidden="true" tabindex="-1"></a>  <span class="at">angle =</span> <span class="fl">52.1</span>,</span>
-<span id="cb21-394"><a href="#cb21-394" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">18</span>,</span>
-<span id="cb21-395"><a href="#cb21-395" aria-hidden="true" tabindex="-1"></a>  <span class="at">nframes =</span> <span class="dv">100</span></span>
-<span id="cb21-396"><a href="#cb21-396" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-397"><a href="#cb21-397" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-398"><a href="#cb21-398" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign the data frame and max height parameters to objects to make the plot</span></span>
-<span id="cb21-399"><a href="#cb21-399" aria-hidden="true" tabindex="-1"></a><span class="co"># code easier to read</span></span>
-<span id="cb21-400"><a href="#cb21-400" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> simple_trajectory<span class="sc">$</span>trajectory</span>
-<span id="cb21-401"><a href="#cb21-401" aria-hidden="true" tabindex="-1"></a>max_height_dist <span class="ot">&lt;-</span> simple_trajectory<span class="sc">$</span>max_height_dist</span>
-<span id="cb21-402"><a href="#cb21-402" aria-hidden="true" tabindex="-1"></a>max_height_time <span class="ot">&lt;-</span> simple_trajectory<span class="sc">$</span>max_height_time</span>
-<span id="cb21-403"><a href="#cb21-403" aria-hidden="true" tabindex="-1"></a>max_height <span class="ot">&lt;-</span> simple_trajectory<span class="sc">$</span>max_height</span>
-<span id="cb21-404"><a href="#cb21-404" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-405"><a href="#cb21-405" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-406"><a href="#cb21-406" aria-hidden="true" tabindex="-1"></a>I'm going to build the plot for this simple trajectory up in chunks to make the code easier to understand. The foundation of the plot is fairly standard. The only unusual thing here are the <span class="in">`group`</span> aesthetics in <span class="in">`geom_line()`</span> and <span class="in">`geom_point()`</span>. These are used to tell <span class="in">`gganimate`</span> which rows in the data correspond to the same graphic element.</span>
-<span id="cb21-407"><a href="#cb21-407" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-410"><a href="#cb21-410" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-411"><a href="#cb21-411" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb21-412"><a href="#cb21-412" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(</span>
-<span id="cb21-413"><a href="#cb21-413" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">group =</span> <span class="dv">1</span>),</span>
-<span id="cb21-414"><a href="#cb21-414" aria-hidden="true" tabindex="-1"></a>    <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
-<span id="cb21-415"><a href="#cb21-415" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"red"</span>,</span>
-<span id="cb21-416"><a href="#cb21-416" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.5</span></span>
-<span id="cb21-417"><a href="#cb21-417" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb21-418"><a href="#cb21-418" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">group =</span> <span class="dv">1</span>), <span class="at">size =</span> <span class="dv">2</span>)</span>
-<span id="cb21-419"><a href="#cb21-419" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-420"><a href="#cb21-420" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-421"><a href="#cb21-421" aria-hidden="true" tabindex="-1"></a>For the data I simulated, the projectile starts with a positive vertical velocity. However, at its maximum height, the vertical velocity of the projectile becomes 0 m/s for a brief moment, as it stops rising and starts falling. This happens Because gravity is constantly influencing the vertical velocity of the projectile. This is an important and interesting piece of information I want to communicate in my plot. This can be accomplished subtly by displaying the vertical velocity of the projectile at each point in time, or more overtly using a text annotation. I'm going to do both.</span>
-<span id="cb21-422"><a href="#cb21-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-423"><a href="#cb21-423" aria-hidden="true" tabindex="-1"></a>First the text annotation. I'm using <span class="in">`geom_curve()`</span> to draw an arrow between the annotation and the point at which the projectile is at its maximum height, and <span class="in">`geom_text()`</span> to draw the annotation. I've supplied each geom with its own data frame containing a <span class="in">`second`</span> column whose sole value corresponds to the time the projectile reaches its maximum height. This will control when the annotation appears in the animation. I've also given the pair a different <span class="in">`group`</span> aesthetic from <span class="in">`geom_line()`</span> and <span class="in">`geom_point()`</span>.</span>
-<span id="cb21-424"><a href="#cb21-424" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-427"><a href="#cb21-427" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-428"><a href="#cb21-428" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
-<span id="cb21-429"><a href="#cb21-429" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_curve</span>(</span>
-<span id="cb21-430"><a href="#cb21-430" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">data.frame</span>(</span>
-<span id="cb21-431"><a href="#cb21-431" aria-hidden="true" tabindex="-1"></a>      <span class="at">second =</span> max_height_time</span>
-<span id="cb21-432"><a href="#cb21-432" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb21-433"><a href="#cb21-433" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
-<span id="cb21-434"><a href="#cb21-434" aria-hidden="true" tabindex="-1"></a>      <span class="at">xend =</span> max_height_dist,</span>
-<span id="cb21-435"><a href="#cb21-435" aria-hidden="true" tabindex="-1"></a>      <span class="at">yend =</span> max_height <span class="sc">+</span> <span class="fl">0.2</span>,</span>
-<span id="cb21-436"><a href="#cb21-436" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> max_height_dist <span class="sc">+</span> <span class="dv">2</span>,</span>
-<span id="cb21-437"><a href="#cb21-437" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> max_height <span class="sc">+</span> <span class="dv">2</span>,</span>
-<span id="cb21-438"><a href="#cb21-438" aria-hidden="true" tabindex="-1"></a>      <span class="at">group =</span> <span class="dv">2</span></span>
-<span id="cb21-439"><a href="#cb21-439" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb21-440"><a href="#cb21-440" aria-hidden="true" tabindex="-1"></a>    <span class="at">curvature =</span> <span class="fl">0.45</span>,</span>
-<span id="cb21-441"><a href="#cb21-441" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="dv">105</span>,</span>
-<span id="cb21-442"><a href="#cb21-442" aria-hidden="true" tabindex="-1"></a>    <span class="at">ncp =</span> <span class="dv">15</span>,</span>
-<span id="cb21-443"><a href="#cb21-443" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.1</span>,<span class="st">"cm"</span>), <span class="at">type =</span> <span class="st">"closed"</span>)</span>
-<span id="cb21-444"><a href="#cb21-444" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb21-445"><a href="#cb21-445" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
-<span id="cb21-446"><a href="#cb21-446" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">data.frame</span>(</span>
-<span id="cb21-447"><a href="#cb21-447" aria-hidden="true" tabindex="-1"></a>      <span class="at">second =</span> max_height_time</span>
-<span id="cb21-448"><a href="#cb21-448" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb21-449"><a href="#cb21-449" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
-<span id="cb21-450"><a href="#cb21-450" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> max_height_dist <span class="sc">+</span> <span class="fl">2.4</span>,</span>
-<span id="cb21-451"><a href="#cb21-451" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> max_height <span class="sc">+</span> <span class="dv">2</span>,</span>
-<span id="cb21-452"><a href="#cb21-452" aria-hidden="true" tabindex="-1"></a>      <span class="at">group =</span> <span class="dv">2</span></span>
-<span id="cb21-453"><a href="#cb21-453" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb21-454"><a href="#cb21-454" aria-hidden="true" tabindex="-1"></a>    <span class="at">hjust =</span> <span class="st">"left"</span>,</span>
-<span id="cb21-455"><a href="#cb21-455" aria-hidden="true" tabindex="-1"></a>    <span class="at">lineheight =</span> <span class="dv">1</span>,</span>
-<span id="cb21-456"><a href="#cb21-456" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> <span class="st">"serif"</span>,</span>
-<span id="cb21-457"><a href="#cb21-457" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="fu">str_c</span>(</span>
-<span id="cb21-458"><a href="#cb21-458" aria-hidden="true" tabindex="-1"></a>      <span class="st">"At its maximum height, the vertical velocity </span><span class="sc">\n</span><span class="st">"</span>, </span>
-<span id="cb21-459"><a href="#cb21-459" aria-hidden="true" tabindex="-1"></a>      <span class="st">"of the projectile is 0 m/s for a brief moment, </span><span class="sc">\n</span><span class="st">"</span>,</span>
-<span id="cb21-460"><a href="#cb21-460" aria-hidden="true" tabindex="-1"></a>      <span class="st">"as it stops rising and starts falling."</span></span>
-<span id="cb21-461"><a href="#cb21-461" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb21-462"><a href="#cb21-462" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb21-463"><a href="#cb21-463" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-464"><a href="#cb21-464" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-465"><a href="#cb21-465" aria-hidden="true" tabindex="-1"></a>Second the vertical velocity. I'm displaying this in the plot's subtitle along with the time elapsed since the projectile was launched. The displayed values are updated each frame using the value returned by the expression enclosed in glue braces for a frame. The variable <span class="in">`frame_along`</span> is made available by <span class="in">`gganimate::transition_along()`</span> (see below) and gives the position on the along-dimension (time in seconds in this case) that a frame corresponds to. Here I'm using <span class="in">`frame_along`</span> to display the elapsed time, and to index the data frame <span class="in">`df`</span> for the vertical velocity at a given second. The latter is a slight workaround because <span class="in">`vy`</span> cannot be accessed directly in the glue braces.</span>
-<span id="cb21-466"><a href="#cb21-466" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-469"><a href="#cb21-469" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-470"><a href="#cb21-470" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
-<span id="cb21-471"><a href="#cb21-471" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb21-472"><a href="#cb21-472" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">str_c</span>(</span>
-<span id="cb21-473"><a href="#cb21-473" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Projectile motion of an object launched with "</span>,</span>
-<span id="cb21-474"><a href="#cb21-474" aria-hidden="true" tabindex="-1"></a>      <span class="co">#" &lt;br&gt; ",</span></span>
-<span id="cb21-475"><a href="#cb21-475" aria-hidden="true" tabindex="-1"></a>      <span class="st">"a speed of 11.4 m/s at an angle of 52.1°"</span></span>
-<span id="cb21-476"><a href="#cb21-476" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb21-477"><a href="#cb21-477" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">str_c</span>(</span>
-<span id="cb21-478"><a href="#cb21-478" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Time: "</span>,</span>
-<span id="cb21-479"><a href="#cb21-479" aria-hidden="true" tabindex="-1"></a>      <span class="st">"{formattable(frame_along, digits = 2, format = 'f')}s"</span>,</span>
-<span id="cb21-480"><a href="#cb21-480" aria-hidden="true" tabindex="-1"></a>      <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
-<span id="cb21-481"><a href="#cb21-481" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Vertical velocity = "</span>,</span>
-<span id="cb21-482"><a href="#cb21-482" aria-hidden="true" tabindex="-1"></a>      <span class="st">"{formattable(df$vy[df$second == frame_along], digits = 2, format = 'f')}"</span>,</span>
-<span id="cb21-483"><a href="#cb21-483" aria-hidden="true" tabindex="-1"></a>      <span class="st">" m/s"</span></span>
-<span id="cb21-484"><a href="#cb21-484" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb21-485"><a href="#cb21-485" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Distance (m)"</span>,</span>
-<span id="cb21-486"><a href="#cb21-486" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Height (m)"</span>,</span>
-<span id="cb21-487"><a href="#cb21-487" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Graphic: Michael McCarthy"</span></span>
-<span id="cb21-488"><a href="#cb21-488" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb21-489"><a href="#cb21-489" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-490"><a href="#cb21-490" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-491"><a href="#cb21-491" aria-hidden="true" tabindex="-1"></a>Now for theming. I wanted something minimalistic with a scientific feel---the classic theme  paired with truncated axes courtesy of ggh4x does this nicely. Finally, I originally planned to use <span class="in">`element_markdown()`</span> from ggtext to enable markdown text in the subtitle of the plot so that vertical velocity could be written like $\textrm{Velocity}_Y$; however, this caused issues with the text spacing when rendering the animation to video, so I opted not to.<span class="ot">[^1]</span></span>
-<span id="cb21-492"><a href="#cb21-492" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-493"><a href="#cb21-493" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>I didn't look into it too deeply, but I'm guessing it's related to <span class="co">[</span><span class="ot">this issue</span><span class="co">](https://github.com/wilkelab/ggtext/issues/95)</span> in ggtext. If you render to a gif instead you won't have this issue and can use ggtext as normal.</span>
-<span id="cb21-494"><a href="#cb21-494" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-497"><a href="#cb21-497" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-498"><a href="#cb21-498" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
-<span id="cb21-499"><a href="#cb21-499" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">x =</span> <span class="st">"axis_truncated"</span>, <span class="at">y =</span> <span class="st">"axis_truncated"</span>) <span class="sc">+</span></span>
-<span id="cb21-500"><a href="#cb21-500" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_family =</span> <span class="st">"serif"</span>)</span>
-<span id="cb21-501"><a href="#cb21-501" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-502"><a href="#cb21-502" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-503"><a href="#cb21-503" aria-hidden="true" tabindex="-1"></a>And finally, the animation code. Yes, that's it. Animations can be tweaked and spiced up with <span class="co">[</span><span class="ot">other functions</span><span class="co">](https://gganimate.com/reference/index.html)</span> in gganimate, but I <span class="co">[</span><span class="ot">ran into issues</span><span class="co">](https://github.com/thomasp85/gganimate/issues/445)</span> making the ones I wanted to use work with <span class="in">`transition_reveal()`</span>.</span>
+<span id="cb21-317"><a href="#cb21-317" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`max_height_time`</span> and <span class="in">`max_height_dist`</span> give the time (s) and distance (m) it takes for the projectile to reach its maximum height.</span>
+<span id="cb21-318"><a href="#cb21-318" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`trajectory`</span> gives the horizontal and vertical position and velocity at a given moment during the projectile's trajectory.</span>
+<span id="cb21-319"><a href="#cb21-319" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`fps`</span> gives the number of frames per second that are needed to animate the trajectory in real time based on <span class="in">`nframes`</span>. Because it is impossible to have a fraction of a frame there will be variance in how closely an animation's duration matches the actual time of flight based on the value of <span class="in">`nframes`</span>.</span>
+<span id="cb21-320"><a href="#cb21-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-321"><a href="#cb21-321" aria-hidden="true" tabindex="-1"></a><span class="fu">### Launching a projectile on different planets</span></span>
+<span id="cb21-322"><a href="#cb21-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-323"><a href="#cb21-323" aria-hidden="true" tabindex="-1"></a>Given the inspiration for this post, a space themed simulation seems appropriate. Here I want to test how the gravity of each planet in our solar system influences projectile motion, given a projectile is launched with the same velocity, angle, and height.</span>
+<span id="cb21-324"><a href="#cb21-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-325"><a href="#cb21-325" aria-hidden="true" tabindex="-1"></a>First I need to construct a named vector of the <span class="co">[</span><span class="ot">gravity of each planet</span><span class="co">](https://nssdc.gsfc.nasa.gov/planetary/factsheet/planet_table_ratio.html)</span> in our solar system. NASA provides these values came as ratios of each planet's gravity relative to Earth, so I had to multiply each one by Earth's gravity to get the units correct.</span>
+<span id="cb21-326"><a href="#cb21-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-327"><a href="#cb21-327" aria-hidden="true" tabindex="-1"></a><span class="in">```{r planets-gravity}</span></span>
+<span id="cb21-328"><a href="#cb21-328" aria-hidden="true" tabindex="-1"></a><span class="co"># All values are in metres per second</span></span>
+<span id="cb21-329"><a href="#cb21-329" aria-hidden="true" tabindex="-1"></a>planets <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb21-330"><a href="#cb21-330" aria-hidden="true" tabindex="-1"></a>  <span class="at">mercury =</span> <span class="fl">3.7069137</span>,</span>
+<span id="cb21-331"><a href="#cb21-331" aria-hidden="true" tabindex="-1"></a>  <span class="at">venus   =</span> <span class="fl">8.8946315</span>,</span>
+<span id="cb21-332"><a href="#cb21-332" aria-hidden="true" tabindex="-1"></a>  <span class="at">earth   =</span> <span class="fl">9.80665</span>,</span>
+<span id="cb21-333"><a href="#cb21-333" aria-hidden="true" tabindex="-1"></a>  <span class="at">moon    =</span> <span class="fl">1.6279039</span>,</span>
+<span id="cb21-334"><a href="#cb21-334" aria-hidden="true" tabindex="-1"></a>  <span class="at">mars    =</span> <span class="fl">3.697107</span>,</span>
+<span id="cb21-335"><a href="#cb21-335" aria-hidden="true" tabindex="-1"></a>  <span class="at">jupiter =</span> <span class="fl">23.143694</span>,</span>
+<span id="cb21-336"><a href="#cb21-336" aria-hidden="true" tabindex="-1"></a>  <span class="at">saturn  =</span> <span class="fl">8.9828914</span>,</span>
+<span id="cb21-337"><a href="#cb21-337" aria-hidden="true" tabindex="-1"></a>  <span class="at">uranus  =</span> <span class="fl">8.7181118</span>,</span>
+<span id="cb21-338"><a href="#cb21-338" aria-hidden="true" tabindex="-1"></a>  <span class="at">neptune =</span> <span class="fl">10.983448</span>,</span>
+<span id="cb21-339"><a href="#cb21-339" aria-hidden="true" tabindex="-1"></a>  <span class="at">pluto   =</span> <span class="fl">0.6962721</span></span>
+<span id="cb21-340"><a href="#cb21-340" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-341"><a href="#cb21-341" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-342"><a href="#cb21-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-343"><a href="#cb21-343" aria-hidden="true" tabindex="-1"></a>Then I can create a named list of projectile motion calculations, one for each planet. Each planet has its own list of output from <span class="in">`projectile_motion()`</span>, so the resulting list of projectile motion calculations is actually a list of lists. This can be tidied into a tibble to make it easier to work with.</span>
+<span id="cb21-344"><a href="#cb21-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-345"><a href="#cb21-345" aria-hidden="true" tabindex="-1"></a><span class="in">```{r planets-pm}</span></span>
+<span id="cb21-346"><a href="#cb21-346" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate projectile motion for each planet, given the same velocity,</span></span>
+<span id="cb21-347"><a href="#cb21-347" aria-hidden="true" tabindex="-1"></a><span class="co"># angle, and height</span></span>
+<span id="cb21-348"><a href="#cb21-348" aria-hidden="true" tabindex="-1"></a>planets_pm <span class="ot">&lt;-</span> <span class="fu">map</span>(planets, <span class="sc">~</span>{</span>
+<span id="cb21-349"><a href="#cb21-349" aria-hidden="true" tabindex="-1"></a>  <span class="fu">projectile_motion</span>(</span>
+<span id="cb21-350"><a href="#cb21-350" aria-hidden="true" tabindex="-1"></a>    <span class="at">velocity =</span> <span class="dv">20</span>,</span>
+<span id="cb21-351"><a href="#cb21-351" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="dv">45</span>,</span>
+<span id="cb21-352"><a href="#cb21-352" aria-hidden="true" tabindex="-1"></a>    <span class="at">height =</span> <span class="dv">35</span>,</span>
+<span id="cb21-353"><a href="#cb21-353" aria-hidden="true" tabindex="-1"></a>    <span class="at">gravity =</span> .x,</span>
+<span id="cb21-354"><a href="#cb21-354" aria-hidden="true" tabindex="-1"></a>    <span class="at">nframes =</span> <span class="dv">100</span>)</span>
+<span id="cb21-355"><a href="#cb21-355" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb21-356"><a href="#cb21-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-357"><a href="#cb21-357" aria-hidden="true" tabindex="-1"></a><span class="co"># Tidying the list of lists into a tibble makes it easier to work with. Note</span></span>
+<span id="cb21-358"><a href="#cb21-358" aria-hidden="true" tabindex="-1"></a><span class="co"># that the trajectory column is a list column since it contains the trajectory</span></span>
+<span id="cb21-359"><a href="#cb21-359" aria-hidden="true" tabindex="-1"></a><span class="co"># data frame for each planet.</span></span>
+<span id="cb21-360"><a href="#cb21-360" aria-hidden="true" tabindex="-1"></a>planets_df <span class="ot">&lt;-</span> planets_pm <span class="sc">%&gt;%</span></span>
+<span id="cb21-361"><a href="#cb21-361" aria-hidden="true" tabindex="-1"></a>  <span class="fu">enframe</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb21-362"><a href="#cb21-362" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_wider</span>(value) <span class="sc">%&gt;%</span></span>
+<span id="cb21-363"><a href="#cb21-363" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">planet =</span> name)</span>
+<span id="cb21-364"><a href="#cb21-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-365"><a href="#cb21-365" aria-hidden="true" tabindex="-1"></a>planets_trajectory <span class="ot">&lt;-</span> planets_df <span class="sc">%&gt;%</span></span>
+<span id="cb21-366"><a href="#cb21-366" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(planet, trajectory) <span class="sc">%&gt;%</span></span>
+<span id="cb21-367"><a href="#cb21-367" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(trajectory) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-368"><a href="#cb21-368" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">planet =</span> <span class="fu">factor</span>(planet, <span class="at">levels =</span> <span class="fu">names</span>(planets)))</span>
+<span id="cb21-369"><a href="#cb21-369" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-370"><a href="#cb21-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-371"><a href="#cb21-371" aria-hidden="true" tabindex="-1"></a><span class="fu">## Visualize</span></span>
+<span id="cb21-372"><a href="#cb21-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-373"><a href="#cb21-373" aria-hidden="true" tabindex="-1"></a>Now for visualization. First I'll plot a simple trajectory, then a projectile launched on different planets.</span>
+<span id="cb21-374"><a href="#cb21-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-375"><a href="#cb21-375" aria-hidden="true" tabindex="-1"></a><span class="fu">### A simple trajectory</span></span>
+<span id="cb21-376"><a href="#cb21-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-377"><a href="#cb21-377" aria-hidden="true" tabindex="-1"></a>This is the same simple trajectory I showed the output for earlier, only with more frames to make the animation smoother.</span>
+<span id="cb21-378"><a href="#cb21-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-379"><a href="#cb21-379" aria-hidden="true" tabindex="-1"></a><span class="in">```{r simple-trajectory-data}</span></span>
+<span id="cb21-380"><a href="#cb21-380" aria-hidden="true" tabindex="-1"></a>simple_trajectory <span class="ot">&lt;-</span> <span class="fu">projectile_motion</span>(</span>
+<span id="cb21-381"><a href="#cb21-381" aria-hidden="true" tabindex="-1"></a>  <span class="at">velocity =</span> <span class="fl">11.4</span>,</span>
+<span id="cb21-382"><a href="#cb21-382" aria-hidden="true" tabindex="-1"></a>  <span class="at">angle =</span> <span class="fl">52.1</span>,</span>
+<span id="cb21-383"><a href="#cb21-383" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">18</span>,</span>
+<span id="cb21-384"><a href="#cb21-384" aria-hidden="true" tabindex="-1"></a>  <span class="at">nframes =</span> <span class="dv">100</span></span>
+<span id="cb21-385"><a href="#cb21-385" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-386"><a href="#cb21-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-387"><a href="#cb21-387" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign the data frame and max height parameters to objects to make the plot</span></span>
+<span id="cb21-388"><a href="#cb21-388" aria-hidden="true" tabindex="-1"></a><span class="co"># code easier to read</span></span>
+<span id="cb21-389"><a href="#cb21-389" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> simple_trajectory<span class="sc">$</span>trajectory</span>
+<span id="cb21-390"><a href="#cb21-390" aria-hidden="true" tabindex="-1"></a>max_height_dist <span class="ot">&lt;-</span> simple_trajectory<span class="sc">$</span>max_height_dist</span>
+<span id="cb21-391"><a href="#cb21-391" aria-hidden="true" tabindex="-1"></a>max_height_time <span class="ot">&lt;-</span> simple_trajectory<span class="sc">$</span>max_height_time</span>
+<span id="cb21-392"><a href="#cb21-392" aria-hidden="true" tabindex="-1"></a>max_height <span class="ot">&lt;-</span> simple_trajectory<span class="sc">$</span>max_height</span>
+<span id="cb21-393"><a href="#cb21-393" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-394"><a href="#cb21-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-395"><a href="#cb21-395" aria-hidden="true" tabindex="-1"></a>I'm going to build the plot for this simple trajectory up in chunks to make the code easier to understand. The foundation of the plot is fairly standard. The only unusual thing here are the <span class="in">`group`</span> aesthetics in <span class="in">`geom_line()`</span> and <span class="in">`geom_point()`</span>. These are used to tell <span class="in">`gganimate`</span> which rows in the data correspond to the same graphic element.</span>
+<span id="cb21-396"><a href="#cb21-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-399"><a href="#cb21-399" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-400"><a href="#cb21-400" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb21-401"><a href="#cb21-401" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(</span>
+<span id="cb21-402"><a href="#cb21-402" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">group =</span> <span class="dv">1</span>),</span>
+<span id="cb21-403"><a href="#cb21-403" aria-hidden="true" tabindex="-1"></a>    <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb21-404"><a href="#cb21-404" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"red"</span>,</span>
+<span id="cb21-405"><a href="#cb21-405" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.5</span></span>
+<span id="cb21-406"><a href="#cb21-406" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb21-407"><a href="#cb21-407" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">group =</span> <span class="dv">1</span>), <span class="at">size =</span> <span class="dv">2</span>)</span>
+<span id="cb21-408"><a href="#cb21-408" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-409"><a href="#cb21-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-410"><a href="#cb21-410" aria-hidden="true" tabindex="-1"></a>For the data I simulated, the projectile starts with a positive vertical velocity. However, at its maximum height, the vertical velocity of the projectile becomes 0 m/s for a brief moment, as it stops rising and starts falling. This happens Because gravity is constantly influencing the vertical velocity of the projectile. This is an important and interesting piece of information I want to communicate in my plot. This can be accomplished subtly by displaying the vertical velocity of the projectile at each point in time, or more overtly using a text annotation. I'm going to do both.</span>
+<span id="cb21-411"><a href="#cb21-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-412"><a href="#cb21-412" aria-hidden="true" tabindex="-1"></a>First the text annotation. I'm using <span class="in">`geom_curve()`</span> to draw an arrow between the annotation and the point at which the projectile is at its maximum height, and <span class="in">`geom_text()`</span> to draw the annotation. I've supplied each geom with its own data frame containing a <span class="in">`second`</span> column whose sole value corresponds to the time the projectile reaches its maximum height. This will control when the annotation appears in the animation. I've also given the pair a different <span class="in">`group`</span> aesthetic from <span class="in">`geom_line()`</span> and <span class="in">`geom_point()`</span>.</span>
+<span id="cb21-413"><a href="#cb21-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-416"><a href="#cb21-416" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-417"><a href="#cb21-417" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
+<span id="cb21-418"><a href="#cb21-418" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_curve</span>(</span>
+<span id="cb21-419"><a href="#cb21-419" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">data.frame</span>(</span>
+<span id="cb21-420"><a href="#cb21-420" aria-hidden="true" tabindex="-1"></a>      <span class="at">second =</span> max_height_time</span>
+<span id="cb21-421"><a href="#cb21-421" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb21-422"><a href="#cb21-422" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb21-423"><a href="#cb21-423" aria-hidden="true" tabindex="-1"></a>      <span class="at">xend =</span> max_height_dist,</span>
+<span id="cb21-424"><a href="#cb21-424" aria-hidden="true" tabindex="-1"></a>      <span class="at">yend =</span> max_height <span class="sc">+</span> <span class="fl">0.2</span>,</span>
+<span id="cb21-425"><a href="#cb21-425" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> max_height_dist <span class="sc">+</span> <span class="dv">2</span>,</span>
+<span id="cb21-426"><a href="#cb21-426" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> max_height <span class="sc">+</span> <span class="dv">2</span>,</span>
+<span id="cb21-427"><a href="#cb21-427" aria-hidden="true" tabindex="-1"></a>      <span class="at">group =</span> <span class="dv">2</span></span>
+<span id="cb21-428"><a href="#cb21-428" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb21-429"><a href="#cb21-429" aria-hidden="true" tabindex="-1"></a>    <span class="at">curvature =</span> <span class="fl">0.45</span>,</span>
+<span id="cb21-430"><a href="#cb21-430" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="dv">105</span>,</span>
+<span id="cb21-431"><a href="#cb21-431" aria-hidden="true" tabindex="-1"></a>    <span class="at">ncp =</span> <span class="dv">15</span>,</span>
+<span id="cb21-432"><a href="#cb21-432" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.1</span>,<span class="st">"cm"</span>), <span class="at">type =</span> <span class="st">"closed"</span>)</span>
+<span id="cb21-433"><a href="#cb21-433" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb21-434"><a href="#cb21-434" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
+<span id="cb21-435"><a href="#cb21-435" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">data.frame</span>(</span>
+<span id="cb21-436"><a href="#cb21-436" aria-hidden="true" tabindex="-1"></a>      <span class="at">second =</span> max_height_time</span>
+<span id="cb21-437"><a href="#cb21-437" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb21-438"><a href="#cb21-438" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb21-439"><a href="#cb21-439" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> max_height_dist <span class="sc">+</span> <span class="fl">2.4</span>,</span>
+<span id="cb21-440"><a href="#cb21-440" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> max_height <span class="sc">+</span> <span class="dv">2</span>,</span>
+<span id="cb21-441"><a href="#cb21-441" aria-hidden="true" tabindex="-1"></a>      <span class="at">group =</span> <span class="dv">2</span></span>
+<span id="cb21-442"><a href="#cb21-442" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb21-443"><a href="#cb21-443" aria-hidden="true" tabindex="-1"></a>    <span class="at">hjust =</span> <span class="st">"left"</span>,</span>
+<span id="cb21-444"><a href="#cb21-444" aria-hidden="true" tabindex="-1"></a>    <span class="at">lineheight =</span> <span class="dv">1</span>,</span>
+<span id="cb21-445"><a href="#cb21-445" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> <span class="st">"serif"</span>,</span>
+<span id="cb21-446"><a href="#cb21-446" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="fu">str_c</span>(</span>
+<span id="cb21-447"><a href="#cb21-447" aria-hidden="true" tabindex="-1"></a>      <span class="st">"At its maximum height, the vertical velocity </span><span class="sc">\n</span><span class="st">"</span>, </span>
+<span id="cb21-448"><a href="#cb21-448" aria-hidden="true" tabindex="-1"></a>      <span class="st">"of the projectile is 0 m/s for a brief moment, </span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb21-449"><a href="#cb21-449" aria-hidden="true" tabindex="-1"></a>      <span class="st">"as it stops rising and starts falling."</span></span>
+<span id="cb21-450"><a href="#cb21-450" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb21-451"><a href="#cb21-451" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb21-452"><a href="#cb21-452" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-453"><a href="#cb21-453" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-454"><a href="#cb21-454" aria-hidden="true" tabindex="-1"></a>Second the vertical velocity. I'm displaying this in the plot's subtitle along with the time elapsed since the projectile was launched. The displayed values are updated each frame using the value returned by the expression enclosed in glue braces for a frame. The variable <span class="in">`frame_along`</span> is made available by <span class="in">`gganimate::transition_along()`</span> (see below) and gives the position on the along-dimension (time in seconds in this case) that a frame corresponds to. Here I'm using <span class="in">`frame_along`</span> to display the elapsed time, and to index the data frame <span class="in">`df`</span> for the vertical velocity at a given second. The latter is a slight workaround because <span class="in">`vy`</span> cannot be accessed directly in the glue braces.</span>
+<span id="cb21-455"><a href="#cb21-455" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-458"><a href="#cb21-458" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-459"><a href="#cb21-459" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
+<span id="cb21-460"><a href="#cb21-460" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb21-461"><a href="#cb21-461" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">str_c</span>(</span>
+<span id="cb21-462"><a href="#cb21-462" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Projectile motion of an object launched with "</span>,</span>
+<span id="cb21-463"><a href="#cb21-463" aria-hidden="true" tabindex="-1"></a>      <span class="co">#" &lt;br&gt; ",</span></span>
+<span id="cb21-464"><a href="#cb21-464" aria-hidden="true" tabindex="-1"></a>      <span class="st">"a speed of 11.4 m/s at an angle of 52.1°"</span></span>
+<span id="cb21-465"><a href="#cb21-465" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb21-466"><a href="#cb21-466" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">str_c</span>(</span>
+<span id="cb21-467"><a href="#cb21-467" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Time: "</span>,</span>
+<span id="cb21-468"><a href="#cb21-468" aria-hidden="true" tabindex="-1"></a>      <span class="st">"{formattable(frame_along, digits = 2, format = 'f')}s"</span>,</span>
+<span id="cb21-469"><a href="#cb21-469" aria-hidden="true" tabindex="-1"></a>      <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb21-470"><a href="#cb21-470" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Vertical velocity = "</span>,</span>
+<span id="cb21-471"><a href="#cb21-471" aria-hidden="true" tabindex="-1"></a>      <span class="st">"{formattable(df$vy[df$second == frame_along], digits = 2, format = 'f')}"</span>,</span>
+<span id="cb21-472"><a href="#cb21-472" aria-hidden="true" tabindex="-1"></a>      <span class="st">" m/s"</span></span>
+<span id="cb21-473"><a href="#cb21-473" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb21-474"><a href="#cb21-474" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Distance (m)"</span>,</span>
+<span id="cb21-475"><a href="#cb21-475" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Height (m)"</span>,</span>
+<span id="cb21-476"><a href="#cb21-476" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Graphic: Michael McCarthy"</span></span>
+<span id="cb21-477"><a href="#cb21-477" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb21-478"><a href="#cb21-478" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-479"><a href="#cb21-479" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-480"><a href="#cb21-480" aria-hidden="true" tabindex="-1"></a>Now for theming. I wanted something minimalistic with a scientific feel---the classic theme  paired with truncated axes courtesy of ggh4x does this nicely. Finally, I originally planned to use <span class="in">`element_markdown()`</span> from ggtext to enable markdown text in the subtitle of the plot so that vertical velocity could be written like $\textrm{Velocity}_Y$; however, this caused issues with the text spacing when rendering the animation to video, so I opted not to.<span class="ot">[^1]</span></span>
+<span id="cb21-481"><a href="#cb21-481" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-482"><a href="#cb21-482" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>I didn't look into it too deeply, but I'm guessing it's related to <span class="co">[</span><span class="ot">this issue</span><span class="co">](https://github.com/wilkelab/ggtext/issues/95)</span> in ggtext. If you render to a gif instead you won't have this issue and can use ggtext as normal.</span>
+<span id="cb21-483"><a href="#cb21-483" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-486"><a href="#cb21-486" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-487"><a href="#cb21-487" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
+<span id="cb21-488"><a href="#cb21-488" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">x =</span> <span class="st">"axis_truncated"</span>, <span class="at">y =</span> <span class="st">"axis_truncated"</span>) <span class="sc">+</span></span>
+<span id="cb21-489"><a href="#cb21-489" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_family =</span> <span class="st">"serif"</span>)</span>
+<span id="cb21-490"><a href="#cb21-490" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-491"><a href="#cb21-491" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-492"><a href="#cb21-492" aria-hidden="true" tabindex="-1"></a>And finally, the animation code. Yes, that's it. Animations can be tweaked and spiced up with <span class="co">[</span><span class="ot">other functions</span><span class="co">](https://gganimate.com/reference/index.html)</span> in gganimate, but I <span class="co">[</span><span class="ot">ran into issues</span><span class="co">](https://github.com/thomasp85/gganimate/issues/445)</span> making the ones I wanted to use work with <span class="in">`transition_reveal()`</span>.</span>
+<span id="cb21-493"><a href="#cb21-493" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-494"><a href="#cb21-494" aria-hidden="true" tabindex="-1"></a>::: {.column-margin}</span>
+<span id="cb21-495"><a href="#cb21-495" aria-hidden="true" tabindex="-1"></a>Just a note: The behaviour of <span class="in">`transition_reveal()`</span> shown here was <span class="co">[</span><span class="ot">broken in v1.0.8</span><span class="co">](https://github.com/thomasp85/gganimate/issues/468)</span> of gganimate.</span>
+<span id="cb21-496"><a href="#cb21-496" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb21-497"><a href="#cb21-497" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-500"><a href="#cb21-500" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-501"><a href="#cb21-501" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb21-502"><a href="#cb21-502" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
+<span id="cb21-503"><a href="#cb21-503" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_reveal</span>(second)</span>
 <span id="cb21-504"><a href="#cb21-504" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-505"><a href="#cb21-505" aria-hidden="true" tabindex="-1"></a>::: {.column-margin}</span>
-<span id="cb21-506"><a href="#cb21-506" aria-hidden="true" tabindex="-1"></a>Just a note: The behaviour of <span class="in">`transition_reveal()`</span> shown here was <span class="co">[</span><span class="ot">broken in v1.0.8</span><span class="co">](https://github.com/thomasp85/gganimate/issues/468)</span> of gganimate.</span>
-<span id="cb21-507"><a href="#cb21-507" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb21-508"><a href="#cb21-508" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-511"><a href="#cb21-511" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-512"><a href="#cb21-512" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb21-513"><a href="#cb21-513" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
-<span id="cb21-514"><a href="#cb21-514" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_reveal</span>(second)</span>
-<span id="cb21-515"><a href="#cb21-515" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-516"><a href="#cb21-516" aria-hidden="true" tabindex="-1"></a>anim</span>
-<span id="cb21-517"><a href="#cb21-517" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-505"><a href="#cb21-505" aria-hidden="true" tabindex="-1"></a>anim</span>
+<span id="cb21-506"><a href="#cb21-506" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-507"><a href="#cb21-507" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-510"><a href="#cb21-510" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-511"><a href="#cb21-511" aria-hidden="true" tabindex="-1"></a><span class="co">#| opts.label: 'fig.graphic'</span></span>
+<span id="cb21-512"><a href="#cb21-512" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">FIXME</span><span class="co">: For whatever reason the code for the velocity subtitle only works when there</span></span>
+<span id="cb21-513"><a href="#cb21-513" aria-hidden="true" tabindex="-1"></a><span class="co"># are 100 frames in the data. For example, if nframes is 10 ten then</span></span>
+<span id="cb21-514"><a href="#cb21-514" aria-hidden="true" tabindex="-1"></a><span class="co"># this `{formattable(df$vy[df$second == frame_time], digits = 2, format = 'f')}`</span></span>
+<span id="cb21-515"><a href="#cb21-515" aria-hidden="true" tabindex="-1"></a><span class="co"># throws an error.</span></span>
+<span id="cb21-516"><a href="#cb21-516" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
+<span id="cb21-517"><a href="#cb21-517" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_reveal</span>(second)</span>
 <span id="cb21-518"><a href="#cb21-518" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-521"><a href="#cb21-521" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-522"><a href="#cb21-522" aria-hidden="true" tabindex="-1"></a><span class="co">#| opts.label: 'fig.graphic'</span></span>
-<span id="cb21-523"><a href="#cb21-523" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">FIXME</span><span class="co">: For whatever reason the code for the velocity subtitle only works when there</span></span>
-<span id="cb21-524"><a href="#cb21-524" aria-hidden="true" tabindex="-1"></a><span class="co"># are 100 frames in the data. For example, if nframes is 10 ten then</span></span>
-<span id="cb21-525"><a href="#cb21-525" aria-hidden="true" tabindex="-1"></a><span class="co"># this `{formattable(df$vy[df$second == frame_time], digits = 2, format = 'f')}`</span></span>
-<span id="cb21-526"><a href="#cb21-526" aria-hidden="true" tabindex="-1"></a><span class="co"># throws an error.</span></span>
-<span id="cb21-527"><a href="#cb21-527" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
-<span id="cb21-528"><a href="#cb21-528" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_reveal</span>(second)</span>
-<span id="cb21-529"><a href="#cb21-529" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-530"><a href="#cb21-530" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> <span class="fu">animate</span>(</span>
-<span id="cb21-531"><a href="#cb21-531" aria-hidden="true" tabindex="-1"></a>  anim,</span>
-<span id="cb21-532"><a href="#cb21-532" aria-hidden="true" tabindex="-1"></a>  <span class="at">nframes =</span> simple_trajectory<span class="sc">$</span>nframes,</span>
-<span id="cb21-533"><a href="#cb21-533" aria-hidden="true" tabindex="-1"></a>  <span class="at">fps =</span> simple_trajectory<span class="sc">$</span>fps,</span>
-<span id="cb21-534"><a href="#cb21-534" aria-hidden="true" tabindex="-1"></a>  <span class="at">renderer =</span> <span class="fu">av_renderer</span>(),</span>
-<span id="cb21-535"><a href="#cb21-535" aria-hidden="true" tabindex="-1"></a>  <span class="at">device =</span> <span class="st">"ragg_png"</span>,</span>
-<span id="cb21-536"><a href="#cb21-536" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">1080</span>,</span>
-<span id="cb21-537"><a href="#cb21-537" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">1080</span>,</span>
-<span id="cb21-538"><a href="#cb21-538" aria-hidden="true" tabindex="-1"></a>  <span class="at">res =</span> <span class="dv">300</span>,</span>
-<span id="cb21-539"><a href="#cb21-539" aria-hidden="true" tabindex="-1"></a>  <span class="at">scaling =</span> <span class="fl">0.5</span></span>
-<span id="cb21-540"><a href="#cb21-540" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-541"><a href="#cb21-541" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-542"><a href="#cb21-542" aria-hidden="true" tabindex="-1"></a><span class="fu">anim_save</span>(</span>
-<span id="cb21-543"><a href="#cb21-543" aria-hidden="true" tabindex="-1"></a>  <span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"2022-06-16_projectile-motion"</span>, <span class="st">"images"</span>, <span class="st">"simple-trajectory.mp4"</span>),</span>
-<span id="cb21-544"><a href="#cb21-544" aria-hidden="true" tabindex="-1"></a>  anim</span>
-<span id="cb21-545"><a href="#cb21-545" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-546"><a href="#cb21-546" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-547"><a href="#cb21-547" aria-hidden="true" tabindex="-1"></a>embedr<span class="sc">::</span><span class="fu">embed_video</span>(</span>
-<span id="cb21-548"><a href="#cb21-548" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(</span>
-<span id="cb21-549"><a href="#cb21-549" aria-hidden="true" tabindex="-1"></a>    <span class="fu">interactive</span>(),</span>
-<span id="cb21-550"><a href="#cb21-550" aria-hidden="true" tabindex="-1"></a>    <span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"2022-06-16_projectile-motion"</span>, <span class="st">"images"</span>, <span class="st">"simple-trajectory.mp4"</span>),</span>
-<span id="cb21-551"><a href="#cb21-551" aria-hidden="true" tabindex="-1"></a>    <span class="st">"images/simple-trajectory.mp4"</span></span>
-<span id="cb21-552"><a href="#cb21-552" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb21-553"><a href="#cb21-553" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"mp4"</span>,</span>
-<span id="cb21-554"><a href="#cb21-554" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="st">"100%"</span>,</span>
-<span id="cb21-555"><a href="#cb21-555" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="st">""</span>,</span>
-<span id="cb21-556"><a href="#cb21-556" aria-hidden="true" tabindex="-1"></a>  <span class="at">attribute =</span> <span class="fu">c</span>(<span class="st">"autoplay"</span>, <span class="st">"loop"</span>, <span class="st">"muted"</span>)</span>
-<span id="cb21-557"><a href="#cb21-557" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-519"><a href="#cb21-519" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> <span class="fu">animate</span>(</span>
+<span id="cb21-520"><a href="#cb21-520" aria-hidden="true" tabindex="-1"></a>  anim,</span>
+<span id="cb21-521"><a href="#cb21-521" aria-hidden="true" tabindex="-1"></a>  <span class="at">nframes =</span> simple_trajectory<span class="sc">$</span>nframes,</span>
+<span id="cb21-522"><a href="#cb21-522" aria-hidden="true" tabindex="-1"></a>  <span class="at">fps =</span> simple_trajectory<span class="sc">$</span>fps,</span>
+<span id="cb21-523"><a href="#cb21-523" aria-hidden="true" tabindex="-1"></a>  <span class="at">renderer =</span> <span class="fu">av_renderer</span>(),</span>
+<span id="cb21-524"><a href="#cb21-524" aria-hidden="true" tabindex="-1"></a>  <span class="at">device =</span> <span class="st">"ragg_png"</span>,</span>
+<span id="cb21-525"><a href="#cb21-525" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">1080</span>,</span>
+<span id="cb21-526"><a href="#cb21-526" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">1080</span>,</span>
+<span id="cb21-527"><a href="#cb21-527" aria-hidden="true" tabindex="-1"></a>  <span class="at">res =</span> <span class="dv">300</span>,</span>
+<span id="cb21-528"><a href="#cb21-528" aria-hidden="true" tabindex="-1"></a>  <span class="at">scaling =</span> <span class="fl">0.5</span></span>
+<span id="cb21-529"><a href="#cb21-529" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-530"><a href="#cb21-530" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-531"><a href="#cb21-531" aria-hidden="true" tabindex="-1"></a><span class="fu">anim_save</span>(</span>
+<span id="cb21-532"><a href="#cb21-532" aria-hidden="true" tabindex="-1"></a>  <span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"2022-06-16_projectile-motion"</span>, <span class="st">"images"</span>, <span class="st">"simple-trajectory.mp4"</span>),</span>
+<span id="cb21-533"><a href="#cb21-533" aria-hidden="true" tabindex="-1"></a>  anim</span>
+<span id="cb21-534"><a href="#cb21-534" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-535"><a href="#cb21-535" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-536"><a href="#cb21-536" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-537"><a href="#cb21-537" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;img</span> <span class="er">src</span><span class="ot">=</span><span class="st">'images/simple-trajectory.mp4'</span> <span class="er">width</span> <span class="ot">=</span><span class="st">"100%"</span><span class="kw">&gt;</span></span>
+<span id="cb21-538"><a href="#cb21-538" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-539"><a href="#cb21-539" aria-hidden="true" tabindex="-1"></a><span class="fu">### Launching a projectile on different planets</span></span>
+<span id="cb21-540"><a href="#cb21-540" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-541"><a href="#cb21-541" aria-hidden="true" tabindex="-1"></a>Now to test how the gravity of each planet in our solar system influences projectile motion. As a reminder, I already simulated the projectile motion data in <span class="in">`planets_trajectory`</span>, so now it's just a matter of plotting it.</span>
+<span id="cb21-542"><a href="#cb21-542" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-543"><a href="#cb21-543" aria-hidden="true" tabindex="-1"></a>Since the simulation is space themed, the plot should be too. Instead of using a simple point to represent the projectile, I'm going to use Font Awesome's rocket icon by way of the emojifont package. To make it extra, I'll also add propulsion and rotation to the rocket's animation.</span>
+<span id="cb21-544"><a href="#cb21-544" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-547"><a href="#cb21-547" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-548"><a href="#cb21-548" aria-hidden="true" tabindex="-1"></a><span class="co"># Make it so the propulsion is only present for first half of animation, so it</span></span>
+<span id="cb21-549"><a href="#cb21-549" aria-hidden="true" tabindex="-1"></a><span class="co"># looks like the rockets are launching.</span></span>
+<span id="cb21-550"><a href="#cb21-550" aria-hidden="true" tabindex="-1"></a>rocket_propulsion <span class="ot">&lt;-</span> planets_trajectory <span class="sc">%&gt;%</span></span>
+<span id="cb21-551"><a href="#cb21-551" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(planet) <span class="sc">%&gt;%</span></span>
+<span id="cb21-552"><a href="#cb21-552" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">retain =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>), <span class="at">each =</span> <span class="dv">50</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb21-553"><a href="#cb21-553" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb21-554"><a href="#cb21-554" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">x =</span> <span class="fu">case_when</span>(</span>
+<span id="cb21-555"><a href="#cb21-555" aria-hidden="true" tabindex="-1"></a>    retain <span class="sc">==</span> <span class="cn">FALSE</span> <span class="sc">~</span> <span class="cn">NA_real_</span>,</span>
+<span id="cb21-556"><a href="#cb21-556" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> x</span>
+<span id="cb21-557"><a href="#cb21-557" aria-hidden="true" tabindex="-1"></a>  ))</span>
 <span id="cb21-558"><a href="#cb21-558" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb21-559"><a href="#cb21-559" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-560"><a href="#cb21-560" aria-hidden="true" tabindex="-1"></a><span class="fu">### Launching a projectile on different planets</span></span>
+<span id="cb21-560"><a href="#cb21-560" aria-hidden="true" tabindex="-1"></a>The plotting code is mostly boilerplate, but I've added comments to highlight a few noteworthy points.</span>
 <span id="cb21-561"><a href="#cb21-561" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-562"><a href="#cb21-562" aria-hidden="true" tabindex="-1"></a>Now to test how the gravity of each planet in our solar system influences projectile motion. As a reminder, I already simulated the projectile motion data in <span class="in">`planets_trajectory`</span>, so now it's just a matter of plotting it.</span>
-<span id="cb21-563"><a href="#cb21-563" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-564"><a href="#cb21-564" aria-hidden="true" tabindex="-1"></a>Since the simulation is space themed, the plot should be too. Instead of using a simple point to represent the projectile, I'm going to use Font Awesome's rocket icon by way of the emojifont package. To make it extra, I'll also add propulsion and rotation to the rocket's animation.</span>
-<span id="cb21-565"><a href="#cb21-565" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-568"><a href="#cb21-568" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-569"><a href="#cb21-569" aria-hidden="true" tabindex="-1"></a><span class="co"># Make it so the propulsion is only present for first half of animation, so it</span></span>
-<span id="cb21-570"><a href="#cb21-570" aria-hidden="true" tabindex="-1"></a><span class="co"># looks like the rockets are launching.</span></span>
-<span id="cb21-571"><a href="#cb21-571" aria-hidden="true" tabindex="-1"></a>rocket_propulsion <span class="ot">&lt;-</span> planets_trajectory <span class="sc">%&gt;%</span></span>
-<span id="cb21-572"><a href="#cb21-572" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(planet) <span class="sc">%&gt;%</span></span>
-<span id="cb21-573"><a href="#cb21-573" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">retain =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>), <span class="at">each =</span> <span class="dv">50</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb21-574"><a href="#cb21-574" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb21-575"><a href="#cb21-575" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">x =</span> <span class="fu">case_when</span>(</span>
-<span id="cb21-576"><a href="#cb21-576" aria-hidden="true" tabindex="-1"></a>    retain <span class="sc">==</span> <span class="cn">FALSE</span> <span class="sc">~</span> <span class="cn">NA_real_</span>,</span>
-<span id="cb21-577"><a href="#cb21-577" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> x</span>
-<span id="cb21-578"><a href="#cb21-578" aria-hidden="true" tabindex="-1"></a>  ))</span>
-<span id="cb21-579"><a href="#cb21-579" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-580"><a href="#cb21-580" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-581"><a href="#cb21-581" aria-hidden="true" tabindex="-1"></a>The plotting code is mostly boilerplate, but I've added comments to highlight a few noteworthy points.</span>
-<span id="cb21-582"><a href="#cb21-582" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-585"><a href="#cb21-585" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-586"><a href="#cb21-586" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(planets_trajectory, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb21-587"><a href="#cb21-587" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(</span>
-<span id="cb21-588"><a href="#cb21-588" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">colour =</span> planet, <span class="at">group =</span> planet),</span>
-<span id="cb21-589"><a href="#cb21-589" aria-hidden="true" tabindex="-1"></a>    <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
-<span id="cb21-590"><a href="#cb21-590" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
-<span id="cb21-591"><a href="#cb21-591" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Change the key glyph in the legend to a point, to represent a planet</span></span>
-<span id="cb21-592"><a href="#cb21-592" aria-hidden="true" tabindex="-1"></a>    <span class="at">key_glyph =</span> <span class="st">"point"</span></span>
-<span id="cb21-593"><a href="#cb21-593" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb21-594"><a href="#cb21-594" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb21-595"><a href="#cb21-595" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> rocket_propulsion,</span>
-<span id="cb21-596"><a href="#cb21-596" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">group =</span> planet),</span>
-<span id="cb21-597"><a href="#cb21-597" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"orange"</span></span>
-<span id="cb21-598"><a href="#cb21-598" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb21-599"><a href="#cb21-599" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Change the angle at different frames to rotate the rocket</span></span>
-<span id="cb21-600"><a href="#cb21-600" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
-<span id="cb21-601"><a href="#cb21-601" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">colour =</span> planet, <span class="at">group =</span> planet, <span class="at">label =</span> <span class="fu">fontawesome</span>(<span class="st">"fa-rocket"</span>)),</span>
-<span id="cb21-602"><a href="#cb21-602" aria-hidden="true" tabindex="-1"></a>    <span class="at">family=</span><span class="st">'fontawesome-webfont'</span>,</span>
-<span id="cb21-603"><a href="#cb21-603" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="fu">rep</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">45</span>, <span class="at">length =</span> <span class="dv">100</span>), <span class="dv">10</span>),</span>
-<span id="cb21-604"><a href="#cb21-604" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">6</span>,</span>
-<span id="cb21-605"><a href="#cb21-605" aria-hidden="true" tabindex="-1"></a>    <span class="co"># There is no rocket key glyph, so override this too</span></span>
-<span id="cb21-606"><a href="#cb21-606" aria-hidden="true" tabindex="-1"></a>    <span class="at">key_glyph =</span> <span class="st">"point"</span></span>
-<span id="cb21-607"><a href="#cb21-607" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb21-608"><a href="#cb21-608" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
-<span id="cb21-609"><a href="#cb21-609" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(</span>
-<span id="cb21-610"><a href="#cb21-610" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#97979F"</span>,</span>
-<span id="cb21-611"><a href="#cb21-611" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#BBB7AB"</span>,</span>
-<span id="cb21-612"><a href="#cb21-612" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#8CB1DE"</span>,</span>
-<span id="cb21-613"><a href="#cb21-613" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#DAD9D7"</span>,</span>
-<span id="cb21-614"><a href="#cb21-614" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#E27B58"</span>,</span>
-<span id="cb21-615"><a href="#cb21-615" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#C88B3A"</span>,</span>
-<span id="cb21-616"><a href="#cb21-616" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#C5AB6E"</span>,</span>
-<span id="cb21-617"><a href="#cb21-617" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#93B8BE"</span>,</span>
-<span id="cb21-618"><a href="#cb21-618" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#6081FF"</span>,</span>
-<span id="cb21-619"><a href="#cb21-619" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#4390BA"</span></span>
-<span id="cb21-620"><a href="#cb21-620" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb21-621"><a href="#cb21-621" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb21-622"><a href="#cb21-622" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb21-623"><a href="#cb21-623" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">str_c</span>(</span>
-<span id="cb21-624"><a href="#cb21-624" aria-hidden="true" tabindex="-1"></a>      <span class="st">"projectile motion of an object launched on different planets in our solar system"</span></span>
-<span id="cb21-625"><a href="#cb21-625" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb21-626"><a href="#cb21-626" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"distance (m)"</span>,</span>
-<span id="cb21-627"><a href="#cb21-627" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"height (m)"</span>,</span>
-<span id="cb21-628"><a href="#cb21-628" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"graphic: michael mccarthy"</span></span>
-<span id="cb21-629"><a href="#cb21-629" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb21-630"><a href="#cb21-630" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(</span>
-<span id="cb21-631"><a href="#cb21-631" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"axis_truncated"</span>,</span>
-<span id="cb21-632"><a href="#cb21-632" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"axis_truncated"</span>,</span>
-<span id="cb21-633"><a href="#cb21-633" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="fu">guide_legend</span>(<span class="at">title.vjust =</span> .<span class="dv">7</span>, <span class="at">nrow =</span> <span class="dv">1</span>, <span class="at">label.position =</span> <span class="st">"bottom"</span>)</span>
-<span id="cb21-634"><a href="#cb21-634" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb21-635"><a href="#cb21-635" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_family =</span> <span class="st">"mono"</span>) <span class="sc">+</span></span>
-<span id="cb21-636"><a href="#cb21-636" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb21-637"><a href="#cb21-637" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"white"</span>),</span>
-<span id="cb21-638"><a href="#cb21-638" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"white"</span>),</span>
-<span id="cb21-639"><a href="#cb21-639" aria-hidden="true" tabindex="-1"></a>    <span class="at">rect =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"black"</span>),</span>
-<span id="cb21-640"><a href="#cb21-640" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"black"</span>),</span>
-<span id="cb21-641"><a href="#cb21-641" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"white"</span>),</span>
-<span id="cb21-642"><a href="#cb21-642" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"white"</span>),</span>
-<span id="cb21-643"><a href="#cb21-643" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"top"</span>,</span>
-<span id="cb21-644"><a href="#cb21-644" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.justification =</span> <span class="st">"left"</span></span>
-<span id="cb21-645"><a href="#cb21-645" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb21-646"><a href="#cb21-646" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-647"><a href="#cb21-647" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-648"><a href="#cb21-648" aria-hidden="true" tabindex="-1"></a>Finally, the animation code. The <span class="in">`shadow_wake()`</span> function is applied to the orange points used for rocket propulsion to really sell the effect.</span>
-<span id="cb21-649"><a href="#cb21-649" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-652"><a href="#cb21-652" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-653"><a href="#cb21-653" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb21-654"><a href="#cb21-654" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
-<span id="cb21-655"><a href="#cb21-655" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_reveal</span>(second) <span class="sc">+</span></span>
-<span id="cb21-656"><a href="#cb21-656" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shadow_wake</span>(<span class="at">wake_length =</span> <span class="fl">0.1</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">exclude_layer =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
-<span id="cb21-657"><a href="#cb21-657" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-658"><a href="#cb21-658" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-661"><a href="#cb21-661" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-662"><a href="#cb21-662" aria-hidden="true" tabindex="-1"></a><span class="co">#| opts.label: 'fig.graphic'</span></span>
-<span id="cb21-663"><a href="#cb21-663" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
-<span id="cb21-664"><a href="#cb21-664" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_reveal</span>(second) <span class="sc">+</span></span>
-<span id="cb21-665"><a href="#cb21-665" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shadow_wake</span>(<span class="at">wake_length =</span> <span class="fl">0.1</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">exclude_layer =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
-<span id="cb21-666"><a href="#cb21-666" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-667"><a href="#cb21-667" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> <span class="fu">animate</span>(</span>
-<span id="cb21-668"><a href="#cb21-668" aria-hidden="true" tabindex="-1"></a>  anim,</span>
-<span id="cb21-669"><a href="#cb21-669" aria-hidden="true" tabindex="-1"></a>  <span class="at">nframes =</span> planets_pm<span class="sc">$</span>earth<span class="sc">$</span>nframes,</span>
-<span id="cb21-670"><a href="#cb21-670" aria-hidden="true" tabindex="-1"></a>  <span class="at">fps =</span> planets_pm<span class="sc">$</span>earth<span class="sc">$</span>fps,</span>
-<span id="cb21-671"><a href="#cb21-671" aria-hidden="true" tabindex="-1"></a>  <span class="at">renderer =</span> <span class="fu">av_renderer</span>(),</span>
-<span id="cb21-672"><a href="#cb21-672" aria-hidden="true" tabindex="-1"></a>  <span class="at">device =</span> <span class="st">"ragg_png"</span>,</span>
-<span id="cb21-673"><a href="#cb21-673" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">1080</span>,</span>
-<span id="cb21-674"><a href="#cb21-674" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">720</span>,</span>
-<span id="cb21-675"><a href="#cb21-675" aria-hidden="true" tabindex="-1"></a>  <span class="at">res =</span> <span class="dv">300</span>,</span>
-<span id="cb21-676"><a href="#cb21-676" aria-hidden="true" tabindex="-1"></a>  <span class="at">scaling =</span> <span class="fl">0.5</span></span>
-<span id="cb21-677"><a href="#cb21-677" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-678"><a href="#cb21-678" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-679"><a href="#cb21-679" aria-hidden="true" tabindex="-1"></a><span class="fu">anim_save</span>(</span>
-<span id="cb21-680"><a href="#cb21-680" aria-hidden="true" tabindex="-1"></a>  <span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"2022-06-16_projectile-motion"</span>, <span class="st">"images"</span>, <span class="st">"planets-trajectory.mp4"</span>),</span>
-<span id="cb21-681"><a href="#cb21-681" aria-hidden="true" tabindex="-1"></a>  anim</span>
-<span id="cb21-682"><a href="#cb21-682" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-683"><a href="#cb21-683" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-684"><a href="#cb21-684" aria-hidden="true" tabindex="-1"></a>embedr<span class="sc">::</span><span class="fu">embed_video</span>(</span>
-<span id="cb21-685"><a href="#cb21-685" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(</span>
-<span id="cb21-686"><a href="#cb21-686" aria-hidden="true" tabindex="-1"></a>    <span class="fu">interactive</span>(),</span>
-<span id="cb21-687"><a href="#cb21-687" aria-hidden="true" tabindex="-1"></a>    <span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"2022-06-16_projectile-motion"</span>, <span class="st">"images"</span>, <span class="st">"planets-trajectory.mp4"</span>),</span>
-<span id="cb21-688"><a href="#cb21-688" aria-hidden="true" tabindex="-1"></a>    <span class="st">"images/planets-trajectory.mp4"</span></span>
-<span id="cb21-689"><a href="#cb21-689" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb21-690"><a href="#cb21-690" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"mp4"</span>,</span>
-<span id="cb21-691"><a href="#cb21-691" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="st">"100%"</span>,</span>
-<span id="cb21-692"><a href="#cb21-692" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="st">""</span>,</span>
-<span id="cb21-693"><a href="#cb21-693" aria-hidden="true" tabindex="-1"></a>  <span class="at">attribute =</span> <span class="fu">c</span>(<span class="st">"autoplay"</span>, <span class="st">"loop"</span>, <span class="st">"muted"</span>)</span>
-<span id="cb21-694"><a href="#cb21-694" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-695"><a href="#cb21-695" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-696"><a href="#cb21-696" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-697"><a href="#cb21-697" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_common/_appendix.qmd &gt;}}</span>
+<span id="cb21-564"><a href="#cb21-564" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-565"><a href="#cb21-565" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(planets_trajectory, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb21-566"><a href="#cb21-566" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(</span>
+<span id="cb21-567"><a href="#cb21-567" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">colour =</span> planet, <span class="at">group =</span> planet),</span>
+<span id="cb21-568"><a href="#cb21-568" aria-hidden="true" tabindex="-1"></a>    <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb21-569"><a href="#cb21-569" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb21-570"><a href="#cb21-570" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Change the key glyph in the legend to a point, to represent a planet</span></span>
+<span id="cb21-571"><a href="#cb21-571" aria-hidden="true" tabindex="-1"></a>    <span class="at">key_glyph =</span> <span class="st">"point"</span></span>
+<span id="cb21-572"><a href="#cb21-572" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb21-573"><a href="#cb21-573" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb21-574"><a href="#cb21-574" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> rocket_propulsion,</span>
+<span id="cb21-575"><a href="#cb21-575" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">group =</span> planet),</span>
+<span id="cb21-576"><a href="#cb21-576" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"orange"</span></span>
+<span id="cb21-577"><a href="#cb21-577" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb21-578"><a href="#cb21-578" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Change the angle at different frames to rotate the rocket</span></span>
+<span id="cb21-579"><a href="#cb21-579" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
+<span id="cb21-580"><a href="#cb21-580" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">colour =</span> planet, <span class="at">group =</span> planet, <span class="at">label =</span> <span class="fu">fontawesome</span>(<span class="st">"fa-rocket"</span>)),</span>
+<span id="cb21-581"><a href="#cb21-581" aria-hidden="true" tabindex="-1"></a>    <span class="at">family=</span><span class="st">'fontawesome-webfont'</span>,</span>
+<span id="cb21-582"><a href="#cb21-582" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="fu">rep</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">45</span>, <span class="at">length =</span> <span class="dv">100</span>), <span class="dv">10</span>),</span>
+<span id="cb21-583"><a href="#cb21-583" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">6</span>,</span>
+<span id="cb21-584"><a href="#cb21-584" aria-hidden="true" tabindex="-1"></a>    <span class="co"># There is no rocket key glyph, so override this too</span></span>
+<span id="cb21-585"><a href="#cb21-585" aria-hidden="true" tabindex="-1"></a>    <span class="at">key_glyph =</span> <span class="st">"point"</span></span>
+<span id="cb21-586"><a href="#cb21-586" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb21-587"><a href="#cb21-587" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb21-588"><a href="#cb21-588" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb21-589"><a href="#cb21-589" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#97979F"</span>,</span>
+<span id="cb21-590"><a href="#cb21-590" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#BBB7AB"</span>,</span>
+<span id="cb21-591"><a href="#cb21-591" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#8CB1DE"</span>,</span>
+<span id="cb21-592"><a href="#cb21-592" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#DAD9D7"</span>,</span>
+<span id="cb21-593"><a href="#cb21-593" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#E27B58"</span>,</span>
+<span id="cb21-594"><a href="#cb21-594" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#C88B3A"</span>,</span>
+<span id="cb21-595"><a href="#cb21-595" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#C5AB6E"</span>,</span>
+<span id="cb21-596"><a href="#cb21-596" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#93B8BE"</span>,</span>
+<span id="cb21-597"><a href="#cb21-597" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#6081FF"</span>,</span>
+<span id="cb21-598"><a href="#cb21-598" aria-hidden="true" tabindex="-1"></a>      <span class="st">"#4390BA"</span></span>
+<span id="cb21-599"><a href="#cb21-599" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb21-600"><a href="#cb21-600" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb21-601"><a href="#cb21-601" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb21-602"><a href="#cb21-602" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">str_c</span>(</span>
+<span id="cb21-603"><a href="#cb21-603" aria-hidden="true" tabindex="-1"></a>      <span class="st">"projectile motion of an object launched on different planets in our solar system"</span></span>
+<span id="cb21-604"><a href="#cb21-604" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb21-605"><a href="#cb21-605" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"distance (m)"</span>,</span>
+<span id="cb21-606"><a href="#cb21-606" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"height (m)"</span>,</span>
+<span id="cb21-607"><a href="#cb21-607" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"graphic: michael mccarthy"</span></span>
+<span id="cb21-608"><a href="#cb21-608" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb21-609"><a href="#cb21-609" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(</span>
+<span id="cb21-610"><a href="#cb21-610" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"axis_truncated"</span>,</span>
+<span id="cb21-611"><a href="#cb21-611" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"axis_truncated"</span>,</span>
+<span id="cb21-612"><a href="#cb21-612" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="fu">guide_legend</span>(<span class="at">title.vjust =</span> .<span class="dv">7</span>, <span class="at">nrow =</span> <span class="dv">1</span>, <span class="at">label.position =</span> <span class="st">"bottom"</span>)</span>
+<span id="cb21-613"><a href="#cb21-613" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb21-614"><a href="#cb21-614" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_family =</span> <span class="st">"mono"</span>) <span class="sc">+</span></span>
+<span id="cb21-615"><a href="#cb21-615" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb21-616"><a href="#cb21-616" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"white"</span>),</span>
+<span id="cb21-617"><a href="#cb21-617" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"white"</span>),</span>
+<span id="cb21-618"><a href="#cb21-618" aria-hidden="true" tabindex="-1"></a>    <span class="at">rect =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"black"</span>),</span>
+<span id="cb21-619"><a href="#cb21-619" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"black"</span>),</span>
+<span id="cb21-620"><a href="#cb21-620" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"white"</span>),</span>
+<span id="cb21-621"><a href="#cb21-621" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"white"</span>),</span>
+<span id="cb21-622"><a href="#cb21-622" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"top"</span>,</span>
+<span id="cb21-623"><a href="#cb21-623" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.justification =</span> <span class="st">"left"</span></span>
+<span id="cb21-624"><a href="#cb21-624" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb21-625"><a href="#cb21-625" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-626"><a href="#cb21-626" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-627"><a href="#cb21-627" aria-hidden="true" tabindex="-1"></a>Finally, the animation code. The <span class="in">`shadow_wake()`</span> function is applied to the orange points used for rocket propulsion to really sell the effect.</span>
+<span id="cb21-628"><a href="#cb21-628" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-631"><a href="#cb21-631" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-632"><a href="#cb21-632" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb21-633"><a href="#cb21-633" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
+<span id="cb21-634"><a href="#cb21-634" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_reveal</span>(second) <span class="sc">+</span></span>
+<span id="cb21-635"><a href="#cb21-635" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shadow_wake</span>(<span class="at">wake_length =</span> <span class="fl">0.1</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">exclude_layer =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
+<span id="cb21-636"><a href="#cb21-636" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-637"><a href="#cb21-637" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-640"><a href="#cb21-640" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-641"><a href="#cb21-641" aria-hidden="true" tabindex="-1"></a><span class="co">#| opts.label: 'fig.graphic'</span></span>
+<span id="cb21-642"><a href="#cb21-642" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
+<span id="cb21-643"><a href="#cb21-643" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_reveal</span>(second) <span class="sc">+</span></span>
+<span id="cb21-644"><a href="#cb21-644" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shadow_wake</span>(<span class="at">wake_length =</span> <span class="fl">0.1</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">exclude_layer =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
+<span id="cb21-645"><a href="#cb21-645" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-646"><a href="#cb21-646" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> <span class="fu">animate</span>(</span>
+<span id="cb21-647"><a href="#cb21-647" aria-hidden="true" tabindex="-1"></a>  anim,</span>
+<span id="cb21-648"><a href="#cb21-648" aria-hidden="true" tabindex="-1"></a>  <span class="at">nframes =</span> planets_pm<span class="sc">$</span>earth<span class="sc">$</span>nframes,</span>
+<span id="cb21-649"><a href="#cb21-649" aria-hidden="true" tabindex="-1"></a>  <span class="at">fps =</span> planets_pm<span class="sc">$</span>earth<span class="sc">$</span>fps,</span>
+<span id="cb21-650"><a href="#cb21-650" aria-hidden="true" tabindex="-1"></a>  <span class="at">renderer =</span> <span class="fu">av_renderer</span>(),</span>
+<span id="cb21-651"><a href="#cb21-651" aria-hidden="true" tabindex="-1"></a>  <span class="at">device =</span> <span class="st">"ragg_png"</span>,</span>
+<span id="cb21-652"><a href="#cb21-652" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">1080</span>,</span>
+<span id="cb21-653"><a href="#cb21-653" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">720</span>,</span>
+<span id="cb21-654"><a href="#cb21-654" aria-hidden="true" tabindex="-1"></a>  <span class="at">res =</span> <span class="dv">300</span>,</span>
+<span id="cb21-655"><a href="#cb21-655" aria-hidden="true" tabindex="-1"></a>  <span class="at">scaling =</span> <span class="fl">0.5</span></span>
+<span id="cb21-656"><a href="#cb21-656" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-657"><a href="#cb21-657" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-658"><a href="#cb21-658" aria-hidden="true" tabindex="-1"></a><span class="fu">anim_save</span>(</span>
+<span id="cb21-659"><a href="#cb21-659" aria-hidden="true" tabindex="-1"></a>  <span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"2022-06-16_projectile-motion"</span>, <span class="st">"images"</span>, <span class="st">"planets-trajectory.mp4"</span>),</span>
+<span id="cb21-660"><a href="#cb21-660" aria-hidden="true" tabindex="-1"></a>  anim</span>
+<span id="cb21-661"><a href="#cb21-661" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-662"><a href="#cb21-662" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-663"><a href="#cb21-663" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-664"><a href="#cb21-664" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;img</span> <span class="er">src</span><span class="ot">=</span><span class="st">'images/planets-trajectory.mp4'</span> <span class="er">width</span> <span class="ot">=</span><span class="st">"100%"</span><span class="kw">&gt;</span></span>
+<span id="cb21-665"><a href="#cb21-665" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-666"><a href="#cb21-666" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_common/_appendix.qmd &gt;}}</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

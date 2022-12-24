@@ -1196,11 +1196,7 @@ Borderlands</em>. <a href="https://tidytales.ca/posts/2022-09-29_borderlands">ht
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p>Emphasis on <em>gently</em>. Wait for it…</p>
-</div></div><div class="cell" data-opts.label="fig.graphic">
-<div class="cell-output-display">
-<video width="100%" height="" autoplay="" loop="" muted=""> <source src="images/moon-gravity.mp4" type="video/mp4"> Your browser does not support the video tag;  for browser support, please see:  https://www.w3schools.com/tags/tag_video.asp </video>
-</div>
-</div>
+</div></div><p><img src="https://tidytales.ca/posts/2022-06-16_projectile-motion/images/moon-gravity.mp4" width="100%"></p>
 <p>But the balls are not actually moving on their own. Their motion is being affected by the moon’s gravity. As the placard beside them explains: “As it orbits our planet, the Attlerock’s gravity pulls on objects from different directions. In fact, it’s pulling on you right now!” This isn’t just flavour text—the game is <a href="https://www.rockpapershotgun.com/how-outer-wilds-built-a-planet-which-falls-apart">actually simulating planetary gravity</a>.</p>
 <p>Outer Wilds uses its physics realism to great effect in other parts of the game (ever wondered what it’s like to stand on planet while it breaks apart into a black hole?), and experiencing it all got me curious: What kinds of physics simulations could I do in the two-dimensional space of a plot? After some research and reading I landed on projectile motion.</p>
 </section>
@@ -1560,10 +1556,9 @@ Borderlands</em>. <a href="https://tidytales.ca/posts/2022-09-29_borderlands">ht
 <span id="cb16-4">anim</span></code></pre></div>
 </div>
 <div class="cell" data-opts.label="fig.graphic">
-<div class="cell-output-display">
-<video width="100%" height="" autoplay="" loop="" muted=""> <source src="images/simple-trajectory.mp4" type="video/mp4"> Your browser does not support the video tag;  for browser support, please see:  https://www.w3schools.com/tags/tag_video.asp </video>
+
 </div>
-</div>
+<p><img src="https://tidytales.ca/posts/2022-06-16_projectile-motion/images/simple-trajectory.mp4" width="100%"></p>
 </section>
 <section id="launching-a-projectile-on-different-planets-1" class="level3">
 <h3 class="anchored" data-anchor-id="launching-a-projectile-on-different-planets-1">Launching a projectile on different planets</h3>
@@ -1651,10 +1646,9 @@ Borderlands</em>. <a href="https://tidytales.ca/posts/2022-09-29_borderlands">ht
 <span id="cb19-3">  <span class="fu" style="color: #4758AB;">shadow_wake</span>(<span class="at" style="color: #657422;">wake_length =</span> <span class="fl" style="color: #AD0000;">0.1</span>, <span class="at" style="color: #657422;">size =</span> <span class="dv" style="color: #AD0000;">2</span>, <span class="at" style="color: #657422;">exclude_layer =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">3</span>))</span></code></pre></div>
 </div>
 <div class="cell" data-opts.label="fig.graphic">
-<div class="cell-output-display">
-<video width="100%" height="" autoplay="" loop="" muted=""> <source src="images/planets-trajectory.mp4" type="video/mp4"> Your browser does not support the video tag;  for browser support, please see:  https://www.w3schools.com/tags/tag_video.asp </video>
+
 </div>
-</div>
+<p><img src="https://tidytales.ca/posts/2022-06-16_projectile-motion/images/planets-trajectory.mp4" width="100%"></p>
 </section>
 </section>
 
@@ -1703,7 +1697,7 @@ Borderlands</em>. <a href="https://tidytales.ca/posts/2022-09-29_borderlands">ht
  collate  en_CA.UTF-8
  ctype    en_CA.UTF-8
  tz       America/Vancouver
- date     2022-12-23
+ date     2022-12-24
  pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)
  quarto   1.2.280 @ /usr/local/bin/quarto
 
