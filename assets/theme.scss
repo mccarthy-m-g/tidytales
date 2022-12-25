@@ -17,6 +17,7 @@ $dark-shade-alpha: #191F3D85;
 $dark-accent: #BA70A0;
 $main-colour: #123C69;
 $light-accent: #24639E;
+$light-accent-hl: rgb(81, 129, 177);
 $light-shade: #fffbfa;
 
 $white:    #fff !default;
@@ -105,6 +106,12 @@ $code-color: $dark-accent !default;
 
 .navbar-dark .navbar-toggler {
   border-color: rgba($black, 0);
+}
+
+// Buttons
+.btn-primary:hover {
+  background-color: $light-accent-hl;
+  border-color: $light-accent-hl;
 }
 
 // Catgories
