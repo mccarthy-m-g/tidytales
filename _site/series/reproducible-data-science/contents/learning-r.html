@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Michael McCarthy">
+<meta name="dcterms.date" content="2023-01-04">
+<meta name="description" content="Learn how to program and do data science with R.">
+
+<title>Tidy Tales - Learning R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../series/reproducible-data-science/contents/r-packages.html" rel="next">
+<link href="../../../series/reproducible-data-science/contents/r-setup.html" rel="prev">
+<link href="../../../assets/images/favicon.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": true,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../../assets/styles.css">
+<meta property="og:title" content="Tidy Tales">
+<meta property="og:description" content="Wrangling, Visualizing, Modelling, Communicating data">
+<meta property="og:image" content="https://tidytales.ca/assets/images/twittercard.png">
+<meta property="og:site-name" content="Tidy Tales">
+<meta property="og:image:height" content="600">
+<meta property="og:image:width" content="600">
+<meta name="twitter:title" content="Tidy Tales">
+<meta name="twitter:description" content="Wrangling, Visualizing, Modelling, Communicating data">
+<meta name="twitter:image" content="https://tidytales.ca/assets/images/twittercard.png">
+<meta name="twitter:creator" content="@mccarthymg">
+<meta name="twitter:site" content="@propertidytales">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image-height" content="600">
+<meta name="twitter:image-width" content="600">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../assets/images/logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Tidy Tales</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../#posts">
+ <span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../#series">
+ <span class="menu-text">Series</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../#code-snippets">
+ <span class="menu-text">Snippets</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about/index.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/propertidytales"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/mccarthy-m-g/tidytales"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://michaelmccarthy.tidytales.ca"><i class="bi bi-person-circle" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../../index.xml"><i class="bi bi-rss-fill" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Learning R</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block">Learning R</h1>
+                  <div>
+        <div class="description">
+          Learn how to program and do data science with R.
+        </div>
+      </div>
+                </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Michael McCarthy </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 4, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../series/reproducible-data-science/index.html" class="sidebar-item-text sidebar-link">Reproducible Data Science</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">In this series</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../series/reproducible-data-science/contents/system-setup.html" class="sidebar-item-text sidebar-link">System Setup</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../series/reproducible-data-science/contents/r-setup.html" class="sidebar-item-text sidebar-link">R Setup</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../series/reproducible-data-science/contents/learning-r.html" class="sidebar-item-text sidebar-link active">Learning R</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../series/reproducible-data-science/contents/r-packages.html" class="sidebar-item-text sidebar-link">R Packages</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../series/reproducible-data-science/contents/python-setup.html" class="sidebar-item-text sidebar-link">Python Setup</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../series/reproducible-data-science/contents/zotero-setup.html" class="sidebar-item-text sidebar-link">Reference Manager Setup</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../series/reproducible-data-science/contents/version-control-setup.html" class="sidebar-item-text sidebar-link">Version Control Setup</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">In this post</h2>
+   
+  <ul>
+  <li><a href="#whats-data-science" id="toc-whats-data-science" class="nav-link active" data-scroll-target="#whats-data-science">What’s data science?</a></li>
+  <li><a href="#whats-r" id="toc-whats-r" class="nav-link" data-scroll-target="#whats-r">What’s R?</a></li>
+  <li><a href="#where-do-i-start" id="toc-where-do-i-start" class="nav-link" data-scroll-target="#where-do-i-start">Where do I start?</a></li>
+  <li><a href="#what-else-should-i-learn" id="toc-what-else-should-i-learn" class="nav-link" data-scroll-target="#what-else-should-i-learn">What else should I learn?</a></li>
+  <li><a href="#how-do-i-learn-statistics" id="toc-how-do-i-learn-statistics" class="nav-link" data-scroll-target="#how-do-i-learn-statistics">How do I learn statistics?</a></li>
+  <li><a href="#where-do-i-learn-more-about-r-programming" id="toc-where-do-i-learn-more-about-r-programming" class="nav-link" data-scroll-target="#where-do-i-learn-more-about-r-programming">Where do I learn more about R programming?</a></li>
+  <li><a href="#how-do-i-make-my-work-reproducible" id="toc-how-do-i-make-my-work-reproducible" class="nav-link" data-scroll-target="#how-do-i-make-my-work-reproducible">How do I make my work reproducible?</a></li>
+  <li><a href="#what-did-you-forget-to-teach-me-about-r" id="toc-what-did-you-forget-to-teach-me-about-r" class="nav-link" data-scroll-target="#what-did-you-forget-to-teach-me-about-r">What did you forget to teach me about R?</a></li>
+  <li><a href="#parting-words" id="toc-parting-words" class="nav-link" data-scroll-target="#parting-words">Parting words</a></li>
+  </ul>
+</nav>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="whats-data-science" class="level2">
+<h2 class="anchored" data-anchor-id="whats-data-science">What’s data science?</h2>
+<blockquote class="blockquote">
+<p>Data science is an exciting discipline that allows you to transform raw data into understanding, insight, and knowledge.</p>
+</blockquote>
+<p>— Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund in <a href="https://r4ds.hadley.nz">R for Data Science</a></p>
+<p>A <strong>data scientist</strong> is someone who creates understanding, insight, and knowledge from raw data with <strong>programming</strong>. Programming is an essential tool in nearly every part of a data science project because it allows you to do data science efficiently and reproducibly.</p>
+<p>There are many different programming languages you can use to do data science, but here we cover my favourite programming language: <strong>R</strong>.</p>
+</section>
+<section id="whats-r" class="level2">
+<h2 class="anchored" data-anchor-id="whats-r">What’s R?</h2>
+<p><a href="https://www.r-project.org">R</a> is an open source programming language for wrangling, visualizing, modelling, and communicating data, and so much more. It has a strong community behind it and is widely used among researchers, statisticians, and data scientists in a variety of fields.</p>
+</section>
+<section id="where-do-i-start" class="level2">
+<h2 class="anchored" data-anchor-id="where-do-i-start">Where do I start?</h2>
+<p>I believe every R user should work through these two books (in order):</p>
+<ol type="1">
+<li><a href="https://rstudio-education.github.io/hopr/">Hands-On Programming with R</a> by Garrett Grolemund</li>
+<li><a href="https://r4ds.hadley.nz">R for Data Science</a> by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund</li>
+</ol>
+<p>Together these two books teach you a core set of tools that you can use to accomplish the vast majority of tasks in any data science project:</p>
+<ul>
+<li><p><strong>Hands-On Programming with R</strong> is a short and friendly introduction to the fundamentals of R programming written for non-programmers who want to become data scientists.</p></li>
+<li><p><strong>R for Data Science</strong> is a friendly introduction to the tools useful for doing data science with R.</p></li>
+</ul>
+<p>As a companion to these two books I also recommend reading the <a href="https://style.tidyverse.org">tidyverse style guide</a>, which provides a style guide for writing R code that is easy to read.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Helping yourself
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Part of the challenge of learning a programming language is building up a vocabulary of commands to accomplish different tasks. <a href="https://posit.co">Posit</a> (formerly RStudio) maintains a number of <a href="https://posit.co/resources/cheatsheets/">cheat sheets</a> to remind you how to do common tasks in your favourite R packages.</p>
+</div>
+</div>
+<p>Finally, I recommend learning to write reports and presentations in <a href="https://r4ds.hadley.nz/quarto.html"><strong>Quarto</strong></a>, a tool for integrating prose, code, and results into reproducible documents. This is covered in the <a href="https://r4ds.hadley.nz/communicate.html">Communicate</a> sections of <em>R for Data Science</em>, but I’d like to emphasize it here because it’s a useful, beginner-friendly skill that goes a long way.</p>
+<p>Quarto is a successor to <a href="https://r4ds.had.co.nz/r-markdown.html">R Markdown</a> that has ironed-out some of the friction points to make writing reproducible documents an even better experience than it already was. Because Quarto is relatively new, you might find R Markdown currently supports certain use cases better (like <a href="https://github.com/crsh/papaja">APA style manuscripts</a>). In cases like these it’s perfectly fine to use R Markdown; <a href="https://yihui.org/en/2022/04/quarto-r-markdown/">it isn’t going away</a> and is still actively maintained.</p>
+<p>If you do use R Markdown, the <a href="https://r4ds.had.co.nz/communicate-intro.html">Communicate</a> sections of the <a href="https://r4ds.had.co.nz/index.html">first edition of R for Data Science</a> provide a a short and friendly introduction, and the <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> and <a href="https://bookdown.org/yihui/rmarkdown-cookbook/">R Markdown Cookbook</a> books provide more comprehensive coverage.</p>
+</section>
+<section id="what-else-should-i-learn" class="level2">
+<h2 class="anchored" data-anchor-id="what-else-should-i-learn">What else should I learn?</h2>
+<p><em>Hands-On Programming with R</em> and <em>R for Data Science</em> provide an excellent foundation in R programming for data science, but there are a number of topics these books don’t cover that are equally important for doing data science successfully:</p>
+<ul>
+<li>Content knowledge</li>
+<li>Interpersonal skills</li>
+<li>Research skills</li>
+<li>Statistical modelling</li>
+</ul>
+<p>Having <strong>content knowledge</strong> about the problem you are using data science to answer allows you to ask better questions, identify data problems, and develop solutions that are meaningful to your audience. Content knowledge is something you can build over time through experience, interactions with the people affected by the problem you are trying to answer, books and courses, and so forth. You don’t always need to be an expert on the problem at hand, but learning more about it will help you avoid mistakes, build confidence in your solutions, and connect with your audience.</p>
+<p>This also underscores the importance of <strong>interpersonal skills</strong> for practicing data scientists. Data science problems are ultimately people problems: Much of our data is about people. All of our data is communicated to people. And the solutions we develop using data science will only make an impact if our audience chooses to adopt them. You have to speak for the data, because the data doesn’t speak for itself. Developing strong leadership, teamwork, empathy, and communication skills will help you navigate the human side of data science.</p>
+<p>Complimenting content knowledge and interpersonal skills are <strong>research skills</strong> and <strong>statistical modelling</strong>, which are embodied in the term <em>data science</em>. Research skills such as observation, measurement, experiment design, and survey design allow us to collect data that addresses a problem we care about; and statistical modelling helps us transform that raw data into understanding, insight, and knowledge through estimation and testing. Research and statistics, along with programming, are core skills in data science that can be challenging to learn. Partly because developing these skills takes time, practice, and humility. And partly because pedagogy on research and statistics—whether in books or courses—has <a href="https://dpananos.github.io/posts/2022-12-06-journeyman/index.html">a lot of gaps</a> for people <a href="https://statsepi.substack.com/p/im-not-a-real-statistician-and-you">who aren’t “real” statisticians</a>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+</section>
+<section id="how-do-i-learn-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="how-do-i-learn-statistics">How do I learn statistics?</h2>
+<p>My answer to this question makes the following assumptions about you:</p>
+<ul>
+<li>You are not a formally trained statistician</li>
+<li>You have received some prior training in statistics</li>
+<li>You have (re-)discovered your own ignorance of statistics</li>
+<li>You want to address your ignorance of statistics</li>
+<li>You want to use statistics to solve problems</li>
+</ul>
+<p>If this describes you then I hope the resources that follow help you on your journey like they have for me. If this doesn’t describe you, stick around anyway, you might find something new.</p>
+<p>Let’s start with some book recommendations:</p>
+<ul>
+<li><a href="https://avehtari.github.io/ROS-Examples/">Regression and Other Stories</a> by Andrew Gelman, Jennifer Hill, and Aki Vehtari (<a href="https://github.com/avehtari/ROS-Examples">Source</a>)</li>
+<li><a href="http://www.stat.columbia.edu/~gelman/arm/">Data Analysis Using Regression and Multilevel/Hierarchical Models</a> by Andrew Gelman and Jennifer Hill<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></li>
+<li><a href="https://www.bayesrulesbook.com">Bayes Rules!</a> by Alicia A. Johnson, Miles Q. Ott, and Mine Dogucu (<a href="https://github.com/bayes-rules">GitHub</a>)</li>
+<li><a href="https://www.statlearning.com">An introduction to statistical learning with applications in R</a> by Gareth James, Daniela Witten, Trevor Hastie, and Rob Tibshirani</li>
+<li><a href="https://xcelab.net/rm/statistical-rethinking/">Statistical Rethinking</a> by Richard McElreath</li>
+<li><a href="https://lakens.github.io/statistical_inferences/">Improving Your Statistical Inferences</a> by Daniël Lakens</li>
+</ul>
+<p>All of these books are well-written, engaging, and have examples in R.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Together they cover applications of fundamental and state-of-the-art tools in statistical modelling. But most importantly—they encourage statistical thinking. They’re ideal books for self-study and I can’t recommend them enough.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+All you need is the linear model
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Most people have the unfortunate experience of learning statistics through arcane rituals with numerous statistical tests that appear to have no fundamental framework to tie them together. This is a failure of pedagogy rather than a feature of statistics. Fortunately, there is a fundamental framework to tie all these statistical tests together: It’s called the linear model.</p>
+<p>Most common statistical tests are either special cases or extensions of the linear model; understanding this will improve your statistical thinking and make it easier to abandon the arcanum and statistical rituals in favour of a unified statistical framework.</p>
+<p>For a short introduction to this concept I recommend reading <a href="https://lindeloev.github.io/tests-as-linear/">Common statistical tests are linear models (or: how to teach stats)</a> by Jonas Kristoffer Lindeløv (note: there are a few small errors that haven’t been fixed, so also see the <a href="https://github.com/lindeloev/tests-as-linear/issues">GitHub Issues</a>).</p>
+</div>
+</div>
+<p>I’d like to also give honourable mentions to the following books, which have all the great qualities of the books above, but cover more specialized topics:</p>
+<ul>
+<li><a href="https://ona-book.org">Handbook of Graphs and Networks in People Analytics: With Examples in R and Python</a> by Keith McNulty (<a href="https://github.com/keithmcnulty/ona_book">Source</a>)</li>
+<li><a href="https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/">Doing Meta-Analysis in R: A Hands-on Guide</a> by Mathias Harrer, Pim Cuijpers, Toshi A. Furukawa, and David D. Ebert (<a href="https://github.com/MathiasHarrer/Doing-Meta-Analysis-in-R">Source</a>)</li>
+<li><a href="https://www.tidytextmining.com">Text Mining with R</a> by Julia Silge and David Robinson (<a href="https://github.com/dgrtwo/tidy-text-mining">Source</a>)</li>
+</ul>
+<p>These are just a few choice examples. There are <a href="https://www.bigbookofr.com">a lot</a> of statistics books written for R users, and you can almost always find a book covering whatever topic you’re interested in.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Social media
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are strong <em>#RStats</em> communities on most social media platforms, where you can discover new people and follow or participate in conversations about R and statistics. The #RStats community on Mastodon (formerly Twitter; RIP) has been an invaluable learning tool and helped me discover things about R and statistics I wouldn’t have on my own. <a href="https://hbiostat.org/">Frank Harrell</a> also created the <a href="https://discourse.datamethods.org/about">Data Methods Discussion Forum</a> to provide a place for longer more in-depth discussions. Finally, <a href="https://stackoverflow.com/questions/tagged/r?tab=Votes">Stack Overflow</a> and <a href="https://stats.stackexchange.com/questions">Cross Validated</a> are great public Q&amp;A platforms for R programming and statistics, respectively.</p>
+</div>
+</div>
+<p>A lot of people in the R community also have their own R programming, data science, and statistics blogs, vlogs, or websites. Some of my favourite authors include:</p>
+<ul>
+<li><a href="https://www.andrewheiss.com/blog/">Andrew Heiss</a></li>
+<li><a href="https://solomonkurz.netlify.app/blog/">A. Solomon Kurz</a></li>
+<li><a href="https://m-clark.github.io">Michael Clark</a></li>
+<li><a href="https://juliasilge.com/blog/">Julia Silge</a></li>
+</ul>
+<p>Starting your own blog or website is also a great way to learn, and gives you a place to share your work! <a href="https://quarto.org">Quarto</a>, the open-source scientific and technical publishing system, makes the process of <a href="https://quarto.org/docs/websites/">creating and publishing a website</a> simple and friendly. It’s what I use for Tidy Tales (and lots of other projects).</p>
+<p>Finally, a lot of people in the R community who have taught courses or workshops make their materials openly available (including myself and some of the people listed above). One source I want to highlight in particular is <a href="https://psyteachr.github.io">psyTeachR</a> from the University of Glasgow School of Psychology and Neuroscience, which covers an entire curriculum of courses for doing reproducible data science.</p>
+</section>
+<section id="where-do-i-learn-more-about-r-programming" class="level2">
+<h2 class="anchored" data-anchor-id="where-do-i-learn-more-about-r-programming">Where do I learn more about R programming?</h2>
+<blockquote class="blockquote">
+<p>You don’t need to be an expert programmer to be a successful data scientist, but learning more about programming pays off, because becoming a better programmer allows you to automate common tasks, and solve new problems with greater ease.</p>
+</blockquote>
+<p>— Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund in <a href="https://r4ds.hadley.nz">R for Data Science</a></p>
+<p>If you want to become a better R programmer, I think these books are a good place to start:</p>
+<ul>
+<li><a href="https://r-pkgs.org">R packages</a> by Hadley Wickham and Jenny Bryan</li>
+<li><a href="https://adv-r.hadley.nz">Advanced R</a> by Hadley Wickham</li>
+<li><a href="https://ggplot2-book.org">ggplot2: Elegant Graphics for Data Analysis</a> by Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen</li>
+<li><a href="https://mastering-shiny.org">Mastering Shiny</a> by Hadley Wickham</li>
+</ul>
+<p><strong>R packages</strong> is a friendly introduction teaching you how to develop and publish your own R packages.</p>
+<p><strong>Advanced R</strong> is written for intermediate R users who want to improve their programming skills and understanding of the language, teaching you useful tools, techniques, and idioms that can help solve many types of problems.</p>
+<p><strong>ggplot2: Elegant Graphics for Data Analysis</strong> is written for R users who want to understand the details of the theory underlying the <strong>ggplot2</strong> R package, teaching you the elements of ggplot2’s grammar and how they fit together, and giving you the power to tailor any plot specifically to your needs.</p>
+<p><strong>Mastering Shiny</strong> is a comprehensive introduction teaching you how to easily create rich, interactive web apps with the <strong>shiny</strong> R package.</p>
+</section>
+<section id="how-do-i-make-my-work-reproducible" class="level2">
+<h2 class="anchored" data-anchor-id="how-do-i-make-my-work-reproducible">How do I make my work reproducible?</h2>
+<p>This series is called <em>Reproducible Data Science</em>, so I should probably talk more about that. If you’ve learned even a portion of what’s covered above then you already have a lot of the skills needed to do reproducible data science; but you are likely missing out on some essential tools and a stable framework for making <strong>reproducible data products</strong>.</p>
+<p>A data product is the combination of data with code that wrangles, visualizes, models, or communicates data, whose outputs will be shared with some end-user. Some common examples of data products are quarterly earnings presentations, scientific papers, and interactive dashboards. For these examples the end-user might be your coworkers, other scientists, or members of the public, respectively. You will even be the end-user of your data products sometimes. Because data products will be used by others (or yourself), it’s good practice to do <strong>quality assurance</strong> so your end-users (that includes you!) can be confident in the quality of your data product. Making your data products reproducible is one <em>small but important</em> step you can take to ensure they meet the expectations of your end-user.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Shades of reproducibility
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The basic idea behind a reproducible data product is that the steps, processes, and procedures that went into making it can be repeated exactly by yourself and others, resulting in the exact same outcome every time. Ideally, there is no expiration date for reproducibility—the reproducibility of a data product could be tested tomorrow or in ten decades and should give the exact same outcome both times. If the outcomes were different, the data product is no longer reproducible (and perhaps we should no longer trust the original results). Realistically, it might be okay if a data product stops being reproducible, so long as this change happens after the data product has outlived its purpose.</p>
+</div>
+</div>
+<p>There are three core components that need to be accessible for a data product to be reproducible:</p>
+<ul>
+<li>Data</li>
+<li>Software</li>
+<li>Documentation</li>
+</ul>
+<p>The data and software should be packaged together somewhere, like an <a href="https://r4ds.hadley.nz/workflow-scripts.html#projects">R project</a> stored in a GitHub repository or Docker container, with documentation on how to reproduce the data product. Reproducing the data product should be convenient for the end-user, <em>without being disruptive</em>. Ideally the entire pipeline can be run with a single command, and it should not install packages into someone’s local library or change settings on their computer without their permission. Achieving this requires new tools and a stable framework to glue them together.</p>
+<p>In particular, I think the following R packages are essential for reproducibility:</p>
+<ul>
+<li><a href="https://rstudio.github.io/renv/index.html">renv</a> for creating reproducible environments in R projects</li>
+<li><a href="https://books.ropensci.org/targets/">targets</a> for creating reproducible workflows</li>
+<li><a href="https://testthat.r-lib.org">testthat</a> for testing the reproducibility of results</li>
+<li><a href="https://r-lib.github.io/sessioninfo/">sessioninfo</a> for getting system and R session information</li>
+</ul>
+<p>But there are tools beyond R that are also essential for reproducibility:</p>
+<ul>
+<li><a href="https://quarto.org">Quarto</a> for reproducible documents</li>
+<li><a href="https://git-scm.com">Git</a> for version control</li>
+<li><a href="https://github.com">GitHub</a> or <a href="https://about.gitlab.com">GitLab</a> for hosting Git repositories</li>
+<li><a href="https://www.docker.com">Docker</a> for packaging data products and their dependencies into reproducible containers</li>
+</ul>
+<p>Each of these R packages and tools plays a different role in making a data product reproducible. Together they create a system for making reproducible data products. Depending on how long you hope a data product will be reproducible for, you might use all these R packages and tools or you might only use some.</p>
+<p>The best place to learn each of these R packages and tools individually is their respective documentation. To learn how to use these R packages and tools as a system for making reproducible data products, the following are a good place to start:</p>
+<ul>
+<li><a href="https://rap4mads.eu">Reproducible Analytical Pipelines</a> by Bruno Rodrigues</li>
+</ul>
+<p>You might also like:</p>
+<ul>
+<li><a href="https://www.brodrigues.co/blog/2022-11-16-open_source_repro/">Open source is a hard requirement for reproducibility</a> by Bruno Rodrigues</li>
+<li><a href="https://www.brodrigues.co/blog/2022-11-30-pipelines-as/">Functional programming explains why containerization is needed for reproducibility</a> by Bruno Rodrigues</li>
+<li><a href="https://www.brodrigues.co/blog/2022-12-21-longevity/">Code longevity of the R programming language</a> by Bruno Rodrigues</li>
+</ul>
+</section>
+<section id="what-did-you-forget-to-teach-me-about-r" class="level2">
+<h2 class="anchored" data-anchor-id="what-did-you-forget-to-teach-me-about-r">What did you forget to teach me about R?</h2>
+<p>See <a href="https://rstats.wtf">What They Forgot to Teach You About R</a> by Jenny Bryan and Jim Hester.</p>
+<p>See also <a href="https://happygitwithr.com/index.html">Happy Git and GitHub for the useR</a> by Jenny Bryan, the <a href="https://stat545.com">STAT 545</a> TAs, and Jim Hester.</p>
+</section>
+<section id="parting-words" class="level2">
+<h2 class="anchored" data-anchor-id="parting-words">Parting words</h2>
+<blockquote class="blockquote">
+<p>Data science is not 100% about writing code. There’s a human side to it.</p>
+</blockquote>
+<p>— Hadley Wickham in <a href="https://github.com/R-LadiesMelbourne/2019-11-26-Hadley-Wickham">Designing Data Science</a></p>
+<p>I discussed this <a href="#what-else-should-i-learn">earlier</a>, but it bears repeating: the human side of data science is really important if you want to solve problems successfully. One of the reasons R is my favourite language is because it’s been designed to make statistical thinking and computing accessible to anyone. This accessibility has had a big impact on me—I doubt I would be doing data science without R—and I think it’s why we have such a strong, diverse community of R users and programmers.</p>
+<p>So I try to make all my work as accessible as it can be, and I recommend you do too. It makes a difference.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Myself included. It’s hard for me to recommend how to learn research or statistics in the same way I’ve recommended how to learn R. <em>Hands-On Programming with R</em> and <em>R for Data Science</em> are excellent, beginner-friendly, books that will get you started using the tools of the trade in the way they were intended to be used. But a lot of the excellent statistics books I’ve read are not beginner-friendly (even if they claim to be) and assume you have prior training in statistics. On the other hand, beginner-friendly books can encourage <a href="https://library.mpib-berlin.mpg.de/ft/gg/GG_Mindless_2004.pdf">statistical rituals</a> over statistical thinking, which you then have to unlearn in the future as your knowledge and skills develop.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Regression and Other Stories is an updated and expanded second edition of the regressions parts of <em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em>. The authors are also working on an <a href="http://www.stat.columbia.edu/~gelman/armm/">updated and expanded second edition</a> of the multilevel modelling parts of <em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em>, but it isn’t out yet.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Most of these books have also had their examples translated to use different R packages than the authors used. For example, <a href="https://www.andrewheiss.com">Andrew Heiss</a> has translated <a href="https://bayesf22-notebook.classes.andrewheiss.com/bayes-rules/">Bayes Rules!</a> and <a href="https://bayesf22-notebook.classes.andrewheiss.com/rethinking/">Statistical Rethinking</a> into the <code>tidyverse</code>, <code>brms</code>, and <code>marginaleffects</code> packages; <a href="https://www.emilhvitfeldt.com">Emil Hvitfeldt</a> has translated <a href="https://emilhvitfeldt.github.io/ISLR-tidymodels-labs/">An introduction to statistical learning</a> into the <code>tidymodels</code> set of packages; and <a href="https://solomonkurz.netlify.app">A. Solomon Kurz</a> has translated <a href="https://github.com/ASKurz/Working-through-Regression-and-other-stories">Regression and Other Stories</a> into the <code>tidyverse</code> and <code>brms</code> packages.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>This should go without saying, but the old “garbage-in garbage-out” adage still applies to reproducible data products. If your data has problems, your code has bugs, your visualizations are misleading, your models are inappropriate, or your communications are unclear, then your data product will be reproducible but not very useful (or maybe even harmful). Quality assurance has to happen at every step, and reproducibility is the last step. It’s supposed to be the little bow on top that ties all the other great work you’ve done together.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/tidytales\.ca/);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../series/reproducible-data-science/contents/r-setup.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">R Setup</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../../series/reproducible-data-science/contents/r-packages.html" class="pagination-link">
+        <span class="nav-page-text">R Packages</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">© Copyright 2022 <a href="https://michaelmccarthy.tidytales.ca">Michael McCarthy</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>

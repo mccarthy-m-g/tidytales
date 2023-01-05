@@ -1,0 +1,21 @@
+---
+title: "Reproducible Data Science"
+description: |
+  My personal setup for learning and doing reproducible data science.
+
+categories:
+  - ".Misc"
+
+sidebar: reproducible-data-science
+listing:
+  contents: contents
+  fields: [title, description, date]
+  type: grid
+  sort: "order"
+
+page-layout: full
+title-block-banner: true
+
+comments: false
+code-tools: false
+---

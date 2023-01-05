@@ -1,0 +1,52 @@
+---
+title: Reference Manager Setup
+description: Installing and configuring Zotero.
+---
+
+## Zotero
+
+[Zotero](https://www.zotero.org) is an open-source reference manager that styles itself as "your personal research assistant."
+
+### Installing Zotero
+
+Install Zotero from the Terminal with Homebrew:
+
+```bash
+brew install --cask zotero
+```
+
+### Installing Zotero Connector
+
+[Zotero Connector](https://www.zotero.org/download/connectors) is a browser plugin that allows you to save web content (blogs, articles, etc.) to Zotero with a single click.
+
+The Zotero Connector for Safari is bundled with Zotero. You can enable it from the Extensions pane of the Safari preferences.
+
+### Installing Zotero extensions
+
+These are the core extensions I use with Zotero. See their documentation for installation instructions:
+
+- [Better BibTeX](https://retorque.re/zotero-better-bibtex/)
+- [ZotFile](http://zotfile.com)
+
+I also use:
+
+- [scite](https://github.com/scitedotai/scite-zotero-plugin)
+- [PubPeer](https://github.com/PubPeerFoundation/pubpeer_zotero_plugin)
+
+### iOS app
+
+::: {.callout-caution}
+## This section is under construction
+:::
+
+## Configuring Zotero
+
+Things to do after installing.
+
+### Cloud syncing
+
+::: {.callout-caution}
+## This section is under construction
+:::
+
+WebDav

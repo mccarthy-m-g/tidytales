@@ -1,0 +1,60 @@
+---
+title: Python Setup
+description: Installing and configuring Python.
+---
+
+## Python
+
+[Python](https://www.python.org) is an open source programming language that is the "second best language for everything." It's worth setting up in case you need it, but for data science R is almost always simpler and better.
+
+### Installing pyenv
+
+[pyenv](https://github.com/pyenv/pyenv) is an open source Python installation manager for installing, removing, and switching between multiple Python versions.
+
+1. Install pyenv from the Terminal with Homebrew:
+
+    ```bash
+    brew install pyenv
+    ```
+
+2. [Set up your shell environment](https://github.com/pyenv/pyenv#set-up-your-shell-environment-for-pyenv) for pyenv.
+
+3. Install [Python build dependencies](https://github.com/pyenv/pyenv#install-python-build-dependencies) with Homebrew:
+
+    ```bash
+    brew install openssl readline sqlite3 xz zlib tcl-tk
+    ```
+
+### Installing Python
+
+Install the latest major version of Python 3 with shared library support[^1] from the Terminal with pyenv:
+
+```bash
+env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3:latest
+```
+
+[^1]: Shared library support is needed to use Python versions with [reticulate](https://rstudio.github.io/reticulate/articles/versions.html#locating-python).
+
+### Installing pipenv or poetry
+
+[pipenv](https://pipenv.pypa.io/en/latest/) is an open-source dependency manager for Python projects.
+
+Install pipenv from the Terminal with Homebrew:
+
+```bash
+brew install pipenv
+```
+
+[poetry](https://python-poetry.org) is an alternative open-source dependency manager for Python projects. I'm currently experimenting between poetry and pipenv to decide which I prefer.
+
+Install poetry from the Terminal with:
+
+```bash
+curl -sSL https://install.python-poetry.org | python3 -
+```
+
+## Python Packages
+
+::: {.callout-caution}
+## This section is under construction
+:::

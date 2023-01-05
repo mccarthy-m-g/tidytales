@@ -117,6 +117,34 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-series .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-series'] = new List('listing-series', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
   </script>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
@@ -177,6 +205,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Posts</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./#series">
+ <span class="menu-text">Series</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./#code-snippets">
  <span class="menu-text">Snippets</span></a>
   </li>  
@@ -233,7 +265,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(8)</span></div><div class="category" data-category=".Misc">.Misc <span class="quarto-category-count">(1)</span></div><div class="category" data-category=".Model">.Model <span class="quarto-category-count">(1)</span></div><div class="category" data-category=".Simulate">.Simulate <span class="quarto-category-count">(1)</span></div><div class="category" data-category=".Visualize">.Visualize <span class="quarto-category-count">(6)</span></div><div class="category" data-category=".Wrangle">.Wrangle <span class="quarto-category-count">(2)</span></div><div class="category" data-category="{biscale}">{biscale} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{distilltools}">{distilltools} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{distill}">{distill} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{emojifont}">{emojifont} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{geomtextpath}">{geomtextpath} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{gganimate}">{gganimate} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{ggdist}">{ggdist} <span class="quarto-category-count">(2)</span></div><div class="category" data-category="{ggfx}">{ggfx} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{ggh4x}">{ggh4x} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{ggplot2}">{ggplot2} <span class="quarto-category-count">(5)</span></div><div class="category" data-category="{gt}">{gt} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{lavaan}">{lavaan} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{magick}">{magick} <span class="quarto-category-count">(2)</span></div><div class="category" data-category="{metathis}">{metathis} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{palettes}">{palettes} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{patchwork}">{patchwork} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{semTools}">{semTools} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{tidyverse}">{tidyverse} <span class="quarto-category-count">(2)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(9)</span></div><div class="category" data-category=".Misc">.Misc <span class="quarto-category-count">(2)</span></div><div class="category" data-category=".Model">.Model <span class="quarto-category-count">(1)</span></div><div class="category" data-category=".Simulate">.Simulate <span class="quarto-category-count">(1)</span></div><div class="category" data-category=".Visualize">.Visualize <span class="quarto-category-count">(6)</span></div><div class="category" data-category=".Wrangle">.Wrangle <span class="quarto-category-count">(2)</span></div><div class="category" data-category="{biscale}">{biscale} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{distilltools}">{distilltools} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{distill}">{distill} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{emojifont}">{emojifont} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{geomtextpath}">{geomtextpath} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{gganimate}">{gganimate} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{ggdist}">{ggdist} <span class="quarto-category-count">(2)</span></div><div class="category" data-category="{ggfx}">{ggfx} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{ggh4x}">{ggh4x} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{ggplot2}">{ggplot2} <span class="quarto-category-count">(5)</span></div><div class="category" data-category="{gt}">{gt} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{lavaan}">{lavaan} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{magick}">{magick} <span class="quarto-category-count">(2)</span></div><div class="category" data-category="{metathis}">{metathis} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{palettes}">{palettes} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{patchwork}">{patchwork} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{semTools}">{semTools} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{tidyverse}">{tidyverse} <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -486,6 +518,59 @@ Go forth, slayer of Demons
 Jun 15, 2021
 </div>
 </a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+</section>
+<section id="series" class="level2">
+<h2 class="anchored" data-anchor-id="series">Series</h2>
+<div id="listing-series" class="quarto-listing quarto-listing-container-default">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-series-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-series'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title" data-direction="asc">
+          Title
+        </option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+     </select>
+  </div>
+</div>
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories=".Misc" data-listing-file-modified-sort="1672776105390" data-listing-reading-time-sort="0.005">
+<div class="body">
+<a href="./series/reproducible-data-science/index.html">
+<h3 class="no-anchor listing-title">
+Reproducible Data Science
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('.Misc'); return false;">
+.Misc
+</div>
+</div>
+<a href="./series/reproducible-data-science/index.html">
+<div class="listing-description">
+<p>My personal setup for learning and doing reproducible data science.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./series/reproducible-data-science/index.html"> </a>
 </div>
 </div>
 </div>

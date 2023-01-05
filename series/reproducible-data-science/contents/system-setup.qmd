@@ -1,0 +1,54 @@
+---
+title: System Setup
+description: Installing and configuring the basics.
+
+order: 1
+---
+
+## Prerequisites
+
+The following are needed to install, build, and configure everything in the remaining sections. This setup is for macOS, but should also work for Linux (keeping in mind that some things like Xcode and Homebrew are not necessary on Linux). I don't recommend Windows.
+
+::: {.callout-note}
+## Before you begin
+
+My system setup is done mainly done through the shell prompt in Terminal, which is the easiest recommended way to get a shell prompt on macOS. You can find Terminal in the Utilities directory inside your Applications directory.
+
+If you have never used Terminal before, Apple has a nice [shell scripting primer](https://developer.apple.com/library/archive/documentation/OpenSource/Conceptual/ShellScripting/Introduction/Introduction.html) and [command line primer](https://developer.apple.com/library/archive/documentation/OpenSource/Conceptual/ShellScripting/CommandLInePrimer/CommandLine.html) book in their archives. 
+:::
+
+### Installing Xcode command line tools
+
+Xcode command line tools are needed to build certain packages from source. The command line tools provide a lighter alternative to installing the [full Xcode release](https://itunes.apple.com/ca/app/xcode/id497799835?mt=12) from the App Store, which contains a lot that isn't needed for data science use cases.
+
+Install Xcode command line tools from the Terminal with:
+
+```bash
+xcode-select --install
+```
+
+### Installing Homebrew
+
+[Homebrew](https://brew.sh/) is an open source package manager for macOS that makes installing, removing, and managing software simple.
+
+Install homebrew from the Terminal with:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+### Installing chezmoi
+
+[chezmoi](https://www.chezmoi.io) is an open source dotfile manager. Dotfiles are hidden files and hidden directories that store preferences and settings for packages and applications. Dotfiles can be made visible in Finder with the **Command-Shift-.** keyboard shortcut.
+
+Install chezmoi from the Terminal with Homebrew:
+
+```bash
+brew install chezmoi
+```
+
+## Scripts
+
+::: {.callout-caution}
+## This section is under construction
+:::

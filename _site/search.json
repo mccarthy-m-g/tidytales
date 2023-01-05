@@ -1,5 +1,236 @@
 [
   {
+    "objectID": "series/reproducible-data-science/contents/learning-r.html",
+    "href": "series/reproducible-data-science/contents/learning-r.html",
+    "title": "Learning R",
+    "section": "",
+    "text": "Data science is an exciting discipline that allows you to transform raw data into understanding, insight, and knowledge.\n\n— Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund in R for Data Science\nA data scientist is someone who creates understanding, insight, and knowledge from raw data with programming. Programming is an essential tool in nearly every part of a data science project because it allows you to do data science efficiently and reproducibly.\nThere are many different programming languages you can use to do data science, but here we cover my favourite programming language: R."
+  },
+  {
+    "objectID": "series/reproducible-data-science/contents/learning-r.html#whats-r",
+    "href": "series/reproducible-data-science/contents/learning-r.html#whats-r",
+    "title": "Learning R",
+    "section": "What’s R?",
+    "text": "What’s R?\nR is an open source programming language for wrangling, visualizing, modelling, and communicating data, and so much more. It has a strong community behind it and is widely used among researchers, statisticians, and data scientists in a variety of fields."
+  },
+  {
+    "objectID": "series/reproducible-data-science/contents/learning-r.html#where-do-i-start",
+    "href": "series/reproducible-data-science/contents/learning-r.html#where-do-i-start",
+    "title": "Learning R",
+    "section": "Where do I start?",
+    "text": "Where do I start?\nI believe every R user should work through these two books (in order):\n\nHands-On Programming with R by Garrett Grolemund\nR for Data Science by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund\n\nTogether these two books teach you a core set of tools that you can use to accomplish the vast majority of tasks in any data science project:\n\nHands-On Programming with R is a short and friendly introduction to the fundamentals of R programming written for non-programmers who want to become data scientists.\nR for Data Science is a friendly introduction to the tools useful for doing data science with R.\n\nAs a companion to these two books I also recommend reading the tidyverse style guide, which provides a style guide for writing R code that is easy to read.\n\n\n\n\n\n\nHelping yourself\n\n\n\nPart of the challenge of learning a programming language is building up a vocabulary of commands to accomplish different tasks. Posit (formerly RStudio) maintains a number of cheat sheets to remind you how to do common tasks in your favourite R packages.\n\n\nFinally, I recommend learning to write reports and presentations in Quarto, a tool for integrating prose, code, and results into reproducible documents. This is covered in the Communicate sections of R for Data Science, but I’d like to emphasize it here because it’s a useful, beginner-friendly skill that goes a long way.\nQuarto is a successor to R Markdown that has ironed-out some of the friction points to make writing reproducible documents an even better experience than it already was. Because Quarto is relatively new, you might find R Markdown currently supports certain use cases better (like APA style manuscripts). In cases like these it’s perfectly fine to use R Markdown; it isn’t going away and is still actively maintained.\nIf you do use R Markdown, the Communicate sections of the first edition of R for Data Science provide a a short and friendly introduction, and the R Markdown: The Definitive Guide and R Markdown Cookbook books provide more comprehensive coverage."
+  },
+  {
+    "objectID": "series/reproducible-data-science/contents/learning-r.html#what-else-should-i-learn",
+    "href": "series/reproducible-data-science/contents/learning-r.html#what-else-should-i-learn",
+    "title": "Learning R",
+    "section": "What else should I learn?",
+    "text": "What else should I learn?\nHands-On Programming with R and R for Data Science provide an excellent foundation in R programming for data science, but there are a number of topics these books don’t cover that are equally important for doing data science successfully:\n\nContent knowledge\nInterpersonal skills\nResearch skills\nStatistical modelling\n\nHaving content knowledge about the problem you are using data science to answer allows you to ask better questions, identify data problems, and develop solutions that are meaningful to your audience. Content knowledge is something you can build over time through experience, interactions with the people affected by the problem you are trying to answer, books and courses, and so forth. You don’t always need to be an expert on the problem at hand, but learning more about it will help you avoid mistakes, build confidence in your solutions, and connect with your audience.\nThis also underscores the importance of interpersonal skills for practicing data scientists. Data science problems are ultimately people problems: Much of our data is about people. All of our data is communicated to people. And the solutions we develop using data science will only make an impact if our audience chooses to adopt them. You have to speak for the data, because the data doesn’t speak for itself. Developing strong leadership, teamwork, empathy, and communication skills will help you navigate the human side of data science.\nComplimenting content knowledge and interpersonal skills are research skills and statistical modelling, which are embodied in the term data science. Research skills such as observation, measurement, experiment design, and survey design allow us to collect data that addresses a problem we care about; and statistical modelling helps us transform that raw data into understanding, insight, and knowledge through estimation and testing. Research and statistics, along with programming, are core skills in data science that can be challenging to learn. Partly because developing these skills takes time, practice, and humility. And partly because pedagogy on research and statistics—whether in books or courses—has a lot of gaps for people who aren’t “real” statisticians.1"
+  },
+  {
+    "objectID": "series/reproducible-data-science/contents/learning-r.html#how-do-i-learn-statistics",
+    "href": "series/reproducible-data-science/contents/learning-r.html#how-do-i-learn-statistics",
+    "title": "Learning R",
+    "section": "How do I learn statistics?",
+    "text": "How do I learn statistics?\nMy answer to this question makes the following assumptions about you:\n\nYou are not a formally trained statistician\nYou have received some prior training in statistics\nYou have (re-)discovered your own ignorance of statistics\nYou want to address your ignorance of statistics\nYou want to use statistics to solve problems\n\nIf this describes you then I hope the resources that follow help you on your journey like they have for me. If this doesn’t describe you, stick around anyway, you might find something new.\nLet’s start with some book recommendations:\n\nRegression and Other Stories by Andrew Gelman, Jennifer Hill, and Aki Vehtari (Source)\nData Analysis Using Regression and Multilevel/Hierarchical Models by Andrew Gelman and Jennifer Hill2\nBayes Rules! by Alicia A. Johnson, Miles Q. Ott, and Mine Dogucu (GitHub)\nAn introduction to statistical learning with applications in R by Gareth James, Daniela Witten, Trevor Hastie, and Rob Tibshirani\nStatistical Rethinking by Richard McElreath\nImproving Your Statistical Inferences by Daniël Lakens\n\nAll of these books are well-written, engaging, and have examples in R.3 Together they cover applications of fundamental and state-of-the-art tools in statistical modelling. But most importantly—they encourage statistical thinking. They’re ideal books for self-study and I can’t recommend them enough.\n\n\n\n\n\n\nAll you need is the linear model\n\n\n\nMost people have the unfortunate experience of learning statistics through arcane rituals with numerous statistical tests that appear to have no fundamental framework to tie them together. This is a failure of pedagogy rather than a feature of statistics. Fortunately, there is a fundamental framework to tie all these statistical tests together: It’s called the linear model.\nMost common statistical tests are either special cases or extensions of the linear model; understanding this will improve your statistical thinking and make it easier to abandon the arcanum and statistical rituals in favour of a unified statistical framework.\nFor a short introduction to this concept I recommend reading Common statistical tests are linear models (or: how to teach stats) by Jonas Kristoffer Lindeløv (note: there are a few small errors that haven’t been fixed, so also see the GitHub Issues).\n\n\nI’d like to also give honourable mentions to the following books, which have all the great qualities of the books above, but cover more specialized topics:\n\nHandbook of Graphs and Networks in People Analytics: With Examples in R and Python by Keith McNulty (Source)\nDoing Meta-Analysis in R: A Hands-on Guide by Mathias Harrer, Pim Cuijpers, Toshi A. Furukawa, and David D. Ebert (Source)\nText Mining with R by Julia Silge and David Robinson (Source)\n\nThese are just a few choice examples. There are a lot of statistics books written for R users, and you can almost always find a book covering whatever topic you’re interested in.\n\n\n\n\n\n\nSocial media\n\n\n\nThere are strong #RStats communities on most social media platforms, where you can discover new people and follow or participate in conversations about R and statistics. The #RStats community on Mastodon (formerly Twitter; RIP) has been an invaluable learning tool and helped me discover things about R and statistics I wouldn’t have on my own. Frank Harrell also created the Data Methods Discussion Forum to provide a place for longer more in-depth discussions. Finally, Stack Overflow and Cross Validated are great public Q&A platforms for R programming and statistics, respectively.\n\n\nA lot of people in the R community also have their own R programming, data science, and statistics blogs, vlogs, or websites. Some of my favourite authors include:\n\nAndrew Heiss\nA. Solomon Kurz\nMichael Clark\nJulia Silge\n\nStarting your own blog or website is also a great way to learn, and gives you a place to share your work! Quarto, the open-source scientific and technical publishing system, makes the process of creating and publishing a website simple and friendly. It’s what I use for Tidy Tales (and lots of other projects).\nFinally, a lot of people in the R community who have taught courses or workshops make their materials openly available (including myself and some of the people listed above). One source I want to highlight in particular is psyTeachR from the University of Glasgow School of Psychology and Neuroscience, which covers an entire curriculum of courses for doing reproducible data science."
+  },
+  {
+    "objectID": "series/reproducible-data-science/contents/learning-r.html#where-do-i-learn-more-about-r-programming",
+    "href": "series/reproducible-data-science/contents/learning-r.html#where-do-i-learn-more-about-r-programming",
+    "title": "Learning R",
+    "section": "Where do I learn more about R programming?",
+    "text": "Where do I learn more about R programming?\n\nYou don’t need to be an expert programmer to be a successful data scientist, but learning more about programming pays off, because becoming a better programmer allows you to automate common tasks, and solve new problems with greater ease.\n\n— Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund in R for Data Science\nIf you want to become a better R programmer, I think these books are a good place to start:\n\nR packages by Hadley Wickham and Jenny Bryan\nAdvanced R by Hadley Wickham\nggplot2: Elegant Graphics for Data Analysis by Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen\nMastering Shiny by Hadley Wickham\n\nR packages is a friendly introduction teaching you how to develop and publish your own R packages.\nAdvanced R is written for intermediate R users who want to improve their programming skills and understanding of the language, teaching you useful tools, techniques, and idioms that can help solve many types of problems.\nggplot2: Elegant Graphics for Data Analysis is written for R users who want to understand the details of the theory underlying the ggplot2 R package, teaching you the elements of ggplot2’s grammar and how they fit together, and giving you the power to tailor any plot specifically to your needs.\nMastering Shiny is a comprehensive introduction teaching you how to easily create rich, interactive web apps with the shiny R package."
+  },
+  {
+    "objectID": "series/reproducible-data-science/contents/learning-r.html#how-do-i-make-my-work-reproducible",
+    "href": "series/reproducible-data-science/contents/learning-r.html#how-do-i-make-my-work-reproducible",
+    "title": "Learning R",
+    "section": "How do I make my work reproducible?",
+    "text": "How do I make my work reproducible?\nThis series is called Reproducible Data Science, so I should probably talk more about that. If you’ve learned even a portion of what’s covered above then you already have a lot of the skills needed to do reproducible data science; but you are likely missing out on some essential tools and a stable framework for making reproducible data products.\nA data product is the combination of data with code that wrangles, visualizes, models, or communicates data, whose outputs will be shared with some end-user. Some common examples of data products are quarterly earnings presentations, scientific papers, and interactive dashboards. For these examples the end-user might be your coworkers, other scientists, or members of the public, respectively. You will even be the end-user of your data products sometimes. Because data products will be used by others (or yourself), it’s good practice to do quality assurance so your end-users (that includes you!) can be confident in the quality of your data product. Making your data products reproducible is one small but important step you can take to ensure they meet the expectations of your end-user.4\n\n\n\n\n\n\nShades of reproducibility\n\n\n\nThe basic idea behind a reproducible data product is that the steps, processes, and procedures that went into making it can be repeated exactly by yourself and others, resulting in the exact same outcome every time. Ideally, there is no expiration date for reproducibility—the reproducibility of a data product could be tested tomorrow or in ten decades and should give the exact same outcome both times. If the outcomes were different, the data product is no longer reproducible (and perhaps we should no longer trust the original results). Realistically, it might be okay if a data product stops being reproducible, so long as this change happens after the data product has outlived its purpose.\n\n\nThere are three core components that need to be accessible for a data product to be reproducible:\n\nData\nSoftware\nDocumentation\n\nThe data and software should be packaged together somewhere, like an R project stored in a GitHub repository or Docker container, with documentation on how to reproduce the data product. Reproducing the data product should be convenient for the end-user, without being disruptive. Ideally the entire pipeline can be run with a single command, and it should not install packages into someone’s local library or change settings on their computer without their permission. Achieving this requires new tools and a stable framework to glue them together.\nIn particular, I think the following R packages are essential for reproducibility:\n\nrenv for creating reproducible environments in R projects\ntargets for creating reproducible workflows\ntestthat for testing the reproducibility of results\nsessioninfo for getting system and R session information\n\nBut there are tools beyond R that are also essential for reproducibility:\n\nQuarto for reproducible documents\nGit for version control\nGitHub or GitLab for hosting Git repositories\nDocker for packaging data products and their dependencies into reproducible containers\n\nEach of these R packages and tools plays a different role in making a data product reproducible. Together they create a system for making reproducible data products. Depending on how long you hope a data product will be reproducible for, you might use all these R packages and tools or you might only use some.\nThe best place to learn each of these R packages and tools individually is their respective documentation. To learn how to use these R packages and tools as a system for making reproducible data products, the following are a good place to start:\n\nReproducible Analytical Pipelines by Bruno Rodrigues\n\nYou might also like:\n\nOpen source is a hard requirement for reproducibility by Bruno Rodrigues\nFunctional programming explains why containerization is needed for reproducibility by Bruno Rodrigues\nCode longevity of the R programming language by Bruno Rodrigues"
+  },
+  {
+    "objectID": "series/reproducible-data-science/contents/learning-r.html#what-did-you-forget-to-teach-me-about-r",
+    "href": "series/reproducible-data-science/contents/learning-r.html#what-did-you-forget-to-teach-me-about-r",
+    "title": "Learning R",
+    "section": "What did you forget to teach me about R?",
+    "text": "What did you forget to teach me about R?\nSee What They Forgot to Teach You About R by Jenny Bryan and Jim Hester.\nSee also Happy Git and GitHub for the useR by Jenny Bryan, the STAT 545 TAs, and Jim Hester."
+  },
+  {
+    "objectID": "series/reproducible-data-science/contents/learning-r.html#parting-words",
+    "href": "series/reproducible-data-science/contents/learning-r.html#parting-words",
+    "title": "Learning R",
+    "section": "Parting words",
+    "text": "Parting words\n\nData science is not 100% about writing code. There’s a human side to it.\n\n— Hadley Wickham in Designing Data Science\nI discussed this earlier, but it bears repeating: the human side of data science is really important if you want to solve problems successfully. One of the reasons R is my favourite language is because it’s been designed to make statistical thinking and computing accessible to anyone. This accessibility has had a big impact on me—I doubt I would be doing data science without R—and I think it’s why we have such a strong, diverse community of R users and programmers.\nSo I try to make all my work as accessible as it can be, and I recommend you do too. It makes a difference."
+  },
+  {
+    "objectID": "series/reproducible-data-science/contents/system-setup.html",
+    "href": "series/reproducible-data-science/contents/system-setup.html",
+    "title": "System Setup",
+    "section": "",
+    "text": "The following are needed to install, build, and configure everything in the remaining sections. This setup is for macOS, but should also work for Linux (keeping in mind that some things like Xcode and Homebrew are not necessary on Linux). I don’t recommend Windows.\n\n\n\n\n\n\nBefore you begin\n\n\n\nMy system setup is done mainly done through the shell prompt in Terminal, which is the easiest recommended way to get a shell prompt on macOS. You can find Terminal in the Utilities directory inside your Applications directory.\nIf you have never used Terminal before, Apple has a nice shell scripting primer and command line primer book in their archives.\n\n\n\n\nXcode command line tools are needed to build certain packages from source. The command line tools provide a lighter alternative to installing the full Xcode release from the App Store, which contains a lot that isn’t needed for data science use cases.\nInstall Xcode command line tools from the Terminal with:\nxcode-select --install\n\n\n\nHomebrew is an open source package manager for macOS that makes installing, removing, and managing software simple.\nInstall homebrew from the Terminal with:\n/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"\n\n\n\nchezmoi is an open source dotfile manager. Dotfiles are hidden files and hidden directories that store preferences and settings for packages and applications. Dotfiles can be made visible in Finder with the Command-Shift-. keyboard shortcut.\nInstall chezmoi from the Terminal with Homebrew:\nbrew install chezmoi"
+  },
+  {
+    "objectID": "series/reproducible-data-science/contents/system-setup.html#scripts",
+    "href": "series/reproducible-data-science/contents/system-setup.html#scripts",
+    "title": "System Setup",
+    "section": "Scripts",
+    "text": "Scripts\n\n\n\n\n\n\nThis section is under construction"
+  },
+  {
+    "objectID": "series/reproducible-data-science/contents/zotero-setup.html",
+    "href": "series/reproducible-data-science/contents/zotero-setup.html",
+    "title": "Reference Manager Setup",
+    "section": "",
+    "text": "Zotero is an open-source reference manager that styles itself as “your personal research assistant.”\n\n\nInstall Zotero from the Terminal with Homebrew:\nbrew install --cask zotero\n\n\n\nZotero Connector is a browser plugin that allows you to save web content (blogs, articles, etc.) to Zotero with a single click.\nThe Zotero Connector for Safari is bundled with Zotero. You can enable it from the Extensions pane of the Safari preferences.\n\n\n\nThese are the core extensions I use with Zotero. See their documentation for installation instructions:\n\nBetter BibTeX\nZotFile\n\nI also use:\n\nscite\nPubPeer\n\n\n\n\n\n\n\n\n\n\nThis section is under construction"
+  },
+  {
+    "objectID": "series/reproducible-data-science/contents/zotero-setup.html#configuring-zotero",
+    "href": "series/reproducible-data-science/contents/zotero-setup.html#configuring-zotero",
+    "title": "Reference Manager Setup",
+    "section": "Configuring Zotero",
+    "text": "Configuring Zotero\nThings to do after installing.\n\nCloud syncing\n\n\n\n\n\n\nThis section is under construction\n\n\n\n\n\n\nWebDav"
+  },
+  {
+    "objectID": "series/reproducible-data-science/contents/version-control-setup.html",
+    "href": "series/reproducible-data-science/contents/version-control-setup.html",
+    "title": "Version Control Setup",
+    "section": "",
+    "text": "This section is under construction\nhttps://happygitwithr.com https://usethis.r-lib.org/articles/git-credentials.html"
+  },
+  {
+    "objectID": "series/reproducible-data-science/contents/version-control-setup.html#git",
+    "href": "series/reproducible-data-science/contents/version-control-setup.html#git",
+    "title": "Version Control Setup",
+    "section": "Git",
+    "text": "Git\nGit is …\n\nInstalling git\nInstall git from the Terminal with Homebrew:\nbrew tap r-lib/rig\nbrew install --cask rig"
+  },
+  {
+    "objectID": "series/reproducible-data-science/contents/version-control-setup.html#github",
+    "href": "series/reproducible-data-science/contents/version-control-setup.html#github",
+    "title": "Version Control Setup",
+    "section": "GitHub",
+    "text": "GitHub\n\nInstalling GitHub CLI\n\n\n\nInstalling GitHub Desktop\n…"
+  },
+  {
+    "objectID": "series/reproducible-data-science/contents/version-control-setup.html#version-control-in-rstudio",
+    "href": "series/reproducible-data-science/contents/version-control-setup.html#version-control-in-rstudio",
+    "title": "Version Control Setup",
+    "section": "Version Control in RStudio",
+    "text": "Version Control in RStudio"
+  },
+  {
+    "objectID": "series/reproducible-data-science/contents/python-setup.html",
+    "href": "series/reproducible-data-science/contents/python-setup.html",
+    "title": "Python Setup",
+    "section": "",
+    "text": "Python is an open source programming language that is the “second best language for everything.” It’s worth setting up in case you need it, but for data science R is almost always simpler and better.\n\n\npyenv is an open source Python installation manager for installing, removing, and switching between multiple Python versions.\n\nInstall pyenv from the Terminal with Homebrew:\nbrew install pyenv\nSet up your shell environment for pyenv.\nInstall Python build dependencies with Homebrew:\nbrew install openssl readline sqlite3 xz zlib tcl-tk\n\n\n\n\nInstall the latest major version of Python 3 with shared library support1 from the Terminal with pyenv:\nenv PYTHON_CONFIGURE_OPTS=\"--enable-shared\" pyenv install 3:latest\n\n\n\npipenv is an open-source dependency manager for Python projects.\nInstall pipenv from the Terminal with Homebrew:\nbrew install pipenv\npoetry is an alternative open-source dependency manager for Python projects. I’m currently experimenting between poetry and pipenv to decide which I prefer.\nInstall poetry from the Terminal with:\ncurl -sSL https://install.python-poetry.org | python3 -"
+  },
+  {
+    "objectID": "series/reproducible-data-science/contents/python-setup.html#python-packages",
+    "href": "series/reproducible-data-science/contents/python-setup.html#python-packages",
+    "title": "Python Setup",
+    "section": "Python Packages",
+    "text": "Python Packages\n\n\n\n\n\n\nThis section is under construction"
+  },
+  {
+    "objectID": "series/reproducible-data-science/contents/r-setup.html",
+    "href": "series/reproducible-data-science/contents/r-setup.html",
+    "title": "R Setup",
+    "section": "",
+    "text": "R is an open source programming language for wrangling, visualizing, modelling, and communicating data, and so much more. It has a strong community behind it and is widely used among researchers, statisticians, and data scientists in a variety of fields.\n\n\nrig is an open source R installation manager for installing, removing, configuring, and switching between multiple R versions and user-level package libraries.\nInstall rig from the Terminal with Homebrew:\nbrew tap r-lib/rig\nbrew install --cask rig\n\n\n\nInstall the latest version of R from the Terminal with rig:\nrig add release\nR can also be installed from CRAN (the comprehensive R archive network) using the following link https://cloud.r-project.org. A new major version of R comes out once a year, and there are 2-3 minor releases each year.\n\n\n\nRStudio is an open source integrated development environment, or IDE, for R programming made by Posit.\nInstall RStudio from the Terminal with Homebrew:\nbrew install --cask rstudio\nRStudio can also be installed from Posit using the following link https://posit.co/download/rstudio-desktop/. RStudio is updated a couple of times a year. When a new version is available, RStudio will let you know. It’s a good idea to upgrade regularly so you can take advantage of the latest and greatest features.\n\n\n\nQuarto is an open source scientific and technical publishing system built on Pandoc.\nInstall Quarto from the Terminal with Homebrew:\nbrew install --cask quarto"
+  },
+  {
+    "objectID": "series/reproducible-data-science/contents/r-setup.html#r-packages",
+    "href": "series/reproducible-data-science/contents/r-setup.html#r-packages",
+    "title": "R Setup",
+    "section": "R Packages",
+    "text": "R Packages\n\n\n\n\n\n\nThis section is under construction"
+  },
+  {
+    "objectID": "series/reproducible-data-science/contents/r-packages.html",
+    "href": "series/reproducible-data-science/contents/r-packages.html",
+    "title": "R Packages",
+    "section": "",
+    "text": "This section is under construction"
+  },
+  {
+    "objectID": "series/reproducible-data-science/contents/r-packages.html#where-can-i-install-r-packages-from",
+    "href": "series/reproducible-data-science/contents/r-packages.html#where-can-i-install-r-packages-from",
+    "title": "R Packages",
+    "section": "Where can I install R packages from?",
+    "text": "Where can I install R packages from?\nR packages can be installed from:\n\nCRAN\nBioconductor\nGitHub\nR-Universe"
+  },
+  {
+    "objectID": "series/reproducible-data-science/contents/r-packages.html#where-can-i-find-new-r-packages",
+    "href": "series/reproducible-data-science/contents/r-packages.html#where-can-i-find-new-r-packages",
+    "title": "R Packages",
+    "section": "Where can I find new R packages?",
+    "text": "Where can I find new R packages?\n\nCRAN Task Views\n\n\nR Views"
+  },
+  {
+    "objectID": "series/reproducible-data-science/index.html",
+    "href": "series/reproducible-data-science/index.html",
+    "title": "Reproducible Data Science",
+    "section": "",
+    "text": "System Setup\n\n\nInstalling and configuring the basics.\n\n\n\nJan 4, 2023\n\n\n\n\n\n\n\n\n\n\n\nR Setup\n\n\nInstalling and configuring R.\n\n\n\nJan 4, 2023\n\n\n\n\n\n\n\n\n\n\n\nLearning R\n\n\nLearn how to program and do data science with R.\n\n\n\nJan 4, 2023\n\n\n\n\n\n\n\n\n\n\n\nR Packages\n\n\nInstalling and managing R Packages.\n\n\n\nJan 4, 2023\n\n\n\n\n\n\n\n\n\n\n\nReference Manager Setup\n\n\nInstalling and configuring Zotero.\n\n\n\nJan 4, 2023\n\n\n\n\n\n\n\n\n\n\n\nVersion Control Setup\n\n\nInstalling and configuring Git and GitHub.\n\n\n\nJan 4, 2023\n\n\n\n\n\n\n\n\n\n\n\nPython Setup\n\n\nInstalling and configuring Python.\n\n\n\nJan 4, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html",
+    "href": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html",
+    "title": "Shared axis labels in patchwork plots",
+    "section": "",
+    "text": "To access the datasets, help pages, and functions that we will use in this code snippet, load the following packages:\n\nlibrary(ggplot2)\nlibrary(patchwork)\n\nThen make some data and ggplot2 plots to be used in the patchwork.\n\nhuron <- data.frame(year = 1875:1972, level = as.vector(LakeHuron))\nh <- ggplot(huron, aes(year))\n\nh1 <- h +\n  geom_ribbon(aes(ymin = level - 1, ymax = level + 1), fill = \"grey70\") +\n  geom_line(aes(y = level))\n\nh2 <- h + geom_area(aes(y = level))"
+  },
+  {
+    "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#shared-x-axis-labels",
+    "href": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#shared-x-axis-labels",
+    "title": "Shared axis labels in patchwork plots",
+    "section": "Shared x-axis labels",
+    "text": "Shared x-axis labels\nWe set the bottom margin to 0 so the tag is in the same vertical position that the x-axis would otherwise be in.\n\n# Create the patchwork, dropping the x-axis labels from the plots, and setting\n# the margins\nh_patch <- h1 + h2 & xlab(NULL) & theme(plot.margin = margin(5.5, 5.5, 0, 5.5))\n\n# Use the tag label as an x-axis label\nwrap_elements(panel = h_patch) +\n  labs(tag = \"year\") +\n  theme(\n    plot.tag = element_text(size = rel(1)),\n    plot.tag.position = \"bottom\"\n  )"
+  },
+  {
+    "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#shared-y-axis-labels",
+    "href": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#shared-y-axis-labels",
+    "title": "Shared axis labels in patchwork plots",
+    "section": "Shared y-axis labels",
+    "text": "Shared y-axis labels\nWe set the left margin to 0 so the tag is in the same horizontal position that the y-axis would otherwise be in.\n\n# Create the patchwork, dropping the y-axis labels from the plots, and setting\n# the margins\nh_patch <- h1 / h2 & ylab(NULL) & theme(plot.margin = margin(5.5, 5.5, 5.5, 0))\n\n# Use the tag label as a y-axis label\nwrap_elements(h_patch) +\n  labs(tag = \"level\") +\n  theme(\n    plot.tag = element_text(size = rel(1), angle = 90),\n    plot.tag.position = \"left\"\n  )"
+  },
+  {
+    "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#shared-axis-labels-without-using-patchwork",
+    "href": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#shared-axis-labels-without-using-patchwork",
+    "title": "Shared axis labels in patchwork plots",
+    "section": "Shared axis labels without using patchwork",
+    "text": "Shared axis labels without using patchwork\nElio Campitelli shared a solution on Mastodon that accomplishes the same results as above, but without patchwork. It uses the magic tilde notation to create functions in the data argument of each geom that adds a grouping variable var that can be faceted on.\n\nh <- ggplot(huron, aes(year)) +\n  geom_ribbon(\n    data = ~ transform(.x, var = \"a\"),\n    aes(ymin = level - 1, ymax = level + 1),\n    fill = \"grey70\"\n  ) +\n  geom_line(data = ~ transform(.x, var = \"a\"), aes(y = level)) +\n  geom_area(data = ~ transform(.x, var = \"b\"), aes(y = level)) +\n  # Since we don't care about the facet strips here, we can remove them.\n  theme(\n    strip.text = element_blank(),\n    strip.background = element_blank()\n  )\n\nFacet by rows for a shared x-axis.\n\nh +\n  facet_wrap(vars(var), scales = \"free_y\")\n\n\n\n\nFacet by columns for a shared y-axis.\n\nh +\n  facet_wrap(vars(var), scales = \"free_y\", ncol = 1)"
+  },
+  {
+    "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#section",
+    "href": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#section",
+    "title": "Shared axis labels in patchwork plots",
+    "section": "",
+    "text": "Michael McCarthy\n\nThanks for reading! I’m Michael, the voice behind Tidy Tales. I am an award winning data scientist and R programmer with the skills and experience to help you solve the problems you care about. You can learn more about me, my consulting services, and my other projects on my personal website."
+  },
+  {
+    "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#michael-mccarthy",
+    "href": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#michael-mccarthy",
+    "title": "Shared axis labels in patchwork plots",
+    "section": "Michael McCarthy",
+    "text": "Michael McCarthy"
+  },
+  {
+    "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#comments",
+    "href": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#comments",
+    "title": "Shared axis labels in patchwork plots",
+    "section": "Comments",
+    "text": "Comments"
+  },
+  {
+    "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#session-info",
+    "href": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#session-info",
+    "title": "Shared axis labels in patchwork plots",
+    "section": "Session Info",
+    "text": "Session Info\n\n\n\n\n\n\n─ Session info ───────────────────────────────────────────────────────────────\n setting  value\n version  R version 4.2.2 (2022-10-31)\n os       macOS Mojave 10.14.6\n system   x86_64, darwin17.0\n ui       X11\n language (EN)\n collate  en_CA.UTF-8\n ctype    en_CA.UTF-8\n tz       America/Vancouver\n date     2022-12-22\n pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)\n quarto   1.2.280 @ /usr/local/bin/quarto\n\n─ Packages ───────────────────────────────────────────────────────────────────\n package     * version date (UTC) lib source\n ggplot2     * 3.4.0   2022-11-04 [1] CRAN (R 4.2.0)\n patchwork   * 1.1.2   2022-08-19 [1] CRAN (R 4.2.0)\n sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.2.0)\n\n [1] /Users/Michael/Library/R/x86_64/4.2/library/__tidytales\n [2] /Library/Frameworks/R.framework/Versions/4.2/Resources/library\n\n──────────────────────────────────────────────────────────────────────────────"
+  },
+  {
     "objectID": "snippets/2022-10-29_geomtextpath-with-ggdist/index.html",
     "href": "snippets/2022-10-29_geomtextpath-with-ggdist/index.html",
     "title": "Directly labeling ggdist lineribbons with geomtextpath",
@@ -488,75 +719,5 @@
     "title": "Tales from the Borderlands",
     "section": "Fair Dealing",
     "text": "Fair Dealing\n\nAny of the trademarks, service marks, collective marks, design rights or similar rights that are mentioned, used, or cited in this article are the property of their respective owners. They are used here as fair dealing for the purpose of education in accordance with section 29 of the Copyright Act and do not infringe copyright."
-  },
-  {
-    "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html",
-    "href": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html",
-    "title": "Shared axis labels in patchwork plots",
-    "section": "",
-    "text": "To access the datasets, help pages, and functions that we will use in this code snippet, load the following packages:\n\nlibrary(ggplot2)\nlibrary(patchwork)\n\nThen make some data and ggplot2 plots to be used in the patchwork.\n\nhuron <- data.frame(year = 1875:1972, level = as.vector(LakeHuron))\nh <- ggplot(huron, aes(year))\n\nh1 <- h +\n  geom_ribbon(aes(ymin = level - 1, ymax = level + 1), fill = \"grey70\") +\n  geom_line(aes(y = level))\n\nh2 <- h + geom_area(aes(y = level))"
-  },
-  {
-    "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#shared-x-axis-labels",
-    "href": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#shared-x-axis-labels",
-    "title": "Shared axis labels in patchwork plots",
-    "section": "Shared x-axis labels",
-    "text": "Shared x-axis labels\nWe set the bottom margin to 0 so the tag is in the same vertical position that the x-axis would otherwise be in.\n\n# Create the patchwork, dropping the x-axis labels from the plots, and setting\n# the margins\nh_patch <- h1 + h2 & xlab(NULL) & theme(plot.margin = margin(5.5, 5.5, 0, 5.5))\n\n# Use the tag label as an x-axis label\nwrap_elements(panel = h_patch) +\n  labs(tag = \"year\") +\n  theme(\n    plot.tag = element_text(size = rel(1)),\n    plot.tag.position = \"bottom\"\n  )"
-  },
-  {
-    "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#shared-y-axis-labels",
-    "href": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#shared-y-axis-labels",
-    "title": "Shared axis labels in patchwork plots",
-    "section": "Shared y-axis labels",
-    "text": "Shared y-axis labels\nWe set the left margin to 0 so the tag is in the same horizontal position that the y-axis would otherwise be in.\n\n# Create the patchwork, dropping the y-axis labels from the plots, and setting\n# the margins\nh_patch <- h1 / h2 & ylab(NULL) & theme(plot.margin = margin(5.5, 5.5, 5.5, 0))\n\n# Use the tag label as a y-axis label\nwrap_elements(h_patch) +\n  labs(tag = \"level\") +\n  theme(\n    plot.tag = element_text(size = rel(1), angle = 90),\n    plot.tag.position = \"left\"\n  )"
-  },
-  {
-    "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#section",
-    "href": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#section",
-    "title": "Shared axis labels in patchwork plots",
-    "section": "",
-    "text": "Michael McCarthy\n\nThanks for reading! I’m Michael, the voice behind Tidy Tales. I am an award winning data scientist and R programmer with the skills and experience to help you solve the problems you care about. You can learn more about me, my consulting services, and my other projects on my personal website."
-  },
-  {
-    "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#michael-mccarthy",
-    "href": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#michael-mccarthy",
-    "title": "Shared axis labels in patchwork plots",
-    "section": "Michael McCarthy",
-    "text": "Michael McCarthy"
-  },
-  {
-    "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#comments",
-    "href": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#comments",
-    "title": "Shared axis labels in patchwork plots",
-    "section": "Comments",
-    "text": "Comments"
-  },
-  {
-    "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#session-info",
-    "href": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#session-info",
-    "title": "Shared axis labels in patchwork plots",
-    "section": "Session Info",
-    "text": "Session Info\n\n\n\n\n\n\n─ Session info ───────────────────────────────────────────────────────────────\n setting  value\n version  R version 4.2.2 (2022-10-31)\n os       macOS Mojave 10.14.6\n system   x86_64, darwin17.0\n ui       X11\n language (EN)\n collate  en_CA.UTF-8\n ctype    en_CA.UTF-8\n tz       America/Vancouver\n date     2022-12-22\n pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)\n quarto   1.2.280 @ /usr/local/bin/quarto\n\n─ Packages ───────────────────────────────────────────────────────────────────\n package     * version date (UTC) lib source\n ggplot2     * 3.4.0   2022-11-04 [1] CRAN (R 4.2.0)\n patchwork   * 1.1.2   2022-08-19 [1] CRAN (R 4.2.0)\n sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.2.0)\n\n [1] /Users/Michael/Library/R/x86_64/4.2/library/__tidytales\n [2] /Library/Frameworks/R.framework/Versions/4.2/Resources/library\n\n──────────────────────────────────────────────────────────────────────────────"
-  },
-  {
-    "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#shared-axis-labels-without-using-patchwork",
-    "href": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html#shared-axis-labels-without-using-patchwork",
-    "title": "Shared axis labels in patchwork plots",
-    "section": "Shared axis labels without using patchwork",
-    "text": "Shared axis labels without using patchwork\nElio Campitelli shared a solution on Mastodon that accomplishes the same results as above, but without patchwork. It uses the magic tilde notation to create functions in the data argument of each geom that adds a grouping variable var that can be faceted on.\n\nh <- ggplot(huron, aes(year)) +\n  geom_ribbon(\n    data = ~ transform(.x, var = \"a\"),\n    aes(ymin = level - 1, ymax = level + 1),\n    fill = \"grey70\"\n  ) +\n  geom_line(data = ~ transform(.x, var = \"a\"), aes(y = level)) +\n  geom_area(data = ~ transform(.x, var = \"b\"), aes(y = level)) +\n  # Since we don't care about the facet strips here, we can remove them.\n  theme(\n    strip.text = element_blank(),\n    strip.background = element_blank()\n  )\n\nFacet by rows for a shared x-axis.\n\nh +\n  facet_wrap(vars(var), scales = \"free_y\")\n\n\n\n\nFacet by columns for a shared y-axis.\n\nh +\n  facet_wrap(vars(var), scales = \"free_y\", ncol = 1)"
-  },
-  {
-    "objectID": "posts/2022-06-16_projectile-motion/index.html#overview",
-    "href": "posts/2022-06-16_projectile-motion/index.html#overview",
-    "title": "On motion",
-    "section": "Overview",
-    "text": "Overview\nProjectile motion describes the motion of an object launched into the air whose trajectory after launch is influenced only by the force of gravity and for which air resistance is negligible. Projectile motion was first accurately described by Galileo Galilei in his book Two New Sciences, published in 1638. In what he dubbed compound motion, Galileo demonstrated that projectile motion can be broken down into independent horizontal and vertical components that can be analyzed separately to describe an object’s trajectory. He used this principle to prove that the trajectory of an object in projectile motion will always follow a curve in the shape of a parabola.\n\n\n\n\n\nProjectile motion of an object launched at the same height and velocity but different angles. The symmetrical U-shaped curve of each trajectory is known as a parabola.\n\n\n\n\nGalileo used an inclined plane to demonstrate his principle of compound motion. I’m going to use R."
-  },
-  {
-    "objectID": "posts/2022-06-16_projectile-motion/index.html#section-1",
-    "href": "posts/2022-06-16_projectile-motion/index.html#section-1",
-    "title": "On motion",
-    "section": "",
-    "text": "Michael McCarthy\n\nThanks for reading! I’m Michael, the voice behind Tidy Tales. I am an award winning data scientist and R programmer with the skills and experience to help you solve the problems you care about. You can learn more about me, my consulting services, and my other projects on my personal website."
   }
 ]

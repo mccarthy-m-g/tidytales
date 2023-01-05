@@ -3041,5 +3041,161 @@ Michael McCarthy. (2021, June 15). <em>Go forth, slayer of Demons</em>.
   <pubDate>Tue, 15 Jun 2021 07:00:00 GMT</pubDate>
   <media:content url="https://tidytales.ca/posts/2021-06-15_demons-souls/images/demons-souls_plot.png" medium="image" type="image/png" height="198" width="144"/>
 </item>
+<item>
+  <title>Reproducible Data Science</title>
+  <link>https://tidytales.ca/series/reproducible-data-science/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1672879759000" data-listing-file-modified-sort="1672879759991" data-listing-reading-time-sort="1.2">
+<a href="../../series/reproducible-data-science/contents/system-setup.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+System Setup
+</h5>
+<div class="card-text listing-description">
+Installing and configuring the basics.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 4, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-date-sort="1672879907000" data-listing-file-modified-sort="1672879907489" data-listing-reading-time-sort="1.145">
+<a href="../../series/reproducible-data-science/contents/r-setup.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+R Setup
+</h5>
+<div class="card-text listing-description">
+Installing and configuring R.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 4, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-listing-date-sort="1672879364000" data-listing-file-modified-sort="1672879364396" data-listing-reading-time-sort="14.22">
+<a href="../../series/reproducible-data-science/contents/learning-r.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Learning R
+</h5>
+<div class="card-text listing-description">
+Learn how to program and do data science with R.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 4, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-listing-date-sort="1672880694000" data-listing-file-modified-sort="1672880694857" data-listing-reading-time-sort="0.15">
+<a href="../../series/reproducible-data-science/contents/r-packages.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+R Packages
+</h5>
+<div class="card-text listing-description">
+Installing and managing R Packages.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 4, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="4" data-listing-date-sort="1672880251000" data-listing-file-modified-sort="1672880251807" data-listing-reading-time-sort="0.575">
+<a href="../../series/reproducible-data-science/contents/zotero-setup.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Reference Manager Setup
+</h5>
+<div class="card-text listing-description">
+Installing and configuring Zotero.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 4, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="5" data-listing-date-sort="1672879932000" data-listing-file-modified-sort="1672879932116" data-listing-reading-time-sort="0.145">
+<a href="../../series/reproducible-data-science/contents/version-control-setup.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Version Control Setup
+</h5>
+<div class="card-text listing-description">
+Installing and configuring Git and GitHub.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 4, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="6" data-listing-date-sort="1672880271000" data-listing-file-modified-sort="1672880271911" data-listing-reading-time-sort="0.99">
+<a href="../../series/reproducible-data-science/contents/python-setup.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Python Setup
+</h5>
+<div class="card-text listing-description">
+Installing and configuring Python.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 4, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div> ]]></description>
+  <category>.Misc</category>
+  <guid>https://tidytales.ca/series/reproducible-data-science/index.html</guid>
+  <pubDate>Thu, 05 Jan 2023 01:05:38 GMT</pubDate>
+</item>
 </channel>
 </rss>

@@ -20,6 +20,14 @@ listing:
     sort-ui: true
     filter-ui: false
     feed: true
+  - id: series
+    contents: "series/*/index.qmd"
+    fields: [date, title, description, categories]
+    sort: "date desc"
+    type: default
+    sort-ui: true
+    filter-ui: false
+    feed: true
 
 page-layout: full
 title-block-banner: true
@@ -32,6 +40,11 @@ code-tools: false
 ## Posts
 
 :::{#posts}
+:::
+
+## Series
+
+:::{#series}
 :::
 
 ## Code Snippets

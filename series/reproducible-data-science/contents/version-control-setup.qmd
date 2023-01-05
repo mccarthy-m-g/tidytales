@@ -1,0 +1,39 @@
+---
+title: Version Control Setup
+description: Installing and configuring Git and GitHub.
+---
+
+::: {.callout-caution}
+## This section is under construction
+:::
+
+<https://happygitwithr.com>
+<https://usethis.r-lib.org/articles/git-credentials.html>
+
+## Git
+
+[Git](https://www.r-project.org) is ...
+
+### Installing git
+
+Install git from the Terminal with Homebrew:
+
+```bash
+brew tap r-lib/rig
+brew install --cask rig
+```
+
+## GitHub
+
+### Installing GitHub CLI
+
+```bash
+
+```
+
+### Installing GitHub Desktop
+
+...
+
+## Version Control in RStudio
+

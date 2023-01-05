@@ -1,0 +1,25 @@
+---
+title: R Packages
+description: Installing and managing R Packages.
+
+order: 4
+---
+
+::: {.callout-caution}
+## This section is under construction
+:::
+
+## Where can I install R packages from?
+
+R packages can be installed from:
+
+- [CRAN]()
+- [Bioconductor]()
+- [GitHub]()
+- [R-Universe]()
+
+## Where can I find new R packages?
+
+### CRAN Task Views
+
+### R Views
