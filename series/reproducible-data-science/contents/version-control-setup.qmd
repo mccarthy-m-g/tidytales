@@ -1,6 +1,8 @@
 ---
 title: Version Control Setup
 description: Installing and configuring Git and GitHub.
+
+order: 98
 ---
 
 ::: {.callout-caution}

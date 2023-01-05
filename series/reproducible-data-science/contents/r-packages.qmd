@@ -1,24 +1,169 @@
 ---
 title: R Packages
-description: Installing and managing R Packages.
+description: Installing, managing, and finding R Packages.
 
 order: 4
 ---
+
+## How do I install R packages?
+
+The standard way to install R packages is with the `install.packages()` function that comes with base R.
+
+```r
+install.packages("tibble")
+```
+
+A fresh way to install R packages is with the `pkg_install()` function from the **pak** package.
+
+```r
+pkg_install("tibble")
+```
+
+pak is fast, safe, and convenient. You can learn more about it on the [package website](https://pak.r-lib.org/).
+
+## Where can I install R packages from?
+
+Release versions of R packages can be installed from:
+
+- [CRAN](https://cran.r-project.org)
+- [Bioconductor](https://www.bioconductor.org)
+
+Development versions of R packages can be installed from:
+
+- [GitHub](https://github.com)
+- [R-Universe](https://r-universe.dev/)
+
+Previous release versions of R packages can be installed from:
+
+- [Posit Public Package Manager](https://packagemanager.rstudio.com/)
+- [MRAN](https://mran.microsoft.com/)
+
+## How do I attach R packages?
+
+The standard way to attach R packages is with the `library()` function that comes with base R.
+
+```r
+library(tibble)
+```
+
+If you want to attach multiple packages in a single function call, use the `pkg_attach()` function from the **xfun** package.
+
+```r
+pkg_attach("tibble", "dplyr")
+```
+
+### How do I manage namespace conflicts?
+
+Sometimes R packages will use the same name for different functions. A common example is `dplyr::select()` and `MASS::select()`. Under R’s default conflict resolution system, if both of these packages are loaded in the same session `select()` will come from the most recently loaded package.
+
+If you want `select()` to refer to `dplyr::select()`, base R provides the following solutions:
+
+- Load MASS first and dplyr second
+- Exclude `select()` when loading MASS: `library(MASS, exclude = "select")`
+- Always namespace dplyr's `select()` function: `dplyr::select()`
+
+An alternative approach to managing namespace conflicts is with the **conflicted** package, which makes every conflict an error and forces you to choose which function to use. You can learn more about it on the [package website](https://conflicted.r-lib.org).
+
+## How do I restore my current library into a new library?
+
+::: {.callout-caution}
+## This section needs to be tested
+:::
+
+A new library is created whenever you install a new major or minor version of R (the "x" or "y" in version "x.y.z"), so all your favourite packages need to be re-installed to this new library if you want to use them. This is also true if you create a new library in the current version of R (e.g., with `rig library add`).
+
+::: {.callout-tip collapse="true"}
+## Transferring a library from one computer to another
+
+The approach shown below can also be used to transfer a library from one computer to another. All you need to do is:
+
+1. Follow the steps to create the character vector of packages in your current library (`pkgs`)
+2. Save the `pkgs` R object with: `saveRDS(pkgs, file = "pkgs.rds")`
+3. Copy the `pkgs.rds` file to the other computer\*
+4. Load the `pkgs` R object with: `pkgs <- readRDS(“path/to/pkgs.rds”)`
+5. Install pak on the other computer with: `install.packages("pak")`
+6. Install the packages with: `pkg_install(pkgs)`
+
+\*For added convenience, store `pkgs.rds` in a GitHub repository so you can access it wherever you go!
+:::
+
+If you are using **rig** (and you should be), restoring your current library into a new library is easy with some help from pak and dplyr.
+
+First---in your current library---get the path to your user library. Copy this down somewhere.
+
+```r
+.libPaths()[1]
+```
+
+You can now switch to your new library. The easiest way to switch on macOS is with the menu bar app; otherwise use the shell prompt. Open a new RStudio window to start a session with the new library.[^1]
+
+[^1]: It's okay to keep the RStudio window for the current library open.
+
+```bash
+# Switch to a different R version
+rig default <version>
+
+# Switch to a different library
+rig library default <lib-name>
+```
+
+In your new library, install and attach pak and dplyr.
+
+```r
+# install.packages(c("pak", "dplyr"))
+library(pak)
+library(dplyr)
+```
+
+Use `pak::pkg_list()` to get a data frame containing data about the packages installed in your current library.
+
+```r
+pkgs_tbl <- pkg_list(lib = "path/to/your/user/library")
+```
+
+Wrangle this data down into a character vector specifying the package source and package, following the [package reference syntax used by pak](https://pak.r-lib.org/reference/pak_package_sources.html#package-references).
+
+```r
+pkgs <- pkgs_tbl |>
+  select(package, remoteusername, repotype) |>
+  mutate(pkg = case_when(
+    # GitHub
+    !is.na(remoteusername) ~ paste0(remoteusername, "/", package), 
+    # CRAN and Bioconductor
+    repotype %in% c("cran", "bioc") ~ paste0(repotype, "::", package),
+    # Default to the `standard` package source
+    TRUE ~ paste0("standard::", package)
+  )) |>
+  pull(pkg)
+```
+
+Then install all your packages.
+
+```r
+pkg_install(pkgs)
+```
+
+::: {.callout-warning}
+## Default library locations and .Renviron
+
+If you have previously set `R_LIBS_USER` in your `.Renviron` to change the default library path, you may need to remove this variable or change its path if there are issues locating your various user libraries. A quick way to open `.Renviron` is with `usethis::edit_r_environ()`.
+:::
+
+## Where can I find new R packages?
 
 ::: {.callout-caution}
 ## This section is under construction
 :::
 
-## Where can I install R packages from?
+[R Views](https://rviews.rstudio.com)
 
-R packages can be installed from:
+[CRAN Task Views](https://cran.r-project.org/web/views/)
 
-- [CRAN]()
-- [Bioconductor]()
-- [GitHub]()
-- [R-Universe]()
+[Posit blog](https://posit.co/blog/)
 
-## Where can I find new R packages?
+[Posit talks](https://posit.co/resources/videos/)
+
+[tidyverse blog](https://www.tidyverse.org/blog/)
 
 ### CRAN Task Views
 

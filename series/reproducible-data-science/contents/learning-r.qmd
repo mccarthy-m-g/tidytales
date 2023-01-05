@@ -187,6 +187,7 @@ Each of these R packages and tools plays a different role in making a data produ
 The best place to learn each of these R packages and tools individually is their respective documentation. To learn how to use these R packages and tools as a system for making reproducible data products, the following are a good place to start:
 
 - [Reproducible Analytical Pipelines](https://rap4mads.eu) by Bruno Rodrigues
+- [Automating Computational Reproducibility in R using renv, Docker, and GitHub Actions](http://haines-lab.com/post/2022-01-23-automating-computational-reproducibility-with-r-using-renv-docker-and-github-actions/) by Nathaniel Haines
 
 You might also like:
 
