@@ -6,11 +6,11 @@
   </url>
   <url>
     <loc>https://tidytales.ca/series/reproducible-data-science/contents/system-setup.html</loc>
-    <lastmod>2023-01-05T20:53:11.564Z</lastmod>
+    <lastmod>2023-01-07T05:17:26.390Z</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/series/reproducible-data-science/contents/zotero-setup.html</loc>
-    <lastmod>2023-01-05T20:51:28.515Z</lastmod>
+    <lastmod>2023-01-05T22:08:20.843Z</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/series/reproducible-data-science/contents/version-control-setup.html</loc>
@@ -26,11 +26,11 @@
   </url>
   <url>
     <loc>https://tidytales.ca/series/reproducible-data-science/contents/r-packages.html</loc>
-    <lastmod>2023-01-05T20:47:46.937Z</lastmod>
+    <lastmod>2023-01-07T05:21:18.960Z</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/series/reproducible-data-science/index.html</loc>
-    <lastmod>2023-01-05T20:51:33.572Z</lastmod>
+    <lastmod>2023-01-07T05:21:15.122Z</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/snippets/2022-12-22_patchwork-shared-axis-labels/index.html</loc>
@@ -46,7 +46,7 @@
   </url>
   <url>
     <loc>https://tidytales.ca/posts/2022-12-20_palettes/index.html</loc>
-    <lastmod>2023-01-05T01:05:27.773Z</lastmod>
+    <lastmod>2023-01-07T05:17:56.092Z</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/posts/2021-06-15_demons-souls/index.html</loc>
@@ -70,6 +70,10 @@
   </url>
   <url>
     <loc>https://tidytales.ca/index.html</loc>
-    <lastmod>2023-01-05T01:05:38.934Z</lastmod>
+    <lastmod>2023-01-07T05:20:59.590Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tidytales.ca/series/reproducible-data-science/contents/r-getting-help.html</loc>
+    <lastmod>2023-01-06T22:33:58.494Z</lastmod>
   </url>
 </urlset>

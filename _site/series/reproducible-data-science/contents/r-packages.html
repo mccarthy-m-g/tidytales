@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Michael McCarthy">
-<meta name="dcterms.date" content="2023-01-05">
+<meta name="dcterms.date" content="2023-01-06">
 <meta name="description" content="Installing, managing, and finding R Packages.">
 
 <title>Tidy Tales - R Packages</title>
@@ -96,7 +96,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../series/reproducible-data-science/contents/python-setup.html" rel="next">
+<link href="../../../series/reproducible-data-science/contents/r-getting-help.html" rel="next">
 <link href="../../../series/reproducible-data-science/contents/learning-r.html" rel="prev">
 <link href="../../../assets/images/favicon.png" rel="icon" type="image/png">
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
@@ -127,6 +127,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
+
+<link href="../../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
 <link rel="stylesheet" href="../../../assets/styles.css">
@@ -241,7 +244,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 5, 2023</p>
+        <p class="date">January 6, 2023</p>
       </div>
     </div>
     
@@ -289,17 +292,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../series/reproducible-data-science/contents/r-getting-help.html" class="sidebar-item-text sidebar-link">Getting Help with R</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../series/reproducible-data-science/contents/python-setup.html" class="sidebar-item-text sidebar-link">Python Setup</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/contents/zotero-setup.html" class="sidebar-item-text sidebar-link">Reference Manager Setup</a>
+  <a href="../../../series/reproducible-data-science/contents/version-control-setup.html" class="sidebar-item-text sidebar-link">Version Control Setup</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/contents/version-control-setup.html" class="sidebar-item-text sidebar-link">Version Control Setup</a>
+  <a href="../../../series/reproducible-data-science/contents/zotero-setup.html" class="sidebar-item-text sidebar-link">Reference Manager Setup</a>
   </div>
 </li>
       </ul>
@@ -312,16 +320,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#how-do-i-install-r-packages" id="toc-how-do-i-install-r-packages" class="nav-link active" data-scroll-target="#how-do-i-install-r-packages">How do I install R packages?</a></li>
   <li><a href="#where-can-i-install-r-packages-from" id="toc-where-can-i-install-r-packages-from" class="nav-link" data-scroll-target="#where-can-i-install-r-packages-from">Where can I install R packages from?</a></li>
+  <li><a href="#where-can-i-find-new-r-packages" id="toc-where-can-i-find-new-r-packages" class="nav-link" data-scroll-target="#where-can-i-find-new-r-packages">Where can I find new R packages?</a></li>
   <li><a href="#how-do-i-attach-r-packages" id="toc-how-do-i-attach-r-packages" class="nav-link" data-scroll-target="#how-do-i-attach-r-packages">How do I attach R packages?</a>
   <ul class="collapse">
   <li><a href="#how-do-i-manage-namespace-conflicts" id="toc-how-do-i-manage-namespace-conflicts" class="nav-link" data-scroll-target="#how-do-i-manage-namespace-conflicts">How do I manage namespace conflicts?</a></li>
   </ul></li>
+  <li><a href="#how-do-i-update-r-packages" id="toc-how-do-i-update-r-packages" class="nav-link" data-scroll-target="#how-do-i-update-r-packages">How do I update R packages?</a></li>
   <li><a href="#how-do-i-restore-my-current-library-into-a-new-library" id="toc-how-do-i-restore-my-current-library-into-a-new-library" class="nav-link" data-scroll-target="#how-do-i-restore-my-current-library-into-a-new-library">How do I restore my current library into a new library?</a></li>
-  <li><a href="#where-can-i-find-new-r-packages" id="toc-where-can-i-find-new-r-packages" class="nav-link" data-scroll-target="#where-can-i-find-new-r-packages">Where can I find new R packages?</a>
-  <ul class="collapse">
-  <li><a href="#cran-task-views" id="toc-cran-task-views" class="nav-link" data-scroll-target="#cran-task-views">CRAN Task Views</a></li>
-  <li><a href="#r-views" id="toc-r-views" class="nav-link" data-scroll-target="#r-views">R Views</a></li>
-  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -341,6 +346,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A fresh way to install R packages is with the <code>pkg_install()</code> function from the <strong>pak</strong> package.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pkg_install</span>(<span class="st">"tibble"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>pak is fast, safe, and convenient. You can learn more about it on the <a href="https://pak.r-lib.org/">package website</a>.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Do you want to install from sources the package which needs compilation?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When installing a package, you will sometimes encounter the above question along with the message “There are binary versions available but the source versions are later”. What this question is asking is whether you would like to have your computer build (compile) the package binary from source code then install it (<code>yes</code>) or have your computer install a pre-built binary (<code>no</code>). If you choose yes, you will get the newest version of the package; if you choose no you will get the newest binary version of the package (typically the previous release).</p>
+<p>Unless you need the newest version of the package for a specific feature or bug fix, I recommend choosing no—the binary version will install faster, and you can simply wait a few days for the binary of the newest version to be built on the repository you’re installing packages from, then install the package again to get the newest version. If you need the newest version of the package <em>right now</em> then choose yes, but you will need to set up your <a href="https://r-pkgs.org/setup.html#setup-tools">R build toolchain</a> first.</p>
+</div>
+</div>
 </section>
 <section id="where-can-i-install-r-packages-from" class="level2">
 <h2 class="anchored" data-anchor-id="where-can-i-install-r-packages-from">Where can I install R packages from?</h2>
@@ -360,6 +379,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="https://mran.microsoft.com/">MRAN</a></li>
 </ul>
 </section>
+<section id="where-can-i-find-new-r-packages" class="level2">
+<h2 class="anchored" data-anchor-id="where-can-i-find-new-r-packages">Where can I find new R packages?</h2>
+<div class="cell" data-hash="r-packages_cache/html/cran-pkgsearch_7aea44f9bbbd5ef898826cbcc37637fd">
+
+</div>
+<p>There were 18971 R packages available on <a href="https://cran.r-project.org/web/packages/">CRAN</a> in 2022, and that number only continues to grow over time. That’s not to mention the 2165 R packages available on BioConductor, and the unknown amount of packages only available on R-universe or GitHub.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="r-packages_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Fortunately, there are many places to find curated content about R packages:</p>
+<ul>
+<li>Your favourite search engine</li>
+<li><a href="https://cran.r-project.org/web/views/">CRAN Task Views</a></li>
+<li><a href="https://rviews.rstudio.com">R Views</a></li>
+<li><a href="https://posit.co/blog/">The Posit Blog</a></li>
+<li><a href="https://posit.co/resources/videos/">Posit Videos</a></li>
+<li><a href="https://www.tidyverse.org/blog/">tidyverse blog</a></li>
+<li><a href="https://github.com/trending/r?since=monthly">Trending on GitHub</a></li>
+<li><a href="https://r-hub.github.io/pkgsearch/">pkgsearch</a></li>
+</ul>
+<p><strong>Your favourite search engine</strong> is often a good starting place. Include <code>r</code> and <code>package</code> in your search, plus the topic you’re interested in, and you’ll usually find something helpful. Use boolean operators to narrow down your search or to hide unrelated things like Reddit (<code>-site:reddit.com</code>).</p>
+<p><strong>CRAN Task Views</strong> provide guidance on which R packages are relevant for tasks related to a certain topic. The task views are not meant to endorse the “best” packages for a given task; rather, they take an encyclopedic approach that serves as a good reference.</p>
+<p><strong>R Views</strong> is an R community blog edited by Posit where you can learn about new R packages and see how to use them (plus some other goodies).</p>
+<p><strong>The Posit Blog</strong> is where you can get news and updates about R packages made by Posit. The blog is about “all things data science and the world that benefits from [Posit] products, community, and events”, so it has a wider scope than R packages alone; but it’s a good place to follow anyways to stay up to date with what’s happening in the R world.</p>
+<p>On a similar note, you can find videos from events hosted by Posit, such as conference talks, data science hang outs, tutorials, and more at <strong>Posit Videos</strong> (and the <a href="https://www.youtube.com/channel/UC3xfbCMLCw1Hh4dWop3XtHg/playlists">Posit YouTube channel</a>). This is a good place to see what R packages the community is using, and how they use them.</p>
+<p>The <strong>tidyverse blog</strong> is where you can get news and updates about R packages in the tidyverse.</p>
+<p>Finally, if you don’t want to leave the comfort of your IDE, the <strong>pkgsearch</strong> package is a package you can use to find other packages..!</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Social Media
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Word of mouth on social media is a great way to find new packages or learn about new ways to use your favourite packages. Follow your favourite developers to keep up to date with their work, and check out the <em>#RStats</em> and <em>#TidyTuesday</em> hashtags to see what the community is up to.</p>
+</div>
+</div>
+</section>
 <section id="how-do-i-attach-r-packages" class="level2">
 <h2 class="anchored" data-anchor-id="how-do-i-attach-r-packages">How do I attach R packages?</h2>
 <p>The standard way to attach R packages is with the <code>library()</code> function that comes with base R.</p>
@@ -378,6 +440,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>An alternative approach to managing namespace conflicts is with the <strong>conflicted</strong> package, which makes every conflict an error and forces you to choose which function to use. You can learn more about it on the <a href="https://conflicted.r-lib.org">package website</a>.</p>
 </section>
 </section>
+<section id="how-do-i-update-r-packages" class="level2">
+<h2 class="anchored" data-anchor-id="how-do-i-update-r-packages">How do I update R packages?</h2>
+<p>Most R packages available on CRAN are actively maintained and updated. It’s good practice to keep up with these updates so you can get the latest features, improvements, and bug fixes.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="r-packages_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Use <code>old.packages()</code> to check which of the packages you’ve installed have updates available from the repositories listed in <code>getOption("repos")</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">old.packages</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Update specific packages to the most recent version by re-installing them with <code>install.packages()</code> or <code>pak::pkg_install()</code>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The standard way to update a package</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tibble"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># A fresh way to update a package</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">pkg_install</span>(<span class="st">"tibble"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Update all the packages listed by <code>old.packages()</code> at once with <code>update.packages()</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> or <code>pak::pkg_install(old.packages()[,"Package"])</code>. Note that <code>update.packages()</code> uses <code>install.packages()</code> under the hood, so it won’t be as fast as pak.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The standard way to update all packages at once</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>()</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># A fresh way to update all packages at once</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">pkg_install</span>(<span class="fu">old.packages</span>()[,<span class="st">"Package"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can also install and update packages using RStudio, either from the <strong>Packages</strong> pane or from the menu bar <strong>Tools &gt; Check for Package Updates</strong>.</p>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Breaking changes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sometimes package updates will include breaking changes, which are named as such because they are expected to break code using older versions of the package. Most package updates won’t contain breaking changes, but occasionally they will. This should not discourage you from updating packages, but it should encourage you to update thoughtfully—don’t do your updates before important deadlines!</p>
+<p>I recommend creating multiple user libraries with <strong>rig</strong> that can be used for different tasks. This way different libraries can be updated more or less frequently, and it’s easier to make the choice whether or not to update. For example, you could have a <code>devel</code> library for package development that is updated weekly, a general <code>main</code> library that is updated monthly or yearly, and so forth. Another good practice—especially for long-running projects—is to create project-specific libraries with <strong>renv</strong>. The project libraries created by renv are isolated from your user libraries, so you can continue to update your user libraries as normal without worrying about breaking changes affecting the projects using renv.</p>
+</div>
+</div>
+</section>
 <section id="how-do-i-restore-my-current-library-into-a-new-library" class="level2">
 <h2 class="anchored" data-anchor-id="how-do-i-restore-my-current-library-into-a-new-library">How do I restore my current library into a new library?</h2>
 <div class="callout-caution callout callout-style-default callout-captioned">
@@ -395,7 +495,7 @@ This section needs to be tested
 </div>
 <p>A new library is created whenever you install a new major or minor version of R (the “x” or “y” in version “x.y.z”), so all your favourite packages need to be re-installed to this new library if you want to use them. This is also true if you create a new library in the current version of R (e.g., with <code>rig library add</code>).</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -404,7 +504,7 @@ Transferring a library from one computer to another
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The approach shown below can also be used to transfer a library from one computer to another. All you need to do is:</p>
 <ol type="1">
@@ -421,33 +521,33 @@ Transferring a library from one computer to another
 </div>
 <p>If you are using <strong>rig</strong> (and you should be), restoring your current library into a new library is easy with some help from pak and dplyr.</p>
 <p>First—in your current library—get the path to your user library. Copy this down somewhere.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.libPaths</span>()[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You can now switch to your new library. The easiest way to switch on macOS is with the menu bar app; otherwise use the shell prompt. Open a new RStudio window to start a session with the new library.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Switch to a different R version</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">rig</span> default <span class="op">&lt;</span>version<span class="op">&gt;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Switch to a different library</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">rig</span> library default <span class="op">&lt;</span>lib-name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.libPaths</span>()[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can now switch to your new library. The easiest way to switch on macOS is with the menu bar app; otherwise use the shell prompt. Open a new RStudio window to start a session with the new library.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Switch to a different R version</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">rig</span> default <span class="op">&lt;</span>version<span class="op">&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Switch to a different library</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="ex">rig</span> library default <span class="op">&lt;</span>lib-name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In your new library, install and attach pak and dplyr.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(c("pak", "dplyr"))</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pak)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(c("pak", "dplyr"))</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pak)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Use <code>pak::pkg_list()</code> to get a data frame containing data about the packages installed in your current library.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>pkgs_tbl <span class="ot">&lt;-</span> <span class="fu">pkg_list</span>(<span class="at">lib =</span> <span class="st">"path/to/your/user/library"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>pkgs_tbl <span class="ot">&lt;-</span> <span class="fu">pkg_list</span>(<span class="at">lib =</span> <span class="st">"path/to/your/user/library"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Wrangle this data down into a character vector specifying the package source and package, following the <a href="https://pak.r-lib.org/reference/pak_package_sources.html#package-references">package reference syntax used by pak</a>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">&lt;-</span> pkgs_tbl <span class="sc">|&gt;</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(package, remoteusername, repotype) <span class="sc">|&gt;</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pkg =</span> <span class="fu">case_when</span>(</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># GitHub</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="sc">!</span><span class="fu">is.na</span>(remoteusername) <span class="sc">~</span> <span class="fu">paste0</span>(remoteusername, <span class="st">"/"</span>, package), </span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># CRAN and Bioconductor</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    repotype <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"cran"</span>, <span class="st">"bioc"</span>) <span class="sc">~</span> <span class="fu">paste0</span>(repotype, <span class="st">"::"</span>, package),</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Default to the `standard` package source</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="fu">paste0</span>(<span class="st">"standard::"</span>, package)</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">|&gt;</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(pkg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">&lt;-</span> pkgs_tbl <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(package, remoteusername, repotype) <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pkg =</span> <span class="fu">case_when</span>(</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># GitHub</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="sc">!</span><span class="fu">is.na</span>(remoteusername) <span class="sc">~</span> <span class="fu">paste0</span>(remoteusername, <span class="st">"/"</span>, package), </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># CRAN and Bioconductor</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    repotype <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"cran"</span>, <span class="st">"bioc"</span>) <span class="sc">~</span> <span class="fu">paste0</span>(repotype, <span class="st">"::"</span>, package),</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Default to the `standard` package source</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="fu">paste0</span>(<span class="st">"standard::"</span>, package)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">|&gt;</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(pkg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Then install all your packages.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pkg_install</span>(pkgs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pkg_install</span>(pkgs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout-warning callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -461,44 +561,27 @@ Default library locations and .Renviron
 <p>If you have previously set <code>R_LIBS_USER</code> in your <code>.Renviron</code> to change the default library path, you may need to remove this variable or change its path if there are issues locating your various user libraries. A quick way to open <code>.Renviron</code> is with <code>usethis::edit_r_environ()</code>.</p>
 </div>
 </div>
-</section>
-<section id="where-can-i-find-new-r-packages" class="level2">
-<h2 class="anchored" data-anchor-id="where-can-i-find-new-r-packages">Where can I find new R packages?</h2>
-<div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-This section is under construction
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-<p><a href="https://rviews.rstudio.com">R Views</a></p>
-<p><a href="https://cran.r-project.org/web/views/">CRAN Task Views</a></p>
-<p><a href="https://posit.co/blog/">Posit blog</a></p>
-<p><a href="https://posit.co/resources/videos/">Posit talks</a></p>
-<p><a href="https://www.tidyverse.org/blog/">tidyverse blog</a></p>
-<section id="cran-task-views" class="level3">
-<h3 class="anchored" data-anchor-id="cran-task-views">CRAN Task Views</h3>
-</section>
-<section id="r-views" class="level3">
-<h3 class="anchored" data-anchor-id="r-views">R Views</h3>
 
 
-</section>
 </section>
 
 
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>It’s okay to keep the RStudio window for the current library open.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>By default <code>update.packages()</code> will ask you one by one whether you would like to update a given package. Use the <code>ask = FALSE</code> argument to update all packages without asking.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>It’s okay to keep the RStudio window for the current library open.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section></div></main> <!-- /main -->
+</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{mccarthy2023,
+  author = {Michael McCarthy},
+  title = {R {Packages}},
+  date = {2023-01-06},
+  url = {https://tidytales.ca/r-packages.html},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mccarthy2023" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Michael McCarthy. (2023, January 6). <em>R Packages</em>. <a href="https://tidytales.ca/r-packages.html">https://tidytales.ca/r-packages.html</a>
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -653,8 +736,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../series/reproducible-data-science/contents/python-setup.html" class="pagination-link">
-        <span class="nav-page-text">Python Setup</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../../series/reproducible-data-science/contents/r-getting-help.html" class="pagination-link">
+        <span class="nav-page-text">Getting Help with R</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

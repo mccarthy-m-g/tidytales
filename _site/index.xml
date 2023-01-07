@@ -3093,7 +3093,7 @@ Jan 4, 2023
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-listing-date-sort="1672879364000" data-listing-file-modified-sort="1672879364396" data-listing-reading-time-sort="14.22">
+<div class="g-col-1" data-index="2" data-listing-date-sort="1672899249000" data-listing-file-modified-sort="1672899249210" data-listing-reading-time-sort="14.29">
 <a href="../../series/reproducible-data-science/contents/learning-r.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="card-body post-contents">
@@ -3112,7 +3112,7 @@ Jan 4, 2023
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-listing-date-sort="1672880694000" data-listing-file-modified-sort="1672880694857" data-listing-reading-time-sort="0.15">
+<div class="g-col-1" data-index="3" data-listing-date-sort="1673068421000" data-listing-file-modified-sort="1673068421117" data-listing-reading-time-sort="10.315">
 <a href="../../series/reproducible-data-science/contents/r-packages.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="card-body post-contents">
@@ -3120,56 +3120,37 @@ Jan 4, 2023
 R Packages
 </h5>
 <div class="card-text listing-description">
-Installing and managing R Packages.
+Installing, managing, and finding R Packages.
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
-Jan 4, 2023
+Jan 6, 2023
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="4" data-listing-date-sort="1672880251000" data-listing-file-modified-sort="1672880251807" data-listing-reading-time-sort="0.575">
-<a href="../../series/reproducible-data-science/contents/zotero-setup.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="4" data-listing-date-sort="1673043782000" data-listing-file-modified-sort="1673043782145" data-listing-reading-time-sort="0.09">
+<a href="../../series/reproducible-data-science/contents/r-getting-help.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
-Reference Manager Setup
+Getting Help with R
 </h5>
 <div class="card-text listing-description">
-Installing and configuring Zotero.
+Writing reproducible examples and debugging errors.
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
-Jan 4, 2023
+Jan 6, 2023
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="5" data-listing-date-sort="1672879932000" data-listing-file-modified-sort="1672879932116" data-listing-reading-time-sort="0.145">
-<a href="../../series/reproducible-data-science/contents/version-control-setup.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Version Control Setup
-</h5>
-<div class="card-text listing-description">
-Installing and configuring Git and GitHub.
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jan 4, 2023
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="6" data-listing-date-sort="1672880271000" data-listing-file-modified-sort="1672880271911" data-listing-reading-time-sort="0.99">
+<div class="g-col-1" data-index="5" data-listing-date-sort="1672951726000" data-listing-file-modified-sort="1672951726530" data-listing-reading-time-sort="0.99">
 <a href="../../series/reproducible-data-science/contents/python-setup.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="card-body post-contents">
@@ -3181,7 +3162,45 @@ Installing and configuring Python.
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
-Jan 4, 2023
+Jan 5, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="6" data-listing-date-sort="1672951892000" data-listing-file-modified-sort="1672951892521" data-listing-reading-time-sort="0.145">
+<a href="../../series/reproducible-data-science/contents/version-control-setup.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Version Control Setup
+</h5>
+<div class="card-text listing-description">
+Installing and configuring Git and GitHub.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 5, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="7" data-listing-date-sort="1672956499000" data-listing-file-modified-sort="1672956499393" data-listing-reading-time-sort="0.615">
+<a href="../../series/reproducible-data-science/contents/zotero-setup.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Reference Manager Setup
+</h5>
+<div class="card-text listing-description">
+Installing and configuring Zotero.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 5, 2023
 </div>
 </div>
 </div>
@@ -3195,7 +3214,7 @@ No matching items
 </div> ]]></description>
   <category>.Misc</category>
   <guid>https://tidytales.ca/series/reproducible-data-science/index.html</guid>
-  <pubDate>Thu, 05 Jan 2023 01:05:38 GMT</pubDate>
+  <pubDate>Sat, 07 Jan 2023 05:20:59 GMT</pubDate>
 </item>
 </channel>
 </rss>

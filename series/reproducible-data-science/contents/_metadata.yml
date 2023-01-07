@@ -25,6 +25,10 @@ toc-title: "In this post"
 # License
 license: "CC BY"
 
+# Citation Metadata
+citation: true
+csl: ../../../assets/apa.csl
+
 # Comments
 comments: false
 

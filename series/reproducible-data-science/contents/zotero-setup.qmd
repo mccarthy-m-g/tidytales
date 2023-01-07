@@ -52,3 +52,7 @@ Things to do after installing.
 :::
 
 WebDav
+
+## Using Zotero with Quarto and R Markdown
+
+rbbt package

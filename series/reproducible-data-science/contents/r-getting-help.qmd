@@ -1,0 +1,27 @@
+---
+title: Getting Help with R
+description: Writing reproducible examples and debugging errors.
+
+order: 5
+---
+## Writing reproducible examples
+
+A minimal reproducible example—usually referred to as a reprex—is…
+
+https://reprex.tidyverse.org
+
+https://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-create-one/5219
+
+https://www.tidyverse.org/help/
+
+https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example
+
+## Debugging interactively
+
+https://adv-r.hadley.nz/debugging.html
+
+## Debugging targets pipelines
+
+https://books.ropensci.org/targets/debugging.html
+
+## Debugging GitHub Actions workflows
