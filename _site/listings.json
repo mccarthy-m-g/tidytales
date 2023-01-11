@@ -2,14 +2,16 @@
   {
     "listing": "/series/reproducible-data-science/index.html",
     "items": [
-      "/series/reproducible-data-science/contents/system-setup.html",
-      "/series/reproducible-data-science/contents/r-setup.html",
-      "/series/reproducible-data-science/contents/learning-r.html",
-      "/series/reproducible-data-science/contents/r-packages.html",
-      "/series/reproducible-data-science/contents/r-getting-help.html",
-      "/series/reproducible-data-science/contents/python-setup.html",
-      "/series/reproducible-data-science/contents/version-control-setup.html",
-      "/series/reproducible-data-science/contents/zotero-setup.html"
+      "/series/reproducible-data-science/posts/start-here.html",
+      "/series/reproducible-data-science/posts/system-setup.html",
+      "/series/reproducible-data-science/posts/r-setup.html",
+      "/series/reproducible-data-science/posts/learning-r.html",
+      "/series/reproducible-data-science/posts/r-packages.html",
+      "/series/reproducible-data-science/posts/r-getting-help.html",
+      "/series/reproducible-data-science/posts/python-setup.html",
+      "/series/reproducible-data-science/posts/version-control-setup.html",
+      "/series/reproducible-data-science/posts/zotero-setup.html",
+      "/series/reproducible-data-science/posts/writing-math.html"
     ]
   },
   {

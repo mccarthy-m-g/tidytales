@@ -1,14 +1,14 @@
 ---
 title: "Reproducible Data Science"
 description: |
-  My personal setup for learning and doing reproducible data science.
+  My personal approach to learning and doing reproducible data science.
 
 categories:
   - ".Misc"
 
 sidebar: reproducible-data-science
 listing:
-  contents: contents
+  contents: posts
   fields: [title, description, date]
   type: grid
   sort: "order"

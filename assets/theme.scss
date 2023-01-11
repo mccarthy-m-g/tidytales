@@ -108,6 +108,10 @@ $code-color: $dark-accent !default;
   border-color: rgba($black, 0);
 }
 
+.quarto-secondary-nav-title {
+  color: $headings-color;
+}
+
 // Buttons
 .btn-primary:hover {
   background-color: $light-accent-hl;

@@ -1,0 +1,107 @@
+---
+title: Writing Math
+description: Writing math equations in Quarto documents.
+
+order: 100
+---
+
+## Math equations in Quarto
+
+Quarto features [extensive support](https://quarto.org/docs/authoring/markdown-basics.html#equations) for writing beautiful math equations with [LaTeX math](https://en.wikibooks.org/wiki/LaTeX/Mathematics) expressions authored using [standard Pandoc markdown syntax](https://pandoc.org/MANUAL.html#math): Use `$` delimiters for inline math and `$$` delimiters for display math. Provide an `#eq-` label immediately after a display math equation to [make it referenceable](https://quarto.org/docs/authoring/cross-references.html#equations).
+
++----------------------------------+--------------------------------+
+| Markdown Syntax                  | Output                         |
++==================================+================================+
+| inline math: `$E = mc^{2}$`      | inline math: $E=mc^{2}$        |
++----------------------------------+--------------------------------+
+| display math:                    | display math:\                 |
+|                                  | $$E = mc^{2}$$                 |
+| `$$E = mc^{2}$$`                 |                                |
++----------------------------------+--------------------------------+
+| display math with label:         | display math with label:\      |
+|                                  | $$E = mc^{2}$${#eq-mc-squared} |
+| `$$E = mc^{2}$${#eq-mc-squared}` |                                |
++----------------------------------+--------------------------------+
+
+Math expressions can be rendered in any of Quarto's output formats, but different rendering methods are used depending on the format:
+
+- `html` offers [several math rendering methods](https://quarto.org/docs/output-formats/html-basics.html#latex-equations)
+- `pdf` uses LaTeX (including [raw LaTeX](https://quarto.org/docs/output-formats/pdf-basics.html#raw-latex))
+- `docx` uses Microsoft Word's equation environment
+
+To learn more about writing LaTeX math expressions, see:
+
+- [MathJax basic tutorial and quick reference](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)[^1]
+- [Cheatsheet for LaTeX Math Commands](https://tilburgsciencehub.com/building-blocks/collaborate-and-share-your-work/write-your-paper/amsmath-latex-cheatsheet/)
+
+[^1]: [MathJax](https://www.mathjax.org) is an open-source JavaScript rendering engine for LaTeX math expressions. It is the default rendering method in Quarto HTML documents.
+
+::: {.callout-note}
+## Inspecting equations rendered by MathJax
+
+Equations rendered by MathJax can be inspected by right clicking them. This is useful if you want to view or copy the underlying TeX code from an equation **Show Math As > TeX Commands** or **Copy to Clipboard > TeX Commands**. Note that Tidy Tales uses the KaTeX renderer, so it won't work on this site.
+:::
+
+## Using inline R code in math equations
+
+Inline R code `` `r ` `` can be used within inline or display math to include code output in math equations.
+
+```{r}
+mtcars_fit <- lm(mpg ~ am, data = mtcars)
+coef_int   <- coef(mtcars_fit)["(Intercept)"]
+coef_am    <- coef(mtcars_fit)["am"]
+```
+
+Inline math: ``` $\mathrm{\widehat{mpg}} = `r knitr::inline_expr("coef_int")` + `r knitr::inline_expr("coef_am")`(\mathrm{am})$ ```
+
+Inline math: $\mathrm{\widehat{mpg}} = `r coef_int` + `r coef_am`(\mathrm{am})$
+
+The same approach also works for display math.
+
+::: {.callout-tip}
+## Writing model equations
+
+The **equatiomatic** package can be used to write equations from a fitted model. Learn more on the [package website](https://datalorax.github.io/equatiomatic/).
+
+```{r}
+library(equatiomatic)
+```
+
+By default the model equation uses math symbols.
+
+```{r}
+#| eval: false
+extract_eq(mtcars_fit)
+```
+
+```{r}
+#| echo: false
+extract_eq(mtcars_fit) |>
+  print()
+```
+
+But model estimates can be used too.
+
+```{r}
+#| eval: false
+extract_eq(mtcars_fit, use_coefs = TRUE)
+```
+
+```{r}
+#| echo: false
+extract_eq(mtcars_fit, use_coefs = TRUE) |>
+  print()
+```
+
+:::
+
+## Using math equations in plots
+
+Both base R and **ggplot2** plots feature support for writing beautiful math equations with [plotmath expressions](https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/plotmath.html). Equations can be used in plot labels, legends, and text.
+
+If you would rather write equations using LaTeX math expressions, the **latex2exp** package can be used to parse and convert LaTeX to plotmath expressions. Learn more on the [package website](https://www.stefanom.io/latex2exp/).
+
+ggplot2 also includes some convenience functions for using plotmath in plot labels:
+
+- `label_parsed()` interprets labels as plotmath expressions
+- `label_bquote()` offers a flexible way of labelling facet rows or columns with plotmath expressions

@@ -9,7 +9,7 @@
 <link>https://tidytales.ca/index.html</link>
 <atom:link href="https://tidytales.ca/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.2.280</generator>
+<generator>quarto-1.2.313</generator>
 <lastBuildDate>Thu, 22 Dec 2022 08:00:00 GMT</lastBuildDate>
 <item>
   <title>Shared axis labels in patchwork plots</title>
@@ -3055,8 +3055,27 @@ Michael McCarthy. (2021, June 15). <em>Go forth, slayer of Demons</em>.
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1672879759000" data-listing-file-modified-sort="1672879759991" data-listing-reading-time-sort="1.2">
-<a href="../../series/reproducible-data-science/contents/system-setup.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1673386053000" data-listing-file-modified-sort="1673386053175" data-listing-reading-time-sort="1.345">
+<a href="../../series/reproducible-data-science/posts/start-here.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Start Here
+</h5>
+<div class="card-text listing-description">
+Learn what this series is about and how to use it.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 10, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-date-sort="1673212934000" data-listing-file-modified-sort="1673212934216" data-listing-reading-time-sort="1.61">
+<a href="../../series/reproducible-data-science/posts/system-setup.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -3067,15 +3086,15 @@ Installing and configuring the basics.
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
-Jan 4, 2023
+Jan 8, 2023
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-date-sort="1672879907000" data-listing-file-modified-sort="1672879907489" data-listing-reading-time-sort="1.145">
-<a href="../../series/reproducible-data-science/contents/r-setup.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="2" data-listing-date-sort="1672879907000" data-listing-file-modified-sort="1672879907489" data-listing-reading-time-sort="1.145">
+<a href="../../series/reproducible-data-science/posts/r-setup.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -3093,8 +3112,8 @@ Jan 4, 2023
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-listing-date-sort="1672899249000" data-listing-file-modified-sort="1672899249210" data-listing-reading-time-sort="14.29">
-<a href="../../series/reproducible-data-science/contents/learning-r.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="3" data-listing-date-sort="1673385758000" data-listing-file-modified-sort="1673385758933" data-listing-reading-time-sort="14.345">
+<a href="../../series/reproducible-data-science/posts/learning-r.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -3105,15 +3124,15 @@ Learn how to program and do data science with R.
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
-Jan 4, 2023
+Jan 10, 2023
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-listing-date-sort="1673068421000" data-listing-file-modified-sort="1673068421117" data-listing-reading-time-sort="10.315">
-<a href="../../series/reproducible-data-science/contents/r-packages.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="4" data-listing-date-sort="1673403573000" data-listing-file-modified-sort="1673403573706" data-listing-reading-time-sort="11.3">
+<a href="../../series/reproducible-data-science/posts/r-packages.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -3124,34 +3143,34 @@ Installing, managing, and finding R Packages.
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
-Jan 6, 2023
+Jan 10, 2023
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="4" data-listing-date-sort="1673043782000" data-listing-file-modified-sort="1673043782145" data-listing-reading-time-sort="0.09">
-<a href="../../series/reproducible-data-science/contents/r-getting-help.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="5" data-listing-date-sort="1673141372000" data-listing-file-modified-sort="1673141372307" data-listing-reading-time-sort="0.385">
+<a href="../../series/reproducible-data-science/posts/r-getting-help.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Getting Help with R
 </h5>
 <div class="card-text listing-description">
-Writing reproducible examples and debugging errors.
+Writing reproducible examples and debugging errors with R.
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
-Jan 6, 2023
+Jan 7, 2023
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="5" data-listing-date-sort="1672951726000" data-listing-file-modified-sort="1672951726530" data-listing-reading-time-sort="0.99">
-<a href="../../series/reproducible-data-science/contents/python-setup.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="6" data-listing-date-sort="1672951726000" data-listing-file-modified-sort="1672951726530" data-listing-reading-time-sort="0.99">
+<a href="../../series/reproducible-data-science/posts/python-setup.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -3169,8 +3188,8 @@ Jan 5, 2023
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="6" data-listing-date-sort="1672951892000" data-listing-file-modified-sort="1672951892521" data-listing-reading-time-sort="0.145">
-<a href="../../series/reproducible-data-science/contents/version-control-setup.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="7" data-listing-date-sort="1672951892000" data-listing-file-modified-sort="1672951892521" data-listing-reading-time-sort="0.145">
+<a href="../../series/reproducible-data-science/posts/version-control-setup.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -3188,8 +3207,8 @@ Jan 5, 2023
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="7" data-listing-date-sort="1672956499000" data-listing-file-modified-sort="1672956499393" data-listing-reading-time-sort="0.615">
-<a href="../../series/reproducible-data-science/contents/zotero-setup.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="8" data-listing-date-sort="1672956499000" data-listing-file-modified-sort="1672956499393" data-listing-reading-time-sort="0.615">
+<a href="../../series/reproducible-data-science/posts/zotero-setup.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -3207,6 +3226,25 @@ Jan 5, 2023
 </div>
 </a>
 </div>
+<div class="g-col-1" data-index="9" data-listing-date-sort="1673138856000" data-listing-file-modified-sort="1673138856858" data-listing-reading-time-sort="3.55">
+<a href="../../series/reproducible-data-science/posts/writing-math.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Writing Math
+</h5>
+<div class="card-text listing-description">
+Writing math equations in Quarto documents.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 7, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
@@ -3214,7 +3252,7 @@ No matching items
 </div> ]]></description>
   <category>.Misc</category>
   <guid>https://tidytales.ca/series/reproducible-data-science/index.html</guid>
-  <pubDate>Sat, 07 Jan 2023 05:20:59 GMT</pubDate>
+  <pubDate>Wed, 11 Jan 2023 04:07:19 GMT</pubDate>
 </item>
 </channel>
 </rss>

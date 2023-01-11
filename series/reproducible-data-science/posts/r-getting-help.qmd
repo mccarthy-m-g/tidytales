@@ -1,9 +1,10 @@
 ---
 title: Getting Help with R
-description: Writing reproducible examples and debugging errors.
+description: Writing reproducible examples and debugging errors with R.
 
 order: 5
 ---
+
 ## Writing reproducible examples
 
 A minimal reproducible example—usually referred to as a reprex—is…
@@ -25,3 +26,9 @@ https://adv-r.hadley.nz/debugging.html
 https://books.ropensci.org/targets/debugging.html
 
 ## Debugging GitHub Actions workflows
+
+## R Package Versions and Debugging
+
+Sometimes the bugs you run into aren’t caused by your code, but rather the internal code of the package(s) you’re using. If you’re encountering a bug that’s associated with a package that has a newer version available, updating the package might be the only thing you need to do to fix the bug.
+
+## Stack Overflow

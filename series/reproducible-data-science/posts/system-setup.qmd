@@ -7,7 +7,9 @@ order: 1
 
 ## Prerequisites
 
-The following are needed to install, build, and configure everything in the remaining sections. This setup is for macOS, but should also work for Linux (keeping in mind that some things like Xcode and Homebrew are not necessary on Linux). I don't recommend Windows.
+The following will install, build, and configure the tools used in the remaining posts in this series (and some other things). This is my personal setup for macOS and is intended to get a new computer up and running with the tools and preferences I like to use. A lot of this is general to any data science setup on macOS, but some of it is specific to me.
+
+You are free to use or modify this for your own setup, but should do so thoughtfully. Don't run any of the scripts below without understanding what they do, and backup your system if you are trying this on an existing setup. To test drive my system setup safely, consider using a virtualized instance of macOS with [UTM](https://github.com/utmapp/UTM).
 
 ::: {.callout-note}
 ## Before you begin

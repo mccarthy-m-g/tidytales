@@ -36,7 +36,7 @@ website:
       contents:
         - series/reproducible-data-science/index.qmd
         - section: In this series
-          contents: series/reproducible-data-science/contents/*.qmd
+          contents: series/reproducible-data-science/posts/*.qmd
 
   search:
     location: navbar

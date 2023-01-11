@@ -3,6 +3,10 @@
 # Sidebar
 sidebar: reproducible-data-science
 
+# Freeze computational output
+# (see https://quarto.org/docs/projects/code-execution.html#freeze)
+freeze: auto
+
 # Enable banner style title blocks
 title-block-banner: true
 
@@ -26,7 +30,7 @@ toc-title: "In this post"
 license: "CC BY"
 
 # Citation Metadata
-citation: true
+citation: false # FIXME: wrong URL path when set to true
 csl: ../../../assets/apa.csl
 
 # Comments

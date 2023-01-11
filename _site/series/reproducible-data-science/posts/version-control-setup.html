@@ -8,9 +8,9 @@
 
 <meta name="author" content="Michael McCarthy">
 <meta name="dcterms.date" content="2023-01-05">
-<meta name="description" content="Installing and configuring Python.">
+<meta name="description" content="Installing and configuring Git and GitHub.">
 
-<title>Tidy Tales - Python Setup</title>
+<title>Tidy Tales - Version Control Setup</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -96,8 +96,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../series/reproducible-data-science/contents/version-control-setup.html" rel="next">
-<link href="../../../series/reproducible-data-science/contents/r-getting-help.html" rel="prev">
 <link href="../../../assets/images/favicon.png" rel="icon" type="image/png">
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
@@ -208,7 +206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Python Setup</h1>
+      <h1 class="quarto-secondary-nav-title">Version Control Setup</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -219,10 +217,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">Python Setup</h1>
+      <h1 class="title d-none d-lg-block">Version Control Setup</h1>
                   <div>
         <div class="description">
-          Installing and configuring Python.
+          Installing and configuring Git and GitHub.
         </div>
       </div>
                 </div>
@@ -260,54 +258,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">In this series</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/contents/system-setup.html" class="sidebar-item-text sidebar-link">System Setup</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/contents/r-setup.html" class="sidebar-item-text sidebar-link">R Setup</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/contents/learning-r.html" class="sidebar-item-text sidebar-link">Learning R</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/contents/r-packages.html" class="sidebar-item-text sidebar-link">R Packages</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/contents/r-getting-help.html" class="sidebar-item-text sidebar-link">Getting Help with R</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/contents/python-setup.html" class="sidebar-item-text sidebar-link active">Python Setup</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/contents/version-control-setup.html" class="sidebar-item-text sidebar-link">Version Control Setup</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/contents/zotero-setup.html" class="sidebar-item-text sidebar-link">Reference Manager Setup</a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">In this series</span>
   </li>
     </ul>
     </div>
@@ -315,13 +266,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">In this post</h2>
    
   <ul>
-  <li><a href="#python" id="toc-python" class="nav-link active" data-scroll-target="#python">Python</a>
+  <li><a href="#git" id="toc-git" class="nav-link active" data-scroll-target="#git">Git</a>
   <ul class="collapse">
-  <li><a href="#installing-pyenv" id="toc-installing-pyenv" class="nav-link" data-scroll-target="#installing-pyenv">Installing pyenv</a></li>
-  <li><a href="#installing-python" id="toc-installing-python" class="nav-link" data-scroll-target="#installing-python">Installing Python</a></li>
-  <li><a href="#installing-pipenv-or-poetry" id="toc-installing-pipenv-or-poetry" class="nav-link" data-scroll-target="#installing-pipenv-or-poetry">Installing pipenv or poetry</a></li>
+  <li><a href="#installing-git" id="toc-installing-git" class="nav-link" data-scroll-target="#installing-git">Installing git</a></li>
   </ul></li>
-  <li><a href="#python-packages" id="toc-python-packages" class="nav-link" data-scroll-target="#python-packages">Python Packages</a></li>
+  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github">GitHub</a>
+  <ul class="collapse">
+  <li><a href="#installing-github-cli" id="toc-installing-github-cli" class="nav-link" data-scroll-target="#installing-github-cli">Installing GitHub CLI</a></li>
+  <li><a href="#installing-github-desktop" id="toc-installing-github-desktop" class="nav-link" data-scroll-target="#installing-github-desktop">Installing GitHub Desktop</a></li>
+  </ul></li>
+  <li><a href="#version-control-in-rstudio" id="toc-version-control-in-rstudio" class="nav-link" data-scroll-target="#version-control-in-rstudio">Version Control in RStudio</a></li>
   </ul>
 </nav>
 </nav>
@@ -334,37 +288,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<section id="python" class="level2">
-<h2 class="anchored" data-anchor-id="python">Python</h2>
-<p><a href="https://www.python.org">Python</a> is an open source programming language that is the “second best language for everything.” It’s worth setting up in case you need it, but for data science R is almost always simpler and better.</p>
-<section id="installing-pyenv" class="level3">
-<h3 class="anchored" data-anchor-id="installing-pyenv">Installing pyenv</h3>
-<p><a href="https://github.com/pyenv/pyenv">pyenv</a> is an open source Python installation manager for installing, removing, and switching between multiple Python versions.</p>
-<ol type="1">
-<li><p>Install pyenv from the Terminal with Homebrew:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install pyenv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><a href="https://github.com/pyenv/pyenv#set-up-your-shell-environment-for-pyenv">Set up your shell environment</a> for pyenv.</p></li>
-<li><p>Install <a href="https://github.com/pyenv/pyenv#install-python-build-dependencies">Python build dependencies</a> with Homebrew:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install openssl readline sqlite3 xz zlib tcl-tk</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ol>
-</section>
-<section id="installing-python" class="level3">
-<h3 class="anchored" data-anchor-id="installing-python">Installing Python</h3>
-<p>Install the latest major version of Python 3 with shared library support<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> from the Terminal with pyenv:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">env</span> PYTHON_CONFIGURE_OPTS=<span class="st">"--enable-shared"</span> pyenv install 3:latest</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="installing-pipenv-or-poetry" class="level3">
-<h3 class="anchored" data-anchor-id="installing-pipenv-or-poetry">Installing pipenv or poetry</h3>
-<p><a href="https://pipenv.pypa.io/en/latest/">pipenv</a> is an open-source dependency manager for Python projects.</p>
-<p>Install pipenv from the Terminal with Homebrew:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install pipenv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><a href="https://python-poetry.org">poetry</a> is an alternative open-source dependency manager for Python projects. I’m currently experimenting between poetry and pipenv to decide which I prefer.</p>
-<p>Install poetry from the Terminal with:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-sSL</span> https://install.python-poetry.org <span class="kw">|</span> <span class="ex">python3</span> <span class="at">-</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="python-packages" class="level2">
-<h2 class="anchored" data-anchor-id="python-packages">Python Packages</h2>
 <div class="callout-caution callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -378,17 +301,35 @@ This section is under construction
 
 </div>
 </div>
+<p><a href="https://happygitwithr.com" class="uri">https://happygitwithr.com</a> <a href="https://usethis.r-lib.org/articles/git-credentials.html" class="uri">https://usethis.r-lib.org/articles/git-credentials.html</a></p>
+<section id="git" class="level2">
+<h2 class="anchored" data-anchor-id="git">Git</h2>
+<p><a href="https://www.r-project.org">Git</a> is …</p>
+<section id="installing-git" class="level3">
+<h3 class="anchored" data-anchor-id="installing-git">Installing git</h3>
+<p>Install git from the Terminal with Homebrew:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> tap r-lib/rig</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install <span class="at">--cask</span> rig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="github" class="level2">
+<h2 class="anchored" data-anchor-id="github">GitHub</h2>
+<section id="installing-github-cli" class="level3">
+<h3 class="anchored" data-anchor-id="installing-github-cli">Installing GitHub CLI</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="installing-github-desktop" class="level3">
+<h3 class="anchored" data-anchor-id="installing-github-desktop">Installing GitHub Desktop</h3>
+<p>…</p>
+</section>
+</section>
+<section id="version-control-in-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="version-control-in-rstudio">Version Control in RStudio</h2>
 
 
 </section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Shared library support is needed to use Python versions with <a href="https://rstudio.github.io/reticulate/articles/versions.html#locating-python">reticulate</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section></div></main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -536,18 +477,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../../series/reproducible-data-science/contents/r-getting-help.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Getting Help with R</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../../series/reproducible-data-science/contents/version-control-setup.html" class="pagination-link">
-        <span class="nav-page-text">Version Control Setup</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

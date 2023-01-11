@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.280">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Michael McCarthy">
-<meta name="dcterms.date" content="2023-01-07">
+<meta name="dcterms.date" content="2023-01-10">
 <meta name="description" content="Installing, managing, and finding R Packages.">
 
 <title>Tidy Tales - R Packages</title>
@@ -96,8 +96,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../series/reproducible-data-science/contents/r-getting-help.html" rel="next">
-<link href="../../../series/reproducible-data-science/contents/learning-r.html" rel="prev">
+<link href="../../../series/reproducible-data-science/posts/r-getting-help.html" rel="next">
+<link href="../../../series/reproducible-data-science/posts/learning-r.html" rel="prev">
 <link href="../../../assets/images/favicon.png" rel="icon" type="image/png">
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
@@ -244,7 +244,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 7, 2023</p>
+        <p class="date">January 10, 2023</p>
       </div>
     </div>
     
@@ -272,42 +272,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/contents/system-setup.html" class="sidebar-item-text sidebar-link">System Setup</a>
+  <a href="../../../series/reproducible-data-science/posts/start-here.html" class="sidebar-item-text sidebar-link">Start Here</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/contents/r-setup.html" class="sidebar-item-text sidebar-link">R Setup</a>
+  <a href="../../../series/reproducible-data-science/posts/system-setup.html" class="sidebar-item-text sidebar-link">System Setup</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/contents/learning-r.html" class="sidebar-item-text sidebar-link">Learning R</a>
+  <a href="../../../series/reproducible-data-science/posts/r-setup.html" class="sidebar-item-text sidebar-link">R Setup</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/contents/r-packages.html" class="sidebar-item-text sidebar-link active">R Packages</a>
+  <a href="../../../series/reproducible-data-science/posts/learning-r.html" class="sidebar-item-text sidebar-link">Learning R</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/contents/r-getting-help.html" class="sidebar-item-text sidebar-link">Getting Help with R</a>
+  <a href="../../../series/reproducible-data-science/posts/r-packages.html" class="sidebar-item-text sidebar-link active">R Packages</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/contents/python-setup.html" class="sidebar-item-text sidebar-link">Python Setup</a>
+  <a href="../../../series/reproducible-data-science/posts/r-getting-help.html" class="sidebar-item-text sidebar-link">Getting Help with R</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/contents/version-control-setup.html" class="sidebar-item-text sidebar-link">Version Control Setup</a>
+  <a href="../../../series/reproducible-data-science/posts/python-setup.html" class="sidebar-item-text sidebar-link">Python Setup</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/contents/zotero-setup.html" class="sidebar-item-text sidebar-link">Reference Manager Setup</a>
+  <a href="../../../series/reproducible-data-science/posts/version-control-setup.html" class="sidebar-item-text sidebar-link">Version Control Setup</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../series/reproducible-data-science/posts/zotero-setup.html" class="sidebar-item-text sidebar-link">Reference Manager Setup</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../series/reproducible-data-science/posts/writing-math.html" class="sidebar-item-text sidebar-link">Writing Math</a>
   </div>
 </li>
       </ul>
@@ -352,7 +362,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Do you want to install from sources the package which needs compilation?
+“Do you want to install from sources the package which needs compilation?”
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -360,6 +370,7 @@ Do you want to install from sources the package which needs compilation?
 <p>Unless you need the newest version of the package for a specific feature or bug fix, I recommend choosing no—the binary version will install faster, and you can simply wait a few days for the binary of the newest version to be built on the repository you’re installing packages from, then install the package again to get the newest version. If you need the newest version of the package <em>right now</em> then choose yes, but you will need to set up your <a href="https://r-pkgs.org/setup.html#setup-tools">R build toolchain</a> first.</p>
 </div>
 </div>
+<p>To learn more about package installation, see the <a href="https://r-pkgs.org/structure.html#package">Package structure and state</a> chapter in <em>R Packages</em> by Hadley Wickham and Jenny Bryan.</p>
 </section>
 <section id="where-can-i-install-r-packages-from" class="level2">
 <h2 class="anchored" data-anchor-id="where-can-i-install-r-packages-from">Where can I install R packages from?</h2>
@@ -376,18 +387,18 @@ Do you want to install from sources the package which needs compilation?
 <p>Previous release versions of R packages can be installed from:</p>
 <ul>
 <li><a href="https://packagemanager.rstudio.com/">Posit Public Package Manager</a></li>
-<li><a href="https://mran.microsoft.com/">MRAN</a></li>
+<li><a href="https://mran.microsoft.com/"><del>MRAN</del></a> (shut down on July 1st, 2023)</li>
 </ul>
 </section>
 <section id="where-can-i-find-new-r-packages" class="level2">
 <h2 class="anchored" data-anchor-id="where-can-i-find-new-r-packages">Where can I find new R packages?</h2>
-<div class="cell" data-hash="r-packages_cache/html/cran-pkgsearch_7aea44f9bbbd5ef898826cbcc37637fd">
+<div class="cell" data-hash="r-packages_cache/html/cran-bioc-runiverse-pkgs_8602e0c057211b00a3a51796d2ba8eb3">
 
 </div>
-<p>There were 18975 R packages available on <a href="https://cran.r-project.org/web/packages/">CRAN</a> in 2022, and that number only continues to grow over time. That’s not to mention the 2165 R packages available on BioConductor, and the unknown amount of packages only available on R-universe or GitHub.</p>
+<p>There were 18954 R packages available on <a href="https://cran.r-project.org/web/packages/">CRAN</a> in 2022, and that number only continues to grow over time. That’s not to mention the 2165 R packages available on Bioconductor, the 1704 packages available on R-universe but not CRAN or Bioconductor, and the unknown amount of packages only available on GitHub.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="r-packages_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+<p><img src="r-packages_files/figure-html/plot-first-published-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Fortunately, there are many places to find curated content about R packages:</p>
@@ -445,7 +456,7 @@ Social Media
 <p>Most R packages available on CRAN are actively maintained and updated. For example, in 2022 more than half the packages available on CRAN had an update in the same or previous year. It’s good practice to keep up with these updates so you can get the latest features, improvements, and bug fixes.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="r-packages_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+<p><img src="r-packages_files/figure-html/plot-last-updated-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Use <code>old.packages()</code> to check which of the packages you’ve installed have updates available from the repositories listed in <code>getOption("repos")</code>.</p>
@@ -572,16 +583,7 @@ Default library locations and .Renviron
 <li id="fn1"><p>By default <code>update.packages()</code> will ask you one by one whether you would like to update a given package. Use the <code>ask = FALSE</code> argument to update all packages without asking.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>It’s okay to keep the RStudio window for the current library open.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{mccarthy2023,
-  author = {Michael McCarthy},
-  title = {R {Packages}},
-  date = {2023-01-07},
-  url = {https://tidytales.ca/r-packages.html},
-  langid = {en}
-}
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mccarthy2023" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
-Michael McCarthy. (2023, January 7). <em>R Packages</em>. <a href="https://tidytales.ca/r-packages.html">https://tidytales.ca/r-packages.html</a>
-</div></div></section></div></main> <!-- /main -->
+</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -731,12 +733,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../series/reproducible-data-science/contents/learning-r.html" class="pagination-link">
+      <a href="../../../series/reproducible-data-science/posts/learning-r.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Learning R</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../series/reproducible-data-science/contents/r-getting-help.html" class="pagination-link">
+      <a href="../../../series/reproducible-data-science/posts/r-getting-help.html" class="pagination-link">
         <span class="nav-page-text">Getting Help with R</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

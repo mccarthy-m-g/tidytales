@@ -4,7 +4,7 @@ subtitle: "A data science blog by Michael McCarthy"
 
 listing:
   - id: posts
-    contents: "posts"
+    contents: "/posts"
     fields: [date, title, description, categories, image]
     sort: "date desc"
     type: default

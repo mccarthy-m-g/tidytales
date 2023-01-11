@@ -25,12 +25,14 @@ pkg_install("tibble")
 pak is fast, safe, and convenient. You can learn more about it on the [package website](https://pak.r-lib.org/).
 
 ::: {.callout-note}
-## Do you want to install from sources the package which needs compilation?
+## "Do you want to install from sources the package which needs compilation?"
 
 When installing a package, you will sometimes encounter the above question along with the message "There are binary versions available but the source versions are later". What this question is asking is whether you would like to have your computer build (compile) the package binary from source code then install it (`yes`) or have your computer install a pre-built binary (`no`). If you choose yes, you will get the newest version of the package; if you choose no you will get the newest binary version of the package (typically the previous release).
 
 Unless you need the newest version of the package for a specific feature or bug fix, I recommend choosing no---the binary version will install faster, and you can simply wait a few days for the binary of the newest version to be built on the repository you're installing packages from, then install the package again to get the newest version. If you need the newest version of the package *right now* then choose yes, but you will need to set up your [R build toolchain](https://r-pkgs.org/setup.html#setup-tools) first.
 :::
+
+To learn more about package installation, see the [Package structure and state](https://r-pkgs.org/structure.html#package) chapter in *R Packages* by Hadley Wickham and Jenny Bryan.
 
 ## Where can I install R packages from?
 
@@ -47,51 +49,78 @@ Development versions of R packages can be installed from:
 Previous release versions of R packages can be installed from:
 
 - [Posit Public Package Manager](https://packagemanager.rstudio.com/)
-- [MRAN](https://mran.microsoft.com/)
+- [~~MRAN~~](https://mran.microsoft.com/) (shut down on July 1st, 2023)
 
 ## Where can I find new R packages?
 
 ```{r}
-#| label: cran-pkgsearch
+#| label: cran-bioc-runiverse-pkgs
 #| echo: false
 #| cache: true
 library(pkgsearch)
 
-# Packages *currently available* on CRAN
-cran_pkgs <- as.data.frame(available.packages())
+# CRAN (does not include archived packages) ----
+cran_pkgs <- available.packages()[,"Package"]
 
+# Get the first and latest publish date for each package before the end of the
+# params$year
 pkgs <- lapply(
-  cran_pkgs$Package,
+  cran_pkgs,
   function(x) {
-    pkg <- pkgsearch::cran_package_history(x)[, c("Package", "date")]
-    pkg$date <- as.Date(pkg$date)
-    pkg <- pkg[pkg$date < as.Date(paste0(params$year + 1, "-01-01")),]
-    if (nrow(pkg) == 0) {
-      pkg <- NULL
-    } else if (nrow(pkg) == 1) {
-      pkg$when <- "First Year Published"
-      pkg$new_versions <- FALSE
-    } else {
-      pkg <- pkg[c(1, nrow(pkg)), ]
-      pkg$new_versions <- TRUE
-      pkg$when <- c("First Year Published", "Latest Version Year")
+    pkg <- tryCatch(
+      pkgsearch::cran_package_history(x)[, c("Package", "date")],
+      error = function(e) NULL
+    )
+    
+    if (!is.null(pkg)) {
+      pkg$date <- as.Date(pkg$date)
+      pkg <- pkg[pkg$date < as.Date(paste0(params$year + 1, "-01-01")),]
+      if (nrow(pkg) == 0) {
+        pkg <- NULL
+      } else if (nrow(pkg) == 1) {
+        pkg$when <- "First Year Published"
+        pkg$new_versions <- FALSE
+      } else {
+        pkg <- pkg[c(1, nrow(pkg)), ]
+        pkg$new_versions <- TRUE
+        pkg$when <- c("First Year Published", "Latest Version Year")
+      }
     }
+      
     pkg
   }
 )
 pkgs <- do.call(rbind.data.frame, pkgs)
 cran_n <- nrow(pkgs[pkgs$when == "First Year Published",])
 
-# Bioconductor counts
+# Bioconductor ----
 bioc_v <- BiocManager::version()
-bioc_n <- nrow(available.packages(
+bioc_pkgs <- available.packages(
   contrib.url(paste0("https://bioconductor.org/packages/", bioc_v, "/bioc"))
-))
+)[,"Package"]
+bioc_n <- length(bioc_pkgs)
+
+# R-universe ----
+r_universe <- jsonlite::stream_in(
+  url("https://r-universe.dev/stats/universes"), verbose = FALSE
+)
+universes <- r_universe$universe
+repos <- paste0("https://", universes, ".r-universe.dev")
+
+all_pkgs <- available.packages(contrib.url(repos))[,"Package"]
+# The packages in universes can overlap, so duplicates need to be removed
+unique_pkgs <- all_pkgs[!duplicated(all_pkgs)]
+
+# Find the packages that are available on R-universe but not CRAN or
+# Bioconductor
+runiverse_pkgs <- unique_pkgs[!(unique_pkgs %in% c(cran_pkgs, bioc_pkgs))]
+runiverse_n <- length(runiverse_pkgs)
 ```
 
-There were `r cran_n` R packages available on [CRAN](https://cran.r-project.org/web/packages/) in `r params$year`, and that number only continues to grow over time. That’s not to mention the `r bioc_n` R packages available on BioConductor, and the unknown amount of packages only available on R-universe or GitHub.
+There were `r cran_n` R packages available on [CRAN](https://cran.r-project.org/web/packages/) in `r params$year`, and that number only continues to grow over time. That’s not to mention the `r bioc_n` R packages available on Bioconductor, the `r runiverse_n` packages available on R-universe but not CRAN or Bioconductor, and the unknown amount of packages only available on GitHub.
 
 ```{r}
+#| label: plot-first-published
 #| echo: false
 library(ggplot2)
 library(lubridate)
@@ -183,9 +212,10 @@ An alternative approach to managing namespace conflicts is with the **conflicted
 
 ## How do I update R packages?
 
-Most R packages available on CRAN are actively maintained and updated. It's good practice to keep up with these updates so you can get the latest features, improvements, and bug fixes.
+Most R packages available on CRAN are actively maintained and updated. For example, in `r params$year` more than half the packages available on CRAN had an update in the same or previous year. It's good practice to keep up with these updates so you can get the latest features, improvements, and bug fixes.
 
 ```{r}
+#| label: plot-last-updated
 #| echo: false
 last_updated <- ggplot(
   pkgs[pkgs$when == "Latest Version Year",],

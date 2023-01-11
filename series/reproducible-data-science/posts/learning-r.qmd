@@ -133,7 +133,7 @@ Finally, a lot of people in the R community who have taught courses or workshops
 
 If you want to become a better R programmer, I think these books are a good place to start:
 
-- [R packages](https://r-pkgs.org) by Hadley Wickham and Jenny Bryan
+- [R Packages](https://r-pkgs.org) by Hadley Wickham and Jenny Bryan
 - [Advanced R](https://adv-r.hadley.nz) by Hadley Wickham
 - [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org) by Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen
 - [Mastering Shiny](https://mastering-shiny.org) by Hadley Wickham
@@ -188,6 +188,7 @@ The best place to learn each of these R packages and tools individually is their
 
 - [Reproducible Analytical Pipelines](https://rap4mads.eu) by Bruno Rodrigues
 - [Automating Computational Reproducibility in R using renv, Docker, and GitHub Actions](http://haines-lab.com/post/2022-01-23-automating-computational-reproducibility-with-r-using-renv-docker-and-github-actions/) by Nathaniel Haines
+- [Combining R and Python with {reticulate} and Quarto](https://nrennie.rbind.io/blog/combining-r-and-python-with-reticulate-and-quarto/) by Nicola Rennie
 
 You might also like:
 
