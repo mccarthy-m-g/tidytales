@@ -195,6 +195,7 @@ You might also like:
 - [Open source is a hard requirement for reproducibility](https://www.brodrigues.co/blog/2022-11-16-open_source_repro/) by Bruno Rodrigues
 - [Functional programming explains why containerization is needed for reproducibility](https://www.brodrigues.co/blog/2022-11-30-pipelines-as/) by Bruno Rodrigues
 - [Code longevity of the R programming language](https://www.brodrigues.co/blog/2022-12-21-longevity/) by Bruno Rodrigues
+- [MRAN is getting shutdown - what else is there for reproducibility with R, or why reproducibility is on a continuum?](https://www.brodrigues.co/blog/2023-01-12-repro_r/) by Bruno Rodrigues
 
 ## What did you forget to teach me about R?
 

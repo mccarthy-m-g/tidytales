@@ -1,11 +1,67 @@
 ---
-title: Writing Math
-description: Writing math equations in Quarto documents.
+title: Technical Writing
+description: Technical writing and literate programming in Quarto documents.
 
 order: 100
 ---
 
-## Math equations in Quarto
+## Literate programming
+
+**Literate programming** is the practice of mixing text and executable code in the same document, making it possible to write reproducible documents. There are four engines for executing code in Quarto documents:
+
+- [knitr](https://github.com/yihui/knitr) (supports R, Python, Julia, and more)
+- [jupyter](https://jupyter.org) (Python only)
+- [IJulia](https://github.com/JuliaLang/IJulia.jl) (Julia only)
+- [Observable JS](https://observablehq.com/) (Observable JS only)
+
+All engines support executing code in **code blocks** within a document, which can be used to execute code and include its output in a document. Code blocks can produce a wide variety of outputs, including plots, tabular output from data frames, and plain text. The behaviour of code execution and output can be set with Quarto's [Execution Options](https://quarto.org/docs/computations/execution-options.html).
+
+knitr, jupyter, and Observable JS also support executing **inline code** within markdown text, which can be used to allow narrative to automatically use the most up to date computations. The syntax for inline code varies across the engines.
+
+The remainder of this post covers some useful literate programming practices when writing reproducible documents with the knitr engine.
+
+::: {.callout-note}
+## Project management
+
+Literate programming is a powerful tool for writing reproducible documents, but it can also become unwieldy if your computations require a lot of code. Rather than writing all the code within a document, it is often better to source the required code within a document, then include output using the objects created by the sourced code. The simplest way to adopt this approach is by using the `source()` function to source R script files containing the computations for a document; a better way is to use the [literate programming](https://books.ropensci.org/targets/literate-programming.html) approach described in the **targets** R package.
+:::
+
+## Plain text outputs
+
+Most code you write will be output as plain text. Depending on the purpose of a document, it might be fine to leave that output as is, or you might want to format the text, include it inline, and so forth.
+
+For example, say you wanted to report the number of participants in a study you ran. Rather than writing a sentence like this:
+
+> There were twelve participants in the study.
+
+You could get the number of participants computationally, format that number into the word "twelve", and include it in the sentence using inline code:
+
+```{r}
+n_participants <- xfun::numbers_to_words(12)
+```
+
+> There were `` `r knitr::inline_expr("n_participants")` `` participants in the study.
+
+This sentence would become "There were twelve participants in the study." when you render the document. Likewise, if the number of participants changed, the number reported in the sentence would change the next time the document rendered (as long as the R object storing the number of participants knew about the change).
+
+If there are many values you need to report inline, storing them in a list is a good practice. For an overview of this approach, see:
+
+- [Lists are my secret weapon for reporting stats with knitr](https://www.tjmahr.com/lists-knitr-secret-weapon/) by Tristan Mahr
+
+## Figure and table outputs
+
+Figures and tables produced by code blocks have unique parameters you can use to adjust their layout, add captions, or make them cross-referenceable. See the Quarto documentation for details:
+
+- [Figures documentation](https://quarto.org/docs/authoring/figures.html)
+- [Tables documentation](https://quarto.org/docs/authoring/tables.html)
+
+::: {.callout-tip}
+## Adjusting figure appearance
+
+When making figures with **ggplot2** it's best to know the final size of the figure before attempting to adjust the size of plot text or geometry.
+:::
+
+## Equations
 
 Quarto features [extensive support](https://quarto.org/docs/authoring/markdown-basics.html#equations) for writing beautiful math equations with [LaTeX math](https://en.wikibooks.org/wiki/LaTeX/Mathematics) expressions authored using [standard Pandoc markdown syntax](https://pandoc.org/MANUAL.html#math): Use `$` delimiters for inline math and `$$` delimiters for display math. Provide an `#eq-` label immediately after a display math equation to [make it referenceable](https://quarto.org/docs/authoring/cross-references.html#equations).
 
@@ -42,7 +98,7 @@ To learn more about writing LaTeX math expressions, see:
 Equations rendered by MathJax can be inspected by right clicking them. This is useful if you want to view or copy the underlying TeX code from an equation **Show Math As > TeX Commands** or **Copy to Clipboard > TeX Commands**. Note that Tidy Tales uses the KaTeX renderer, so it won't work on this site.
 :::
 
-## Using inline R code in math equations
+### Using inline R code in math equations
 
 Inline R code `` `r ` `` can be used within inline or display math to include code output in math equations.
 
@@ -95,7 +151,7 @@ extract_eq(mtcars_fit, use_coefs = TRUE) |>
 
 :::
 
-## Using math equations in plots
+### Using math equations in plots
 
 Both base R and **ggplot2** plots feature support for writing beautiful math equations with [plotmath expressions](https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/plotmath.html). Equations can be used in plot labels, legends, and text.
 

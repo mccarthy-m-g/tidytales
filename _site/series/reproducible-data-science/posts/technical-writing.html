@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Michael McCarthy">
-<meta name="dcterms.date" content="2023-01-05">
-<meta name="description" content="Installing and configuring Zotero.">
+<meta name="dcterms.date" content="2023-01-14">
+<meta name="description" content="Technical writing and literate programming in Quarto documents.">
 
-<title>Tidy Tales - Reference Manager Setup</title>
+<title>Tidy Tales - Technical Writing</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -96,8 +96,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../series/reproducible-data-science/posts/technical-writing.html" rel="next">
-<link href="../../../series/reproducible-data-science/posts/version-control-setup.html" rel="prev">
+<link href="../../../series/reproducible-data-science/posts/zotero-setup.html" rel="prev">
 <link href="../../../assets/images/favicon.png" rel="icon" type="image/png">
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
@@ -128,6 +127,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
+<link href="../../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../../assets/styles.css">
 <meta property="og:title" content="Tidy Tales">
@@ -208,7 +226,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Reference Manager Setup</h1>
+      <h1 class="quarto-secondary-nav-title">Technical Writing</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -219,10 +237,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">Reference Manager Setup</h1>
+      <h1 class="title d-none d-lg-block">Technical Writing</h1>
                   <div>
         <div class="description">
-          Installing and configuring Zotero.
+          Technical writing and literate programming in Quarto documents.
         </div>
       </div>
                 </div>
@@ -241,7 +259,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 5, 2023</p>
+        <p class="date">January 14, 2023</p>
       </div>
     </div>
     
@@ -309,12 +327,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/posts/zotero-setup.html" class="sidebar-item-text sidebar-link active">Reference Manager Setup</a>
+  <a href="../../../series/reproducible-data-science/posts/zotero-setup.html" class="sidebar-item-text sidebar-link">Reference Manager Setup</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/posts/technical-writing.html" class="sidebar-item-text sidebar-link">Technical Writing</a>
+  <a href="../../../series/reproducible-data-science/posts/technical-writing.html" class="sidebar-item-text sidebar-link active">Technical Writing</a>
   </div>
 </li>
       </ul>
@@ -325,18 +343,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">In this post</h2>
    
   <ul>
-  <li><a href="#zotero" id="toc-zotero" class="nav-link active" data-scroll-target="#zotero">Zotero</a>
+  <li><a href="#literate-programming" id="toc-literate-programming" class="nav-link active" data-scroll-target="#literate-programming">Literate programming</a></li>
+  <li><a href="#plain-text-outputs" id="toc-plain-text-outputs" class="nav-link" data-scroll-target="#plain-text-outputs">Plain text outputs</a></li>
+  <li><a href="#figure-and-table-outputs" id="toc-figure-and-table-outputs" class="nav-link" data-scroll-target="#figure-and-table-outputs">Figure and table outputs</a></li>
+  <li><a href="#equations" id="toc-equations" class="nav-link" data-scroll-target="#equations">Equations</a>
   <ul class="collapse">
-  <li><a href="#installing-zotero" id="toc-installing-zotero" class="nav-link" data-scroll-target="#installing-zotero">Installing Zotero</a></li>
-  <li><a href="#installing-zotero-connector" id="toc-installing-zotero-connector" class="nav-link" data-scroll-target="#installing-zotero-connector">Installing Zotero Connector</a></li>
-  <li><a href="#installing-zotero-extensions" id="toc-installing-zotero-extensions" class="nav-link" data-scroll-target="#installing-zotero-extensions">Installing Zotero extensions</a></li>
-  <li><a href="#ios-app" id="toc-ios-app" class="nav-link" data-scroll-target="#ios-app">iOS app</a></li>
+  <li><a href="#using-inline-r-code-in-math-equations" id="toc-using-inline-r-code-in-math-equations" class="nav-link" data-scroll-target="#using-inline-r-code-in-math-equations">Using inline R code in math equations</a></li>
+  <li><a href="#using-math-equations-in-plots" id="toc-using-math-equations-in-plots" class="nav-link" data-scroll-target="#using-math-equations-in-plots">Using math equations in plots</a></li>
   </ul></li>
-  <li><a href="#configuring-zotero" id="toc-configuring-zotero" class="nav-link" data-scroll-target="#configuring-zotero">Configuring Zotero</a>
-  <ul class="collapse">
-  <li><a href="#cloud-syncing" id="toc-cloud-syncing" class="nav-link" data-scroll-target="#cloud-syncing">Cloud syncing</a></li>
-  </ul></li>
-  <li><a href="#using-zotero-with-quarto-and-r-markdown" id="toc-using-zotero-with-quarto-and-r-markdown" class="nav-link" data-scroll-target="#using-zotero-with-quarto-and-r-markdown">Using Zotero with Quarto and R Markdown</a></li>
   </ul>
 </nav>
 </nav>
@@ -349,78 +363,201 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<section id="zotero" class="level2">
-<h2 class="anchored" data-anchor-id="zotero">Zotero</h2>
-<p><a href="https://www.zotero.org">Zotero</a> is an open-source reference manager that styles itself as “your personal research assistant.”</p>
-<section id="installing-zotero" class="level3">
-<h3 class="anchored" data-anchor-id="installing-zotero">Installing Zotero</h3>
-<p>Install Zotero from the Terminal with Homebrew:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install <span class="at">--cask</span> zotero</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="installing-zotero-connector" class="level3">
-<h3 class="anchored" data-anchor-id="installing-zotero-connector">Installing Zotero Connector</h3>
-<p><a href="https://www.zotero.org/download/connectors">Zotero Connector</a> is a browser plugin that allows you to save web content (blogs, articles, etc.) to Zotero with a single click.</p>
-<p>The Zotero Connector for Safari is bundled with Zotero. You can enable it from the Extensions pane of the Safari preferences.</p>
-</section>
-<section id="installing-zotero-extensions" class="level3">
-<h3 class="anchored" data-anchor-id="installing-zotero-extensions">Installing Zotero extensions</h3>
-<p>These are the core extensions I use with Zotero. See their documentation for installation instructions:</p>
+<section id="literate-programming" class="level2">
+<h2 class="anchored" data-anchor-id="literate-programming">Literate programming</h2>
+<p><strong>Literate programming</strong> is the practice of mixing text and executable code in the same document, making it possible to write reproducible documents. There are four engines for executing code in Quarto documents:</p>
 <ul>
-<li><a href="https://retorque.re/zotero-better-bibtex/">Better BibTeX</a></li>
-<li><a href="http://zotfile.com">ZotFile</a></li>
+<li><a href="https://github.com/yihui/knitr">knitr</a> (supports R, Python, Julia, and more)</li>
+<li><a href="https://jupyter.org">jupyter</a> (Python only)</li>
+<li><a href="https://github.com/JuliaLang/IJulia.jl">IJulia</a> (Julia only)</li>
+<li><a href="https://observablehq.com/">Observable JS</a> (Observable JS only)</li>
 </ul>
-<p>I also use:</p>
-<ul>
-<li><a href="https://github.com/scitedotai/scite-zotero-plugin">scite</a></li>
-<li><a href="https://github.com/PubPeerFoundation/pubpeer_zotero_plugin">PubPeer</a></li>
-</ul>
-</section>
-<section id="ios-app" class="level3">
-<h3 class="anchored" data-anchor-id="ios-app">iOS app</h3>
-<div class="callout-caution callout callout-style-default callout-captioned">
+<p>All engines support executing code in <strong>code blocks</strong> within a document, which can be used to execute code and include its output in a document. Code blocks can produce a wide variety of outputs, including plots, tabular output from data frames, and plain text. The behaviour of code execution and output can be set with Quarto’s <a href="https://quarto.org/docs/computations/execution-options.html">Execution Options</a>.</p>
+<p>knitr, jupyter, and Observable JS also support executing <strong>inline code</strong> within markdown text, which can be used to allow narrative to automatically use the most up to date computations. The syntax for inline code varies across the engines.</p>
+<p>The remainder of this post covers some useful literate programming practices when writing reproducible documents with the knitr engine.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-This section is under construction
+Project management
 </div>
 </div>
 <div class="callout-body-container callout-body">
-
+<p>Literate programming is a powerful tool for writing reproducible documents, but it can also become unwieldy if your computations require a lot of code. Rather than writing all the code within a document, it is often better to source the required code within a document, then include output using the objects created by the sourced code. The simplest way to adopt this approach is by using the <code>source()</code> function to source R script files containing the computations for a document; a better way is to use the <a href="https://books.ropensci.org/targets/literate-programming.html">literate programming</a> approach described in the <strong>targets</strong> R package.</p>
 </div>
 </div>
 </section>
+<section id="plain-text-outputs" class="level2">
+<h2 class="anchored" data-anchor-id="plain-text-outputs">Plain text outputs</h2>
+<p>Most code you write will be output as plain text. Depending on the purpose of a document, it might be fine to leave that output as is, or you might want to format the text, include it inline, and so forth.</p>
+<p>For example, say you wanted to report the number of participants in a study you ran. Rather than writing a sentence like this:</p>
+<blockquote class="blockquote">
+<p>There were twelve participants in the study.</p>
+</blockquote>
+<p>You could get the number of participants computationally, format that number into the word “twelve”, and include it in the sentence using inline code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>n_participants <span class="ot">&lt;-</span> xfun<span class="sc">::</span><span class="fu">numbers_to_words</span>(<span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<p>There were <code>`r n_participants`</code> participants in the study.</p>
+</blockquote>
+<p>This sentence would become “There were twelve participants in the study.” when you render the document. Likewise, if the number of participants changed, the number reported in the sentence would change the next time the document rendered (as long as the R object storing the number of participants knew about the change).</p>
+<p>If there are many values you need to report inline, storing them in a list is a good practice. For an overview of this approach, see:</p>
+<ul>
+<li><a href="https://www.tjmahr.com/lists-knitr-secret-weapon/">Lists are my secret weapon for reporting stats with knitr</a> by Tristan Mahr</li>
+</ul>
 </section>
-<section id="configuring-zotero" class="level2">
-<h2 class="anchored" data-anchor-id="configuring-zotero">Configuring Zotero</h2>
-<p>Things to do after installing.</p>
-<section id="cloud-syncing" class="level3">
-<h3 class="anchored" data-anchor-id="cloud-syncing">Cloud syncing</h3>
-<div class="callout-caution callout callout-style-default callout-captioned">
+<section id="figure-and-table-outputs" class="level2">
+<h2 class="anchored" data-anchor-id="figure-and-table-outputs">Figure and table outputs</h2>
+<p>Figures and tables produced by code blocks have unique parameters you can use to adjust their layout, add captions, or make them cross-referenceable. See the Quarto documentation for details:</p>
+<ul>
+<li><a href="https://quarto.org/docs/authoring/figures.html">Figures documentation</a></li>
+<li><a href="https://quarto.org/docs/authoring/tables.html">Tables documentation</a></li>
+</ul>
+<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-This section is under construction
+Adjusting figure appearance
 </div>
 </div>
 <div class="callout-body-container callout-body">
-
+<p>When making figures with <strong>ggplot2</strong> it’s best to know the final size of the figure before attempting to adjust the size of plot text or geometry.</p>
 </div>
 </div>
-<p>WebDav</p>
 </section>
+<section id="equations" class="level2">
+<h2 class="anchored" data-anchor-id="equations">Equations</h2>
+<p>Quarto features <a href="https://quarto.org/docs/authoring/markdown-basics.html#equations">extensive support</a> for writing beautiful math equations with <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">LaTeX math</a> expressions authored using <a href="https://pandoc.org/MANUAL.html#math">standard Pandoc markdown syntax</a>: Use <code>$</code> delimiters for inline math and <code>$$</code> delimiters for display math. Provide an <code>#eq-</code> label immediately after a display math equation to <a href="https://quarto.org/docs/authoring/cross-references.html#equations">make it referenceable</a>.</p>
+<table class="table">
+<colgroup>
+<col style="width: 48%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Markdown Syntax</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>inline math: <code>$E = mc^{2}$</code></td>
+<td>inline math: <span class="math inline">E=mc^{2}</span></td>
+</tr>
+<tr class="even">
+<td><p>display math:</p>
+<p><code>$$E = mc^{2}$$</code></p></td>
+<td>display math:<br>
+<span class="math display">E = mc^{2}</span></td>
+</tr>
+<tr class="odd">
+<td><p>display math with label:</p>
+<p><code>$$E = mc^{2}$${#eq-mc-squared}</code></p></td>
+<td>display math with label:<br>
+<span id="eq-mc-squared"><span class="math display">E = mc^{2} \tag{1}</span></span></td>
+</tr>
+</tbody>
+</table>
+<p>Math expressions can be rendered in any of Quarto’s output formats, but different rendering methods are used depending on the format:</p>
+<ul>
+<li><code>html</code> offers <a href="https://quarto.org/docs/output-formats/html-basics.html#latex-equations">several math rendering methods</a></li>
+<li><code>pdf</code> uses LaTeX (including <a href="https://quarto.org/docs/output-formats/pdf-basics.html#raw-latex">raw LaTeX</a>)</li>
+<li><code>docx</code> uses Microsoft Word’s equation environment</li>
+</ul>
+<p>To learn more about writing LaTeX math expressions, see:</p>
+<ul>
+<li><a href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference">MathJax basic tutorial and quick reference</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+<li><a href="https://tilburgsciencehub.com/building-blocks/collaborate-and-share-your-work/write-your-paper/amsmath-latex-cheatsheet/">Cheatsheet for LaTeX Math Commands</a></li>
+</ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Inspecting equations rendered by MathJax
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Equations rendered by MathJax can be inspected by right clicking them. This is useful if you want to view or copy the underlying TeX code from an equation <strong>Show Math As &gt; TeX Commands</strong> or <strong>Copy to Clipboard &gt; TeX Commands</strong>. Note that Tidy Tales uses the KaTeX renderer, so it won’t work on this site.</p>
+</div>
+</div>
+<section id="using-inline-r-code-in-math-equations" class="level3">
+<h3 class="anchored" data-anchor-id="using-inline-r-code-in-math-equations">Using inline R code in math equations</h3>
+<p>Inline R code <code>`r `</code> can be used within inline or display math to include code output in math equations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mtcars_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> am, <span class="at">data =</span> mtcars)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>coef_int   <span class="ot">&lt;-</span> <span class="fu">coef</span>(mtcars_fit)[<span class="st">"(Intercept)"</span>]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>coef_am    <span class="ot">&lt;-</span> <span class="fu">coef</span>(mtcars_fit)[<span class="st">"am"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Inline math: <code>$\mathrm{\widehat{mpg}} = `r coef_int` + `r coef_am`(\mathrm{am})$</code></p>
+<p>Inline math: <span class="math inline">\mathrm{\widehat{mpg}} = 17.1473684 + 7.2449393(\mathrm{am})</span></p>
+<p>The same approach also works for display math.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Writing model equations
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>equatiomatic</strong> package can be used to write equations from a fitted model. Learn more on the <a href="https://datalorax.github.io/equatiomatic/">package website</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(equatiomatic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>By default the model equation uses math symbols.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">extract_eq</span>(mtcars_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; $$
+#&gt; \operatorname{mpg} = \alpha + \beta_{1}(\operatorname{am}) + \epsilon
+#&gt; $$</code></pre>
+</div>
+</div>
+<p>But model estimates can be used too.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">extract_eq</span>(mtcars_fit, <span class="at">use_coefs =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; $$
+#&gt; \operatorname{\widehat{mpg}} = 17.15 + 7.24(\operatorname{am})
+#&gt; $$</code></pre>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="using-zotero-with-quarto-and-r-markdown" class="level2">
-<h2 class="anchored" data-anchor-id="using-zotero-with-quarto-and-r-markdown">Using Zotero with Quarto and R Markdown</h2>
-<p>rbbt package</p>
+<section id="using-math-equations-in-plots" class="level3">
+<h3 class="anchored" data-anchor-id="using-math-equations-in-plots">Using math equations in plots</h3>
+<p>Both base R and <strong>ggplot2</strong> plots feature support for writing beautiful math equations with <a href="https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/plotmath.html">plotmath expressions</a>. Equations can be used in plot labels, legends, and text.</p>
+<p>If you would rather write equations using LaTeX math expressions, the <strong>latex2exp</strong> package can be used to parse and convert LaTeX to plotmath expressions. Learn more on the <a href="https://www.stefanom.io/latex2exp/">package website</a>.</p>
+<p>ggplot2 also includes some convenience functions for using plotmath in plot labels:</p>
+<ul>
+<li><code>label_parsed()</code> interprets labels as plotmath expressions</li>
+<li><code>label_bquote()</code> offers a flexible way of labelling facet rows or columns with plotmath expressions</li>
+</ul>
 
 
 </section>
+</section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section></div></main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><a href="https://www.mathjax.org">MathJax</a> is an open-source JavaScript rendering engine for LaTeX math expressions. It is the default rendering method in Quarto HTML documents.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -570,14 +707,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../series/reproducible-data-science/posts/version-control-setup.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Version Control Setup</span>
+      <a href="../../../series/reproducible-data-science/posts/zotero-setup.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Reference Manager Setup</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../series/reproducible-data-science/posts/technical-writing.html" class="pagination-link">
-        <span class="nav-page-text">Technical Writing</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
