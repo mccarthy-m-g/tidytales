@@ -92,20 +92,20 @@ ul.task-list li input[type="checkbox"] {
   
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-snippets .list');
+    const listingTargetEl = window.document.querySelector('#listing-series .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-description','listing-categories','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-snippets'] = new List('listing-snippets', options);
+    window['quarto-listings']['listing-series'] = new List('listing-series', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -120,7 +120,7 @@ ul.task-list li input[type="checkbox"] {
   
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-series .list');
+    const listingTargetEl = window.document.querySelector('#listing-snippets .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
@@ -129,11 +129,11 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-date','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-series'] = new List('listing-series', options);
+    window['quarto-listings']['listing-snippets'] = new List('listing-snippets', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -548,7 +548,10 @@ No matching items
   </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories=".Misc" data-listing-file-modified-sort="1673139170060" data-listing-reading-time-sort="0.005">
+<div class="quarto-post image-right" data-index="0" data-categories=".Misc" data-listing-date-sort="1673769600000" data-listing-file-modified-sort="1673916655526" data-listing-reading-time-sort="0.02">
+<div class="thumbnail">
+<p><a href="./series/reproducible-data-science/index.html"> <img src="./series/reproducible-data-science/posts/images/start-here.png" class="thumnail-image"> </a></p>
+</div>
 <div class="body">
 <a href="./series/reproducible-data-science/index.html">
 <h3 class="no-anchor listing-title">
@@ -570,7 +573,11 @@ Reproducible Data Science
 </a>
 </div>
 <div class="metadata">
-<a href="./series/reproducible-data-science/index.html"> </a>
+<a href="./series/reproducible-data-science/index.html">
+<div class="listing-date">
+Jan 15, 2023
+</div>
+</a>
 </div>
 </div>
 </div>

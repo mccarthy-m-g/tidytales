@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Michael McCarthy">
-<meta name="dcterms.date" content="2023-01-05">
+<meta name="dcterms.date" content="2023-01-16">
 <meta name="description" content="Installing and configuring Git and GitHub.">
 
 <title>Tidy Tales - Version Control Setup</title>
@@ -96,8 +96,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../series/reproducible-data-science/posts/zotero-setup.html" rel="next">
-<link href="../../../series/reproducible-data-science/posts/python-setup.html" rel="prev">
+<link href="../../../series/reproducible-data-science/posts/r-setup.html" rel="next">
+<link href="../../../series/reproducible-data-science/posts/system-setup.html" rel="prev">
 <link href="../../../assets/images/favicon.png" rel="icon" type="image/png">
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
@@ -241,7 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 5, 2023</p>
+        <p class="date">January 16, 2023</p>
       </div>
     </div>
     
@@ -279,6 +279,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../series/reproducible-data-science/posts/version-control-setup.html" class="sidebar-item-text sidebar-link active">Version Control Setup</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../series/reproducible-data-science/posts/r-setup.html" class="sidebar-item-text sidebar-link">R Setup</a>
   </div>
 </li>
@@ -300,11 +305,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../series/reproducible-data-science/posts/python-setup.html" class="sidebar-item-text sidebar-link">Python Setup</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/posts/version-control-setup.html" class="sidebar-item-text sidebar-link active">Version Control Setup</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -331,8 +331,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></li>
   <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github">GitHub</a>
   <ul class="collapse">
-  <li><a href="#installing-github-cli" id="toc-installing-github-cli" class="nav-link" data-scroll-target="#installing-github-cli">Installing GitHub CLI</a></li>
   <li><a href="#installing-github-desktop" id="toc-installing-github-desktop" class="nav-link" data-scroll-target="#installing-github-desktop">Installing GitHub Desktop</a></li>
+  <li><a href="#installing-github-cli" id="toc-installing-github-cli" class="nav-link" data-scroll-target="#installing-github-cli">Installing GitHub CLI</a></li>
   </ul></li>
   <li><a href="#version-control-in-rstudio" id="toc-version-control-in-rstudio" class="nav-link" data-scroll-target="#version-control-in-rstudio">Version Control in RStudio</a></li>
   </ul>
@@ -347,43 +347,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-This section is under construction
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-<p><a href="https://happygitwithr.com" class="uri">https://happygitwithr.com</a> <a href="https://usethis.r-lib.org/articles/git-credentials.html" class="uri">https://usethis.r-lib.org/articles/git-credentials.html</a></p>
 <section id="git" class="level2">
 <h2 class="anchored" data-anchor-id="git">Git</h2>
-<p><a href="https://www.r-project.org">Git</a> is …</p>
+<p><a href="https://www.r-project.org">Git</a> is an open source distributed version control system for tracking and managing changes to files.</p>
 <section id="installing-git" class="level3">
 <h3 class="anchored" data-anchor-id="installing-git">Installing git</h3>
 <p>Install git from the Terminal with Homebrew:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> tap r-lib/rig</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install <span class="at">--cask</span> rig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="github" class="level2">
 <h2 class="anchored" data-anchor-id="github">GitHub</h2>
-<section id="installing-github-cli" class="level3">
-<h3 class="anchored" data-anchor-id="installing-github-cli">Installing GitHub CLI</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
+<p><a href="https://github.com">GitHub</a> is an internet hosting service for projects using Git that makes collaboration easy. It provides the distributed version control of Git, plus issue tracking, project management tools, continuous integration, and more for every project</p>
 <section id="installing-github-desktop" class="level3">
 <h3 class="anchored" data-anchor-id="installing-github-desktop">Installing GitHub Desktop</h3>
-<p>…</p>
+<p><a href="https://desktop.github.com">GitHub Desktop</a> is an open source application for interacting with GitHub using a GUI instead of the command line or a web browser.</p>
+<p>Install GitHub Desktop from the Terminal with Homebrew:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install <span class="at">--cask</span> github</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="installing-github-cli" class="level3">
+<h3 class="anchored" data-anchor-id="installing-github-cli">Installing GitHub CLI</h3>
+<p><a href="https://cli.github.com">GitHub CLI</a> is a command line interface to access GitHub from the Terminal.</p>
+<p>Install GitHub CLI from the Terminal with Homebrew:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install gh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="version-control-in-rstudio" class="level2">
 <h2 class="anchored" data-anchor-id="version-control-in-rstudio">Version Control in RStudio</h2>
+<p>See the following:</p>
+<ul>
+<li><a href="https://happygitwithr.com">Happy Git and GitHub for the useR</a> by Jenny Bryan</li>
+<li><a href="https://usethis.r-lib.org/articles/git-credentials.html">usethis: Managing Git(Hub) Credentials</a></li>
+</ul>
 
 
 </section>
@@ -538,13 +533,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../series/reproducible-data-science/posts/python-setup.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Python Setup</span>
+      <a href="../../../series/reproducible-data-science/posts/system-setup.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">System Setup</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../series/reproducible-data-science/posts/zotero-setup.html" class="pagination-link">
-        <span class="nav-page-text">Reference Manager Setup</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../../series/reproducible-data-science/posts/r-setup.html" class="pagination-link">
+        <span class="nav-page-text">R Setup</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

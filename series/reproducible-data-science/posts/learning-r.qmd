@@ -1,8 +1,9 @@
 ---
 title: Learning R
 description: Learn how to program and do data science with R.
+image: images/learning-r.png
 
-order: 3
+order: 6
 ---
 
 ## What's data science?

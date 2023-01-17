@@ -1,8 +1,9 @@
 ---
 title: Python Setup
 description: Installing and configuring Python.
+image: images/python-setup.png
 
-order: 5
+order: 4
 ---
 
 ## Python
@@ -55,8 +56,6 @@ Install poetry from the Terminal with:
 curl -sSL https://install.python-poetry.org | python3 -
 ```
 
-## Python Packages
+## Calling Python from R
 
-::: {.callout-caution}
-## This section is under construction
-:::
+Use the [**reticulate**](https://rstudio.github.io/reticulate/) R package to interface R and Python in the same project.

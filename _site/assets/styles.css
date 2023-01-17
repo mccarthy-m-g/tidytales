@@ -1,1 +1,4 @@
 /* css styles */
+.quarto-grid-item img.thumbnail-image {
+  object-fit: contain;
+}

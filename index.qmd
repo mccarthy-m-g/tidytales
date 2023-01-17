@@ -12,16 +12,16 @@ listing:
     sort-ui: true
     filter-ui: false
     feed: true
-  - id: snippets
-    contents: "snippets"
-    fields: [date, title, description, categories]
+  - id: series
+    contents: "series/*/index.qmd"
+    fields: [date, title, description, categories, image]
     sort: "date desc"
     type: default
     sort-ui: true
     filter-ui: false
     feed: true
-  - id: series
-    contents: "series/*/index.qmd"
+  - id: snippets
+    contents: "snippets"
     fields: [date, title, description, categories]
     sort: "date desc"
     type: default

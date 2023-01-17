@@ -1,8 +1,9 @@
 ---
 title: R Setup
 description: Installing and configuring R.
+image: images/r-setup.png
 
-order: 2
+order: 3
 ---
 
 ## R
@@ -51,9 +52,3 @@ Install Quarto from the Terminal with Homebrew:
 ```bash
 brew install --cask quarto
 ```
-
-## R Packages
-
-::: {.callout-caution}
-## This section is under construction
-:::

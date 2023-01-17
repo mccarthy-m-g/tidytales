@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Michael McCarthy">
-<meta name="dcterms.date" content="2023-01-07">
+<meta name="dcterms.date" content="2023-01-16">
 <meta name="description" content="Writing reproducible examples and debugging errors with R.">
 
 <title>Tidy Tales - Getting Help with R</title>
@@ -33,7 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../series/reproducible-data-science/posts/python-setup.html" rel="next">
+<link href="../../../series/reproducible-data-science/posts/technical-writing.html" rel="next">
 <link href="../../../series/reproducible-data-science/posts/r-packages.html" rel="prev">
 <link href="../../../assets/images/favicon.png" rel="icon" type="image/png">
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
@@ -178,7 +178,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 7, 2023</p>
+        <p class="date">January 16, 2023</p>
       </div>
     </div>
     
@@ -216,7 +216,22 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../series/reproducible-data-science/posts/version-control-setup.html" class="sidebar-item-text sidebar-link">Version Control Setup</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../series/reproducible-data-science/posts/r-setup.html" class="sidebar-item-text sidebar-link">R Setup</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../series/reproducible-data-science/posts/python-setup.html" class="sidebar-item-text sidebar-link">Python Setup</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../series/reproducible-data-science/posts/zotero-setup.html" class="sidebar-item-text sidebar-link">Reference Manager Setup</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -236,21 +251,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/posts/python-setup.html" class="sidebar-item-text sidebar-link">Python Setup</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/posts/version-control-setup.html" class="sidebar-item-text sidebar-link">Version Control Setup</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/posts/zotero-setup.html" class="sidebar-item-text sidebar-link">Reference Manager Setup</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../../series/reproducible-data-science/posts/technical-writing.html" class="sidebar-item-text sidebar-link">Technical Writing</a>
   </div>
 </li>
@@ -262,12 +262,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">In this post</h2>
    
   <ul>
-  <li><a href="#writing-reproducible-examples" id="toc-writing-reproducible-examples" class="nav-link active" data-scroll-target="#writing-reproducible-examples">Writing reproducible examples</a></li>
+  <li><a href="#writing-reproducible-examples" id="toc-writing-reproducible-examples" class="nav-link active" data-scroll-target="#writing-reproducible-examples">Writing reproducible examples</a>
+  <ul class="collapse">
+  <li><a href="#sharing-reproducible-examples" id="toc-sharing-reproducible-examples" class="nav-link" data-scroll-target="#sharing-reproducible-examples">Sharing reproducible examples</a></li>
+  </ul></li>
   <li><a href="#debugging-interactively" id="toc-debugging-interactively" class="nav-link" data-scroll-target="#debugging-interactively">Debugging interactively</a></li>
   <li><a href="#debugging-targets-pipelines" id="toc-debugging-targets-pipelines" class="nav-link" data-scroll-target="#debugging-targets-pipelines">Debugging targets pipelines</a></li>
   <li><a href="#debugging-github-actions-workflows" id="toc-debugging-github-actions-workflows" class="nav-link" data-scroll-target="#debugging-github-actions-workflows">Debugging GitHub Actions workflows</a></li>
-  <li><a href="#r-package-versions-and-debugging" id="toc-r-package-versions-and-debugging" class="nav-link" data-scroll-target="#r-package-versions-and-debugging">R Package Versions and Debugging</a></li>
-  <li><a href="#stack-overflow" id="toc-stack-overflow" class="nav-link" data-scroll-target="#stack-overflow">Stack Overflow</a></li>
   </ul>
 </nav>
 </nav>
@@ -282,29 +283,89 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="writing-reproducible-examples" class="level2">
 <h2 class="anchored" data-anchor-id="writing-reproducible-examples">Writing reproducible examples</h2>
-<p>A minimal reproducible example—usually referred to as a reprex—is…</p>
-<p>https://reprex.tidyverse.org</p>
-<p>https://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-create-one/5219</p>
-<p>https://www.tidyverse.org/help/</p>
-<p>https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example</p>
+<p>If you need help solving a problem, the first step is to create a <strong>reproducible example</strong>. The goal of a reproducible example is to make it easier for others to help you, or for you to help yourself, by packaging your problematic code in such a way that anyone can exactly reproduce your problem. A good reproducible example is:</p>
+<ul>
+<li><strong>Self-contained</strong>: Your code includes everything needed to reproduce your problem</li>
+<li><strong>Minimal</strong>: Your example only includes code directly related to your problem</li>
+</ul>
+<p>The work you put into writing a good reproducible example usually pays for itself:</p>
+<ul>
+<li>Often you will solve your own problem in the process of writing a reproducible example</li>
+<li>You improve your chances of getting help when your problem is easy to understand and reproduce</li>
+</ul>
+<p>For tips on writing good reproducible examples, see:</p>
+<ul>
+<li><a href="https://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-create-one/5219">What’s a reproducible example and how do I create one?</a></li>
+<li><a href="https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example">How to make a great R reproducible example</a></li>
+<li><a href="https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html">Reprex do’s and don’ts</a></li>
+<li><a href="https://www.tidyverse.org/help/">tidyverse: Get help!</a></li>
+</ul>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Create an R project for writing reproducible examples
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Because reproducible examples are self-contained and minimal, it’s good practice to create them separately from the project that inspired your problem. A nice way to do this is to create a new <code>reprex</code> R project that contains empty files where you can write reproducible examples like:</p>
+<pre class="asis"><code>reprex/
+├─reprex.Rproj
+├─reprex.R
+├─reprex.Rmd
+├─reprex.qmd</code></pre>
+<p>The contents of these files are meant to be ephemeral. After you write a reproducible example and share it, it’s safe to delete the contents of the file or overwrite it in the future. If you do want to save the reproducible example somewhere, consider turning it into a <a href="https://docs.github.com/en/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists">gist</a> on GitHub or a question on <a href="https://stackoverflow.com">Stack Overflow</a>, <a href="https://stats.stackexchange.com">Cross Validated</a>, or the <a href="https://community.rstudio.com">Posit forum</a>.</p>
+</div>
+</div>
+<section id="sharing-reproducible-examples" class="level3">
+<h3 class="anchored" data-anchor-id="sharing-reproducible-examples">Sharing reproducible examples</h3>
+<p>Use the <a href="https://reprex.tidyverse.org"><strong>reprex</strong></a> R package to test, render, and copy your <strong>repr</strong>oducible <strong>ex</strong>amples to your clipboard. Then share them when asking for help on:</p>
+<ul>
+<li><a href="https://stackoverflow.com">Stack Overflow</a></li>
+<li><a href="https://stats.stackexchange.com">Cross Validated</a></li>
+<li><a href="https://community.rstudio.com">The Posit forum</a></li>
+<li>And more!</li>
+</ul>
+</section>
 </section>
 <section id="debugging-interactively" class="level2">
 <h2 class="anchored" data-anchor-id="debugging-interactively">Debugging interactively</h2>
-<p>https://adv-r.hadley.nz/debugging.html</p>
+<p>See the <a href="https://adv-r.hadley.nz/debugging.html">Debugging</a> chapter in Advanced R by Hadley Wickham.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+R package versions and debugging
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sometimes the bugs you run into aren’t caused by your code, but rather the internal code of the package(s) you’re using. If you’re encountering a bug that’s associated with a package that has a newer version available, updating the package might be the only thing you need to do to fix the bug.</p>
+</div>
+</div>
 </section>
 <section id="debugging-targets-pipelines" class="level2">
 <h2 class="anchored" data-anchor-id="debugging-targets-pipelines">Debugging targets pipelines</h2>
-<p>https://books.ropensci.org/targets/debugging.html</p>
+<p>See the <a href="https://books.ropensci.org/targets/debugging.html">Debugging</a> chapter in the <strong>targets</strong> R package user manual</p>
 </section>
 <section id="debugging-github-actions-workflows" class="level2">
 <h2 class="anchored" data-anchor-id="debugging-github-actions-workflows">Debugging GitHub Actions workflows</h2>
-</section>
-<section id="r-package-versions-and-debugging" class="level2">
-<h2 class="anchored" data-anchor-id="r-package-versions-and-debugging">R Package Versions and Debugging</h2>
-<p>Sometimes the bugs you run into aren’t caused by your code, but rather the internal code of the package(s) you’re using. If you’re encountering a bug that’s associated with a package that has a newer version available, updating the package might be the only thing you need to do to fix the bug.</p>
-</section>
-<section id="stack-overflow" class="level2">
-<h2 class="anchored" data-anchor-id="stack-overflow">Stack Overflow</h2>
+<p>If you encounter problems in a GitHub Actions workflow but not locally, good luck. GitHub provides <a href="https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting">monitoring and troubleshooting</a> documentation to get you started, but the lack of an interactive debugger can make debugging difficult. The typical approach to debugging GitHub Actions workflows is to:</p>
+<ol type="1">
+<li>View which step caused the failure in the workflow’s <a href="https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs">logs</a></li>
+<li>Guess what caused the problem and commit the changes attempting to fix it</li>
+<li>Push those changes to trigger the workflow</li>
+<li>Hope the workflows succeeds (or repeat the process until it does)</li>
+</ol>
+<p>This isn’t great. But there are a few things you can do to make it somewhat better:</p>
+<ul>
+<li>Debug the workflow in a Pull Request so you don’t make a mess of your commit history</li>
+<li>Use <a href="https://github.com/nektos/act"><code>act</code></a> to run GitHub Actions workflows locally in Docker containers</li>
+<li>Use <a href="https://github.com/mxschmitt/action-tmate"><code>tmate</code></a> to access a workflow’s runner with SSH or Web shell for interactive debugging</li>
+</ul>
 
 
 </section>
@@ -464,8 +525,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../series/reproducible-data-science/posts/python-setup.html" class="pagination-link">
-        <span class="nav-page-text">Python Setup</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../../series/reproducible-data-science/posts/technical-writing.html" class="pagination-link">
+        <span class="nav-page-text">Technical Writing</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

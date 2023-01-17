@@ -4,13 +4,13 @@
     "items": [
       "/series/reproducible-data-science/posts/start-here.html",
       "/series/reproducible-data-science/posts/system-setup.html",
+      "/series/reproducible-data-science/posts/version-control-setup.html",
       "/series/reproducible-data-science/posts/r-setup.html",
+      "/series/reproducible-data-science/posts/python-setup.html",
+      "/series/reproducible-data-science/posts/zotero-setup.html",
       "/series/reproducible-data-science/posts/learning-r.html",
       "/series/reproducible-data-science/posts/r-packages.html",
       "/series/reproducible-data-science/posts/r-getting-help.html",
-      "/series/reproducible-data-science/posts/python-setup.html",
-      "/series/reproducible-data-science/posts/version-control-setup.html",
-      "/series/reproducible-data-science/posts/zotero-setup.html",
       "/series/reproducible-data-science/posts/technical-writing.html"
     ]
   },
@@ -22,10 +22,10 @@
       "/posts/2022-06-16_projectile-motion/index.html",
       "/posts/2021-06-19_distill/index.html",
       "/posts/2021-06-15_demons-souls/index.html",
+      "/series/reproducible-data-science/index.html",
       "/snippets/2022-12-22_patchwork-shared-axis-labels/index.html",
       "/snippets/2022-10-29_geomtextpath-with-ggdist/index.html",
-      "/snippets/2021-11-01_longitudinal-measurement-invariance/index.html",
-      "/series/reproducible-data-science/index.html"
+      "/snippets/2021-11-01_longitudinal-measurement-invariance/index.html"
     ]
   }
 ]

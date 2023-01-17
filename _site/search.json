@@ -228,7 +228,7 @@
     "href": "series/reproducible-data-science/index.html",
     "title": "Reproducible Data Science",
     "section": "",
-    "text": "Start Here\n\n\nLearn what this series is about and how to use it.\n\n\n\nJan 12, 2023\n\n\n\n\n\n\n\n\n\n\n\nSystem Setup\n\n\nInstalling and configuring the basics.\n\n\n\nJan 8, 2023\n\n\n\n\n\n\n\n\n\n\n\nR Setup\n\n\nInstalling and configuring R.\n\n\n\nJan 4, 2023\n\n\n\n\n\n\n\n\n\n\n\nLearning R\n\n\nLearn how to program and do data science with R.\n\n\n\nJan 14, 2023\n\n\n\n\n\n\n\n\n\n\n\nR Packages\n\n\nInstalling, managing, and finding R Packages.\n\n\n\nJan 10, 2023\n\n\n\n\n\n\n\n\n\n\n\nGetting Help with R\n\n\nWriting reproducible examples and debugging errors with R.\n\n\n\nJan 7, 2023\n\n\n\n\n\n\n\n\n\n\n\nPython Setup\n\n\nInstalling and configuring Python.\n\n\n\nJan 5, 2023\n\n\n\n\n\n\n\n\n\n\n\nVersion Control Setup\n\n\nInstalling and configuring Git and GitHub.\n\n\n\nJan 5, 2023\n\n\n\n\n\n\n\n\n\n\n\nReference Manager Setup\n\n\nInstalling and configuring Zotero.\n\n\n\nJan 5, 2023\n\n\n\n\n\n\n\n\n\n\n\nTechnical Writing\n\n\nTechnical writing and literate programming in Quarto documents.\n\n\n\nJan 14, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Learn what this series is about and how to use it.\n\n\n\nJan 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling and configuring the basics.\n\n\n\nJan 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling and configuring Git and GitHub.\n\n\n\nJan 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling and configuring R.\n\n\n\nJan 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling and configuring Python.\n\n\n\nJan 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling and configuring Zotero.\n\n\n\nJan 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLearn how to program and do data science with R.\n\n\n\nJan 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling, managing, and finding R Packages.\n\n\n\nJan 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWriting reproducible examples and debugging errors with R.\n\n\n\nJan 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTechnical writing and literate programming in Quarto documents.\n\n\n\nJan 16, 2023\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html",
@@ -865,28 +865,28 @@
     "href": "series/reproducible-data-science/posts/r-getting-help.html",
     "title": "Getting Help with R",
     "section": "",
-    "text": "A minimal reproducible example—usually referred to as a reprex—is…\nhttps://reprex.tidyverse.org\nhttps://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-create-one/5219\nhttps://www.tidyverse.org/help/\nhttps://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example"
+    "text": "If you need help solving a problem, the first step is to create a reproducible example. The goal of a reproducible example is to make it easier for others to help you, or for you to help yourself, by packaging your problematic code in such a way that anyone can exactly reproduce your problem. A good reproducible example is:\n\nSelf-contained: Your code includes everything needed to reproduce your problem\nMinimal: Your example only includes code directly related to your problem\n\nThe work you put into writing a good reproducible example usually pays for itself:\n\nOften you will solve your own problem in the process of writing a reproducible example\nYou improve your chances of getting help when your problem is easy to understand and reproduce\n\nFor tips on writing good reproducible examples, see:\n\nWhat’s a reproducible example and how do I create one?\nHow to make a great R reproducible example\nReprex do’s and don’ts\ntidyverse: Get help!\n\n\n\n\n\n\n\nCreate an R project for writing reproducible examples\n\n\n\nBecause reproducible examples are self-contained and minimal, it’s good practice to create them separately from the project that inspired your problem. A nice way to do this is to create a new reprex R project that contains empty files where you can write reproducible examples like:\nreprex/\n├─reprex.Rproj\n├─reprex.R\n├─reprex.Rmd\n├─reprex.qmd\nThe contents of these files are meant to be ephemeral. After you write a reproducible example and share it, it’s safe to delete the contents of the file or overwrite it in the future. If you do want to save the reproducible example somewhere, consider turning it into a gist on GitHub or a question on Stack Overflow, Cross Validated, or the Posit forum.\n\n\n\n\nUse the reprex R package to test, render, and copy your reproducible examples to your clipboard. Then share them when asking for help on:\n\nStack Overflow\nCross Validated\nThe Posit forum\nAnd more!"
   },
   {
     "objectID": "series/reproducible-data-science/posts/r-getting-help.html#debugging-interactively",
     "href": "series/reproducible-data-science/posts/r-getting-help.html#debugging-interactively",
     "title": "Getting Help with R",
     "section": "Debugging interactively",
-    "text": "Debugging interactively\nhttps://adv-r.hadley.nz/debugging.html"
+    "text": "Debugging interactively\nSee the Debugging chapter in Advanced R by Hadley Wickham.\n\n\n\n\n\n\nR package versions and debugging\n\n\n\nSometimes the bugs you run into aren’t caused by your code, but rather the internal code of the package(s) you’re using. If you’re encountering a bug that’s associated with a package that has a newer version available, updating the package might be the only thing you need to do to fix the bug."
   },
   {
     "objectID": "series/reproducible-data-science/posts/r-getting-help.html#debugging-targets-pipelines",
     "href": "series/reproducible-data-science/posts/r-getting-help.html#debugging-targets-pipelines",
     "title": "Getting Help with R",
     "section": "Debugging targets pipelines",
-    "text": "Debugging targets pipelines\nhttps://books.ropensci.org/targets/debugging.html"
+    "text": "Debugging targets pipelines\nSee the Debugging chapter in the targets R package user manual"
   },
   {
     "objectID": "series/reproducible-data-science/posts/r-getting-help.html#debugging-github-actions-workflows",
     "href": "series/reproducible-data-science/posts/r-getting-help.html#debugging-github-actions-workflows",
     "title": "Getting Help with R",
     "section": "Debugging GitHub Actions workflows",
-    "text": "Debugging GitHub Actions workflows"
+    "text": "Debugging GitHub Actions workflows\nIf you encounter problems in a GitHub Actions workflow but not locally, good luck. GitHub provides monitoring and troubleshooting documentation to get you started, but the lack of an interactive debugger can make debugging difficult. The typical approach to debugging GitHub Actions workflows is to:\n\nView which step caused the failure in the workflow’s logs\nGuess what caused the problem and commit the changes attempting to fix it\nPush those changes to trigger the workflow\nHope the workflows succeeds (or repeat the process until it does)\n\nThis isn’t great. But there are a few things you can do to make it somewhat better:\n\nDebug the workflow in a Pull Request so you don’t make a mess of your commit history\nUse act to run GitHub Actions workflows locally in Docker containers\nUse tmate to access a workflow’s runner with SSH or Web shell for interactive debugging"
   },
   {
     "objectID": "series/reproducible-data-science/posts/r-getting-help.html#r-package-versions-and-debugging",
@@ -900,7 +900,7 @@
     "href": "series/reproducible-data-science/posts/zotero-setup.html",
     "title": "Reference Manager Setup",
     "section": "",
-    "text": "Zotero is an open-source reference manager that styles itself as “your personal research assistant.”\n\n\nInstall Zotero from the Terminal with Homebrew:\nbrew install --cask zotero\n\n\n\nZotero Connector is a browser plugin that allows you to save web content (blogs, articles, etc.) to Zotero with a single click.\nThe Zotero Connector for Safari is bundled with Zotero. You can enable it from the Extensions pane of the Safari preferences.\n\n\n\nThese are the core extensions I use with Zotero. See their documentation for installation instructions:\n\nBetter BibTeX\nZotFile\n\nI also use:\n\nscite\nPubPeer\n\n\n\n\n\n\n\n\n\n\nThis section is under construction"
+    "text": "Zotero is an open-source reference manager that styles itself as “your personal research assistant.”\n\n\nInstall Zotero from the Terminal with Homebrew:\nbrew install --cask zotero\n\n\n\nZotero Connector is a browser plugin that allows you to save web content (blogs, articles, etc.) to Zotero with a single click.\nThe Zotero Connector for Safari is bundled with Zotero. You can enable it from the Extensions pane of the Safari preferences.\n\n\n\nThese are the core extensions I use with Zotero. See their documentation for installation instructions:\n\nBetter BibTeX\nZotFile\n\nI also use:\n\nscite\nPubPeer\n\n\n\n\nZotero for iOS is an open source application for working with your Zotero library on an iPad or iPhone. Install it from the App Store."
   },
   {
     "objectID": "series/reproducible-data-science/posts/zotero-setup.html#configuring-zotero",
@@ -921,28 +921,28 @@
     "href": "series/reproducible-data-science/posts/version-control-setup.html",
     "title": "Version Control Setup",
     "section": "",
-    "text": "This section is under construction\nhttps://happygitwithr.com https://usethis.r-lib.org/articles/git-credentials.html"
+    "text": "Git is an open source distributed version control system for tracking and managing changes to files.\n\n\nInstall git from the Terminal with Homebrew:\nbrew install git"
   },
   {
     "objectID": "series/reproducible-data-science/posts/version-control-setup.html#git",
     "href": "series/reproducible-data-science/posts/version-control-setup.html#git",
     "title": "Version Control Setup",
     "section": "Git",
-    "text": "Git\nGit is …\n\nInstalling git\nInstall git from the Terminal with Homebrew:\nbrew tap r-lib/rig\nbrew install --cask rig"
+    "text": "Git\nGit is an open source distributed version control system for tracking and managing changes to files.\n\nInstalling git\nInstall git from the Terminal with Homebrew:\nbrew install git"
   },
   {
     "objectID": "series/reproducible-data-science/posts/version-control-setup.html#github",
     "href": "series/reproducible-data-science/posts/version-control-setup.html#github",
     "title": "Version Control Setup",
     "section": "GitHub",
-    "text": "GitHub\n\nInstalling GitHub CLI\n\n\n\nInstalling GitHub Desktop\n…"
+    "text": "GitHub\nGitHub is an internet hosting service for projects using Git that makes collaboration easy. It provides the distributed version control of Git, plus issue tracking, project management tools, continuous integration, and more for every project\n\nInstalling GitHub Desktop\nGitHub Desktop is an open source application for interacting with GitHub using a GUI instead of the command line or a web browser.\nInstall GitHub Desktop from the Terminal with Homebrew:\nbrew install --cask github\n\n\nInstalling GitHub CLI\nGitHub CLI is a command line interface to access GitHub from the Terminal.\nInstall GitHub CLI from the Terminal with Homebrew:\nbrew install gh"
   },
   {
     "objectID": "series/reproducible-data-science/posts/version-control-setup.html#version-control-in-rstudio",
     "href": "series/reproducible-data-science/posts/version-control-setup.html#version-control-in-rstudio",
     "title": "Version Control Setup",
     "section": "Version Control in RStudio",
-    "text": "Version Control in RStudio"
+    "text": "Version Control in RStudio\nSee the following:\n\nHappy Git and GitHub for the useR by Jenny Bryan\nusethis: Managing Git(Hub) Credentials"
   },
   {
     "objectID": "series/reproducible-data-science/posts/python-setup.html",
@@ -970,7 +970,7 @@
     "href": "series/reproducible-data-science/posts/r-setup.html#r-packages",
     "title": "R Setup",
     "section": "R Packages",
-    "text": "R Packages\n\n\n\n\n\n\nThis section is under construction"
+    "text": "R Packages\n\n\n\n\n\n\nThis section is under construction\n\n\n\n\n\n\nHere are some R packages I commonly use:\n# Meta-packages\nc(\"tidyverse\", \"tidymodels\", \"easystats\")\n\n# Packages\nc(\"janitor\", \"ggdist\", \"glmmTMB\")"
   },
   {
     "objectID": "series/reproducible-data-science/posts/r-packages.html",
@@ -1167,5 +1167,40 @@
     "title": "Technical Writing",
     "section": "Figure and table outputs",
     "text": "Figure and table outputs\nFigures and tables produced by code blocks have unique parameters you can use to adjust their layout, add captions, or make them cross-referenceable. See the Quarto documentation for details:\n\nFigures documentation\nTables documentation\n\n\n\n\n\n\n\nAdjusting figure appearance\n\n\n\nWhen making figures with ggplot2 it’s best to know the final size of the figure before attempting to adjust the size of plot text or geometry."
+  },
+  {
+    "objectID": "series/reproducible-data-science/posts/r-getting-help.html#sharing-reproducible-examples",
+    "href": "series/reproducible-data-science/posts/r-getting-help.html#sharing-reproducible-examples",
+    "title": "Getting Help with R",
+    "section": "Sharing reproducible examples",
+    "text": "Sharing reproducible examples\nUse the reprex R package to help you share your reproducible examples."
+  },
+  {
+    "objectID": "series/reproducible-data-science/posts/start-here.html#artwork",
+    "href": "series/reproducible-data-science/posts/start-here.html#artwork",
+    "title": "Start Here",
+    "section": "Artwork",
+    "text": "Artwork\n\nSeries thumbnail artwork by Allison Horst."
+  },
+  {
+    "objectID": "series/reproducible-data-science/posts/python-setup.html#call-python-from-r",
+    "href": "series/reproducible-data-science/posts/python-setup.html#call-python-from-r",
+    "title": "Python Setup",
+    "section": "Call Python from R",
+    "text": "Call Python from R\nUse the reticulate package to interface R and Python in the same project."
+  },
+  {
+    "objectID": "series/reproducible-data-science/posts/python-setup.html#calling-python-from-r",
+    "href": "series/reproducible-data-science/posts/python-setup.html#calling-python-from-r",
+    "title": "Python Setup",
+    "section": "Calling Python from R",
+    "text": "Calling Python from R\nUse the reticulate R package to interface R and Python in the same project."
+  },
+  {
+    "objectID": "series/reproducible-data-science/index.html#artwork",
+    "href": "series/reproducible-data-science/index.html#artwork",
+    "title": "Reproducible Data Science",
+    "section": "Artwork",
+    "text": "Artwork\n\nArtwork by Allison Horst."
   }
 ]

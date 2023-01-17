@@ -1,8 +1,9 @@
 ---
 title: Reference Manager Setup
 description: Installing and configuring Zotero.
+image: images/zotero-setup.png
 
-order: 99
+order: 5
 ---
 
 ## Zotero
@@ -35,11 +36,9 @@ I also use:
 - [scite](https://github.com/scitedotai/scite-zotero-plugin)
 - [PubPeer](https://github.com/PubPeerFoundation/pubpeer_zotero_plugin)
 
-### iOS app
+### Zotero for iOS
 
-::: {.callout-caution}
-## This section is under construction
-:::
+[Zotero for iOS](https://www.zotero.org/support/ios) is an open source application for working with your Zotero library on an iPad or iPhone. Install it from the [App Store](https://apps.apple.com/us/app/zotero/id1513554812).
 
 ## Configuring Zotero
 
