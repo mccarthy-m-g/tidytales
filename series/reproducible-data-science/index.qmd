@@ -3,19 +3,26 @@ title: "Reproducible Data Science"
 description: |
   My personal approach to learning and doing reproducible data science.
 
+date: '2023-01-15'
+
 categories:
   - ".Misc"
 
-sidebar: reproducible-data-science
+image: posts/images/start-here.png
+
+citation: true
+csl: ../../assets/apa.csl
+license: "CC BY"
+
 listing:
   contents: posts
-  fields: [title, description, date]
+  fields: [title, description, date, image]
   type: grid
   sort: "order"
 
 page-layout: full
-title-block-banner: true
-
-comments: false
-code-tools: false
 ---
+
+## Artwork {.appendix .unnumbered .unlisted}
+
+Artwork by [Allison Horst](https://allisonhorst.com/allison-horst).

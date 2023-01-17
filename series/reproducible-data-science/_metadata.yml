@@ -26,13 +26,6 @@ date: last-modified
 # Table of Contents
 toc-title: "In this post"
 
-# License
-license: "CC BY"
-
-# Citation Metadata
-citation: false # FIXME: wrong URL path when set to true
-csl: ../../../assets/apa.csl
-
 # Comments
 comments: false
 

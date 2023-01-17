@@ -1,34 +1,80 @@
 ---
 title: Getting Help with R
 description: Writing reproducible examples and debugging errors with R.
+image: images/r-getting-help.png
 
-order: 5
+order: 8
 ---
 
 ## Writing reproducible examples
 
-A minimal reproducible example—usually referred to as a reprex—is…
+If you need help solving a problem, the first step is to create a **reproducible example**. The goal of a reproducible example is to make it easier for others to help you, or for you to help yourself, by packaging your problematic code in such a way that anyone can exactly reproduce your problem. A good reproducible example is:
 
-https://reprex.tidyverse.org
+- **Self-contained**: Your code includes everything needed to reproduce your problem
+- **Minimal**: Your example only includes code directly related to your problem
 
-https://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-create-one/5219
+The work you put into writing a good reproducible example usually pays for itself:
 
-https://www.tidyverse.org/help/
+- Often you will solve your own problem in the process of writing a reproducible example
+- You improve your chances of getting help when your problem is easy to understand and reproduce
 
-https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example
+For tips on writing good reproducible examples, see:
+
+- [What's a reproducible example and how do I create one?](https://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-create-one/5219)
+- [How to make a great R reproducible example](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example)
+- [Reprex do's and don'ts](https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html)
+- [tidyverse: Get help!](https://www.tidyverse.org/help/)
+
+::: {.callout-tip}
+## Create an R project for writing reproducible examples
+
+Because reproducible examples are self-contained and minimal, it's good practice to create them separately from the project that inspired your problem. A nice way to do this is to create a new `reprex` R project that contains empty files where you can write reproducible examples like:
+
+```asis
+reprex/
+├─reprex.Rproj
+├─reprex.R
+├─reprex.Rmd
+├─reprex.qmd
+```
+
+The contents of these files are meant to be ephemeral. After you write a reproducible example and share it, it's safe to delete the contents of the file or overwrite it in the future. If you do want to save the reproducible example somewhere, consider turning it into a [gist](https://docs.github.com/en/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists) on GitHub or a question on [Stack Overflow](https://stackoverflow.com), [Cross Validated](https://stats.stackexchange.com), or the [Posit forum](https://community.rstudio.com).
+:::
+
+### Sharing reproducible examples
+
+Use the [**reprex**](https://reprex.tidyverse.org) R package to test, render, and copy your **repr**oducible **ex**amples to your clipboard. Then share them when asking for help on:
+
+- [Stack Overflow](https://stackoverflow.com)
+- [Cross Validated](https://stats.stackexchange.com)
+- [The Posit forum](https://community.rstudio.com)
+- And more!
 
 ## Debugging interactively
 
-https://adv-r.hadley.nz/debugging.html
+See the [Debugging](https://adv-r.hadley.nz/debugging.html) chapter in Advanced R by Hadley Wickham.
+
+::: {.callout-note}
+## R package versions and debugging
+
+Sometimes the bugs you run into aren’t caused by your code, but rather the internal code of the package(s) you’re using. If you’re encountering a bug that’s associated with a package that has a newer version available, updating the package might be the only thing you need to do to fix the bug.
+:::
 
 ## Debugging targets pipelines
 
-https://books.ropensci.org/targets/debugging.html
+See the [Debugging](https://books.ropensci.org/targets/debugging.html) chapter in the **targets** R package user manual
 
 ## Debugging GitHub Actions workflows
 
-## R Package Versions and Debugging
+If you encounter problems in a GitHub Actions workflow but not locally, good luck. GitHub provides [monitoring and troubleshooting](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting) documentation to get you started, but the lack of an interactive debugger can make debugging difficult. The typical approach to debugging GitHub Actions workflows is to:
 
-Sometimes the bugs you run into aren’t caused by your code, but rather the internal code of the package(s) you’re using. If you’re encountering a bug that’s associated with a package that has a newer version available, updating the package might be the only thing you need to do to fix the bug.
+1. View which step caused the failure in the workflow's [logs](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs) 
+2. Guess what caused the problem and commit the changes attempting to fix it
+3. Push those changes to trigger the workflow
+4. Hope the workflows succeeds (or repeat the process until it does) 
 
-## Stack Overflow
+This isn't great. But there are a few things you can do to make it somewhat better:
+
+- Debug the workflow in a Pull Request so you don't make a mess of your commit history
+- Use [`act`](https://github.com/nektos/act) to run GitHub Actions workflows locally in Docker containers
+- Use [`tmate`](https://github.com/mxschmitt/action-tmate) to access a workflow's runner with SSH or Web shell for interactive debugging

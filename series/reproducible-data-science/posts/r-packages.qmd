@@ -1,8 +1,9 @@
 ---
 title: R Packages
 description: Installing, managing, and finding R Packages.
+image: images/r-packages.png
 
-order: 4
+order: 7
 
 params:
   year: 2022

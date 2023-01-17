@@ -1,224 +1,259 @@
 [
   {
-    "objectID": "series/reproducible-data-science/contents/learning-r.html",
-    "href": "series/reproducible-data-science/contents/learning-r.html",
+    "objectID": "series/reproducible-data-science/posts/learning-r.html",
+    "href": "series/reproducible-data-science/posts/learning-r.html",
     "title": "Learning R",
     "section": "",
     "text": "Data science is an exciting discipline that allows you to transform raw data into understanding, insight, and knowledge.\n\n— Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund in R for Data Science\nA data scientist is someone who creates understanding, insight, and knowledge from raw data with programming. Programming is an essential tool in nearly every part of a data science project because it allows you to do data science efficiently and reproducibly.\nThere are many different programming languages you can use to do data science, but here we cover my favourite programming language: R."
   },
   {
-    "objectID": "series/reproducible-data-science/contents/learning-r.html#whats-r",
-    "href": "series/reproducible-data-science/contents/learning-r.html#whats-r",
+    "objectID": "series/reproducible-data-science/posts/learning-r.html#whats-r",
+    "href": "series/reproducible-data-science/posts/learning-r.html#whats-r",
     "title": "Learning R",
     "section": "What’s R?",
     "text": "What’s R?\nR is an open source programming language for wrangling, visualizing, modelling, and communicating data, and so much more. It has a strong community behind it and is widely used among researchers, statisticians, and data scientists in a variety of fields."
   },
   {
-    "objectID": "series/reproducible-data-science/contents/learning-r.html#where-do-i-start",
-    "href": "series/reproducible-data-science/contents/learning-r.html#where-do-i-start",
+    "objectID": "series/reproducible-data-science/posts/learning-r.html#where-do-i-start",
+    "href": "series/reproducible-data-science/posts/learning-r.html#where-do-i-start",
     "title": "Learning R",
     "section": "Where do I start?",
     "text": "Where do I start?\nI believe every R user should work through these two books (in order):\n\nHands-On Programming with R by Garrett Grolemund\nR for Data Science by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund\n\nTogether these two books teach you a core set of tools that you can use to accomplish the vast majority of tasks in any data science project:\n\nHands-On Programming with R is a short and friendly introduction to the fundamentals of R programming written for non-programmers who want to become data scientists.\nR for Data Science is a friendly introduction to the tools useful for doing data science with R.\n\nAs a companion to these two books I also recommend reading the tidyverse style guide, which provides a style guide for writing R code that is easy to read.\n\n\n\n\n\n\nHelping yourself\n\n\n\nPart of the challenge of learning a programming language is building up a vocabulary of commands to accomplish different tasks. Posit (formerly RStudio) maintains a number of cheat sheets to remind you how to do common tasks in your favourite R packages.\n\n\nFinally, I recommend learning to write reports and presentations in Quarto, a tool for integrating prose, code, and results into reproducible documents. This is covered in the Communicate sections of R for Data Science, but I’d like to emphasize it here because it’s a useful, beginner-friendly skill that goes a long way.\nQuarto is a successor to R Markdown that has ironed-out some of the friction points to make writing reproducible documents an even better experience than it already was. Because Quarto is relatively new, you might find R Markdown currently supports certain use cases better (like APA style manuscripts). In cases like these it’s perfectly fine to use R Markdown; it isn’t going away and is still actively maintained.\nIf you do use R Markdown, the Communicate sections of the first edition of R for Data Science provide a a short and friendly introduction, and the R Markdown: The Definitive Guide and R Markdown Cookbook books provide more comprehensive coverage."
   },
   {
-    "objectID": "series/reproducible-data-science/contents/learning-r.html#what-else-should-i-learn",
-    "href": "series/reproducible-data-science/contents/learning-r.html#what-else-should-i-learn",
+    "objectID": "series/reproducible-data-science/posts/learning-r.html#what-else-should-i-learn",
+    "href": "series/reproducible-data-science/posts/learning-r.html#what-else-should-i-learn",
     "title": "Learning R",
     "section": "What else should I learn?",
     "text": "What else should I learn?\nHands-On Programming with R and R for Data Science provide an excellent foundation in R programming for data science, but there are a number of topics these books don’t cover that are equally important for doing data science successfully:\n\nContent knowledge\nInterpersonal skills\nResearch skills\nStatistical modelling\n\nHaving content knowledge about the problem you are using data science to answer allows you to ask better questions, identify data problems, and develop solutions that are meaningful to your audience. Content knowledge is something you can build over time through experience, interactions with the people affected by the problem you are trying to answer, books and courses, and so forth. You don’t always need to be an expert on the problem at hand, but learning more about it will help you avoid mistakes, build confidence in your solutions, and connect with your audience.\nThis also underscores the importance of interpersonal skills for practicing data scientists. Data science problems are ultimately people problems: Much of our data is about people. All of our data is communicated to people. And the solutions we develop using data science will only make an impact if our audience chooses to adopt them. You have to speak for the data, because the data doesn’t speak for itself. Developing strong leadership, teamwork, empathy, and communication skills will help you navigate the human side of data science.\nComplimenting content knowledge and interpersonal skills are research skills and statistical modelling, which are embodied in the term data science. Research skills such as observation, measurement, experiment design, and survey design allow us to collect data that addresses a problem we care about; and statistical modelling helps us transform that raw data into understanding, insight, and knowledge through estimation and testing. Research and statistics, along with programming, are core skills in data science that can be challenging to learn. Partly because developing these skills takes time, practice, and humility. And partly because pedagogy on research and statistics—whether in books or courses—has a lot of gaps for people who aren’t “real” statisticians.1"
   },
   {
-    "objectID": "series/reproducible-data-science/contents/learning-r.html#how-do-i-learn-statistics",
-    "href": "series/reproducible-data-science/contents/learning-r.html#how-do-i-learn-statistics",
+    "objectID": "series/reproducible-data-science/posts/learning-r.html#how-do-i-learn-statistics",
+    "href": "series/reproducible-data-science/posts/learning-r.html#how-do-i-learn-statistics",
     "title": "Learning R",
     "section": "How do I learn statistics?",
     "text": "How do I learn statistics?\nMy answer to this question makes the following assumptions about you:\n\nYou are not a formally trained statistician\nYou have received some prior training in statistics\nYou have (re-)discovered your own ignorance of statistics\nYou want to address your ignorance of statistics\nYou want to use statistics to solve problems\n\nIf this describes you then I hope the resources that follow help you on your journey like they have for me. If this doesn’t describe you, stick around anyway, you might find something new.\nLet’s start with some book recommendations:\n\nRegression and Other Stories by Andrew Gelman, Jennifer Hill, and Aki Vehtari (Source)\nData Analysis Using Regression and Multilevel/Hierarchical Models by Andrew Gelman and Jennifer Hill2\nBayes Rules! by Alicia A. Johnson, Miles Q. Ott, and Mine Dogucu (GitHub)\nAn introduction to statistical learning with applications in R by Gareth James, Daniela Witten, Trevor Hastie, and Rob Tibshirani\nStatistical Rethinking by Richard McElreath\nImproving Your Statistical Inferences by Daniël Lakens\n\nAll of these books are well-written, engaging, and have examples in R.3 Together they cover applications of fundamental and state-of-the-art tools in statistical modelling. But most importantly—they encourage statistical thinking. They’re ideal books for self-study and I can’t recommend them enough.\n\n\n\n\n\n\nAll you need is the linear model\n\n\n\nMost people have the unfortunate experience of learning statistics through arcane rituals with numerous statistical tests that appear to have no fundamental framework to tie them together. This is a failure of pedagogy rather than a feature of statistics. Fortunately, there is a fundamental framework to tie all these statistical tests together: It’s called the linear model.\nMost common statistical tests are either special cases or extensions of the linear model; understanding this will improve your statistical thinking and make it easier to abandon the arcanum and statistical rituals in favour of a unified statistical framework.\nFor a short introduction to this concept I recommend reading Common statistical tests are linear models (or: how to teach stats) by Jonas Kristoffer Lindeløv (note: there are a few small errors that haven’t been fixed, so also see the GitHub Issues).\n\n\nI’d like to also give honourable mentions to the following books, which have all the great qualities of the books above, but cover more specialized topics:\n\nHandbook of Graphs and Networks in People Analytics: With Examples in R and Python by Keith McNulty (Source)\nDoing Meta-Analysis in R: A Hands-on Guide by Mathias Harrer, Pim Cuijpers, Toshi A. Furukawa, and David D. Ebert (Source)\nText Mining with R by Julia Silge and David Robinson (Source)\n\nThese are just a few choice examples. There are a lot of statistics books written for R users, and you can almost always find a book covering whatever topic you’re interested in.\n\n\n\n\n\n\nSocial media\n\n\n\nThere are strong #RStats communities on most social media platforms, where you can discover new people and follow or participate in conversations about R and statistics. The #RStats community on Mastodon (formerly Twitter; RIP) has been an invaluable learning tool and helped me discover things about R and statistics I wouldn’t have on my own. Frank Harrell also created the Data Methods Discussion Forum to provide a place for longer more in-depth discussions. Finally, Stack Overflow and Cross Validated are great public Q&A platforms for R programming and statistics, respectively.\n\n\nA lot of people in the R community also have their own R programming, data science, and statistics blogs, vlogs, or websites. Some of my favourite authors include:\n\nAndrew Heiss\nA. Solomon Kurz\nMichael Clark\nJulia Silge\n\nStarting your own blog or website is also a great way to learn, and gives you a place to share your work! Quarto, the open-source scientific and technical publishing system, makes the process of creating and publishing a website simple and friendly. It’s what I use for Tidy Tales (and lots of other projects).\nFinally, a lot of people in the R community who have taught courses or workshops make their materials openly available (including myself and some of the people listed above). One source I want to highlight in particular is psyTeachR from the University of Glasgow School of Psychology and Neuroscience, which covers an entire curriculum of courses for doing reproducible data science."
   },
   {
-    "objectID": "series/reproducible-data-science/contents/learning-r.html#where-do-i-learn-more-about-r-programming",
-    "href": "series/reproducible-data-science/contents/learning-r.html#where-do-i-learn-more-about-r-programming",
+    "objectID": "series/reproducible-data-science/posts/learning-r.html#where-do-i-learn-more-about-r-programming",
+    "href": "series/reproducible-data-science/posts/learning-r.html#where-do-i-learn-more-about-r-programming",
     "title": "Learning R",
     "section": "Where do I learn more about R programming?",
-    "text": "Where do I learn more about R programming?\n\nYou don’t need to be an expert programmer to be a successful data scientist, but learning more about programming pays off, because becoming a better programmer allows you to automate common tasks, and solve new problems with greater ease.\n\n— Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund in R for Data Science\nIf you want to become a better R programmer, I think these books are a good place to start:\n\nR packages by Hadley Wickham and Jenny Bryan\nAdvanced R by Hadley Wickham\nggplot2: Elegant Graphics for Data Analysis by Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen\nMastering Shiny by Hadley Wickham\n\nR packages is a friendly introduction teaching you how to develop and publish your own R packages.\nAdvanced R is written for intermediate R users who want to improve their programming skills and understanding of the language, teaching you useful tools, techniques, and idioms that can help solve many types of problems.\nggplot2: Elegant Graphics for Data Analysis is written for R users who want to understand the details of the theory underlying the ggplot2 R package, teaching you the elements of ggplot2’s grammar and how they fit together, and giving you the power to tailor any plot specifically to your needs.\nMastering Shiny is a comprehensive introduction teaching you how to easily create rich, interactive web apps with the shiny R package."
+    "text": "Where do I learn more about R programming?\n\nYou don’t need to be an expert programmer to be a successful data scientist, but learning more about programming pays off, because becoming a better programmer allows you to automate common tasks, and solve new problems with greater ease.\n\n— Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund in R for Data Science\nIf you want to become a better R programmer, I think these books are a good place to start:\n\nR Packages by Hadley Wickham and Jenny Bryan\nAdvanced R by Hadley Wickham\nggplot2: Elegant Graphics for Data Analysis by Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen\nMastering Shiny by Hadley Wickham\n\nR packages is a friendly introduction teaching you how to develop and publish your own R packages.\nAdvanced R is written for intermediate R users who want to improve their programming skills and understanding of the language, teaching you useful tools, techniques, and idioms that can help solve many types of problems.\nggplot2: Elegant Graphics for Data Analysis is written for R users who want to understand the details of the theory underlying the ggplot2 R package, teaching you the elements of ggplot2’s grammar and how they fit together, and giving you the power to tailor any plot specifically to your needs.\nMastering Shiny is a comprehensive introduction teaching you how to easily create rich, interactive web apps with the shiny R package."
   },
   {
-    "objectID": "series/reproducible-data-science/contents/learning-r.html#how-do-i-make-my-work-reproducible",
-    "href": "series/reproducible-data-science/contents/learning-r.html#how-do-i-make-my-work-reproducible",
+    "objectID": "series/reproducible-data-science/posts/learning-r.html#how-do-i-make-my-work-reproducible",
+    "href": "series/reproducible-data-science/posts/learning-r.html#how-do-i-make-my-work-reproducible",
     "title": "Learning R",
     "section": "How do I make my work reproducible?",
-    "text": "How do I make my work reproducible?\nThis series is called Reproducible Data Science, so I should probably talk more about that. If you’ve learned even a portion of what’s covered above then you already have a lot of the skills needed to do reproducible data science; but you are likely missing out on some essential tools and a stable framework for making reproducible data products.\nA data product is the combination of data with code that wrangles, visualizes, models, or communicates data, whose outputs will be shared with some end-user. Some common examples of data products are quarterly earnings presentations, scientific papers, and interactive dashboards. For these examples the end-user might be your coworkers, other scientists, or members of the public, respectively. You will even be the end-user of your data products sometimes. Because data products will be used by others (or yourself), it’s good practice to do quality assurance so your end-users (that includes you!) can be confident in the quality of your data product. Making your data products reproducible is one small but important step you can take to ensure they meet the expectations of your end-user.4\n\n\n\n\n\n\nShades of reproducibility\n\n\n\nThe basic idea behind a reproducible data product is that the steps, processes, and procedures that went into making it can be repeated exactly by yourself and others, resulting in the exact same outcome every time. Ideally, there is no expiration date for reproducibility—the reproducibility of a data product could be tested tomorrow or in ten decades and should give the exact same outcome both times. If the outcomes were different, the data product is no longer reproducible (and perhaps we should no longer trust the original results). Realistically, it might be okay if a data product stops being reproducible, so long as this change happens after the data product has outlived its purpose.\n\n\nThere are three core components that need to be accessible for a data product to be reproducible:\n\nData\nSoftware\nDocumentation\n\nThe data and software should be packaged together somewhere, like an R project stored in a GitHub repository or Docker container, with documentation on how to reproduce the data product. Reproducing the data product should be convenient for the end-user, without being disruptive. Ideally the entire pipeline can be run with a single command, and it should not install packages into someone’s local library or change settings on their computer without their permission. Achieving this requires new tools and a stable framework to glue them together.\nIn particular, I think the following R packages are essential for reproducibility:\n\nrenv for creating reproducible environments in R projects\ntargets for creating reproducible workflows\ntestthat for testing the reproducibility of results\nsessioninfo for getting system and R session information\n\nBut there are tools beyond R that are also essential for reproducibility:\n\nQuarto for reproducible documents\nGit for version control\nGitHub or GitLab for hosting Git repositories\nDocker for packaging data products and their dependencies into reproducible containers\n\nEach of these R packages and tools plays a different role in making a data product reproducible. Together they create a system for making reproducible data products. Depending on how long you hope a data product will be reproducible for, you might use all these R packages and tools or you might only use some.\nThe best place to learn each of these R packages and tools individually is their respective documentation. To learn how to use these R packages and tools as a system for making reproducible data products, the following are a good place to start:\n\nReproducible Analytical Pipelines by Bruno Rodrigues\nAutomating Computational Reproducibility in R using renv, Docker, and GitHub Actions by Nathaniel Haines\nCombining R and Python with {reticulate} and Quarto by Nicola Rennie\n\nYou might also like:\n\nOpen source is a hard requirement for reproducibility by Bruno Rodrigues\nFunctional programming explains why containerization is needed for reproducibility by Bruno Rodrigues\nCode longevity of the R programming language by Bruno Rodrigues"
+    "text": "How do I make my work reproducible?\nThis series is called Reproducible Data Science, so I should probably talk more about that. If you’ve learned even a portion of what’s covered above then you already have a lot of the skills needed to do reproducible data science; but you are likely missing out on some essential tools and a stable framework for making reproducible data products.\nA data product is the combination of data with code that wrangles, visualizes, models, or communicates data, whose outputs will be shared with some end-user. Some common examples of data products are quarterly earnings presentations, scientific papers, and interactive dashboards. For these examples the end-user might be your coworkers, other scientists, or members of the public, respectively. You will even be the end-user of your data products sometimes. Because data products will be used by others (or yourself), it’s good practice to do quality assurance so your end-users (that includes you!) can be confident in the quality of your data product. Making your data products reproducible is one small but important step you can take to ensure they meet the expectations of your end-user.4\n\n\n\n\n\n\nShades of reproducibility\n\n\n\nThe basic idea behind a reproducible data product is that the steps, processes, and procedures that went into making it can be repeated exactly by yourself and others, resulting in the exact same outcome every time. Ideally, there is no expiration date for reproducibility—the reproducibility of a data product could be tested tomorrow or in ten decades and should give the exact same outcome both times. If the outcomes were different, the data product is no longer reproducible (and perhaps we should no longer trust the original results). Realistically, it might be okay if a data product stops being reproducible, so long as this change happens after the data product has outlived its purpose.\n\n\nThere are three core components that need to be accessible for a data product to be reproducible:\n\nData\nSoftware\nDocumentation\n\nThe data and software should be packaged together somewhere, like an R project stored in a GitHub repository or Docker container, with documentation on how to reproduce the data product. Reproducing the data product should be convenient for the end-user, without being disruptive. Ideally the entire pipeline can be run with a single command, and it should not install packages into someone’s local library or change settings on their computer without their permission. Achieving this requires new tools and a stable framework to glue them together.\nIn particular, I think the following R packages are essential for reproducibility:\n\nrenv for creating reproducible environments in R projects\ntargets for creating reproducible workflows\ntestthat for testing the reproducibility of results\nsessioninfo for getting system and R session information\n\nBut there are tools beyond R that are also essential for reproducibility:\n\nQuarto for reproducible documents\nGit for version control\nGitHub or GitLab for hosting Git repositories\nDocker for packaging data products and their dependencies into reproducible containers\n\nEach of these R packages and tools plays a different role in making a data product reproducible. Together they create a system for making reproducible data products. Depending on how long you hope a data product will be reproducible for, you might use all these R packages and tools or you might only use some.\nThe best place to learn each of these R packages and tools individually is their respective documentation. To learn how to use these R packages and tools as a system for making reproducible data products, the following are a good place to start:\n\nReproducible Analytical Pipelines by Bruno Rodrigues\nAutomating Computational Reproducibility in R using renv, Docker, and GitHub Actions by Nathaniel Haines\nCombining R and Python with {reticulate} and Quarto by Nicola Rennie\n\nYou might also like:\n\nOpen source is a hard requirement for reproducibility by Bruno Rodrigues\nFunctional programming explains why containerization is needed for reproducibility by Bruno Rodrigues\nCode longevity of the R programming language by Bruno Rodrigues\nMRAN is getting shutdown - what else is there for reproducibility with R, or why reproducibility is on a continuum? by Bruno Rodrigues"
   },
   {
-    "objectID": "series/reproducible-data-science/contents/learning-r.html#what-did-you-forget-to-teach-me-about-r",
-    "href": "series/reproducible-data-science/contents/learning-r.html#what-did-you-forget-to-teach-me-about-r",
+    "objectID": "series/reproducible-data-science/posts/learning-r.html#what-did-you-forget-to-teach-me-about-r",
+    "href": "series/reproducible-data-science/posts/learning-r.html#what-did-you-forget-to-teach-me-about-r",
     "title": "Learning R",
     "section": "What did you forget to teach me about R?",
     "text": "What did you forget to teach me about R?\nSee What They Forgot to Teach You About R by Jenny Bryan and Jim Hester.\nSee also Happy Git and GitHub for the useR by Jenny Bryan, the STAT 545 TAs, and Jim Hester."
   },
   {
-    "objectID": "series/reproducible-data-science/contents/learning-r.html#parting-words",
-    "href": "series/reproducible-data-science/contents/learning-r.html#parting-words",
+    "objectID": "series/reproducible-data-science/posts/learning-r.html#parting-words",
+    "href": "series/reproducible-data-science/posts/learning-r.html#parting-words",
     "title": "Learning R",
     "section": "Parting words",
     "text": "Parting words\n\nData science is not 100% about writing code. There’s a human side to it.\n\n— Hadley Wickham in Designing Data Science\nI discussed this earlier, but it bears repeating: the human side of data science is really important if you want to solve problems successfully. One of the reasons R is my favourite language is because it’s been designed to make statistical thinking and computing accessible to anyone. This accessibility has had a big impact on me—I doubt I would be doing data science without R—and I think it’s why we have such a strong, diverse community of R users and programmers.\nSo I try to make all my work as accessible as it can be, and I recommend you do too. It makes a difference."
   },
   {
-    "objectID": "series/reproducible-data-science/contents/system-setup.html",
-    "href": "series/reproducible-data-science/contents/system-setup.html",
-    "title": "System Setup",
+    "objectID": "series/reproducible-data-science/posts/technical-writing.html",
+    "href": "series/reproducible-data-science/posts/technical-writing.html",
+    "title": "Technical Writing",
     "section": "",
-    "text": "The following are needed to install, build, and configure everything in the remaining sections. This setup is for macOS, but should also work for Linux (keeping in mind that some things like Xcode and Homebrew are not necessary on Linux). I don’t recommend Windows.\n\n\n\n\n\n\nBefore you begin\n\n\n\nMy system setup is done mainly done through the shell prompt in Terminal, which is the easiest recommended way to get a shell prompt on macOS. You can find Terminal in the Utilities directory inside your Applications directory.\nIf you have never used Terminal before, Apple has a nice shell scripting primer and command line primer book in their archives.\n\n\n\n\nXcode command line tools are needed to build certain packages from source. The command line tools provide a lighter alternative to installing the full Xcode release from the App Store, which contains a lot that isn’t needed for data science use cases.\nInstall Xcode command line tools from the Terminal with:\nxcode-select --install\n\n\n\nHomebrew is an open source package manager for macOS that makes installing, removing, and managing software simple.\nInstall homebrew from the Terminal with:\n/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"\n\n\n\nchezmoi is an open source dotfile manager. Dotfiles are hidden files and hidden directories that store preferences and settings for packages and applications. Dotfiles can be made visible in Finder with the Command-Shift-. keyboard shortcut.\nInstall chezmoi from the Terminal with Homebrew:\nbrew install chezmoi"
+    "text": "Literate programming is the practice of mixing text and executable code in the same document, making it possible to write reproducible documents. There are four engines for executing code in Quarto documents:\n\nknitr (supports R, Python, Julia, and more)\njupyter (Python only)\nIJulia (Julia only)\nObservable JS (Observable JS only)\n\nAll engines support executing code in code blocks within a document, which can be used to execute code and include its output in a document. Code blocks can produce a wide variety of outputs, including plots, tabular output from data frames, and plain text. The behaviour of code execution and output can be set with Quarto’s Execution Options.\nknitr, jupyter, and Observable JS also support executing inline code within markdown text, which can be used to allow narrative to automatically use the most up to date computations. The syntax for inline code varies across the engines.\nThe remainder of this post covers some useful literate programming practices when writing reproducible documents with the knitr engine.\n\n\n\n\n\n\nProject management\n\n\n\nLiterate programming is a powerful tool for writing reproducible documents, but it can also become unwieldy if your computations require a lot of code. Rather than writing all the code within a document, it is often better to source the required code within a document, then include output using the objects created by the sourced code. The simplest way to adopt this approach is by using the source() function to source R script files containing the computations for a document; a better way is to use the literate programming approach described in the targets R package."
   },
   {
-    "objectID": "series/reproducible-data-science/contents/system-setup.html#scripts",
-    "href": "series/reproducible-data-science/contents/system-setup.html#scripts",
+    "objectID": "series/reproducible-data-science/posts/technical-writing.html#plain-text-outputs",
+    "href": "series/reproducible-data-science/posts/technical-writing.html#plain-text-outputs",
+    "title": "Technical Writing",
+    "section": "Plain text outputs",
+    "text": "Plain text outputs\nMost code you write will be output as plain text. Depending on the purpose of a document, it might be fine to leave that output as is, or you might want to format the text, include it inline, and so forth.\nFor example, say you wanted to report the number of participants in a study you ran. Rather than writing a sentence like this:\n\nThere were twelve participants in the study.\n\nYou could get the number of participants computationally, format that number into the word “twelve”, and include it in the sentence using inline code:\n\nn_participants <- xfun::numbers_to_words(12)\n\n\nThere were `r n_participants` participants in the study.\n\nThis sentence would become “There were twelve participants in the study.” when you render the document. Likewise, if the number of participants changed, the number reported in the sentence would change the next time the document rendered (as long as the R object storing the number of participants knew about the change).\nIf there are many values you need to report inline, storing them in a list is a good practice. For an overview of this approach, see:\n\nLists are my secret weapon for reporting stats with knitr by Tristan Mahr"
+  },
+  {
+    "objectID": "series/reproducible-data-science/posts/technical-writing.html#figure-and-table-outputs",
+    "href": "series/reproducible-data-science/posts/technical-writing.html#figure-and-table-outputs",
+    "title": "Technical Writing",
+    "section": "Figure and table outputs",
+    "text": "Figure and table outputs\nFigures and tables produced by code blocks have unique parameters you can use to adjust their layout, add captions, or make them cross-referenceable. See the Quarto documentation for details:\n\nFigures documentation\nTables documentation\n\n\n\n\n\n\n\nAdjusting figure appearance\n\n\n\nWhen making figures with ggplot2 it’s best to know the final size of the figure before attempting to adjust the size of plot text or geometry."
+  },
+  {
+    "objectID": "series/reproducible-data-science/posts/technical-writing.html#equations",
+    "href": "series/reproducible-data-science/posts/technical-writing.html#equations",
+    "title": "Technical Writing",
+    "section": "Equations",
+    "text": "Equations\nQuarto features extensive support for writing beautiful math equations with LaTeX math expressions authored using standard Pandoc markdown syntax: Use $ delimiters for inline math and $$ delimiters for display math. Provide an #eq- label immediately after a display math equation to make it referenceable.\n\n\n\n\n\n\n\nMarkdown Syntax\nOutput\n\n\n\n\ninline math: $E = mc^{2}$\ninline math: E=mc^{2}\n\n\ndisplay math:\n$$E = mc^{2}$$\ndisplay math:\nE = mc^{2}\n\n\ndisplay math with label:\n$$E = mc^{2}$${#eq-mc-squared}\ndisplay math with label:\nE = mc^{2} \\tag{1}\n\n\n\nMath expressions can be rendered in any of Quarto’s output formats, but different rendering methods are used depending on the format:\n\nhtml offers several math rendering methods\npdf uses LaTeX (including raw LaTeX)\ndocx uses Microsoft Word’s equation environment\n\nTo learn more about writing LaTeX math expressions, see:\n\nMathJax basic tutorial and quick reference1\nCheatsheet for LaTeX Math Commands\n\n\n\n\n\n\n\nInspecting equations rendered by MathJax\n\n\n\nEquations rendered by MathJax can be inspected by right clicking them. This is useful if you want to view or copy the underlying TeX code from an equation Show Math As > TeX Commands or Copy to Clipboard > TeX Commands. Note that Tidy Tales uses the KaTeX renderer, so it won’t work on this site.\n\n\n\nUsing inline R code in math equations\nInline R code `r ` can be used within inline or display math to include code output in math equations.\n\nmtcars_fit <- lm(mpg ~ am, data = mtcars)\ncoef_int   <- coef(mtcars_fit)[\"(Intercept)\"]\ncoef_am    <- coef(mtcars_fit)[\"am\"]\n\nInline math: $\\mathrm{\\widehat{mpg}} = `r coef_int` + `r coef_am`(\\mathrm{am})$\nInline math: \\mathrm{\\widehat{mpg}} = 17.1473684 + 7.2449393(\\mathrm{am})\nThe same approach also works for display math.\n\n\n\n\n\n\nWriting model equations\n\n\n\nThe equatiomatic package can be used to write equations from a fitted model. Learn more on the package website.\n\nlibrary(equatiomatic)\n\nBy default the model equation uses math symbols.\n\nextract_eq(mtcars_fit)\n\n\n\n#> $$\n#> \\operatorname{mpg} = \\alpha + \\beta_{1}(\\operatorname{am}) + \\epsilon\n#> $$\n\n\nBut model estimates can be used too.\n\nextract_eq(mtcars_fit, use_coefs = TRUE)\n\n\n\n#> $$\n#> \\operatorname{\\widehat{mpg}} = 17.15 + 7.24(\\operatorname{am})\n#> $$\n\n\n\n\n\n\nUsing math equations in plots\nBoth base R and ggplot2 plots feature support for writing beautiful math equations with plotmath expressions. Equations can be used in plot labels, legends, and text.\nIf you would rather write equations using LaTeX math expressions, the latex2exp package can be used to parse and convert LaTeX to plotmath expressions. Learn more on the package website.\nggplot2 also includes some convenience functions for using plotmath in plot labels:\n\nlabel_parsed() interprets labels as plotmath expressions\nlabel_bquote() offers a flexible way of labelling facet rows or columns with plotmath expressions"
+  },
+  {
+    "objectID": "series/reproducible-data-science/posts/system-setup.html",
+    "href": "series/reproducible-data-science/posts/system-setup.html",
+    "title": "System Setup",
+    "section": "",
+    "text": "The following will install, build, and configure the tools used in the remaining posts in this series (and some other things). This is my personal setup for macOS and is intended to get a new computer up and running with the tools and preferences I like to use. A lot of this is general to any data science setup on macOS, but some of it is specific to me.\nYou are free to use or modify this for your own setup, but should do so thoughtfully. Don’t run any of the scripts below without understanding what they do, and backup your system if you are trying this on an existing setup. To test drive my system setup safely, consider using a virtualized instance of macOS with UTM.\n\n\n\n\n\n\nBefore you begin\n\n\n\nMy system setup is done mainly done through the shell prompt in Terminal, which is the easiest recommended way to get a shell prompt on macOS. You can find Terminal in the Utilities directory inside your Applications directory.\nIf you have never used Terminal before, Apple has a nice shell scripting primer and command line primer book in their archives.\n\n\n\n\nXcode command line tools are needed to build certain packages from source. The command line tools provide a lighter alternative to installing the full Xcode release from the App Store, which contains a lot that isn’t needed for data science use cases.\nInstall Xcode command line tools from the Terminal with:\nxcode-select --install\n\n\n\nHomebrew is an open source package manager for macOS that makes installing, removing, and managing software simple.\nInstall homebrew from the Terminal with:\n/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"\n\n\n\nchezmoi is an open source dotfile manager. Dotfiles are hidden files and hidden directories that store preferences and settings for packages and applications. Dotfiles can be made visible in Finder with the Command-Shift-. keyboard shortcut.\nInstall chezmoi from the Terminal with Homebrew:\nbrew install chezmoi"
+  },
+  {
+    "objectID": "series/reproducible-data-science/posts/system-setup.html#scripts",
+    "href": "series/reproducible-data-science/posts/system-setup.html#scripts",
     "title": "System Setup",
     "section": "Scripts",
     "text": "Scripts\n\n\n\n\n\n\nThis section is under construction"
   },
   {
-    "objectID": "series/reproducible-data-science/contents/r-getting-help.html",
-    "href": "series/reproducible-data-science/contents/r-getting-help.html",
+    "objectID": "series/reproducible-data-science/posts/r-getting-help.html",
+    "href": "series/reproducible-data-science/posts/r-getting-help.html",
     "title": "Getting Help with R",
     "section": "",
-    "text": "A minimal reproducible example—usually referred to as a reprex—is…\nhttps://reprex.tidyverse.org\nhttps://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-create-one/5219\nhttps://www.tidyverse.org/help/\nhttps://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example"
+    "text": "If you need help solving a problem, the first step is to create a reproducible example. The goal of a reproducible example is to make it easier for others to help you, or for you to help yourself, by packaging your problematic code in such a way that anyone can exactly reproduce your problem. A good reproducible example is:\n\nSelf-contained: Your code includes everything needed to reproduce your problem\nMinimal: Your example only includes code directly related to your problem\n\nThe work you put into writing a good reproducible example usually pays for itself:\n\nOften you will solve your own problem in the process of writing a reproducible example\nYou improve your chances of getting help when your problem is easy to understand and reproduce\n\nFor tips on writing good reproducible examples, see:\n\nWhat’s a reproducible example and how do I create one?\nHow to make a great R reproducible example\nReprex do’s and don’ts\ntidyverse: Get help!\n\n\n\n\n\n\n\nCreate an R project for writing reproducible examples\n\n\n\nBecause reproducible examples are self-contained and minimal, it’s good practice to create them separately from the project that inspired your problem. A nice way to do this is to create a new reprex R project that contains empty files where you can write reproducible examples like:\nreprex/\n├─reprex.Rproj\n├─reprex.R\n├─reprex.Rmd\n├─reprex.qmd\nThe contents of these files are meant to be ephemeral. After you write a reproducible example and share it, it’s safe to delete the contents of the file or overwrite it in the future. If you do want to save the reproducible example somewhere, consider turning it into a gist on GitHub or a question on Stack Overflow, Cross Validated, or the Posit forum.\n\n\n\n\nUse the reprex R package to test, render, and copy your reproducible examples to your clipboard. Then share them when asking for help on:\n\nStack Overflow\nCross Validated\nThe Posit forum\nAnd more!"
   },
   {
-    "objectID": "series/reproducible-data-science/contents/r-getting-help.html#debugging-interactively",
-    "href": "series/reproducible-data-science/contents/r-getting-help.html#debugging-interactively",
+    "objectID": "series/reproducible-data-science/posts/r-getting-help.html#debugging-interactively",
+    "href": "series/reproducible-data-science/posts/r-getting-help.html#debugging-interactively",
     "title": "Getting Help with R",
     "section": "Debugging interactively",
-    "text": "Debugging interactively\nhttps://adv-r.hadley.nz/debugging.html"
+    "text": "Debugging interactively\nSee the Debugging chapter in Advanced R by Hadley Wickham.\n\n\n\n\n\n\nR package versions and debugging\n\n\n\nSometimes the bugs you run into aren’t caused by your code, but rather the internal code of the package(s) you’re using. If you’re encountering a bug that’s associated with a package that has a newer version available, updating the package might be the only thing you need to do to fix the bug."
   },
   {
-    "objectID": "series/reproducible-data-science/contents/r-getting-help.html#debugging-targets-pipelines",
-    "href": "series/reproducible-data-science/contents/r-getting-help.html#debugging-targets-pipelines",
+    "objectID": "series/reproducible-data-science/posts/r-getting-help.html#debugging-targets-pipelines",
+    "href": "series/reproducible-data-science/posts/r-getting-help.html#debugging-targets-pipelines",
     "title": "Getting Help with R",
     "section": "Debugging targets pipelines",
-    "text": "Debugging targets pipelines\nhttps://books.ropensci.org/targets/debugging.html"
+    "text": "Debugging targets pipelines\nSee the Debugging chapter in the targets R package user manual"
   },
   {
-    "objectID": "series/reproducible-data-science/contents/r-getting-help.html#debugging-github-actions-workflows",
-    "href": "series/reproducible-data-science/contents/r-getting-help.html#debugging-github-actions-workflows",
+    "objectID": "series/reproducible-data-science/posts/r-getting-help.html#debugging-github-actions-workflows",
+    "href": "series/reproducible-data-science/posts/r-getting-help.html#debugging-github-actions-workflows",
     "title": "Getting Help with R",
     "section": "Debugging GitHub Actions workflows",
-    "text": "Debugging GitHub Actions workflows"
+    "text": "Debugging GitHub Actions workflows\nIf you encounter problems in a GitHub Actions workflow but not locally, good luck. GitHub provides monitoring and troubleshooting documentation to get you started, but the lack of an interactive debugger can make debugging difficult. The typical approach to debugging GitHub Actions workflows is to:\n\nView which step caused the failure in the workflow’s logs\nGuess what caused the problem and commit the changes attempting to fix it\nPush those changes to trigger the workflow\nHope the workflows succeeds (or repeat the process until it does)\n\nThis isn’t great. But there are a few things you can do to make it somewhat better:\n\nDebug the workflow in a Pull Request so you don’t make a mess of your commit history\nUse act to run GitHub Actions workflows locally in Docker containers\nUse tmate to access a workflow’s runner with SSH or Web shell for interactive debugging"
   },
   {
-    "objectID": "series/reproducible-data-science/contents/zotero-setup.html",
-    "href": "series/reproducible-data-science/contents/zotero-setup.html",
+    "objectID": "series/reproducible-data-science/posts/zotero-setup.html",
+    "href": "series/reproducible-data-science/posts/zotero-setup.html",
     "title": "Reference Manager Setup",
     "section": "",
-    "text": "Zotero is an open-source reference manager that styles itself as “your personal research assistant.”\n\n\nInstall Zotero from the Terminal with Homebrew:\nbrew install --cask zotero\n\n\n\nZotero Connector is a browser plugin that allows you to save web content (blogs, articles, etc.) to Zotero with a single click.\nThe Zotero Connector for Safari is bundled with Zotero. You can enable it from the Extensions pane of the Safari preferences.\n\n\n\nThese are the core extensions I use with Zotero. See their documentation for installation instructions:\n\nBetter BibTeX\nZotFile\n\nI also use:\n\nscite\nPubPeer\n\n\n\n\n\n\n\n\n\n\nThis section is under construction"
+    "text": "Zotero is an open-source reference manager that styles itself as “your personal research assistant.”\n\n\nInstall Zotero from the Terminal with Homebrew:\nbrew install --cask zotero\n\n\n\nZotero Connector is a browser plugin that allows you to save web content (blogs, articles, etc.) to Zotero with a single click.\nThe Zotero Connector for Safari is bundled with Zotero. You can enable it from the Extensions pane of the Safari preferences.\n\n\n\nThese are the core extensions I use with Zotero. See their documentation for installation instructions:\n\nBetter BibTeX\nZotFile\n\nI also use:\n\nscite\nPubPeer\n\n\n\n\nZotero for iOS is an open source application for working with your Zotero library on an iPad or iPhone. Install it from the App Store."
   },
   {
-    "objectID": "series/reproducible-data-science/contents/zotero-setup.html#configuring-zotero",
-    "href": "series/reproducible-data-science/contents/zotero-setup.html#configuring-zotero",
+    "objectID": "series/reproducible-data-science/posts/zotero-setup.html#configuring-zotero",
+    "href": "series/reproducible-data-science/posts/zotero-setup.html#configuring-zotero",
     "title": "Reference Manager Setup",
     "section": "Configuring Zotero",
     "text": "Configuring Zotero\nThings to do after installing.\n\nCloud syncing\n\n\n\n\n\n\nThis section is under construction\n\n\n\n\n\n\nWebDav"
   },
   {
-    "objectID": "series/reproducible-data-science/contents/zotero-setup.html#using-zotero-with-quarto-and-r-markdown",
-    "href": "series/reproducible-data-science/contents/zotero-setup.html#using-zotero-with-quarto-and-r-markdown",
+    "objectID": "series/reproducible-data-science/posts/zotero-setup.html#using-zotero-with-quarto-and-r-markdown",
+    "href": "series/reproducible-data-science/posts/zotero-setup.html#using-zotero-with-quarto-and-r-markdown",
     "title": "Reference Manager Setup",
     "section": "Using Zotero with Quarto and R Markdown",
     "text": "Using Zotero with Quarto and R Markdown\nrbbt package"
   },
   {
-    "objectID": "series/reproducible-data-science/contents/version-control-setup.html",
-    "href": "series/reproducible-data-science/contents/version-control-setup.html",
+    "objectID": "series/reproducible-data-science/posts/version-control-setup.html",
+    "href": "series/reproducible-data-science/posts/version-control-setup.html",
     "title": "Version Control Setup",
     "section": "",
-    "text": "This section is under construction\nhttps://happygitwithr.com https://usethis.r-lib.org/articles/git-credentials.html"
+    "text": "Git is an open source distributed version control system for tracking and managing changes to files.\n\n\nInstall git from the Terminal with Homebrew:\nbrew install git"
   },
   {
-    "objectID": "series/reproducible-data-science/contents/version-control-setup.html#git",
-    "href": "series/reproducible-data-science/contents/version-control-setup.html#git",
-    "title": "Version Control Setup",
-    "section": "Git",
-    "text": "Git\nGit is …\n\nInstalling git\nInstall git from the Terminal with Homebrew:\nbrew tap r-lib/rig\nbrew install --cask rig"
-  },
-  {
-    "objectID": "series/reproducible-data-science/contents/version-control-setup.html#github",
-    "href": "series/reproducible-data-science/contents/version-control-setup.html#github",
+    "objectID": "series/reproducible-data-science/posts/version-control-setup.html#github",
+    "href": "series/reproducible-data-science/posts/version-control-setup.html#github",
     "title": "Version Control Setup",
     "section": "GitHub",
-    "text": "GitHub\n\nInstalling GitHub CLI\n\n\n\nInstalling GitHub Desktop\n…"
+    "text": "GitHub\nGitHub is an internet hosting service for projects using Git that makes collaboration easy. It provides the distributed version control of Git, plus issue tracking, project management tools, continuous integration, and more for every project\n\nInstalling GitHub Desktop\nGitHub Desktop is an open source application for interacting with GitHub using a GUI instead of the command line or a web browser.\nInstall GitHub Desktop from the Terminal with Homebrew:\nbrew install --cask github\n\n\nInstalling GitHub CLI\nGitHub CLI is a command line interface to access GitHub from the Terminal.\nInstall GitHub CLI from the Terminal with Homebrew:\nbrew install gh"
   },
   {
-    "objectID": "series/reproducible-data-science/contents/version-control-setup.html#version-control-in-rstudio",
-    "href": "series/reproducible-data-science/contents/version-control-setup.html#version-control-in-rstudio",
+    "objectID": "series/reproducible-data-science/posts/version-control-setup.html#version-control-in-rstudio",
+    "href": "series/reproducible-data-science/posts/version-control-setup.html#version-control-in-rstudio",
     "title": "Version Control Setup",
     "section": "Version Control in RStudio",
-    "text": "Version Control in RStudio"
+    "text": "Version Control in RStudio\nSee the following:\n\nHappy Git and GitHub for the useR by Jenny Bryan\nusethis: Managing Git(Hub) Credentials"
   },
   {
-    "objectID": "series/reproducible-data-science/contents/python-setup.html",
-    "href": "series/reproducible-data-science/contents/python-setup.html",
+    "objectID": "series/reproducible-data-science/posts/python-setup.html",
+    "href": "series/reproducible-data-science/posts/python-setup.html",
     "title": "Python Setup",
     "section": "",
     "text": "Python is an open source programming language that is the “second best language for everything.” It’s worth setting up in case you need it, but for data science R is almost always simpler and better.\n\n\npyenv is an open source Python installation manager for installing, removing, and switching between multiple Python versions.\n\nInstall pyenv from the Terminal with Homebrew:\nbrew install pyenv\nSet up your shell environment for pyenv.\nInstall Python build dependencies with Homebrew:\nbrew install openssl readline sqlite3 xz zlib tcl-tk\n\n\n\n\nInstall the latest major version of Python 3 with shared library support1 from the Terminal with pyenv:\nenv PYTHON_CONFIGURE_OPTS=\"--enable-shared\" pyenv install 3:latest\n\n\n\npipenv is an open-source dependency manager for Python projects.\nInstall pipenv from the Terminal with Homebrew:\nbrew install pipenv\npoetry is an alternative open-source dependency manager for Python projects. I’m currently experimenting between poetry and pipenv to decide which I prefer.\nInstall poetry from the Terminal with:\ncurl -sSL https://install.python-poetry.org | python3 -"
   },
   {
-    "objectID": "series/reproducible-data-science/contents/python-setup.html#python-packages",
-    "href": "series/reproducible-data-science/contents/python-setup.html#python-packages",
+    "objectID": "series/reproducible-data-science/posts/python-setup.html#calling-python-from-r",
+    "href": "series/reproducible-data-science/posts/python-setup.html#calling-python-from-r",
     "title": "Python Setup",
-    "section": "Python Packages",
-    "text": "Python Packages\n\n\n\n\n\n\nThis section is under construction"
+    "section": "Calling Python from R",
+    "text": "Calling Python from R\nUse the reticulate R package to interface R and Python in the same project."
   },
   {
-    "objectID": "series/reproducible-data-science/contents/r-setup.html",
-    "href": "series/reproducible-data-science/contents/r-setup.html",
+    "objectID": "series/reproducible-data-science/posts/r-setup.html",
+    "href": "series/reproducible-data-science/posts/r-setup.html",
     "title": "R Setup",
     "section": "",
     "text": "R is an open source programming language for wrangling, visualizing, modelling, and communicating data, and so much more. It has a strong community behind it and is widely used among researchers, statisticians, and data scientists in a variety of fields.\n\n\nrig is an open source R installation manager for installing, removing, configuring, and switching between multiple R versions and user-level package libraries.\nInstall rig from the Terminal with Homebrew:\nbrew tap r-lib/rig\nbrew install --cask rig\n\n\n\nInstall the latest version of R from the Terminal with rig:\nrig add release\nR can also be installed from CRAN (the comprehensive R archive network) using the following link https://cloud.r-project.org. A new major version of R comes out once a year, and there are 2-3 minor releases each year.\n\n\n\nRStudio is an open source integrated development environment, or IDE, for R programming made by Posit.\nInstall RStudio from the Terminal with Homebrew:\nbrew install --cask rstudio\nRStudio can also be installed from Posit using the following link https://posit.co/download/rstudio-desktop/. RStudio is updated a couple of times a year. When a new version is available, RStudio will let you know. It’s a good idea to upgrade regularly so you can take advantage of the latest and greatest features.\n\n\n\nQuarto is an open source scientific and technical publishing system built on Pandoc.\nInstall Quarto from the Terminal with Homebrew:\nbrew install --cask quarto"
   },
   {
-    "objectID": "series/reproducible-data-science/contents/r-setup.html#r-packages",
-    "href": "series/reproducible-data-science/contents/r-setup.html#r-packages",
-    "title": "R Setup",
-    "section": "R Packages",
-    "text": "R Packages\n\n\n\n\n\n\nThis section is under construction"
+    "objectID": "series/reproducible-data-science/posts/start-here.html",
+    "href": "series/reproducible-data-science/posts/start-here.html",
+    "title": "Start Here",
+    "section": "",
+    "text": "This series is about learning and doing reproducible data science. It’s a mix between light tutorial content, discussion, and references to more comprehensive learning material that tries to:\n\nProvide a jumping off place for beginners\nServe as a quick reference for more experienced users\nUnearth some of the “hidden curriculum” you might not have been taught while learning R (whether or not you were taught in the classroom or are self-taught)\n\nThis series is a work-in-progress and some sections may currently be under construction."
   },
   {
-    "objectID": "series/reproducible-data-science/contents/r-packages.html",
-    "href": "series/reproducible-data-science/contents/r-packages.html",
+    "objectID": "series/reproducible-data-science/posts/start-here.html#who-is-this-series-for",
+    "href": "series/reproducible-data-science/posts/start-here.html#who-is-this-series-for",
+    "title": "Start Here",
+    "section": "Who is this series for?",
+    "text": "Who is this series for?\nI’ve tried to write this series so anyone can use it to learn or improve their approach to doing reproducible data science. That said, I’ve written the series in an order that makes sense logistically, but not necessarily pedagogically:\n\nIf you are completely new to programming, data science, or R, I recommend starting from the Learning R post and working through the Where do I start? section first\nIf you are setting up a new computer, I recommend reading the posts with setup in the title in order\nFor anyone else, the posts are mostly self-contained and can be read in any order\n\nSince this series is based on my personal experience and approach, some of the setup sections may not be relevant to all readers. In particular, I use macOS, and any examples using the shell prompt will be specific to macOS. Most of the software I use is cross-platform though, so you can refer to the software’s documentation for Linux or Windows instructions."
+  },
+  {
+    "objectID": "series/reproducible-data-science/posts/start-here.html#where-else-can-i-learn",
+    "href": "series/reproducible-data-science/posts/start-here.html#where-else-can-i-learn",
+    "title": "Start Here",
+    "section": "Where else can I learn?",
+    "text": "Where else can I learn?\nFor complementary and alternative approaches to doing reproducible data science, see:\n\nPosit Solutions\n\nIf you need to do data science at scale, Posit’s commercial enterprise solutions are probably the best option."
+  },
+  {
+    "objectID": "series/reproducible-data-science/posts/r-packages.html",
+    "href": "series/reproducible-data-science/posts/r-packages.html",
     "title": "R Packages",
     "section": "",
-    "text": "The standard way to install R packages is with the install.packages() function that comes with base R.\ninstall.packages(\"tibble\")\nA fresh way to install R packages is with the pkg_install() function from the pak package.\npkg_install(\"tibble\")\npak is fast, safe, and convenient. You can learn more about it on the package website.\n\n\n\n\n\n\nDo you want to install from sources the package which needs compilation?\n\n\n\nWhen installing a package, you will sometimes encounter the above question along with the message “There are binary versions available but the source versions are later”. What this question is asking is whether you would like to have your computer build (compile) the package binary from source code then install it (yes) or have your computer install a pre-built binary (no). If you choose yes, you will get the newest version of the package; if you choose no you will get the newest binary version of the package (typically the previous release).\nUnless you need the newest version of the package for a specific feature or bug fix, I recommend choosing no—the binary version will install faster, and you can simply wait a few days for the binary of the newest version to be built on the repository you’re installing packages from, then install the package again to get the newest version. If you need the newest version of the package right now then choose yes, but you will need to set up your R build toolchain first."
+    "text": "The standard way to install R packages is with the install.packages() function that comes with base R.\ninstall.packages(\"tibble\")\nA fresh way to install R packages is with the pkg_install() function from the pak package.\npkg_install(\"tibble\")\npak is fast, safe, and convenient. You can learn more about it on the package website.\n\n\n\n\n\n\n“Do you want to install from sources the package which needs compilation?”\n\n\n\nWhen installing a package, you will sometimes encounter the above question along with the message “There are binary versions available but the source versions are later”. What this question is asking is whether you would like to have your computer build (compile) the package binary from source code then install it (yes) or have your computer install a pre-built binary (no). If you choose yes, you will get the newest version of the package; if you choose no you will get the newest binary version of the package (typically the previous release).\nUnless you need the newest version of the package for a specific feature or bug fix, I recommend choosing no—the binary version will install faster, and you can simply wait a few days for the binary of the newest version to be built on the repository you’re installing packages from, then install the package again to get the newest version. If you need the newest version of the package right now then choose yes, but you will need to set up your R build toolchain first.\n\n\nTo learn more about package installation, see the Package structure and state chapter in R Packages by Hadley Wickham and Jenny Bryan."
   },
   {
-    "objectID": "series/reproducible-data-science/contents/r-packages.html#where-can-i-install-r-packages-from",
-    "href": "series/reproducible-data-science/contents/r-packages.html#where-can-i-install-r-packages-from",
+    "objectID": "series/reproducible-data-science/posts/r-packages.html#where-can-i-install-r-packages-from",
+    "href": "series/reproducible-data-science/posts/r-packages.html#where-can-i-install-r-packages-from",
     "title": "R Packages",
     "section": "Where can I install R packages from?",
-    "text": "Where can I install R packages from?\nRelease versions of R packages can be installed from:\n\nCRAN\nBioconductor\n\nDevelopment versions of R packages can be installed from:\n\nGitHub\nR-Universe\n\nPrevious release versions of R packages can be installed from:\n\nPosit Public Package Manager\nMRAN"
+    "text": "Where can I install R packages from?\nRelease versions of R packages can be installed from:\n\nCRAN\nBioconductor\n\nDevelopment versions of R packages can be installed from:\n\nGitHub\nR-Universe\n\nPrevious release versions of R packages can be installed from:\n\nPosit Public Package Manager\nMRAN (shut down on July 1st, 2023)"
   },
   {
-    "objectID": "series/reproducible-data-science/contents/r-packages.html#where-can-i-find-new-r-packages",
-    "href": "series/reproducible-data-science/contents/r-packages.html#where-can-i-find-new-r-packages",
+    "objectID": "series/reproducible-data-science/posts/r-packages.html#where-can-i-find-new-r-packages",
+    "href": "series/reproducible-data-science/posts/r-packages.html#where-can-i-find-new-r-packages",
     "title": "R Packages",
     "section": "Where can I find new R packages?",
-    "text": "Where can I find new R packages?\n\n\n\nThere were 18975 R packages available on CRAN in 2022, and that number only continues to grow over time. That’s not to mention the 2165 R packages available on BioConductor, and the unknown amount of packages only available on R-universe or GitHub.\n\n\n\n\n\nFortunately, there are many places to find curated content about R packages:\n\nYour favourite search engine\nCRAN Task Views\nR Views\nThe Posit Blog\nPosit Videos\ntidyverse blog\nTrending on GitHub\npkgsearch\n\nYour favourite search engine is often a good starting place. Include r and package in your search, plus the topic you’re interested in, and you’ll usually find something helpful. Use boolean operators to narrow down your search or to hide unrelated things like Reddit (-site:reddit.com).\nCRAN Task Views provide guidance on which R packages are relevant for tasks related to a certain topic. The task views are not meant to endorse the “best” packages for a given task; rather, they take an encyclopedic approach that serves as a good reference.\nR Views is an R community blog edited by Posit where you can learn about new R packages and see how to use them (plus some other goodies).\nThe Posit Blog is where you can get news and updates about R packages made by Posit. The blog is about “all things data science and the world that benefits from [Posit] products, community, and events”, so it has a wider scope than R packages alone; but it’s a good place to follow anyways to stay up to date with what’s happening in the R world.\nOn a similar note, you can find videos from events hosted by Posit, such as conference talks, data science hang outs, tutorials, and more at Posit Videos (and the Posit YouTube channel). This is a good place to see what R packages the community is using, and how they use them.\nThe tidyverse blog is where you can get news and updates about R packages in the tidyverse.\nFinally, if you don’t want to leave the comfort of your IDE, the pkgsearch package is a package you can use to find other packages..!\n\n\n\n\n\n\nSocial Media\n\n\n\nWord of mouth on social media is a great way to find new packages or learn about new ways to use your favourite packages. Follow your favourite developers to keep up to date with their work, and check out the #RStats and #TidyTuesday hashtags to see what the community is up to."
+    "text": "Where can I find new R packages?\n\n\n\nThere were 18954 R packages available on CRAN in 2022, and that number only continues to grow over time. That’s not to mention the 2165 R packages available on Bioconductor, the 1704 packages available on R-universe but not CRAN or Bioconductor, and the unknown amount of packages only available on GitHub.\n\n\n\n\n\nFortunately, there are many places to find curated content about R packages:\n\nYour favourite search engine\nCRAN Task Views\nR Views\nThe Posit Blog\nPosit Videos\ntidyverse blog\nTrending on GitHub\npkgsearch\n\nYour favourite search engine is often a good starting place. Include r and package in your search, plus the topic you’re interested in, and you’ll usually find something helpful. Use boolean operators to narrow down your search or to hide unrelated things like Reddit (-site:reddit.com).\nCRAN Task Views provide guidance on which R packages are relevant for tasks related to a certain topic. The task views are not meant to endorse the “best” packages for a given task; rather, they take an encyclopedic approach that serves as a good reference.\nR Views is an R community blog edited by Posit where you can learn about new R packages and see how to use them (plus some other goodies).\nThe Posit Blog is where you can get news and updates about R packages made by Posit. The blog is about “all things data science and the world that benefits from [Posit] products, community, and events”, so it has a wider scope than R packages alone; but it’s a good place to follow anyways to stay up to date with what’s happening in the R world.\nOn a similar note, you can find videos from events hosted by Posit, such as conference talks, data science hang outs, tutorials, and more at Posit Videos (and the Posit YouTube channel). This is a good place to see what R packages the community is using, and how they use them.\nThe tidyverse blog is where you can get news and updates about R packages in the tidyverse.\nFinally, if you don’t want to leave the comfort of your IDE, the pkgsearch package is a package you can use to find other packages..!\n\n\n\n\n\n\nSocial Media\n\n\n\nWord of mouth on social media is a great way to find new packages or learn about new ways to use your favourite packages. Follow your favourite developers to keep up to date with their work, and check out the #RStats and #TidyTuesday hashtags to see what the community is up to."
   },
   {
-    "objectID": "series/reproducible-data-science/contents/r-packages.html#how-do-i-attach-r-packages",
-    "href": "series/reproducible-data-science/contents/r-packages.html#how-do-i-attach-r-packages",
+    "objectID": "series/reproducible-data-science/posts/r-packages.html#how-do-i-attach-r-packages",
+    "href": "series/reproducible-data-science/posts/r-packages.html#how-do-i-attach-r-packages",
     "title": "R Packages",
     "section": "How do I attach R packages?",
     "text": "How do I attach R packages?\nThe standard way to attach R packages is with the library() function that comes with base R.\nlibrary(tibble)\nIf you want to attach multiple packages in a single function call, use the pkg_attach() function from the xfun package.\npkg_attach(\"tibble\", \"dplyr\")\n\nHow do I manage namespace conflicts?\nSometimes R packages will use the same name for different functions. A common example is dplyr::select() and MASS::select(). Under R’s default conflict resolution system, if both of these packages are loaded in the same session select() will come from the most recently loaded package.\nIf you want select() to refer to dplyr::select(), base R provides the following solutions:\n\nLoad MASS first and dplyr second\nExclude select() when loading MASS: library(MASS, exclude = \"select\")\nAlways namespace dplyr’s select() function: dplyr::select()\n\nAn alternative approach to managing namespace conflicts is with the conflicted package, which makes every conflict an error and forces you to choose which function to use. You can learn more about it on the package website."
   },
   {
-    "objectID": "series/reproducible-data-science/contents/r-packages.html#how-do-i-update-r-packages",
-    "href": "series/reproducible-data-science/contents/r-packages.html#how-do-i-update-r-packages",
+    "objectID": "series/reproducible-data-science/posts/r-packages.html#how-do-i-update-r-packages",
+    "href": "series/reproducible-data-science/posts/r-packages.html#how-do-i-update-r-packages",
     "title": "R Packages",
     "section": "How do I update R packages?",
     "text": "How do I update R packages?\nMost R packages available on CRAN are actively maintained and updated. For example, in 2022 more than half the packages available on CRAN had an update in the same or previous year. It’s good practice to keep up with these updates so you can get the latest features, improvements, and bug fixes.\n\n\n\n\n\nUse old.packages() to check which of the packages you’ve installed have updates available from the repositories listed in getOption(\"repos\").\nold.packages()\nUpdate specific packages to the most recent version by re-installing them with install.packages() or pak::pkg_install().\n# The standard way to update a package\ninstall.packages(\"tibble\")\n\n# A fresh way to update a package\npak::pkg_install(\"tibble\")\nUpdate all the packages listed by old.packages() at once with update.packages()1 or pak::pkg_install(old.packages()[,\"Package\"]). Note that update.packages() uses install.packages() under the hood, so it won’t be as fast as pak.\n# The standard way to update all packages at once\nupdate.packages()\n\n# A fresh way to update all packages at once\npak::pkg_install(old.packages()[,\"Package\"])\nYou can also install and update packages using RStudio, either from the Packages pane or from the menu bar Tools > Check for Package Updates.\n\n\n\n\n\n\nBreaking changes\n\n\n\nSometimes package updates will include breaking changes, which are named as such because they are expected to break code using older versions of the package. Most package updates won’t contain breaking changes, but occasionally they will. This should not discourage you from updating packages, but it should encourage you to update thoughtfully—don’t do your updates before important deadlines!\nI recommend creating multiple user libraries with rig that can be used for different tasks. This way different libraries can be updated more or less frequently, and it’s easier to make the choice whether or not to update. For example, you could have a devel library for package development that is updated weekly, a general main library that is updated monthly or yearly, and so forth. Another good practice—especially for long-running projects—is to create project-specific libraries with renv. The project libraries created by renv are isolated from your user libraries, so you can continue to update your user libraries as normal without worrying about breaking changes affecting the projects using renv."
   },
   {
-    "objectID": "series/reproducible-data-science/contents/r-packages.html#how-do-i-restore-my-current-library-into-a-new-library",
-    "href": "series/reproducible-data-science/contents/r-packages.html#how-do-i-restore-my-current-library-into-a-new-library",
+    "objectID": "series/reproducible-data-science/posts/r-packages.html#how-do-i-restore-my-current-library-into-a-new-library",
+    "href": "series/reproducible-data-science/posts/r-packages.html#how-do-i-restore-my-current-library-into-a-new-library",
     "title": "R Packages",
     "section": "How do I restore my current library into a new library?",
     "text": "How do I restore my current library into a new library?\n\n\n\n\n\n\nThis section needs to be tested\n\n\n\n\n\n\nA new library is created whenever you install a new major or minor version of R (the “x” or “y” in version “x.y.z”), so all your favourite packages need to be re-installed to this new library if you want to use them. This is also true if you create a new library in the current version of R (e.g., with rig library add).\n\n\n\n\n\n\nTransferring a library from one computer to another\n\n\n\n\n\nThe approach shown below can also be used to transfer a library from one computer to another. All you need to do is:\n\nFollow the steps to create the character vector of packages in your current library (pkgs)\nSave the pkgs R object with: saveRDS(pkgs, file = \"pkgs.rds\")\nCopy the pkgs.rds file to the other computer*\nLoad the pkgs R object with: pkgs <- readRDS(“path/to/pkgs.rds”)\nInstall pak on the other computer with: install.packages(\"pak\")\nInstall the packages with: pkg_install(pkgs)\n\n*For added convenience, store pkgs.rds in a GitHub repository so you can access it wherever you go!\n\n\n\nIf you are using rig (and you should be), restoring your current library into a new library is easy with some help from pak and dplyr.\nFirst—in your current library—get the path to your user library. Copy this down somewhere.\n.libPaths()[1]\nYou can now switch to your new library. The easiest way to switch on macOS is with the menu bar app; otherwise use the shell prompt. Open a new RStudio window to start a session with the new library.2\n# Switch to a different R version\nrig default <version>\n\n# Switch to a different library\nrig library default <lib-name>\nIn your new library, install and attach pak and dplyr.\n# install.packages(c(\"pak\", \"dplyr\"))\nlibrary(pak)\nlibrary(dplyr)\nUse pak::pkg_list() to get a data frame containing data about the packages installed in your current library.\npkgs_tbl <- pkg_list(lib = \"path/to/your/user/library\")\nWrangle this data down into a character vector specifying the package source and package, following the package reference syntax used by pak.\npkgs <- pkgs_tbl |>\n  select(package, remoteusername, repotype) |>\n  mutate(pkg = case_when(\n    # GitHub\n    !is.na(remoteusername) ~ paste0(remoteusername, \"/\", package), \n    # CRAN and Bioconductor\n    repotype %in% c(\"cran\", \"bioc\") ~ paste0(repotype, \"::\", package),\n    # Default to the `standard` package source\n    TRUE ~ paste0(\"standard::\", package)\n  )) |>\n  pull(pkg)\nThen install all your packages.\npkg_install(pkgs)\n\n\n\n\n\n\nDefault library locations and .Renviron\n\n\n\nIf you have previously set R_LIBS_USER in your .Renviron to change the default library path, you may need to remove this variable or change its path if there are issues locating your various user libraries. A quick way to open .Renviron is with usethis::edit_r_environ()."
@@ -228,7 +263,14 @@
     "href": "series/reproducible-data-science/index.html",
     "title": "Reproducible Data Science",
     "section": "",
-    "text": "Start Here\n\n\nLearn what this series is about and how to use it.\n\n\n\nJan 12, 2023\n\n\n\n\n\n\n\n\n\n\n\nSystem Setup\n\n\nInstalling and configuring the basics.\n\n\n\nJan 8, 2023\n\n\n\n\n\n\n\n\n\n\n\nR Setup\n\n\nInstalling and configuring R.\n\n\n\nJan 4, 2023\n\n\n\n\n\n\n\n\n\n\n\nLearning R\n\n\nLearn how to program and do data science with R.\n\n\n\nJan 14, 2023\n\n\n\n\n\n\n\n\n\n\n\nR Packages\n\n\nInstalling, managing, and finding R Packages.\n\n\n\nJan 10, 2023\n\n\n\n\n\n\n\n\n\n\n\nGetting Help with R\n\n\nWriting reproducible examples and debugging errors with R.\n\n\n\nJan 7, 2023\n\n\n\n\n\n\n\n\n\n\n\nPython Setup\n\n\nInstalling and configuring Python.\n\n\n\nJan 5, 2023\n\n\n\n\n\n\n\n\n\n\n\nVersion Control Setup\n\n\nInstalling and configuring Git and GitHub.\n\n\n\nJan 5, 2023\n\n\n\n\n\n\n\n\n\n\n\nReference Manager Setup\n\n\nInstalling and configuring Zotero.\n\n\n\nJan 5, 2023\n\n\n\n\n\n\n\n\n\n\n\nTechnical Writing\n\n\nTechnical writing and literate programming in Quarto documents.\n\n\n\nJan 14, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Learn what this series is about and how to use it.\n\n\n\nJan 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling and configuring the basics.\n\n\n\nJan 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling and configuring Git and GitHub.\n\n\n\nJan 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling and configuring R.\n\n\n\nJan 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling and configuring Python.\n\n\n\nJan 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling and configuring Zotero.\n\n\n\nJan 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLearn how to program and do data science with R.\n\n\n\nJan 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling, managing, and finding R Packages.\n\n\n\nJan 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWriting reproducible examples and debugging errors with R.\n\n\n\nJan 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTechnical writing and literate programming in Quarto documents.\n\n\n\nJan 16, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "series/reproducible-data-science/index.html#artwork",
+    "href": "series/reproducible-data-science/index.html#artwork",
+    "title": "Reproducible Data Science",
+    "section": "Artwork",
+    "text": "Artwork\n\nArtwork by Allison Horst."
   },
   {
     "objectID": "snippets/2022-12-22_patchwork-shared-axis-labels/index.html",
@@ -775,397 +817,5 @@
     "title": "Tales from the Borderlands",
     "section": "Fair Dealing",
     "text": "Fair Dealing\n\nAny of the trademarks, service marks, collective marks, design rights or similar rights that are mentioned, used, or cited in this article are the property of their respective owners. They are used here as fair dealing for the purpose of education in accordance with section 29 of the Copyright Act and do not infringe copyright."
-  },
-  {
-    "objectID": "series/reproducible-data-science/contents/r-getting-help.html#r-package-versions-and-debugging",
-    "href": "series/reproducible-data-science/contents/r-getting-help.html#r-package-versions-and-debugging",
-    "title": "Getting Help with R",
-    "section": "R Package Versions and Debugging",
-    "text": "R Package Versions and Debugging\nSometimes the bugs you run into aren’t caused by your code, but rather the internal code of the package(s) you’re using. If you’re encountering a bug that’s associated with a package that has a newer version available, updating the package might be the only thing you need to do to fix the bug."
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/learning-r.html",
-    "href": "series/reproducible-data-science/posts/learning-r.html",
-    "title": "Learning R",
-    "section": "",
-    "text": "Data science is an exciting discipline that allows you to transform raw data into understanding, insight, and knowledge.\n\n— Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund in R for Data Science\nA data scientist is someone who creates understanding, insight, and knowledge from raw data with programming. Programming is an essential tool in nearly every part of a data science project because it allows you to do data science efficiently and reproducibly.\nThere are many different programming languages you can use to do data science, but here we cover my favourite programming language: R."
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/learning-r.html#whats-r",
-    "href": "series/reproducible-data-science/posts/learning-r.html#whats-r",
-    "title": "Learning R",
-    "section": "What’s R?",
-    "text": "What’s R?\nR is an open source programming language for wrangling, visualizing, modelling, and communicating data, and so much more. It has a strong community behind it and is widely used among researchers, statisticians, and data scientists in a variety of fields."
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/learning-r.html#where-do-i-start",
-    "href": "series/reproducible-data-science/posts/learning-r.html#where-do-i-start",
-    "title": "Learning R",
-    "section": "Where do I start?",
-    "text": "Where do I start?\nI believe every R user should work through these two books (in order):\n\nHands-On Programming with R by Garrett Grolemund\nR for Data Science by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund\n\nTogether these two books teach you a core set of tools that you can use to accomplish the vast majority of tasks in any data science project:\n\nHands-On Programming with R is a short and friendly introduction to the fundamentals of R programming written for non-programmers who want to become data scientists.\nR for Data Science is a friendly introduction to the tools useful for doing data science with R.\n\nAs a companion to these two books I also recommend reading the tidyverse style guide, which provides a style guide for writing R code that is easy to read.\n\n\n\n\n\n\nHelping yourself\n\n\n\nPart of the challenge of learning a programming language is building up a vocabulary of commands to accomplish different tasks. Posit (formerly RStudio) maintains a number of cheat sheets to remind you how to do common tasks in your favourite R packages.\n\n\nFinally, I recommend learning to write reports and presentations in Quarto, a tool for integrating prose, code, and results into reproducible documents. This is covered in the Communicate sections of R for Data Science, but I’d like to emphasize it here because it’s a useful, beginner-friendly skill that goes a long way.\nQuarto is a successor to R Markdown that has ironed-out some of the friction points to make writing reproducible documents an even better experience than it already was. Because Quarto is relatively new, you might find R Markdown currently supports certain use cases better (like APA style manuscripts). In cases like these it’s perfectly fine to use R Markdown; it isn’t going away and is still actively maintained.\nIf you do use R Markdown, the Communicate sections of the first edition of R for Data Science provide a a short and friendly introduction, and the R Markdown: The Definitive Guide and R Markdown Cookbook books provide more comprehensive coverage."
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/learning-r.html#what-else-should-i-learn",
-    "href": "series/reproducible-data-science/posts/learning-r.html#what-else-should-i-learn",
-    "title": "Learning R",
-    "section": "What else should I learn?",
-    "text": "What else should I learn?\nHands-On Programming with R and R for Data Science provide an excellent foundation in R programming for data science, but there are a number of topics these books don’t cover that are equally important for doing data science successfully:\n\nContent knowledge\nInterpersonal skills\nResearch skills\nStatistical modelling\n\nHaving content knowledge about the problem you are using data science to answer allows you to ask better questions, identify data problems, and develop solutions that are meaningful to your audience. Content knowledge is something you can build over time through experience, interactions with the people affected by the problem you are trying to answer, books and courses, and so forth. You don’t always need to be an expert on the problem at hand, but learning more about it will help you avoid mistakes, build confidence in your solutions, and connect with your audience.\nThis also underscores the importance of interpersonal skills for practicing data scientists. Data science problems are ultimately people problems: Much of our data is about people. All of our data is communicated to people. And the solutions we develop using data science will only make an impact if our audience chooses to adopt them. You have to speak for the data, because the data doesn’t speak for itself. Developing strong leadership, teamwork, empathy, and communication skills will help you navigate the human side of data science.\nComplimenting content knowledge and interpersonal skills are research skills and statistical modelling, which are embodied in the term data science. Research skills such as observation, measurement, experiment design, and survey design allow us to collect data that addresses a problem we care about; and statistical modelling helps us transform that raw data into understanding, insight, and knowledge through estimation and testing. Research and statistics, along with programming, are core skills in data science that can be challenging to learn. Partly because developing these skills takes time, practice, and humility. And partly because pedagogy on research and statistics—whether in books or courses—has a lot of gaps for people who aren’t “real” statisticians.1"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/learning-r.html#how-do-i-learn-statistics",
-    "href": "series/reproducible-data-science/posts/learning-r.html#how-do-i-learn-statistics",
-    "title": "Learning R",
-    "section": "How do I learn statistics?",
-    "text": "How do I learn statistics?\nMy answer to this question makes the following assumptions about you:\n\nYou are not a formally trained statistician\nYou have received some prior training in statistics\nYou have (re-)discovered your own ignorance of statistics\nYou want to address your ignorance of statistics\nYou want to use statistics to solve problems\n\nIf this describes you then I hope the resources that follow help you on your journey like they have for me. If this doesn’t describe you, stick around anyway, you might find something new.\nLet’s start with some book recommendations:\n\nRegression and Other Stories by Andrew Gelman, Jennifer Hill, and Aki Vehtari (Source)\nData Analysis Using Regression and Multilevel/Hierarchical Models by Andrew Gelman and Jennifer Hill2\nBayes Rules! by Alicia A. Johnson, Miles Q. Ott, and Mine Dogucu (GitHub)\nAn introduction to statistical learning with applications in R by Gareth James, Daniela Witten, Trevor Hastie, and Rob Tibshirani\nStatistical Rethinking by Richard McElreath\nImproving Your Statistical Inferences by Daniël Lakens\n\nAll of these books are well-written, engaging, and have examples in R.3 Together they cover applications of fundamental and state-of-the-art tools in statistical modelling. But most importantly—they encourage statistical thinking. They’re ideal books for self-study and I can’t recommend them enough.\n\n\n\n\n\n\nAll you need is the linear model\n\n\n\nMost people have the unfortunate experience of learning statistics through arcane rituals with numerous statistical tests that appear to have no fundamental framework to tie them together. This is a failure of pedagogy rather than a feature of statistics. Fortunately, there is a fundamental framework to tie all these statistical tests together: It’s called the linear model.\nMost common statistical tests are either special cases or extensions of the linear model; understanding this will improve your statistical thinking and make it easier to abandon the arcanum and statistical rituals in favour of a unified statistical framework.\nFor a short introduction to this concept I recommend reading Common statistical tests are linear models (or: how to teach stats) by Jonas Kristoffer Lindeløv (note: there are a few small errors that haven’t been fixed, so also see the GitHub Issues).\n\n\nI’d like to also give honourable mentions to the following books, which have all the great qualities of the books above, but cover more specialized topics:\n\nHandbook of Graphs and Networks in People Analytics: With Examples in R and Python by Keith McNulty (Source)\nDoing Meta-Analysis in R: A Hands-on Guide by Mathias Harrer, Pim Cuijpers, Toshi A. Furukawa, and David D. Ebert (Source)\nText Mining with R by Julia Silge and David Robinson (Source)\n\nThese are just a few choice examples. There are a lot of statistics books written for R users, and you can almost always find a book covering whatever topic you’re interested in.\n\n\n\n\n\n\nSocial media\n\n\n\nThere are strong #RStats communities on most social media platforms, where you can discover new people and follow or participate in conversations about R and statistics. The #RStats community on Mastodon (formerly Twitter; RIP) has been an invaluable learning tool and helped me discover things about R and statistics I wouldn’t have on my own. Frank Harrell also created the Data Methods Discussion Forum to provide a place for longer more in-depth discussions. Finally, Stack Overflow and Cross Validated are great public Q&A platforms for R programming and statistics, respectively.\n\n\nA lot of people in the R community also have their own R programming, data science, and statistics blogs, vlogs, or websites. Some of my favourite authors include:\n\nAndrew Heiss\nA. Solomon Kurz\nMichael Clark\nJulia Silge\n\nStarting your own blog or website is also a great way to learn, and gives you a place to share your work! Quarto, the open-source scientific and technical publishing system, makes the process of creating and publishing a website simple and friendly. It’s what I use for Tidy Tales (and lots of other projects).\nFinally, a lot of people in the R community who have taught courses or workshops make their materials openly available (including myself and some of the people listed above). One source I want to highlight in particular is psyTeachR from the University of Glasgow School of Psychology and Neuroscience, which covers an entire curriculum of courses for doing reproducible data science."
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/learning-r.html#where-do-i-learn-more-about-r-programming",
-    "href": "series/reproducible-data-science/posts/learning-r.html#where-do-i-learn-more-about-r-programming",
-    "title": "Learning R",
-    "section": "Where do I learn more about R programming?",
-    "text": "Where do I learn more about R programming?\n\nYou don’t need to be an expert programmer to be a successful data scientist, but learning more about programming pays off, because becoming a better programmer allows you to automate common tasks, and solve new problems with greater ease.\n\n— Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund in R for Data Science\nIf you want to become a better R programmer, I think these books are a good place to start:\n\nR Packages by Hadley Wickham and Jenny Bryan\nAdvanced R by Hadley Wickham\nggplot2: Elegant Graphics for Data Analysis by Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen\nMastering Shiny by Hadley Wickham\n\nR packages is a friendly introduction teaching you how to develop and publish your own R packages.\nAdvanced R is written for intermediate R users who want to improve their programming skills and understanding of the language, teaching you useful tools, techniques, and idioms that can help solve many types of problems.\nggplot2: Elegant Graphics for Data Analysis is written for R users who want to understand the details of the theory underlying the ggplot2 R package, teaching you the elements of ggplot2’s grammar and how they fit together, and giving you the power to tailor any plot specifically to your needs.\nMastering Shiny is a comprehensive introduction teaching you how to easily create rich, interactive web apps with the shiny R package."
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/learning-r.html#how-do-i-make-my-work-reproducible",
-    "href": "series/reproducible-data-science/posts/learning-r.html#how-do-i-make-my-work-reproducible",
-    "title": "Learning R",
-    "section": "How do I make my work reproducible?",
-    "text": "How do I make my work reproducible?\nThis series is called Reproducible Data Science, so I should probably talk more about that. If you’ve learned even a portion of what’s covered above then you already have a lot of the skills needed to do reproducible data science; but you are likely missing out on some essential tools and a stable framework for making reproducible data products.\nA data product is the combination of data with code that wrangles, visualizes, models, or communicates data, whose outputs will be shared with some end-user. Some common examples of data products are quarterly earnings presentations, scientific papers, and interactive dashboards. For these examples the end-user might be your coworkers, other scientists, or members of the public, respectively. You will even be the end-user of your data products sometimes. Because data products will be used by others (or yourself), it’s good practice to do quality assurance so your end-users (that includes you!) can be confident in the quality of your data product. Making your data products reproducible is one small but important step you can take to ensure they meet the expectations of your end-user.4\n\n\n\n\n\n\nShades of reproducibility\n\n\n\nThe basic idea behind a reproducible data product is that the steps, processes, and procedures that went into making it can be repeated exactly by yourself and others, resulting in the exact same outcome every time. Ideally, there is no expiration date for reproducibility—the reproducibility of a data product could be tested tomorrow or in ten decades and should give the exact same outcome both times. If the outcomes were different, the data product is no longer reproducible (and perhaps we should no longer trust the original results). Realistically, it might be okay if a data product stops being reproducible, so long as this change happens after the data product has outlived its purpose.\n\n\nThere are three core components that need to be accessible for a data product to be reproducible:\n\nData\nSoftware\nDocumentation\n\nThe data and software should be packaged together somewhere, like an R project stored in a GitHub repository or Docker container, with documentation on how to reproduce the data product. Reproducing the data product should be convenient for the end-user, without being disruptive. Ideally the entire pipeline can be run with a single command, and it should not install packages into someone’s local library or change settings on their computer without their permission. Achieving this requires new tools and a stable framework to glue them together.\nIn particular, I think the following R packages are essential for reproducibility:\n\nrenv for creating reproducible environments in R projects\ntargets for creating reproducible workflows\ntestthat for testing the reproducibility of results\nsessioninfo for getting system and R session information\n\nBut there are tools beyond R that are also essential for reproducibility:\n\nQuarto for reproducible documents\nGit for version control\nGitHub or GitLab for hosting Git repositories\nDocker for packaging data products and their dependencies into reproducible containers\n\nEach of these R packages and tools plays a different role in making a data product reproducible. Together they create a system for making reproducible data products. Depending on how long you hope a data product will be reproducible for, you might use all these R packages and tools or you might only use some.\nThe best place to learn each of these R packages and tools individually is their respective documentation. To learn how to use these R packages and tools as a system for making reproducible data products, the following are a good place to start:\n\nReproducible Analytical Pipelines by Bruno Rodrigues\nAutomating Computational Reproducibility in R using renv, Docker, and GitHub Actions by Nathaniel Haines\nCombining R and Python with {reticulate} and Quarto by Nicola Rennie\n\nYou might also like:\n\nOpen source is a hard requirement for reproducibility by Bruno Rodrigues\nFunctional programming explains why containerization is needed for reproducibility by Bruno Rodrigues\nCode longevity of the R programming language by Bruno Rodrigues\nMRAN is getting shutdown - what else is there for reproducibility with R, or why reproducibility is on a continuum? by Bruno Rodrigues"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/learning-r.html#what-did-you-forget-to-teach-me-about-r",
-    "href": "series/reproducible-data-science/posts/learning-r.html#what-did-you-forget-to-teach-me-about-r",
-    "title": "Learning R",
-    "section": "What did you forget to teach me about R?",
-    "text": "What did you forget to teach me about R?\nSee What They Forgot to Teach You About R by Jenny Bryan and Jim Hester.\nSee also Happy Git and GitHub for the useR by Jenny Bryan, the STAT 545 TAs, and Jim Hester."
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/learning-r.html#parting-words",
-    "href": "series/reproducible-data-science/posts/learning-r.html#parting-words",
-    "title": "Learning R",
-    "section": "Parting words",
-    "text": "Parting words\n\nData science is not 100% about writing code. There’s a human side to it.\n\n— Hadley Wickham in Designing Data Science\nI discussed this earlier, but it bears repeating: the human side of data science is really important if you want to solve problems successfully. One of the reasons R is my favourite language is because it’s been designed to make statistical thinking and computing accessible to anyone. This accessibility has had a big impact on me—I doubt I would be doing data science without R—and I think it’s why we have such a strong, diverse community of R users and programmers.\nSo I try to make all my work as accessible as it can be, and I recommend you do too. It makes a difference."
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/system-setup.html",
-    "href": "series/reproducible-data-science/posts/system-setup.html",
-    "title": "System Setup",
-    "section": "",
-    "text": "The following will install, build, and configure the tools used in the remaining posts in this series (and some other things). This is my personal setup for macOS and is intended to get a new computer up and running with the tools and preferences I like to use. A lot of this is general to any data science setup on macOS, but some of it is specific to me.\nYou are free to use or modify this for your own setup, but should do so thoughtfully. Don’t run any of the scripts below without understanding what they do, and backup your system if you are trying this on an existing setup. To test drive my system setup safely, consider using a virtualized instance of macOS with UTM.\n\n\n\n\n\n\nBefore you begin\n\n\n\nMy system setup is done mainly done through the shell prompt in Terminal, which is the easiest recommended way to get a shell prompt on macOS. You can find Terminal in the Utilities directory inside your Applications directory.\nIf you have never used Terminal before, Apple has a nice shell scripting primer and command line primer book in their archives.\n\n\n\n\nXcode command line tools are needed to build certain packages from source. The command line tools provide a lighter alternative to installing the full Xcode release from the App Store, which contains a lot that isn’t needed for data science use cases.\nInstall Xcode command line tools from the Terminal with:\nxcode-select --install\n\n\n\nHomebrew is an open source package manager for macOS that makes installing, removing, and managing software simple.\nInstall homebrew from the Terminal with:\n/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"\n\n\n\nchezmoi is an open source dotfile manager. Dotfiles are hidden files and hidden directories that store preferences and settings for packages and applications. Dotfiles can be made visible in Finder with the Command-Shift-. keyboard shortcut.\nInstall chezmoi from the Terminal with Homebrew:\nbrew install chezmoi"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/system-setup.html#scripts",
-    "href": "series/reproducible-data-science/posts/system-setup.html#scripts",
-    "title": "System Setup",
-    "section": "Scripts",
-    "text": "Scripts\n\n\n\n\n\n\nThis section is under construction"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/r-getting-help.html",
-    "href": "series/reproducible-data-science/posts/r-getting-help.html",
-    "title": "Getting Help with R",
-    "section": "",
-    "text": "A minimal reproducible example—usually referred to as a reprex—is…\nhttps://reprex.tidyverse.org\nhttps://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-create-one/5219\nhttps://www.tidyverse.org/help/\nhttps://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/r-getting-help.html#debugging-interactively",
-    "href": "series/reproducible-data-science/posts/r-getting-help.html#debugging-interactively",
-    "title": "Getting Help with R",
-    "section": "Debugging interactively",
-    "text": "Debugging interactively\nhttps://adv-r.hadley.nz/debugging.html"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/r-getting-help.html#debugging-targets-pipelines",
-    "href": "series/reproducible-data-science/posts/r-getting-help.html#debugging-targets-pipelines",
-    "title": "Getting Help with R",
-    "section": "Debugging targets pipelines",
-    "text": "Debugging targets pipelines\nhttps://books.ropensci.org/targets/debugging.html"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/r-getting-help.html#debugging-github-actions-workflows",
-    "href": "series/reproducible-data-science/posts/r-getting-help.html#debugging-github-actions-workflows",
-    "title": "Getting Help with R",
-    "section": "Debugging GitHub Actions workflows",
-    "text": "Debugging GitHub Actions workflows"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/r-getting-help.html#r-package-versions-and-debugging",
-    "href": "series/reproducible-data-science/posts/r-getting-help.html#r-package-versions-and-debugging",
-    "title": "Getting Help with R",
-    "section": "R Package Versions and Debugging",
-    "text": "R Package Versions and Debugging\nSometimes the bugs you run into aren’t caused by your code, but rather the internal code of the package(s) you’re using. If you’re encountering a bug that’s associated with a package that has a newer version available, updating the package might be the only thing you need to do to fix the bug."
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/zotero-setup.html",
-    "href": "series/reproducible-data-science/posts/zotero-setup.html",
-    "title": "Reference Manager Setup",
-    "section": "",
-    "text": "Zotero is an open-source reference manager that styles itself as “your personal research assistant.”\n\n\nInstall Zotero from the Terminal with Homebrew:\nbrew install --cask zotero\n\n\n\nZotero Connector is a browser plugin that allows you to save web content (blogs, articles, etc.) to Zotero with a single click.\nThe Zotero Connector for Safari is bundled with Zotero. You can enable it from the Extensions pane of the Safari preferences.\n\n\n\nThese are the core extensions I use with Zotero. See their documentation for installation instructions:\n\nBetter BibTeX\nZotFile\n\nI also use:\n\nscite\nPubPeer\n\n\n\n\n\n\n\n\n\n\nThis section is under construction"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/zotero-setup.html#configuring-zotero",
-    "href": "series/reproducible-data-science/posts/zotero-setup.html#configuring-zotero",
-    "title": "Reference Manager Setup",
-    "section": "Configuring Zotero",
-    "text": "Configuring Zotero\nThings to do after installing.\n\nCloud syncing\n\n\n\n\n\n\nThis section is under construction\n\n\n\n\n\n\nWebDav"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/zotero-setup.html#using-zotero-with-quarto-and-r-markdown",
-    "href": "series/reproducible-data-science/posts/zotero-setup.html#using-zotero-with-quarto-and-r-markdown",
-    "title": "Reference Manager Setup",
-    "section": "Using Zotero with Quarto and R Markdown",
-    "text": "Using Zotero with Quarto and R Markdown\nrbbt package"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/version-control-setup.html",
-    "href": "series/reproducible-data-science/posts/version-control-setup.html",
-    "title": "Version Control Setup",
-    "section": "",
-    "text": "This section is under construction\nhttps://happygitwithr.com https://usethis.r-lib.org/articles/git-credentials.html"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/version-control-setup.html#git",
-    "href": "series/reproducible-data-science/posts/version-control-setup.html#git",
-    "title": "Version Control Setup",
-    "section": "Git",
-    "text": "Git\nGit is …\n\nInstalling git\nInstall git from the Terminal with Homebrew:\nbrew tap r-lib/rig\nbrew install --cask rig"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/version-control-setup.html#github",
-    "href": "series/reproducible-data-science/posts/version-control-setup.html#github",
-    "title": "Version Control Setup",
-    "section": "GitHub",
-    "text": "GitHub\n\nInstalling GitHub CLI\n\n\n\nInstalling GitHub Desktop\n…"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/version-control-setup.html#version-control-in-rstudio",
-    "href": "series/reproducible-data-science/posts/version-control-setup.html#version-control-in-rstudio",
-    "title": "Version Control Setup",
-    "section": "Version Control in RStudio",
-    "text": "Version Control in RStudio"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/python-setup.html",
-    "href": "series/reproducible-data-science/posts/python-setup.html",
-    "title": "Python Setup",
-    "section": "",
-    "text": "Python is an open source programming language that is the “second best language for everything.” It’s worth setting up in case you need it, but for data science R is almost always simpler and better.\n\n\npyenv is an open source Python installation manager for installing, removing, and switching between multiple Python versions.\n\nInstall pyenv from the Terminal with Homebrew:\nbrew install pyenv\nSet up your shell environment for pyenv.\nInstall Python build dependencies with Homebrew:\nbrew install openssl readline sqlite3 xz zlib tcl-tk\n\n\n\n\nInstall the latest major version of Python 3 with shared library support1 from the Terminal with pyenv:\nenv PYTHON_CONFIGURE_OPTS=\"--enable-shared\" pyenv install 3:latest\n\n\n\npipenv is an open-source dependency manager for Python projects.\nInstall pipenv from the Terminal with Homebrew:\nbrew install pipenv\npoetry is an alternative open-source dependency manager for Python projects. I’m currently experimenting between poetry and pipenv to decide which I prefer.\nInstall poetry from the Terminal with:\ncurl -sSL https://install.python-poetry.org | python3 -"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/python-setup.html#python-packages",
-    "href": "series/reproducible-data-science/posts/python-setup.html#python-packages",
-    "title": "Python Setup",
-    "section": "Python Packages",
-    "text": "Python Packages\n\n\n\n\n\n\nThis section is under construction"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/r-setup.html",
-    "href": "series/reproducible-data-science/posts/r-setup.html",
-    "title": "R Setup",
-    "section": "",
-    "text": "R is an open source programming language for wrangling, visualizing, modelling, and communicating data, and so much more. It has a strong community behind it and is widely used among researchers, statisticians, and data scientists in a variety of fields.\n\n\nrig is an open source R installation manager for installing, removing, configuring, and switching between multiple R versions and user-level package libraries.\nInstall rig from the Terminal with Homebrew:\nbrew tap r-lib/rig\nbrew install --cask rig\n\n\n\nInstall the latest version of R from the Terminal with rig:\nrig add release\nR can also be installed from CRAN (the comprehensive R archive network) using the following link https://cloud.r-project.org. A new major version of R comes out once a year, and there are 2-3 minor releases each year.\n\n\n\nRStudio is an open source integrated development environment, or IDE, for R programming made by Posit.\nInstall RStudio from the Terminal with Homebrew:\nbrew install --cask rstudio\nRStudio can also be installed from Posit using the following link https://posit.co/download/rstudio-desktop/. RStudio is updated a couple of times a year. When a new version is available, RStudio will let you know. It’s a good idea to upgrade regularly so you can take advantage of the latest and greatest features.\n\n\n\nQuarto is an open source scientific and technical publishing system built on Pandoc.\nInstall Quarto from the Terminal with Homebrew:\nbrew install --cask quarto"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/r-setup.html#r-packages",
-    "href": "series/reproducible-data-science/posts/r-setup.html#r-packages",
-    "title": "R Setup",
-    "section": "R Packages",
-    "text": "R Packages\n\n\n\n\n\n\nThis section is under construction"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/r-packages.html",
-    "href": "series/reproducible-data-science/posts/r-packages.html",
-    "title": "R Packages",
-    "section": "",
-    "text": "The standard way to install R packages is with the install.packages() function that comes with base R.\ninstall.packages(\"tibble\")\nA fresh way to install R packages is with the pkg_install() function from the pak package.\npkg_install(\"tibble\")\npak is fast, safe, and convenient. You can learn more about it on the package website.\n\n\n\n\n\n\n“Do you want to install from sources the package which needs compilation?”\n\n\n\nWhen installing a package, you will sometimes encounter the above question along with the message “There are binary versions available but the source versions are later”. What this question is asking is whether you would like to have your computer build (compile) the package binary from source code then install it (yes) or have your computer install a pre-built binary (no). If you choose yes, you will get the newest version of the package; if you choose no you will get the newest binary version of the package (typically the previous release).\nUnless you need the newest version of the package for a specific feature or bug fix, I recommend choosing no—the binary version will install faster, and you can simply wait a few days for the binary of the newest version to be built on the repository you’re installing packages from, then install the package again to get the newest version. If you need the newest version of the package right now then choose yes, but you will need to set up your R build toolchain first.\n\n\nTo learn more about package installation, see the Package structure and state chapter in R Packages by Hadley Wickham and Jenny Bryan."
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/r-packages.html#where-can-i-install-r-packages-from",
-    "href": "series/reproducible-data-science/posts/r-packages.html#where-can-i-install-r-packages-from",
-    "title": "R Packages",
-    "section": "Where can I install R packages from?",
-    "text": "Where can I install R packages from?\nRelease versions of R packages can be installed from:\n\nCRAN\nBioconductor\n\nDevelopment versions of R packages can be installed from:\n\nGitHub\nR-Universe\n\nPrevious release versions of R packages can be installed from:\n\nPosit Public Package Manager\nMRAN (shut down on July 1st, 2023)"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/r-packages.html#where-can-i-find-new-r-packages",
-    "href": "series/reproducible-data-science/posts/r-packages.html#where-can-i-find-new-r-packages",
-    "title": "R Packages",
-    "section": "Where can I find new R packages?",
-    "text": "Where can I find new R packages?\n\n\n\nThere were 18954 R packages available on CRAN in 2022, and that number only continues to grow over time. That’s not to mention the 2165 R packages available on Bioconductor, the 1704 packages available on R-universe but not CRAN or Bioconductor, and the unknown amount of packages only available on GitHub.\n\n\n\n\n\nFortunately, there are many places to find curated content about R packages:\n\nYour favourite search engine\nCRAN Task Views\nR Views\nThe Posit Blog\nPosit Videos\ntidyverse blog\nTrending on GitHub\npkgsearch\n\nYour favourite search engine is often a good starting place. Include r and package in your search, plus the topic you’re interested in, and you’ll usually find something helpful. Use boolean operators to narrow down your search or to hide unrelated things like Reddit (-site:reddit.com).\nCRAN Task Views provide guidance on which R packages are relevant for tasks related to a certain topic. The task views are not meant to endorse the “best” packages for a given task; rather, they take an encyclopedic approach that serves as a good reference.\nR Views is an R community blog edited by Posit where you can learn about new R packages and see how to use them (plus some other goodies).\nThe Posit Blog is where you can get news and updates about R packages made by Posit. The blog is about “all things data science and the world that benefits from [Posit] products, community, and events”, so it has a wider scope than R packages alone; but it’s a good place to follow anyways to stay up to date with what’s happening in the R world.\nOn a similar note, you can find videos from events hosted by Posit, such as conference talks, data science hang outs, tutorials, and more at Posit Videos (and the Posit YouTube channel). This is a good place to see what R packages the community is using, and how they use them.\nThe tidyverse blog is where you can get news and updates about R packages in the tidyverse.\nFinally, if you don’t want to leave the comfort of your IDE, the pkgsearch package is a package you can use to find other packages..!\n\n\n\n\n\n\nSocial Media\n\n\n\nWord of mouth on social media is a great way to find new packages or learn about new ways to use your favourite packages. Follow your favourite developers to keep up to date with their work, and check out the #RStats and #TidyTuesday hashtags to see what the community is up to."
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/r-packages.html#how-do-i-attach-r-packages",
-    "href": "series/reproducible-data-science/posts/r-packages.html#how-do-i-attach-r-packages",
-    "title": "R Packages",
-    "section": "How do I attach R packages?",
-    "text": "How do I attach R packages?\nThe standard way to attach R packages is with the library() function that comes with base R.\nlibrary(tibble)\nIf you want to attach multiple packages in a single function call, use the pkg_attach() function from the xfun package.\npkg_attach(\"tibble\", \"dplyr\")\n\nHow do I manage namespace conflicts?\nSometimes R packages will use the same name for different functions. A common example is dplyr::select() and MASS::select(). Under R’s default conflict resolution system, if both of these packages are loaded in the same session select() will come from the most recently loaded package.\nIf you want select() to refer to dplyr::select(), base R provides the following solutions:\n\nLoad MASS first and dplyr second\nExclude select() when loading MASS: library(MASS, exclude = \"select\")\nAlways namespace dplyr’s select() function: dplyr::select()\n\nAn alternative approach to managing namespace conflicts is with the conflicted package, which makes every conflict an error and forces you to choose which function to use. You can learn more about it on the package website."
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/r-packages.html#how-do-i-update-r-packages",
-    "href": "series/reproducible-data-science/posts/r-packages.html#how-do-i-update-r-packages",
-    "title": "R Packages",
-    "section": "How do I update R packages?",
-    "text": "How do I update R packages?\nMost R packages available on CRAN are actively maintained and updated. For example, in 2022 more than half the packages available on CRAN had an update in the same or previous year. It’s good practice to keep up with these updates so you can get the latest features, improvements, and bug fixes.\n\n\n\n\n\nUse old.packages() to check which of the packages you’ve installed have updates available from the repositories listed in getOption(\"repos\").\nold.packages()\nUpdate specific packages to the most recent version by re-installing them with install.packages() or pak::pkg_install().\n# The standard way to update a package\ninstall.packages(\"tibble\")\n\n# A fresh way to update a package\npak::pkg_install(\"tibble\")\nUpdate all the packages listed by old.packages() at once with update.packages()1 or pak::pkg_install(old.packages()[,\"Package\"]). Note that update.packages() uses install.packages() under the hood, so it won’t be as fast as pak.\n# The standard way to update all packages at once\nupdate.packages()\n\n# A fresh way to update all packages at once\npak::pkg_install(old.packages()[,\"Package\"])\nYou can also install and update packages using RStudio, either from the Packages pane or from the menu bar Tools > Check for Package Updates.\n\n\n\n\n\n\nBreaking changes\n\n\n\nSometimes package updates will include breaking changes, which are named as such because they are expected to break code using older versions of the package. Most package updates won’t contain breaking changes, but occasionally they will. This should not discourage you from updating packages, but it should encourage you to update thoughtfully—don’t do your updates before important deadlines!\nI recommend creating multiple user libraries with rig that can be used for different tasks. This way different libraries can be updated more or less frequently, and it’s easier to make the choice whether or not to update. For example, you could have a devel library for package development that is updated weekly, a general main library that is updated monthly or yearly, and so forth. Another good practice—especially for long-running projects—is to create project-specific libraries with renv. The project libraries created by renv are isolated from your user libraries, so you can continue to update your user libraries as normal without worrying about breaking changes affecting the projects using renv."
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/r-packages.html#how-do-i-restore-my-current-library-into-a-new-library",
-    "href": "series/reproducible-data-science/posts/r-packages.html#how-do-i-restore-my-current-library-into-a-new-library",
-    "title": "R Packages",
-    "section": "How do I restore my current library into a new library?",
-    "text": "How do I restore my current library into a new library?\n\n\n\n\n\n\nThis section needs to be tested\n\n\n\n\n\n\nA new library is created whenever you install a new major or minor version of R (the “x” or “y” in version “x.y.z”), so all your favourite packages need to be re-installed to this new library if you want to use them. This is also true if you create a new library in the current version of R (e.g., with rig library add).\n\n\n\n\n\n\nTransferring a library from one computer to another\n\n\n\n\n\nThe approach shown below can also be used to transfer a library from one computer to another. All you need to do is:\n\nFollow the steps to create the character vector of packages in your current library (pkgs)\nSave the pkgs R object with: saveRDS(pkgs, file = \"pkgs.rds\")\nCopy the pkgs.rds file to the other computer*\nLoad the pkgs R object with: pkgs <- readRDS(“path/to/pkgs.rds”)\nInstall pak on the other computer with: install.packages(\"pak\")\nInstall the packages with: pkg_install(pkgs)\n\n*For added convenience, store pkgs.rds in a GitHub repository so you can access it wherever you go!\n\n\n\nIf you are using rig (and you should be), restoring your current library into a new library is easy with some help from pak and dplyr.\nFirst—in your current library—get the path to your user library. Copy this down somewhere.\n.libPaths()[1]\nYou can now switch to your new library. The easiest way to switch on macOS is with the menu bar app; otherwise use the shell prompt. Open a new RStudio window to start a session with the new library.2\n# Switch to a different R version\nrig default <version>\n\n# Switch to a different library\nrig library default <lib-name>\nIn your new library, install and attach pak and dplyr.\n# install.packages(c(\"pak\", \"dplyr\"))\nlibrary(pak)\nlibrary(dplyr)\nUse pak::pkg_list() to get a data frame containing data about the packages installed in your current library.\npkgs_tbl <- pkg_list(lib = \"path/to/your/user/library\")\nWrangle this data down into a character vector specifying the package source and package, following the package reference syntax used by pak.\npkgs <- pkgs_tbl |>\n  select(package, remoteusername, repotype) |>\n  mutate(pkg = case_when(\n    # GitHub\n    !is.na(remoteusername) ~ paste0(remoteusername, \"/\", package), \n    # CRAN and Bioconductor\n    repotype %in% c(\"cran\", \"bioc\") ~ paste0(repotype, \"::\", package),\n    # Default to the `standard` package source\n    TRUE ~ paste0(\"standard::\", package)\n  )) |>\n  pull(pkg)\nThen install all your packages.\npkg_install(pkgs)\n\n\n\n\n\n\nDefault library locations and .Renviron\n\n\n\nIf you have previously set R_LIBS_USER in your .Renviron to change the default library path, you may need to remove this variable or change its path if there are issues locating your various user libraries. A quick way to open .Renviron is with usethis::edit_r_environ()."
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/writing-math.html",
-    "href": "series/reproducible-data-science/posts/writing-math.html",
-    "title": "Writing Math",
-    "section": "",
-    "text": "Quarto features extensive support for writing beautiful math equations with LaTeX math expressions authored using standard Pandoc markdown syntax: Use $ delimiters for inline math and $$ delimiters for display math. Provide an #eq- label immediately after a display math equation to make it referenceable.\n\n\n\n\n\n\n\nMarkdown Syntax\nOutput\n\n\n\n\ninline math: $E = mc^{2}$\ninline math: E=mc^{2}\n\n\ndisplay math:\n$$E = mc^{2}$$\ndisplay math:\nE = mc^{2}\n\n\ndisplay math with label:\n$$E = mc^{2}$${#eq-mc-squared}\ndisplay math with label:\nE = mc^{2} \\tag{1}\n\n\n\nMath expressions can be rendered in any of Quarto’s output formats, but different rendering methods are used depending on the format:\n\nhtml offers several math rendering methods\npdf uses LaTeX (including raw LaTeX)\ndocx uses Microsoft Word’s equation environment\n\nTo learn more about writing LaTeX math expressions, see:\n\nMathJax basic tutorial and quick reference1\nCheatsheet for LaTeX Math Commands\n\n\n\n\n\n\n\nInspecting equations rendered by MathJax\n\n\n\nEquations rendered by MathJax can be inspected by right clicking them. This is useful if you want to view or copy the underlying TeX code from an equation Show Math As > TeX Commands or Copy to Clipboard > TeX Commands. Note that Tidy Tales uses the KaTeX renderer, so it won’t work on this site."
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/writing-math.html#heading",
-    "href": "series/reproducible-data-science/posts/writing-math.html#heading",
-    "title": "Writing Math",
-    "section": "Heading",
-    "text": "Heading\nIf you are taking a statistics course or writing methods-based scientific papers, it is likely that you will need to write a statistical formula at some point. R Markdown has built-in support for writing beautiful math expressions using LaTeX mathematics syntax, where any math expression is wrapped in a pair of dollar signs (for inline expressions) or double dollar signs (for display style expressions). This syntax can be used to render math expressions in any of R Markdown’s output formats. Additionally, you can embed inline R code within any math expression, which can be useful for demonstrating mathematical proofs or showing your work on a statistics assignment.\nIf you want to dive deeper into writing math expressions in R Markdown documents, the R Markdown: The Definitive Guide book contains details on the various ways math expressions can be formatted in R Markdown documents, and this post on StackExchange has a handy reference guide for various math symbols in MathJax (an open-source JavaScript display engine for LaTeX math expressions).\n\n\n\n\n\n\nNote\n\n\n\nTo see how any math expression was written on the web, simply right-click the expression and choose “Show Math As > TeX Commands”."
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/writing-math.html#using-inline-r-code-in-math-equations",
-    "href": "series/reproducible-data-science/posts/writing-math.html#using-inline-r-code-in-math-equations",
-    "title": "Writing Math",
-    "section": "Using inline R code in math equations",
-    "text": "Using inline R code in math equations\nInline R code `r ` can be used within inline or display math to include code output in math equations.\n\nmtcars_fit <- lm(mpg ~ am, data = mtcars)\ncoef_int   <- coef(mtcars_fit)[\"(Intercept)\"]\ncoef_am    <- coef(mtcars_fit)[\"am\"]\n\nInline math: $\\mathrm{\\widehat{mpg}} = `r coef_int` + `r coef_am`(\\mathrm{am})$\nInline math: \\mathrm{\\widehat{mpg}} = 17.1473684 + 7.2449393(\\mathrm{am})\nThe same approach also works for display math.\n\n\n\n\n\n\nWriting model equations\n\n\n\nThe equatiomatic package can be used to write equations from a fitted model. Learn more on the package website.\n\nlibrary(equatiomatic)\n\nBy default the model equation uses math symbols.\n\nextract_eq(mtcars_fit)\n\n\n\n#> $$\n#> \\operatorname{mpg} = \\alpha + \\beta_{1}(\\operatorname{am}) + \\epsilon\n#> $$\n\n\nBut model estimates can be used too.\n\nextract_eq(mtcars_fit, use_coefs = TRUE)\n\n\n\n#> $$\n#> \\operatorname{\\widehat{mpg}} = 17.15 + 7.24(\\operatorname{am})\n#> $$"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/writing-math.html#using-math-equations-in-plots-and-tables",
-    "href": "series/reproducible-data-science/posts/writing-math.html#using-math-equations-in-plots-and-tables",
-    "title": "Writing Math",
-    "section": "Using math equations in plots and tables",
-    "text": "Using math equations in plots and tables"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/writing-math.html#using-math-equations-in-plots",
-    "href": "series/reproducible-data-science/posts/writing-math.html#using-math-equations-in-plots",
-    "title": "Writing Math",
-    "section": "Using math equations in plots",
-    "text": "Using math equations in plots\nBoth base R and ggplot2 plots feature support for writing beautiful math equations with plotmath expressions. Equations can be used in plot labels, legends, and text.\nIf you would rather write equations using LaTeX math expressions, the latex2exp package can be used to parse and convert LaTeX to plotmath expressions. Learn more on the package website.\nggplot2 also includes some convenience functions for using plotmath in plot labels:\n\nlabel_parsed() interprets labels as plotmath expressions\nlabel_bquote() offers a flexible way of labelling facet rows or columns with plotmath expressions"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/start-here.html",
-    "href": "series/reproducible-data-science/posts/start-here.html",
-    "title": "Start Here",
-    "section": "",
-    "text": "This series is about learning and doing reproducible data science. It’s a mix between light tutorial content, discussion, and references to more comprehensive learning material that tries to:\n\nProvide a jumping off place for beginners\nServe as a quick reference for more experienced users\nUnearth some of the “hidden curriculum” you might not have been taught while learning R (whether or not you were taught in the classroom or are self-taught)\n\nThis series is a work-in-progress and some sections may currently be under construction."
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/start-here.html#who-is-this-series-for",
-    "href": "series/reproducible-data-science/posts/start-here.html#who-is-this-series-for",
-    "title": "Start Here",
-    "section": "Who is this series for?",
-    "text": "Who is this series for?\nI’ve tried to write this series so anyone can use it to learn or improve their approach to doing reproducible data science. That said, I’ve written the series in an order that makes sense logistically, but not necessarily pedagogically:\n\nIf you are completely new to programming, data science, or R, I recommend starting from the Learning R post and working through the Where do I start? section first\nIf you are setting up a new computer, I recommend reading the posts with setup in the title in order\nFor anyone else, the posts are mostly self-contained and can be read in any order\n\nSince this series is based on my personal experience and approach, some of the setup sections may not be relevant to all readers. In particular, I use macOS, and any examples using the shell prompt will be specific to macOS. Most of the software I use is cross-platform though, so you can refer to the software’s documentation for Linux or Windows instructions."
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/r-getting-help.html#stack-overflow",
-    "href": "series/reproducible-data-science/posts/r-getting-help.html#stack-overflow",
-    "title": "Getting Help with R",
-    "section": "Stack Overflow",
-    "text": "Stack Overflow"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/start-here.html#whats-in-this-series",
-    "href": "series/reproducible-data-science/posts/start-here.html#whats-in-this-series",
-    "title": "Start Here",
-    "section": "What’s in this series?",
-    "text": "What’s in this series?\nThis series is about learning and doing reproducible data science. It’s a mix between light tutorial content and references to more comprehensive learning material that tries to:\n\nProvide a jumping off place for beginners\nServe as a quick reference for more experienced users\nUnearth some of the “hidden curriculum” you might not have been taught while learning R (whether or not you were taught in the classroom or are self-taught)"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/start-here.html#similar-resources",
-    "href": "series/reproducible-data-science/posts/start-here.html#similar-resources",
-    "title": "Start Here",
-    "section": "Similar resources",
-    "text": "Similar resources\nFor complementary and alternative approaches to doing reproducible data science, see:\n\nPosit Solutions"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/start-here.html#where-else-can-i-learn",
-    "href": "series/reproducible-data-science/posts/start-here.html#where-else-can-i-learn",
-    "title": "Start Here",
-    "section": "Where else can I learn?",
-    "text": "Where else can I learn?\nFor complementary and alternative approaches to doing reproducible data science, see:\n\nPosit Solutions\n\nIf you need to do data science at scale, Posit’s commercial enterprise solutions are probably the best option."
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/technical-writing.html",
-    "href": "series/reproducible-data-science/posts/technical-writing.html",
-    "title": "Technical Writing",
-    "section": "",
-    "text": "Literate programming is the practice of mixing text and executable code in the same document, making it possible to write reproducible documents. There are four engines for executing code in Quarto documents:\n\nknitr (supports R, Python, Julia, and more)\njupyter (Python only)\nIJulia (Julia only)\nObservable JS (Observable JS only)\n\nAll engines support executing code in code blocks within a document, which can be used to execute code and include its output in a document. Code blocks can produce a wide variety of outputs, including plots, tabular output from data frames, and plain text. The behaviour of code execution and output can be set with Quarto’s Execution Options.\nknitr, jupyter, and Observable JS also support executing inline code within markdown text, which can be used to allow narrative to automatically use the most up to date computations. The syntax for inline code varies across the engines.\nThe remainder of this post covers some useful literate programming practices when writing reproducible documents with the knitr engine.\n\n\n\n\n\n\nProject management\n\n\n\nLiterate programming is a powerful tool for writing reproducible documents, but it can also become unwieldy if your computations require a lot of code. Rather than writing all the code within a document, it is often better to source the required code within a document, then include output using the objects created by the sourced code. The simplest way to adopt this approach is by using the source() function to source R script files containing the computations for a document; a better way is to use the literate programming approach described in the targets R package."
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/technical-writing.html#using-inline-r-code-in-math-equations",
-    "href": "series/reproducible-data-science/posts/technical-writing.html#using-inline-r-code-in-math-equations",
-    "title": "Technical Writing",
-    "section": "Using inline R code in math equations",
-    "text": "Using inline R code in math equations\nInline R code `r ` can be used within inline or display math to include code output in math equations.\n\nmtcars_fit <- lm(mpg ~ am, data = mtcars)\ncoef_int   <- coef(mtcars_fit)[\"(Intercept)\"]\ncoef_am    <- coef(mtcars_fit)[\"am\"]\n\nInline math: $\\mathrm{\\widehat{mpg}} = `r coef_int` + `r coef_am`(\\mathrm{am})$\nInline math: \\mathrm{\\widehat{mpg}} = 17.1473684 + 7.2449393(\\mathrm{am})\nThe same approach also works for display math.\n\n\n\n\n\n\nWriting model equations\n\n\n\nThe equatiomatic package can be used to write equations from a fitted model. Learn more on the package website.\n\nlibrary(equatiomatic)\n\nBy default the model equation uses math symbols.\n\nextract_eq(mtcars_fit)\n\n\n\n#> $$\n#> \\operatorname{mpg} = \\alpha + \\beta_{1}(\\operatorname{am}) + \\epsilon\n#> $$\n\n\nBut model estimates can be used too.\n\nextract_eq(mtcars_fit, use_coefs = TRUE)\n\n\n\n#> $$\n#> \\operatorname{\\widehat{mpg}} = 17.15 + 7.24(\\operatorname{am})\n#> $$"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/technical-writing.html#using-math-equations-in-plots",
-    "href": "series/reproducible-data-science/posts/technical-writing.html#using-math-equations-in-plots",
-    "title": "Technical Writing",
-    "section": "Using math equations in plots",
-    "text": "Using math equations in plots\nBoth base R and ggplot2 plots feature support for writing beautiful math equations with plotmath expressions. Equations can be used in plot labels, legends, and text.\nIf you would rather write equations using LaTeX math expressions, the latex2exp package can be used to parse and convert LaTeX to plotmath expressions. Learn more on the package website.\nggplot2 also includes some convenience functions for using plotmath in plot labels:\n\nlabel_parsed() interprets labels as plotmath expressions\nlabel_bquote() offers a flexible way of labelling facet rows or columns with plotmath expressions"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/technical-writing.html#math-equations-in-quarto",
-    "href": "series/reproducible-data-science/posts/technical-writing.html#math-equations-in-quarto",
-    "title": "Technical Writing",
-    "section": "Math equations in Quarto",
-    "text": "Math equations in Quarto\nQuarto features extensive support for writing beautiful math equations with LaTeX math expressions authored using standard Pandoc markdown syntax: Use $ delimiters for inline math and $$ delimiters for display math. Provide an #eq- label immediately after a display math equation to make it referenceable.\n\n\n\n\n\n\n\nMarkdown Syntax\nOutput\n\n\n\n\ninline math: $E = mc^{2}$\ninline math: E=mc^{2}\n\n\ndisplay math:\n$$E = mc^{2}$$\ndisplay math:\nE = mc^{2}\n\n\ndisplay math with label:\n$$E = mc^{2}$${#eq-mc-squared}\ndisplay math with label:\nE = mc^{2} \\tag{1}\n\n\n\nMath expressions can be rendered in any of Quarto’s output formats, but different rendering methods are used depending on the format:\n\nhtml offers several math rendering methods\npdf uses LaTeX (including raw LaTeX)\ndocx uses Microsoft Word’s equation environment\n\nTo learn more about writing LaTeX math expressions, see:\n\nMathJax basic tutorial and quick reference1\nCheatsheet for LaTeX Math Commands\n\n\n\n\n\n\n\nInspecting equations rendered by MathJax\n\n\n\nEquations rendered by MathJax can be inspected by right clicking them. This is useful if you want to view or copy the underlying TeX code from an equation Show Math As > TeX Commands or Copy to Clipboard > TeX Commands. Note that Tidy Tales uses the KaTeX renderer, so it won’t work on this site.\n\n\n\nUsing inline R code in math equations\nInline R code `r ` can be used within inline or display math to include code output in math equations.\n\nmtcars_fit <- lm(mpg ~ am, data = mtcars)\ncoef_int   <- coef(mtcars_fit)[\"(Intercept)\"]\ncoef_am    <- coef(mtcars_fit)[\"am\"]\n\nInline math: $\\mathrm{\\widehat{mpg}} = `r coef_int` + `r coef_am`(\\mathrm{am})$\nInline math: \\mathrm{\\widehat{mpg}} = 17.1473684 + 7.2449393(\\mathrm{am})\nThe same approach also works for display math.\n\n\n\n\n\n\nWriting model equations\n\n\n\nThe equatiomatic package can be used to write equations from a fitted model. Learn more on the package website.\n\nlibrary(equatiomatic)\n\nBy default the model equation uses math symbols.\n\nextract_eq(mtcars_fit)\n\n\n\n#> $$\n#> \\operatorname{mpg} = \\alpha + \\beta_{1}(\\operatorname{am}) + \\epsilon\n#> $$\n\n\nBut model estimates can be used too.\n\nextract_eq(mtcars_fit, use_coefs = TRUE)\n\n\n\n#> $$\n#> \\operatorname{\\widehat{mpg}} = 17.15 + 7.24(\\operatorname{am})\n#> $$\n\n\n\n\n\n\nUsing math equations in plots\nBoth base R and ggplot2 plots feature support for writing beautiful math equations with plotmath expressions. Equations can be used in plot labels, legends, and text.\nIf you would rather write equations using LaTeX math expressions, the latex2exp package can be used to parse and convert LaTeX to plotmath expressions. Learn more on the package website.\nggplot2 also includes some convenience functions for using plotmath in plot labels:\n\nlabel_parsed() interprets labels as plotmath expressions\nlabel_bquote() offers a flexible way of labelling facet rows or columns with plotmath expressions"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/technical-writing.html#equations",
-    "href": "series/reproducible-data-science/posts/technical-writing.html#equations",
-    "title": "Technical Writing",
-    "section": "Equations",
-    "text": "Equations\nQuarto features extensive support for writing beautiful math equations with LaTeX math expressions authored using standard Pandoc markdown syntax: Use $ delimiters for inline math and $$ delimiters for display math. Provide an #eq- label immediately after a display math equation to make it referenceable.\n\n\n\n\n\n\n\nMarkdown Syntax\nOutput\n\n\n\n\ninline math: $E = mc^{2}$\ninline math: E=mc^{2}\n\n\ndisplay math:\n$$E = mc^{2}$$\ndisplay math:\nE = mc^{2}\n\n\ndisplay math with label:\n$$E = mc^{2}$${#eq-mc-squared}\ndisplay math with label:\nE = mc^{2} \\tag{1}\n\n\n\nMath expressions can be rendered in any of Quarto’s output formats, but different rendering methods are used depending on the format:\n\nhtml offers several math rendering methods\npdf uses LaTeX (including raw LaTeX)\ndocx uses Microsoft Word’s equation environment\n\nTo learn more about writing LaTeX math expressions, see:\n\nMathJax basic tutorial and quick reference1\nCheatsheet for LaTeX Math Commands\n\n\n\n\n\n\n\nInspecting equations rendered by MathJax\n\n\n\nEquations rendered by MathJax can be inspected by right clicking them. This is useful if you want to view or copy the underlying TeX code from an equation Show Math As > TeX Commands or Copy to Clipboard > TeX Commands. Note that Tidy Tales uses the KaTeX renderer, so it won’t work on this site.\n\n\n\nUsing inline R code in math equations\nInline R code `r ` can be used within inline or display math to include code output in math equations.\n\nmtcars_fit <- lm(mpg ~ am, data = mtcars)\ncoef_int   <- coef(mtcars_fit)[\"(Intercept)\"]\ncoef_am    <- coef(mtcars_fit)[\"am\"]\n\nInline math: $\\mathrm{\\widehat{mpg}} = `r coef_int` + `r coef_am`(\\mathrm{am})$\nInline math: \\mathrm{\\widehat{mpg}} = 17.1473684 + 7.2449393(\\mathrm{am})\nThe same approach also works for display math.\n\n\n\n\n\n\nWriting model equations\n\n\n\nThe equatiomatic package can be used to write equations from a fitted model. Learn more on the package website.\n\nlibrary(equatiomatic)\n\nBy default the model equation uses math symbols.\n\nextract_eq(mtcars_fit)\n\n\n\n#> $$\n#> \\operatorname{mpg} = \\alpha + \\beta_{1}(\\operatorname{am}) + \\epsilon\n#> $$\n\n\nBut model estimates can be used too.\n\nextract_eq(mtcars_fit, use_coefs = TRUE)\n\n\n\n#> $$\n#> \\operatorname{\\widehat{mpg}} = 17.15 + 7.24(\\operatorname{am})\n#> $$\n\n\n\n\n\n\nUsing math equations in plots\nBoth base R and ggplot2 plots feature support for writing beautiful math equations with plotmath expressions. Equations can be used in plot labels, legends, and text.\nIf you would rather write equations using LaTeX math expressions, the latex2exp package can be used to parse and convert LaTeX to plotmath expressions. Learn more on the package website.\nggplot2 also includes some convenience functions for using plotmath in plot labels:\n\nlabel_parsed() interprets labels as plotmath expressions\nlabel_bquote() offers a flexible way of labelling facet rows or columns with plotmath expressions"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/technical-writing.html#plain-text",
-    "href": "series/reproducible-data-science/posts/technical-writing.html#plain-text",
-    "title": "Technical Writing",
-    "section": "Plain text",
-    "text": "Plain text\n\nFormatting\n\n\nInline code\nLists are my secret weapon for reporting stats with knitr"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/technical-writing.html#figures",
-    "href": "series/reproducible-data-science/posts/technical-writing.html#figures",
-    "title": "Technical Writing",
-    "section": "Figures",
-    "text": "Figures"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/technical-writing.html#tables",
-    "href": "series/reproducible-data-science/posts/technical-writing.html#tables",
-    "title": "Technical Writing",
-    "section": "Tables",
-    "text": "Tables"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/technical-writing.html#plain-text-outputs",
-    "href": "series/reproducible-data-science/posts/technical-writing.html#plain-text-outputs",
-    "title": "Technical Writing",
-    "section": "Plain text outputs",
-    "text": "Plain text outputs\nMost code you write will be output as plain text. Depending on the purpose of a document, it might be fine to leave that output as is, or you might want to format the text, include it inline, and so forth.\nFor example, say you wanted to report the number of participants in a study you ran. Rather than writing a sentence like this:\n\nThere were twelve participants in the study.\n\nYou could get the number of participants computationally, format that number into the word “twelve”, and include it in the sentence using inline code:\n\nn_participants <- xfun::numbers_to_words(12)\n\n\nThere were `r n_participants` participants in the study.\n\nThis sentence would become “There were twelve participants in the study.” when you render the document. Likewise, if the number of participants changed, the number reported in the sentence would change the next time the document rendered (as long as the R object storing the number of participants knew about the change).\nIf there are many values you need to report inline, storing them in a list is a good practice. For an overview of this approach, see:\n\nLists are my secret weapon for reporting stats with knitr by Tristan Mahr"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/technical-writing.html#figures-and-tables",
-    "href": "series/reproducible-data-science/posts/technical-writing.html#figures-and-tables",
-    "title": "Technical Writing",
-    "section": "Figures and tables",
-    "text": "Figures and tables"
-  },
-  {
-    "objectID": "series/reproducible-data-science/posts/technical-writing.html#figure-and-table-outputs",
-    "href": "series/reproducible-data-science/posts/technical-writing.html#figure-and-table-outputs",
-    "title": "Technical Writing",
-    "section": "Figure and table outputs",
-    "text": "Figure and table outputs\nFigures and tables produced by code blocks have unique parameters you can use to adjust their layout, add captions, or make them cross-referenceable. See the Quarto documentation for details:\n\nFigures documentation\nTables documentation\n\n\n\n\n\n\n\nAdjusting figure appearance\n\n\n\nWhen making figures with ggplot2 it’s best to know the final size of the figure before attempting to adjust the size of plot text or geometry."
   }
 ]
