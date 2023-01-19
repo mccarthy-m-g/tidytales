@@ -32,7 +32,7 @@ xcode-select --install
 
 ### Installing Homebrew
 
-[Homebrew](https://brew.sh/) is an open source package manager for macOS that makes installing, removing, and managing software simple.
+[Homebrew](https://brew.sh/) is an open source package manager for macOS that makes installing, removing, and managing software and dependencies simple.
 
 Install homebrew from the Terminal with:
 
@@ -42,7 +42,7 @@ Install homebrew from the Terminal with:
 
 ### Installing chezmoi
 
-[chezmoi](https://www.chezmoi.io) is an open source dotfile manager. Dotfiles are hidden files and hidden directories that store preferences and settings for packages and applications. Dotfiles can be made visible in Finder with the **Command-Shift-.** keyboard shortcut.
+[chezmoi](https://www.chezmoi.io) is an open source dotfile manager. Dotfiles are hidden files and hidden directories that store preferences and settings for packages and applications. Dotfiles can be made visible in Finder with the **Command-Shift-.** keyboard shortcut; learn more about dotfiles [here](https://dotfiles.github.io) and [here](https://project-awesome.org/webpro/awesome-dotfiles).
 
 Install chezmoi from the Terminal with Homebrew:
 
@@ -50,8 +50,126 @@ Install chezmoi from the Terminal with Homebrew:
 brew install chezmoi
 ```
 
-## Scripts
+chezmoi relies on dotfiles being hosted in a public or private Git repository (e.g., GitHub) to share changes across multiple computers. For example, my private dotfiles repository is hosted at: <https://github.com/mccarthy-m-g/dotfiles>, where I've added my dotfiles and other setup scripts. For more information, see:
 
-::: {.callout-caution}
-## This section is under construction
+- chezmoi's [Quick Start guide](https://www.chezmoi.io/quick-start/)
+- [Automating the Setup of a New Mac](https://www.moncefbelyamani.com/automating-the-setup-of-a-new-mac-with-all-your-apps-preferences-and-development-tools/) by Moncef Belyamani
+
+## My setup
+
+With the prerequisites installed, it is now possible to install, build, and configure the remaining tools for my setup. There are many ways to do this, but I use chezmoi's [script support](https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/) so it's easy to setup my dotfiles and install software with Homebrew on a new computer using the same command:
+
+```bash
+chezmoi init --apply $GITHUB_USERNAME
+```
+
+What this does:
+
+- Clones the dotfiles repository
+- Applies the changes and runs any scripts
+
+Below I cover how to integrate this approach with Homebrew.
+
+### Installing software with Homebrew
+
+Homebrew can be used to install almost any software or dependency, whether it's open source or closed source. Homebrew's installation commands include:
+
+- `brew`: Install software packages (also known as formulae)
+- `cask`: Install application casks (RStudio, etc.)
+- `tap`: Add package repositories (from GitHub, etc.)
+- `mas`: Install Mac App Store applications (requires `brew install mas`)
+- `whalebrew`: Install Docker images as if they were Homebrew formulae (requires `brew install whalebrew`)
+
+Software and dependencies can be installed interactively from the command line, but a better approach for system setup is to use [Homebrew Bundle](https://github.com/Homebrew/homebrew-bundle), which allows you to install a list of dependencies located in a `Brewfile` using any of Homebrew's installation commands.
+
+The `Brewfile` to install all the dependencies covered in this series looks something like:
+
+```{.bash filename="Brewfile"}
+# Version control setup
+brew "git"
+cask "github"
+brew "gh"
+
+# R setup
+tap "r-lib/rig"
+cask "rig"
+cask "rstudio"
+cask "quarto"
+
+# Python setup
+brew "pyenv"
+brew "openssl"
+brew "readline"
+brew "sqlite3"
+brew "xz"
+brew "zlib"
+brew "tcl-tk"
+brew "pipenv"
+
+# Reference manager setup
+cask "zotero"
+```
+
+After [making a `Brewfile`](https://github.com/Homebrew/homebrew-bundle#usage), install its dependency list with:
+
+```bash
+brew bundle
+```
+
+Use the optional `--file` argument to specify the path to the `Brewfile`.
+
+::: {.callout-tip collapse=true}
+## Homebrew Bundle tricks
+
+Create a `Brewfile` of your current Homebrew installations in the current working directory with:
+
+```bash
+brew bundle dump
+```
+
+Uninstall all software and dependencies not listed in a `Brewfile` with:
+
+```bash
+brew bundle cleanup
+```
 :::
+
+To integrate Homebrew Bundle with chezmoi, create a [`run_once_` script](https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/) containing the `Brewfile` as a [Here document](https://en.wikipedia.org/wiki/Here_document) in your dotfiles repository:
+
+```{.bash filename="run_once_before_install-packages-darwin.sh.tmpl"}
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+brew bundle --no-lock --file=/dev/stdin << Brewfile
+# Version control setup
+brew "git"
+cask "github"
+brew "gh"
+
+# R setup
+tap "r-lib/rig"
+cask "rig"
+cask "rstudio"
+cask "quarto"
+
+# Python setup
+brew "pyenv"
+brew "openssl"
+brew "readline"
+brew "sqlite3"
+brew "xz"
+brew "zlib"
+brew "tcl-tk"
+brew "pipenv"
+
+# Reference manager setup
+cask "zotero"
+Brewfile
+{{ end -}}
+```
+
+This script will be run the first time you initialize chezmoi (as shown earlier):
+
+```bash
+chezmoi init --apply $GITHUB_USERNAME
+```

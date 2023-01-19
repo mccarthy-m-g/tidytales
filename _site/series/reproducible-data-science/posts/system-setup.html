@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Michael McCarthy">
-<meta name="dcterms.date" content="2023-01-16">
+<meta name="dcterms.date" content="2023-01-18">
 <meta name="description" content="Installing and configuring the basics.">
 
 <title>Tidy Tales - System Setup</title>
@@ -241,7 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 16, 2023</p>
+        <p class="date">January 18, 2023</p>
       </div>
     </div>
     
@@ -331,7 +331,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#installing-homebrew" id="toc-installing-homebrew" class="nav-link" data-scroll-target="#installing-homebrew">Installing Homebrew</a></li>
   <li><a href="#installing-chezmoi" id="toc-installing-chezmoi" class="nav-link" data-scroll-target="#installing-chezmoi">Installing chezmoi</a></li>
   </ul></li>
-  <li><a href="#scripts" id="toc-scripts" class="nav-link" data-scroll-target="#scripts">Scripts</a></li>
+  <li><a href="#my-setup" id="toc-my-setup" class="nav-link" data-scroll-target="#my-setup">My setup</a>
+  <ul class="collapse">
+  <li><a href="#installing-software-with-homebrew" id="toc-installing-software-with-homebrew" class="nav-link" data-scroll-target="#installing-software-with-homebrew">Installing software with Homebrew</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -370,34 +373,134 @@ Before you begin
 </section>
 <section id="installing-homebrew" class="level3">
 <h3 class="anchored" data-anchor-id="installing-homebrew">Installing Homebrew</h3>
-<p><a href="https://brew.sh/">Homebrew</a> is an open source package manager for macOS that makes installing, removing, and managing software simple.</p>
+<p><a href="https://brew.sh/">Homebrew</a> is an open source package manager for macOS that makes installing, removing, and managing software and dependencies simple.</p>
 <p>Install homebrew from the Terminal with:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/bin/bash</span> <span class="at">-c</span> <span class="st">"</span><span class="va">$(</span><span class="ex">curl</span> <span class="at">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="va">)</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="installing-chezmoi" class="level3">
 <h3 class="anchored" data-anchor-id="installing-chezmoi">Installing chezmoi</h3>
-<p><a href="https://www.chezmoi.io">chezmoi</a> is an open source dotfile manager. Dotfiles are hidden files and hidden directories that store preferences and settings for packages and applications. Dotfiles can be made visible in Finder with the <strong>Command-Shift-.</strong> keyboard shortcut.</p>
+<p><a href="https://www.chezmoi.io">chezmoi</a> is an open source dotfile manager. Dotfiles are hidden files and hidden directories that store preferences and settings for packages and applications. Dotfiles can be made visible in Finder with the <strong>Command-Shift-.</strong> keyboard shortcut; learn more about dotfiles <a href="https://dotfiles.github.io">here</a> and <a href="https://project-awesome.org/webpro/awesome-dotfiles">here</a>.</p>
 <p>Install chezmoi from the Terminal with Homebrew:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install chezmoi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>chezmoi relies on dotfiles being hosted in a public or private Git repository (e.g., GitHub) to share changes across multiple computers. For example, my private dotfiles repository is hosted at: <a href="https://github.com/mccarthy-m-g/dotfiles" class="uri">https://github.com/mccarthy-m-g/dotfiles</a>, where I’ve added my dotfiles and other setup scripts. For more information, see:</p>
+<ul>
+<li>chezmoi’s <a href="https://www.chezmoi.io/quick-start/">Quick Start guide</a></li>
+<li><a href="https://www.moncefbelyamani.com/automating-the-setup-of-a-new-mac-with-all-your-apps-preferences-and-development-tools/">Automating the Setup of a New Mac</a> by Moncef Belyamani</li>
+</ul>
 </section>
 </section>
-<section id="scripts" class="level2">
-<h2 class="anchored" data-anchor-id="scripts">Scripts</h2>
-<div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
+<section id="my-setup" class="level2">
+<h2 class="anchored" data-anchor-id="my-setup">My setup</h2>
+<p>With the prerequisites installed, it is now possible to install, build, and configure the remaining tools for my setup. There are many ways to do this, but I use chezmoi’s <a href="https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/">script support</a> so it’s easy to setup my dotfiles and install software with Homebrew on a new computer using the same command:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">chezmoi</span> init <span class="at">--apply</span> <span class="va">$GITHUB_USERNAME</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>What this does:</p>
+<ul>
+<li>Clones the dotfiles repository</li>
+<li>Applies the changes and runs any scripts</li>
+</ul>
+<p>Below I cover how to integrate this approach with Homebrew.</p>
+<section id="installing-software-with-homebrew" class="level3">
+<h3 class="anchored" data-anchor-id="installing-software-with-homebrew">Installing software with Homebrew</h3>
+<p>Homebrew can be used to install almost any software or dependency, whether it’s open source or closed source. Homebrew’s installation commands include:</p>
+<ul>
+<li><code>brew</code>: Install software packages (also known as formulae)</li>
+<li><code>cask</code>: Install application casks (RStudio, etc.)</li>
+<li><code>tap</code>: Add package repositories (from GitHub, etc.)</li>
+<li><code>mas</code>: Install Mac App Store applications (requires <code>brew install mas</code>)</li>
+<li><code>whalebrew</code>: Install Docker images as if they were Homebrew formulae (requires <code>brew install whalebrew</code>)</li>
+</ul>
+<p>Software and dependencies can be installed interactively from the command line, but a better approach for system setup is to use <a href="https://github.com/Homebrew/homebrew-bundle">Homebrew Bundle</a>, which allows you to install a list of dependencies located in a <code>Brewfile</code> using any of Homebrew’s installation commands.</p>
+<p>The <code>Brewfile</code> to install all the dependencies covered in this series looks something like:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Brewfile</strong></pre>
+</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Version control setup</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> <span class="st">"git"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">cask</span> <span class="st">"github"</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> <span class="st">"gh"</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># R setup</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ex">tap</span> <span class="st">"r-lib/rig"</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ex">cask</span> <span class="st">"rig"</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="ex">cask</span> <span class="st">"rstudio"</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="ex">cask</span> <span class="st">"quarto"</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Python setup</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> <span class="st">"pyenv"</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> <span class="st">"openssl"</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> <span class="st">"readline"</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> <span class="st">"sqlite3"</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> <span class="st">"xz"</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> <span class="st">"zlib"</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> <span class="st">"tcl-tk"</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> <span class="st">"pipenv"</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Reference manager setup</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="ex">cask</span> <span class="st">"zotero"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>After <a href="https://github.com/Homebrew/homebrew-bundle#usage">making a <code>Brewfile</code></a>, install its dependency list with:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> bundle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Use the optional <code>--file</code> argument to specify the path to the <code>Brewfile</code>.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-This section is under construction
+Homebrew Bundle tricks
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-
+<p>Create a <code>Brewfile</code> of your current Homebrew installations in the current working directory with:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> bundle dump</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Uninstall all software and dependencies not listed in a <code>Brewfile</code> with:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> bundle cleanup</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
+</div>
+<p>To integrate Homebrew Bundle with chezmoi, create a <a href="https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/"><code>run_once_</code> script</a> containing the <code>Brewfile</code> as a <a href="https://en.wikipedia.org/wiki/Here_document">Here document</a> in your dotfiles repository:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>run_once_before_install-packages-darwin.sh.tmpl</strong></pre>
+</div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">{{-</span> if eq .chezmoi.os <span class="st">"darwin"</span> <span class="at">-}}</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> bundle <span class="at">--no-lock</span> <span class="at">--file</span><span class="op">=</span>/dev/stdin <span class="op">&lt;&lt; Brewfile</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="st"># Version control setup</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="st">brew "git"</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="st">cask "github"</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="st">brew "gh"</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="st"># R setup</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="st">tap "r-lib/rig"</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="st">cask "rig"</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="st">cask "rstudio"</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="st">cask "quarto"</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="st"># Python setup</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="st">brew "pyenv"</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="st">brew "openssl"</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="st">brew "readline"</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="st">brew "sqlite3"</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="st">brew "xz"</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="st">brew "zlib"</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="st">brew "tcl-tk"</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="st">brew "pipenv"</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="st"># Reference manager setup</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="st">cask "zotero"</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="op">Brewfile</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="ex">{{</span> end <span class="at">-}}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This script will be run the first time you initialize chezmoi (as shown earlier):</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">chezmoi</span> init <span class="at">--apply</span> <span class="va">$GITHUB_USERNAME</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

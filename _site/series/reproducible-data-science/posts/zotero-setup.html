@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Michael McCarthy">
-<meta name="dcterms.date" content="2023-01-16">
+<meta name="dcterms.date" content="2023-01-18">
 <meta name="description" content="Installing and configuring Zotero.">
 
 <title>Tidy Tales - Reference Manager Setup</title>
@@ -241,7 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 16, 2023</p>
+        <p class="date">January 18, 2023</p>
       </div>
     </div>
     
@@ -330,13 +330,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#installing-zotero" id="toc-installing-zotero" class="nav-link" data-scroll-target="#installing-zotero">Installing Zotero</a></li>
   <li><a href="#installing-zotero-connector" id="toc-installing-zotero-connector" class="nav-link" data-scroll-target="#installing-zotero-connector">Installing Zotero Connector</a></li>
   <li><a href="#installing-zotero-extensions" id="toc-installing-zotero-extensions" class="nav-link" data-scroll-target="#installing-zotero-extensions">Installing Zotero extensions</a></li>
+  <li><a href="#configuring-zotero-preferences" id="toc-configuring-zotero-preferences" class="nav-link" data-scroll-target="#configuring-zotero-preferences">Configuring Zotero preferences</a></li>
   <li><a href="#zotero-for-ios" id="toc-zotero-for-ios" class="nav-link" data-scroll-target="#zotero-for-ios">Zotero for iOS</a></li>
   </ul></li>
   <li><a href="#configuring-zotero" id="toc-configuring-zotero" class="nav-link" data-scroll-target="#configuring-zotero">Configuring Zotero</a>
   <ul class="collapse">
   <li><a href="#cloud-syncing" id="toc-cloud-syncing" class="nav-link" data-scroll-target="#cloud-syncing">Cloud syncing</a></li>
   </ul></li>
-  <li><a href="#using-zotero-with-quarto-and-r-markdown" id="toc-using-zotero-with-quarto-and-r-markdown" class="nav-link" data-scroll-target="#using-zotero-with-quarto-and-r-markdown">Using Zotero with Quarto and R Markdown</a></li>
+  <li><a href="#using-zotero-for-citations-in-quarto-and-r-markdown-documents" id="toc-using-zotero-for-citations-in-quarto-and-r-markdown-documents" class="nav-link" data-scroll-target="#using-zotero-for-citations-in-quarto-and-r-markdown-documents">Using Zotero for citations in Quarto and R Markdown documents</a></li>
   </ul>
 </nav>
 </nav>
@@ -352,6 +353,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="zotero" class="level2">
 <h2 class="anchored" data-anchor-id="zotero">Zotero</h2>
 <p><a href="https://www.zotero.org">Zotero</a> is an open-source reference manager that styles itself as “your personal research assistant.”</p>
+<p>If you are using another reference manager you should switch to Zotero, full stop. It’s easy to <a href="https://www.zotero.org/support/moving_to_zotero">migrate your data from other reference management tools to Zotero</a>, and will <a href="https://www.andrewheiss.com/blog/2023/01/08/bibdesk-to-zotero-pandoc/">improve your workflow</a>.</p>
 <section id="installing-zotero" class="level3">
 <h3 class="anchored" data-anchor-id="installing-zotero">Installing Zotero</h3>
 <p>Install Zotero from the Terminal with Homebrew:</p>
@@ -361,6 +363,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="installing-zotero-connector">Installing Zotero Connector</h3>
 <p><a href="https://www.zotero.org/download/connectors">Zotero Connector</a> is a browser plugin that allows you to save web content (blogs, articles, etc.) to Zotero with a single click.</p>
 <p>The Zotero Connector for Safari is bundled with Zotero. You can enable it from the Extensions pane of the Safari preferences.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Use custom PDF resolvers
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Zotero also supports <a href="https://www.zotero.org/support/kb/custom_pdf_resolvers">custom PDF resolvers</a> for automatically retrieving PDFs from other sources when Zotero can’t find or access a PDF. You can find some useful examples in Brenton Wiernik’s <a href="https://github.com/bwiernik/zotero-tools/blob/master/engines.json">zotero-tools</a> repository, or by searching something like “zotero pdf resolver” in your favourite search engine.</p>
+</div>
+</div>
 </section>
 <section id="installing-zotero-extensions" class="level3">
 <h3 class="anchored" data-anchor-id="installing-zotero-extensions">Installing Zotero extensions</h3>
@@ -374,6 +389,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="https://github.com/scitedotai/scite-zotero-plugin">scite</a></li>
 <li><a href="https://github.com/PubPeerFoundation/pubpeer_zotero_plugin">PubPeer</a></li>
 </ul>
+<p>You can find more extensions on the <a href="https://www.zotero.org/support/plugins">Zotero website</a>.</p>
+</section>
+<section id="configuring-zotero-preferences" class="level3">
+<h3 class="anchored" data-anchor-id="configuring-zotero-preferences">Configuring Zotero preferences</h3>
+<p>As far as I’m aware, it isn’t possible to configure <a href="https://www.zotero.org/support/preferences">preferences</a> in Zotero with dotfiles, so this has to be done manually.</p>
+<p>The main preference I need to configure is the <a href="https://retorque.re/zotero-better-bibtex/citing/#configurable-citekey-generator">citation key formula</a> for Better BibTeX:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>authEtAl.lower+"_"+shorttitle(3,3)+"_"+year</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Which means:</p>
+<ul>
+<li>Last name of the authors (with et al.&nbsp;for references with three or more authors)</li>
+<li>An underscore</li>
+<li>First three words of the reference’s title in camel case</li>
+<li>Another underscore</li>
+<li>Year of publication (if any)</li>
+</ul>
+<p>I use this over a <code>authEtAl.lower+"_"+year</code> citation key formula because the titles are a helpful reminder of what I’m citing. However, this citation key formula can make the markdown of a document hard to read, particularly when there are multiple citations in the same sentence or paragraph.</p>
 </section>
 <section id="zotero-for-ios" class="level3">
 <h3 class="anchored" data-anchor-id="zotero-for-ios">Zotero for iOS</h3>
@@ -382,28 +413,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="configuring-zotero" class="level2">
 <h2 class="anchored" data-anchor-id="configuring-zotero">Configuring Zotero</h2>
-<p>Things to do after installing.</p>
+<p>Things to do after installing Zotero and extensions.</p>
 <section id="cloud-syncing" class="level3">
 <h3 class="anchored" data-anchor-id="cloud-syncing">Cloud syncing</h3>
-<div class="callout-caution callout callout-style-default callout-captioned">
+<p>Use Zotero’s <a href="https://www.zotero.org/support/sync">sync functionality</a> to sync your Zotero library across devices. Zotero syncing has two parts:</p>
+<ul>
+<li>Data syncing</li>
+<li>File syncing</li>
+</ul>
+<p><strong>Data syncing</strong> syncs library items, but doesn’t sync attached files (PDFs, images, etc.). Set up data syncing in the Zotero app by signing into your account.</p>
+<p><strong>File syncing</strong> syncs attached files of library items. Files can be synced using either:</p>
+<ul>
+<li><a href="https://www.zotero.org/support/sync#zotero_storage">Zotero Storage</a></li>
+<li><a href="https://www.zotero.org/support/sync#webdav">WebDAV</a></li>
+</ul>
+<p><strong>WebDAV</strong> is a standard protocol for transferring files over the web and can be used to sync files in your <em>personal library</em>. There are a number of <a href="https://www.zotero.org/support/kb/webdav_services">WebDAV storage providers known to work with Zotero</a>.</p>
+<p><strong>Zotero Storage</strong> is the file sync option recommended by Zotero. Zotero Storage includes all the features of WebDAV syncing, plus file syncing in group libraries, web-based access to file attachments, easier setup, and guaranteed compatibility.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+WebDAV or Zotero Storage?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>I currently use WebDAV syncing through <a href="http://www.4shared.com/features.jsp">4shared’s</a> free plan, which gives me 15 GB of free space. I chose this option because I don’t need any of the additional features of Zotero Storage, and 15 GBs is more than enough for my personal library.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="using-zotero-for-citations-in-quarto-and-r-markdown-documents" class="level2">
+<h2 class="anchored" data-anchor-id="using-zotero-for-citations-in-quarto-and-r-markdown-documents">Using Zotero for citations in Quarto and R Markdown documents</h2>
+<p>Quarto and R Markdown can use Pandoc to automatically generate formatted citations and bibliography entries in a number of citation styles, specified with a <code>CSL</code> file. The open source <a href="https://citationstyles.org"><strong>Citation Style Language</strong></a> (CSL) project maintains a crowdsourced <a href="https://github.com/citation-style-language/styles">GitHub repository</a> with over 10,000 free <code>CSL</code> citation styles.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-This section is under construction
+Use CSL JSON for bibliography files
 </div>
 </div>
 <div class="callout-body-container callout-body">
-
+<p>The native format for Pandoc’s citation processor, <code>citeproc</code>, <a href="https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html">CSL JSON</a> and it is essential to use <code>.json</code> formatted bibliography files to get correctly formatted citations and bibliography entries. All other bibliography file types (e.g., <code>.bib</code>) are internally converted to CSL JSON—a <a href="https://retorque.re/zotero-better-bibtex/exporting/pandoc/#use-csl-not-bibtex-with-pandoc">complex and often lossy process</a> that can result in incorrectly formatted citations.</p>
 </div>
 </div>
-<p>WebDav</p>
-</section>
-</section>
-<section id="using-zotero-with-quarto-and-r-markdown" class="level2">
-<h2 class="anchored" data-anchor-id="using-zotero-with-quarto-and-r-markdown">Using Zotero with Quarto and R Markdown</h2>
-<p>rbbt package</p>
+<p>There are two options for generating a bibliography file from Zotero personal or group libraries in <a href="https://quarto.org/docs/authoring/footnotes-and-citations.html">Quarto</a> and <a href="https://rstudio.github.io/visual-markdown-editing/citations.html">R Markdown</a>:</p>
+<ul>
+<li>RStudio’s <a href="https://rstudio.github.io/visual-markdown-editing/citations.html">native Zotero integration</a> (visual editor only)</li>
+<li>The <a href="https://github.com/paleolimbot/rbbt"><strong>rbbt</strong></a> R package (works anywhere)</li>
+</ul>
+<p>I prefer rbbt because allows you to generate a CSL JSON bibliography file dynamically from a Quarto or R Markdown document, rather than using a persistent file. To insert citations in a document interactively I use rbbt’s “Insert Zotero Citation” RStudio addin from a custom <strong>Alt-Command-R</strong> keyboard shortcut.</p>
 
 
 </section>
