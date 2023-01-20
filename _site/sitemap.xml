@@ -1,43 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://tidytales.ca/snippets/2022-12-22_patchwork-shared-axis-labels/index.html</loc>
+    <lastmod>2023-01-20T19:59:01.487Z</lastmod>
+  </url>
+  <url>
     <loc>https://tidytales.ca/snippets/2022-10-29_geomtextpath-with-ggdist/index.html</loc>
-    <lastmod>2022-12-22T00:14:10.576Z</lastmod>
+    <lastmod>2023-01-20T19:59:03.067Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tidytales.ca/snippets/2023-01-19_ggdist-histogram-rainclouds/index.html</loc>
+    <lastmod>2023-01-20T20:00:49.496Z</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/snippets/2021-11-01_longitudinal-measurement-invariance/index.html</loc>
-    <lastmod>2022-12-22T00:14:12.381Z</lastmod>
+    <lastmod>2023-01-20T19:59:11.730Z</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/posts/2022-12-20_palettes/index.html</loc>
-    <lastmod>2022-12-22T00:14:14.202Z</lastmod>
+    <lastmod>2023-01-20T19:59:13.504Z</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/posts/2021-06-15_demons-souls/index.html</loc>
-    <lastmod>2022-12-22T00:14:16.641Z</lastmod>
+    <lastmod>2023-01-20T20:01:09.556Z</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/posts/2022-06-16_projectile-motion/index.html</loc>
-    <lastmod>2022-12-25T01:29:17.036Z</lastmod>
+    <lastmod>2023-01-20T19:59:20.642Z</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/posts/2021-06-19_distill/index.html</loc>
-    <lastmod>2022-12-22T00:14:21.302Z</lastmod>
+    <lastmod>2023-01-20T19:59:24.959Z</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/posts/2022-09-29_borderlands/index.html</loc>
-    <lastmod>2022-12-22T00:14:23.879Z</lastmod>
+    <lastmod>2023-01-20T19:59:27.250Z</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/about/index.html</loc>
-    <lastmod>2022-12-25T01:29:24.507Z</lastmod>
+    <lastmod>2023-01-20T19:59:28.806Z</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/index.html</loc>
-    <lastmod>2022-12-25T01:29:17.628Z</lastmod>
-  </url>
-  <url>
-    <loc>https://tidytales.ca/snippets/2022-12-22_patchwork-shared-axis-labels/index.html</loc>
-    <lastmod>2022-12-22T23:04:04.945Z</lastmod>
+    <lastmod>2023-01-20T20:00:38.836Z</lastmod>
   </url>
 </urlset>
