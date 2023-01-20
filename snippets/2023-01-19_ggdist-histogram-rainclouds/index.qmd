@@ -1,0 +1,193 @@
+---
+title: "Histogram raincloud plots"
+description: |
+  Making raincloud plots for discrete numerical data with {ggdist}.
+
+date: 2023-01-19
+
+categories:
+  - .Visualize
+  - "{ggplot2}"
+  - "{ggdist}"
+
+params:
+  use_renv: FALSE
+  data_file: NULL # Filename of data located in /data/
+  fair_dealing: FALSE
+---
+
+```{r setup, include=FALSE}
+# Create templates for knitr code chunks --------------------------------------
+knitr::opts_template$set(
+  no.message = list(message = FALSE, warning = FALSE)
+)
+```
+
+## Prerequisites
+
+To access the datasets, help pages, and functions that we will use in this code snippet, load the following packages:
+
+```{r prerequisite-packages, opts.label="no.message"}
+library(ggplot2)
+library(ggdist)
+library(palettes)
+library(forcats)
+```
+
+## Rationale
+
+[Likert scales](https://en.wikipedia.org/wiki/Likert_scale) are a commonly used measurement tool in surveys. A typical Likert scale is made of multiple items measuring respondent's attitudes towards different statements (e.g., "The prime minister is doing a good job", "The senate is doing a good job", etc.).
+
+Attitudes towards each statement are then measured with a rating scale like:
+
+::: {style="overflow: scroll"}
+> Please indicate how much you agree or disagree with each of these statements:
+>
+> | | Strongly disagree | Somewhat disagree | Neither agree nor disagree | Somewhat agree | Strongly agree |
+|:----------------------------------------|:---:|:---:|:---:|:---:|:---:|
+| The prime minister is doing a good job. |  1  |  2  |  3  |  4  |  5  |
+| The senate is doing a good job.         |  1  |  2  |  3  |  4  |  5  |
+:::
+
+Because items in a Likert scale are numeric but discrete, a density histogram is an ideal way to visualize the distribution of responses to each item (as opposed to the density curve [typically used in raincloud plots with continuous data](https://www.cedricscherer.com/2021/06/06/visualizing-distributions-with-raincloud-plots-and-how-to-create-them-with-ggplot2/)).
+
+### Why not a density curve?
+
+While it is possible to use a density curve, doing so should make it immediately obvious why it isn't a great approach for discrete numeric data like this:
+
+- The density curve masks notable differences in density between different scores
+- The outermost fills in the density curve are cut off when it is trimmed to the range of the input data
+- The density curve goes far beyond the possible values of the data when it isn't trimmed[^1]
+
+[^1]: It also makes it difficult to get the fill breaks right, hence the lack of any fill colours in the `trim = FALSE` example.
+
+```{r}
+#| label: likert-scores
+#| echo: false
+set.seed(123)
+
+likert_scores <- data.frame(
+  item = rep(letters[1:2], times = 33),
+  score = sample(1:5, 66, replace = TRUE)
+)
+```
+
+```{r}
+#| label: bar-breaks
+#| echo: false
+#' Set breaks so bins are centred on each score
+#'
+#' @param x A vector of values.
+#' @param width Any value between 0 and 0.5 for setting the width of the bins
+breaks <- function(x, width = 0.49999999) {
+  rep(1:max(x), each = 2) + c(-width, width)
+}
+```
+
+```{r}
+#| code-fold: true
+#| layout-ncol: 2
+#| fig-cap: 
+#|   - "`trim = TRUE`"
+#|   - "`trim = FALSE`"
+ggplot(likert_scores, aes(x = score, y = item)) +
+  stat_slab(
+    aes(fill = cut(after_stat(x), breaks = breaks(x))),
+    justification = -.2,
+    height = 0.7,
+    slab_colour = "black",
+    slab_linewidth = 0.5,
+    trim = TRUE
+  ) +
+  geom_boxplot(
+    width = .2,
+    outlier.shape = NA
+  ) +
+  geom_jitter(width = .1, height = .1, alpha = .3) +
+  scale_fill_manual(
+    values = pal_ramp(met_palettes$Hiroshige, 5, -1),
+    labels = 1:5,
+    guide = guide_legend(title = "score", reverse = TRUE)
+  )
+
+ggplot(likert_scores, aes(x = score, y = item)) +
+  stat_slab(
+    justification = -.2,
+    height = 0.7,
+    slab_colour = "black",
+    slab_linewidth = 0.5,
+    trim = FALSE
+  ) +
+  geom_boxplot(
+    width = .2,
+    outlier.shape = NA
+  ) +
+  geom_jitter(width = .1, height = .1, alpha = .3) +
+  scale_x_continuous(breaks = 1:5)
+```
+
+However, each of these problems is easily solved by using a density histogram instead.
+
+## Histogram raincloud plots
+
+First make some data.
+
+```{r}
+#| label: likert-scores
+```
+
+It's straightforward to make density histograms for each item with **ggplot2**.
+
+```{r}
+ggplot(likert_scores, aes(x = score, y = after_stat(density))) +
+  geom_histogram(
+    aes(fill = after_stat(x)),
+    bins = 5,
+    colour = "black"
+  ) +
+  scale_fill_gradientn(
+    colours = pal_ramp(met_palettes$Hiroshige, 5, -1),
+    guide = guide_legend(title = "score", reverse = TRUE)
+  ) +
+  facet_wrap(vars(fct_rev(item)), ncol = 1)
+```
+
+However, the density histograms in this plot can't be vertically justified to give space for the box and whiskers plot and points used in a typical raincloud plot. For that we need the `stat_slab()` function from the **ggdist** package and a small helper function to determine where to put breaks in the histogram.
+
+```{r}
+#| label: bar-breaks
+```
+
+The default slab type for `stat_slab()` is a probability density (or mass) function (`"pdf"`), but it can also calculate density histograms (`"histogram"`). To match the appearance of `geom_histogram()`, the `breaks` argument needs to be given the location of each bin's left and right edge; this also necessitates using `cut()` with the fill aesthetic so the fill breaks correctly align with each bin.
+
+```{r}
+ggplot(likert_scores, aes(x = score, y = item)) +
+  stat_slab(
+    # Divide fill into five equal bins
+    aes(fill = cut(after_stat(x), breaks = 5)),
+    slab_type = "histogram",
+    breaks = \(x) breaks(x),
+    # Justify the histogram upwards
+    justification = -.2,
+    # Reduce the histogram's height so it doesn't cover geoms from other items
+    height = 0.7,
+    # Add black outlines because they look nice
+    slab_colour = "black",
+    outline_bars = TRUE,
+    slab_linewidth = 0.5
+  ) +
+  geom_boxplot(
+    width = .2,
+    # Hide outliers since the raw data will be plotted
+    outlier.shape = NA
+  ) +
+  geom_jitter(width = .1, height = .1, alpha = .3) +
+  # Cutting the fill into bins puts it on a discrete scale
+  scale_fill_manual(
+    values = pal_ramp(met_palettes$Hiroshige, 5, -1),
+    labels = 1:5,
+    guide = guide_legend(title = "score", reverse = TRUE)
+  )
+```
+
+{{< include /_common/_appendix.qmd >}}
