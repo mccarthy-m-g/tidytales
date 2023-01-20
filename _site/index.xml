@@ -186,7 +186,7 @@
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="co" style="color: #5E5E5E;">#' Set breaks so bins are centred on each score</span></span>
 <span id="cb5-2"><span class="co" style="color: #5E5E5E;">#'</span></span>
 <span id="cb5-3"><span class="co" style="color: #5E5E5E;">#' @param x A vector of values.</span></span>
-<span id="cb5-4"><span class="co" style="color: #5E5E5E;">#' @param width Any value between 0 and 0.5 for setting the width of the bins</span></span>
+<span id="cb5-4"><span class="co" style="color: #5E5E5E;">#' @param width Any value between 0 and 0.5 for setting the width of the bins.</span></span>
 <span id="cb5-5">breaks <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="cf" style="color: #003B4F;">function</span>(x, <span class="at" style="color: #657422;">width =</span> <span class="fl" style="color: #AD0000;">0.49999999</span>) {</span>
 <span id="cb5-6">  <span class="fu" style="color: #4758AB;">rep</span>(<span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">:</span><span class="fu" style="color: #4758AB;">max</span>(x), <span class="at" style="color: #657422;">each =</span> <span class="dv" style="color: #AD0000;">2</span>) <span class="sc" style="color: #5E5E5E;">+</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="sc" style="color: #5E5E5E;">-</span>width, width)</span>
 <span id="cb5-7">}</span></code></pre></div>

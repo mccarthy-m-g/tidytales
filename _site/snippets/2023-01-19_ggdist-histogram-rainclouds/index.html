@@ -434,7 +434,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Set breaks so bins are centred on each score</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param x A vector of values.</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param width Any value between 0 and 0.5 for setting the width of the bins</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param width Any value between 0 and 0.5 for setting the width of the bins.</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>breaks <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">width =</span> <span class="fl">0.49999999</span>) {</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">max</span>(x), <span class="at">each =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span>width, width)</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -848,7 +848,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a><span class="co">#' Set breaks so bins are centred on each score</span></span>
 <span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
 <span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param x A vector of values.</span></span>
-<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param width Any value between 0 and 0.5 for setting the width of the bins</span></span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param width Any value between 0 and 0.5 for setting the width of the bins.</span></span>
 <span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a>breaks <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">width =</span> <span class="fl">0.49999999</span>) {</span>
 <span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">max</span>(x), <span class="at">each =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span>width, width)</span>
 <span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a>}</span>
