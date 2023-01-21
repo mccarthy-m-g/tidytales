@@ -491,22 +491,9 @@ Breaking changes
 </section>
 <section id="how-do-i-restore-my-current-library-into-a-new-library" class="level2">
 <h2 class="anchored" data-anchor-id="how-do-i-restore-my-current-library-into-a-new-library">How do I restore my current library into a new library?</h2>
-<div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-This section needs to be tested
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
 <p>A new library is created whenever you install a new major or minor version of R (the “x” or “y” in version “x.y.z”), so all your favourite packages need to be re-installed to this new library if you want to use them. This is also true if you create a new library in the current version of R (e.g., with <code>rig library add</code>).</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -515,7 +502,7 @@ Transferring a library from one computer to another
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The approach shown below can also be used to transfer a library from one computer to another. All you need to do is:</p>
 <ol type="1">
@@ -530,10 +517,10 @@ Transferring a library from one computer to another
 </div>
 </div>
 </div>
-<p>If you are using <strong>rig</strong> (and you should be), restoring your current library into a new library is easy with some help from pak and dplyr.</p>
+<p>If you are using <strong>rig</strong> (and you should be), restoring your current library into a new library is easy with some help from pak and dplyr.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <p>First—in your current library—get the path to your user library. Copy this down somewhere.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.libPaths</span>()[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You can now switch to your new library. The easiest way to switch on macOS is with the menu bar app; otherwise use the shell prompt. Open a new RStudio window to start a session with the new library.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>You can now switch to your new library. The easiest way to switch on macOS is with the menu bar app; otherwise use the shell prompt. Open a new RStudio window to start a session with the new library.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Switch to a different R version</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">rig</span> default <span class="op">&lt;</span>version<span class="op">&gt;</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -581,7 +568,8 @@ Default library locations and .Renviron
 
 <ol>
 <li id="fn1"><p>By default <code>update.packages()</code> will ask you one by one whether you would like to update a given package. Use the <code>ask = FALSE</code> argument to update all packages without asking.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>It’s okay to keep the RStudio window for the current library open.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Note that this approach will restore all packages with their <em>newest</em> versions in the new library, not the same versions as your current library. However, pak supports installing older versions of packages using the <code>@</code> version syntax, so it should be possible to modify this pipeline to do the same. The version information can be found in the data frame returned by <code>pkg_list()</code> under the <code>version</code> (for CRAN and Bioconductor) and <code>remotesha</code> (for GitHub) columns.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>It’s okay to keep the RStudio window for the current library open.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -746,7 +734,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-      <div class="nav-footer-center">© Copyright 2022 <a href="https://michaelmccarthy.tidytales.ca">Michael McCarthy</a></div>
+      <div class="nav-footer-center">© Copyright 2023 <a href="https://michaelmccarthy.tidytales.ca">Michael McCarthy</a></div>
   </div>
 </footer>
 

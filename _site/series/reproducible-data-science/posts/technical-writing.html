@@ -540,7 +540,7 @@ Writing model equations
 <section id="using-math-equations-in-plots" class="level3">
 <h3 class="anchored" data-anchor-id="using-math-equations-in-plots">Using math equations in plots</h3>
 <p>Both base R and <strong>ggplot2</strong> plots feature support for writing beautiful math equations with <a href="https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/plotmath.html">plotmath expressions</a>. Equations can be used in plot labels, legends, and text.</p>
-<p>If you would rather write equations using LaTeX math expressions, the <strong>latex2exp</strong> package can be used to parse and convert LaTeX to plotmath expressions. Learn more on the <a href="https://www.stefanom.io/latex2exp/">package website</a>.</p>
+<p>If you would rather write equations using LaTeX math expressions, the <strong>latex2exp</strong> package can be used to parse and convert LaTeX to plotmath expressions.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Learn more on the <a href="https://www.stefanom.io/latex2exp/">package website</a>.</p>
 <p>ggplot2 also includes some convenience functions for using plotmath in plot labels:</p>
 <ul>
 <li><code>label_parsed()</code> interprets labels as plotmath expressions</li>
@@ -556,6 +556,7 @@ Writing model equations
 
 <ol>
 <li id="fn1"><p><a href="https://www.mathjax.org">MathJax</a> is an open-source JavaScript rendering engine for LaTeX math expressions. It is the default rendering method in Quarto HTML documents.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>There is also an <a href="syntax https://github.com/wilkelab/ggtext/issues/4">open issue</a> to support LaTeX math expressions using markdown in the <strong>ggtext</strong> package.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -717,7 +718,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-      <div class="nav-footer-center">© Copyright 2022 <a href="https://michaelmccarthy.tidytales.ca">Michael McCarthy</a></div>
+      <div class="nav-footer-center">© Copyright 2023 <a href="https://michaelmccarthy.tidytales.ca">Michael McCarthy</a></div>
   </div>
 </footer>
 

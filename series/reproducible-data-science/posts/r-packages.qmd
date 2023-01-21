@@ -257,9 +257,9 @@ install.packages("tibble")
 pak::pkg_install("tibble")
 ```
 
-Update all the packages listed by `old.packages()` at once with `update.packages()`[^2] or `pak::pkg_install(old.packages()[,"Package"])`. Note that `update.packages()` uses `install.packages()` under the hood, so it won't be as fast as pak.
+Update all the packages listed by `old.packages()` at once with `update.packages()`[^1] or `pak::pkg_install(old.packages()[,"Package"])`. Note that `update.packages()` uses `install.packages()` under the hood, so it won't be as fast as pak.
 
-[^2]: By default `update.packages()` will ask you one by one whether you would like to update a given package. Use the `ask = FALSE` argument to update all packages without asking. 
+[^1]: By default `update.packages()` will ask you one by one whether you would like to update a given package. Use the `ask = FALSE` argument to update all packages without asking. 
 
 ```r
 # The standard way to update all packages at once
@@ -281,10 +281,6 @@ I recommend creating multiple user libraries with **rig** that can be used for d
 
 ## How do I restore my current library into a new library?
 
-::: {.callout-caution}
-## This section needs to be tested
-:::
-
 A new library is created whenever you install a new major or minor version of R (the "x" or "y" in version "x.y.z"), so all your favourite packages need to be re-installed to this new library if you want to use them. This is also true if you create a new library in the current version of R (e.g., with `rig library add`).
 
 ::: {.callout-tip collapse="true"}
@@ -302,7 +298,9 @@ The approach shown below can also be used to transfer a library from one compute
 \*For added convenience, store `pkgs.rds` in a GitHub repository so you can access it wherever you go!
 :::
 
-If you are using **rig** (and you should be), restoring your current library into a new library is easy with some help from pak and dplyr.
+If you are using **rig** (and you should be), restoring your current library into a new library is easy with some help from pak and dplyr.[^2]
+
+[^2]: Note that this approach will restore all packages with their *newest* versions in the new library, not the same versions as your current library. However, pak supports installing older versions of packages using the `@` version syntax, so it should be possible to modify this pipeline to do the same. The version information can be found in the data frame returned by `pkg_list()` under the `version` (for CRAN and Bioconductor) and `remotesha` (for GitHub) columns. 
 
 First---in your current library---get the path to your user library. Copy this down somewhere.
 
@@ -310,9 +308,9 @@ First---in your current library---get the path to your user library. Copy this d
 .libPaths()[1]
 ```
 
-You can now switch to your new library. The easiest way to switch on macOS is with the menu bar app; otherwise use the shell prompt. Open a new RStudio window to start a session with the new library.[^1]
+You can now switch to your new library. The easiest way to switch on macOS is with the menu bar app; otherwise use the shell prompt. Open a new RStudio window to start a session with the new library.[^3]
 
-[^1]: It's okay to keep the RStudio window for the current library open.
+[^3]: It's okay to keep the RStudio window for the current library open.
 
 ```bash
 # Switch to a different R version

@@ -12,6 +12,12 @@ order: 5
 
 If you are using another reference manager you should switch to Zotero, full stop. It's easy to [migrate your data from other reference management tools to Zotero](https://www.zotero.org/support/moving_to_zotero), and will [improve your workflow](https://www.andrewheiss.com/blog/2023/01/08/bibdesk-to-zotero-pandoc/).
 
+::: {.callout-tip}
+## Use Zotero's built-in PDF reader
+
+Zotero has its own built-in PDF reader and it's really good. Much better than any external PDF readers. Learn more about it in the [Zotero documentation](https://www.zotero.org/support/pdf_reader).
+:::
+
 ### Installing Zotero
 
 Install Zotero from the Terminal with Homebrew:
@@ -97,6 +103,22 @@ Use Zotero's [sync functionality](https://www.zotero.org/support/sync) to sync y
 
 I currently use WebDAV syncing through [4shared's](http://www.4shared.com/features.jsp) free plan, which gives me 15 GB of free space. I chose this option because I don't need any of the additional features of Zotero Storage, and 15 GBs is more than enough for my personal library.
 :::
+
+### Turn off automatic tagging
+
+Go to **General > Miscellaneous** and turn off "Automatically tag items with keywords and subject headings". I personally found this feature more annoying than helpful, since different sources would use the same or multiple tags for the same thing, resulting in messy metadata. Instead I manually add tags to items in my library using the following scheme:
+
+- Subject: name (focus area or field)
+- Topic: name (topic keywords)
+- Data: source (open data set name)
+- Population: characteristic (age group, sex, gender, species, location, etc.)
+- Variable: name (variable measured in the study)
+- Method: name (experimental, observational, literature review, etc.)
+- Analysis: method (statistical method used for analysis)
+- Source: name (for where or how I discovered the item)
+- Status: reading status (unread, read partially, or read)
+
+I like this approach because it makes it easy to drill down a library collection to the items I need or to rediscover an item I forget the name of. It also reduces some of the cognitive overhead of working with tags by taking advantage of Zotero's autocomplete when adding tags manually, and alphabetic tag sorting.
 
 ## Using Zotero for citations in Quarto and R Markdown documents
 

@@ -45,7 +45,7 @@ website:
 
   page-footer:
     border: false
-    center: "\u00A9 Copyright 2022 [Michael McCarthy](https://michaelmccarthy.tidytales.ca)"
+    center: "\u00A9 Copyright 2023 [Michael McCarthy](https://michaelmccarthy.tidytales.ca)"
 
   page-navigation: true
 

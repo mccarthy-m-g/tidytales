@@ -14,8 +14,6 @@ This series is about learning and doing reproducible data science. It's a mix be
 - Serve as a quick reference for more experienced users
 - Unearth some of the "hidden curriculum" you might not have been taught while learning R (whether or not you were taught in the classroom or are self-taught)
 
-This series is a work-in-progress and some sections may currently be under construction.
-
 ## Who is this series for?
 
 I've tried to write this series so anyone can use it to learn or improve their approach to doing reproducible data science. That said, I've written the series in an order that makes sense logistically, but not necessarily pedagogically:

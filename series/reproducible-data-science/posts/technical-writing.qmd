@@ -156,7 +156,9 @@ extract_eq(mtcars_fit, use_coefs = TRUE) |>
 
 Both base R and **ggplot2** plots feature support for writing beautiful math equations with [plotmath expressions](https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/plotmath.html). Equations can be used in plot labels, legends, and text.
 
-If you would rather write equations using LaTeX math expressions, the **latex2exp** package can be used to parse and convert LaTeX to plotmath expressions. Learn more on the [package website](https://www.stefanom.io/latex2exp/).
+If you would rather write equations using LaTeX math expressions, the **latex2exp** package can be used to parse and convert LaTeX to plotmath expressions.[^2] Learn more on the [package website](https://www.stefanom.io/latex2exp/).
+
+[^2]: There is also an [open issue](syntax https://github.com/wilkelab/ggtext/issues/4) to support LaTeX math expressions using markdown in the **ggtext** package.
 
 ggplot2 also includes some convenience functions for using plotmath in plot labels:
 
