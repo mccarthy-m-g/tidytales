@@ -405,7 +405,7 @@ Jan 20, 2023
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-listing-date-sort="1674245130000" data-listing-file-modified-sort="1674245130268" data-listing-reading-time-sort="1.105">
+<div class="g-col-1" data-index="3" data-listing-date-sort="1674510230000" data-listing-file-modified-sort="1674510230431" data-listing-reading-time-sort="1.25">
 <a href="../../series/reproducible-data-science/posts/r-setup.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -420,7 +420,7 @@ Installing and configuring R.
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
-Jan 20, 2023
+Jan 23, 2023
 </div>
 </div>
 </div>
@@ -471,7 +471,7 @@ Jan 20, 2023
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="6" data-listing-date-sort="1674245130000" data-listing-file-modified-sort="1674245130234" data-listing-reading-time-sort="14.46">
+<div class="g-col-1" data-index="6" data-listing-date-sort="1674507520000" data-listing-file-modified-sort="1674507520958" data-listing-reading-time-sort="14.755">
 <a href="../../series/reproducible-data-science/posts/learning-r.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -486,7 +486,7 @@ Learn how to program and do data science with R.
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
-Jan 20, 2023
+Jan 23, 2023
 </div>
 </div>
 </div>
@@ -515,7 +515,7 @@ Jan 20, 2023
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="8" data-listing-date-sort="1674245130000" data-listing-file-modified-sort="1674245130236" data-listing-reading-time-sort="2.7">
+<div class="g-col-1" data-index="8" data-listing-date-sort="1674508791000" data-listing-file-modified-sort="1674508791143" data-listing-reading-time-sort="2.745">
 <a href="../../series/reproducible-data-science/posts/r-getting-help.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -530,7 +530,7 @@ Writing reproducible examples and debugging errors with R.
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
-Jan 20, 2023
+Jan 23, 2023
 </div>
 </div>
 </div>
@@ -553,6 +553,28 @@ Technical writing and literate programming in Quarto documents.
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
 Jan 20, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="10" data-listing-date-sort="1674516446000" data-listing-file-modified-sort="1674516446725" data-listing-reading-time-sort="9.87">
+<a href="../../series/reproducible-data-science/posts/productivity-tips.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="https://tidytales.ca/series/reproducible-data-science/posts/images/productivity-tips.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Productivity Tips
+</h5>
+<div class="card-text listing-description">
+Become more productive working with R and RStudio.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 23, 2023
 </div>
 </div>
 </div>

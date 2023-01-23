@@ -147,6 +147,12 @@ If you want to become a better R programmer, I think these books are a good plac
 
 **Mastering Shiny** is a comprehensive introduction teaching you how to easily create rich, interactive web apps with the **shiny** R package.
 
+::: {.callout-note collapse=true}
+## The R Manuals
+
+[**The R Manuals**](https://cran.r-project.org/manuals.html) are manuals for the R language written by the R Development Core team. I mention them here because it's good to know about them, but the book recommendations I've already made largely cover the contents of these manuals in a friendlier way. Posit also maintain [nicely formatted HTML versions](https://rstudio.github.io/r-manuals/) of the manuals.
+:::
+
 ## How do I make my work reproducible?
 
 This series is called *Reproducible Data Science*, so I should probably talk more about that. If you've learned even a portion of what's covered above then you already have a lot of the skills needed to do reproducible data science; but you are likely missing out on some essential tools and a stable framework for making **reproducible data products**.

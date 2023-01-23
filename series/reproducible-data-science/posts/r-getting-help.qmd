@@ -52,7 +52,7 @@ Use the [**reprex**](https://reprex.tidyverse.org) R package to test, render, an
 
 ## Debugging interactively
 
-See the [Debugging](https://adv-r.hadley.nz/debugging.html) chapter in Advanced R by Hadley Wickham.
+See [Debugging with the RStudio IDE](https://support.posit.co/hc/en-us/articles/205612627-Debugging-with-the-RStudio-IDE) by Jonathan McPherson and the [Debugging](https://adv-r.hadley.nz/debugging.html) chapter in Advanced R by Hadley Wickham.
 
 ::: {.callout-note}
 ## R package versions and debugging

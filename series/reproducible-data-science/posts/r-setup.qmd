@@ -43,6 +43,8 @@ brew install --cask rstudio
 
 RStudio can also be installed from Posit using the following link <https://posit.co/download/rstudio-desktop/>. RStudio is updated a couple of times a year. When a new version is available, RStudio will let you know. It's a good idea to upgrade regularly so you can take advantage of the latest and greatest features.
 
+Learn more from the [RStudio User Guide](https://docs.posit.co/ide/user/).
+
 ### Installing Quarto
 
 [Quarto](https://quarto.org) is an open source scientific and technical publishing system built on [Pandoc](https://pandoc.org/).
@@ -52,3 +54,8 @@ Install Quarto from the Terminal with Homebrew:
 ```bash
 brew install --cask quarto
 ```
+
+## Related Reading {.appendix .unnumbered .unlisted}
+
+- [Setting up macOS as an R data science rig in 2023](https://ivelasq.rbind.io/blog/macos-rig/index.html) by Isabella Velásquez and Gustavo E. Velásquez
+

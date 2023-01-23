@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Michael McCarthy">
-<meta name="dcterms.date" content="2023-01-20">
-<meta name="description" content="Technical writing and literate programming in Quarto documents.">
+<meta name="dcterms.date" content="2023-01-23">
+<meta name="description" content="Become more productive working with R and RStudio.">
 
-<title>Tidy Tales - Technical Writing</title>
+<title>Tidy Tales - Productivity Tips</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -96,8 +96,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../series/reproducible-data-science/posts/productivity-tips.html" rel="next">
-<link href="../../../series/reproducible-data-science/posts/r-getting-help.html" rel="prev">
+<link href="../../../series/reproducible-data-science/posts/technical-writing.html" rel="prev">
 <link href="../../../assets/images/favicon.png" rel="icon" type="image/png">
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
@@ -128,25 +127,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
-<link href="../../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="../../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
-
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../../assets/styles.css">
 <meta property="og:title" content="Tidy Tales">
@@ -227,7 +207,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Technical Writing</h1>
+      <h1 class="quarto-secondary-nav-title">Productivity Tips</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -238,10 +218,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">Technical Writing</h1>
+      <h1 class="title d-none d-lg-block">Productivity Tips</h1>
                   <div>
         <div class="description">
-          Technical writing and literate programming in Quarto documents.
+          Become more productive working with R and RStudio.
         </div>
       </div>
                 </div>
@@ -260,7 +240,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 20, 2023</p>
+        <p class="date">January 23, 2023</p>
       </div>
     </div>
     
@@ -333,12 +313,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/posts/technical-writing.html" class="sidebar-item-text sidebar-link active">Technical Writing</a>
+  <a href="../../../series/reproducible-data-science/posts/technical-writing.html" class="sidebar-item-text sidebar-link">Technical Writing</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/posts/productivity-tips.html" class="sidebar-item-text sidebar-link">Productivity Tips</a>
+  <a href="../../../series/reproducible-data-science/posts/productivity-tips.html" class="sidebar-item-text sidebar-link active">Productivity Tips</a>
   </div>
 </li>
       </ul>
@@ -349,14 +329,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">In this post</h2>
    
   <ul>
-  <li><a href="#literate-programming" id="toc-literate-programming" class="nav-link active" data-scroll-target="#literate-programming">Literate programming</a></li>
-  <li><a href="#plain-text-outputs" id="toc-plain-text-outputs" class="nav-link" data-scroll-target="#plain-text-outputs">Plain text outputs</a></li>
-  <li><a href="#figure-and-table-outputs" id="toc-figure-and-table-outputs" class="nav-link" data-scroll-target="#figure-and-table-outputs">Figure and table outputs</a></li>
-  <li><a href="#equations" id="toc-equations" class="nav-link" data-scroll-target="#equations">Equations</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#customize-rstudio" id="toc-customize-rstudio" class="nav-link" data-scroll-target="#customize-rstudio">Customize RStudio</a></li>
+  <li><a href="#use-the-command-palette" id="toc-use-the-command-palette" class="nav-link" data-scroll-target="#use-the-command-palette">Use the command palette</a></li>
+  <li><a href="#use-keyboard-shortcuts" id="toc-use-keyboard-shortcuts" class="nav-link" data-scroll-target="#use-keyboard-shortcuts">Use keyboard shortcuts</a>
   <ul class="collapse">
-  <li><a href="#using-inline-r-code-in-math-equations" id="toc-using-inline-r-code-in-math-equations" class="nav-link" data-scroll-target="#using-inline-r-code-in-math-equations">Using inline R code in math equations</a></li>
-  <li><a href="#using-math-equations-in-plots" id="toc-using-math-equations-in-plots" class="nav-link" data-scroll-target="#using-math-equations-in-plots">Using math equations in plots</a></li>
+  <li><a href="#common-shortcuts" id="toc-common-shortcuts" class="nav-link" data-scroll-target="#common-shortcuts">Common shortcuts</a></li>
+  <li><a href="#navigation-shortcuts" id="toc-navigation-shortcuts" class="nav-link" data-scroll-target="#navigation-shortcuts">Navigation shortcuts</a></li>
+  <li><a href="#editing-shortcuts" id="toc-editing-shortcuts" class="nav-link" data-scroll-target="#editing-shortcuts">Editing shortcuts</a></li>
+  <li><a href="#mac-shortcuts" id="toc-mac-shortcuts" class="nav-link" data-scroll-target="#mac-shortcuts">Mac shortcuts</a></li>
   </ul></li>
+  <li><a href="#write-your-own-code-snippets" id="toc-write-your-own-code-snippets" class="nav-link" data-scroll-target="#write-your-own-code-snippets">Write your own code snippets</a></li>
+  <li><a href="#manage-r-with-.rprofile-and-.renviron" id="toc-manage-r-with-.rprofile-and-.renviron" class="nav-link" data-scroll-target="#manage-r-with-.rprofile-and-.renviron">Manage R with .Rprofile and .Renviron</a></li>
   </ul>
 </nav>
 </nav>
@@ -369,202 +353,275 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<section id="literate-programming" class="level2">
-<h2 class="anchored" data-anchor-id="literate-programming">Literate programming</h2>
-<p><strong>Literate programming</strong> is the practice of mixing text and executable code in the same document, making it possible to write reproducible documents. There are four engines for executing code in Quarto documents:</p>
-<ul>
-<li><a href="https://github.com/yihui/knitr">knitr</a> (supports R, Python, Julia, and more)</li>
-<li><a href="https://jupyter.org">jupyter</a> (Python only)</li>
-<li><a href="https://github.com/JuliaLang/IJulia.jl">IJulia</a> (Julia only)</li>
-<li><a href="https://observablehq.com/">Observable JS</a> (Observable JS only)</li>
-</ul>
-<p>All engines support executing code in <strong>code blocks</strong> within a document, which can be used to execute code and include its output in a document. Code blocks can produce a wide variety of outputs, including plots, tabular output from data frames, and plain text. The behaviour of code execution and output can be set with Quarto’s <a href="https://quarto.org/docs/computations/execution-options.html">Execution Options</a>.</p>
-<p>knitr, jupyter, and Observable JS also support executing <strong>inline code</strong> within markdown text, which can be used to allow narrative to automatically use the most up to date computations. The syntax for inline code varies across the engines.</p>
-<p>The remainder of this post covers some useful literate programming practices when writing reproducible documents with the knitr engine.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>RStudio includes a variety of features to make you more productive working with R and RStudio. These features are covered in detail in the <a href="https://docs.posit.co/ide/user/ide/guide/productivity/text-editor.html">RStudio User Manual</a>. Here I highlight some of the features I think are particularly helpful for working productively.</p>
+</section>
+<section id="customize-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="customize-rstudio">Customize RStudio</h2>
+<p>RStudio provides a number of <a href="https://support.posit.co/hc/en-us/articles/200549016-Customizing-RStudio">preferences you can customize</a> to change the look and feel of the IDE, provide certain defaults, and so forth. Go through them and find what works for you.</p>
+<p>My own preferences look something like:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>~/.config/rstudio/rstudio-prefs.json</strong></pre>
 </div>
-<div class="callout-caption-container flex-fill">
-Project management
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Literate programming is a powerful tool for writing reproducible documents, but it can also become unwieldy if your computations require a lot of code. Rather than writing all the code within a document, it is often better to source the required code within a document, then include output using the objects created by the sourced code. The simplest way to adopt this approach is by using the <code>source()</code> function to source R script files containing the computations for a document; a better way is to use the <a href="https://books.ropensci.org/targets/literate-programming.html">literate programming</a> approach described in the <strong>targets</strong> R package.</p>
-</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"show_margin"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"save_files_before_build"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"wrap_tab_navigation"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"save_workspace"</span><span class="fu">:</span> <span class="st">"never"</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"reuse_sessions_for_project_links"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"jobs_tab_visibility"</span><span class="fu">:</span> <span class="st">"shown"</span><span class="fu">,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"rainbow_parentheses"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"restore_source_documents"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"restore_last_project"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"load_workspace"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"scroll_past_end_of_document"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"syntax_color_console"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"panes"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"quadrants"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Source"</span><span class="ot">,</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>            <span class="st">"TabSet1"</span><span class="ot">,</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Console"</span><span class="ot">,</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>            <span class="st">"TabSet2"</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"tabSet1"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>            <span class="st">"History"</span><span class="ot">,</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Connections"</span><span class="ot">,</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Packages"</span><span class="ot">,</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Presentation"</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"tabSet2"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Files"</span><span class="ot">,</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Environment"</span><span class="ot">,</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Plots"</span><span class="ot">,</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Viewer"</span><span class="ot">,</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Build"</span><span class="ot">,</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>            <span class="st">"VCS"</span><span class="ot">,</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Help"</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"hiddenTabSet"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Tutorial"</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"console_left_on_top"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"console_right_on_top"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"additional_source_columns"</span><span class="fu">:</span> <span class="dv">0</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    <span class="fu">},</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"show_indent_guides"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"highlight_r_function_calls"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"auto_append_newline"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"strip_trailing_whitespace"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"code_completion_characters"</span><span class="fu">:</span> <span class="dv">2</span><span class="fu">,</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"graphics_backend"</span><span class="fu">:</span> <span class="st">"ragg"</span><span class="fu">,</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"rmd_viewer_type"</span><span class="fu">:</span> <span class="st">"pane"</span><span class="fu">,</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"show_help_tooltip_on_idle"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"source_with_echo"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"rmd_chunk_output_inline"</span><span class="fu">:</span> <span class="kw">false</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="plain-text-outputs" class="level2">
-<h2 class="anchored" data-anchor-id="plain-text-outputs">Plain text outputs</h2>
-<p>Most code you write will be output as plain text. Depending on the purpose of a document, it might be fine to leave that output as is, or you might want to format the text, include it inline, and so forth.</p>
-<p>For example, say you wanted to report the number of participants in a study you ran. Rather than writing a sentence like this:</p>
-<blockquote class="blockquote">
-<p>There were twelve participants in the study.</p>
-</blockquote>
-<p>You could get the number of participants computationally, format that number into the word “twelve”, and include it in the sentence using inline code:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>n_participants <span class="ot">&lt;-</span> xfun<span class="sc">::</span><span class="fu">numbers_to_words</span>(<span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<blockquote class="blockquote">
-<p>There were <code>`r n_participants`</code> participants in the study.</p>
-</blockquote>
-<p>This sentence would become “There were twelve participants in the study.” when you render the document. Likewise, if the number of participants changed, the number reported in the sentence would change the next time the document rendered (as long as the R object storing the number of participants knew about the change).</p>
-<p>If there are many values you need to report inline, storing them in a list is a good practice. For an overview of this approach, see:</p>
-<ul>
-<li><a href="https://www.tjmahr.com/lists-knitr-secret-weapon/">Lists are my secret weapon for reporting stats with knitr</a> by Tristan Mahr</li>
-</ul>
+<section id="use-the-command-palette" class="level2">
+<h2 class="anchored" data-anchor-id="use-the-command-palette">Use the command palette</h2>
+<p>RStudio comes equipped with a <a href="https://docs.posit.co/ide/user/ide/guide/ui/command-palette.html">command palette</a> that gives instant, searchable access to all of RStudio’s commands. Bring it up with <strong>Command-Shift-P</strong>.</p>
 </section>
-<section id="figure-and-table-outputs" class="level2">
-<h2 class="anchored" data-anchor-id="figure-and-table-outputs">Figure and table outputs</h2>
-<p>Figures and tables produced by code blocks have unique parameters you can use to adjust their layout, add captions, or make them cross-referenceable. See the Quarto documentation for details:</p>
-<ul>
-<li><a href="https://quarto.org/docs/authoring/figures.html">Figures documentation</a></li>
-<li><a href="https://quarto.org/docs/authoring/tables.html">Tables documentation</a></li>
-</ul>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Adjusting figure appearance
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>When making figures with <strong>ggplot2</strong> it’s best to know the final size of the figure before attempting to adjust the size of plot text or geometry.</p>
-</div>
-</div>
-</section>
-<section id="equations" class="level2">
-<h2 class="anchored" data-anchor-id="equations">Equations</h2>
-<p>Quarto features <a href="https://quarto.org/docs/authoring/markdown-basics.html#equations">extensive support</a> for writing beautiful math equations with <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">LaTeX math</a> expressions authored using <a href="https://pandoc.org/MANUAL.html#math">standard Pandoc markdown syntax</a>: Use <code>$</code> delimiters for inline math and <code>$$</code> delimiters for display math. Provide an <code>#eq-</code> label immediately after a display math equation to <a href="https://quarto.org/docs/authoring/cross-references.html#equations">make it referenceable</a>.</p>
+<section id="use-keyboard-shortcuts" class="level2">
+<h2 class="anchored" data-anchor-id="use-keyboard-shortcuts">Use keyboard shortcuts</h2>
+<p>RStudio comes equipped with <a href="https://docs.posit.co/ide/user/ide/reference/shortcuts.html">over 100 keyboard shortcuts</a> to speed up your workflow, each of which you can modify to suit your preferences. You can even write your own <a href="https://docs.posit.co/ide/user/ide/guide/productivity/custom-shortcuts.html">custom keyboard shortcuts</a> to execute RStudio application commands, editor commands, or user-defined R functions.</p>
+<section id="common-shortcuts" class="level3">
+<h3 class="anchored" data-anchor-id="common-shortcuts">Common shortcuts</h3>
 <table class="table">
 <colgroup>
-<col style="width: 48%">
-<col style="width: 45%">
+<col style="width: 69%">
+<col style="width: 30%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Markdown Syntax</th>
-<th>Output</th>
+<th>Description</th>
+<th>Command</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>inline math: <code>$E = mc^{2}$</code></td>
-<td>inline math: <span class="math inline">E=mc^{2}</span></td>
+<td>Copy</td>
+<td>Ctrl+C</td>
 </tr>
 <tr class="even">
-<td><p>display math:</p>
-<p><code>$$E = mc^{2}$$</code></p></td>
-<td>display math:<br>
-<span class="math display">E = mc^{2}</span></td>
+<td>Paste</td>
+<td>Ctrl+V</td>
 </tr>
 <tr class="odd">
-<td><p>display math with label:</p>
-<p><code>$$E = mc^{2}$${#eq-mc-squared}</code></p></td>
-<td>display math with label:<br>
-<span id="eq-mc-squared"><span class="math display">E = mc^{2} \tag{1}</span></span></td>
+<td>Cut</td>
+<td>Ctrl+X</td>
+</tr>
+<tr class="even">
+<td>Save</td>
+<td>Ctrl+S</td>
+</tr>
+<tr class="odd">
+<td>Undo</td>
+<td>Ctrl+Z</td>
+</tr>
+<tr class="even">
+<td>Redo</td>
+<td>Ctrl+Shift+Z</td>
 </tr>
 </tbody>
 </table>
-<p>Math expressions can be rendered in any of Quarto’s output formats, but different rendering methods are used depending on the format:</p>
+</section>
+<section id="navigation-shortcuts" class="level3">
+<h3 class="anchored" data-anchor-id="navigation-shortcuts">Navigation shortcuts</h3>
+<table class="table">
+<colgroup>
+<col style="width: 69%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Move cursor to Source Editor</td>
+<td>Ctrl+1</td>
+</tr>
+<tr class="even">
+<td>Navigate Source Editor tabs (left)</td>
+<td>Ctrl+Option+Left</td>
+</tr>
+<tr class="odd">
+<td>Navigate Source Editor tabs (right)</td>
+<td>Ctrl+Option+Right</td>
+</tr>
+<tr class="even">
+<td>Move cursor to Console</td>
+<td>Ctrl+2</td>
+</tr>
+<tr class="odd">
+<td>Navigate Console and Terminal command history</td>
+<td>Up/Down</td>
+</tr>
+<tr class="even">
+<td>Move cursor to beginning of line</td>
+<td>Command+Left</td>
+</tr>
+<tr class="odd">
+<td>Move cursor to end of line</td>
+<td>Command+Right</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="editing-shortcuts" class="level3">
+<h3 class="anchored" data-anchor-id="editing-shortcuts">Editing shortcuts</h3>
+<table class="table">
+<colgroup>
+<col style="width: 69%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Indent (at beginning of line)</td>
+<td>Tab</td>
+</tr>
+<tr class="even">
+<td>Insert pipe operator</td>
+<td>Shift+Command+M</td>
+</tr>
+<tr class="odd">
+<td>Insert code block</td>
+<td>Command+Option+I</td>
+</tr>
+<tr class="even">
+<td>Insert additional cursor on line above</td>
+<td>Ctrl+Option+Up</td>
+</tr>
+<tr class="odd">
+<td>Insert additional cursor on line below</td>
+<td>Ctrl+Option+Down</td>
+</tr>
+<tr class="even">
+<td>Insert additional cursor at click position</td>
+<td>Command+Option+Click</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mac-shortcuts" class="level3">
+<h3 class="anchored" data-anchor-id="mac-shortcuts">Mac shortcuts</h3>
+<table class="table">
+<colgroup>
+<col style="width: 69%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Switch between open apps</td>
+<td>Command+Tab</td>
+</tr>
+<tr class="even">
+<td>Navigate app switcher (while holding Command)</td>
+<td>Left/Right</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="write-your-own-code-snippets" class="level2">
+<h2 class="anchored" data-anchor-id="write-your-own-code-snippets">Write your own code snippets</h2>
+<p>RStudio supports text macros, called <a href="https://docs.posit.co/ide/user/ide/guide/productivity/snippets.html">code snippets</a>, useful for quickly inserting common snippets of code or text. If you find yourself writing the same boilerplate over and over again, it might be time to turn it into a code snippet.</p>
+<p>For inspiration, here are code snippets written by others in the R community:</p>
 <ul>
-<li><code>html</code> offers <a href="https://quarto.org/docs/output-formats/html-basics.html#latex-equations">several math rendering methods</a></li>
-<li><code>pdf</code> uses LaTeX (including <a href="https://quarto.org/docs/output-formats/pdf-basics.html#raw-latex">raw LaTeX</a>)</li>
-<li><code>docx</code> uses Microsoft Word’s equation environment</li>
+<li><a href="https://gist.github.com/jthomasmock/11acebd4448f171f786e01397df34116">Markdown snippets</a> by Tom Mock</li>
 </ul>
-<p>To learn more about writing LaTeX math expressions, see:</p>
+</section>
+<section id="manage-r-with-.rprofile-and-.renviron" class="level2">
+<h2 class="anchored" data-anchor-id="manage-r-with-.rprofile-and-.renviron">Manage R with .Rprofile and .Renviron</h2>
+<p>The <code>.Rprofile</code> and <code>.Renviron</code> dotfiles can be used to modify the startup behaviour of an R session on a global or per-project basis:</p>
 <ul>
-<li><a href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference">MathJax basic tutorial and quick reference</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
-<li><a href="https://tilburgsciencehub.com/building-blocks/collaborate-and-share-your-work/write-your-paper/amsmath-latex-cheatsheet/">Cheatsheet for LaTeX Math Commands</a></li>
+<li><code>.Rprofile</code> contains R code to be run when R starts up</li>
+<li><code>.Renviron</code> contains environment variables to be set when R starts up</li>
 </ul>
-<div class="callout-note callout callout-style-default callout-captioned">
+<p>The behaviour of these files is described in more detail in the <a href="https://rstats.wtf/r-startup.html">R Startup</a> chapter in What They Forgot to Teach You About R by Jenny Bryan and Jim Hester.</p>
+<div class="callout-warning callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Inspecting equations rendered by MathJax
+Reproducibility
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Equations rendered by MathJax can be inspected by right clicking them. This is useful if you want to view or copy the underlying TeX code from an equation <strong>Show Math As &gt; TeX Commands</strong> or <strong>Copy to Clipboard &gt; TeX Commands</strong>. Note that Tidy Tales uses the KaTeX renderer, so it won’t work on this site.</p>
+<p>As Jenny Bryan and Jim Hester write in <a href="https://rstats.wtf/r-startup.html#reproducibility">What They Forgot to Teach You About R</a>: “A good rule of thumb is you should only put things in your <code>.Rprofile</code> that you run interactively in the R terminal. If it ever appears in a R script or R Markdown file it should <em>not</em> be in your <code>.Rprofile</code>.”</p>
 </div>
 </div>
-<section id="using-inline-r-code-in-math-equations" class="level3">
-<h3 class="anchored" data-anchor-id="using-inline-r-code-in-math-equations">Using inline R code in math equations</h3>
-<p>Inline R code <code>`r `</code> can be used within inline or display math to include code output in math equations.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mtcars_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> am, <span class="at">data =</span> mtcars)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>coef_int   <span class="ot">&lt;-</span> <span class="fu">coef</span>(mtcars_fit)[<span class="st">"(Intercept)"</span>]</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>coef_am    <span class="ot">&lt;-</span> <span class="fu">coef</span>(mtcars_fit)[<span class="st">"am"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Inline math: <code>$\mathrm{\widehat{mpg}} = `r coef_int` + `r coef_am`(\mathrm{am})$</code></p>
-<p>Inline math: <span class="math inline">\mathrm{\widehat{mpg}} = 17.1473684 + 7.2449393(\mathrm{am})</span></p>
-<p>The same approach also works for display math.</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Writing model equations
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The <strong>equatiomatic</strong> package can be used to write equations from a fitted model. Learn more on the <a href="https://datalorax.github.io/equatiomatic/">package website</a>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(equatiomatic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>By default the model equation uses math symbols.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">extract_eq</span>(mtcars_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>#&gt; $$
-#&gt; \operatorname{mpg} = \alpha + \beta_{1}(\operatorname{am}) + \epsilon
-#&gt; $$</code></pre>
-</div>
-</div>
-<p>But model estimates can be used too.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">extract_eq</span>(mtcars_fit, <span class="at">use_coefs =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>#&gt; $$
-#&gt; \operatorname{\widehat{mpg}} = 17.15 + 7.24(\operatorname{am})
-#&gt; $$</code></pre>
-</div>
-</div>
-</div>
-</div>
+<p>Some example <code>.Rprofile</code>s can be found in <a href="https://stackoverflow.com/questions/1189759/expert-r-users-whats-in-your-rprofile">this thread on Stack Overflow</a>. Note that some of them contain code that could break the rule of thumb for reproducibility.</p>
 </section>
-<section id="using-math-equations-in-plots" class="level3">
-<h3 class="anchored" data-anchor-id="using-math-equations-in-plots">Using math equations in plots</h3>
-<p>Both base R and <strong>ggplot2</strong> plots feature support for writing beautiful math equations with <a href="https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/plotmath.html">plotmath expressions</a>. Equations can be used in plot labels, legends, and text.</p>
-<p>If you would rather write equations using LaTeX math expressions, the <strong>latex2exp</strong> package can be used to parse and convert LaTeX to plotmath expressions.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Learn more on the <a href="https://www.stefanom.io/latex2exp/">package website</a>.</p>
-<p>ggplot2 also includes some convenience functions for using plotmath in plot labels:</p>
+
+
+<div id="quarto-appendix" class="default"><section id="related-reading" class="level2 appendix unnumbered unlisted"><h2 class="quarto-appendix-heading">Related Reading</h2><div class="quarto-appendix-contents">
+
 <ul>
-<li><code>label_parsed()</code> interprets labels as plotmath expressions</li>
-<li><code>label_bquote()</code> offers a flexible way of labelling facet rows or columns with plotmath expressions</li>
+<li><a href="https://docs.posit.co/ide/user/ide/guide/productivity/text-editor.html">RStudio User Manual</a> by Posit</li>
+<li><a href="https://support.posit.co/hc/en-us/categories/200035113-How-To-Articles">RStudio How To Articles</a> by Posit Support</li>
 </ul>
 
 
-</section>
-</section>
-
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p><a href="https://www.mathjax.org">MathJax</a> is an open-source JavaScript rendering engine for LaTeX math expressions. It is the default rendering method in Quarto HTML documents.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>There is also an <a href="syntax https://github.com/wilkelab/ggtext/issues/4">open issue</a> to support LaTeX math expressions using markdown in the <strong>ggtext</strong> package.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -714,14 +771,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../series/reproducible-data-science/posts/r-getting-help.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Getting Help with R</span>
+      <a href="../../../series/reproducible-data-science/posts/technical-writing.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Technical Writing</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../series/reproducible-data-science/posts/productivity-tips.html" class="pagination-link">
-        <span class="nav-page-text">Productivity Tips</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
