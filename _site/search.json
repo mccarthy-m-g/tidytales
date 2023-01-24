@@ -929,5 +929,12 @@
     "title": "Tales from the Borderlands",
     "section": "Fair Dealing",
     "text": "Fair Dealing\n\nAny of the trademarks, service marks, collective marks, design rights or similar rights that are mentioned, used, or cited in this article are the property of their respective owners. They are used here as fair dealing for the purpose of education in accordance with section 29 of the Copyright Act and do not infringe copyright."
+  },
+  {
+    "objectID": "series/reproducible-data-science/posts/version-control-setup.html#related-reading",
+    "href": "series/reproducible-data-science/posts/version-control-setup.html#related-reading",
+    "title": "Version Control Setup",
+    "section": "Related Reading",
+    "text": "Related Reading\n\n\nGit documentation\n\nPro Git by Scott Chacon and Ben Straub\nGit command list\n\nGit and GitHub learning resources\n\nGitHub Skills: Learn how to use GitHub with interactive courses designed for beginners and experts"
   }
 ]

@@ -48,3 +48,11 @@ See the following:
 
 - [Happy Git and GitHub for the useR](https://happygitwithr.com) by Jenny Bryan
 - [usethis: Managing Git(Hub) Credentials](https://usethis.r-lib.org/articles/git-credentials.html)
+
+## Related Reading {.appendix .unnumbered .unlisted}
+
+- [Git documentation](https://git-scm.com/doc)
+    - [Pro Git](https://git-scm.com/book) by Scott Chacon and Ben Straub 
+    - [Git command list](https://git-scm.com/docs)
+- [Git and GitHub learning resources](https://docs.github.com/en/get-started/quickstart/git-and-github-learning-resources)
+    - [GitHub Skills: Learn how to use GitHub with interactive courses designed for beginners and experts](https://skills.github.com)
