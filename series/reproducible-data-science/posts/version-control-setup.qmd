@@ -20,7 +20,7 @@ brew install git
 
 ## GitHub
 
-[GitHub](https://github.com) is an internet hosting service for projects using Git that makes collaboration easy. It provides the distributed version control of Git, plus issue tracking, project management tools, continuous integration, and more for every project
+[GitHub](https://github.com) is an internet hosting service for projects using Git that makes collaboration easy. It provides the distributed version control of Git, plus issue tracking, project management tools, continuous integration, and more for every project.
 
 ### Installing GitHub Desktop
 

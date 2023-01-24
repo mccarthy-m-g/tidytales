@@ -106,7 +106,7 @@ I currently use WebDAV syncing through [4shared's](http://www.4shared.com/featur
 
 ### Turn off automatic tagging
 
-Go to **General > Miscellaneous** and turn off "Automatically tag items with keywords and subject headings". I personally found this feature more annoying than helpful, since different sources would use the same or multiple tags for the same thing, resulting in messy metadata. Instead I manually add tags to items in my library using the following scheme:
+Go to **General > Miscellaneous** and turn off "Automatically tag items with keywords and subject headings". I personally found this feature more annoying than helpful, since different sources would use different tags for the same thing, resulting in messy metadata. Instead I manually add tags to items in my library using the following scheme:
 
 - Subject: name (focus area or field)
 - Topic: name (topic keywords)
