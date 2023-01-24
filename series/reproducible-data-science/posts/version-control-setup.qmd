@@ -12,7 +12,7 @@ order: 2
 
 ### Installing git
 
-Install git from the Terminal with Homebrew:
+Install Git from the Terminal with Homebrew:
 
 ```bash
 brew install git

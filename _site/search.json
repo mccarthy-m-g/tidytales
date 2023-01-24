@@ -207,7 +207,7 @@
     "href": "series/reproducible-data-science/posts/version-control-setup.html",
     "title": "Version Control Setup",
     "section": "",
-    "text": "Git is an open source distributed version control system for tracking and managing changes to files.\n\n\nInstall git from the Terminal with Homebrew:\nbrew install git"
+    "text": "Git is an open source distributed version control system for tracking and managing changes to files.\n\n\nInstall Git from the Terminal with Homebrew:\nbrew install git"
   },
   {
     "objectID": "series/reproducible-data-science/posts/version-control-setup.html#github",
@@ -333,7 +333,7 @@
     "href": "series/reproducible-data-science/index.html",
     "title": "Reproducible Data Science",
     "section": "",
-    "text": "Learn what this series is about and how to use it.\n\n\n\nJan 23, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling and configuring the basics.\n\n\n\nJan 20, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling and configuring Git and GitHub.\n\n\n\nJan 23, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling and configuring R.\n\n\n\nJan 23, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling and configuring Python.\n\n\n\nJan 23, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling and configuring Zotero.\n\n\n\nJan 24, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLearn how to program and do data science with R.\n\n\n\nJan 23, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling, managing, and finding R Packages.\n\n\n\nJan 20, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWriting reproducible examples and debugging errors with R.\n\n\n\nJan 23, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTechnical writing and literate programming in Quarto documents.\n\n\n\nJan 20, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBecome more productive working with R and RStudio.\n\n\n\nJan 23, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Learn what this series is about and how to use it.\n\n\n\nJan 23, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling and configuring the basics.\n\n\n\nJan 20, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling and configuring Git and GitHub.\n\n\n\nJan 24, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling and configuring R.\n\n\n\nJan 23, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling and configuring Python.\n\n\n\nJan 23, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling and configuring Zotero.\n\n\n\nJan 24, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLearn how to program and do data science with R.\n\n\n\nJan 23, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling, managing, and finding R Packages.\n\n\n\nJan 20, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWriting reproducible examples and debugging errors with R.\n\n\n\nJan 23, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTechnical writing and literate programming in Quarto documents.\n\n\n\nJan 20, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBecome more productive working with R and RStudio.\n\n\n\nJan 23, 2023\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "series/reproducible-data-science/index.html#artwork",
