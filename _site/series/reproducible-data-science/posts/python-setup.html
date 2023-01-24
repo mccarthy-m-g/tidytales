@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Michael McCarthy">
-<meta name="dcterms.date" content="2023-01-20">
+<meta name="dcterms.date" content="2023-01-23">
 <meta name="description" content="Installing and configuring Python.">
 
 <title>Tidy Tales - Python Setup</title>
@@ -241,7 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 20, 2023</p>
+        <p class="date">January 23, 2023</p>
       </div>
     </div>
     
@@ -335,6 +335,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#installing-pyenv" id="toc-installing-pyenv" class="nav-link" data-scroll-target="#installing-pyenv">Installing pyenv</a></li>
   <li><a href="#installing-python" id="toc-installing-python" class="nav-link" data-scroll-target="#installing-python">Installing Python</a></li>
   <li><a href="#installing-pipenv-or-poetry" id="toc-installing-pipenv-or-poetry" class="nav-link" data-scroll-target="#installing-pipenv-or-poetry">Installing pipenv or poetry</a></li>
+  <li><a href="#installing-pipx" id="toc-installing-pipx" class="nav-link" data-scroll-target="#installing-pipx">Installing pipx</a></li>
   </ul></li>
   <li><a href="#calling-python-from-r" id="toc-calling-python-from-r" class="nav-link" data-scroll-target="#calling-python-from-r">Calling Python from R</a></li>
   </ul>
@@ -377,16 +378,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Install poetry from the Terminal with:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-sSL</span> https://install.python-poetry.org <span class="kw">|</span> <span class="ex">python3</span> <span class="at">-</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="installing-pipx" class="level3">
+<h3 class="anchored" data-anchor-id="installing-pipx">Installing pipx</h3>
+<p><a href="https://pypa.github.io/pipx/">pipx</a> is open-source package manager for installing and running command line applications written in Python in separate environments from your Python libraries. It’s like Homebrew, but for Python applications.</p>
+<p>Install pipx from the Terminal with:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install pipx</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pipx</span> ensurepath</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 </section>
 <section id="calling-python-from-r" class="level2">
 <h2 class="anchored" data-anchor-id="calling-python-from-r">Calling Python from R</h2>
-<p>Use the <a href="https://rstudio.github.io/reticulate/"><strong>reticulate</strong></a> R package to interface R and Python in the same project.</p>
-
-
+<p>Use the <a href="https://rstudio.github.io/reticulate/"><strong>reticulate</strong></a> R package to interface R and Python in the same project. reticulate has support for projects using <a href="https://github.com/rstudio/reticulate/issues/1006#issuecomment-848322476">pipenv</a> or <a href="https://github.com/rstudio/reticulate/issues/1031#issuecomment-974884189">poetry</a>.</p>
 </section>
 
 
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<div id="quarto-appendix" class="default"><section id="related-reading" class="level2 appendix unnumbered unlisted"><h2 class="quarto-appendix-heading">Related Reading</h2><div class="quarto-appendix-contents">
+
+<ul>
+<li><a href="https://www.rootstrap.com/blog/how-to-manage-your-python-projects-with-pipenv-pyenv">How to Manage your Python Projects with Pipenv and Pyenv</a> by Bruno Michetti</li>
+<li><a href="https://grski.pl/pyenv-en.html">Pyenv, poetry and other rascals—modern Python dependency and version management</a> by Olaf Górski</li>
+</ul>
+
+
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
 <li id="fn1"><p>Shared library support is needed to use Python versions with <a href="https://rstudio.github.io/reticulate/articles/versions.html#locating-python">reticulate</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>

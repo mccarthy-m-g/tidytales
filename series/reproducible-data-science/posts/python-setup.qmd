@@ -56,6 +56,22 @@ Install poetry from the Terminal with:
 curl -sSL https://install.python-poetry.org | python3 -
 ```
 
+### Installing pipx
+
+[pipx](https://pypa.github.io/pipx/) is open-source package manager for installing and running command line applications written in Python in separate environments from your Python libraries. It's like Homebrew, but for Python applications.
+
+Install pipx from the Terminal with:
+
+```bash
+brew install pipx
+pipx ensurepath
+```
+
 ## Calling Python from R
 
-Use the [**reticulate**](https://rstudio.github.io/reticulate/) R package to interface R and Python in the same project.
+Use the [**reticulate**](https://rstudio.github.io/reticulate/) R package to interface R and Python in the same project. reticulate has support for projects using [pipenv](https://github.com/rstudio/reticulate/issues/1006#issuecomment-848322476) or [poetry](https://github.com/rstudio/reticulate/issues/1031#issuecomment-974884189).
+
+## Related Reading {.appendix .unnumbered .unlisted}
+
+- [How to Manage your Python Projects with Pipenv and Pyenv](https://www.rootstrap.com/blog/how-to-manage-your-python-projects-with-pipenv-pyenv) by Bruno Michetti
+- [Pyenv, poetry and other rascals---modern Python dependency and version management](https://grski.pl/pyenv-en.html) by Olaf Górski

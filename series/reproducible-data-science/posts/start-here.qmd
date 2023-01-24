@@ -28,6 +28,7 @@ Since this series is based on my personal experience and approach, some of the s
 
 For complementary and alternative approaches to doing reproducible data science, see:
 
+- [Handbook to reproducible, ethical and collaborative data science](https://the-turing-way.netlify.app/welcome.html) by The Turing Way
 - [Posit Solutions](https://solutions.posit.co)
 
 If you need to do data science at scale, Posit's commercial [enterprise solutions](https://posit.co/products/enterprise/) are probably the best option.

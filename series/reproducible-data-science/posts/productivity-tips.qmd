@@ -144,7 +144,12 @@ The behaviour of these files is described in more detail in the [R Startup](http
 As Jenny Bryan and Jim Hester write in [What They Forgot to Teach You About R](https://rstats.wtf/r-startup.html#reproducibility): "A good rule of thumb is you should only put things in your `.Rprofile` that you run interactively in the R terminal. If it ever appears in a R script or R Markdown file it should *not* be in your `.Rprofile`."
 :::
 
-Some example `.Rprofile`s can be found in [this thread on Stack Overflow](https://stackoverflow.com/questions/1189759/expert-r-users-whats-in-your-rprofile). Note that some of them contain code that could break the rule of thumb for reproducibility.
+For inspiration, here are `.Rprofile`s written by others in the R community:
+
+- [Stack Overflow thread](https://stackoverflow.com/questions/1189759/expert-r-users-whats-in-your-rprofile)
+- [RProfile Essentials](https://kevinushey.github.io/blog/2015/02/02/rprofile-essentials/) by Kevin Ushey
+
+Note that some of them contain code that could break the rule of thumb for reproducibility.
 
 ## Related Reading {.appendix .unnumbered .unlisted}
 

@@ -55,6 +55,12 @@ Install Quarto from the Terminal with Homebrew:
 brew install --cask quarto
 ```
 
+::: {.callout-note collapse=true}
+## Quarto version manager
+
+If you need to manage and switch between versions of Quarto you can also install [qvm](https://github.com/dpastoor/qvm), the Quarto version manager.
+:::
+
 ## Related Reading {.appendix .unnumbered .unlisted}
 
 - [Setting up macOS as an R data science rig in 2023](https://ivelasq.rbind.io/blog/macos-rig/index.html) by Isabella Velásquez and Gustavo E. Velásquez
