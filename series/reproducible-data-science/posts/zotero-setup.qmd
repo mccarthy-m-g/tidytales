@@ -91,8 +91,8 @@ Use Zotero's [sync functionality](https://www.zotero.org/support/sync) to sync y
 
 **File syncing** syncs attached files of library items. Files can be synced using either:
 
-- [Zotero Storage](https://www.zotero.org/support/sync#zotero_storage)
 - [WebDAV](https://www.zotero.org/support/sync#webdav)
+- [Zotero Storage](https://www.zotero.org/support/sync#zotero_storage)
 
 **WebDAV** is a standard protocol for transferring files over the web and can be used to sync files in your *personal library*. There are a number of [WebDAV storage providers known to work with Zotero](https://www.zotero.org/support/kb/webdav_services).
 
