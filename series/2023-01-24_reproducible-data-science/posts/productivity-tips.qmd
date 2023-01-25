@@ -1,0 +1,157 @@
+---
+title: Productivity Tips
+description: Become more productive working with R and RStudio.
+image: images/productivity-tips.png
+
+order: 101
+---
+
+## Overview
+
+RStudio includes a variety of features to make you more productive working with R and RStudio. These features are covered in detail in the [RStudio User Manual](https://docs.posit.co/ide/user/ide/guide/productivity/text-editor.html). Here I highlight some of the features I think are particularly helpful for working productively.
+
+## Customize RStudio
+
+RStudio provides a number of [preferences you can customize](https://support.posit.co/hc/en-us/articles/200549016-Customizing-RStudio) to change the look and feel of the IDE, provide certain defaults, and so forth. Go through them and find what works for you.
+
+My own preferences look something like:
+
+```{.json filename="~/.config/rstudio/rstudio-prefs.json"}
+{
+    "show_margin": false,
+    "save_files_before_build": true,
+    "wrap_tab_navigation": false,
+    "save_workspace": "never",
+    "reuse_sessions_for_project_links": true,
+    "jobs_tab_visibility": "shown",
+    "rainbow_parentheses": true,
+    "restore_source_documents": false,
+    "restore_last_project": false,
+    "load_workspace": false,
+    "scroll_past_end_of_document": true,
+    "syntax_color_console": true,
+    "panes": {
+        "quadrants": [
+            "Source",
+            "TabSet1",
+            "Console",
+            "TabSet2"
+        ],
+        "tabSet1": [
+            "History",
+            "Connections",
+            "Packages",
+            "Presentation"
+        ],
+        "tabSet2": [
+            "Files",
+            "Environment",
+            "Plots",
+            "Viewer",
+            "Build",
+            "VCS",
+            "Help"
+        ],
+        "hiddenTabSet": [
+            "Tutorial"
+        ],
+        "console_left_on_top": false,
+        "console_right_on_top": true,
+        "additional_source_columns": 0
+    },
+    "show_indent_guides": true,
+    "highlight_r_function_calls": true,
+    "auto_append_newline": true,
+    "strip_trailing_whitespace": true,
+    "code_completion_characters": 2,
+    "graphics_backend": "ragg",
+    "rmd_viewer_type": "pane",
+    "show_help_tooltip_on_idle": true,
+    "source_with_echo": true,
+    "rmd_chunk_output_inline": false
+}
+```
+
+## Use the command palette
+
+RStudio comes equipped with a [command palette](https://docs.posit.co/ide/user/ide/guide/ui/command-palette.html) that gives instant, searchable access to all of RStudio’s commands. Bring it up with **Command-Shift-P**.
+
+## Use keyboard shortcuts
+
+RStudio comes equipped with [over 100 keyboard shortcuts](https://docs.posit.co/ide/user/ide/reference/shortcuts.html) to speed up your workflow, each of which you can modify to suit your preferences. You can even write your own [custom keyboard shortcuts](https://docs.posit.co/ide/user/ide/guide/productivity/custom-shortcuts.html) to execute RStudio application commands, editor commands, or user-defined R functions.
+
+### Common shortcuts
+
+| Description                                         | Command               |
+|-----------------------------------------------------|-----------------------|
+| Copy                                                | Ctrl+C                |
+| Paste                                               | Ctrl+V                |
+| Cut                                                 | Ctrl+X                |
+| Save                                                | Ctrl+S                |
+| Undo                                                | Ctrl+Z                |
+| Redo                                                | Ctrl+Shift+Z          |
+
+### Navigation shortcuts
+
+| Description                                         | Command               |
+|-----------------------------------------------------|-----------------------|
+| Move cursor to Source Editor                        | Ctrl+1                |
+| Navigate Source Editor tabs (left)                  | Ctrl+Option+Left      |
+| Navigate Source Editor tabs (right)                 | Ctrl+Option+Right     |
+| Move cursor to Console                              | Ctrl+2                |
+| Navigate Console and Terminal command history       | Up/Down               |
+| Move cursor to beginning of line                    | Command+Left          |
+| Move cursor to end of line                          | Command+Right         |
+
+### Editing shortcuts
+
+| Description                                         | Command               |
+|-----------------------------------------------------|-----------------------|
+| Indent (at beginning of line)                       | Tab                   |
+| Insert pipe operator                                | Shift+Command+M       |
+| Insert code block                                   | Command+Option+I      |
+| Insert additional cursor on line above              | Ctrl+Option+Up        |
+| Insert additional cursor on line below              | Ctrl+Option+Down      |
+| Insert additional cursor at click position          | Command+Option+Click  |
+
+### Mac shortcuts
+
+| Description                                         | Command               |
+|-----------------------------------------------------|-----------------------|
+| Switch between open apps                            | Command+Tab           |
+| Navigate app switcher (while holding Command)       | Left/Right            |
+
+## Write your own code snippets
+
+RStudio supports text macros, called [code snippets](https://docs.posit.co/ide/user/ide/guide/productivity/snippets.html), useful for quickly inserting common snippets of code or text. If you find yourself writing the same boilerplate over and over again, it might be time to turn it into a code snippet.
+
+For inspiration, here are code snippets written by others in the R community:
+
+- [Markdown snippets](https://gist.github.com/jthomasmock/11acebd4448f171f786e01397df34116) by Tom Mock
+
+## Manage R with .Rprofile and .Renviron
+
+The `.Rprofile` and `.Renviron` dotfiles can be used to modify the startup behaviour of an R session on a global or per-project basis:
+
+- `.Rprofile` contains R code to be run when R starts up
+- `.Renviron` contains environment variables to be set when R starts up
+
+The behaviour of these files is described in more detail in the [R Startup](https://rstats.wtf/r-startup.html) chapter in What They Forgot to Teach You About R by Jenny Bryan and Jim Hester.
+
+::: {.callout-warning}
+## Reproducibility
+
+As Jenny Bryan and Jim Hester write in [What They Forgot to Teach You About R](https://rstats.wtf/r-startup.html#reproducibility): "A good rule of thumb is you should only put things in your `.Rprofile` that you run interactively in the R terminal. If it ever appears in a R script or R Markdown file it should *not* be in your `.Rprofile`."
+:::
+
+For inspiration, here are `.Rprofile`s written by others in the R community:
+
+- [Stack Overflow thread](https://stackoverflow.com/questions/1189759/expert-r-users-whats-in-your-rprofile)
+- [RProfile Essentials](https://kevinushey.github.io/blog/2015/02/02/rprofile-essentials/) by Kevin Ushey
+
+Note that some of them contain code that could break the rule of thumb for reproducibility.
+
+## Related Reading {.appendix .unnumbered .unlisted}
+
+- [RStudio User Manual](https://docs.posit.co/ide/user/ide/guide/productivity/text-editor.html) by Posit
+- [RStudio How To Articles](https://support.posit.co/hc/en-us/categories/200035113-How-To-Articles) by Posit Support

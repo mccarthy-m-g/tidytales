@@ -15,6 +15,8 @@ website:
     right:
       - text: Posts
         href: /#posts
+      - text: Series
+        href: /#series
       - text: Snippets
         href: /#code-snippets
       - text: About
@@ -28,6 +30,14 @@ website:
       - icon: rss-fill
         href: index.xml
 
+  sidebar:
+    - id: reproducible-data-science
+      collapse-level: 1
+      contents:
+        - "series/2023-01-24_reproducible-data-science/index.qmd"
+        - section: In this series
+          contents: "series/2023-01-24_reproducible-data-science/posts/*.qmd"
+
   search:
     location: navbar
     type: textbox
@@ -35,7 +45,7 @@ website:
 
   page-footer:
     border: false
-    center: "\u00A9 Copyright 2022 [Michael McCarthy](https://michaelmccarthy.tidytales.ca)"
+    center: "\u00A9 Copyright 2023 [Michael McCarthy](https://michaelmccarthy.tidytales.ca)"
 
   page-navigation: true
 
@@ -71,6 +81,8 @@ format:
     - assets/theme.scss
     css:
     - assets/styles.css
+
+    sidebar: false
 
     code-tools:
       source: true

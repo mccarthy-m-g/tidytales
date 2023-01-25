@@ -1,0 +1,34 @@
+---
+title: Start Here
+description: Learn what this series is about and how to use it.
+image: images/start-here.png
+
+order: 0
+---
+
+## What's in this series?
+
+This series is about learning and doing reproducible data science. It's a mix between light tutorial content, discussion, and references to more comprehensive learning material that tries to:
+
+- Provide a jumping off place for beginners
+- Serve as a quick reference for more experienced users
+- Unearth some of the "hidden curriculum" you might not have been taught while learning R (whether or not you were taught in the classroom or are self-taught)
+
+## Who is this series for?
+
+I've tried to write this series so anyone can use it to learn or improve their approach to doing reproducible data science. That said, I've written the series in an order that makes sense logistically, but not necessarily pedagogically:
+
+- If you are completely new to programming, data science, or R, I recommend starting from the [Learning R](learning-r.qmd) post and working through the [Where do I start?](learning-r.qmd#where-do-i-start) section first
+- If you are setting up a new computer, I recommend reading the posts with *setup* in the title in order
+- For anyone else, the posts are mostly self-contained and can be read in any order 
+
+Since this series is based on my personal experience and approach, some of the setup sections may not be relevant to all readers. In particular, I use macOS, and any examples using the shell prompt will be specific to macOS. Most of the software I use is cross-platform though, so you can refer to the software's documentation for Linux or Windows instructions.
+
+## Where else can I learn?
+
+For complementary and alternative approaches to doing reproducible data science, see:
+
+- [Handbook to reproducible, ethical and collaborative data science](https://the-turing-way.netlify.app/welcome.html) by The Turing Way
+- [Posit Solutions](https://solutions.posit.co)
+
+If you need to do data science at scale, Posit's commercial [enterprise solutions](https://posit.co/products/enterprise/) are probably the best option.

@@ -10,7 +10,288 @@
 <atom:link href="https://tidytales.ca/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.2.313</generator>
-<lastBuildDate>Thu, 19 Jan 2023 08:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 24 Jan 2023 08:00:00 GMT</lastBuildDate>
+<item>
+  <title>Reproducible Data Science</title>
+  <dc:creator>Michael McCarthy</dc:creator>
+  <link>https://tidytales.ca/series/2023-01-24_reproducible-data-science/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1674520157000" data-listing-file-modified-sort="1674520157656" data-listing-reading-time-sort="1.43">
+<a href="../../series/2023-01-24_reproducible-data-science/posts/start-here.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="https://tidytales.ca/series/2023-01-24_reproducible-data-science/posts/images/start-here.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Start Here
+</h5>
+<div class="card-text listing-description">
+Learn what this series is about and how to use it.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 23, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-date-sort="1674245130000" data-listing-file-modified-sort="1674245130269" data-listing-reading-time-sort="3.685">
+<a href="../../series/2023-01-24_reproducible-data-science/posts/system-setup.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="https://tidytales.ca/series/2023-01-24_reproducible-data-science/posts/images/system-setup.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+System Setup
+</h5>
+<div class="card-text listing-description">
+Installing and configuring the basics.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 20, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-listing-date-sort="1674599527000" data-listing-file-modified-sort="1674599527488" data-listing-reading-time-sort="0.96">
+<a href="../../series/2023-01-24_reproducible-data-science/posts/version-control-setup.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="https://tidytales.ca/series/2023-01-24_reproducible-data-science/posts/images/version-control-setup.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Version Control Setup
+</h5>
+<div class="card-text listing-description">
+Installing and configuring Git and GitHub.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 24, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-listing-date-sort="1674523308000" data-listing-file-modified-sort="1674523308061" data-listing-reading-time-sort="1.37">
+<a href="../../series/2023-01-24_reproducible-data-science/posts/r-setup.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="https://tidytales.ca/series/2023-01-24_reproducible-data-science/posts/images/r-setup.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+R Setup
+</h5>
+<div class="card-text listing-description">
+Installing and configuring R.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 23, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="4" data-listing-date-sort="1674521456000" data-listing-file-modified-sort="1674521456777" data-listing-reading-time-sort="1.425">
+<a href="../../series/2023-01-24_reproducible-data-science/posts/python-setup.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="https://tidytales.ca/series/2023-01-24_reproducible-data-science/posts/images/python-setup.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Python Setup
+</h5>
+<div class="card-text listing-description">
+Installing and configuring Python.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 23, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="5" data-listing-date-sort="1674597923000" data-listing-file-modified-sort="1674597923827" data-listing-reading-time-sort="4.575">
+<a href="../../series/2023-01-24_reproducible-data-science/posts/zotero-setup.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="https://tidytales.ca/series/2023-01-24_reproducible-data-science/posts/images/zotero-setup.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Reference Manager Setup
+</h5>
+<div class="card-text listing-description">
+Installing and configuring Zotero.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 24, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="6" data-listing-date-sort="1674507520000" data-listing-file-modified-sort="1674507520958" data-listing-reading-time-sort="14.755">
+<a href="../../series/2023-01-24_reproducible-data-science/posts/learning-r.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="https://tidytales.ca/series/2023-01-24_reproducible-data-science/posts/images/learning-r.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Learning R
+</h5>
+<div class="card-text listing-description">
+Learn how to program and do data science with R.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 23, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="7" data-listing-date-sort="1674259631000" data-listing-file-modified-sort="1674259631535" data-listing-reading-time-sort="11.645">
+<a href="../../series/2023-01-24_reproducible-data-science/posts/r-packages.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="https://tidytales.ca/series/2023-01-24_reproducible-data-science/posts/images/r-packages.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+R Packages
+</h5>
+<div class="card-text listing-description">
+Installing, managing, and finding R Packages.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 20, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="8" data-listing-date-sort="1674508791000" data-listing-file-modified-sort="1674508791143" data-listing-reading-time-sort="2.745">
+<a href="../../series/2023-01-24_reproducible-data-science/posts/r-getting-help.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="https://tidytales.ca/series/2023-01-24_reproducible-data-science/posts/images/r-getting-help.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Getting Help with R
+</h5>
+<div class="card-text listing-description">
+Writing reproducible examples and debugging errors with R.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 23, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="9" data-listing-date-sort="1674257095000" data-listing-file-modified-sort="1674257095411" data-listing-reading-time-sort="6.245">
+<a href="../../series/2023-01-24_reproducible-data-science/posts/technical-writing.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="https://tidytales.ca/series/2023-01-24_reproducible-data-science/posts/images/technical-writing.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Technical Writing
+</h5>
+<div class="card-text listing-description">
+Technical writing and literate programming in Quarto documents.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 20, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="10" data-listing-date-sort="1674521739000" data-listing-file-modified-sort="1674521739051" data-listing-reading-time-sort="9.905">
+<a href="../../series/2023-01-24_reproducible-data-science/posts/productivity-tips.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="https://tidytales.ca/series/2023-01-24_reproducible-data-science/posts/images/productivity-tips.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Productivity Tips
+</h5>
+<div class="card-text listing-description">
+Become more productive working with R and RStudio.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 23, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div><div id="quarto-appendix" class="default"><section id="artwork" class="level2 appendix unnumbered unlisted"><h2 class="quarto-appendix-heading">Artwork</h2><div class="quarto-appendix-contents">
+
+<p>Artwork by <a href="https://allisonhorst.com/allison-horst">Allison Horst</a>.</p>
+
+
+
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{mccarthy2023,
+  author = {Michael McCarthy},
+  title = {Reproducible {Data} {Science}},
+  date = {2023-01-24},
+  url = {https://tidytales.ca/series/2023-01-24_reproducible-data-science},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mccarthy2023" class="csl-entry quarto-appendix-citeas">
+Michael McCarthy. (2023, January 24). <em>Reproducible Data
+Science</em>. <a href="https://tidytales.ca/series/2023-01-24_reproducible-data-science">https://tidytales.ca/series/2023-01-24_reproducible-data-science</a>
+</div></div></section></div> ]]></description>
+  <category>.Misc</category>
+  <guid>https://tidytales.ca/series/2023-01-24_reproducible-data-science/index.html</guid>
+  <pubDate>Tue, 24 Jan 2023 08:00:00 GMT</pubDate>
+  <media:content url="https://tidytales.ca/series/2023-01-24_reproducible-data-science/posts/images/start-here.png" medium="image" type="image/png" height="79" width="144"/>
+</item>
 <item>
   <title>Histogram raincloud plots</title>
   <dc:creator>Michael McCarthy</dc:creator>

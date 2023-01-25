@@ -4,11 +4,19 @@ subtitle: "A data science blog by Michael McCarthy"
 
 listing:
   - id: posts
-    contents: "posts"
+    contents: "/posts"
     fields: [date, title, description, categories, image]
     sort: "date desc"
     type: default
     categories: numbered
+    sort-ui: true
+    filter-ui: false
+    feed: true
+  - id: series
+    contents: "series/*/index.qmd"
+    fields: [date, title, description, categories, image]
+    sort: "date desc"
+    type: default
     sort-ui: true
     filter-ui: false
     feed: true
@@ -32,6 +40,11 @@ code-tools: false
 ## Posts
 
 :::{#posts}
+:::
+
+## Series
+
+:::{#series}
 :::
 
 ## Code Snippets

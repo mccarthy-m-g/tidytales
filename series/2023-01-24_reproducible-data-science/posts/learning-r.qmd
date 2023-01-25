@@ -1,0 +1,221 @@
+---
+title: Learning R
+description: Learn how to program and do data science with R.
+image: images/learning-r.png
+
+order: 6
+---
+
+## What's data science?
+
+> Data science is an exciting discipline that allows you to transform raw data into understanding, insight, and knowledge.  
+
+--- Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund in [R for Data Science](https://r4ds.hadley.nz)
+
+A **data scientist** is someone who creates understanding, insight, and knowledge from raw data with **programming**. Programming is an essential tool in nearly every part of a data science project because it allows you to do data science efficiently and reproducibly.
+
+There are many different programming languages you can use to do data science, but here we cover my favourite programming language: **R**.
+
+## What's R?
+
+[R](https://www.r-project.org) is an open source programming language for wrangling, visualizing, modelling, and communicating data, and so much more. It has a strong community behind it and is widely used among researchers, statisticians, and data scientists in a variety of fields.
+
+## Where do I start?
+
+I believe every R user should work through these two books (in order):
+
+1. [Hands-On Programming with R](https://rstudio-education.github.io/hopr/) by Garrett Grolemund
+2. [R for Data Science](https://r4ds.hadley.nz) by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund
+
+Together these two books teach you a core set of tools that you can use to accomplish the vast majority of tasks in any data science project:
+
+- **Hands-On Programming with R** is a short and friendly introduction to the fundamentals of R programming written for non-programmers who want to become data scientists.
+
+- **R for Data Science** is a friendly introduction to the tools useful for doing data science with R. 
+
+As a companion to these two books I also recommend reading the [tidyverse style guide](https://style.tidyverse.org), which provides a style guide for writing R code that is easy to read.
+
+::: {.callout-tip}
+## Helping yourself
+
+Part of the challenge of learning a programming language is building up a vocabulary of commands to accomplish different tasks. [Posit](https://posit.co) (formerly RStudio) maintains a number of [cheat sheets](https://posit.co/resources/cheatsheets/) to remind you how to do common tasks in your favourite R packages.
+:::
+
+Finally, I recommend learning to write reports and presentations in [**Quarto**](https://r4ds.hadley.nz/quarto.html), a tool for integrating prose, code, and results into reproducible documents. This is covered in the [Communicate](https://r4ds.hadley.nz/communicate.html) sections of *R for Data Science*, but I'd like to emphasize it here because it's a useful, beginner-friendly skill that goes a long way.
+
+Quarto is a successor to [R Markdown](https://r4ds.had.co.nz/r-markdown.html) that has ironed-out some of the friction points to make writing reproducible documents an even better experience than it already was. Because Quarto is relatively new, you might find R Markdown currently supports certain use cases better (like [APA style manuscripts](https://github.com/crsh/papaja)). In cases like these it's perfectly fine to use R Markdown; [it isn't going away](https://yihui.org/en/2022/04/quarto-r-markdown/) and is still actively maintained.
+
+If you do use R Markdown, the [Communicate](https://r4ds.had.co.nz/communicate-intro.html) sections of the [first edition of R for Data Science](https://r4ds.had.co.nz/index.html) provide a a short and friendly introduction, and the [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) and [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/) books provide more comprehensive coverage.
+
+## What else should I learn?
+
+*Hands-On Programming with R* and *R for Data Science* provide an excellent foundation in R programming for data science, but there are a number of topics these books don’t cover that are equally important for doing data science successfully:
+
+- Content knowledge
+- Interpersonal skills
+- Research skills
+- Statistical modelling
+
+Having **content knowledge** about the problem you are using data science to answer allows you to ask better questions, identify data problems, and develop solutions that are meaningful to your audience. Content knowledge is something you can build over time through experience, interactions with the people affected by the problem you are trying to answer, books and courses, and so forth. You don't always need to be an expert on the problem at hand, but learning more about it will help you avoid mistakes, build confidence in your solutions, and connect with your audience.
+
+This also underscores the importance of **interpersonal skills** for practicing data scientists. Data science problems are ultimately people problems: Much of our data is about people. All of our data is communicated to people. And the solutions we develop using data science will only make an impact if our audience chooses to adopt them. You have to speak for the data, because the data doesn't speak for itself. Developing strong leadership, teamwork, empathy, and communication skills will help you navigate the human side of data science. 
+
+Complimenting content knowledge and interpersonal skills are **research skills** and **statistical modelling**, which are embodied in the term *data science*. Research skills such as observation, measurement, experiment design, and survey design allow us to collect data that addresses a problem we care about; and statistical modelling helps us transform that raw data into understanding, insight, and knowledge through estimation and testing. Research and statistics, along with programming, are core skills in data science that can be challenging to learn. Partly because developing these skills takes time, practice, and humility. And partly because pedagogy on research and statistics---whether in books or courses---has [a lot of gaps](https://dpananos.github.io/posts/2022-12-06-journeyman/index.html) for people [who aren't "real" statisticians](https://statsepi.substack.com/p/im-not-a-real-statistician-and-you).[^1]
+
+[^1]: Myself included. It's hard for me to recommend how to learn research or statistics in the same way I've recommended how to learn R. *Hands-On Programming with R* and *R for Data Science* are excellent, beginner-friendly, books that will get you started using the tools of the trade in the way they were intended to be used. But a lot of the excellent statistics books I've read are not beginner-friendly (even if they claim to be) and assume you have prior training in statistics. On the other hand, beginner-friendly books can encourage [statistical rituals](https://library.mpib-berlin.mpg.de/ft/gg/GG_Mindless_2004.pdf) over statistical thinking, which you then have to unlearn in the future as your knowledge and skills develop.
+
+## How do I learn statistics?
+
+My answer to this question makes the following assumptions about you:
+
+- You are not a formally trained statistician
+- You have received some prior training in statistics
+- You have (re-)discovered your own ignorance of statistics
+- You want to address your ignorance of statistics
+- You want to use statistics to solve problems 
+
+If this describes you then I hope the resources that follow help you on your journey like they have for me. If this doesn't describe you, stick around anyway, you might find something new.
+
+Let's start with some book recommendations:
+
+- [Regression and Other Stories](https://avehtari.github.io/ROS-Examples/) by Andrew Gelman, Jennifer Hill, and Aki Vehtari ([Source](https://github.com/avehtari/ROS-Examples))
+- [Data Analysis Using Regression and Multilevel/Hierarchical Models](http://www.stat.columbia.edu/~gelman/arm/) by Andrew Gelman and Jennifer Hill[^2]
+- [Bayes Rules!](https://www.bayesrulesbook.com) by Alicia A. Johnson, Miles Q. Ott, and Mine Dogucu ([GitHub](https://github.com/bayes-rules))
+- [An introduction to statistical learning with applications in R](https://www.statlearning.com) by Gareth James, Daniela Witten, Trevor Hastie, and Rob Tibshirani
+- [Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking/) by Richard McElreath
+- [Improving Your Statistical Inferences](https://lakens.github.io/statistical_inferences/) by Daniël Lakens
+
+[^2]: Regression and Other Stories is an updated and expanded second edition of the regressions parts of *Data Analysis Using Regression and Multilevel/Hierarchical Models*. The authors are also working on an [updated and expanded second edition](http://www.stat.columbia.edu/~gelman/armm/) of the multilevel modelling parts of *Data Analysis Using Regression and Multilevel/Hierarchical Models*, but it isn't out yet.
+
+All of these books are well-written, engaging, and have examples in R.[^3] Together they cover applications of fundamental and state-of-the-art tools in statistical modelling. But most importantly---they encourage statistical thinking. They’re ideal books for self-study and I can’t recommend them enough.
+
+[^3]: Most of these books have also had their examples translated to use different R packages than the authors used. For example, [Andrew Heiss](https://www.andrewheiss.com) has translated [Bayes Rules!](https://bayesf22-notebook.classes.andrewheiss.com/bayes-rules/) and [Statistical Rethinking](https://bayesf22-notebook.classes.andrewheiss.com/rethinking/) into the `tidyverse`, `brms`, and `marginaleffects` packages; [Emil Hvitfeldt](https://www.emilhvitfeldt.com) has translated [An introduction to statistical learning](https://emilhvitfeldt.github.io/ISLR-tidymodels-labs/) into the `tidymodels` set of packages; and [A. Solomon Kurz](https://solomonkurz.netlify.app) has translated [Regression and Other Stories](https://github.com/ASKurz/Working-through-Regression-and-other-stories) into the `tidyverse` and `brms` packages.
+
+::: {.callout-tip}
+## All you need is the linear model
+
+Most people have the unfortunate experience of learning statistics through arcane rituals with numerous statistical tests that appear to have no fundamental framework to tie them together. This is a failure of pedagogy rather than a feature of statistics. Fortunately, there is a fundamental framework to tie all these statistical tests together: It's called the linear model.
+
+Most common statistical tests are either special cases or extensions of the linear model; understanding this will improve your statistical thinking and make it easier to abandon the arcanum and statistical rituals in favour of a unified statistical framework.
+
+For a short introduction to this concept I recommend reading [Common statistical tests are linear models (or: how to teach stats)](https://lindeloev.github.io/tests-as-linear/) by Jonas Kristoffer Lindeløv (note: there are a few small errors that haven't been fixed, so also see the [GitHub Issues](https://github.com/lindeloev/tests-as-linear/issues)).
+:::
+
+I’d like to also give honourable mentions to the following books, which have all the great qualities of the books above, but cover more specialized topics:
+
+- [Handbook of Graphs and Networks in People Analytics: With Examples in R and Python](https://ona-book.org) by Keith McNulty ([Source](https://github.com/keithmcnulty/ona_book))
+- [Doing Meta-Analysis in R: A Hands-on Guide](https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/) by Mathias Harrer, Pim Cuijpers, Toshi A. Furukawa, and David D. Ebert ([Source](https://github.com/MathiasHarrer/Doing-Meta-Analysis-in-R))
+- [Text Mining with R](https://www.tidytextmining.com) by Julia Silge and David Robinson ([Source](https://github.com/dgrtwo/tidy-text-mining))
+
+These are just a few choice examples. There are [a lot](https://www.bigbookofr.com) of statistics books written for R users, and you can almost always find a book covering whatever topic you're interested in.
+
+::: {.callout-tip}
+## Social media
+
+There are strong *#RStats* communities on most social media platforms, where you can discover new people and follow or participate in conversations about R and statistics. The #RStats community on Mastodon (formerly Twitter; RIP) has been an invaluable learning tool and helped me discover things about R and statistics I wouldn't have on my own. [Frank Harrell](https://hbiostat.org/) also created the [Data Methods Discussion Forum](https://discourse.datamethods.org/about) to provide a place for longer more in-depth discussions. Finally, [Stack Overflow](https://stackoverflow.com/questions/tagged/r?tab=Votes) and [Cross Validated](https://stats.stackexchange.com/questions) are great public Q&A platforms for R programming and statistics, respectively.
+:::
+
+A lot of people in the R community also have their own R programming, data science, and statistics blogs, vlogs, or websites. Some of my favourite authors include:
+
+- [Andrew Heiss](https://www.andrewheiss.com/blog/)
+- [A. Solomon Kurz](https://solomonkurz.netlify.app/blog/)
+- [Michael Clark](https://m-clark.github.io)
+- [Julia Silge](https://juliasilge.com/blog/)
+
+Starting your own blog or website is also a great way to learn, and gives you a place to share your work! [Quarto](https://quarto.org), the open-source scientific and technical publishing system, makes the process of [creating and publishing a website](https://quarto.org/docs/websites/) simple and friendly. It's what I use for Tidy Tales (and lots of other projects).
+
+Finally, a lot of people in the R community who have taught courses or workshops make their materials openly available (including myself and some of the people listed above). One source I want to highlight in particular is [psyTeachR](https://psyteachr.github.io) from the University of Glasgow School of Psychology and Neuroscience, which covers an entire curriculum of courses for doing reproducible data science. 
+
+## Where do I learn more about R programming?
+
+> You don’t need to be an expert programmer to be a successful data scientist, but learning more about programming pays off, because becoming a better programmer allows you to automate common tasks, and solve new problems with greater ease.
+
+--- Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund in [R for Data Science](https://r4ds.hadley.nz)
+
+If you want to become a better R programmer, I think these books are a good place to start:
+
+- [R Packages](https://r-pkgs.org) by Hadley Wickham and Jenny Bryan
+- [Advanced R](https://adv-r.hadley.nz) by Hadley Wickham
+- [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org) by Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen
+- [Mastering Shiny](https://mastering-shiny.org) by Hadley Wickham
+
+**R packages** is a friendly introduction teaching you how to develop and publish your own R packages.
+
+**Advanced R** is written for intermediate R users who want to improve their programming skills and understanding of the language, teaching you useful tools, techniques, and idioms that can help solve many types of problems.
+
+**ggplot2: Elegant Graphics for Data Analysis** is written for R users who want to understand the details of the theory underlying the **ggplot2** R package, teaching you the elements of ggplot2’s grammar and how they fit together, and giving you the power to tailor any plot specifically to your needs.
+
+**Mastering Shiny** is a comprehensive introduction teaching you how to easily create rich, interactive web apps with the **shiny** R package.
+
+::: {.callout-note collapse=true}
+## The R Manuals
+
+[**The R Manuals**](https://cran.r-project.org/manuals.html) are manuals for the R language written by the R Development Core team. I mention them here because it's good to know about them, but the book recommendations I've already made largely cover the contents of these manuals in a friendlier way. Posit also maintain [nicely formatted HTML versions](https://rstudio.github.io/r-manuals/) of the manuals.
+:::
+
+## How do I make my work reproducible?
+
+This series is called *Reproducible Data Science*, so I should probably talk more about that. If you've learned even a portion of what's covered above then you already have a lot of the skills needed to do reproducible data science; but you are likely missing out on some essential tools and a stable framework for making **reproducible data products**.
+
+A data product is the combination of data with code that wrangles, visualizes, models, or communicates data, whose outputs will be shared with some end-user. Some common examples of data products are quarterly earnings presentations, scientific papers, and interactive dashboards. For these examples the end-user might be your coworkers, other scientists, or members of the public, respectively. You will even be the end-user of your data products sometimes. Because data products will be used by others (or yourself), it's good practice to do **quality assurance** so your end-users (that includes you!) can be confident in the quality of your data product. Making your data products reproducible is one *small but important* step you can take to ensure they meet the expectations of your end-user.[^4]
+
+[^4]: This should go without saying, but the old "garbage-in garbage-out" adage still applies to reproducible data products. If your data has problems, your code has bugs, your visualizations are misleading, your models are inappropriate, or your communications are unclear, then your data product will be reproducible but not very useful (or maybe even harmful). Quality assurance has to happen at every step, and reproducibility is the last step. It's supposed to be the little bow on top that ties all the other great work you've done together.
+
+::: {.callout-note}
+## Shades of reproducibility
+
+The basic idea behind a reproducible data product is that the steps, processes, and procedures that went into making it can be repeated exactly by yourself and others, resulting in the exact same outcome every time. Ideally, there is no expiration date for reproducibility---the reproducibility of a data product could be tested tomorrow or in ten decades and should give the exact same outcome both times. If the outcomes were different, the data product is no longer reproducible (and perhaps we should no longer trust the original results). Realistically, it might be okay if a data product stops being reproducible, so long as this change happens after the data product has outlived its purpose.
+:::
+
+There are three core components that need to be accessible for a data product to be reproducible:
+
+- Data
+- Software 
+- Documentation
+
+The data and software should be packaged together somewhere, like an [R project](https://r4ds.hadley.nz/workflow-scripts.html#projects) stored in a GitHub repository or Docker container, with documentation on how to reproduce the data product. Reproducing the data product should be convenient for the end-user, *without being disruptive*. Ideally the entire pipeline can be run with a single command, and it should not install packages into someone's local library or change settings on their computer without their permission. Achieving this requires new tools and a stable framework to glue them together.
+
+In particular, I think the following R packages are essential for reproducibility:
+
+- [renv](https://rstudio.github.io/renv/index.html) for creating reproducible environments in R projects
+- [targets](https://books.ropensci.org/targets/) for creating reproducible workflows
+- [testthat](https://testthat.r-lib.org) for testing the reproducibility of results
+- [sessioninfo](https://r-lib.github.io/sessioninfo/) for getting system and R session information
+
+But there are tools beyond R that are also essential for reproducibility:
+
+- [Quarto](https://quarto.org) for reproducible documents
+- [Git](https://git-scm.com) for version control
+- [GitHub](https://github.com) or [GitLab](https://about.gitlab.com) for hosting Git repositories
+- [Docker](https://www.docker.com) for packaging data products and their dependencies into reproducible containers
+
+Each of these R packages and tools plays a different role in making a data product reproducible. Together they create a system for making reproducible data products. Depending on how long you hope a data product will be reproducible for, you might use all these R packages and tools or you might only use some.
+
+The best place to learn each of these R packages and tools individually is their respective documentation. To learn how to use these R packages and tools as a system for making reproducible data products, the following are a good place to start:
+
+- [Reproducible Analytical Pipelines](https://rap4mads.eu) by Bruno Rodrigues
+- [Automating Computational Reproducibility in R using renv, Docker, and GitHub Actions](http://haines-lab.com/post/2022-01-23-automating-computational-reproducibility-with-r-using-renv-docker-and-github-actions/) by Nathaniel Haines
+- [Combining R and Python with {reticulate} and Quarto](https://nrennie.rbind.io/blog/combining-r-and-python-with-reticulate-and-quarto/) by Nicola Rennie
+
+You might also like:
+
+- [Open source is a hard requirement for reproducibility](https://www.brodrigues.co/blog/2022-11-16-open_source_repro/) by Bruno Rodrigues
+- [Functional programming explains why containerization is needed for reproducibility](https://www.brodrigues.co/blog/2022-11-30-pipelines-as/) by Bruno Rodrigues
+- [Code longevity of the R programming language](https://www.brodrigues.co/blog/2022-12-21-longevity/) by Bruno Rodrigues
+- [MRAN is getting shutdown - what else is there for reproducibility with R, or why reproducibility is on a continuum?](https://www.brodrigues.co/blog/2023-01-12-repro_r/) by Bruno Rodrigues
+
+## What did you forget to teach me about R?
+
+See [What They Forgot to Teach You About R](https://rstats.wtf) by Jenny Bryan and Jim Hester.
+
+See also [Happy Git and GitHub for the useR](https://happygitwithr.com/index.html) by Jenny Bryan, the [STAT 545](https://stat545.com) TAs, and Jim Hester.
+
+## Parting words
+
+> Data science is not 100% about writing code. There's a human side to it. 
+
+--- Hadley Wickham in [Designing Data Science](https://github.com/R-LadiesMelbourne/2019-11-26-Hadley-Wickham)
+
+I discussed this [earlier](#what-else-should-i-learn), but it bears repeating: the human side of data science is really important if you want to solve problems successfully. One of the reasons R is my favourite language is because it's been designed to make statistical thinking and computing accessible to anyone. This accessibility has had a big impact on me---I doubt I would be doing data science without R---and I think it's why we have such a strong, diverse community of R users and programmers.
+
+So I try to make all my work as accessible as it can be, and I recommend you do too. It makes a difference. 

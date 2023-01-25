@@ -1,0 +1,363 @@
+---
+title: R Packages
+description: Installing, managing, and finding R Packages.
+image: images/r-packages.png
+
+order: 7
+
+params:
+  year: 2022
+---
+
+## How do I install R packages?
+
+The standard way to install R packages is with the `install.packages()` function that comes with base R.
+
+```r
+install.packages("tibble")
+```
+
+A fresh way to install R packages is with the `pkg_install()` function from the **pak** package.
+
+```r
+pkg_install("tibble")
+```
+
+pak is fast, safe, and convenient. You can learn more about it on the [package website](https://pak.r-lib.org/).
+
+::: {.callout-note}
+## "Do you want to install from sources the package which needs compilation?"
+
+When installing a package, you will sometimes encounter the above question along with the message "There are binary versions available but the source versions are later". What this question is asking is whether you would like to have your computer build (compile) the package binary from source code then install it (`yes`) or have your computer install a pre-built binary (`no`). If you choose yes, you will get the newest version of the package; if you choose no you will get the newest binary version of the package (typically the previous release).
+
+Unless you need the newest version of the package for a specific feature or bug fix, I recommend choosing no---the binary version will install faster, and you can simply wait a few days for the binary of the newest version to be built on the repository you're installing packages from, then install the package again to get the newest version. If you need the newest version of the package *right now* then choose yes, but you will need to set up your [R build toolchain](https://r-pkgs.org/setup.html#setup-tools) first.
+:::
+
+To learn more about package installation, see the [Package structure and state](https://r-pkgs.org/structure.html#package) chapter in *R Packages* by Hadley Wickham and Jenny Bryan.
+
+## Where can I install R packages from?
+
+Release versions of R packages can be installed from:
+
+- [CRAN](https://cran.r-project.org)
+- [Bioconductor](https://www.bioconductor.org)
+
+Development versions of R packages can be installed from:
+
+- [GitHub](https://github.com)
+- [R-Universe](https://r-universe.dev/)
+
+Previous release versions of R packages can be installed from:
+
+- [Posit Public Package Manager](https://packagemanager.rstudio.com/)
+- [~~MRAN~~](https://mran.microsoft.com/) (shut down on July 1st, 2023)
+
+## Where can I find new R packages?
+
+```{r}
+#| label: cran-bioc-runiverse-pkgs
+#| echo: false
+#| cache: true
+library(pkgsearch)
+
+# CRAN (does not include archived packages) ----
+cran_pkgs <- available.packages()[,"Package"]
+
+# Get the first and latest publish date for each package before the end of the
+# params$year
+pkgs <- lapply(
+  cran_pkgs,
+  function(x) {
+    pkg <- tryCatch(
+      pkgsearch::cran_package_history(x)[, c("Package", "date")],
+      error = function(e) NULL
+    )
+    
+    if (!is.null(pkg)) {
+      pkg$date <- as.Date(pkg$date)
+      pkg <- pkg[pkg$date < as.Date(paste0(params$year + 1, "-01-01")),]
+      if (nrow(pkg) == 0) {
+        pkg <- NULL
+      } else if (nrow(pkg) == 1) {
+        pkg$when <- "First Year Published"
+        pkg$new_versions <- FALSE
+      } else {
+        pkg <- pkg[c(1, nrow(pkg)), ]
+        pkg$new_versions <- TRUE
+        pkg$when <- c("First Year Published", "Latest Version Year")
+      }
+    }
+      
+    pkg
+  }
+)
+pkgs <- do.call(rbind.data.frame, pkgs)
+cran_n <- nrow(pkgs[pkgs$when == "First Year Published",])
+
+# Bioconductor ----
+bioc_v <- BiocManager::version()
+bioc_pkgs <- available.packages(
+  contrib.url(paste0("https://bioconductor.org/packages/", bioc_v, "/bioc"))
+)[,"Package"]
+bioc_n <- length(bioc_pkgs)
+
+# R-universe ----
+r_universe <- jsonlite::stream_in(
+  url("https://r-universe.dev/stats/universes"), verbose = FALSE
+)
+universes <- r_universe$universe
+repos <- paste0("https://", universes, ".r-universe.dev")
+
+all_pkgs <- available.packages(contrib.url(repos))[,"Package"]
+# The packages in universes can overlap, so duplicates need to be removed
+unique_pkgs <- all_pkgs[!duplicated(all_pkgs)]
+
+# Find the packages that are available on R-universe but not CRAN or
+# Bioconductor
+runiverse_pkgs <- unique_pkgs[!(unique_pkgs %in% c(cran_pkgs, bioc_pkgs))]
+runiverse_n <- length(runiverse_pkgs)
+```
+
+There were `r cran_n` R packages available on [CRAN](https://cran.r-project.org/web/packages/) in `r params$year`, and that number only continues to grow over time. That’s not to mention the `r bioc_n` R packages available on Bioconductor, the `r runiverse_n` packages available on R-universe but not CRAN or Bioconductor, and the unknown amount of packages only available on GitHub.
+
+```{r}
+#| label: plot-first-published
+#| echo: false
+library(ggplot2)
+library(lubridate)
+library(geomtextpath)
+library(patchwork)
+
+first_published <- ggplot(
+  pkgs[pkgs$when == "First Year Published",],
+  aes(x = floor_date(as.Date(date), "year"))) +
+  # https://stackoverflow.com/a/66295685/16844576
+  stat_count(
+    aes(y = after_stat(unlist(lapply(split(count, PANEL), cumsum)))),
+    fill = "#123C69"
+  ) +
+  scale_x_date(date_breaks = "2 years", date_labels = "%Y") +
+  scale_y_continuous(breaks = seq(0, cran_n, by = 2000)) +
+  labs(
+    title = "Number of R packages available on CRAN by year",
+    subtitle = "(Excluding archived packages)",
+    x = "Year",
+    y = "Count",
+    caption = "Source: CRAN Metadata from {pkgsearch}"
+  ) +
+  theme_classic() +
+  theme(
+    plot.background  = element_rect(fill = "#fffbfa"),
+    panel.background = element_rect(fill = "#fffbfa")
+  )
+
+first_published
+```
+
+Fortunately, there are many places to find curated content about R packages:
+
+- Your favourite search engine
+- [CRAN Task Views](https://cran.r-project.org/web/views/)
+- [R Views](https://rviews.rstudio.com) 
+- [The Posit Blog](https://posit.co/blog/)
+- [Posit Videos](https://posit.co/resources/videos/)
+- [tidyverse blog](https://www.tidyverse.org/blog/)
+- [Trending on GitHub](https://github.com/trending/r?since=monthly)
+- [pkgsearch](https://r-hub.github.io/pkgsearch/)
+
+**Your favourite search engine** is often a good starting place. Include `r` and `package` in your search, plus the topic you're interested in, and you'll usually find something helpful. Use boolean operators to narrow down your search or to hide unrelated things like Reddit (`-site:reddit.com`).
+
+**CRAN Task Views** provide guidance on which R packages are relevant for tasks related to a certain topic. The task views are not meant to endorse the "best" packages for a given task; rather, they take an encyclopedic approach that serves as a good reference.
+
+**R Views** is an R community blog edited by Posit where you can learn about new R packages and see how to use them (plus some other goodies).
+
+**The Posit Blog** is where you can get news and updates about R packages made by Posit. The blog is about "all things data science and the world that benefits from [Posit] products, community, and events", so it has a wider scope than R packages alone; but it's a good place to follow anyways to stay up to date with what's happening in the R world.
+
+On a similar note, you can find videos from events hosted by Posit, such as conference talks, data science hang outs, tutorials, and more at **Posit Videos** (and the [Posit YouTube channel](https://www.youtube.com/channel/UC3xfbCMLCw1Hh4dWop3XtHg/playlists)). This is a good place to see what R packages the community is using, and how they use them.
+
+The **tidyverse blog** is where you can get news and updates about R packages in the tidyverse.
+
+Finally, if you don't want to leave the comfort of your IDE, the **pkgsearch** package is a package you can use to find other packages..!
+
+::: {.callout-tip}
+## Social Media
+
+Word of mouth on social media is a great way to find new packages or learn about new ways to use your favourite packages. Follow your favourite developers to keep up to date with their work, and check out the *#RStats* and *#TidyTuesday* hashtags to see what the community is up to.
+:::
+
+## How do I attach R packages?
+
+The standard way to attach R packages is with the `library()` function that comes with base R.
+
+```r
+library(tibble)
+```
+
+If you want to attach multiple packages in a single function call, use the `pkg_attach()` function from the **xfun** package.
+
+```r
+pkg_attach("tibble", "dplyr")
+```
+
+### How do I manage namespace conflicts?
+
+Sometimes R packages will use the same name for different functions. A common example is `dplyr::select()` and `MASS::select()`. Under R’s default conflict resolution system, if both of these packages are loaded in the same session `select()` will come from the most recently loaded package.
+
+If you want `select()` to refer to `dplyr::select()`, base R provides the following solutions:
+
+- Load MASS first and dplyr second
+- Exclude `select()` when loading MASS: `library(MASS, exclude = "select")`
+- Always namespace dplyr's `select()` function: `dplyr::select()`
+
+An alternative approach to managing namespace conflicts is with the **conflicted** package, which makes every conflict an error and forces you to choose which function to use. You can learn more about it on the [package website](https://conflicted.r-lib.org).
+
+## How do I update R packages?
+
+Most R packages available on CRAN are actively maintained and updated. For example, in `r params$year` more than half the packages available on CRAN had an update in the same or previous year. It's good practice to keep up with these updates so you can get the latest features, improvements, and bug fixes.
+
+```{r}
+#| label: plot-last-updated
+#| echo: false
+last_updated <- ggplot(
+  pkgs[pkgs$when == "Latest Version Year",],
+  aes(x = floor_date(as.Date(date), "year"), group = when)) +
+  # https://stackoverflow.com/a/66295685/16844576
+  stat_count(fill = "#123C69") +
+  scale_x_date(date_breaks = "2 years", date_labels = "%Y") +
+  scale_y_continuous(breaks = seq(0, cran_n, by = 1000)) +
+  labs(
+    title = "Year R packages available on CRAN were last updated",
+    subtitle = "(Excluding archived packages and packages with one release)",
+    x = "Year",
+    y = "Count",
+    caption = "Source: CRAN Metadata from {pkgsearch}"
+  ) +
+  theme_classic() +
+  theme(
+    plot.background  = element_rect(fill = "#fffbfa"),
+    panel.background = element_rect(fill = "#fffbfa")
+  )
+
+last_updated
+```
+
+Use `old.packages()` to check which of the packages you've installed have updates available from the repositories listed in `getOption("repos")`.
+
+```r
+old.packages()
+```
+
+Update specific packages to the most recent version by re-installing them with `install.packages()` or `pak::pkg_install()`.
+
+```r
+# The standard way to update a package
+install.packages("tibble")
+
+# A fresh way to update a package
+pak::pkg_install("tibble")
+```
+
+Update all the packages listed by `old.packages()` at once with `update.packages()`[^1] or `pak::pkg_install(old.packages()[,"Package"])`. Note that `update.packages()` uses `install.packages()` under the hood, so it won't be as fast as pak.
+
+[^1]: By default `update.packages()` will ask you one by one whether you would like to update a given package. Use the `ask = FALSE` argument to update all packages without asking. 
+
+```r
+# The standard way to update all packages at once
+update.packages()
+
+# A fresh way to update all packages at once
+pak::pkg_install(old.packages()[,"Package"])
+```
+
+You can also install and update packages using RStudio, either from the **Packages** pane or from the menu bar **Tools > Check for Package Updates**.
+
+::: {.callout-warning}
+## Breaking changes
+
+Sometimes package updates will include breaking changes, which are named as such because they are expected to break code using older versions of the package. Most package updates won't contain breaking changes, but occasionally they will. This should not discourage you from updating packages, but it should encourage you to update thoughtfully---don't do your updates before important deadlines!
+
+I recommend creating multiple user libraries with **rig** that can be used for different tasks. This way different libraries can be updated more or less frequently, and it's easier to make the choice whether or not to update. For example, you could have a `devel` library for package development that is updated weekly, a general `main` library that is updated monthly or yearly, and so forth. Another good practice---especially for long-running projects---is to create project-specific libraries with **renv**. The project libraries created by renv are isolated from your user libraries, so you can continue to update your user libraries as normal without worrying about breaking changes affecting the projects using renv.
+:::
+
+## How do I restore my current library into a new library?
+
+A new library is created whenever you install a new major or minor version of R (the "x" or "y" in version "x.y.z"), so all your favourite packages need to be re-installed to this new library if you want to use them. This is also true if you create a new library in the current version of R (e.g., with `rig library add`).
+
+::: {.callout-tip collapse="true"}
+## Transferring a library from one computer to another
+
+The approach shown below can also be used to transfer a library from one computer to another. All you need to do is:
+
+1. Follow the steps to create the character vector of packages in your current library (`pkgs`)
+2. Save the `pkgs` R object with: `saveRDS(pkgs, file = "pkgs.rds")`
+3. Copy the `pkgs.rds` file to the other computer\*
+4. Load the `pkgs` R object with: `pkgs <- readRDS(“path/to/pkgs.rds”)`
+5. Install pak on the other computer with: `install.packages("pak")`
+6. Install the packages with: `pkg_install(pkgs)`
+
+\*For added convenience, store `pkgs.rds` in a GitHub repository so you can access it wherever you go!
+:::
+
+If you are using **rig** (and you should be), restoring your current library into a new library is easy with some help from pak and dplyr.[^2]
+
+[^2]: Note that this approach will restore all packages with their *newest* versions in the new library, not the same versions as your current library. However, pak supports installing older versions of packages using the `@` version syntax, so it should be possible to modify this pipeline to do the same. The version information can be found in the data frame returned by `pkg_list()` under the `version` (for CRAN and Bioconductor) and `remotesha` (for GitHub) columns. 
+
+First---in your current library---get the path to your user library. Copy this down somewhere.
+
+```r
+.libPaths()[1]
+```
+
+You can now switch to your new library. The easiest way to switch on macOS is with the menu bar app; otherwise use the shell prompt. Open a new RStudio window to start a session with the new library.[^3]
+
+[^3]: It's okay to keep the RStudio window for the current library open.
+
+```bash
+# Switch to a different R version
+rig default <version>
+
+# Switch to a different library
+rig library default <lib-name>
+```
+
+In your new library, install and attach pak and dplyr.
+
+```r
+# install.packages(c("pak", "dplyr"))
+library(pak)
+library(dplyr)
+```
+
+Use `pak::pkg_list()` to get a data frame containing data about the packages installed in your current library.
+
+```r
+pkgs_tbl <- pkg_list(lib = "path/to/your/user/library")
+```
+
+Wrangle this data down into a character vector specifying the package source and package, following the [package reference syntax used by pak](https://pak.r-lib.org/reference/pak_package_sources.html#package-references).
+
+```r
+pkgs <- pkgs_tbl |>
+  select(package, remoteusername, repotype) |>
+  mutate(pkg = case_when(
+    # GitHub
+    !is.na(remoteusername) ~ paste0(remoteusername, "/", package), 
+    # CRAN and Bioconductor
+    repotype %in% c("cran", "bioc") ~ paste0(repotype, "::", package),
+    # Default to the `standard` package source
+    TRUE ~ paste0("standard::", package)
+  )) |>
+  pull(pkg)
+```
+
+Then install all your packages.
+
+```r
+pkg_install(pkgs)
+```
+
+::: {.callout-warning}
+## Default library locations and .Renviron
+
+If you have previously set `R_LIBS_USER` in your `.Renviron` to change the default library path, you may need to remove this variable or change its path if there are issues locating your various user libraries. A quick way to open `.Renviron` is with `usethis::edit_r_environ()`.
+:::

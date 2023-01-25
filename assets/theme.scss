@@ -22,26 +22,26 @@ $light-shade: #fffbfa;
 
 $white:    #fff !default;
 $gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #ddd !default;
+$gray-200: #ebebeb !default;
+$gray-300: #dee2e6 !default;
 $gray-400: #ced4da !default;
 $gray-500: #adb5bd !default;
-$gray-600: #868e96 !default;
-$gray-700: #495057 !default;
-$gray-800: #343a40 !default;
-$gray-900: #212529 !default;
+$gray-600: #888 !default;
+$gray-700: #444 !default;
+$gray-800: #333 !default;
+$gray-900: #222 !default;
 $black:    #000 !default;
 
-$blue:    #0033a0 !default;
+$blue:    #268bd2 !default;
 $indigo:  #6610f2 !default;
 $purple:  #6f42c1 !default;
 $pink:    #e83e8c !default;
-$red:     #c8102e !default;
-$orange:  #CB793A !default;
-$yellow:  #FCDC4D !default;
-$green:   #02b875 !default;
+$red:     #d33682 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #cb4b16 !default;
+$green:   #2aa198 !default;
 $teal:    #20c997 !default;
-$cyan:    #41b6e6 !default;
+$cyan:    #268bd2 !default;
 
 $primary:       $main-colour !default;
 $secondary:     $gray-500 !default;
@@ -59,7 +59,7 @@ $body-color: $dark-shade !default; // The page text color.
 $headings-color: $main-colour !default; // The heading color.
 $link-color: $body-color !default; // The link color.
 $input-bg: $white !default; // The background color for HTML inputs.
-$popover-bg: $white !default;	// The background color for popovers.
+// $popover-bg: $white !default;	// The background color for popovers.
 
 // Fonts
 // https://quarto.org/docs/output-formats/html-themes.html#fonts
@@ -106,6 +106,10 @@ $code-color: $dark-accent !default;
 
 .navbar-dark .navbar-toggler {
   border-color: rgba($black, 0);
+}
+
+.quarto-secondary-nav-title {
+  color: $headings-color;
 }
 
 // Buttons
@@ -155,6 +159,26 @@ div.quarto-post .listing-categories .listing-category:hover,
 // Margin Content
 .column-margin {
   color: $dark-accent;
+}
+
+// Blockquotes
+.blockquote {
+  color: mix($light-accent, $gray-600, 50%);
+  border-left-color: $light-accent;
+}
+
+// Callouts
+.callout {
+  background-color: $white;
+}
+
+.callout.callout-style-default .callout-body {
+  font-size: $font-size-base;
+}
+
+// Popovers ($popover-bg is supposed to control this but doesn't work)
+.tippy-content {
+  background-color: $white;
 }
 
 // Appendix

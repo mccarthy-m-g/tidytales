@@ -1,0 +1,58 @@
+---
+title: Version Control Setup
+description: Installing and configuring Git and GitHub.
+image: images/version-control-setup.png
+
+order: 2
+---
+
+## Git
+
+[Git](https://www.r-project.org) is an open source distributed version control system for  tracking and managing changes to files.
+
+### Installing git
+
+Install Git from the Terminal with Homebrew:
+
+```bash
+brew install git
+```
+
+## GitHub
+
+[GitHub](https://github.com) is an internet hosting service for projects using Git that makes collaboration easy. It provides the distributed version control of Git, plus issue tracking, project management tools, continuous integration, and more for every project.
+
+### Installing GitHub Desktop
+
+[GitHub Desktop](https://desktop.github.com) is an open source application for interacting with GitHub using a GUI instead of the command line or a web browser.
+
+Install GitHub Desktop from the Terminal with Homebrew:
+
+```bash
+brew install --cask github
+```
+
+### Installing GitHub CLI
+
+[GitHub CLI](https://cli.github.com) is a command line interface to access GitHub from the Terminal.
+
+Install GitHub CLI from the Terminal with Homebrew:
+
+```bash
+brew install gh
+```
+
+## Version Control in RStudio
+
+See the following:
+
+- [Happy Git and GitHub for the useR](https://happygitwithr.com) by Jenny Bryan
+- [usethis: Managing Git(Hub) Credentials](https://usethis.r-lib.org/articles/git-credentials.html)
+
+## Related Reading {.appendix .unnumbered .unlisted}
+
+- [Git documentation](https://git-scm.com/doc)
+    - [Pro Git](https://git-scm.com/book) by Scott Chacon and Ben Straub 
+    - [Git command list](https://git-scm.com/docs)
+- [Git and GitHub learning resources](https://docs.github.com/en/get-started/quickstart/git-and-github-learning-resources)
+    - [GitHub Skills: Learn how to use GitHub with interactive courses designed for beginners and experts](https://skills.github.com)

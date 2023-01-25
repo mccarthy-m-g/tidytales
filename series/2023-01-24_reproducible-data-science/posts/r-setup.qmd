@@ -1,0 +1,67 @@
+---
+title: R Setup
+description: Installing and configuring R.
+image: images/r-setup.png
+
+order: 3
+---
+
+## R
+
+[R](https://www.r-project.org) is an open source programming language for wrangling, visualizing, modelling, and communicating data, and so much more. It has a strong community behind it and is widely used among researchers, statisticians, and data scientists in a variety of fields.
+
+### Installing rig
+
+[rig](https://github.com/r-lib/rig) is an open source R installation manager for installing, removing, configuring, and switching between multiple R versions and user-level package libraries.
+
+Install rig from the Terminal with Homebrew:
+
+```bash
+brew tap r-lib/rig
+brew install --cask rig
+```
+
+### Installing R
+
+Install the latest version of R from the Terminal with rig:
+
+```bash
+rig add release
+```
+
+R can also be installed from CRAN (the comprehensive R archive network) using the following link <https://cloud.r-project.org>. A new major version of R comes out once a year, and there are 2-3 minor releases each year.
+
+### Installing RStudio
+
+[RStudio](https://posit.co/products/open-source/rstudio/) is an open source integrated development environment, or IDE, for R programming made by [Posit](https://posit.co).
+
+Install RStudio from the Terminal with Homebrew:
+
+```bash
+brew install --cask rstudio
+```
+
+RStudio can also be installed from Posit using the following link <https://posit.co/download/rstudio-desktop/>. RStudio is updated a couple of times a year. When a new version is available, RStudio will let you know. It's a good idea to upgrade regularly so you can take advantage of the latest and greatest features.
+
+Learn more from the [RStudio User Guide](https://docs.posit.co/ide/user/).
+
+### Installing Quarto
+
+[Quarto](https://quarto.org) is an open source scientific and technical publishing system built on [Pandoc](https://pandoc.org/).
+
+Install Quarto from the Terminal with Homebrew:
+
+```bash
+brew install --cask quarto
+```
+
+::: {.callout-note collapse=true}
+## Quarto version manager
+
+If you need to manage and switch between versions of Quarto you can also install [qvm](https://github.com/dpastoor/qvm), the Quarto version manager.
+:::
+
+## Related Reading {.appendix .unnumbered .unlisted}
+
+- [Setting up macOS as an R data science rig in 2023](https://ivelasq.rbind.io/blog/macos-rig/index.html) by Isabella Velásquez and Gustavo E. Velásquez
+
