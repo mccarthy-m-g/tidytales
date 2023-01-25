@@ -3,7 +3,7 @@ title: "Reproducible Data Science"
 description: |
   My personal approach to learning and doing reproducible data science.
 
-date: '2023-01-15'
+date: '2023-01-24'
 
 categories:
   - ".Misc"

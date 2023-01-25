@@ -1,95 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://tidytales.ca/series/reproducible-data-science/posts/learning-r.html</loc>
-    <lastmod>2023-01-24T22:33:18.425Z</lastmod>
+    <loc>https://tidytales.ca/series/2023-01-24_reproducible-data-science/posts/learning-r.html</loc>
+    <lastmod>2023-01-25T00:13:09.273Z</lastmod>
   </url>
   <url>
-    <loc>https://tidytales.ca/series/reproducible-data-science/posts/technical-writing.html</loc>
-    <lastmod>2023-01-24T22:33:19.318Z</lastmod>
+    <loc>https://tidytales.ca/series/2023-01-24_reproducible-data-science/posts/technical-writing.html</loc>
+    <lastmod>2023-01-25T00:15:48.817Z</lastmod>
   </url>
   <url>
-    <loc>https://tidytales.ca/series/reproducible-data-science/posts/productivity-tips.html</loc>
-    <lastmod>2023-01-24T22:33:19.792Z</lastmod>
+    <loc>https://tidytales.ca/series/2023-01-24_reproducible-data-science/posts/productivity-tips.html</loc>
+    <lastmod>2023-01-25T00:16:47.165Z</lastmod>
   </url>
   <url>
-    <loc>https://tidytales.ca/series/reproducible-data-science/posts/system-setup.html</loc>
-    <lastmod>2023-01-24T22:33:20.241Z</lastmod>
+    <loc>https://tidytales.ca/series/2023-01-24_reproducible-data-science/posts/system-setup.html</loc>
+    <lastmod>2023-01-25T00:12:01.133Z</lastmod>
   </url>
   <url>
-    <loc>https://tidytales.ca/series/reproducible-data-science/posts/r-getting-help.html</loc>
-    <lastmod>2023-01-24T22:33:20.948Z</lastmod>
+    <loc>https://tidytales.ca/series/2023-01-24_reproducible-data-science/posts/r-getting-help.html</loc>
+    <lastmod>2023-01-25T00:15:40.462Z</lastmod>
   </url>
   <url>
-    <loc>https://tidytales.ca/series/reproducible-data-science/posts/zotero-setup.html</loc>
-    <lastmod>2023-01-24T22:33:21.637Z</lastmod>
+    <loc>https://tidytales.ca/series/2023-01-24_reproducible-data-science/posts/zotero-setup.html</loc>
+    <lastmod>2023-01-25T00:12:50.766Z</lastmod>
   </url>
   <url>
-    <loc>https://tidytales.ca/series/reproducible-data-science/posts/version-control-setup.html</loc>
-    <lastmod>2023-01-24T22:33:22.027Z</lastmod>
+    <loc>https://tidytales.ca/series/2023-01-24_reproducible-data-science/posts/version-control-setup.html</loc>
+    <lastmod>2023-01-25T00:12:14.076Z</lastmod>
   </url>
   <url>
-    <loc>https://tidytales.ca/series/reproducible-data-science/posts/python-setup.html</loc>
-    <lastmod>2023-01-24T22:33:22.412Z</lastmod>
+    <loc>https://tidytales.ca/series/2023-01-24_reproducible-data-science/posts/python-setup.html</loc>
+    <lastmod>2023-01-25T00:12:42.607Z</lastmod>
   </url>
   <url>
-    <loc>https://tidytales.ca/series/reproducible-data-science/posts/r-setup.html</loc>
-    <lastmod>2023-01-24T22:33:22.797Z</lastmod>
+    <loc>https://tidytales.ca/series/2023-01-24_reproducible-data-science/posts/r-setup.html</loc>
+    <lastmod>2023-01-25T00:12:23.182Z</lastmod>
   </url>
   <url>
-    <loc>https://tidytales.ca/series/reproducible-data-science/posts/start-here.html</loc>
-    <lastmod>2023-01-24T22:33:23.184Z</lastmod>
+    <loc>https://tidytales.ca/series/2023-01-24_reproducible-data-science/posts/start-here.html</loc>
+    <lastmod>2023-01-25T00:11:28.730Z</lastmod>
   </url>
   <url>
-    <loc>https://tidytales.ca/series/reproducible-data-science/posts/r-packages.html</loc>
-    <lastmod>2023-01-24T22:33:23.973Z</lastmod>
+    <loc>https://tidytales.ca/series/2023-01-24_reproducible-data-science/posts/r-packages.html</loc>
+    <lastmod>2023-01-25T00:15:07.276Z</lastmod>
   </url>
   <url>
-    <loc>https://tidytales.ca/series/reproducible-data-science/index.html</loc>
-    <lastmod>2023-01-24T22:33:24.793Z</lastmod>
+    <loc>https://tidytales.ca/series/2023-01-24_reproducible-data-science/index.html</loc>
+    <lastmod>2023-01-25T00:11:18.127Z</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/snippets/2022-12-22_patchwork-shared-axis-labels/index.html</loc>
-    <lastmod>2023-01-24T22:33:26.458Z</lastmod>
+    <lastmod>2023-01-25T00:10:46.237Z</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/snippets/2022-10-29_geomtextpath-with-ggdist/index.html</loc>
-    <lastmod>2023-01-24T22:33:27.886Z</lastmod>
+    <lastmod>2023-01-25T00:10:47.502Z</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/snippets/2023-01-19_ggdist-histogram-rainclouds/index.html</loc>
-    <lastmod>2023-01-24T22:33:29.602Z</lastmod>
+    <lastmod>2023-01-25T00:10:49.081Z</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/snippets/2021-11-01_longitudinal-measurement-invariance/index.html</loc>
-    <lastmod>2023-01-24T22:33:31.235Z</lastmod>
+    <lastmod>2023-01-25T00:10:50.622Z</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/posts/2022-12-20_palettes/index.html</loc>
-    <lastmod>2023-01-24T22:33:32.901Z</lastmod>
+    <lastmod>2023-01-25T00:10:52.437Z</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/posts/2021-06-15_demons-souls/index.html</loc>
-    <lastmod>2023-01-24T22:33:34.973Z</lastmod>
+    <lastmod>2023-01-25T00:10:54.593Z</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/posts/2022-06-16_projectile-motion/index.html</loc>
-    <lastmod>2023-01-24T22:33:37.484Z</lastmod>
+    <lastmod>2023-01-25T00:10:57.053Z</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/posts/2021-06-19_distill/index.html</loc>
-    <lastmod>2023-01-24T22:33:38.933Z</lastmod>
+    <lastmod>2023-01-25T00:10:58.687Z</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/posts/2022-09-29_borderlands/index.html</loc>
-    <lastmod>2023-01-24T22:33:41.200Z</lastmod>
+    <lastmod>2023-01-25T00:11:01.121Z</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/about/index.html</loc>
-    <lastmod>2023-01-24T22:33:42.993Z</lastmod>
+    <lastmod>2023-01-25T00:11:03.630Z</lastmod>
   </url>
   <url>
     <loc>https://tidytales.ca/index.html</loc>
-    <lastmod>2023-01-24T22:33:43.600Z</lastmod>
+    <lastmod>2023-01-25T00:11:13.394Z</lastmod>
   </url>
 </urlset>

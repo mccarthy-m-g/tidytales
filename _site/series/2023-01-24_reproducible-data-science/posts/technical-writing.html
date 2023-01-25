@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Michael McCarthy">
-<meta name="dcterms.date" content="2023-01-24">
-<meta name="description" content="Installing and configuring Zotero.">
+<meta name="dcterms.date" content="2023-01-20">
+<meta name="description" content="Technical writing and literate programming in Quarto documents.">
 
-<title>Tidy Tales - Reference Manager Setup</title>
+<title>Tidy Tales - Technical Writing</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -96,8 +96,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../series/reproducible-data-science/posts/learning-r.html" rel="next">
-<link href="../../../series/reproducible-data-science/posts/python-setup.html" rel="prev">
+<link href="../../../series/2023-01-24_reproducible-data-science/posts/productivity-tips.html" rel="next">
+<link href="../../../series/2023-01-24_reproducible-data-science/posts/r-getting-help.html" rel="prev">
 <link href="../../../assets/images/favicon.png" rel="icon" type="image/png">
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
@@ -128,6 +128,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
+<link href="../../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../../assets/styles.css">
 <meta property="og:title" content="Tidy Tales">
@@ -208,7 +227,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Reference Manager Setup</h1>
+      <h1 class="quarto-secondary-nav-title">Technical Writing</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -219,10 +238,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">Reference Manager Setup</h1>
+      <h1 class="title d-none d-lg-block">Technical Writing</h1>
                   <div>
         <div class="description">
-          Installing and configuring Zotero.
+          Technical writing and literate programming in Quarto documents.
         </div>
       </div>
                 </div>
@@ -241,7 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 24, 2023</p>
+        <p class="date">January 20, 2023</p>
       </div>
     </div>
     
@@ -256,7 +275,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/index.html" class="sidebar-item-text sidebar-link">Reproducible Data Science</a>
+  <a href="../../../series/2023-01-24_reproducible-data-science/index.html" class="sidebar-item-text sidebar-link">Reproducible Data Science</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -269,57 +288,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/posts/start-here.html" class="sidebar-item-text sidebar-link">Start Here</a>
+  <a href="../../../series/2023-01-24_reproducible-data-science/posts/start-here.html" class="sidebar-item-text sidebar-link">Start Here</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/posts/system-setup.html" class="sidebar-item-text sidebar-link">System Setup</a>
+  <a href="../../../series/2023-01-24_reproducible-data-science/posts/system-setup.html" class="sidebar-item-text sidebar-link">System Setup</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/posts/version-control-setup.html" class="sidebar-item-text sidebar-link">Version Control Setup</a>
+  <a href="../../../series/2023-01-24_reproducible-data-science/posts/version-control-setup.html" class="sidebar-item-text sidebar-link">Version Control Setup</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/posts/r-setup.html" class="sidebar-item-text sidebar-link">R Setup</a>
+  <a href="../../../series/2023-01-24_reproducible-data-science/posts/r-setup.html" class="sidebar-item-text sidebar-link">R Setup</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/posts/python-setup.html" class="sidebar-item-text sidebar-link">Python Setup</a>
+  <a href="../../../series/2023-01-24_reproducible-data-science/posts/python-setup.html" class="sidebar-item-text sidebar-link">Python Setup</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/posts/zotero-setup.html" class="sidebar-item-text sidebar-link active">Reference Manager Setup</a>
+  <a href="../../../series/2023-01-24_reproducible-data-science/posts/zotero-setup.html" class="sidebar-item-text sidebar-link">Reference Manager Setup</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/posts/learning-r.html" class="sidebar-item-text sidebar-link">Learning R</a>
+  <a href="../../../series/2023-01-24_reproducible-data-science/posts/learning-r.html" class="sidebar-item-text sidebar-link">Learning R</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/posts/r-packages.html" class="sidebar-item-text sidebar-link">R Packages</a>
+  <a href="../../../series/2023-01-24_reproducible-data-science/posts/r-packages.html" class="sidebar-item-text sidebar-link">R Packages</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/posts/r-getting-help.html" class="sidebar-item-text sidebar-link">Getting Help with R</a>
+  <a href="../../../series/2023-01-24_reproducible-data-science/posts/r-getting-help.html" class="sidebar-item-text sidebar-link">Getting Help with R</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/posts/technical-writing.html" class="sidebar-item-text sidebar-link">Technical Writing</a>
+  <a href="../../../series/2023-01-24_reproducible-data-science/posts/technical-writing.html" class="sidebar-item-text sidebar-link active">Technical Writing</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../series/reproducible-data-science/posts/productivity-tips.html" class="sidebar-item-text sidebar-link">Productivity Tips</a>
+  <a href="../../../series/2023-01-24_reproducible-data-science/posts/productivity-tips.html" class="sidebar-item-text sidebar-link">Productivity Tips</a>
   </div>
 </li>
       </ul>
@@ -330,20 +349,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">In this post</h2>
    
   <ul>
-  <li><a href="#zotero" id="toc-zotero" class="nav-link active" data-scroll-target="#zotero">Zotero</a>
+  <li><a href="#literate-programming" id="toc-literate-programming" class="nav-link active" data-scroll-target="#literate-programming">Literate programming</a></li>
+  <li><a href="#plain-text-outputs" id="toc-plain-text-outputs" class="nav-link" data-scroll-target="#plain-text-outputs">Plain text outputs</a></li>
+  <li><a href="#figure-and-table-outputs" id="toc-figure-and-table-outputs" class="nav-link" data-scroll-target="#figure-and-table-outputs">Figure and table outputs</a></li>
+  <li><a href="#equations" id="toc-equations" class="nav-link" data-scroll-target="#equations">Equations</a>
   <ul class="collapse">
-  <li><a href="#installing-zotero" id="toc-installing-zotero" class="nav-link" data-scroll-target="#installing-zotero">Installing Zotero</a></li>
-  <li><a href="#installing-zotero-connector" id="toc-installing-zotero-connector" class="nav-link" data-scroll-target="#installing-zotero-connector">Installing Zotero Connector</a></li>
-  <li><a href="#installing-zotero-extensions" id="toc-installing-zotero-extensions" class="nav-link" data-scroll-target="#installing-zotero-extensions">Installing Zotero extensions</a></li>
-  <li><a href="#configuring-zotero-preferences" id="toc-configuring-zotero-preferences" class="nav-link" data-scroll-target="#configuring-zotero-preferences">Configuring Zotero preferences</a></li>
-  <li><a href="#zotero-for-ios" id="toc-zotero-for-ios" class="nav-link" data-scroll-target="#zotero-for-ios">Zotero for iOS</a></li>
+  <li><a href="#using-inline-r-code-in-math-equations" id="toc-using-inline-r-code-in-math-equations" class="nav-link" data-scroll-target="#using-inline-r-code-in-math-equations">Using inline R code in math equations</a></li>
+  <li><a href="#using-math-equations-in-plots" id="toc-using-math-equations-in-plots" class="nav-link" data-scroll-target="#using-math-equations-in-plots">Using math equations in plots</a></li>
   </ul></li>
-  <li><a href="#configuring-zotero" id="toc-configuring-zotero" class="nav-link" data-scroll-target="#configuring-zotero">Configuring Zotero</a>
-  <ul class="collapse">
-  <li><a href="#cloud-syncing" id="toc-cloud-syncing" class="nav-link" data-scroll-target="#cloud-syncing">Cloud syncing</a></li>
-  <li><a href="#turn-off-automatic-tagging" id="toc-turn-off-automatic-tagging" class="nav-link" data-scroll-target="#turn-off-automatic-tagging">Turn off automatic tagging</a></li>
-  </ul></li>
-  <li><a href="#using-zotero-for-citations-in-quarto-and-r-markdown-documents" id="toc-using-zotero-for-citations-in-quarto-and-r-markdown-documents" class="nav-link" data-scroll-target="#using-zotero-for-citations-in-quarto-and-r-markdown-documents">Using Zotero for citations in Quarto and R Markdown documents</a></li>
   </ul>
 </nav>
 </nav>
@@ -356,159 +369,202 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<section id="zotero" class="level2">
-<h2 class="anchored" data-anchor-id="zotero">Zotero</h2>
-<p><a href="https://www.zotero.org">Zotero</a> is an open-source reference manager that styles itself as “your personal research assistant.”</p>
-<p>If you are using another reference manager you should switch to Zotero, full stop. It’s easy to <a href="https://www.zotero.org/support/moving_to_zotero">migrate your data from other reference management tools to Zotero</a>, and will <a href="https://www.andrewheiss.com/blog/2023/01/08/bibdesk-to-zotero-pandoc/">improve your workflow</a>.</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Use Zotero’s built-in PDF reader
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Zotero has its own built-in PDF reader and it’s really good. Much better than any external PDF readers. Learn more about it in the <a href="https://www.zotero.org/support/pdf_reader">Zotero documentation</a>.</p>
-</div>
-</div>
-<section id="installing-zotero" class="level3">
-<h3 class="anchored" data-anchor-id="installing-zotero">Installing Zotero</h3>
-<p>Install Zotero from the Terminal with Homebrew:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install <span class="at">--cask</span> zotero</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="installing-zotero-connector" class="level3">
-<h3 class="anchored" data-anchor-id="installing-zotero-connector">Installing Zotero Connector</h3>
-<p><a href="https://www.zotero.org/download/connectors">Zotero Connector</a> is a browser plugin that allows you to save web content (blogs, articles, etc.) to Zotero with a single click.</p>
-<p>The Zotero Connector for Safari is bundled with Zotero. You can enable it from the Extensions pane of the Safari preferences.</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Use custom PDF resolvers
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Zotero also supports <a href="https://www.zotero.org/support/kb/custom_pdf_resolvers">custom PDF resolvers</a> for automatically retrieving PDFs from other sources when Zotero can’t find or access a PDF. You can find some useful examples in Brenton Wiernik’s <a href="https://github.com/bwiernik/zotero-tools/blob/master/engines.json">zotero-tools</a> repository, or by searching something like “zotero pdf resolver” in your favourite search engine.</p>
-</div>
-</div>
-</section>
-<section id="installing-zotero-extensions" class="level3">
-<h3 class="anchored" data-anchor-id="installing-zotero-extensions">Installing Zotero extensions</h3>
-<p>These are the core extensions I use with Zotero. See their documentation for installation instructions:</p>
+<section id="literate-programming" class="level2">
+<h2 class="anchored" data-anchor-id="literate-programming">Literate programming</h2>
+<p><strong>Literate programming</strong> is the practice of mixing text and executable code in the same document, making it possible to write reproducible documents. There are four engines for executing code in Quarto documents:</p>
 <ul>
-<li><a href="https://retorque.re/zotero-better-bibtex/">Better BibTeX</a></li>
-<li><a href="http://zotfile.com">ZotFile</a></li>
+<li><a href="https://github.com/yihui/knitr">knitr</a> (supports R, Python, Julia, and more)</li>
+<li><a href="https://jupyter.org">jupyter</a> (Python only)</li>
+<li><a href="https://github.com/JuliaLang/IJulia.jl">IJulia</a> (Julia only)</li>
+<li><a href="https://observablehq.com/">Observable JS</a> (Observable JS only)</li>
 </ul>
-<p>I also use:</p>
-<ul>
-<li><a href="https://github.com/scitedotai/scite-zotero-plugin">scite</a></li>
-<li><a href="https://github.com/PubPeerFoundation/pubpeer_zotero_plugin">PubPeer</a></li>
-</ul>
-<p>You can find more extensions on the <a href="https://www.zotero.org/support/plugins">Zotero website</a>.</p>
-</section>
-<section id="configuring-zotero-preferences" class="level3">
-<h3 class="anchored" data-anchor-id="configuring-zotero-preferences">Configuring Zotero preferences</h3>
-<p>As far as I’m aware, it isn’t possible to configure <a href="https://www.zotero.org/support/preferences">preferences</a> in Zotero with dotfiles, so this has to be done manually.</p>
-<p>The main preference I need to configure is the <a href="https://retorque.re/zotero-better-bibtex/citing/#configurable-citekey-generator">citation key formula</a> for Better BibTeX:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>authEtAl.lower+"_"+shorttitle(3,3)+"_"+year</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Which means:</p>
-<ul>
-<li>Last name of the authors (with et al.&nbsp;for references with three or more authors)</li>
-<li>An underscore</li>
-<li>First three words of the reference’s title in camel case</li>
-<li>Another underscore</li>
-<li>Year of publication (if any)</li>
-</ul>
-<p>I use this over a <code>authEtAl.lower+"_"+year</code> citation key formula because the titles are a helpful reminder of what I’m citing. However, this citation key formula can make the markdown of a document hard to read, particularly when there are multiple citations in the same sentence or paragraph.</p>
-</section>
-<section id="zotero-for-ios" class="level3">
-<h3 class="anchored" data-anchor-id="zotero-for-ios">Zotero for iOS</h3>
-<p><a href="https://www.zotero.org/support/ios">Zotero for iOS</a> is an open source application for working with your Zotero library on an iPad or iPhone. Install it from the <a href="https://apps.apple.com/us/app/zotero/id1513554812">App Store</a>.</p>
-</section>
-</section>
-<section id="configuring-zotero" class="level2">
-<h2 class="anchored" data-anchor-id="configuring-zotero">Configuring Zotero</h2>
-<p>Things to do after installing Zotero and extensions.</p>
-<section id="cloud-syncing" class="level3">
-<h3 class="anchored" data-anchor-id="cloud-syncing">Cloud syncing</h3>
-<p>Use Zotero’s <a href="https://www.zotero.org/support/sync">sync functionality</a> to sync your Zotero library across devices. Zotero syncing has two parts:</p>
-<ul>
-<li>Data syncing</li>
-<li>File syncing</li>
-</ul>
-<p><strong>Data syncing</strong> syncs library items, but doesn’t sync attached files (PDFs, images, etc.). Set up data syncing in the Zotero app by signing into your account.</p>
-<p><strong>File syncing</strong> syncs attached files of library items. Files can be synced using either:</p>
-<ul>
-<li><a href="https://www.zotero.org/support/sync#webdav">WebDAV</a></li>
-<li><a href="https://www.zotero.org/support/sync#zotero_storage">Zotero Storage</a></li>
-</ul>
-<p><strong>WebDAV</strong> is a standard protocol for transferring files over the web and can be used to sync files in your <em>personal library</em>. There are a number of <a href="https://www.zotero.org/support/kb/webdav_services">WebDAV storage providers known to work with Zotero</a>.</p>
-<p><strong>Zotero Storage</strong> is the file sync option recommended by Zotero. Zotero Storage includes all the features of WebDAV syncing, plus file syncing in group libraries, web-based access to file attachments, easier setup, and guaranteed compatibility.</p>
+<p>All engines support executing code in <strong>code blocks</strong> within a document, which can be used to execute code and include its output in a document. Code blocks can produce a wide variety of outputs, including plots, tabular output from data frames, and plain text. The behaviour of code execution and output can be set with Quarto’s <a href="https://quarto.org/docs/computations/execution-options.html">Execution Options</a>.</p>
+<p>knitr, jupyter, and Observable JS also support executing <strong>inline code</strong> within markdown text, which can be used to allow narrative to automatically use the most up to date computations. The syntax for inline code varies across the engines.</p>
+<p>The remainder of this post covers some useful literate programming practices when writing reproducible documents with the knitr engine.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-WebDAV or Zotero Storage?
+Project management
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>I currently use WebDAV syncing through <a href="http://www.4shared.com/features.jsp">4shared’s</a> free plan, which gives me 15 GB of free space. I chose this option because I don’t need any of the additional features of Zotero Storage, and 15 GBs is more than enough for my personal library.</p>
-</div>
+<p>Literate programming is a powerful tool for writing reproducible documents, but it can also become unwieldy if your computations require a lot of code. Rather than writing all the code within a document, it is often better to source the required code within a document, then include output using the objects created by the sourced code. The simplest way to adopt this approach is by using the <code>source()</code> function to source R script files containing the computations for a document; a better way is to use the <a href="https://books.ropensci.org/targets/literate-programming.html">literate programming</a> approach described in the <strong>targets</strong> R package.</p>
 </div>
 </div>
 </section>
-<section id="turn-off-automatic-tagging" class="level3">
-<h3 class="anchored" data-anchor-id="turn-off-automatic-tagging">Turn off automatic tagging</h3>
-<p>Go to <strong>General &gt; Miscellaneous</strong> and turn off “Automatically tag items with keywords and subject headings”. I personally found this feature more annoying than helpful, since different sources would use different tags for the same thing, resulting in messy metadata. Instead I manually add tags to items in my library using the following scheme:</p>
+<section id="plain-text-outputs" class="level2">
+<h2 class="anchored" data-anchor-id="plain-text-outputs">Plain text outputs</h2>
+<p>Most code you write will be output as plain text. Depending on the purpose of a document, it might be fine to leave that output as is, or you might want to format the text, include it inline, and so forth.</p>
+<p>For example, say you wanted to report the number of participants in a study you ran. Rather than writing a sentence like this:</p>
+<blockquote class="blockquote">
+<p>There were twelve participants in the study.</p>
+</blockquote>
+<p>You could get the number of participants computationally, format that number into the word “twelve”, and include it in the sentence using inline code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>n_participants <span class="ot">&lt;-</span> xfun<span class="sc">::</span><span class="fu">numbers_to_words</span>(<span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<p>There were <code>`r n_participants`</code> participants in the study.</p>
+</blockquote>
+<p>This sentence would become “There were twelve participants in the study.” when you render the document. Likewise, if the number of participants changed, the number reported in the sentence would change the next time the document rendered (as long as the R object storing the number of participants knew about the change).</p>
+<p>If there are many values you need to report inline, storing them in a list is a good practice. For an overview of this approach, see:</p>
 <ul>
-<li>Subject: name (focus area or field)</li>
-<li>Topic: name (topic keywords)</li>
-<li>Data: source (open data set name)</li>
-<li>Population: characteristic (age group, sex, gender, species, location, etc.)</li>
-<li>Variable: name (variable measured in the study)</li>
-<li>Method: name (experimental, observational, literature review, etc.)</li>
-<li>Analysis: method (statistical method used for analysis)</li>
-<li>Source: name (for where or how I discovered the item)</li>
-<li>Status: reading status (unread, read partially, or read)</li>
+<li><a href="https://www.tjmahr.com/lists-knitr-secret-weapon/">Lists are my secret weapon for reporting stats with knitr</a> by Tristan Mahr</li>
 </ul>
-<p>I like this approach because it makes it easy to drill down a library collection to the items I need or to rediscover an item I forget the name of. It also reduces some of the cognitive overhead of working with tags by taking advantage of Zotero’s autocomplete when adding tags manually, and alphabetic tag sorting.</p>
 </section>
-</section>
-<section id="using-zotero-for-citations-in-quarto-and-r-markdown-documents" class="level2">
-<h2 class="anchored" data-anchor-id="using-zotero-for-citations-in-quarto-and-r-markdown-documents">Using Zotero for citations in Quarto and R Markdown documents</h2>
-<p>Quarto and R Markdown can use Pandoc to automatically generate formatted citations and bibliography entries in a number of citation styles, specified with a <code>CSL</code> file. The open source <a href="https://citationstyles.org"><strong>Citation Style Language</strong></a> (CSL) project maintains a crowdsourced <a href="https://github.com/citation-style-language/styles">GitHub repository</a> with over 10,000 free <code>CSL</code> citation styles.</p>
+<section id="figure-and-table-outputs" class="level2">
+<h2 class="anchored" data-anchor-id="figure-and-table-outputs">Figure and table outputs</h2>
+<p>Figures and tables produced by code blocks have unique parameters you can use to adjust their layout, add captions, or make them cross-referenceable. See the Quarto documentation for details:</p>
+<ul>
+<li><a href="https://quarto.org/docs/authoring/figures.html">Figures documentation</a></li>
+<li><a href="https://quarto.org/docs/authoring/tables.html">Tables documentation</a></li>
+</ul>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Use CSL JSON for bibliography files
+Adjusting figure appearance
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The native format for Pandoc’s citation processor, <code>citeproc</code>, <a href="https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html">CSL JSON</a> and it is essential to use <code>.json</code> formatted bibliography files to get correctly formatted citations and bibliography entries. All other bibliography file types (e.g., <code>.bib</code>) are internally converted to CSL JSON—a <a href="https://retorque.re/zotero-better-bibtex/exporting/pandoc/#use-csl-not-bibtex-with-pandoc">complex and often lossy process</a> that can result in incorrectly formatted citations.</p>
+<p>When making figures with <strong>ggplot2</strong> it’s best to know the final size of the figure before attempting to adjust the size of plot text or geometry.</p>
 </div>
 </div>
-<p>There are two options for generating a bibliography file from Zotero personal or group libraries in <a href="https://quarto.org/docs/authoring/footnotes-and-citations.html">Quarto</a> and <a href="https://rstudio.github.io/visual-markdown-editing/citations.html">R Markdown</a>:</p>
+</section>
+<section id="equations" class="level2">
+<h2 class="anchored" data-anchor-id="equations">Equations</h2>
+<p>Quarto features <a href="https://quarto.org/docs/authoring/markdown-basics.html#equations">extensive support</a> for writing beautiful math equations with <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">LaTeX math</a> expressions authored using <a href="https://pandoc.org/MANUAL.html#math">standard Pandoc markdown syntax</a>: Use <code>$</code> delimiters for inline math and <code>$$</code> delimiters for display math. Provide an <code>#eq-</code> label immediately after a display math equation to <a href="https://quarto.org/docs/authoring/cross-references.html#equations">make it referenceable</a>.</p>
+<table class="table">
+<colgroup>
+<col style="width: 48%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Markdown Syntax</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>inline math: <code>$E = mc^{2}$</code></td>
+<td>inline math: <span class="math inline">E=mc^{2}</span></td>
+</tr>
+<tr class="even">
+<td><p>display math:</p>
+<p><code>$$E = mc^{2}$$</code></p></td>
+<td>display math:<br>
+<span class="math display">E = mc^{2}</span></td>
+</tr>
+<tr class="odd">
+<td><p>display math with label:</p>
+<p><code>$$E = mc^{2}$${#eq-mc-squared}</code></p></td>
+<td>display math with label:<br>
+<span id="eq-mc-squared"><span class="math display">E = mc^{2} \tag{1}</span></span></td>
+</tr>
+</tbody>
+</table>
+<p>Math expressions can be rendered in any of Quarto’s output formats, but different rendering methods are used depending on the format:</p>
 <ul>
-<li>RStudio’s <a href="https://rstudio.github.io/visual-markdown-editing/citations.html">native Zotero integration</a> (visual editor only)</li>
-<li>The <a href="https://github.com/paleolimbot/rbbt"><strong>rbbt</strong></a> R package (works anywhere)</li>
+<li><code>html</code> offers <a href="https://quarto.org/docs/output-formats/html-basics.html#latex-equations">several math rendering methods</a></li>
+<li><code>pdf</code> uses LaTeX (including <a href="https://quarto.org/docs/output-formats/pdf-basics.html#raw-latex">raw LaTeX</a>)</li>
+<li><code>docx</code> uses Microsoft Word’s equation environment</li>
 </ul>
-<p>I prefer rbbt because allows you to generate a CSL JSON bibliography file dynamically from a Quarto or R Markdown document, rather than using a persistent file. To insert citations in a document interactively I use rbbt’s “Insert Zotero Citation” RStudio addin from a custom <strong>Alt-Command-R</strong> keyboard shortcut.</p>
+<p>To learn more about writing LaTeX math expressions, see:</p>
+<ul>
+<li><a href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference">MathJax basic tutorial and quick reference</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+<li><a href="https://tilburgsciencehub.com/building-blocks/collaborate-and-share-your-work/write-your-paper/amsmath-latex-cheatsheet/">Cheatsheet for LaTeX Math Commands</a></li>
+</ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Inspecting equations rendered by MathJax
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Equations rendered by MathJax can be inspected by right clicking them. This is useful if you want to view or copy the underlying TeX code from an equation <strong>Show Math As &gt; TeX Commands</strong> or <strong>Copy to Clipboard &gt; TeX Commands</strong>. Note that Tidy Tales uses the KaTeX renderer, so it won’t work on this site.</p>
+</div>
+</div>
+<section id="using-inline-r-code-in-math-equations" class="level3">
+<h3 class="anchored" data-anchor-id="using-inline-r-code-in-math-equations">Using inline R code in math equations</h3>
+<p>Inline R code <code>`r `</code> can be used within inline or display math to include code output in math equations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mtcars_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> am, <span class="at">data =</span> mtcars)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>coef_int   <span class="ot">&lt;-</span> <span class="fu">coef</span>(mtcars_fit)[<span class="st">"(Intercept)"</span>]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>coef_am    <span class="ot">&lt;-</span> <span class="fu">coef</span>(mtcars_fit)[<span class="st">"am"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Inline math: <code>$\mathrm{\widehat{mpg}} = `r coef_int` + `r coef_am`(\mathrm{am})$</code></p>
+<p>Inline math: <span class="math inline">\mathrm{\widehat{mpg}} = 17.1473684 + 7.2449393(\mathrm{am})</span></p>
+<p>The same approach also works for display math.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Writing model equations
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>equatiomatic</strong> package can be used to write equations from a fitted model. Learn more on the <a href="https://datalorax.github.io/equatiomatic/">package website</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(equatiomatic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>By default the model equation uses math symbols.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">extract_eq</span>(mtcars_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; $$
+#&gt; \operatorname{mpg} = \alpha + \beta_{1}(\operatorname{am}) + \epsilon
+#&gt; $$</code></pre>
+</div>
+</div>
+<p>But model estimates can be used too.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">extract_eq</span>(mtcars_fit, <span class="at">use_coefs =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; $$
+#&gt; \operatorname{\widehat{mpg}} = 17.15 + 7.24(\operatorname{am})
+#&gt; $$</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-math-equations-in-plots" class="level3">
+<h3 class="anchored" data-anchor-id="using-math-equations-in-plots">Using math equations in plots</h3>
+<p>Both base R and <strong>ggplot2</strong> plots feature support for writing beautiful math equations with <a href="https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/plotmath.html">plotmath expressions</a>. Equations can be used in plot labels, legends, and text.</p>
+<p>If you would rather write equations using LaTeX math expressions, the <strong>latex2exp</strong> package can be used to parse and convert LaTeX to plotmath expressions.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Learn more on the <a href="https://www.stefanom.io/latex2exp/">package website</a>.</p>
+<p>ggplot2 also includes some convenience functions for using plotmath in plot labels:</p>
+<ul>
+<li><code>label_parsed()</code> interprets labels as plotmath expressions</li>
+<li><code>label_bquote()</code> offers a flexible way of labelling facet rows or columns with plotmath expressions</li>
+</ul>
 
 
 </section>
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><a href="https://www.mathjax.org">MathJax</a> is an open-source JavaScript rendering engine for LaTeX math expressions. It is the default rendering method in Quarto HTML documents.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>There is also an <a href="syntax https://github.com/wilkelab/ggtext/issues/4">open issue</a> to support LaTeX math expressions using markdown in the <strong>ggtext</strong> package.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -658,13 +714,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../series/reproducible-data-science/posts/python-setup.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Python Setup</span>
+      <a href="../../../series/2023-01-24_reproducible-data-science/posts/r-getting-help.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Getting Help with R</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../series/reproducible-data-science/posts/learning-r.html" class="pagination-link">
-        <span class="nav-page-text">Learning R</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../../series/2023-01-24_reproducible-data-science/posts/productivity-tips.html" class="pagination-link">
+        <span class="nav-page-text">Productivity Tips</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
