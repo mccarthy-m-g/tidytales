@@ -10,7 +10,7 @@ order: 2
 
 [Git](https://www.r-project.org) is an open source distributed version control system for  tracking and managing changes to files.
 
-### Installing git
+### Installing Git
 
 Install Git from the Terminal with Homebrew:
 
@@ -40,6 +40,17 @@ Install GitHub CLI from the Terminal with Homebrew:
 
 ```bash
 brew install gh
+```
+
+### Installing Git Credential Manager
+
+[Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager) is a secure Git credential helper that makes it easy to store credentials securely and connect to GitHub over HTTPS.
+
+Install Git Credential Manager from the Terminal with Homebrew:
+
+```bash
+brew tap microsoft/git
+brew install --cask git-credential-manager-core
 ```
 
 ## Version Control in RStudio

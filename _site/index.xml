@@ -24,7 +24,7 @@
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1674520157000" data-listing-file-modified-sort="1674520157656" data-listing-reading-time-sort="1.43">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1674606540000" data-listing-file-modified-sort="1674606540468" data-listing-reading-time-sort="1.43">
 <a href="../../series/2023-01-24_reproducible-data-science/posts/start-here.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -39,14 +39,14 @@ Learn what this series is about and how to use it.
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
-Jan 23, 2023
+Jan 24, 2023
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-date-sort="1674245130000" data-listing-file-modified-sort="1674245130269" data-listing-reading-time-sort="3.685">
+<div class="g-col-1" data-index="1" data-listing-date-sort="1674686778000" data-listing-file-modified-sort="1674686778955" data-listing-reading-time-sort="3.695">
 <a href="../../series/2023-01-24_reproducible-data-science/posts/system-setup.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -61,14 +61,14 @@ Installing and configuring the basics.
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
-Jan 20, 2023
+Jan 25, 2023
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-listing-date-sort="1674599527000" data-listing-file-modified-sort="1674599527488" data-listing-reading-time-sort="0.96">
+<div class="g-col-1" data-index="2" data-listing-date-sort="1674685340000" data-listing-file-modified-sort="1674685340026" data-listing-reading-time-sort="1.155">
 <a href="../../series/2023-01-24_reproducible-data-science/posts/version-control-setup.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -83,14 +83,14 @@ Installing and configuring Git and GitHub.
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
-Jan 24, 2023
+Jan 25, 2023
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-listing-date-sort="1674523308000" data-listing-file-modified-sort="1674523308061" data-listing-reading-time-sort="1.37">
+<div class="g-col-1" data-index="3" data-listing-date-sort="1674606540000" data-listing-file-modified-sort="1674606540468" data-listing-reading-time-sort="1.37">
 <a href="../../series/2023-01-24_reproducible-data-science/posts/r-setup.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -105,14 +105,14 @@ Installing and configuring R.
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
-Jan 23, 2023
+Jan 24, 2023
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="4" data-listing-date-sort="1674521456000" data-listing-file-modified-sort="1674521456777" data-listing-reading-time-sort="1.425">
+<div class="g-col-1" data-index="4" data-listing-date-sort="1674606540000" data-listing-file-modified-sort="1674606540448" data-listing-reading-time-sort="1.425">
 <a href="../../series/2023-01-24_reproducible-data-science/posts/python-setup.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -127,14 +127,14 @@ Installing and configuring Python.
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
-Jan 23, 2023
+Jan 24, 2023
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="5" data-listing-date-sort="1674597923000" data-listing-file-modified-sort="1674597923827" data-listing-reading-time-sort="4.575">
+<div class="g-col-1" data-index="5" data-listing-date-sort="1674606540000" data-listing-file-modified-sort="1674606540470" data-listing-reading-time-sort="4.575">
 <a href="../../series/2023-01-24_reproducible-data-science/posts/zotero-setup.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -156,7 +156,7 @@ Jan 24, 2023
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="6" data-listing-date-sort="1674507520000" data-listing-file-modified-sort="1674507520958" data-listing-reading-time-sort="14.755">
+<div class="g-col-1" data-index="6" data-listing-date-sort="1674606540000" data-listing-file-modified-sort="1674606540448" data-listing-reading-time-sort="14.755">
 <a href="../../series/2023-01-24_reproducible-data-science/posts/learning-r.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -171,14 +171,14 @@ Learn how to program and do data science with R.
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
-Jan 23, 2023
+Jan 24, 2023
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="7" data-listing-date-sort="1674259631000" data-listing-file-modified-sort="1674259631535" data-listing-reading-time-sort="11.645">
+<div class="g-col-1" data-index="7" data-listing-date-sort="1674606540000" data-listing-file-modified-sort="1674606540449" data-listing-reading-time-sort="11.645">
 <a href="../../series/2023-01-24_reproducible-data-science/posts/r-packages.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -193,14 +193,14 @@ Installing, managing, and finding R Packages.
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
-Jan 20, 2023
+Jan 24, 2023
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="8" data-listing-date-sort="1674508791000" data-listing-file-modified-sort="1674508791143" data-listing-reading-time-sort="2.745">
+<div class="g-col-1" data-index="8" data-listing-date-sort="1674606540000" data-listing-file-modified-sort="1674606540449" data-listing-reading-time-sort="2.745">
 <a href="../../series/2023-01-24_reproducible-data-science/posts/r-getting-help.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -215,14 +215,14 @@ Writing reproducible examples and debugging errors with R.
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
-Jan 23, 2023
+Jan 24, 2023
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="9" data-listing-date-sort="1674257095000" data-listing-file-modified-sort="1674257095411" data-listing-reading-time-sort="6.245">
+<div class="g-col-1" data-index="9" data-listing-date-sort="1674606540000" data-listing-file-modified-sort="1674606540469" data-listing-reading-time-sort="6.245">
 <a href="../../series/2023-01-24_reproducible-data-science/posts/technical-writing.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -237,14 +237,14 @@ Technical writing and literate programming in Quarto documents.
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
-Jan 20, 2023
+Jan 24, 2023
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="10" data-listing-date-sort="1674521739000" data-listing-file-modified-sort="1674521739051" data-listing-reading-time-sort="9.905">
+<div class="g-col-1" data-index="10" data-listing-date-sort="1674606540000" data-listing-file-modified-sort="1674606540448" data-listing-reading-time-sort="9.905">
 <a href="../../series/2023-01-24_reproducible-data-science/posts/productivity-tips.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -259,7 +259,7 @@ Become more productive working with R and RStudio.
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
-Jan 23, 2023
+Jan 24, 2023
 </div>
 </div>
 </div>

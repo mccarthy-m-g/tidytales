@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Michael McCarthy">
-<meta name="dcterms.date" content="2023-01-24">
+<meta name="dcterms.date" content="2023-01-25">
 <meta name="description" content="Installing and configuring Git and GitHub.">
 
 <title>Tidy Tales - Version Control Setup</title>
@@ -241,7 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 24, 2023</p>
+        <p class="date">January 25, 2023</p>
       </div>
     </div>
     
@@ -332,12 +332,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#git" id="toc-git" class="nav-link active" data-scroll-target="#git">Git</a>
   <ul class="collapse">
-  <li><a href="#installing-git" id="toc-installing-git" class="nav-link" data-scroll-target="#installing-git">Installing git</a></li>
+  <li><a href="#installing-git" id="toc-installing-git" class="nav-link" data-scroll-target="#installing-git">Installing Git</a></li>
   </ul></li>
   <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github">GitHub</a>
   <ul class="collapse">
   <li><a href="#installing-github-desktop" id="toc-installing-github-desktop" class="nav-link" data-scroll-target="#installing-github-desktop">Installing GitHub Desktop</a></li>
   <li><a href="#installing-github-cli" id="toc-installing-github-cli" class="nav-link" data-scroll-target="#installing-github-cli">Installing GitHub CLI</a></li>
+  <li><a href="#installing-git-credential-manager" id="toc-installing-git-credential-manager" class="nav-link" data-scroll-target="#installing-git-credential-manager">Installing Git Credential Manager</a></li>
   </ul></li>
   <li><a href="#version-control-in-rstudio" id="toc-version-control-in-rstudio" class="nav-link" data-scroll-target="#version-control-in-rstudio">Version Control in RStudio</a></li>
   </ul>
@@ -356,7 +357,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="git">Git</h2>
 <p><a href="https://www.r-project.org">Git</a> is an open source distributed version control system for tracking and managing changes to files.</p>
 <section id="installing-git" class="level3">
-<h3 class="anchored" data-anchor-id="installing-git">Installing git</h3>
+<h3 class="anchored" data-anchor-id="installing-git">Installing Git</h3>
 <p>Install Git from the Terminal with Homebrew:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
@@ -375,6 +376,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="https://cli.github.com">GitHub CLI</a> is a command line interface to access GitHub from the Terminal.</p>
 <p>Install GitHub CLI from the Terminal with Homebrew:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install gh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="installing-git-credential-manager" class="level3">
+<h3 class="anchored" data-anchor-id="installing-git-credential-manager">Installing Git Credential Manager</h3>
+<p><a href="https://github.com/GitCredentialManager/git-credential-manager">Git Credential Manager</a> is a secure Git credential helper that makes it easy to store credentials securely and connect to GitHub over HTTPS.</p>
+<p>Install Git Credential Manager from the Terminal with Homebrew:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> tap microsoft/git</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install <span class="at">--cask</span> git-credential-manager-core</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="version-control-in-rstudio" class="level2">

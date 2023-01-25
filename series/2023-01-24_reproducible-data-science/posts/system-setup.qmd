@@ -89,6 +89,8 @@ The `Brewfile` to install all the dependencies covered in this series looks some
 brew "git"
 cask "github"
 brew "gh"
+tap "microsoft/git"
+cask "git-credential-manager-core"
 
 # R setup
 tap "r-lib/rig"
