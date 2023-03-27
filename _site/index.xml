@@ -10,7 +10,109 @@
 <atom:link href="https://tidytales.ca/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.2.313</generator>
-<lastBuildDate>Tue, 24 Jan 2023 08:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 24 Feb 2023 08:00:00 GMT</lastBuildDate>
+<item>
+  <title>Frequentist Statistics Labs</title>
+  <dc:creator>Michael McCarthy</dc:creator>
+  <link>https://tidytales.ca/series/2023-02-24_frequentist-statistics-labs/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+
+<!-- -->
+
+
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1677708349000" data-listing-file-modified-sort="1677708349795" data-listing-reading-time-sort="5.235">
+<a href="../../series/2023-02-24_frequentist-statistics-labs/posts/01_probability-distributions/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-img-bg" style="height: 150px;">
+&nbsp;
+</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Probability distributions
+</h5>
+<div class="card-text listing-description">
+description
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Mar 1, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-date-sort="1677276976000" data-listing-file-modified-sort="1677276976115" data-listing-reading-time-sort="0.005">
+<a href="../../series/2023-02-24_frequentist-statistics-labs/posts/01_descriptive-statistics/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-img-bg" style="height: 150px;">
+&nbsp;
+</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Descriptive statistics
+</h5>
+<div class="card-text listing-description">
+Means and stuff.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Feb 24, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-listing-date-sort="1678236248000" data-listing-file-modified-sort="1678236248574" data-listing-reading-time-sort="13.985">
+<a href="../../series/2023-02-24_frequentist-statistics-labs/posts/99_survival-analysis/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-img-bg" style="height: 150px;">
+&nbsp;
+</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Survival Analysis
+</h5>
+<div class="card-text listing-description">
+Time to events.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Mar 7, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{mccarthy2023,
+  author = {Michael McCarthy},
+  title = {Frequentist {Statistics} {Labs}},
+  date = {2023-02-24},
+  url = {https://tidytales.ca/series/2023-02-24_frequentist-statistics-labs},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mccarthy2023" class="csl-entry quarto-appendix-citeas">
+Michael McCarthy. (2023, February 24). <em>Frequentist Statistics
+Labs</em>. <a href="https://tidytales.ca/series/2023-02-24_frequentist-statistics-labs">https://tidytales.ca/series/2023-02-24_frequentist-statistics-labs</a>
+</div></div></section></div> ]]></description>
+  <category>.Model</category>
+  <guid>https://tidytales.ca/series/2023-02-24_frequentist-statistics-labs/index.html</guid>
+  <pubDate>Fri, 24 Feb 2023 08:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Reproducible Data Science</title>
   <dc:creator>Michael McCarthy</dc:creator>

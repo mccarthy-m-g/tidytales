@@ -38,6 +38,13 @@ website:
         - section: In this series
           contents: "series/2023-01-24_reproducible-data-science/posts/*.qmd"
 
+    - id: frequentist-statistics-labs
+      collapse-level: 1
+      contents:
+        - "series/2023-02-24_frequentist-statistics-labs/index.qmd"
+        - section: In this series
+          contents: "series/2023-02-24_frequentist-statistics-labs/posts/*/*.qmd"
+
   search:
     location: navbar
     type: textbox

@@ -1,0 +1,434 @@
+---
+title: Probability distributions
+description: description
+
+order: 1
+---
+
+## Recommended Reading
+
+- [List of probability distributions](https://en.wikipedia.org/wiki/List_of_probability_distributions) from Wikipedia
+- [Probabilistic Building Blocks](https://betanalpha.github.io/assets/case_studies/probability_densities.html) by Michael Betancourt
+- [Probability Distribution Explorer](https://distribution-explorer.github.io/index.html) by Justin Bois
+
+## Prerequisites
+
+```{r}
+library(distributional)
+library(ggplot2)
+library(ggdist)
+```
+
+```{r}
+#| echo: false
+# Set global defaults for ggplot2
+update_geom_defaults("slab", list(fill = "#123C69"))
+
+theme_set(
+  theme_classic() +
+  theme(
+    plot.background  = element_rect(fill = "#fffbfa"),
+    panel.background = element_rect(fill = "#fffbfa"),
+    axis.title.y = element_text(angle = 0, vjust = 0.5)
+  )
+)
+```
+
+## Continuous Distributions
+
+### Uniform Distribution
+
+```{r}
+uniform_distribution <- dist_uniform(min = 1, max = 10)
+```
+
+```{r}
+#| label: fig-uniform-distribution
+#| fig-cap: Uniform(1, 10)
+#| fig-subcap: 
+#|   - "Probability density function"
+#|   - "Cumulative distribution function"
+#| layout-ncol: 2
+
+p <- ggplot(mapping = aes(xdist = uniform_distribution))
+p + stat_slab(slab_type = "pdf")
+p + stat_slab(slab_type = "cdf")
+```
+
+### Normal Distribution
+
+```{r}
+normal_distribution <- dist_normal(mu = 0, sigma = 1)
+```
+
+```{r}
+#| label: fig-normal-distribution
+#| fig-cap: Normal(0, 1)
+#| fig-subcap: 
+#|   - "Probability density function"
+#|   - "Cumulative distribution function"
+#| layout-ncol: 2
+
+p <- ggplot(mapping = aes(xdist = normal_distribution))
+p + stat_slab(slab_type = "pdf")
+p + stat_slab(slab_type = "cdf")
+```
+
+### Log-Normal Distribution
+
+Used in:
+
+- Survival analysis
+
+```{r}
+lognormal_distribution <- dist_lognormal(mu = 0, sigma = 1)
+```
+
+```{r}
+#| label: fig-lognormal-distribution
+#| fig-cap: Normal(0, 1)
+#| fig-subcap: 
+#|   - "Probability density function"
+#|   - "Cumulative distribution function"
+#| layout-ncol: 2
+
+p <- ggplot(mapping = aes(xdist = lognormal_distribution))
+p + stat_slab(slab_type = "pdf")
+p + stat_slab(slab_type = "cdf")
+```
+
+### Truncated Normal Distribution
+
+```{r}
+normal_distribution_trunc <- dist_truncated(normal_distribution, lower = -1)
+```
+
+```{r}
+#| label: fig-normal-distribution-trunc
+#| fig-cap: Normal(0, 1), truncated at -1
+#| fig-subcap: 
+#|   - "Probability density function"
+#|   - "Cumulative distribution function"
+#| layout-ncol: 2
+
+p <- ggplot(mapping = aes(xdist = normal_distribution_trunc))
+p + stat_slab(slab_type = "pdf")
+p + stat_slab(slab_type = "cdf")
+```
+
+### Student t Distribution
+
+```{r}
+student_t_distribution <- dist_student_t(df = 2, mu = 0, sigma = 1)
+```
+
+```{r}
+#| label: fig-student-t-distribution
+#| fig-cap: Student_t(3, 5)
+#| fig-subcap: 
+#|   - "Probability density function"
+#|   - "Cumulative distribution function"
+#| layout-ncol: 2
+
+p <- ggplot(mapping = aes(xdist = student_t_distribution))
+p + stat_slab(slab_type = "pdf")
+p + stat_slab(slab_type = "cdf")
+```
+
+### Beta Distribution
+
+```{r}
+beta_distribution <- dist_beta(shape1 = 3, shape2 = 5)
+```
+
+```{r}
+#| label: fig-beta-distribution
+#| fig-cap: Beta(3, 5)
+#| fig-subcap: 
+#|   - "Probability density function"
+#|   - "Cumulative distribution function"
+#| layout-ncol: 2
+
+p <- ggplot(mapping = aes(xdist = beta_distribution))
+p + stat_slab(slab_type = "pdf")
+p + stat_slab(slab_type = "cdf")
+```
+
+### Chi-Squared Distribution
+
+```{r}
+chisq_distribution <- dist_chisq(df = 2, ncp = 0)
+```
+
+```{r}
+#| label: fig-chisq-distribution
+#| fig-cap: Chisq(2, 0)
+#| fig-subcap: 
+#|   - "Probability density function"
+#|   - "Cumulative distribution function"
+#| layout-ncol: 2
+
+p <- ggplot(mapping = aes(xdist = chisq_distribution))
+p + stat_slab(slab_type = "pdf")
+p + stat_slab(slab_type = "cdf")
+```
+
+### F Distribution
+
+```{r}
+f_distribution <- dist_f(df1 = 1, df2 = 2)
+```
+
+```{r}
+#| label: fig-f-distribution
+#| fig-cap: F(1, 2)
+#| fig-subcap: 
+#|   - "Probability density function"
+#|   - "Cumulative distribution function"
+#| layout-ncol: 2
+
+p <- ggplot(mapping = aes(xdist = f_distribution))
+p + stat_slab(slab_type = "pdf")
+p + stat_slab(slab_type = "cdf")
+```
+
+### Exponential Distribution
+
+Used in:
+
+- Survival analysis
+
+```{r}
+exponential_distribution <- dist_exponential(rate = 2)
+```
+
+```{r}
+#| label: fig-exponential-distribution
+#| fig-cap: Exponential(2)
+#| fig-subcap: 
+#|   - "Probability density function"
+#|   - "Cumulative distribution function"
+#| layout-ncol: 2
+
+p <- ggplot(mapping = aes(xdist = exponential_distribution))
+p + stat_slab(slab_type = "pdf")
+p + stat_slab(slab_type = "cdf")
+```
+
+### Gamma Distribution
+
+Used in:
+
+- Survival analysis
+
+```{r}
+gamma_distribution <- dist_gamma(shape = 1, rate = 0.5)
+```
+
+```{r}
+#| label: fig-gamma-distribution
+#| fig-cap: Gamma(1, 0.5)
+#| fig-subcap: 
+#|   - "Probability density function"
+#|   - "Cumulative distribution function"
+#| layout-ncol: 2
+
+p <- ggplot(mapping = aes(xdist = gamma_distribution))
+p + stat_slab(slab_type = "pdf")
+p + stat_slab(slab_type = "cdf")
+```
+
+### Weibull Distribution
+
+Used in:
+
+- Survival analysis
+
+```{r}
+weibull_distribution <- dist_weibull(shape = 0.5, scale = 1)
+```
+
+```{r}
+#| label: fig-weibull-distribution
+#| fig-cap: Weibull(0.5, 1)
+#| fig-subcap: 
+#|   - "Probability density function"
+#|   - "Cumulative distribution function"
+#| layout-ncol: 2
+
+p <- ggplot(mapping = aes(xdist = weibull_distribution))
+p + stat_slab(slab_type = "pdf")
+p + stat_slab(slab_type = "cdf")
+```
+
+### Logistic Distribution
+
+```{r}
+logistic_distribution <- dist_logistic(location = 5, scale = 2)
+```
+
+```{r}
+#| label: fig-logistic-distribution
+#| fig-cap: Logistic(5, 2)
+#| fig-subcap: 
+#|   - "Probability density function"
+#|   - "Cumulative distribution function"
+#| layout-ncol: 2
+
+p <- ggplot(mapping = aes(xdist = logistic_distribution))
+p + stat_slab(slab_type = "pdf")
+p + stat_slab(slab_type = "cdf")
+```
+
+### Pareto Distribution
+
+Used in:
+
+- Survival analysis
+
+```{r}
+pareto_distribution <- dist_pareto(shape = 10, scale = 1)
+```
+
+```{r}
+#| label: fig-pareto-distribution
+#| fig-cap: Pareto(10, 1)
+#| fig-subcap: 
+#|   - "Probability density function"
+#|   - "Cumulative distribution function"
+#| layout-ncol: 2
+
+p <- ggplot(mapping = aes(xdist = pareto_distribution))
+p + stat_slab(slab_type = "pdf")
+p + stat_slab(slab_type = "cdf")
+```
+
+## Discrete Distributions
+
+### Bernoulli Distribution
+
+```{r}
+bernoulli_distribution <- dist_bernoulli(prob = 0.25)
+```
+
+```{r}
+#| label: fig-bernoulli-distribution
+#| fig-cap: Bernoulli(0.25)
+#| fig-subcap: 
+#|   - "Probability mass function"
+#|   - "Cumulative distribution function"
+#| layout-ncol: 2
+
+p <- ggplot(mapping = aes(xdist = bernoulli_distribution)) +
+  scale_x_continuous(breaks = c(0, 1))
+p + stat_slab(slab_type = "pdf") 
+p + stat_slab(slab_type = "cdf")
+```
+
+### Binomial Distribution
+
+```{r}
+binomial_distribution <- dist_binomial(size = 2, prob = 0.5)
+```
+
+```{r}
+#| label: fig-binomial-distribution
+#| fig-cap: Binomial(2, 0.5)
+#| fig-subcap: 
+#|   - "Probability mass function"
+#|   - "Cumulative distribution function"
+#| layout-ncol: 2
+
+p <- ggplot(mapping = aes(xdist = binomial_distribution))
+p + stat_slab(slab_type = "pdf") 
+p + stat_slab(slab_type = "cdf")
+```
+
+### Negative Binomial Distribution
+
+```{r}
+negative_binomial_distribution <- dist_negative_binomial(size = 2, prob = 0.5)
+```
+
+```{r}
+#| label: fig-negative-binomial-distribution
+#| fig-cap: NegativeBinomial(2, 0.5)
+#| fig-subcap: 
+#|   - "Probability mass function"
+#|   - "Cumulative distribution function"
+#| layout-ncol: 2
+
+p <- ggplot(mapping = aes(xdist = negative_binomial_distribution))
+p + stat_slab(slab_type = "pdf") 
+p + stat_slab(slab_type = "cdf")
+```
+
+### Poisson Distribution
+
+```{r}
+poisson_distribution <- dist_poisson(lambda = 1)
+```
+
+```{r}
+#| label: fig-poisson-distribution
+#| fig-cap: Poisson(1)
+#| fig-subcap: 
+#|   - "Probability mass function"
+#|   - "Cumulative distribution function"
+#| layout-ncol: 2
+
+p <- ggplot(mapping = aes(xdist = poisson_distribution))
+p + stat_slab(slab_type = "pdf") 
+p + stat_slab(slab_type = "cdf")
+```
+
+## Sampling Distributions
+
+Generate random samples from any of the probability distributions above with `generate()`:
+
+```{r}
+generate(normal_distribution, times = 10)
+```
+
+As sample size increases, the sampling distribution better approximates the probability distribution:
+
+```{r}
+#| label: fig-sample-size
+#| fig-cap: Random samples from Normal(0, 1)
+#| fig-subcap: 
+#|   - "N = 30"
+#|   - "N = 100"
+#|   - "N = 1000"
+#|   - "N = 10000"
+#| layout-ncol: 2
+normal_distributions <- data.frame(
+  x = unlist(generate(rep(normal_distribution, 4), c(30, 100, 1000, 10000))),
+  group = c(
+    rep("N = 30", 30),
+    rep("N = 100", 100),
+    rep("N = 1000", 1000),
+    rep("N = 10000", 10000)
+  )
+)
+
+plot_samples <- function(group, bins) {
+  ggplot() +
+    stat_slab(
+      aes(x = x),
+      data = dplyr::filter(normal_distributions, group == {{ group }}),
+      fill = "#123C69",
+      alpha = 0.33
+    ) +
+    stat_slab(
+      aes(xdist = normal_distribution),
+      colour = "#123C69",
+      fill = NA
+    ) +
+    ylab("y")
+}
+
+plot_samples("N = 30", 10)
+plot_samples("N = 100", 10)
+plot_samples("N = 1000", 10)
+plot_samples("N = 10000", 10)
+```
