@@ -18,6 +18,14 @@ categories:
 
 image: images/featured.png
 
+open-graph:
+  title: "Tidy Tales: The Pareto Principle in R package development"
+  image: images/card.png
+  image-width: 1200
+  image-height: 628
+  
+resources: images/card.png
+
 params:
   use_renv: FALSE
   data_file: NULL
@@ -28,7 +36,7 @@ df-print: default
 
 ## Overview
 
-During my (ongoing) job search for a data science or developer-focused role where I get to do R programming, this question came to me: Just how many R developers are there? That's the question that inspired this post. However, the data needed to answer that question can also be used to answer other interesting questions about R developers, such as how many packages they've contributed to, their roles in package development, and so forth. So that's what we'll be doing here.
+During my (ongoing) job search for a data science or developer-focused role where I get to do R programming, this question came to me: Just how many R developers are there? That's the question that inspired this post. However, the data needed to answer this question can also be used to answer other interesting questions about R developers, such as how many packages they've contributed to, their roles in package development, and so forth. So that's what we'll be doing here.
 
 If you just want to see the stats, you can skip to the [R developer statistics section](#r-developer-statistics). Otherwise follow along to see how I retrieved and wrangled the data into a usable state.
 
@@ -390,7 +398,7 @@ cran_author_pkg_counts |>
   opt_interactive(use_sorting = FALSE, use_filters = TRUE)
 ```
 
-So there are *around* `r nrow(cran_author_pkg_counts)` people who have some type of authorship on at least one currently available CRAN package at the time this post was published. I've emphasized "around" because of the measurement error from extracting names from the `Author` field of `DESCRIPTION`, but also because this number will fluctuate over time as new packages are published, unmaintained packages are archived, and so forth.
+So there are *around* `r nrow(cran_author_pkg_counts)` people who have some type of authorship on at least one currently available CRAN package at the time this post was published. I've emphasized "around" because of the measurement error from extracting names from the `Author` field of `DESCRIPTION` and from people writing their names in multiple ways across packages, but also because this number will fluctuate over time as new packages are published, unmaintained packages are archived, and so forth.
 
 To try to put this number into perspective, Ben Ubah, Claudia Vitolo, and Rick Pack put together a [dashboard](https://github.com/benubah/r-community-explorer) with data on how many R users there are worldwide belonging to different R user groups. At the time of writing this post there were:
 
