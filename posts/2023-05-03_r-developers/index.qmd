@@ -1,0 +1,540 @@
+---
+title: The Pareto Principle in R package development
+description: |
+  Exploring R package developer data on CRAN with the {tidyverse} and {gt}.
+  
+author:
+  - name: Michael McCarthy
+    url: https://michaelmccarthy.tidytales.ca
+
+date: '2023-05-03'
+
+categories:
+  - .Wrangle
+  - .Visualize
+  - "{tidyverse}"
+  - "{scales}"
+  - "{gt}"
+
+image: images/featured.png
+
+params:
+  use_renv: FALSE
+  data_file: NULL
+  fair_dealing: FALSE
+  
+df-print: default
+---
+
+## Overview
+
+During my (ongoing) job search for a data science or developer-focused role where I get to do R programming, this question came to me: Just how many R developers are there? That's the question that inspired this post. However, the data needed to answer that question can also be used to answer other interesting questions about R developers, such as how many packages they've contributed to, their roles in package development, and so forth. So that's what we'll be doing here.
+
+If you just want to see the stats, you can skip to the [R developer statistics section](#r-developer-statistics). Otherwise follow along to see how I retrieved and wrangled the data into a usable state.
+
+## Prerequisites
+
+```{r}
+library(tidyverse)
+library(stringi)
+library(scales)
+library(gt)
+```
+
+I'll be using the CRAN package repository data returned by `tools::CRAN_package_db()` to get package and author metadata for the current packages available on CRAN. This returns a data frame with character columns containing most metadata from the `DESCRIPTION` file of a given R package.
+
+::: {.column-margin}
+Since this data will change over time, here's when `tools::CRAN_package_db()` was run for reference: `r Sys.Date()`.
+:::
+
+```{r}
+cran_pkg_db <- tools::CRAN_package_db()
+
+glimpse(cran_pkg_db)
+```
+
+## Wrangle
+
+Since we only care about package and author metadata, a good first step is to remove everything else. This leaves us with a `Package` field and two author fields: `Author` and `Authors@R`. The difference between the two author fields is that `Author` is an unstructured text field that can contain any text in any format, and `Authors@R` is a structured text field containing R code that defines authors' names and roles with the `person()` function.
+
+```{r}
+cran_pkg_db <- cran_pkg_db |>
+  select(package = Package, authors = Author, authors_r = `Authors@R`) |>
+  as_tibble()
+```
+
+Here's a comparison of the two fields, using the **dplyr** package as an example:
+
+```{r}
+# Author
+cran_pkg_db |>
+  filter(package == "dplyr") |>
+  pull(authors) |>
+  cat()
+
+# Authors@R
+cran_pkg_db |>
+  filter(package == "dplyr") |>
+  pull(authors_r) |>
+  cat()
+```
+
+And a glimpse at the data:
+
+```{r}
+cran_pkg_db
+```
+
+From the output above you can see that every package uses the `Author` field, but not all packages use the `Authors@R` field. This is unfortunate, because it means that the names and roles of authors need to be extracted from the unstructured text in the `Author` field for a subset of packages, which is difficult to do and somewhat error-prone. Just for consideration, here's how many packages don't use the `Authors@R` field. 
+
+```{r}
+cran_pkg_db |>
+  filter(is.na(authors_r)) |>
+  nrow()
+```
+
+So roughly one-third of all packages. From the output above it's also clear that although there are similarities in how different packages populate the `Author` field, it does vary; so a simple rule like splitting the text on commas isn't sufficient. These are fairly tame examples---some packages even use multiple sentences describing each author's roles and affiliations, or contain other comments such as copyright disclaimers. All of these things make it more difficult to extract names and roles without errors.
+
+Conversely, for the `Authors@R` field, all that's needed is to parse and evaluate the R code stored there as a character string; this will return a `person` vector that has `format()` methods to get authors' names and roles into an analysis-ready format. This removes the possibility for me to introduce errors into the data, although it doesn't solve things like Authors using an inconsistent name across packages (e.g., sometimes including their middle initial and sometimes not, or just generally writing their name differently).
+
+Because there are two fields, I'll make two helper functions to get name and role data from each field. Regardless of the field, the end goal is to tidy `cran_pkg_db` into a data frame with three columns: `package`, `person`, and `roles`, with one package/person combination per row.
+
+### Extracting from Authors\@R
+
+Getting the data we want from the `Authors@R` field is pretty straightforward. For the packages where this is used, each one has a vector of `person` objects stored as a character string like:
+
+```{r}
+mm_string <- "person(\"Michael\", \"McCarthy\", , role = c(\"aut\", \"cre\"))"
+
+mm_string
+```
+
+Which can be parsed and evaluated as R code like:
+
+```{r}
+mm_eval <- eval(parse(text = mm_string))
+
+class(mm_eval)
+```
+
+Then the `format()` method for the `person` class can be used to get names and roles into the format I want simply and accurately.
+
+```{r}
+mm_person <- format(mm_eval, include = c("given", "family"))
+mm_roles  <- format(mm_eval, include = c("role"))
+tibble(person = mm_person, roles = mm_roles)
+```
+
+I've wrapped this up into a small helper function, `authors_r()`, that includes some light tidying steps just to deal with a couple small discrepancies I noticed in a subset of packages.
+
+```{r}
+# Get names and roles from "person" objects in the Authors@R field
+authors_r <- function(x) {
+  # Some light preprocessing is needed to replace the unicode symbol for line
+  # breaks with the regular "\n". This is an edge case from at least one
+  # package.
+  code <- str_replace_all(x, "\\<U\\+000a\\>", "\n")
+  persons <- eval(parse(text = code))
+  person <- str_trim(format(persons, include = c("given", "family")))
+  roles <- format(persons, include = c("role"))
+  tibble(person = person, roles = roles)
+}
+```
+
+Here's an example of it with dplyr:
+
+```{r}
+cran_pkg_db |>
+  filter(package == "dplyr") |>
+  pull(authors_r) |>
+  # Normalizing names leads to more consistent results with summary statistics
+  # later on, since some people use things like umlauts and accents
+  # inconsistently.
+  stri_trans_general("latin-ascii") |>
+  authors_r()
+```
+
+### Extracting from Author
+
+As I mentioned before, getting the data we want from the `Author` field is more complicated since there's no common structure between all packages. I tried a few approaches, including:
+
+- ChatGPT
+- Named Entity Extraction
+- Regular expressions (regex)
+
+**ChatGPT** worked excellently in the few examples I tried; however, OpenAI doesn't provide free API access, so I had no way of using this with R without paying (which I didn't want to do). Here's the prompt I used (note that it would need to be expanded to deal with more edge cases):
+
+> Separate these names with commas and do not include any other information (including a response to the request); if any names are within person() they belong to one person: <insert contents of Author field here>
+
+**Named Entity Extraction**, which is a natural language processing (NLP) method that extracts entities (like peoples' names) from text, didn't work very well in the few examples I tried. It didn't recognize certain names even when the only thing in a sentence was names separated by commas. This is probably my fault more than anything---I've never used this method before and didn't want to spend too much time learning it just for this post, so I used a pre-trained model that probably wasn't trained on a diverse set of names.
+
+Fortunately, **regular expressions** actually worked pretty well, so this is the solution I settled on. I tried two approaches to this. First I tried to split the names (and roles) up by commas (and eventually other punctuation as I ran into edge cases). This worked alright; there were clearly errors in the data with this method, but since most packages use a simple structure in the `Author` field it correctly extracted names from most packages.
+
+Second I tried to extract the names (and roles) directly with a regular expression that could match a variety of names. This is the solution I settled on. It still isn't perfect, but the data is cleaner than with the other method. Regardless, the difference in number of observations between both methods was only in the mid hundreds---so I think any statistics based on this data, although not completely accurate, are still sufficient to get a good idea of the R developer landscape on CRAN.
+
+```{r}
+# This regex was adapted from <https://stackoverflow.com/a/7654214/16844576>.
+# It's designed to capture a wide range of names, including those with
+# punctuation in them. It's tailored to this data, so I don't know how well
+# it would generalize to other situations, but feel free to try it.
+persons_roles <- r"((\'|\")*[A-Z]([A-Z]+|(\'[A-Z])?[a-z]+|\.)(?:(\s+|\-)[A-Z]([a-z]+|\.?))*(?:(\'?\s+|\-)[a-z][a-z\-]+){0,2}(\s+|\-)[A-Z](\'?[A-Za-z]+(\'[A-Za-z]+)?|\.)(?:(\s+|\-)[A-Za-z]([a-z]+|\.))*(\'|\")*(?:\s*\[(.*?)\])?)"
+# Some packages put the person() code in the wrong field, but it's also
+# formatted incorrectly and throws an error when evaluated, so the best we can
+# do is just extract the whole thing for each person.
+person_objects <- r"(person\((.*?)\))"
+
+# Get names and roles from character strings in the Author field
+authors <- function(x) {
+  # The Author field is unstructured and there are idiosyncrasies between
+  # different packages. The steps here attempt to fix the idiosyncrasies so
+  # authors can be extracted with as few errors as possible.
+  persons <- x |>
+    # Line breaks should be replaced with spaces in case they occur in the
+    # middle of a name.
+    str_replace_all("\\n|\\<U\\+000a\\>|\\n(?=[:upper:])", " ") |>
+    # Periods should always have a space after them so initials will be
+    # recognized as part of a name.
+    str_replace_all("\\.", "\\. ") |>
+    # Commas before roles will keep them from being included in the regex.
+    str_remove_all(",(?= \\[)") |>
+    # Get persons and their roles.
+    str_extract_all(paste0(persons_roles, "|", person_objects)) |>
+    unlist() |>
+    # Multiple spaces can be replaced with a single space for cleaner names.
+    str_replace_all("\\s+", " ")
+
+  tibble(person = persons) |>
+    mutate(
+      roles  = str_extract(person, "\\[(.*?)\\]"),
+      person = str_remove(
+        str_remove(person, "\\s*\\[(.*?)\\]"),
+        "^('|\")|('|\")$" # Some names are wrapped in quotations
+      )
+    )
+}
+```
+
+Here's an example of it with dplyr. If you compare it to the output from `authors_r()` above you can see the data quality is still good enough for rock 'n' roll, but it isn't perfect; Posit's roles are no longer defined because the comma in their name cut off the regex before it captured the roles. So there are some edge cases like this that will create measurement error in the `person` or `roles` columns, but I don't think it's bad enough to invalidate the results.
+
+```{r}
+cran_pkg_db |>
+  filter(package == "dplyr") |>
+  pull(authors) |>
+  stri_trans_general("latin-ascii") |>
+  authors()
+```
+
+### Extracting roles
+
+From the example dplyr output above, we can see that the roles column is currently a character string with the role codes, which isn't super useful. Later on I'll split these out into indicator columns with a `TRUE` or `FALSE` for whether someone had a given role. I also wanted the full names for the roles, since some of the codes aren't very obvious.
+
+Kurt Hornik, Duncan Murdoch and Achim Zeileis published a [nice article in The R Journal](https://journal.r-project.org/archive/2012/RJ-2012-009/index.html) explaining the roles of R package authors and where they come from. Briefly, they come from the "Relator and Role" codes and terms from MARC (MAchine-Readable Cataloging, Library of Congress, 2012) here: <https://www.loc.gov/marc/relators/relaterm.html>.
+
+There are a lot of roles there; I just took the ones that were present in the data at the time I wrote this post.
+
+```{r}
+marc_roles <- c(
+  analyst = "anl",
+  architecht = "arc",
+  artist = "art",
+  author = "aut",
+  author_in_quotations = "aqt",
+  author_of_intro = "aui",
+  bibliographic_antecedent = "ant",
+  collector = "col",
+  compiler = "com",
+  conceptor = "ccp",
+  conservator = "con",
+  consultant = "csl",
+  consultant_to_project = "csp",
+  contestant_appellant = "cot",
+  contractor = "ctr",
+  contributor = "ctb",
+  copyright_holder = "cph",
+  corrector = "crr",
+  creator = "cre",
+  data_contributor = "dtc",
+  degree_supervisor = "dgs",
+  editor = "edt",
+  funder = "fnd",
+  illustrator = "ill",
+  inventor = "inv",
+  lab_director = "ldr",
+  lead = "led",
+  metadata_contact = "mdc",
+  musician = "mus",
+  owner = "own",
+  presenter = "pre",
+  programmer = "prg",
+  project_director = "pdr",
+  scientific_advisor = "sad",
+  second_party = "spy",
+  sponsor = "spn",
+  supporting_host = "sht",
+  teacher = "tch",
+  thesis_advisor = "ths",
+  translator = "trl",
+  research_team_head = "rth",
+  research_team_member = "rtm",
+  researcher = "res",
+  reviewer = "rev",
+  witness = "wit",
+  woodcutter = "wdc"
+)
+```
+
+### Tidying the data
+
+With all the explanations out of the way we can now tidy the data with our helper functions.
+
+```{r}
+cran_authors <- cran_pkg_db |>
+  mutate(
+    # Letters with accents, etc. should be normalized so that names including
+    # them are picked up by the regex.
+    across(c(authors, authors_r), \(.x) stri_trans_general(.x, "latin-ascii")),
+    # The extraction functions aren't vectorized so they have to be mapped over.
+    # This creates a list column.
+    persons = if_else(
+      is.na(authors_r),
+      map(authors, \(.x) authors(.x)),
+      map(authors_r, \(.x) authors_r(.x))
+    )
+  ) |>
+  select(-c(authors, authors_r)) |>
+  unnest(persons) |>
+  # If a package only has one author then they must be the author and creator,
+  # so it's safe to impute this when it isn't there.
+  group_by(package) |>
+  mutate(roles = if_else(
+    is.na(roles) & n() == 1, "[aut, cre]", roles
+  )) |>
+  ungroup()
+```
+
+Then add the indicator columns for roles. Note the use of the walrus operator (`:=`) here to create new columns from the full names of MARC roles on the left side of the walrus, while detecting the MARC codes with `str_detect()` on the right side. I'm mapping over this because [the left side can't be a vector](https://yjunechoe.github.io/posts/2020-12-13-collapse-repetitive-piping-with-reduce/#sad-repetitive-pipes).
+
+```{r}
+cran_authors_tidy <- cran_authors |>
+  # Add indicator columns for all roles.
+  bind_cols(
+    map2_dfc(
+      names(marc_roles), marc_roles,
+      function(.x, .y) {
+        cran_authors |>
+          mutate(!!.x := str_detect(roles, .y)) |>
+          select(!!.x)
+      }
+    )
+  ) |>
+  # Not everyone's role is known.
+  mutate(unknown = is.na(roles))
+```
+
+This all leaves us with a tidy (mostly error free) data frame about R developers and their roles that is ready to explore:
+
+```{r}
+glimpse(cran_authors_tidy)
+```
+
+## R developer statistics
+
+I'll start with person-level stats, mainly because some of the other stats are further summaries of these statistics. Nothing fancy here, just the number of packages a person has contributed to, role counts, and nominal and percentile rankings. Both the ranking methods used here give every tie the same (smallest) value, so if two people tied for second place both their ranks would be 2, and the next person's rank would be 4. 
+
+```{r}
+cran_author_pkg_counts <- cran_authors_tidy |>
+  group_by(person) |>
+  summarise(
+    n_packages = n(),
+    across(analyst:unknown, function(.x) sum(.x, na.rm = TRUE))
+  ) |>
+  mutate(
+    # Discretizing this for visualization purposes later on
+    n_pkgs_fct = case_when(
+      n_packages == 1 ~ "One",
+      n_packages == 2 ~ "Two",
+      n_packages == 3 ~ "Three",
+      n_packages >= 4 ~ "Four+"
+    ),
+    n_pkgs_fct = factor(n_pkgs_fct, levels = c("One", "Two", "Three", "Four+")),
+    rank = min_rank(desc(n_packages)),
+    percentile = percent_rank(n_packages) * 100,
+    .after = n_packages
+  ) |>
+  arrange(desc(n_packages))
+```
+
+Here's an interactive **gt** table of the person-level stats so you can find yourself, or ask silly questions like how many other authors share a name with you. If you page or search through it you can also get an idea of the data quality (e.g., try "Posit" under the person column and you'll see that they don't use a consistent organization name across all packages, which creates some measurement error here).
+
+```{r}
+#| code-fold: true
+cran_author_pkg_counts |>
+  select(-n_pkgs_fct) |>
+  gt() |>
+  tab_header(
+    title = "R Developer Contributions",
+    subtitle = "CRAN Package Authorships and Roles"
+  ) |>
+  text_transform(
+    \(.x) str_to_title(str_replace_all(.x, "_", " ")),
+    locations = cells_column_labels()
+  ) |>
+  fmt_number(
+    columns = percentile
+  ) |>
+  fmt(
+    columns = rank,
+    fns = \(.x) label_ordinal()(.x)
+  ) |>
+  cols_width(everything() ~ px(120)) |>
+  opt_interactive(use_sorting = FALSE, use_filters = TRUE)
+```
+
+So there are *around* `r nrow(cran_author_pkg_counts)` people who have some type of authorship on at least one currently available CRAN package at the time this post was published. I've emphasized "around" because of the measurement error from extracting names from the `Author` field of `DESCRIPTION`, but also because this number will fluctuate over time as new packages are published, unmaintained packages are archived, and so forth.
+
+To try to put this number into perspective, Ben Ubah, Claudia Vitolo, and Rick Pack put together a [dashboard](https://github.com/benubah/r-community-explorer) with data on how many R users there are worldwide belonging to different R user groups. At the time of writing this post there were:
+
+- Around 775,000 members of R user groups organized on Meetup
+- Around 100,000 R-Ladies members
+
+The R Consortium also states on their website that [there are more than two million R users worldwide](https://www.r-consortium.org/about) (although they don't state when or where this number comes from). Regardless of the exact amount, it's apparent that **there are many more R users than R developers**.
+
+### Package contributions
+
+The title of this post probably gave this away, but **around 90% of R developers have worked on one to three packages, and only around 10% have worked on four or more packages**.
+
+```{r}
+cran_author_pkg_counts |>
+  group_by(n_pkgs_fct) |>
+  summarise(n_people = n()) |>
+  ggplot(mapping =  aes(x = n_pkgs_fct, y = n_people)) +
+    geom_col() +
+    scale_y_continuous(
+      sec.axis = sec_axis(
+        trans = \(.x) .x / nrow(cran_author_pkg_counts),
+        name = "Percent of sample",
+        labels = label_percent(),
+        breaks = c(0, .05, .10, .15, .70)
+      )
+    ) +
+    labs(
+      x = "Package contributions",
+      y = "People"
+    )
+```
+
+Notably, in the group that have worked on four or more packages, the spread of package contributions is huge. **This vast range is mostly driven by people who do R package development as part of their job** (e.g., if you look at the `cran_author_pkg_counts` table above, most of the people at the very top are either professors of statistics or current or former developers from Posit, rOpenSci, or the R Core Team).
+
+```{r}
+cran_author_pkg_counts |>
+  filter(n_pkgs_fct == "Four+") |>
+  group_by(rank, n_packages) |>
+  summarise(n_people = n()) |>
+  ggplot(mapping = aes(x = n_packages, y = n_people)) +
+    geom_segment(aes(xend = n_packages, yend = 0)) +
+    geom_point() +
+    scale_y_continuous(
+      sec.axis = sec_axis(
+        trans = \(.x) .x / nrow(cran_author_pkg_counts),
+        name = "Percent of sample",
+        labels = label_percent()
+      )
+    ) +
+    labs(
+      x = "Package contributions",
+      y = "People"
+    )
+```
+
+Here are some subsample summary statistics to compliment the plots above. 
+
+```{r}
+cran_author_pkg_counts |>
+  group_by(n_packages >= 4) |>
+  summarise(
+    n_developers = n(),
+    n_pkgs_mean = mean(n_packages),
+    n_pkgs_sd = sd(n_packages),
+    n_pkgs_median = median(n_packages),
+    n_pkgs_min = min(n_packages),
+    n_pkgs_max = max(n_packages)
+  )
+```
+
+### Role distributions
+
+Not every contribution to an R package involves code. For example, two authors of the **wiad** package were *woodcutters*! The package is for wood image analysis, so although it's surprising a role like that exists, it makes a lot of sense in context. Anyways, neat factoids aside, the point of this section is to look at the distribution of different roles in R package development.  
+
+To start, let's get an idea of how many people were involved in programming-related roles. This won't be universally true, but most of the time the following roles will involve programming:
+
+```{r}
+programming_roles <-
+  c("author", "creator", "contributor", "compiler", "programmer")
+```
+
+Here's the count: 
+
+```{r}
+cran_author_pkg_counts |>
+  filter(if_any(!!programming_roles, \(.x) .x > 0)) |>
+  nrow()
+```
+
+There were also `r nrow(filter(cran_author_pkg_counts, unknown > 0))` whose role was unknown (either because it wasn't specified or wasn't picked up by my regex method). Regardless, **most people have been involved in programming-related roles**, and although other roles occur they're relatively rare.
+
+Here's a plot to compliment this point:
+
+```{r}
+cran_authors_tidy |>
+  summarise(across(analyst:unknown, function(.x) sum(.x, na.rm = TRUE))) |>
+  pivot_longer(cols = everything(), names_to = "role", values_to = "n") |>
+  arrange(desc(n)) |>
+  ggplot(mapping = aes(x = n, y = reorder(role, n))) +
+    geom_segment(aes(xend = 0, yend = role)) +
+    geom_point() +
+    labs(
+      x = "Count across packages",
+      y = "Role"
+    )
+```
+
+### Ranking contributions
+
+The interactive table above already contains this information, but to compliment David Smith's post from [5 years ago](https://blog.revolutionanalytics.com/2018/03/the-most-prolific-package-maintainers-on-cran.html), here's the current Top 20 most prolific authors on CRAN.
+
+::: {.column-margin}
+This is why Hadley is on the cover of [Glamour magazine](https://posit.co/resources/videos/the-glamour-of-graphics/) and we're not.
+<br>
+<br>
+![](images/hadley.png)
+:::
+
+```{r}
+cran_author_pkg_counts |>
+  # We don't want organizations or groups here
+  filter(!(person %in% c("RStudio", "R Core Team", "Posit Software, PBC"))) |>
+  head(20) |>
+  select(person, n_packages) |>
+  gt() |>
+  tab_header(
+    title = "Top 20 R Developers",
+    subtitle = "Based on number of CRAN package authorships"
+  ) |>
+  text_transform(
+    \(.x) str_to_title(str_replace_all(.x, "_", " ")),
+    locations = cells_column_labels()
+  ) |>
+  cols_width(person ~ px(140))
+```
+
+## Conclusion
+
+My main takeaway from all of this is that if you know how to write and publish an R package on CRAN (or contribute to existing packages), you have a valuable skill that not a lot of other R users have. If you do want to learn, I recommend reading [R Packages](https://r-pkgs.org) by Hadley Wickham and Jenny Bryan.
+
+My other takeaway is that the `Author` field should be dropped from `DESCRIPTION` so my eyesore of a regular expression never has to extract a name again. (This still wouldn't remove all the measurement error I discussed, since some people and organizations don't write their names consistently across packages. Oh well.).
+
+One thing I am curious about, but which would be hard to get good data on, is how many people have R package development experience who haven't published on CRAN; or, of the people who have published on CRAN, how many packages have they worked on that aren't (yet) on CRAN (for me it's five).
+
+Anyways, that's it for now. If you think this data could answer other interesting questions I didn't cover, let me know down below and I'll consider adding more to the post.
+
+{{< include /_common/_appendix.qmd >}}
