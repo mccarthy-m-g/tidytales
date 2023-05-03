@@ -14,4 +14,5 @@ toc-location: left
 
 # Citation Metadata
 citation: true
+appendix-cite-as: display
 csl: ../../assets/apa.csl

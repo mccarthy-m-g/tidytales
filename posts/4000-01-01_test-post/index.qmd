@@ -21,3 +21,5 @@ params:
 ```
 
 A test post.
+
+{{< include /_common/_appendix.qmd >}}
