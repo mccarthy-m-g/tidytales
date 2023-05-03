@@ -1,5 +1,5 @@
 
-## {.appendix .unnumbered .unlisted}
+## {.appendix}
 
 ::: {.d-flex}
 
@@ -16,7 +16,7 @@ Thanks for reading! I’m Michael, the voice behind Tidy Tales. I am an award wi
 
 :::
 
-## Comments {.appendix .unnumbered .unlisted}
+## Comments {.appendix}
 
 <details open>
 <summary></summary>
@@ -24,7 +24,7 @@ Thanks for reading! I’m Michael, the voice behind Tidy Tales. I am an award wi
 :::
 </details>
 
-## Session Info {.appendix .unnumbered .unlisted}
+## Session Info {.appendix}
 
 <details>
 <summary></summary>
@@ -52,13 +52,13 @@ pkg_sesh
 </details>
 
 `r if (is.null(params$data_file)) "<!--"`
-## Data {.appendix .unnumbered .unlisted}
+## Data {.appendix}
 
 [Download](`r paste0("/data/", params$data_file)`) the data used in this post.
 `r if (is.null(params$data_file)) "-->"`
 
 `r if (!params$fair_dealing) "<!--"`
-## Fair Dealing {.appendix .unnumbered .unlisted}
+## Fair Dealing {.appendix}
 
 Any of the trademarks, service marks, collective marks, design rights or similar rights that are mentioned, used, or cited in this article are the property of their respective owners. They are used here as fair dealing for the purpose of education in accordance with [section 29 of the Copyright Act](https://laws-lois.justice.gc.ca/eng/acts/c-42/page-8.html#h-103270) and do not infringe copyright.
 `r if (!params$fair_dealing) "-->"`

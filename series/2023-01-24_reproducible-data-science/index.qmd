@@ -11,6 +11,7 @@ categories:
 image: posts/images/start-here.png
 
 citation: true
+appendix-cite-as: display
 csl: ../../assets/apa.csl
 license: "CC BY"
 
@@ -20,9 +21,11 @@ listing:
   type: grid
   sort: "order"
 
+toc: false
+
 page-layout: full
 ---
 
-## Artwork {.appendix .unnumbered .unlisted}
+## Artwork {.appendix}
 
 Artwork by [Allison Horst](https://allisonhorst.com/allison-horst).

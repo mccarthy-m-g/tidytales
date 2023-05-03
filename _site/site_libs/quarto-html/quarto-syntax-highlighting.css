@@ -55,62 +55,85 @@ div.sourceCode pre.sourceCode {
 
 code span.ot {
   color: #247d9e;
+  font-style: inherit;
 }
 
 code span.at {
   color: #657422;
+  font-style: inherit;
 }
 
 code span.ss {
   color: #20794D;
+  font-style: inherit;
 }
 
 code span.an {
   color: #73798b;
+  font-style: inherit;
 }
 
 code span.fu {
   color: #24479e;
+  font-style: inherit;
 }
 
 code span.st {
   color: #20792a;
+  font-style: inherit;
 }
 
 code span.cf {
   color: #247d9e;
+  font-style: inherit;
 }
 
 code span.op {
   color: #73798b;
+  font-style: inherit;
 }
 
 code span.er {
   color: #ba4a93;
+  font-style: inherit;
 }
 
 code span.bn {
   color: #ba4a93;
+  font-style: inherit;
 }
 
 code span.al {
   color: #ba4a93;
+  font-style: inherit;
 }
 
 code span.va {
   color: #191f3d;
+  font-style: inherit;
+}
+
+code span.bu {
+  font-style: inherit;
+}
+
+code span.ex {
+  font-style: inherit;
 }
 
 code span.pp {
   color: #ba4a93;
+  font-style: inherit;
 }
 
 code span.in {
   color: #73798b;
+  font-style: inherit;
 }
 
 code span.vs {
   color: #20794D;
+  font-style: inherit;
 }
 
 code span.wa {
@@ -125,22 +148,27 @@ code span.do {
 
 code span.im {
   color: #00769E;
+  font-style: inherit;
 }
 
 code span.ch {
   color: #20794D;
+  font-style: inherit;
 }
 
 code span.dt {
   color: #ba4a93;
+  font-style: inherit;
 }
 
 code span.fl {
   color: #ba4a93;
+  font-style: inherit;
 }
 
 code span.co {
   color: #73798b;
+  font-style: inherit;
 }
 
 code span.cv {
@@ -150,18 +178,22 @@ code span.cv {
 
 code span.cn {
   color: #8f5902;
+  font-style: inherit;
 }
 
 code span.sc {
   color: #73798b;
+  font-style: inherit;
 }
 
 code span.dv {
   color: #ba4a93;
+  font-style: inherit;
 }
 
 code span.kw {
   color: #247d9e;
+  font-style: inherit;
 }
 
 .prevent-inlining {
