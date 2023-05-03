@@ -21,8 +21,8 @@ website:
         href: /#code-snippets
       - text: About
         href: about/index.qmd
-      - icon: twitter
-        href: https://twitter.com/propertidytales
+      - icon: mastodon
+        href: https://fosstodon.org/@mccarthymg
       - icon: github
         href: https://github.com/mccarthy-m-g/tidytales
       - icon: person-circle
