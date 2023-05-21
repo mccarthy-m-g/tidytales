@@ -25,13 +25,13 @@ categories:
 
 image: images/featured.png
 
-# open-graph:
-#   title: "Tidy Tales: The Pareto Principle in R package development"
-#   image: images/card.png
-#   image-width: 1200
-#   image-height: 628
-  
-# resources: images/card.png
+open-graph:
+  title: "Tidy Tales: We are, we are, on the cruise! We R!"
+  image: images/card.png
+  image-width: 1200
+  image-height: 628
+
+resources: images/card.png
 
 params:
   use_renv: FALSE
@@ -167,6 +167,8 @@ gh_base_url <- r"(https:\/\/github.com\/)"
 
 cran_gh_repos <- cran_pkgs_db |>
   filter(str_detect(bug_reports, gh_base_url) | str_detect(url, gh_base_url))
+
+glimpse(cran_gh_repos)
 ```
 
 Of the `r nrow(cran_pkgs_db)` packages on CRAN, `r nrow(cran_gh_repos)` have a GitHub URL in the `BugReports` or `URL` field.
@@ -181,7 +183,6 @@ cran_gh_repos <- cran_gh_repos |>
   mutate(
     # Get the owner and repo name from a GitHub URL in the form: owner/repo
     across(c(bug_reports, url), \(.x) str_extract(.x, owner_repo)),
-    
     repo_url = case_when(
       # There shouldn't be a need to check for both columns being NA, since
       # at least one column should have the info we want due to the filter()
@@ -610,7 +611,7 @@ tibble(
 )
 ```
 
-It's hard to say exactly how much overlap there is between the people in the GitHub contributors group and the CRAN authors group (given the discussion above), but I'd guess it's fairly high. For certain about one-third of contributors are CRAN authors:
+It's hard to say exactly how much overlap there is between the people in the GitHub contributors group and the CRAN authors group (given the discussion above), but I'd guess it's fairly high. For certain, about one-third of contributors are CRAN authors:
 
 ```{r}
 length(base::intersect(contributors_tidy$name, cran_authors$person))
@@ -1227,7 +1228,7 @@ length(str_split(
 
 It turns out there's a lot you can do with a simple data set like this by taking advantage of summary statistics and a bit of graph theory---and this post only scratched the surface. Some other interesting explorations include looking at networks for **tidyverse** packages, the difference in commits between the top and bottom contributors of R packages, and so forth. I've included a copy of the `contributors_all` data in the appendix below in case you want to explore this data yourself.
 
-I don't have a grand unifying conclusion for this one, but I do have some thoughts. R is a great language. I think it's currently the best language for doing data science, and will continue to be in the years to come. The R Core Team's recent improvements to R have been great, with new additions like the native pipe (`|>`), the new function shorthand (`\()`), and raw strings (`r"()"``); and as I covered in my [series on reproducible data science](/series/2023-01-24_reproducible-data-science), the number of R packages  published on CRAN each year [continues to grow](/series/2023-01-24_reproducible-data-science/posts/r-packages.html#where-can-i-find-new-r-packages) at a steady rate, and most existing packages are [under active development](/series/2023-01-24_reproducible-data-science/posts/r-packages.html#how-do-i-update-r-packages). We also see signs of R's growth in its increased popularity for [scientific training](https://psyteachr.github.io) and [research](https://esajournals.onlinelibrary.wiley.com/doi/10.1002/ecs2.2567), in [industry leaders shifting their data science stacks to R](https://posit.co/blog/roche-shifting-to-an-open-source-backbone-in-clinical-trials/), and in the continuing success of companies like Posit. So R isn't going away any time soon.
+I don't have a grand unifying conclusion for this one, but I do have some thoughts. R is a great language. I think it's currently the best language for doing data science, and will continue to be in the years to come. The R Core Team's recent improvements to R have been great, with new additions like the native pipe (`|>`), the new function shorthand (`\()`), and raw strings (`r"()"`); and as I covered in my [series on reproducible data science](/series/2023-01-24_reproducible-data-science), the number of R packages  published on CRAN each year [continues to grow](/series/2023-01-24_reproducible-data-science/posts/r-packages.html#where-can-i-find-new-r-packages) at a steady rate, and most existing packages are [under active development](/series/2023-01-24_reproducible-data-science/posts/r-packages.html#how-do-i-update-r-packages). We also see signs of R's growth in its increased popularity for [scientific training](https://psyteachr.github.io) and [research](https://esajournals.onlinelibrary.wiley.com/doi/10.1002/ecs2.2567), in [industry leaders shifting their data science stacks to R](https://posit.co/blog/roche-shifting-to-an-open-source-backbone-in-clinical-trials/), and in the continuing success of companies like Posit. So R isn't going away any time soon.
 
 However, as we've discovered from this post and the previous one, the community that has made R so great on the software development side is quite small in the grand scheme of things, with maybe (if we're being generous) around 5% of all R users being directly involved in R package development,[^1] and even less of us being involved in open-source package development. We've also seen that, although there's a lot of collaboration happening in the R package development space, around 41% of all CRAN packages have a single author,[^2] around 45% of open-source CRAN packages have a single author and no contributors, and around 8% of open-source R package authors have not collaborated with anyone at all (whether through making contributions to others' packages, or accepting contributions to their own packages). So a lot of people develop R packages (mostly) alone, many of whom are [scientists developing software for their own research](https://doi.org/10.1109/SANER.2018.8330263).
 
