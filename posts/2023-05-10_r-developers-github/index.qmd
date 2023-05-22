@@ -600,7 +600,7 @@ filter(contributors_tidy, n_authorships == 0)
 
 Given that almost two-thirds of contributors have no authorships, and there's no way of knowing what proportion of these are true positives or false negatives, I wouldn't take any stats about authorship too seriously at the individual or population level. I've kept these stats in the post because I think they make for a nice demonstration of taking data from different sources to answer new questions; but they're obviously flawed. Measurement errors like this can be dealt with, but they require manual inspection, which has a high time cost that I wasn't prepared to pay for this post.
 
-It's also worth a reminder that not every R package on CRAN has a GitHub repository associated with it. Here's a quick survey of the difference in population sizes. **About half the R packages on CRAN have a GitHub repository**, and **there about half as many GitHub contributors as there are CRAN authors**.
+It's also worth a reminder that not every R package on CRAN has a GitHub repository associated with it. Here's a quick survey of the difference in population sizes. **About half the R packages on CRAN have a GitHub repository**, and **there are about half as many GitHub contributors as there are CRAN authors**.
 
 ```{r}
 tibble(
@@ -684,7 +684,7 @@ ggplot(contributors_tidy, aes(x = n_commits, fill = n_authorships > 0)) +
   )
 ```
 
-The number of R packages a person has contributed to and their total commits across packages are obviously related (e.g., every new package a person contributes to is a new commit), so it makes sense to look at these together too. To avoid overplotting, I've used a hex bin plot instead of scatterplot; and to give an idea of the distributions for each variable I've added a jittered rug to both axes. There's a high amount of variability here, but **around 76% of people have made 100 or less commits across one to three packages**.
+The number of R packages a person has contributed to and their total commits across packages are obviously related (e.g., every new package a person contributes to is a new commit), so it makes sense to look at these together too. To avoid overplotting, I've used a hex bin plot instead of a scatterplot; and to give an idea of the distributions for each variable I've added a jittered rug to both axes. There's a high amount of variability here, but **around 76% of people have made 100 or less commits across one to three packages**.
 
 ```{r}
 contributors_tidy |>
@@ -796,7 +796,7 @@ contributors_tidy |>
 
 ### Contributor collaboration networks
 
-**The graph of `r vcount(contributors_graph)` contributors that have contributed to the same packages is disconnected**, meaning that it can be broken down into a number of subgraphs (called components) that are completely isolated from one another. This is the opposite of a connected graph, where every node is reachable from every other.
+**The graph of `r vcount(contributors_graph)` contributors that have contributed to the same packages is disconnected**, meaning that it can be broken down into a number of subgraphs (called components) that are completely isolated from one another. This is the opposite of a connected graph, where every node is reachable from every other node.
 
 ```{r}
 is_connected(contributors_graph)
@@ -849,7 +849,7 @@ contributors_graph |>
 
 We can use descriptive statistics to augment our understanding of the graph beyond what can be learned by plotting it.
 
-First let's look at the distributions of degree and strength. Here the degree of each contributor represents the total number of neighbours a contributor has; and the strength of each node represents the total number of common packages a person and their neighbours have contributed to.
+First let's look at the distributions of degree and strength. Here the degree of each node represents the total number of neighbours a contributor has; and the strength of each node represents the total number of common packages a person and their neighbours have contributed to.
 
 The (log) degree range is quite wide, and it makes it clear that although most contributors have relatively few neighbours, there is also a segment that have a lot of neighbours.
 
@@ -886,7 +886,7 @@ contributors_graph |>
     )
 ```
 
-Another way to make the giant component easier to interpret is to to try to detect communities of contributors who have contributed to the same packages, then contract and simplify the graph so that each node summarizes a community and each edge summarizes community interactions. There are a lot of algorithms available to do this; here I've chosen the [Louvain algorithm](https://arxiv.org/abs/0803.0476), which was created in part to help visualize the structure of large networks using this communities as nodes approach.
+Another way to make the giant component easier to interpret is to to try to detect communities of contributors who have contributed to the same packages, then contract and simplify the graph so that each node summarizes a community and each edge summarizes community interactions. There are a lot of algorithms available to do this; here I've chosen the [Louvain algorithm](https://arxiv.org/abs/0803.0476), which was created in part to help visualize the structure of large networks using this "communities as nodes" approach.
 
 ```{r}
 contributors_communities_graph <- contributors_graph |>
@@ -927,7 +927,7 @@ contributors_communities_graph |>
 
 ### Package statistics
 
-The summary statistics for packages are similar to those for people, so I'll follow a similar exploration workflow here. Starting with the number of contributors to the `r nrow(packages_tidy)` packages with GitHub repositories, it's apparent that **around 45% of CRAN packages are single author packages with no contributors**, and that **around 82% of packages have one to four contributors**.
+The summary statistics for packages are similar to those for people, so I'll follow a similar exploration workflow here. Starting with the number of contributors to the `r nrow(packages_tidy)` packages with GitHub repositories, it's apparent that **around 45% of open source CRAN packages are single author packages with no contributors**, and that **around 82% of packages have one to four contributors**.
 
 ```{r}
 packages_tidy |>
@@ -1126,7 +1126,7 @@ packages_graph |>
 
 We can use descriptive statistics to augment our understanding of the graph beyond what can be learned by plotting it.
 
-First let's look at the distributions of degree and strength. Here the degree of each package represents the total number of neighbours a package has; and the strength of each node represents the total number of common contributors a package has with all its neighbours.
+First let's look at the distributions of degree and strength. Here the degree of each node represents the total number of neighbours a package has; and the strength of each node represents the total number of common contributors a package has with all its neighbours.
 
 The (log) degree range is quite wide, and it looks like the distribution has two or three peaks.
 
@@ -1234,7 +1234,7 @@ However, as we've discovered from this post and the previous one, the community 
 
 There isn't anything inherently wrong with working alone or in a small team---it might even be preferable in many cases---but it makes me wonder whether these developers have plans for how their packages will be maintained after they stop working on them. Do they have someone to pass on the torch to? Is it sufficient that the source code is available (whether by the author or a GitHub CRAN mirror), so a motivated individual can fork the project and elect themselves the new maintainer? If the latter is sufficient, what about for R packages without an open license? One of the great things about R is that our community has created packages for almost anything you can imagine, even if it's some weird niche thing that doesn't seem like it has a practical use case (until you work on a project where this weird niche thing is the exact solution to your problem). It would be a shame if those we lost those packages in the future.
 
-Similarly, this made wonder about the sustainability of the R language itself. The number of people who contribute to R is considerably smaller than the number of people who contribute to R packages---including the 26 current and former members of the R Core Team, [only 148 people have contributed to the R language](https://www.r-project.org/contributors.html) (and for anyone wondering, no you don't need to count everyone by hand; just use `strsplit()` on the acknowledgement paragraphs and get the length of the vector). Fortunately, there are [initiatives in place](https://contributor.r-project.org/working-group) to keep development of R sustainable (and more diverse and inclusive!), which Heather Turner and Ella Kaye gave [a nice talk on recently](https://satrday-sustain-r.netlify.app/#/title-slide).
+Similarly, this made wonder about the sustainability of the R language itself. The number of people who contribute to R is considerably smaller than the number of people who contribute to R packages---including the 26 current and former members of the R Core Team, [only 148 people have contributed to the R language](https://www.r-project.org/contributors.html).[^3] Fortunately, there are [initiatives in place](https://contributor.r-project.org/working-group) to keep development of R sustainable (and make it more diverse and inclusive!), which Heather Turner and Ella Kaye gave [a nice talk on recently](https://satrday-sustain-r.netlify.app/#/title-slide).
 
 Anyways, just some food for thought. **What do you think?**
 
@@ -1260,5 +1260,7 @@ If you enjoyed learning about what's going on in the R package development space
     
     nrow(solo_authors) / nrow(n_authors)
     ```
+
+[^3]: For anyone wondering, no you don't need to count everyone by hand; just use `strsplit()` on the acknowledgement paragraphs and get the length of the vectors.
 
 {{< include /_common/_appendix.qmd >}}
