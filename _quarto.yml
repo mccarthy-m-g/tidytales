@@ -38,6 +38,13 @@ website:
         - section: In this series
           contents: "series/2023-01-24_reproducible-data-science/posts/*.qmd"
 
+    - id: frequentist-survival-analysis
+      collapse-level: 1
+      contents:
+        - "series/2023-02-24_frequentist-survival-analysis/index.qmd"
+        - section: In this series
+          contents: "series/2023-02-24_frequentist-survival-analysis/posts/*/*.qmd"
+
   search:
     location: navbar
     type: textbox

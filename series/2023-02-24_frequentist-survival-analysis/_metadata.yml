@@ -1,0 +1,27 @@
+# options specified here will apply to all posts in this folder
+
+# Sidebar
+sidebar: frequentist-survival-analysis
+
+# Freeze computational output
+# (see https://quarto.org/docs/projects/code-execution.html#freeze)
+freeze: auto
+
+# Enable banner style title blocks
+title-block-banner: true
+
+# Table of Contents
+toc: true
+toc-depth: 4
+toc-location: left
+
+# Author
+author:
+  - name: Michael McCarthy
+    url: https://michaelmccarthy.tidytales.ca
+
+# Date
+date: last-modified
+
+# Table of Contents
+toc-title: "In this post"
