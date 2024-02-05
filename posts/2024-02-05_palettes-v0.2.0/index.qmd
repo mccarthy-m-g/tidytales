@@ -191,7 +191,7 @@ install.packages(
 
 You can try this out for yourself in the [WebR REPL app](https://webr.r-wasm.org/latest/). Here's a screenshot to show it working:
 
-![palettes working in the WebR REPL app](images/webr.png){height=392px}
+![palettes working in the WebR REPL app](images/webr.png){width=100%}
 
 How sweet is that? Huge thank you to [George Stagg](https://github.com/georgestagg) and [Jeroen Ooms](https://github.com/jeroen) for making this possible!
 
